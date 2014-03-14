@@ -24,6 +24,9 @@ bool AppDelegate::applicationDidFinishLaunching() {
     // set FPS. the default value is 1.0/60 if you don't call this
     pDirector->setAnimationInterval(1.0 / 60);
 
+    //Set design screen resolution
+    CCEGLView::sharedOpenGLView()->setDesignResolutionSize(1024, 768, kResolutionShowAll);
+    
     // create a scene. it's an autorelease object
     CCScene *pScene = HelloWorld::scene();
 
