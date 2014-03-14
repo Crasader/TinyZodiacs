@@ -14,7 +14,6 @@ USING_NS_CC;
 GameBackgroundLayer::GameBackgroundLayer()
 {
     parallaxBackgroundNode = CCParallaxNode::create();
-    
 }
 
 GameBackgroundLayer::~GameBackgroundLayer()
