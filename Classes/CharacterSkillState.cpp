@@ -15,12 +15,12 @@ CharacterSkillState::CharacterSkillState(Character* character): CharacterState(c
 
 bool CharacterSkillState::onEnterState()
 {
-    
+    return false;
 }
 
 bool CharacterSkillState::onExitState()
 {
-    
+    return false;
 }
 
 void CharacterSkillState::update(float dt)

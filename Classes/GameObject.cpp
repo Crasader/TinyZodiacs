@@ -69,7 +69,6 @@ void GameObject::setAnchorPointForAnimation(const cocos2d::CCPoint &anchorPoint)
 {
     if(this->direction == LEFT)
     {
-        //CCLOG("x: %f, y: %f",this->sprite->getAnchorPoint().x, this->sprite->getAnchorPoint().y);
         this->sprite->setAnchorPoint(anchorPoint);
     }
     else

@@ -74,9 +74,6 @@ void Character::setupJointSkillAndBody()
     
     joint = this->body->GetWorld()->CreateJoint(&revoluteJointDef);
     
-    
-    
-    
 }
 
 void Character::setSkin(b2Body *body, CCSprite *sprite)
@@ -119,8 +116,6 @@ void Character::move(Direction direction)
         }
         else
         {
-            
-            
             impulse.x = 5;
         }
         
@@ -152,6 +147,11 @@ void Character::useSkill1()
     
 }
 
+void Character::useSkill2()
+{
+    
+}
+
 void Character::createFootSensor()
 {
     
@@ -173,11 +173,6 @@ void Character::createFootSensor()
     fixDef.isSensor = true;
     fixDef.density = 0.00001;
     fixDef.userData = (void*)"foot";
-    
-    
-    
-    this->body->CreateFixture(&fixDef);
-    
 }
 
 void Character::stopMove()

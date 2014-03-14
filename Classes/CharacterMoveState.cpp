@@ -31,6 +31,7 @@ bool CharacterMoveState::onEnterState()
 bool CharacterMoveState::onExitState()
 {
     this->character->getSprite()->stopAllActions();
+    return true;
 }
 
 void CharacterMoveState::update(float dt)

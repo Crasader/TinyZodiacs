@@ -21,11 +21,13 @@ bool CharacterIdleState::onEnterState()
     this->character->idleAnimation->getAnimation()->setLoops(INFINITY);
     this->character->setAnchorPointForAnimation(this->character->idleAnimation->getOrigin());
     this->character->getSprite()->runAction(CCAnimate::create(this->character->idleAnimation->getAnimation()));
+    return true;
 }
 
 bool CharacterIdleState::onExitState()
 {
     this->character->getSprite()->stopAllActions();
+    return true;
 }
 
 void CharacterIdleState::update(float dt)

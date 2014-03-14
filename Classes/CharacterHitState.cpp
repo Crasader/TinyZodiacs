@@ -15,12 +15,12 @@ CharacterHitState::CharacterHitState(Character* character): CharacterState(chara
 
 bool CharacterHitState::onEnterState()
 {
-    
+    return false;
 }
 
 bool CharacterHitState::onExitState()
 {
-    
+    return false;
 }
 
 void CharacterHitState::update(float dt)

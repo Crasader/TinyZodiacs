@@ -15,12 +15,12 @@ CharacterGhostState::CharacterGhostState(Character* character): CharacterState(c
 
 bool CharacterGhostState::onEnterState()
 {
-    
+    return false;
 }
 
 bool CharacterGhostState::onExitState()
 {
-    
+    return false;
 }
 
 void CharacterGhostState::update(float dt)

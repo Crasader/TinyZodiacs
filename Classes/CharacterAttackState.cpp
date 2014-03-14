@@ -29,12 +29,13 @@ bool CharacterAttackState::onEnterState()
     
     this->character->setAnchorPointForAnimation(this->character->attackAnimation->getOrigin());
     this->character->getSprite()->runAction(sequence);
-
+    return true;
 }
 
 bool CharacterAttackState::onExitState()
 {
     this->character->getSprite()->stopAllActions();
+    return true;
 }
 
 void CharacterAttackState::update(float dt)

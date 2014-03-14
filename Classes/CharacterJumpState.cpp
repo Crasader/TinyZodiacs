@@ -19,12 +19,13 @@ CharacterJumpState::CharacterJumpState(Character* character): CharacterState(cha
 
 bool CharacterJumpState::onEnterState()
 {
-    
+    return false;
 }
 
 bool CharacterJumpState::onExitState()
 {
     this->character->getSprite()->stopAllActions();
+    return true;
 }
 
 

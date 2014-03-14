@@ -17,12 +17,13 @@ CharacterMidAirState::CharacterMidAirState(Character* character): CharacterState
 
 bool CharacterMidAirState::onEnterState()
 {
-    
+    return false;
 }
 
 bool CharacterMidAirState::onExitState()
 {
     this->character->getSprite()->stopAllActions();
+    return true;
 }
 
 void CharacterMidAirState::update(float dt)
