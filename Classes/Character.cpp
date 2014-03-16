@@ -29,7 +29,7 @@ Character::Character()
     idleAnimation = AnimationFactory::getSharedFactory()->getAnimationObjectByName("monkey-idle");
     fallAnimation = AnimationFactory::getSharedFactory()->getAnimationObjectByName("monkey-fall");
     flyAnimation = AnimationFactory::getSharedFactory()->getAnimationObjectByName("monkey-fly");
-    skillAnimation = AnimationFactory::getSharedFactory()->getAnimationObjectByName("monkey-skill");
+    skill1Animation = AnimationFactory::getSharedFactory()->getAnimationObjectByName("monkey-skill");
     
     
     
