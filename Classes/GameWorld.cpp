@@ -136,14 +136,7 @@ void GameWorld::update(float dt)
 {
     if(this->world != NULL)
     {
-<<<<<<< HEAD
-//        world->Step(1/40.000f,8, 3);
-        
-        
-=======
         world->Step(1/60.000f,8, 3);
->>>>>>> FETCH_HEAD
-        //
     }
     
    // this->map->update(dt);
