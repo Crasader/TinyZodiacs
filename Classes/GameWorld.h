@@ -17,7 +17,7 @@
 #include "Map.h"
 
 USING_NS_CC;
-class GameWorld: public CCNode
+class GameWorld: public CCNode, public b2ContactListener
 {
 private:
 protected:
@@ -44,8 +44,8 @@ public:
     
     void setFollowCharacter(bool follow);
 
-    
-    
+    virtual void BeginContact(b2Contact *contact);
+    virtual void EndContact(b2Contact *contact);
     
     void setContactListener(b2ContactListener* listener);
     

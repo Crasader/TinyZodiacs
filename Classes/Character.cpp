@@ -176,3 +176,15 @@ void Character::stopMove()
 {
     this->body->SetLinearVelocity(b2Vec2(0, this->getBody()->GetLinearVelocity().y));
 }
+
+void Character::BeginContact(b2Contact *contact)
+{
+//    if(contact->GetFixtureA() == footSensor->GetFixtureList() || contact->GetFixtureB() == footSensor->GetFixtureList())
+//    {
+//        changeState(new CharacterIdleState(this));
+//    }
+}
+void Character::EndContact(b2Contact *conact)
+{
+    
+}

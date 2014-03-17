@@ -42,7 +42,7 @@ void Hero::BeginContact(b2Contact *contact)
 {
     
 }
-void Hero::EndContact(b2Contact *conact)
+void Hero::EndContact(b2Contact *contact)
 {
     
 }

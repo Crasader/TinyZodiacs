@@ -38,7 +38,8 @@ bool GameWorld::init()
     //
     createWorldBox();
     
-    //CHaracter
+    //Set contact listener
+    this->setContactListener(this);
     
     //MAP
     MapCreator* mapCreator = new MapCreator();
@@ -136,8 +137,6 @@ void GameWorld::update(float dt)
     if(this->world != NULL)
     {
         world->Step(1/60.000f,8, 3);
-        
-        
         //
     }
     
@@ -167,4 +166,13 @@ void GameWorld::draw()
     world->DrawDebugData();
     kmGLPopMatrix();
 
+}
+
+void GameWorld::BeginContact(b2Contact *contact)
+{
+    character->BeginContact(contact);
+}
+void GameWorld::EndContact(b2Contact *contact)
+{
+    character->EndContact(contact);
 }
