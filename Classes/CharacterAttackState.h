@@ -11,6 +11,7 @@
 
 #include <iostream>
 #include "CharacterState.h"
+#include "NormalAttack.h"
 
 USING_NS_CC;
 

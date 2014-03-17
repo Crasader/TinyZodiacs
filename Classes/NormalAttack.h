@@ -12,24 +12,24 @@
 #include <iostream>
 #include "Box2D.h"
 #include "cocos2d.h"
-//#include "Character.h"
-
-class Character;
+#include "PhysicConstants.h"
+#include "Character.h"
 
 USING_NS_CC;
-class NormalAttack
+class NormalAttack: public CCObject
 {
 private:
+
 protected:
 public:
     NormalAttack();
-    NormalAttack(Character* character);
+    NormalAttack(GameObject* holder);
     ~NormalAttack();
     
-    void excute();
-    void deExcute();
+    virtual void excute();
+    virtual void stop();
     
-    CC_SYNTHESIZE(Character* , character, Character);
+    CC_SYNTHESIZE(GameObject* , holder, Holder);
     CC_SYNTHESIZE(b2Body*, skillSensor, SkillSensor);
     CC_SYNTHESIZE(CCPoint, position, Position) //Position
 };

@@ -60,6 +60,8 @@ bool GameWorld::init()
     this->addChild(character->getSprite(),2);
     this->character->setPositionInPixel(ccp(400,400));
     this->setFollowCharacter(true);
+    
+    this->character->setNormalAttack(new NormalAttack(this->character));
     //this->map->scheduleUpdate();
 
     

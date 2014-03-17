@@ -31,12 +31,17 @@ bool CharacterAttackState::onEnterState()
     
     this->character->setAnchorPointForAnimation(this->character->attackAnimation->getOrigin());
     this->character->getSprite()->runAction(sequence);
+    
+    //test skill sensor
+    this->character->getNormalAttack()->excute();
     return true;
 }
 
 bool CharacterAttackState::onExitState()
 {
     this->character->getSprite()->stopAllActions();
+    //test skill sensor
+    this->character->getNormalAttack()->stop();
     return true;
 }
 

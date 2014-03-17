@@ -32,7 +32,6 @@ Character::Character()
     skill1Animation = AnimationFactory::getSharedFactory()->getAnimationObjectByName("monkey-skill");
     
     //create attack skill
-    this->normalAttack = new NormalAttack(this);
 }
 
 Character::~Character()
@@ -121,15 +120,17 @@ void Character::useSkill2()
 void Character::createFootSensor()
 {
     //Calculate b
-    b2AABB aabb;
-    aabb.lowerBound = b2Vec2(FLT_MAX,FLT_MAX);
-    aabb.upperBound = b2Vec2(-FLT_MAX,-FLT_MAX);
-    b2Fixture* fixture = this->body->GetFixtureList();
-    while (fixture != NULL)
-    {
-        aabb.Combine(aabb, fixture->GetAABB(0));
-        fixture = fixture->GetNext();
-    }
+//    b2AABB aabb;
+//    aabb.lowerBound = b2Vec2(FLT_MAX,FLT_MAX);
+//    aabb.upperBound = b2Vec2(-FLT_MAX,-FLT_MAX);
+//    b2Fixture* fixture = this->body->GetFixtureList();
+//    while (fixture != NULL)
+//    {
+//        aabb.Combine(aabb, fixture->GetAABB(0));
+//        fixture = fixture->GetNext();
+//    }
+
+    b2AABB aabb = this->getBodyBoundingBox();
     
     b2PolygonShape rec;
     rec.SetAsBox((float32)FOOT_SENSOR_WIDTH, (float32)FOOT_SENSOR_HEIGHT)/*, b2Vec2(0,aabb.lowerBound.y), 0)*/;

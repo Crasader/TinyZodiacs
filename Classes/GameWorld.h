@@ -15,6 +15,7 @@
 #include "PhysicConstants.h"
 #include "Character.h"
 #include "Map.h"
+#include "NormalAttack.h"
 
 USING_NS_CC;
 class GameWorld: public CCNode, public b2ContactListener
