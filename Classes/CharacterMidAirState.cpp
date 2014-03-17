@@ -8,6 +8,8 @@
 
 #include "CharacterMidAirState.h"
 #include "CharacterIdleState.h"
+#include "CharacterJumpState.h"
+#include "CharacterAttackState.h"
 
 CharacterMidAirState::CharacterMidAirState(Character* character): CharacterState(character)
 {
@@ -58,18 +60,20 @@ void CharacterMidAirState::update(float dt)
 
 bool CharacterMidAirState::attack()
 {
-    
-    return false;
+    this->character->changeState(new CharacterAttackState(this->character));
+
+    return true;
 }
 
 bool CharacterMidAirState::move()
 {
-    return false;
+    return true;
 }
 
 bool CharacterMidAirState::jump()
 {
-    return false;
+    this->character->changeState(new CharacterJumpState(this->character));
+    return true;
 }
 
 bool CharacterMidAirState::useSkill()

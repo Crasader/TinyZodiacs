@@ -19,7 +19,20 @@ CharacterJumpState::CharacterJumpState(Character* character): CharacterState(cha
 
 bool CharacterJumpState::onEnterState()
 {
-    return false;
+    CCAction* jumpAction = CCAnimate::create(this->character->jumpAnimation->getAnimation());
+    CCCallFuncND* callBack = CCCallFuncND::create(NULL, callfuncND_selector(CharacterJumpState::finishJumpAction), this->character);
+    
+    
+    CCArray* arr = CCArray::create();
+    arr->addObject(jumpAction);
+    arr->addObject(callBack);
+    
+    CCSequence* sequence = CCSequence::create(arr);
+    
+    this->character->setAnchorPointForAnimation(this->character->jumpAnimation->getOrigin());
+    this->character->getSprite()->runAction(sequence);
+    
+    return true;
 }
 
 bool CharacterJumpState::onExitState()
@@ -47,25 +60,12 @@ bool CharacterJumpState::attack()
 
 bool CharacterJumpState::move()
 {
-    return false;
+    return true;
 }
 
 bool CharacterJumpState::jump()
 {
-    
-    CCAction* jumpAction = CCAnimate::create(this->character->jumpAnimation->getAnimation());
-    CCCallFuncND* callBack = CCCallFuncND::create(NULL, callfuncND_selector(CharacterJumpState::finishJumpAction), this->character);
-    
-    
-    CCArray* arr = CCArray::create();
-    arr->addObject(jumpAction);
-    arr->addObject(callBack);
-    
-    CCSequence* sequence = CCSequence::create(arr);
-    
-    this->character->setAnchorPointForAnimation(this->character->jumpAnimation->getOrigin());
-    this->character->getSprite()->runAction(sequence);
-
+    this->character->changeState(new CharacterJumpState(this->character));
     return false;
 }
 

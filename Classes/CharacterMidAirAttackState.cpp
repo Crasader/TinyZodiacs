@@ -36,7 +36,7 @@ bool CharacterMidAirAttackState::attack()
 
 bool CharacterMidAirAttackState::move()
 {
-    return false;
+    return true;
 }
 
 bool CharacterMidAirAttackState::jump()

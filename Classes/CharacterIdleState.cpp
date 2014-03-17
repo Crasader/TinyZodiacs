@@ -10,6 +10,7 @@
 #include "CharacterMoveState.h"
 #include "CharacterMidAirState.h"
 #include "CharacterAttackState.h"
+#include "CharacterJumpState.h"
 
 CharacterIdleState::CharacterIdleState(Character* character): CharacterState(character)
 {
@@ -46,7 +47,7 @@ void CharacterIdleState::update(float dt)
 bool CharacterIdleState::attack()
 {
     this->character->changeState(new CharacterAttackState(this->character));
-    return false;
+    return true;
 }
 
 bool CharacterIdleState::move()
@@ -56,7 +57,8 @@ bool CharacterIdleState::move()
 
 bool CharacterIdleState::jump()
 {
-    return false;
+     this->character->changeState(new CharacterJumpState(this->character));
+    return true ;
 }
 
 bool CharacterIdleState::useSkill()

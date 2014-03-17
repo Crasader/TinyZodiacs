@@ -10,6 +10,7 @@
 #include "CharacterJumpState.h"
 #include "CharacterMidAirState.h"
 #include "CharacterIdleState.h"
+#include "CharacterAttackState.h"
 
 USING_NS_CC;
 
@@ -49,17 +50,19 @@ void CharacterMoveState::update(float dt)
 
 bool CharacterMoveState::attack()
 {
-    return false;
+    this->character->changeState(new CharacterAttackState(this->character));
+    return true;
 }
 
 bool CharacterMoveState::move()
 {
-    return false;
+    return true;
 }
 
 bool CharacterMoveState::jump()
 {
-    return false;
+    this->character->changeState(new CharacterJumpState(this->character));
+       return true;
 }
 
 bool CharacterMoveState::useSkill()

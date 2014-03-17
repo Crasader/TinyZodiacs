@@ -8,6 +8,8 @@
 
 #include "CharacterAttackState.h"
 #include "CharacterIdleState.h"
+#include "CharacterJumpState.h"
+
 
 CharacterAttackState::CharacterAttackState(Character* character): CharacterState(character)
 {
@@ -45,17 +47,18 @@ void CharacterAttackState::update(float dt)
 
 bool CharacterAttackState::attack()
 {
-    return false;
+    return true;
 }
 
 bool CharacterAttackState::move()
 {
-    return false;
+    return true;
 }
 
 bool CharacterAttackState::jump()
 {
-    return false;
+    this->character->changeState(new CharacterJumpState(this->character));
+    return true;
 }
 
 bool CharacterAttackState::useSkill()
