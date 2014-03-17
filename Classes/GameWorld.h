@@ -13,6 +13,9 @@
 #include "cocos2d.h"
 #include "Box2D/Box2d.h"
 #include "PhysicConstants.h"
+#include "Character.h"
+#include "Map.h"
+
 USING_NS_CC;
 class GameWorld: public CCNode
 {
@@ -30,10 +33,22 @@ public:
     CC_SYNTHESIZE_READONLY(b2Body*, leftLine, LeftLine);
     CC_SYNTHESIZE_READONLY(b2Body*, rightLine, RightLine);
     CC_SYNTHESIZE_READONLY(b2Body*, bottomLine, BottomLine);
-
-
+    CC_SYNTHESIZE(Character*, character, Character);
+    CC_SYNTHESIZE(Map*, map, map);
+    
     GameWorld(float bottom, float left, float width, float height);
+    
+    
+    virtual void update(float dt);
+    virtual void draw();
+    
+    void setFollowCharacter(bool follow);
+
+    
+    
+    
     void setContactListener(b2ContactListener* listener);
+    
 };
 
 #endif /* defined(__Headball__GameWorld__) */

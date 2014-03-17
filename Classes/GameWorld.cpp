@@ -8,6 +8,8 @@
 
 #include "GameWorld.h"
 #include "GLES-Render.h"
+#include "ObjectFactory.h"
+#include "MapCreator.h"
 
 GameWorld::GameWorld(float bottom, float left, float width, float height)
 {
@@ -27,14 +29,38 @@ bool GameWorld::init()
     b2Draw* _debugDraw = new GLESDebugDraw(PTM_RATIO);
     uint32 flags = 0;
     flags += b2Draw::e_shapeBit;
-    flags += b2Draw::e_jointBit;
-    flags += b2Draw::e_aabbBit;
+//    flags += b2Draw::e_jointBit;
+//    flags += b2Draw::e_aabbBit;
     //    flags += b2Draw::e_pairBit;
     //    flags += b2Draw::e_centerOfMassBit;
     _debugDraw->SetFlags(flags);
     this->world->SetDebugDraw(_debugDraw);
     //
     createWorldBox();
+    
+    //CHaracter
+    
+    //MAP
+    MapCreator* mapCreator = new MapCreator();
+    
+    map = mapCreator->createMap("dsdsd",this);
+    map->attachAllMapObject();
+    
+    this->addChild(map,1);
+    
+    delete mapCreator;
+    
+    
+    this->scheduleUpdate();
+    //  map->addChild(backgroundLayer,0);
+    
+    //CHARACTER
+    this->character = ObjectFactory::getSharedManager()->createCharacter("��dasdsad", world);
+    this->addChild(character->getSprite(),2);
+    this->character->setPositionInPixel(ccp(400,400));
+    
+    this->setFollowCharacter(true);
+
     
     return true;
 }
@@ -69,7 +95,7 @@ void GameWorld::createWorldBox()
     topFixtureDef.friction=0.5;
     
     topEdgeShape.Set(b2Vec2(0, 0), b2Vec2(this->width/PTM_RATIO,0));
-     this-> topLine ->CreateFixture(&topFixtureDef);
+    this-> topLine ->CreateFixture(&topFixtureDef);
     //set ground left
     b2BodyDef leftGroundBodyDef;
     leftGroundBodyDef.type = b2_staticBody;
@@ -103,4 +129,42 @@ void GameWorld::setContactListener(b2ContactListener *listener){
     if(this->world != NULL){
         this->world->SetContactListener(listener);
     }
+}
+
+void GameWorld::update(float dt)
+{
+    if(this->world != NULL)
+    {
+        world->Step(1/60.000f,8, 3);
+        
+        
+        //
+    }
+    
+    this->map->update(dt);
+    this->character->update(dt);
+    
+}
+
+void GameWorld::setFollowCharacter(bool follow)
+{
+    if(follow)
+    {
+        CCFollow *follow = CCFollow::create(this->character->getSprite(),CCRect(0, 0, this->width, this->height));
+        this->runAction(follow);
+    }
+    else
+    {
+        this->stopAllActions();
+    }
+    
+}
+
+void GameWorld::draw()
+{
+    ccGLEnableVertexAttribs( kCCVertexAttribFlag_Position );
+    kmGLPushMatrix();
+    world->DrawDebugData();
+    kmGLPopMatrix();
+
 }

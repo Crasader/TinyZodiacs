@@ -36,19 +36,8 @@ bool GameObjectLayer::init()
 
     GameBackgroundLayer* backgroundLayer = GameBackgroundLayer::create();
     
-    MapCreator* mapCreator = new MapCreator();
-    
-    map = mapCreator->createMap("dsdsd");
-    map->attachAllMapObject();
-   
-    this->addChild(map,1);
-    
-    delete mapCreator;
-
-    map->setFollowCharacter(true);
-
-    this->scheduleUpdate();
-  //  map->addChild(backgroundLayer,0);
+    this->gameWorld = new GameWorld(0,0,2000,2000);
+    this->addChild(gameWorld);
     return true;
 }
 
@@ -58,7 +47,7 @@ void GameObjectLayer::draw()
 
 void GameObjectLayer::update(float dt)
 {
-    map->update(dt);
+      this->gameWorld->update(dt);
 }
 
 void GameObjectLayer::MoveSprite(float x, float y)
@@ -69,26 +58,26 @@ void GameObjectLayer::MoveSprite(float x, float y)
 void GameObjectLayer::MoveSpriteUp()
 {
 
-    this->map->getCharacter()->jump();
+  this->gameWorld->getCharacter()->jump();
     
 }
 
 void GameObjectLayer::MoveSpriteDown()
 {
-    this->map->getCharacter()->stopMove();
+    this->gameWorld->getCharacter()->stopMove();
 }
 
 void GameObjectLayer::MoveSpriteLeft()
 {
-    this->map->getCharacter()->move(LEFT);
+   this->gameWorld->getCharacter()->move(LEFT);
 }
 
 void GameObjectLayer::MoveSpriteRight()
 {
-     this->map->getCharacter()->move(RIGHT);
+    this->gameWorld->getCharacter()->move(RIGHT);
 }
 
 void GameObjectLayer::Attack()
 {
-    this->map->getCharacter()->attack();
+    this->gameWorld->getCharacter()->attack();
 }

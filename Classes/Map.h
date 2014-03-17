@@ -22,8 +22,6 @@ private:
     float width;
     float height;
     cocos2d::CCArray* listMapObject;
-    b2World* world;
-    Character* character;
     
 protected:
 public:
@@ -32,19 +30,11 @@ public:
     virtual ~Map();
     virtual bool init();
     virtual void update(float dt);
-    virtual void draw();
     
     CREATE_FUNC(Map);
     
-    void setSize(float width, float height);
-    cocos2d::CCPoint getSize();
     void addMapObject(MapObject* mapObject);
     void attachAllMapObject();
-    void setFollowCharacter(bool follow);
-    
-    b2World* getWorld();
-    Character* getCharacter();
-    
     
 };
 

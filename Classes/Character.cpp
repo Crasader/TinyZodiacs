@@ -91,7 +91,7 @@ void Character::update(float dt)
 
 void Character::move(Direction direction)
 {
-    if(this->state->move())
+   // if(this->state->move())
     {
         b2Vec2 impulse = this->body->GetLinearVelocity();
         if(direction == LEFT)

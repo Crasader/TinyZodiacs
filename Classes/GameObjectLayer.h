@@ -13,7 +13,7 @@
 #include "cocos2d.h"
 #include "Box2D/Box2D.h"
 #include "Character.h"
-#include "Map.h"
+#include "GameWorld.h"
 
 class GameObjectLayer: public cocos2d::CCLayer
 {
@@ -32,7 +32,7 @@ public:
     void MoveSprite(float x, float y);
     void Attack();
 private:
-    Map* map;
+    GameWorld* gameWorld;
 
   
     

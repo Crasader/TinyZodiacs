@@ -11,6 +11,7 @@
 
 #include <iostream>
 #include "Map.h"
+#include "GameWorld.h"
 
 class MapCreator
 {
@@ -21,7 +22,7 @@ public:
     MapCreator();
     virtual ~MapCreator();
     
-    Map* createMap(const char *id);
+    Map* createMap(const char *id, GameWorld* gameWorld);
     
    
     
