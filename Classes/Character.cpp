@@ -91,7 +91,7 @@ void Character::update(float dt)
 
 void Character::move(Direction direction)
 {
-   // if(this->state->move())
+    if(this->state->move())
     {
         b2Vec2 impulse = this->body->GetLinearVelocity();
         if(direction == LEFT)
@@ -109,12 +109,15 @@ void Character::move(Direction direction)
 
 void Character::jump()
 {
-    b2Vec2 vel = this->body->GetLinearVelocity();
-    vel.y = 10;//upwards - don't change x velocity
-    this->body->SetLinearVelocity( vel );
-    
-    this->changeState(new CharacterJumpState(this));
-    this->state->jump();
+    if(this->state->jump())
+    {
+ 
+
+        b2Vec2 vel = this->body->GetLinearVelocity();
+        vel.y = 10;
+        this->body->SetLinearVelocity( vel );
+    }
+   
     //
 }
 
