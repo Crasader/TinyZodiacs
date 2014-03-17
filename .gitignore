@@ -1,0 +1,15 @@
+proj.android
+proj.blackberry
+proj.linux
+proj.marmalade
+proj.tizen
+proj.win32
+proj.winrt
+proj.wp8
+proj.android/.classpath
+
+proj.android/project.properties
+
+proj.ios/TinyZodiacs.xcodeproj/project.xcworkspace/xcuserdata/hoaphat.xcuserdatad/UserInterfaceState.xcuserstate
+
+proj.ios/TinyZodiacs.xcodeproj/project.xcworkspace/xcuserdata/hoaphat.xcuserdatad/UserInterfaceState.xcuserstate
