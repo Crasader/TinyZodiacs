@@ -30,6 +30,9 @@ Character::Character()
     fallAnimation = AnimationFactory::getSharedFactory()->getAnimationObjectByName("monkey-fall");
     flyAnimation = AnimationFactory::getSharedFactory()->getAnimationObjectByName("monkey-fly");
     skill1Animation = AnimationFactory::getSharedFactory()->getAnimationObjectByName("monkey-skill");
+    
+    //create attack skill
+    this->normalAttack = new NormalAttack(this);
 }
 
 Character::~Character()
@@ -50,27 +53,6 @@ void Character::changeState(CharacterState *states)
 }
 
 b2Joint* joint;
-void Character::setupJointSkillAndBody()
-{
-    
-    b2RevoluteJointDef revoluteJointDef;
-    revoluteJointDef.Initialize(this->body, this->skillSensorBody, this->body->GetWorldCenter());
-    
-    // b2RevoluteJointDef revoluteJointDef;
-    revoluteJointDef.bodyA = this->body;
-    revoluteJointDef.bodyB = this->skillSensorBody;
-    revoluteJointDef.collideConnected = false;
-    //place the bodyB anchor at the edge of the circle
-    revoluteJointDef.localAnchorB.Set(2,2);
-    
-    //    //place the bodyA anchor outside the fixture
-    revoluteJointDef.localAnchorA.Set(0 ,0);
-    
-    
-    joint = this->body->GetWorld()->CreateJoint(&revoluteJointDef);
-    
-}
-
 void Character::setSkin(b2Body *body, CCSprite *sprite)
 {
     GameObject::setSkin(body, sprite);
