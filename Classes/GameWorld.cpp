@@ -58,8 +58,8 @@ bool GameWorld::init()
     this->character = ObjectFactory::getSharedManager()->createCharacter("��dasdsad", world);
     this->addChild(character->getSprite(),2);
     this->character->setPositionInPixel(ccp(400,400));
-    
     this->setFollowCharacter(true);
+    //this->map->scheduleUpdate();
 
     
     return true;
@@ -135,13 +135,13 @@ void GameWorld::update(float dt)
 {
     if(this->world != NULL)
     {
-        world->Step(1/60.000f,8, 3);
+        world->Step(1/40.000f,8, 3);
         
         
         //
     }
     
-    this->map->update(dt);
+   // this->map->update(dt);
     this->character->update(dt);
     
 }

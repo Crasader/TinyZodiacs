@@ -34,8 +34,7 @@ bool GameObjectLayer::init()
         return false;
     }
 
-    GameBackgroundLayer* backgroundLayer = GameBackgroundLayer::create();
-    
+      
     this->gameWorld = new GameWorld(0,0,2000,2000);
     this->addChild(gameWorld);
     return true;
@@ -47,7 +46,7 @@ void GameObjectLayer::draw()
 
 void GameObjectLayer::update(float dt)
 {
-      this->gameWorld->update(dt);
+     // this->gameWorld->update(dt);
 }
 
 void GameObjectLayer::MoveSprite(float x, float y)

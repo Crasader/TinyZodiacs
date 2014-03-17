@@ -10,6 +10,7 @@
 #include "MapObject.h"
 #include "GLES-Render.h"
 #include "ObjectFactory.h"
+#include "GameBackgroundLayer.h"
 
 USING_NS_CC;
 
@@ -39,7 +40,9 @@ bool Map::init()
     this->height = 1000;
     
     
-    
+//    GameBackgroundLayer* backgroundLayer = GameBackgroundLayer::create();
+//
+//    this->addChild(backgroundLayer);
     
     
     
@@ -79,7 +82,7 @@ void Map::attachAllMapObject()
     CCARRAY_FOREACH(listMapObject,object)
     {
         MapObject* mapObject = (MapObject*)object;
-        mapObject->getSprite()->setPosition(ccp(2000,2000));
+//        mapObject->getSprite()->setPosition(ccp(2000,2000));
         batchNode->addChild(mapObject->getSprite());
         
     }
