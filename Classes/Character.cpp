@@ -30,9 +30,6 @@ Character::Character()
     fallAnimation = AnimationFactory::getSharedFactory()->getAnimationObjectByName("monkey-fall");
     flyAnimation = AnimationFactory::getSharedFactory()->getAnimationObjectByName("monkey-fly");
     skill1Animation = AnimationFactory::getSharedFactory()->getAnimationObjectByName("monkey-skill");
-    
-    
-    
 }
 
 Character::~Character()
@@ -48,10 +45,8 @@ void Character::changeState(CharacterState *states)
         delete this->state;
         this->state = NULL;
     }
-    
     this->state = states;
     this->state->onEnterState();
-    
 }
 
 b2Joint* joint;
@@ -79,17 +74,11 @@ void Character::setupJointSkillAndBody()
 void Character::setSkin(b2Body *body, CCSprite *sprite)
 {
     GameObject::setSkin(body, sprite);
-    
-   // SkillSensorCreator* sensorCreator = new SkillSensorCreator();
-    
     b2BodyDef bodyDef;
     bodyDef.type = b2_dynamicBody;
     b2FixtureDef fixtureDef;
-    
-    //createFootSensor();
-    
+    createFootSensor();
     this->changeState(new CharacterIdleState(this));
- 
 }
 
 
@@ -97,10 +86,7 @@ bool falling = false;
 void Character::update(float dt)
 {
     GameObject::update(dt);
-    
     this->state->update(dt);
-    
-    
 }
 
 void Character::move(Direction direction)
@@ -110,19 +96,14 @@ void Character::move(Direction direction)
         b2Vec2 impulse = this->body->GetLinearVelocity();
         if(direction == LEFT)
         {
-            
             impulse.x = -5;
-            
         }
         else
         {
             impulse.x = 5;
         }
-        
         this->body->SetLinearVelocity(impulse);
-        
         flipDirection(direction);
-        
     }
 }
 
