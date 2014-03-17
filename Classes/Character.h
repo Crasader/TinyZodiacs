@@ -50,6 +50,9 @@ public:
     
     void changeState(CharacterState* state);
     
+    virtual void BeginContact(b2Contact *contact);
+    virtual void EndContact(b2Contact *contact);
+    
     void move(Direction direction);
     void jump();
     void attack();

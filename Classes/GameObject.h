@@ -43,7 +43,7 @@ public:
 
     
     virtual void BeginContact(b2Contact *contact);
-    virtual void EndContact(b2Contact *conact);
+    virtual void EndContact(b2Contact *contact);
 };
 
 #endif /* defined(__SampleCocosProject__GameObject__) */
