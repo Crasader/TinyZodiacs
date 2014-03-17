@@ -13,3 +13,5 @@ proj.android/project.properties
 proj.ios/TinyZodiacs.xcodeproj/project.xcworkspace/xcuserdata/hoaphat.xcuserdatad/UserInterfaceState.xcuserstate
 
 proj.ios/TinyZodiacs.xcodeproj/project.xcworkspace/xcuserdata/hoaphat.xcuserdatad/UserInterfaceState.xcuserstate
+
+proj.android/obj/local/armeabi/objs/box2d_static/Dynamics/b2World.o.d
