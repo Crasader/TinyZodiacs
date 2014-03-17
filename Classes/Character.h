@@ -29,6 +29,7 @@ private:
     CharacterState* state;
 protected:
     CC_SYNTHESIZE(CharacterData, originCharacterData, OriginCharacterData);
+    CC_SYNTHESIZE(b2Body*, footSensor, FootSensor);
 public:
     
     AnimationObject* runAnimation;

@@ -154,7 +154,7 @@ void Character::useSkill2()
 
 void Character::createFootSensor()
 {
-    
+    //Calculate b
     b2AABB aabb;
     aabb.lowerBound = b2Vec2(FLT_MAX,FLT_MAX);
     aabb.upperBound = b2Vec2(-FLT_MAX,-FLT_MAX);
@@ -166,13 +166,29 @@ void Character::createFootSensor()
     }
     
     b2PolygonShape rec;
-    rec.SetAsBox(0.3, 0.3, b2Vec2(0,aabb.lowerBound.y), 0);
+    rec.SetAsBox((float32)FOOT_SENSOR_WIDTH, (float32)FOOT_SENSOR_HEIGHT)/*, b2Vec2(0,aabb.lowerBound.y), 0)*/;
     
     b2FixtureDef fixDef;
     fixDef.shape = &rec;
     fixDef.isSensor = true;
-    fixDef.density = 0.00001;
+    fixDef.density = WEIGHTLESS_DENSITY;
     fixDef.userData = (void*)"foot";
+    
+    b2BodyDef bodyDef;
+    bodyDef.type=b2_dynamicBody;
+    bodyDef.bullet=true;
+    bodyDef.position.Set(0/PTM_RATIO, 0/32);
+    footSensor = this->body->GetWorld()->CreateBody(&bodyDef);
+    footSensor->CreateFixture(&fixDef);
+    
+    //create joint
+    b2RevoluteJointDef footBodyJoint;
+    footBodyJoint.bodyA = this->body;
+    footBodyJoint.bodyB = this->footSensor;
+    footBodyJoint.collideConnected =false;
+    footBodyJoint.localAnchorA.Set(0, aabb.lowerBound.y);
+    
+    this->body->GetWorld()->CreateJoint(&footBodyJoint);
 }
 
 void Character::stopMove()
