@@ -11,6 +11,9 @@
 
 #include <iostream>
 #include "cocos2d.h"
+#include "AnimationFactory.h"
+#include "GB2ShapeCache-x.h"
+#include "MapFactory.h"
 
 class GameManager
 {

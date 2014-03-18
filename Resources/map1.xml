@@ -1,0 +1,19 @@
+<map id="monkey" width="2000" height="2000">
+    <map_object_list>
+        <map_object id="23" image_name="map_1.png" body_name="map_1">
+            <position x="600" y="100"/>
+        </map_object>
+        <map_object id="223" image_name="map_2.png" body_name="map_2">
+            <position x="500" y="500"/>
+        </map_object>
+        <map_object id="243" image_name="map_3.png" body_name="map_3">
+            <position x="600" y="700"/>
+        </map_object>
+        <map_object id="243" image_name="map_4.png" body_name="map_4">
+            <position x="600" y="200"/>
+        </map_object>
+        <map_object id="243" image_name="map_5.png" body_name="map_5">
+            <position x="1000" y="200"/>
+        </map_object>
+    </map_object_list>
+</map>

@@ -21,7 +21,9 @@ public:
     MapObject();
     ~MapObject();
     
-     virtual void update(float dt);
+    virtual void update(float dt);
+
+    CREATE_FUNC(MapObject);
 };
 
 #endif /* defined(__SampleCocosProject__MapObject__) */

@@ -15,7 +15,7 @@ USING_NS_CC;
 enum _entityCategory {
     CHARACTER =         0x0002,
     MAPOBJECT =     0x0004,
-   
+    
 };
 
 static ObjectFactory* sharedFactory = NULL;
@@ -52,10 +52,10 @@ Character* ObjectFactory::createCharacter(const std::string &name, b2World *worl
     
     CCSprite* sprite=CCSprite::createWithSpriteFrameName("monkey_idle_1.png");
     sprite->setScale(1.0f);
-  
     
     
-
+    
+    
     
     //body
     
@@ -64,20 +64,20 @@ Character* ObjectFactory::createCharacter(const std::string &name, b2World *worl
     bodyDef.angle = ccpToAngle(ccp(0,0));
     bodyDef.userData = sprite;
     bodyDef.fixedRotation=true;
-
+    
     
     short GROUP_PLAYER = -1;
-
+    
     b2Body *body = world->CreateBody(&bodyDef);
     
     gbox2d::GB2ShapeCache *sc =  gbox2d::GB2ShapeCache::sharedGB2ShapeCache();
-
+    
     sc->addFixturesToBody(body, "body");
     
-  
-
+    
+    
     sprite->setAnchorPoint(sc->anchorPointForShape("body"));
-  
+    
     b2Filter filter = body->GetFixtureList()->GetFilterData();
     
     filter.groupIndex = -2;
@@ -125,8 +125,42 @@ MapObject* ObjectFactory::createMapObject(const char *idMapObject, b2World *worl
     
     
     return mapObject;
-
+    
 }
+
+MapObject* ObjectFactory::createMapObject(MapObjectDTO* mapObjectDTO, b2World *world)
+{
+    MapObject* mapObject = NULL;
+    
+    mapObject = MapObject::create();
+    mapObject->retain();
+    
+    
+    
+    //sprite
+    CCSprite* sprite=CCSprite::createWithSpriteFrameName(mapObjectDTO->imageName.c_str());
+    
+    
+    //body
+    b2BodyDef bodyDef;
+    bodyDef.type = b2_staticBody;
+    bodyDef.angle = ccpToAngle(ccp(0,0));
+    bodyDef.userData = mapObject;
+    
+    b2Body *body = world->CreateBody(&bodyDef);
+    
+    gbox2d::GB2ShapeCache *sc =  gbox2d::GB2ShapeCache::sharedGB2ShapeCache();
+    sc->addFixturesToBody(body, mapObjectDTO->bodyName.c_str());
+    sprite->setAnchorPoint(sc->anchorPointForShape(mapObjectDTO->bodyName.c_str()));
+    
+    mapObject->setSkin(body, sprite);
+    mapObject->setPositionInPixel(ccp(mapObjectDTO->x,mapObjectDTO->y));
+    
+    
+    return mapObject;
+    
+}
+
 
 
 
