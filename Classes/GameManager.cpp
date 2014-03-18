@@ -7,8 +7,7 @@
 //
 
 #include "GameManager.h"
-#include "AnimationFactory.h"
-#include "GB2ShapeCache-x.h"
+
 USING_NS_CC;
 static GameManager* sharedFactory = NULL;
 
@@ -41,6 +40,7 @@ bool GameManager::loadResource()
 
     
     AnimationFactory::getSharedFactory()->loadXMLAnimation();
+    MapFactory::getSharedFactory()->loadXMLMapByNameFile("map1.xml");
     return false;
 }
 
