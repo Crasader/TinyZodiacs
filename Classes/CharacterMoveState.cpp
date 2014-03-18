@@ -37,15 +37,20 @@ bool CharacterMoveState::onExitState()
 
 void CharacterMoveState::update(float dt)
 {
-    if((this->character->getBody()->GetLinearVelocity().x < 2 && this->character->getBody()->GetLinearVelocity().x >-2))
+   
+    if(this->character->getLanding())
     {
-        this->character->changeState(new CharacterIdleState(this->character));
-        return;
+       
+        if((this->character->getBody()->GetLinearVelocity().x < 2 && this->character->getBody()->GetLinearVelocity().x >-2))
+        {
+            this->character->changeState(new CharacterIdleState(this->character));
+            return;
+        }
     }
-//    if(this->character->getBody()->GetLinearVelocity().y > 2|| this->character->getBody()->GetLinearVelocity().y < -2)
-    if(this->character->getLanding() == false)
+    else
     {
         this->character->changeState(new CharacterMidAirState(this->character));
+       //CCLOG("%d", this->character->getLanding());
     }
 }
 

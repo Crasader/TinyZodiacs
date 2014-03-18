@@ -21,7 +21,7 @@ Character::Character()
 {
     this->speed = 5;
     this->state = NULL;
-    this->landing = false;
+    this->landing = 0;
     
     
     runAnimation = AnimationFactory::getSharedFactory()->getAnimationObjectByName("monkey-run");
@@ -172,17 +172,22 @@ void Character::stopMove()
 void Character::BeginContact(b2Contact *contact)
 {
     this->normalAttack->BeginContact(contact);
-    
     if((contact->GetFixtureA() == footSensor->GetFixtureList())|| (contact->GetFixtureB() == footSensor->GetFixtureList()))
     {
-        this -> landing = true;
+        this -> landing ++;
+        CCLOG("Begin contact");
     }
+
 }
 void Character::EndContact(b2Contact *contact)
 {
     this->normalAttack->EndContact(contact);
     if((contact->GetFixtureA() == footSensor->GetFixtureList())|| (contact->GetFixtureB() == footSensor->GetFixtureList()))
     {
-        this -> landing = false;
+        this -> landing --;
+        CCLOG("End contact");
+
     }
+    
+
 }

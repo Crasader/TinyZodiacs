@@ -59,7 +59,7 @@ NormalAttack::~NormalAttack()
 
 void NormalAttack::BeginContact(b2Contact *contact)
 {
-    
+
 }
 
 void NormalAttack::EndContact(b2Contact *contact)
@@ -74,5 +74,5 @@ void NormalAttack::excute()
 }
 void NormalAttack::stop()
 {
-    this->skillSensor->SetActive(false);
+//    this->skillSensor->SetActive(false);
 }
