@@ -104,3 +104,21 @@ void GameObject::EndContact(b2Contact *conact)
 {
     
 }
+b2AABB GameObject::getBodyBoundingBox()
+{
+    if(this->body != NULL)
+    {
+        //Calculate b
+        b2AABB aabb;
+        aabb.lowerBound = b2Vec2(FLT_MAX,FLT_MAX);
+        aabb.upperBound = b2Vec2(-FLT_MAX,-FLT_MAX);
+        b2Fixture* fixture = this->body->GetFixtureList();
+        while (fixture != NULL)
+        {
+            aabb.Combine(aabb, fixture->GetAABB(0));
+            fixture = fixture->GetNext();
+        }
+        return aabb;
+    }
+    return b2AABB();
+}

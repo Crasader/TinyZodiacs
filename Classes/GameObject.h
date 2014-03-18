@@ -44,6 +44,8 @@ public:
     
     virtual void BeginContact(b2Contact *contact);
     virtual void EndContact(b2Contact *contact);
+    
+    virtual b2AABB getBodyBoundingBox();
 };
 
 #endif /* defined(__SampleCocosProject__GameObject__) */

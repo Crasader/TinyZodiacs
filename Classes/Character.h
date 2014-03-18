@@ -18,19 +18,21 @@
 
 
 class CharacterState;
+class NormalAttack;
 
 class Character: public GameObject
 {
 private:
     float speed;
-    b2Body* skillSensorBody;
     void setupJointSkillAndBody();
     void createFootSensor();
     CharacterState* state;
 protected:
+
+public:
     CC_SYNTHESIZE(CharacterData, originCharacterData, OriginCharacterData);
     CC_SYNTHESIZE(b2Body*, footSensor, FootSensor);
-public:
+    CC_SYNTHESIZE(NormalAttack*, normalAttack, NormalAttack);
     
     AnimationObject* runAnimation;
     AnimationObject* jumpAnimation;
