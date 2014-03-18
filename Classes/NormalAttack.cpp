@@ -64,3 +64,43 @@ void NormalAttack::stop()
 {
     this->skillSensor->SetActive(false);
 }
+
+void NormalAttack::BeginContact(b2Contact *contact)
+{
+    //    if(contact->GetFixtureA() == footSensor->GetFixtureList() || contact->GetFixtureB() == footSensor->GetFixtureList())
+    //    {
+    //        changeState(new CharacterIdleState(this));
+    //    }
+    if((contact->GetFixtureA() == this->skillSensor->GetFixtureList()) || (contact->GetFixtureB() == this->skillSensor->GetFixtureList()))
+    {
+        CCLOG("skill BeginContact");
+    }
+}
+
+void NormalAttack::EndContact(b2Contact *contact)
+{
+    if((contact->GetFixtureA() == this->skillSensor->GetFixtureList()) || (contact->GetFixtureB() == this->skillSensor->GetFixtureList()))
+    {
+        CCLOG("skill EndContact");
+    }
+    
+}
+
+void NormalAttack::PreSolve(b2Contact *contact, const b2Manifold *oldManifold)
+{
+    if((contact->GetFixtureA() == this->skillSensor->GetFixtureList()) || (contact->GetFixtureB() == this->skillSensor->GetFixtureList()))
+    {
+        CCLOG("skill PreSolve");
+    }
+    
+}
+
+void NormalAttack::PostSolve(b2Contact *contact, const b2ContactImpulse *impulse)
+{
+    if((contact->GetFixtureA() == this->skillSensor->GetFixtureList()) || (contact->GetFixtureB() == this->skillSensor->GetFixtureList()))
+    {
+        CCLOG("skill PostSolve");
+    }
+    
+}
+
