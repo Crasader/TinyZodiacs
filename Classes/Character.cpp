@@ -85,8 +85,8 @@ void Character::setSkin(b2Body *body, CCSprite *sprite)
 bool falling = false;
 void Character::update(float dt)
 {
-    GameObject::update(dt);
     this->state->update(dt);
+    GameObject::update(dt);
 }
 
 void Character::move(Direction direction)
@@ -105,6 +105,7 @@ void Character::move(Direction direction)
         this->body->SetLinearVelocity(impulse);
         flipDirection(direction);
     }
+
 }
 
 void Character::jump()
