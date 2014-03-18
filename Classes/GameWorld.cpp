@@ -10,6 +10,8 @@
 #include "GLES-Render.h"
 #include "ObjectFactory.h"
 #include "MapCreator.h"
+#include "MapObjectDTO.h"
+#include "MapFactory.h"
 
 GameWorld::GameWorld(float bottom, float left, float width, float height)
 {
@@ -29,8 +31,8 @@ bool GameWorld::init()
     b2Draw* _debugDraw = new GLESDebugDraw(PTM_RATIO);
     uint32 flags = 0;
     flags += b2Draw::e_shapeBit;
-//    flags += b2Draw::e_jointBit;
-//    flags += b2Draw::e_aabbBit;
+    //    flags += b2Draw::e_jointBit;
+    //    flags += b2Draw::e_aabbBit;
     //    flags += b2Draw::e_pairBit;
     //    flags += b2Draw::e_centerOfMassBit;
     _debugDraw->SetFlags(flags);
@@ -44,7 +46,7 @@ bool GameWorld::init()
     //MAP
     MapCreator* mapCreator = new MapCreator();
     
-    map = mapCreator->createMap("dsdsd",this);
+    map = mapCreator->createMap("monkey",this);
     map->attachAllMapObject();
     
     this->addChild(map,1);
@@ -56,12 +58,12 @@ bool GameWorld::init()
     //  map->addChild(backgroundLayer,0);
     
     //CHARACTER
-    this->character = ObjectFactory::getSharedManager()->createCharacter("��dasdsad", world);
+    this->character = ObjectFactory::getSharedManager()->createCharacter("monkey", world);
     this->addChild(character->getSprite(),2);
     this->character->setPositionInPixel(ccp(400,400));
     this->setFollowCharacter(true);
     //this->map->scheduleUpdate();
-
+    
     
     return true;
 }
@@ -124,6 +126,11 @@ void GameWorld::createWorldBox()
     rightFixtureDef.friction=0.5;
     rightEdgeShape.Set(b2Vec2(0, 0), b2Vec2(0/PTM_RATIO,this->height/PTM_RATIO));
     this->rightLine->CreateFixture(&rightFixtureDef);
+    
+
+    
+  
+    
 }
 
 void GameWorld::setContactListener(b2ContactListener *listener){
@@ -136,12 +143,12 @@ void GameWorld::update(float dt)
 {
     if(this->world != NULL)
     {
-
+        
         world->Step(1/60.000f,8, 3);
-
+        
     }
     
-   // this->map->update(dt);
+    // this->map->update(dt);
     this->character->update(dt);
     
 }
@@ -166,7 +173,6 @@ void GameWorld::draw()
     kmGLPushMatrix();
     world->DrawDebugData();
     kmGLPopMatrix();
-
 }
 
 void GameWorld::BeginContact(b2Contact *contact)
