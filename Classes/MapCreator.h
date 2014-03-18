@@ -12,6 +12,13 @@
 #include <iostream>
 #include "Map.h"
 #include "GameWorld.h"
+#include "MapObjectDTO.h"
+#include "MapDTO.h"
+#include "Map.h"
+#include "ObjectFactory.h"
+#include "MapFactory.h"
+
+
 
 class MapCreator
 {
@@ -23,7 +30,7 @@ public:
     virtual ~MapCreator();
     
     Map* createMap(const char *id, GameWorld* gameWorld);
-    
+    Map* createMap(MapDTO* mapDTO, GameWorld* gameWorld);
    
     
     

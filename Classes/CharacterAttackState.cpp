@@ -18,6 +18,7 @@ CharacterAttackState::CharacterAttackState(Character* character): CharacterState
 
 bool CharacterAttackState::onEnterState()
 {
+    this->character->getSprite()->stopAllActions();
     
     CCAction* jumpAction = CCAnimate::create(this->character->attackAnimation->getAnimation());
     CCCallFuncND* callBack = CCCallFuncND::create(NULL, callfuncND_selector(CharacterAttackState::onFinishAttackAnimation), this->character);
@@ -29,19 +30,15 @@ bool CharacterAttackState::onEnterState()
     
     CCSequence* sequence = CCSequence::create(arr);
     
-    this->character->setAnchorPointForAnimation(this->character->attackAnimation->getOrigin());
+   
     this->character->getSprite()->runAction(sequence);
-    
-    //test skill sensor
-    this->character->getNormalAttack()->excute();
+     this->character->setAnchorPointForAnimation(this->character->attackAnimation->getOrigin());
     return true;
 }
 
 bool CharacterAttackState::onExitState()
 {
     this->character->getSprite()->stopAllActions();
-    //test skill sensor
-    this->character->getNormalAttack()->stop();
     return true;
 }
 

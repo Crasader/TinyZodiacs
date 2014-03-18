@@ -19,12 +19,13 @@
 class Map: public cocos2d::CCNode
 {
 private:
-    float width;
-    float height;
+
     cocos2d::CCArray* listMapObject;
     
 protected:
 public:
+    CC_SYNTHESIZE(float, width, Width);
+    CC_SYNTHESIZE(float, height, Height);
     
     Map();
     virtual ~Map();

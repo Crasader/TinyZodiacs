@@ -12,6 +12,7 @@
 #include <iostream>
 #include "Character.h"
 #include "MapObject.h"
+#include "MapObjectDTO.h"
 
 class ObjectFactory
 {
@@ -23,6 +24,7 @@ public:
     
     Character* createCharacter(const std::string &name, b2World *world);
     MapObject* createMapObject(const char *idMapObject, b2World *world);
+    MapObject* createMapObject(MapObjectDTO* mapObjectDTO, b2World *world);
 };
 
 #endif /* defined(__SampleCocosProject__ObjectFactory__) */
