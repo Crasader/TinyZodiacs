@@ -15,10 +15,9 @@
 #include "Box2D/Box2D.h"
 #include "AnimationObject.h"
 #include "CharacterData.h"
-
+#include "NormalAttack.h"
 
 class CharacterState;
-class NormalAttack;
 
 class Character: public GameObject
 {

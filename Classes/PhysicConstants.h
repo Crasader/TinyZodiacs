@@ -16,6 +16,4 @@
 #define FOOT_SENSOR_WIDTH 10/32
 #define FOOT_SENSOR_HEIGHT 10/32
 
-
-
 #endif

@@ -166,12 +166,9 @@ void Character::stopMove()
 
 void Character::BeginContact(b2Contact *contact)
 {
-//    if(contact->GetFixtureA() == footSensor->GetFixtureList() || contact->GetFixtureB() == footSensor->GetFixtureList())
-//    {
-//        changeState(new CharacterIdleState(this));
-//    }
+    this->normalAttack->BeginContact(contact);
 }
-void Character::EndContact(b2Contact *conact)
+void Character::EndContact(b2Contact *contact)
 {
-    
+    this->normalAttack->EndContact(contact);
 }

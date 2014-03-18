@@ -31,7 +31,7 @@ NormalAttack::NormalAttack(GameObject* holder)
         b2BodyDef bodyDef;
         bodyDef.type=b2_dynamicBody;
         bodyDef.bullet=true;
-        bodyDef.position.Set(0/PTM_RATIO, 0/32);
+        bodyDef.position.Set(0/PTM_RATIO, 0/PTM_RATIO);
         this->skillSensor = this->holder->getBody()->GetWorld()->CreateBody(&bodyDef);
         this->skillSensor->CreateFixture(&fixDef);
         
@@ -55,6 +55,17 @@ NormalAttack::~NormalAttack()
 {
     
 }
+
+void NormalAttack::BeginContact(b2Contact *contact)
+{
+    
+}
+
+void NormalAttack::EndContact(b2Contact *contact)
+{
+    
+}
+
 
 void NormalAttack::excute()
 {
