@@ -15,10 +15,10 @@
 #include "Box2D/Box2D.h"
 #include "AnimationObject.h"
 #include "CharacterData.h"
-
+#include "NormalAttack.h"
 
 class CharacterState;
-class NormalAttack;
+//class NormalAttack;
 
 class Character: public GameObject
 {
@@ -52,8 +52,10 @@ public:
     
     void changeState(CharacterState* state);
     
-    virtual void BeginContact(b2Contact *contact);
-    virtual void EndContact(b2Contact *contact);
+    void BeginContact(b2Contact* contact);
+    void EndContact(b2Contact* contact);
+    void PreSolve(b2Contact* contact, const b2Manifold* oldManifold);
+    void PostSolve(b2Contact* contact, const b2ContactImpulse* impulse);
     
     void move(Direction direction);
     void jump();

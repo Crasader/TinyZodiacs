@@ -640,6 +640,7 @@
 		1D6058910D05DD3D006BFB54 /* TinyZodiacs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TinyZodiacs.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1DF5F4DF0D08C38300B7A737 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		288765A40DF7441C002DB57D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		2D1259CD18D7F24500BF6621 /* IncludeHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = IncludeHelper.h; path = ../Classes/IncludeHelper.h; sourceTree = "<group>"; };
 		3478732D18D6D75C0055742E /* NormalAttack.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = NormalAttack.cpp; sourceTree = "<group>"; };
 		3478732E18D6D75C0055742E /* NormalAttack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NormalAttack.h; sourceTree = "<group>"; };
 		34ED36C018D69ADF00FFA55A /* ActionEngine.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ActionEngine.cpp; sourceTree = "<group>"; };
@@ -1934,6 +1935,7 @@
 			isa = PBXGroup;
 			children = (
 				F54AE9C918D2F25100194E66 /* PhysicConstants.h */,
+				2D1259CD18D7F24500BF6621 /* IncludeHelper.h */,
 			);
 			name = Constants;
 			sourceTree = "<group>";

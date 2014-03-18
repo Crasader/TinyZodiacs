@@ -42,8 +42,10 @@ public:
     void flipDirection(Direction direction);
 
     
-    virtual void BeginContact(b2Contact *contact);
-    virtual void EndContact(b2Contact *contact);
+    void BeginContact(b2Contact* contact);
+    void EndContact(b2Contact* contact);
+    void PreSolve(b2Contact* contact, const b2Manifold* oldManifold);
+    void PostSolve(b2Contact* contact, const b2ContactImpulse* impulse);
     
     virtual b2AABB getBodyBoundingBox();
 };

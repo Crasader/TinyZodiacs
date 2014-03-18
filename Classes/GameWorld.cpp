@@ -177,3 +177,13 @@ void GameWorld::EndContact(b2Contact *contact)
 {
     character->EndContact(contact);
 }
+
+void GameWorld::PreSolve(b2Contact* contact, const b2Manifold* oldManifold)
+{
+    character->PreSolve(contact, oldManifold);
+}
+
+void GameWorld::PostSolve(b2Contact* contact, const b2ContactImpulse* impulse)
+{
+    character->PostSolve(contact, impulse);
+}
