@@ -170,19 +170,8 @@ void Character::BeginContact(b2Contact *contact)
 //    {
 //        changeState(new CharacterIdleState(this));
 //    }
-    normalAttack->BeginContact(contact);
 }
-void Character::EndContact(b2Contact *contact)
+void Character::EndContact(b2Contact *conact)
 {
-    normalAttack->EndContact(contact);
-}
-
-void Character::PreSolve(b2Contact *contact, const b2Manifold *oldManifold)
-{
-    normalAttack->PreSolve(contact, oldManifold);
-}
-
-void Character::PostSolve(b2Contact *contact, const b2ContactImpulse *impulse)
-{
-    normalAttack->PostSolve(contact, impulse);
+    
 }

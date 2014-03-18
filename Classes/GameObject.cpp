@@ -100,22 +100,10 @@ void GameObject::BeginContact(b2Contact *contact)
 {
     
 }
-
 void GameObject::EndContact(b2Contact *conact)
 {
     
 }
-
-void GameObject::PreSolve(b2Contact *contact, const b2Manifold *oldManifold)
-{
-    
-}
-
-void GameObject::PostSolve(b2Contact *contact, const b2ContactImpulse *impulse)
-{
-    
-}
-
 b2AABB GameObject::getBodyBoundingBox()
 {
     if(this->body != NULL)
