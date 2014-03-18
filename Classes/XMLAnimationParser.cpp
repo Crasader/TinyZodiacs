@@ -7,6 +7,8 @@
 //
 
 #include "XMLAnimationParser.h"
+#include "MapObject.h"
+
 
 
 CCAnimation* XMLAnimationParser::getAnimationFromXMLNode(tinyxml2::XMLElement *xmlElement)
@@ -16,7 +18,7 @@ CCAnimation* XMLAnimationParser::getAnimationFromXMLNode(tinyxml2::XMLElement *x
     
     // Get frames
     CCArray* frames = new CCArray();
-
+    
     
     for (XMLElement* element = xmlElement->FirstChildElement("frame"); element; element = element->NextSiblingElement())
     {
@@ -28,7 +30,7 @@ CCAnimation* XMLAnimationParser::getAnimationFromXMLNode(tinyxml2::XMLElement *x
     frames->autorelease();
     
     return animation;
-
+    
 }
 
 AnimationObject* XMLAnimationParser::getAnimationObjectFromXMLNode(XMLElement *animationXMLElement)
@@ -42,7 +44,7 @@ AnimationObject* XMLAnimationParser::getAnimationObjectFromXMLNode(XMLElement *a
     
     // Get frames
     CCArray* frames = CCArray::create();
-        //origin Node
+    //origin Node
     XMLElement* originXMLElement = animationXMLElement->FirstChildElement("origin");
     
     CCPoint origin;
@@ -51,7 +53,7 @@ AnimationObject* XMLAnimationParser::getAnimationObjectFromXMLNode(XMLElement *a
     
     //frame Node
     XMLElement* framelistXMLNode = animationXMLElement->FirstChildElement("framelist");
-
+    
     
     for (XMLElement* element = framelistXMLNode->FirstChildElement("frame"); element; element = element->NextSiblingElement())
     {
@@ -60,15 +62,16 @@ AnimationObject* XMLAnimationParser::getAnimationObjectFromXMLNode(XMLElement *a
     }
     
     CCAnimation* animation = CCAnimation::createWithSpriteFrames(frames, delay);
-  
- 
-
+    
+    
+    
     //
     animationObject->setAnimation(animation);
     animationObject->setOrigin(origin);
     
-
+    
     
     return animationObject;
     
 }
+

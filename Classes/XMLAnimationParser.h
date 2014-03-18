@@ -12,6 +12,8 @@
 #include <iostream>
 #include "Cocos2d.h"
 #include "AnimationObject.h"
+#include "MapObjectDTO.h"
+#include "MapDTO.h"
 
 USING_NS_CC;
 using namespace tinyxml2;
@@ -21,6 +23,7 @@ class XMLAnimationParser
 public:
     static CCAnimation* getAnimationFromXMLNode(XMLElement* xmlElement);
     static AnimationObject* getAnimationObjectFromXMLNode(XMLElement* xmlElement);
+
 };
 
 #endif /* defined(__SampleCocosProject__XMLAnimationParser__) */
