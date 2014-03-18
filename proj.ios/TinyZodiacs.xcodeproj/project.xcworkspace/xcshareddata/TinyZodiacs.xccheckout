@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>2A68201A-E48B-4D65-8B08-4823DEE8C43C</string>
+	<key>IDESourceControlProjectName</key>
+	<string>TinyZodiacs</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>D81AB4F8-5140-42B9-9B64-1F524EB67084</key>
+		<string>https://github.com/vominhnhut99/TinyZodiacs.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>proj.ios/TinyZodiacs.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>D81AB4F8-5140-42B9-9B64-1F524EB67084</key>
+		<string>../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/vominhnhut99/TinyZodiacs.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>D81AB4F8-5140-42B9-9B64-1F524EB67084</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>D81AB4F8-5140-42B9-9B64-1F524EB67084</string>
+			<key>IDESourceControlWCCName</key>
+			<string>TinyZodiacs</string>
+		</dict>
+	</array>
+</dict>
+</plist>
