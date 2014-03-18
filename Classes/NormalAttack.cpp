@@ -26,7 +26,7 @@ NormalAttack::NormalAttack(GameObject* holder)
         fixDef.shape = &rec;
         fixDef.isSensor = true;
         fixDef.density = WEIGHTLESS_DENSITY;
-        fixDef.userData = (void*)"foot";
+//        fixDef.userData = (void*)"foot";
         
         b2BodyDef bodyDef;
         bodyDef.type=b2_dynamicBody;
@@ -48,6 +48,7 @@ NormalAttack::NormalAttack(GameObject* holder)
         this->holder->getBody()->GetWorld()->CreateJoint(&footBodyJoint);
         
         this->skillSensor->SetActive(false);
+        //set data
     }
 }
 

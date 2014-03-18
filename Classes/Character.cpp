@@ -21,6 +21,7 @@ Character::Character()
 {
     this->speed = 5;
     this->state = NULL;
+    this->landing = false;
     
     
     runAnimation = AnimationFactory::getSharedFactory()->getAnimationObjectByName("monkey-run");
@@ -134,18 +135,19 @@ void Character::createFootSensor()
     b2AABB aabb = this->getBodyBoundingBox();
     
     b2PolygonShape rec;
-    rec.SetAsBox((float32)FOOT_SENSOR_WIDTH, (float32)FOOT_SENSOR_HEIGHT)/*, b2Vec2(0,aabb.lowerBound.y), 0)*/;
+    rec.SetAsBox((float32)abs(aabb.lowerBound.x)*9/10, (float32)FOOT_SENSOR_HEIGHT)/*, b2Vec2(0,aabb.lowerBound.y), 0)*/;
     
     b2FixtureDef fixDef;
     fixDef.shape = &rec;
     fixDef.isSensor = true;
     fixDef.density = WEIGHTLESS_DENSITY;
-    fixDef.userData = (void*)"foot";
+    fixDef.userData = (void*)CHARACTER_FOOT_SENSOR;
+    //
     
     b2BodyDef bodyDef;
     bodyDef.type=b2_dynamicBody;
     bodyDef.bullet=true;
-    bodyDef.position.Set(0/PTM_RATIO, 0/32);
+    bodyDef.position.Set(0/PTM_RATIO, 0/PTM_RATIO);
     footSensor = this->body->GetWorld()->CreateBody(&bodyDef);
     footSensor->CreateFixture(&fixDef);
     
@@ -155,6 +157,9 @@ void Character::createFootSensor()
     footBodyJoint.bodyB = this->footSensor;
     footBodyJoint.collideConnected =false;
     footBodyJoint.localAnchorA.Set(0, aabb.lowerBound.y);
+    
+    //Set foot sensor bullet
+    this->footSensor->SetBullet(true);
     
     this->body->GetWorld()->CreateJoint(&footBodyJoint);
 }
@@ -167,8 +172,17 @@ void Character::stopMove()
 void Character::BeginContact(b2Contact *contact)
 {
     this->normalAttack->BeginContact(contact);
+    
+    if((contact->GetFixtureA() == footSensor->GetFixtureList())|| (contact->GetFixtureB() == footSensor->GetFixtureList()))
+    {
+        this -> landing = true;
+    }
 }
 void Character::EndContact(b2Contact *contact)
 {
     this->normalAttack->EndContact(contact);
+    if((contact->GetFixtureA() == footSensor->GetFixtureList())|| (contact->GetFixtureB() == footSensor->GetFixtureList()))
+    {
+        this -> landing = false;
+    }
 }

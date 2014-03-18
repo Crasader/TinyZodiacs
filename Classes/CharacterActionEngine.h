@@ -31,5 +31,6 @@ public:
     virtual void attack();
     virtual void skill1();
     virtual void skill2();
+    virtual void stopMoveAction();
 };
 #endif /* defined(__TinyZodiacs__CharacterActionEngine__) */

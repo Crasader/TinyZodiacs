@@ -10,6 +10,7 @@
 #include "cocos2d.h"
 #include "GB2ShapeCache-x.h"
 #include "MapObject.h"
+#include "PhysicConstants.h"
 
 USING_NS_CC;
 enum _entityCategory {
@@ -134,6 +135,9 @@ MapObject* ObjectFactory::createMapObject(MapObjectDTO* mapObjectDTO, b2World *w
     gbox2d::GB2ShapeCache *sc =  gbox2d::GB2ShapeCache::sharedGB2ShapeCache();
     sc->addFixturesToBody(body, mapObjectDTO->bodyName.c_str());
     sprite->setAnchorPoint(sc->anchorPointForShape(mapObjectDTO->bodyName.c_str()));
+    
+    //set data id
+    body->SetUserData((void *) MAP_BASE);
     
     mapObject->setSkin(body, sprite);
     mapObject->setPositionInPixel(ccp(mapObjectDTO->x,mapObjectDTO->y));

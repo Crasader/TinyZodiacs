@@ -64,3 +64,10 @@ void CharacterActionEngine::skill2()
         this->character->useSkill2();
     }
 }
+void CharacterActionEngine::stopMoveAction()
+{
+    if(this->character != NULL)
+    {
+        this->character->stopMove();
+    }
+}

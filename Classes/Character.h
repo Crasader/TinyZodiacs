@@ -29,6 +29,7 @@ private:
 protected:
 
 public:
+    CC_SYNTHESIZE(bool, landing, Landing);
     CC_SYNTHESIZE(CharacterData, originCharacterData, OriginCharacterData);
     CC_SYNTHESIZE(b2Body*, footSensor, FootSensor);
     CC_SYNTHESIZE(NormalAttack*, normalAttack, NormalAttack);

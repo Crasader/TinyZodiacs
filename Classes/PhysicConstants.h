@@ -16,4 +16,8 @@
 #define FOOT_SENSOR_WIDTH 10/32
 #define FOOT_SENSOR_HEIGHT 10/32
 
+#define MAP_BASE 0
+#define CHARACTER_LOCAL -1
+#define CHARACTER_FOOT_SENSOR -2
+
 #endif

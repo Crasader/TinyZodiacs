@@ -42,7 +42,8 @@ void CharacterMoveState::update(float dt)
         this->character->changeState(new CharacterIdleState(this->character));
         return;
     }
-    if(this->character->getBody()->GetLinearVelocity().y > 2|| this->character->getBody()->GetLinearVelocity().y < -2)
+//    if(this->character->getBody()->GetLinearVelocity().y > 2|| this->character->getBody()->GetLinearVelocity().y < -2)
+    if(this->character->getLanding() == false)
     {
         this->character->changeState(new CharacterMidAirState(this->character));
     }
