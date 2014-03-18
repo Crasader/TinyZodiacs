@@ -283,6 +283,7 @@
 		F561F28718D8028600DD4598 /* XMLMapParser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F561F28418D8028600DD4598 /* XMLMapParser.cpp */; };
 		F561F28D18D802A500DD4598 /* MapDTO.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F561F28918D802A500DD4598 /* MapDTO.cpp */; };
 		F561F28E18D802A500DD4598 /* MapObjectDTO.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F561F28B18D802A500DD4598 /* MapObjectDTO.cpp */; };
+		F561F29118D805BE00DD4598 /* map1.xml in Resources */ = {isa = PBXBuildFile; fileRef = F561F29018D805BE00DD4598 /* map1.xml */; };
 		F5C89DFB18D2FCB5006E909D /* monkey_animation.xml in Resources */ = {isa = PBXBuildFile; fileRef = F5C89DFA18D2FCB5006E909D /* monkey_animation.xml */; };
 		F5C89DFE18D2FCE9006E909D /* monkey_spritesheet.plist in Resources */ = {isa = PBXBuildFile; fileRef = F5C89DFC18D2FCE9006E909D /* monkey_spritesheet.plist */; };
 		F5C89DFF18D2FCE9006E909D /* monkey_spritesheet.png in Resources */ = {isa = PBXBuildFile; fileRef = F5C89DFD18D2FCE9006E909D /* monkey_spritesheet.png */; };
@@ -872,6 +873,7 @@
 		F561F28A18D802A500DD4598 /* MapDTO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapDTO.h; sourceTree = "<group>"; };
 		F561F28B18D802A500DD4598 /* MapObjectDTO.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MapObjectDTO.cpp; sourceTree = "<group>"; };
 		F561F28C18D802A500DD4598 /* MapObjectDTO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapObjectDTO.h; sourceTree = "<group>"; };
+		F561F29018D805BE00DD4598 /* map1.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = map1.xml; sourceTree = "<group>"; };
 		F5C89DFA18D2FCB5006E909D /* monkey_animation.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = monkey_animation.xml; sourceTree = "<group>"; };
 		F5C89DFC18D2FCE9006E909D /* monkey_spritesheet.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = monkey_spritesheet.plist; sourceTree = "<group>"; };
 		F5C89DFD18D2FCE9006E909D /* monkey_spritesheet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = monkey_spritesheet.png; sourceTree = "<group>"; };
@@ -2064,6 +2066,14 @@
 			name = DTO;
 			sourceTree = "<group>";
 		};
+		F561F28F18D805AC00DD4598 /* XML */ = {
+			isa = PBXGroup;
+			children = (
+				F561F29018D805BE00DD4598 /* map1.xml */,
+			);
+			name = XML;
+			sourceTree = "<group>";
+		};
 		F5C89DF618D2FC7F006E909D /* Animation */ = {
 			isa = PBXGroup;
 			children = (
@@ -2084,6 +2094,7 @@
 		F5C89DF818D2FC92006E909D /* Map */ = {
 			isa = PBXGroup;
 			children = (
+				F561F28F18D805AC00DD4598 /* XML */,
 				F5C89E0918D2FF42006E909D /* map_spritesheet.plist */,
 				F5C89E0A18D2FF42006E909D /* map_spritesheet.png */,
 			);
@@ -2200,6 +2211,7 @@
 				F5C89E1118D2FF9A006E909D /* 1.png in Resources */,
 				D41A0AD1160F154A004552AE /* Default-568h@2x.png in Resources */,
 				D446FD6E16102124000ADA7B /* Default@2x.png in Resources */,
+				F561F29118D805BE00DD4598 /* map1.xml in Resources */,
 				F5C89DFE18D2FCE9006E909D /* monkey_spritesheet.plist in Resources */,
 				15A3D9961682F7F9002FB0C5 /* CMakeLists.txt in Resources */,
 				F5C89E0318D2FD2A006E909D /* body.plist in Resources */,
