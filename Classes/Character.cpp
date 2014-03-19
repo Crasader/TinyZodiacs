@@ -22,6 +22,7 @@ Character::Character()
     this->speed = 5;
     this->state = NULL;
     this->landing = 0;
+    this->currentJumpCount = 0;
     
     
     runAnimation = AnimationFactory::getSharedFactory()->getAnimationObjectByName("monkey-run");
@@ -31,6 +32,7 @@ Character::Character()
     fallAnimation = AnimationFactory::getSharedFactory()->getAnimationObjectByName("monkey-fall");
     flyAnimation = AnimationFactory::getSharedFactory()->getAnimationObjectByName("monkey-fly");
     skill1Animation = AnimationFactory::getSharedFactory()->getAnimationObjectByName("monkey-skill");
+    
     
     //create attack skill
 }
@@ -63,6 +65,12 @@ void Character::setSkin(b2Body *body, CCSprite *sprite)
     this->changeState(new CharacterIdleState(this));
 }
 
+void Character::setOriginCharacterData(CharacterData data)
+{
+    this->originCharacterData = data;
+    this->characterData = this->originCharacterData;
+}
+
 
 bool falling = false;
 void Character::update(float dt)
@@ -78,29 +86,31 @@ void Character::move(Direction direction)
         b2Vec2 impulse = this->body->GetLinearVelocity();
         if(direction == LEFT)
         {
-            impulse.x = -5;
+            impulse.x = -1*this->characterData.getSpeed();
         }
         else
         {
-            impulse.x = 5;
+            impulse.x = this->characterData.getSpeed();
         }
         this->body->SetLinearVelocity(impulse);
         flipDirection(direction);
     }
-
+    
 }
 
 void Character::jump()
 {
-    if(this->state->jump())
+    if(this->currentJumpCount < this->characterData.getMaxJumpTimes())
     {
- 
-
-        b2Vec2 vel = this->body->GetLinearVelocity();
-        vel.y = 10;
-        this->body->SetLinearVelocity( vel );
+        if(this->state->jump())
+        {
+            b2Vec2 vel = this->body->GetLinearVelocity();
+            vel.y = this->characterData.getJumpHeight();
+            this->body->SetLinearVelocity( vel );
+            
+            this->currentJumpCount++;
+        }
     }
-   
     //
 }
 
@@ -121,17 +131,6 @@ void Character::useSkill2()
 
 void Character::createFootSensor()
 {
-    //Calculate b
-//    b2AABB aabb;
-//    aabb.lowerBound = b2Vec2(FLT_MAX,FLT_MAX);
-//    aabb.upperBound = b2Vec2(-FLT_MAX,-FLT_MAX);
-//    b2Fixture* fixture = this->body->GetFixtureList();
-//    while (fixture != NULL)
-//    {
-//        aabb.Combine(aabb, fixture->GetAABB(0));
-//        fixture = fixture->GetNext();
-//    }
-
     b2AABB aabb = this->getBodyBoundingBox();
     
     b2PolygonShape rec;
@@ -175,7 +174,7 @@ void Character::BeginContact(b2Contact *contact)
     if(character != NULL)
     {
         this -> landing ++;
-        CCLOG("Begin contact");
+        this-> currentJumpCount =0;
     }
     else if(character == NULL)
     {
@@ -183,7 +182,7 @@ void Character::BeginContact(b2Contact *contact)
         if(character != NULL)
         {
             this -> landing ++;
-            CCLOG("Begin contact");
+            this-> currentJumpCount =0;
         }
         else
         {
@@ -197,7 +196,6 @@ void Character::EndContact(b2Contact *contact)
     if(character != NULL)
     {
         this -> landing --;
-        CCLOG("Begin contact");
     }
     else if(character == NULL)
     {
@@ -205,7 +203,6 @@ void Character::EndContact(b2Contact *contact)
         if(character != NULL)
         {
             this -> landing --;
-            CCLOG("Begin contact");
         }
         else
         {

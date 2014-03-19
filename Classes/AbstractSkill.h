@@ -14,6 +14,7 @@
 #include "cocos2d.h"
 #include "PhysicConstants.h"
 #include "GameObject.h"
+#include "SkillData.h"
 
 USING_NS_CC;
 class AbstractSkill: public CCObject
@@ -29,7 +30,6 @@ public:
     virtual void EndContact(b2Contact *contact) =0;
     
     CC_SYNTHESIZE(GameObject* , holder, Holder);
-    CC_SYNTHESIZE(b2Body*, skillSensor, SkillSensor);
-    CC_SYNTHESIZE(CCPoint, position, Position) //Position
+    CC_SYNTHESIZE(SkillData, data, Data);
 };
 #endif /* defined(__TinyZodiacs__AbstractSkill__) */

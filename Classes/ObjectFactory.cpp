@@ -11,6 +11,7 @@
 #include "GB2ShapeCache-x.h"
 #include "MapObject.h"
 #include "PhysicConstants.h"
+#include "CharacterData.h"
 
 USING_NS_CC;
 enum _entityCategory {
@@ -73,6 +74,17 @@ Character* ObjectFactory::createCharacter(const std::string &name, b2World *worl
     //TEMP CREATE SKILL
     character->setNormalAttack(new NormalAttack(character));
     
+    //set character data
+    CharacterData data;
+    data.setSpeed(10);
+    data.setJumpHeight(10);
+    data.setMaxJumpTimes(3);
+    data.setAttackSpeed(0.1);
+    
+    
+    
+    character->setOriginCharacterData(data);
+    character->attackAnimation->getAnimation()->setDelayPerUnit(data.getAttackSpeed());
     return character;
     
 }

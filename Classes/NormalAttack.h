@@ -16,7 +16,6 @@ USING_NS_CC;
 class NormalAttack: public AbstractSkill
 {
 private:
-
 protected:
 public:
     NormalAttack();
@@ -27,9 +26,5 @@ public:
     virtual void stop();
     virtual void BeginContact(b2Contact *contact);
     virtual void EndContact(b2Contact *contact);
-    
-    CC_SYNTHESIZE(GameObject* , holder, Holder);
-    CC_SYNTHESIZE(b2Body*, skillSensor, SkillSensor);
-    CC_SYNTHESIZE(CCPoint, position, Position) //Position
 };
 #endif /* defined(__TinyZodiacs__NormalAttack__) */

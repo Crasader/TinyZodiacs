@@ -40,7 +40,7 @@ public:
     virtual void updateSpritePositionWithBodyPosition();
     void setAnchorPointForAnimation(const cocos2d::CCPoint &anchorPoint);
     void flipDirection(Direction direction);
-
+    Direction getDirection();
     
     virtual void BeginContact(b2Contact *contact);
     virtual void EndContact(b2Contact *contact);

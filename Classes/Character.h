@@ -27,13 +27,16 @@ private:
     void createFootSensor();
     CharacterState* state;
 protected:
-
+    int currentJumpCount;
 public:
     CC_SYNTHESIZE(int, landing, Landing);
-    CC_SYNTHESIZE(CharacterData, originCharacterData, OriginCharacterData);
+    CC_SYNTHESIZE_READONLY(CharacterData, originCharacterData, OriginCharacterData);
+    CC_SYNTHESIZE(CharacterData, characterData, characterData);
     CC_SYNTHESIZE(b2Body*, footSensor, FootSensor);
     CC_SYNTHESIZE(AbstractSkill*, normalAttack, NormalAttack);
-        
+    
+    void setOriginCharacterData(CharacterData data);
+    
     AnimationObject* runAnimation;
     AnimationObject* jumpAnimation;
     AnimationObject* attackAnimation;

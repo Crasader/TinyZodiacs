@@ -104,6 +104,13 @@ void GameObject::EndContact(b2Contact *conact)
 {
     
 }
+
+Direction GameObject::getDirection()
+{
+    return this->direction;
+}
+
+
 b2AABB GameObject::getBodyBoundingBox()
 {
     if(this->body != NULL)

@@ -25,7 +25,8 @@ public:
     
     CC_SYNTHESIZE(int, speed, Speed);
     CC_SYNTHESIZE(int, jumpHeight, JumpHeight);
-    CC_SYNTHESIZE(int, attackSpeed, AttackSpeed);
+    CC_SYNTHESIZE(float, attackSpeed, AttackSpeed);
+    CC_SYNTHESIZE(int, maxJumpTimes, MaxJumpTimes);
 };
 
 #endif /* defined(__Headball__CharacterData__) */

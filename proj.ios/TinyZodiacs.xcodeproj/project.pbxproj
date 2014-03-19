@@ -171,6 +171,8 @@
 		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
 		288765A50DF7441C002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765A40DF7441C002DB57D /* CoreGraphics.framework */; };
 		3486802618D93B82001692BB /* AbstractSkill.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3486802418D93B82001692BB /* AbstractSkill.cpp */; };
+		3486802918D95FB2001692BB /* NormalShootingAttack.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3486802718D95FB2001692BB /* NormalShootingAttack.cpp */; };
+		3486802C18D97940001692BB /* SkillData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3486802A18D97940001692BB /* SkillData.cpp */; };
 		34ED36C218D69ADF00FFA55A /* ActionEngine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 34ED36C018D69ADF00FFA55A /* ActionEngine.cpp */; };
 		34ED36C518D69C2C00FFA55A /* CharacterActionEngine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 34ED36C318D69C2C00FFA55A /* CharacterActionEngine.cpp */; };
 		375BD4C31868411B0024609E /* ObjectFactory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 375BD4BB1868411B0024609E /* ObjectFactory.cpp */; };
@@ -656,6 +658,10 @@
 		288765A40DF7441C002DB57D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		3486802418D93B82001692BB /* AbstractSkill.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = AbstractSkill.cpp; path = ../Classes/AbstractSkill.cpp; sourceTree = "<group>"; };
 		3486802518D93B82001692BB /* AbstractSkill.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AbstractSkill.h; path = ../Classes/AbstractSkill.h; sourceTree = "<group>"; };
+		3486802718D95FB2001692BB /* NormalShootingAttack.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = NormalShootingAttack.cpp; path = ../Classes/NormalShootingAttack.cpp; sourceTree = "<group>"; };
+		3486802818D95FB2001692BB /* NormalShootingAttack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NormalShootingAttack.h; path = ../Classes/NormalShootingAttack.h; sourceTree = "<group>"; };
+		3486802A18D97940001692BB /* SkillData.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = SkillData.cpp; path = ../Classes/SkillData.cpp; sourceTree = "<group>"; };
+		3486802B18D97940001692BB /* SkillData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SkillData.h; path = ../Classes/SkillData.h; sourceTree = "<group>"; };
 		34ED36C018D69ADF00FFA55A /* ActionEngine.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ActionEngine.cpp; sourceTree = "<group>"; };
 		34ED36C118D69ADF00FFA55A /* ActionEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActionEngine.h; sourceTree = "<group>"; };
 		34ED36C318D69C2C00FFA55A /* CharacterActionEngine.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CharacterActionEngine.cpp; sourceTree = "<group>"; };
@@ -1578,6 +1584,13 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		3486802D18D97E88001692BB /* Projectiles */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Projectiles;
+			sourceTree = "<group>";
+		};
 		34ED36BE18D69A3E00FFA55A /* Engines */ = {
 			isa = PBXGroup;
 			children = (
@@ -1933,6 +1946,7 @@
 		F54AE96D18D2F01B00194E66 /* Objects */ = {
 			isa = PBXGroup;
 			children = (
+				3486802D18D97E88001692BB /* Projectiles */,
 				F59E0BD918D85E62001048BD /* Skills */,
 				F54AEA8718D2F9F200194E66 /* Map.cpp */,
 				F54AEA8818D2F9F200194E66 /* Map.h */,
@@ -2048,6 +2062,8 @@
 				F54AEA0918D2F50300194E66 /* CharacterData.cpp */,
 				F54AEA0A18D2F50300194E66 /* PhysicData.cpp */,
 				F54AEA0B18D2F50300194E66 /* ObjectData.cpp */,
+				3486802A18D97940001692BB /* SkillData.cpp */,
+				3486802B18D97940001692BB /* SkillData.h */,
 			);
 			name = Data;
 			sourceTree = "<group>";
@@ -2105,6 +2121,8 @@
 				F59E0BDB18D85E90001048BD /* NormalAttack.h */,
 				3486802418D93B82001692BB /* AbstractSkill.cpp */,
 				3486802518D93B82001692BB /* AbstractSkill.h */,
+				3486802718D95FB2001692BB /* NormalShootingAttack.cpp */,
+				3486802818D95FB2001692BB /* NormalShootingAttack.h */,
 			);
 			name = Skills;
 			sourceTree = "<group>";
@@ -2392,6 +2410,7 @@
 				F54AEA0E18D2F50300194E66 /* ObjectData.cpp in Sources */,
 				15A3DA3D1682F826002FB0C5 /* CCLayerColorLoader.cpp in Sources */,
 				15A3DA3E1682F826002FB0C5 /* CCLayerGradientLoader.cpp in Sources */,
+				3486802918D95FB2001692BB /* NormalShootingAttack.cpp in Sources */,
 				15A3DA3F1682F826002FB0C5 /* CCLayerLoader.cpp in Sources */,
 				15A3DA401682F826002FB0C5 /* CCMenuItemImageLoader.cpp in Sources */,
 				375BD5101868454E0024609E /* CCActionFrameEasing.cpp in Sources */,
@@ -2526,6 +2545,7 @@
 				379BB9C517F03F3700829B88 /* UILabelBMFont.cpp in Sources */,
 				F54AE9E418D2F34700194E66 /* Hero.cpp in Sources */,
 				379BB9C617F03F3700829B88 /* UILoadingBar.cpp in Sources */,
+				3486802C18D97940001692BB /* SkillData.cpp in Sources */,
 				379BB9C717F03F3700829B88 /* UISlider.cpp in Sources */,
 				379BB9C917F03F3700829B88 /* UITextField.cpp in Sources */,
 				379BB9CB17F03F3700829B88 /* DictionaryHelper.cpp in Sources */,

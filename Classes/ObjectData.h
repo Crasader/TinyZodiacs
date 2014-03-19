@@ -10,7 +10,10 @@
 #define __Headball__ObjectData__
 
 #include <iostream>
-class ObjectData
+#include "cocos2d.h"
+
+USING_NS_CC;
+class ObjectData: public CCObject
 {
 private:
 protected:
