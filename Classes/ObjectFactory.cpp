@@ -142,7 +142,6 @@ MapObject* ObjectFactory::createMapObject(MapObjectDTO* mapObjectDTO, b2World *w
     mapObject->setSkin(body, sprite);
     mapObject->setPositionInPixel(ccp(mapObjectDTO->x,mapObjectDTO->y));
     
-    
     return mapObject;
     
 }

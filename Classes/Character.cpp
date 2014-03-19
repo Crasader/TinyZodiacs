@@ -141,7 +141,7 @@ void Character::createFootSensor()
     fixDef.shape = &rec;
     fixDef.isSensor = true;
     fixDef.density = WEIGHTLESS_DENSITY;
-    fixDef.userData = (void*)CHARACTER_FOOT_SENSOR;
+    fixDef.userData = (void*)this;
     //
     
     b2BodyDef bodyDef;
@@ -171,23 +171,45 @@ void Character::stopMove()
 
 void Character::BeginContact(b2Contact *contact)
 {
-    this->normalAttack->BeginContact(contact);
-    if((contact->GetFixtureA() == footSensor->GetFixtureList())|| (contact->GetFixtureB() == footSensor->GetFixtureList()))
+    Character* character = static_cast<Character*>(contact->GetFixtureA()->GetUserData());
+    if(character != NULL)
     {
         this -> landing ++;
         CCLOG("Begin contact");
     }
-
+    else if(character == NULL)
+    {
+        character = static_cast<Character*>(contact->GetFixtureB()->GetUserData());
+        if(character != NULL)
+        {
+            this -> landing ++;
+            CCLOG("Begin contact");
+        }
+        else
+        {
+            this->normalAttack->BeginContact(contact);
+        }
+    }
 }
 void Character::EndContact(b2Contact *contact)
 {
-    this->normalAttack->EndContact(contact);
-    if((contact->GetFixtureA() == footSensor->GetFixtureList())|| (contact->GetFixtureB() == footSensor->GetFixtureList()))
+    Character* character = static_cast<Character*>(contact->GetFixtureA()->GetUserData());
+    if(character != NULL)
     {
         this -> landing --;
-        CCLOG("End contact");
-
+        CCLOG("Begin contact");
     }
-    
-
+    else if(character == NULL)
+    {
+        character = static_cast<Character*>(contact->GetFixtureB()->GetUserData());
+        if(character != NULL)
+        {
+            this -> landing --;
+            CCLOG("Begin contact");
+        }
+        else
+        {
+            this->normalAttack->BeginContact(contact);
+        }
+    }
 }

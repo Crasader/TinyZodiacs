@@ -40,9 +40,9 @@ bool Map::init()
     this->height = 1000;
     
     
-    GameBackgroundLayer* backgroundLayer = GameBackgroundLayer::create();
+//    GameBackgroundLayer* backgroundLayer = GameBackgroundLayer::create();
 
-    this->addChild(backgroundLayer);
+//    this->addChild(backgroundLayer);
     
     
     

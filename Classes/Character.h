@@ -32,7 +32,7 @@ public:
     CC_SYNTHESIZE(int, landing, Landing);
     CC_SYNTHESIZE(CharacterData, originCharacterData, OriginCharacterData);
     CC_SYNTHESIZE(b2Body*, footSensor, FootSensor);
-    CC_SYNTHESIZE(NormalAttack*, normalAttack, NormalAttack);
+    CC_SYNTHESIZE(AbstractSkill*, normalAttack, NormalAttack);
         
     AnimationObject* runAnimation;
     AnimationObject* jumpAnimation;

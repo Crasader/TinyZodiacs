@@ -22,6 +22,7 @@ public:
     CC_SYNTHESIZE(int, health, Health);
     CC_SYNTHESIZE(int, attack, Attack);
     CC_SYNTHESIZE(int, defense, Defense);
+    
     CC_SYNTHESIZE(int, speed, Speed);
     CC_SYNTHESIZE(int, jumpHeight, JumpHeight);
     CC_SYNTHESIZE(int, attackSpeed, AttackSpeed);

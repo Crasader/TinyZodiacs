@@ -10,13 +10,10 @@
 #define __TinyZodiacs__NormalAttack__
 
 #include <iostream>
-#include "Box2D/Box2D.h"
-#include "cocos2d.h"
-#include "PhysicConstants.h"
-#include "GameObject.h"
+#include "AbstractSkill.h"
 
 USING_NS_CC;
-class NormalAttack: public CCObject
+class NormalAttack: public AbstractSkill
 {
 private:
 
