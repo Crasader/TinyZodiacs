@@ -37,17 +37,16 @@ bool GameWorld::init()
     //    flags += b2Draw::e_centerOfMassBit;
     _debugDraw->SetFlags(flags);
     this->world->SetDebugDraw(_debugDraw);
-    //
-    createWorldBox();
-    
-    //Set contact listener
+      //Set contact listener
     this->setContactListener(this);
     
     //MAP
     MapCreator* mapCreator = new MapCreator();
     
-    map = mapCreator->createMap("monkey",this);
+    map = mapCreator->createMap("map2",this);
     map->attachAllMapObject();
+    
+    
     
     this->addChild(map,1);
     
@@ -58,13 +57,16 @@ bool GameWorld::init()
     //  map->addChild(backgroundLayer,0);
     
     //CHARACTER
-    this->character = ObjectFactory::getSharedManager()->createCharacter("monkey", world);
+    this->character = ObjectFactory::getSharedManager()->createCharacter("map2", world);
     this->addChild(character->getSprite(),2);
     this->character->setPositionInPixel(ccp(400,400));
     this->setFollowCharacter(true);
     //this->map->scheduleUpdate();
     
+    //
+    createWorldBox();
     
+
     return true;
 }
 

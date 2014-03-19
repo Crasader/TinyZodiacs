@@ -26,8 +26,8 @@ protected:
     void createWorldBox();
 public:
     CC_SYNTHESIZE(b2World*, world, World);
-    CC_SYNTHESIZE_READONLY(float, width, Width);
-    CC_SYNTHESIZE_READONLY(float, height, Height);
+    CC_SYNTHESIZE(float, width, Width);
+    CC_SYNTHESIZE(float, height, Height);
     CC_SYNTHESIZE_READONLY(float, bottom, Bottom);
     CC_SYNTHESIZE_READONLY(float, left, Left);
     CC_SYNTHESIZE_READONLY(b2Body*, topLine, TopLine);
