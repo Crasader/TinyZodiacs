@@ -1,0 +1,8 @@
+<map id="map2" width="8000" height="2000">
+    <map_object_list>
+        <map_object id="23" image_name="map.png" body_name="map1">
+            <position x="1300" y="700"/>
+        </map_object>
+        
+           </map_object_list>
+</map>
