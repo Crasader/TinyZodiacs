@@ -10,6 +10,7 @@
 #include "cocos2d.h"
 #include "GB2ShapeCache-x.h"
 #include "MapObject.h"
+#include "PhysicConstants.h"
 
 USING_NS_CC;
 enum _entityCategory {
@@ -38,24 +39,17 @@ ObjectFactory* ObjectFactory::getSharedManager()
         //  this->sharedFactory->init();
     }
     return sharedFactory;
-    
 }
 
 Character* ObjectFactory::createCharacter(const std::string &name, b2World *world)
 {
     
     Character* character = NULL;
-    
     character = new Character();
     
     //sprite
-    
     CCSprite* sprite=CCSprite::createWithSpriteFrameName("monkey_idle_1.png");
     sprite->setScale(1.0f);
-    
-    
-    
-    
     
     //body
     
@@ -65,30 +59,19 @@ Character* ObjectFactory::createCharacter(const std::string &name, b2World *worl
     bodyDef.userData = sprite;
     bodyDef.fixedRotation=true;
     
-    
-    short GROUP_PLAYER = -1;
-    
     b2Body *body = world->CreateBody(&bodyDef);
     
     gbox2d::GB2ShapeCache *sc =  gbox2d::GB2ShapeCache::sharedGB2ShapeCache();
     
     sc->addFixturesToBody(body, "body");
-    
-    
-    
     sprite->setAnchorPoint(sc->anchorPointForShape("body"));
-    
     b2Filter filter = body->GetFixtureList()->GetFilterData();
-    
     filter.groupIndex = -2;
-    
     body->GetFixtureList()->SetFilterData(filter);
     
-    
     character->setSkin(body, sprite);
-    
-    
-    
+    //TEMP CREATE SKILL
+    character->setNormalAttack(new NormalAttack(character));
     
     return character;
     
@@ -152,6 +135,9 @@ MapObject* ObjectFactory::createMapObject(MapObjectDTO* mapObjectDTO, b2World *w
     gbox2d::GB2ShapeCache *sc =  gbox2d::GB2ShapeCache::sharedGB2ShapeCache();
     sc->addFixturesToBody(body, mapObjectDTO->bodyName.c_str());
     sprite->setAnchorPoint(sc->anchorPointForShape(mapObjectDTO->bodyName.c_str()));
+    
+    //set data id
+    body->SetUserData((void *) MAP_BASE);
     
     mapObject->setSkin(body, sprite);
     mapObject->setPositionInPixel(ccp(mapObjectDTO->x,mapObjectDTO->y));

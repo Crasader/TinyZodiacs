@@ -15,10 +15,9 @@
 #include "Box2D/Box2D.h"
 #include "AnimationObject.h"
 #include "CharacterData.h"
-
+#include "NormalAttack.h"
 
 class CharacterState;
-class NormalAttack;
 
 class Character: public GameObject
 {
@@ -30,10 +29,11 @@ private:
 protected:
 
 public:
+    CC_SYNTHESIZE(int, landing, Landing);
     CC_SYNTHESIZE(CharacterData, originCharacterData, OriginCharacterData);
     CC_SYNTHESIZE(b2Body*, footSensor, FootSensor);
     CC_SYNTHESIZE(NormalAttack*, normalAttack, NormalAttack);
-    
+        
     AnimationObject* runAnimation;
     AnimationObject* jumpAnimation;
     AnimationObject* attackAnimation;

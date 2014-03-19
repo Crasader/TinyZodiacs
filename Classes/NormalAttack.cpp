@@ -26,12 +26,12 @@ NormalAttack::NormalAttack(GameObject* holder)
         fixDef.shape = &rec;
         fixDef.isSensor = true;
         fixDef.density = WEIGHTLESS_DENSITY;
-        fixDef.userData = (void*)"foot";
+//        fixDef.userData = (void*)"foot";
         
         b2BodyDef bodyDef;
         bodyDef.type=b2_dynamicBody;
         bodyDef.bullet=true;
-        bodyDef.position.Set(0/PTM_RATIO, 0/32);
+        bodyDef.position.Set(0/PTM_RATIO, 0/PTM_RATIO);
         this->skillSensor = this->holder->getBody()->GetWorld()->CreateBody(&bodyDef);
         this->skillSensor->CreateFixture(&fixDef);
         
@@ -48,6 +48,7 @@ NormalAttack::NormalAttack(GameObject* holder)
         this->holder->getBody()->GetWorld()->CreateJoint(&footBodyJoint);
         
         this->skillSensor->SetActive(false);
+        //set data
     }
 }
 
@@ -56,11 +57,22 @@ NormalAttack::~NormalAttack()
     
 }
 
+void NormalAttack::BeginContact(b2Contact *contact)
+{
+
+}
+
+void NormalAttack::EndContact(b2Contact *contact)
+{
+    
+}
+
+
 void NormalAttack::excute()
 {
     this->skillSensor->SetActive(true);
 }
 void NormalAttack::stop()
 {
-    this->skillSensor->SetActive(false);
+//    this->skillSensor->SetActive(false);
 }

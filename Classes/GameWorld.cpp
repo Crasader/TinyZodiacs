@@ -54,7 +54,7 @@ bool GameWorld::init()
     
     
     this->scheduleUpdate();
-    //  map->addChild(backgroundLayer,0);
+     
     
     //CHARACTER
     this->character = ObjectFactory::getSharedManager()->createCharacter("map2", world);

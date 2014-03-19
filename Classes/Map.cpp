@@ -42,7 +42,7 @@ bool Map::init()
     
     GameBackgroundLayer* backgroundLayer = GameBackgroundLayer::create();
 
-    this->addChild(backgroundLayer);
+//    this->addChild(backgroundLayer);
     
     
     
@@ -82,7 +82,7 @@ void Map::attachAllMapObject()
     CCARRAY_FOREACH(listMapObject,object)
     {
         MapObject* mapObject = (MapObject*)object;
-//        mapObject->getSprite()->setPosition(ccp(2000,2000));
+        mapObject->getSprite()->setPosition(ccp(2000,2000));
         batchNode->addChild(mapObject->getSprite());
         
     }

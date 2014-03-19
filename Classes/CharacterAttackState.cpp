@@ -33,12 +33,17 @@ bool CharacterAttackState::onEnterState()
    
     this->character->getSprite()->runAction(sequence);
      this->character->setAnchorPointForAnimation(this->character->attackAnimation->getOrigin());
+    
+    //Excute attack
+    this->character->getNormalAttack()->excute();
     return true;
 }
 
 bool CharacterAttackState::onExitState()
 {
     this->character->getSprite()->stopAllActions();
+    //Excute attack
+    this->character->getNormalAttack()->stop();
     return true;
 }
 

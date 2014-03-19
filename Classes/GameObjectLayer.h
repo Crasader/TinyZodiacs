@@ -14,6 +14,7 @@
 #include "Box2D/Box2D.h"
 #include "Character.h"
 #include "GameWorld.h"
+#include "CharacterActionEngine.h"
 
 class GameObjectLayer: public cocos2d::CCLayer
 {
@@ -24,13 +25,17 @@ public:
     virtual void update(float dt);
     virtual void draw();
     
-    CREATE_FUNC(GameObjectLayer);
     void MoveSpriteLeft();
     void MoveSpriteRight();
     void MoveSpriteUp();
     void MoveSpriteDown();
     void MoveSprite(float x, float y);
     void Attack();
+    
+    CC_SYNTHESIZE(CharacterActionEngine*, characterActionEngine, CharacterActionEngine);
+    
+    CREATE_FUNC(GameObjectLayer);
+
 private:
     GameWorld* gameWorld;
 

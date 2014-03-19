@@ -24,6 +24,7 @@ GameObjectLayer::GameObjectLayer()
 
 GameObjectLayer::~GameObjectLayer()
 {
+    delete this->characterActionEngine;
 }
 
 bool GameObjectLayer::init()
@@ -37,6 +38,9 @@ bool GameObjectLayer::init()
       
     this->gameWorld = new GameWorld(0,0,2000,2000);
     this->addChild(gameWorld);
+    
+    this->characterActionEngine = new CharacterActionEngine(this->gameWorld->getCharacter());
+    
     return true;
 }
 
@@ -57,26 +61,30 @@ void GameObjectLayer::MoveSprite(float x, float y)
 void GameObjectLayer::MoveSpriteUp()
 {
 
-  this->gameWorld->getCharacter()->jump();
-    
+//  this->gameWorld->getCharacter()->jump();
+    this->characterActionEngine->jump();
 }
 
 void GameObjectLayer::MoveSpriteDown()
 {
-    this->gameWorld->getCharacter()->stopMove();
+//    this->gameWorld->getCharacter()->stopMove();
+    this->characterActionEngine->stopMoveAction();
 }
 
 void GameObjectLayer::MoveSpriteLeft()
 {
-   this->gameWorld->getCharacter()->move(LEFT);
+//   this->gameWorld->getCharacter()->move(LEFT);
+    this->characterActionEngine->moveLeft();
 }
 
 void GameObjectLayer::MoveSpriteRight()
 {
-    this->gameWorld->getCharacter()->move(RIGHT);
+//    this->gameWorld->getCharacter()->move(RIGHT);
+    this->characterActionEngine->moveRight();
 }
 
 void GameObjectLayer::Attack()
 {
-    this->gameWorld->getCharacter()->attack();
+//    this->gameWorld->getCharacter()->attack();
+    this->characterActionEngine->attack();
 }

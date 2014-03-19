@@ -24,6 +24,8 @@ public:
     virtual void attack()=0;
     virtual void skill1()=0;
     virtual void skill2()=0;
+    virtual void stopMoveAction()=0;
+
 protected:
 };
 #endif /* defined(__TinyZodiacs__ActionEngine__) */

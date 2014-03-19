@@ -52,7 +52,11 @@ void CharacterMidAirState::update(float dt)
         this->character->setAnchorPointForAnimation( this->character->flyAnimation->getOrigin());
         
     }
-    if (this->character->getBody()->GetLinearVelocity().y <2 && this->character->getBody()->GetLinearVelocity().y > -2 &&  isFalling == true)
+//    if (this->character->getBody()->GetLinearVelocity().y <2 && this->character->getBody()->GetLinearVelocity().y > -2 &&  isFalling == true)
+//    {
+//        this->character->changeState(new CharacterIdleState(this->character));
+//    }
+    if(this->character->getLanding())
     {
         this->character->changeState(new CharacterIdleState(this->character));
     }

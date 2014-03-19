@@ -13,7 +13,7 @@
 #include "Box2D/Box2D.h"
 #include "cocos2d.h"
 #include "PhysicConstants.h"
-#include "Character.h"
+#include "GameObject.h"
 
 USING_NS_CC;
 class NormalAttack: public CCObject
@@ -28,6 +28,8 @@ public:
     
     virtual void excute();
     virtual void stop();
+    virtual void BeginContact(b2Contact *contact);
+    virtual void EndContact(b2Contact *contact);
     
     CC_SYNTHESIZE(GameObject* , holder, Holder);
     CC_SYNTHESIZE(b2Body*, skillSensor, SkillSensor);
