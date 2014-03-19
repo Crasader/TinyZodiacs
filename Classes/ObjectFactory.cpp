@@ -12,6 +12,7 @@
 #include "MapObject.h"
 #include "PhysicConstants.h"
 #include "CharacterData.h"
+#include "NormalShootingAttack.h"
 
 USING_NS_CC;
 enum _entityCategory {
@@ -50,7 +51,7 @@ Character* ObjectFactory::createCharacter(const std::string &name, b2World *worl
     
     //sprite
     CCSprite* sprite=CCSprite::createWithSpriteFrameName("monkey_idle_1.png");
-    sprite->setScale(1.0f);
+    sprite->setScale(0.0f);
     
     //body
     
@@ -72,14 +73,14 @@ Character* ObjectFactory::createCharacter(const std::string &name, b2World *worl
     
     character->setSkin(body, sprite);
     //TEMP CREATE SKILL
-    character->setNormalAttack(new NormalAttack(character));
+    character->setNormalAttack(new NormalShootingAttack(character));
     
     //set character data
     CharacterData data;
     data.setSpeed(10);
     data.setJumpHeight(10);
     data.setMaxJumpTimes(3);
-    data.setAttackSpeed(0.1);
+    data.setAttackSpeed(0);
     
     
     

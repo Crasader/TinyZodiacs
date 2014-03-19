@@ -170,23 +170,26 @@ void Character::stopMove()
 
 void Character::BeginContact(b2Contact *contact)
 {
-    Character* character = static_cast<Character*>(contact->GetFixtureA()->GetUserData());
+    Character* character = static_cast<Character*>(contact->GetFixtureA()->GetBody()->GetUserData());
     if(character != NULL)
     {
         this -> landing ++;
         this-> currentJumpCount =0;
+        CCLOG("1 %d", this->currentJumpCount);
     }
     else if(character == NULL)
     {
-        character = static_cast<Character*>(contact->GetFixtureB()->GetUserData());
+        character = static_cast<Character*>(contact->GetFixtureB()->GetBody()->GetUserData());
         if(character != NULL)
         {
             this -> landing ++;
             this-> currentJumpCount =0;
+            CCLOG("2 %d", this->currentJumpCount);
         }
         else
         {
             this->normalAttack->BeginContact(contact);
+            CCLOG("3 %d", this->currentJumpCount);
         }
     }
 }
@@ -196,6 +199,10 @@ void Character::EndContact(b2Contact *contact)
     if(character != NULL)
     {
         this -> landing --;
+        if(this->landing <0)
+        {
+            this->landing =0;
+        }
     }
     else if(character == NULL)
     {
@@ -203,6 +210,10 @@ void Character::EndContact(b2Contact *contact)
         if(character != NULL)
         {
             this -> landing --;
+            if(this->landing <0)
+            {
+                this->landing =0;
+            }
         }
         else
         {

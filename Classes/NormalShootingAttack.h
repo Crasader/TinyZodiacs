@@ -20,6 +20,7 @@ private:
 protected:
 public:
     ~NormalShootingAttack();
+    NormalShootingAttack(GameObject* holder);
     
     virtual void excute();
     virtual void stop();
