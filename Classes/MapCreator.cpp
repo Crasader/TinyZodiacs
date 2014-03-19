@@ -29,6 +29,9 @@ Map* MapCreator::createMap(const char *id, GameWorld* gameWorld)
     
     map->setWidth(mapDTO->width);
     map->setHeight(mapDTO->height);
+    gameWorld->setWidth(mapDTO->width);
+    gameWorld->setHeight(mapDTO->height);
+    
     
     CCObject* object = NULL;
     CCARRAY_FOREACH(mapDTO->listMapObject, object)

@@ -35,7 +35,8 @@ MapFactory* MapFactory::getSharedFactory()
 
 bool MapFactory::loadXMLMap()
 {
-    loadXMLMapByNameFile("monkey_animation.xml");
+    loadXMLMapByNameFile("map1.xml");
+    loadXMLMapByNameFile("map2.xml");
     
     return true;
 }
