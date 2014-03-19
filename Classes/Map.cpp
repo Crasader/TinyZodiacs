@@ -77,7 +77,7 @@ void Map::addMapObject(MapObject *mapObject)
 
 void Map::attachAllMapObject()
 {
-    CCSpriteBatchNode* batchNode = CCSpriteBatchNode::create("map_spritesheet.png");
+    CCSpriteBatchNode* batchNode = CCSpriteBatchNode::create("map2_spritesheet.png");
     CCObject* object;
     CCARRAY_FOREACH(listMapObject,object)
     {
