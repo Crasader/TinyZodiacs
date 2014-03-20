@@ -104,7 +104,14 @@ void GameObject::EndContact(b2Contact *conact)
 {
     
 }
-
+void GameObject::checkCollisionDataInBeginContact(PhysicData* data)
+{
+    
+}
+void GameObject::checkCollisionDataInEndContact(PhysicData* data)
+{
+    
+}
 Direction GameObject::getDirection()
 {
     return this->direction;

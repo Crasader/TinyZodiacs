@@ -15,5 +15,7 @@ class PhysicData
 private:
 protected:
 public:
+    int Id;
+    void* Data;
 };
 #endif /* defined(__Headball__PhysicData__) */

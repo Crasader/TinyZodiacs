@@ -140,7 +140,11 @@ void Character::createFootSensor()
     fixDef.shape = &rec;
     fixDef.isSensor = true;
     fixDef.density = WEIGHTLESS_DENSITY;
-    fixDef.userData = (void*)this;
+    
+    PhysicData* sensorData = new PhysicData();
+    sensorData->Id = CHARACTER_FOOT_SENSOR;
+    sensorData->Data = this;
+    fixDef.userData = (void*)sensorData;
     //
     
     b2BodyDef bodyDef;
@@ -168,56 +172,67 @@ void Character::stopMove()
     this->body->SetLinearVelocity(b2Vec2(0, this->getBody()->GetLinearVelocity().y));
 }
 
+void Character::checkCollisionDataInBeginContact(PhysicData* data)
+{
+    switch (data->Id)
+    {
+        case CHARACTER_FOOT_SENSOR:
+            if(this == data->Data)
+            {
+                this -> landing ++;
+                this-> currentJumpCount =0;
+            }
+            break;
+            
+        default:
+            break;
+    }
+}
+
+void Character::checkCollisionDataInEndContact(PhysicData* data)
+{
+    switch (data->Id) {
+        case CHARACTER_FOOT_SENSOR:
+            if(this == data->Data)
+            {
+                this -> landing --;
+                if(this->landing <0)
+                {
+                    this->landing =0;
+                }
+            }
+            break;
+            
+        default:
+            break;
+    }
+}
+
 void Character::BeginContact(b2Contact *contact)
 {
-    Character* character = static_cast<Character*>(contact->GetFixtureA()->GetBody()->GetUserData());
-    if(character != NULL)
+    if(contact->GetFixtureA()->GetUserData() != NULL)
     {
-        this -> landing ++;
-        this-> currentJumpCount =0;
-        CCLOG("1 %d", this->currentJumpCount);
+        PhysicData* data = (PhysicData*)contact->GetFixtureA()->GetUserData();
+        checkCollisionDataInBeginContact(data);
     }
-    else if(character == NULL)
+
+    if(contact->GetFixtureB()->GetUserData() != NULL)
     {
-        character = static_cast<Character*>(contact->GetFixtureB()->GetBody()->GetUserData());
-        if(character != NULL)
-        {
-            this -> landing ++;
-            this-> currentJumpCount =0;
-            CCLOG("2 %d", this->currentJumpCount);
-        }
-        else
-        {
-            this->normalAttack->BeginContact(contact);
-            CCLOG("3 %d", this->currentJumpCount);
-        }
+        PhysicData* data = (PhysicData*)contact->GetFixtureB()->GetUserData();
+        checkCollisionDataInBeginContact(data);
     }
 }
 void Character::EndContact(b2Contact *contact)
 {
-    Character* character = static_cast<Character*>(contact->GetFixtureA()->GetUserData());
-    if(character != NULL)
+    if(contact->GetFixtureA()->GetUserData() != NULL)
     {
-        this -> landing --;
-        if(this->landing <0)
-        {
-            this->landing =0;
-        }
+        PhysicData* data = (PhysicData*)contact->GetFixtureA()->GetUserData();
+        checkCollisionDataInEndContact(data);
     }
-    else if(character == NULL)
+    
+    if(contact->GetFixtureB()->GetUserData() != NULL)
     {
-        character = static_cast<Character*>(contact->GetFixtureB()->GetUserData());
-        if(character != NULL)
-        {
-            this -> landing --;
-            if(this->landing <0)
-            {
-                this->landing =0;
-            }
-        }
-        else
-        {
-            this->normalAttack->BeginContact(contact);
-        }
+        PhysicData* data = (PhysicData*)contact->GetFixtureB()->GetUserData();
+        checkCollisionDataInEndContact(data);
     }
 }

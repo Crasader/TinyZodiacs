@@ -13,6 +13,7 @@
 #include <cocos2d.h>
 #include <Box2D/Box2D.h>
 #include "PhysicConstants.h"
+#include "PhysicData.h"
 
 enum Direction {LEFT, RIGHT};
 class GameObject: public cocos2d::CCObject
@@ -21,6 +22,9 @@ private:
     
 protected:
     Direction direction;
+    virtual void checkCollisionDataInBeginContact(PhysicData* data);
+    virtual void checkCollisionDataInEndContact(PhysicData* data);
+
 public:
     CC_SYNTHESIZE(cocos2d::CCSprite*, sprite, Sprite);
     CC_SYNTHESIZE(b2Body*, body, Body);

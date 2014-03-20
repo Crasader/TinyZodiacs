@@ -16,6 +16,7 @@
 #include "AnimationObject.h"
 #include "CharacterData.h"
 #include "NormalAttack.h"
+#include "PhysicData.h"
 
 class CharacterState;
 
@@ -28,6 +29,8 @@ private:
     CharacterState* state;
 protected:
     int currentJumpCount;
+    void checkCollisionDataInBeginContact(PhysicData* data);
+    void checkCollisionDataInEndContact(PhysicData* data);
 public:
     CC_SYNTHESIZE(int, landing, Landing);
     CC_SYNTHESIZE_READONLY(CharacterData, originCharacterData, OriginCharacterData);
