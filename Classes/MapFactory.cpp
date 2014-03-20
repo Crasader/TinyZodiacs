@@ -35,7 +35,7 @@ MapFactory* MapFactory::getSharedFactory()
 
 bool MapFactory::loadXMLMap()
 {
-    loadXMLMapByNameFile("map1.xml");
+   // loadXMLMapByNameFile("map1.xml");
     loadXMLMapByNameFile("map2.xml");
     
     return true;
