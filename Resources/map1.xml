@@ -1,4 +1,7 @@
 <map id="monkey" width="2000" height="2000">
+    <background_list>
+        
+    </background_list>
     <map_object_list>
         <map_object id="23" image_name="map_1.png" body_name="map_1">
             <position x="600" y="100"/>
