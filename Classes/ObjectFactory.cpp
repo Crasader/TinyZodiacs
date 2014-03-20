@@ -80,7 +80,7 @@ Character* ObjectFactory::createCharacter(const std::string &name, b2World *worl
     data.setSpeed(10);
     data.setJumpHeight(10);
     data.setMaxJumpTimes(3);
-    data.setAttackSpeed(0.2);
+    data.setAttackSpeed(0.1);
     
     
     

@@ -11,6 +11,7 @@
 
 #include <iostream>
 #include "AbstractSkill.h"
+#include "NormalProjectile.h"
 
 
 USING_NS_CC;
@@ -18,13 +19,17 @@ class NormalShootingAttack: public AbstractSkill
 {
 private:
 protected:
+    CCArray* listProjectiles;
+    
+    virtual void checkCollisionDataInBeginContact(PhysicData* data, b2Contact *contact);
+    virtual void checkCollisionDataInEndContact(PhysicData* data, b2Contact *contact);
 public:
     ~NormalShootingAttack();
     NormalShootingAttack(GameObject* holder);
     
     virtual void excute();
     virtual void stop();
-    virtual void BeginContact(b2Contact *contact);
-    virtual void EndContact(b2Contact *contact);
+    virtual void Update(float dt);
+
 };
 #endif /* defined(__TinyZodiacs__NormalShootingAttack__) */

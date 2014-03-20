@@ -20,7 +20,7 @@ private:
 protected:
 public:
     CC_SYNTHESIZE(int, damage, Damage);
-    CC_SYNTHESIZE(int, atkSpeed, AtkSpeed);
+    CC_SYNTHESIZE(int, speed, Speed);
     
     CC_SYNTHESIZE(CCPoint, location, Location);
     CC_SYNTHESIZE(b2Body*, skillSensor, SkillSensor);

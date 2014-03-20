@@ -22,34 +22,30 @@ private:
     
 protected:
     Direction direction;
-    virtual void checkCollisionDataInBeginContact(PhysicData* data);
-    virtual void checkCollisionDataInEndContact(PhysicData* data);
+    virtual void checkCollisionDataInBeginContact(PhysicData* data, b2Contact *contact);
+    virtual void checkCollisionDataInEndContact(PhysicData* data, b2Contact *contact);
 
 public:
+    GameObject();
+    ~GameObject();
+
     CC_SYNTHESIZE(cocos2d::CCSprite*, sprite, Sprite);
     CC_SYNTHESIZE(b2Body*, body, Body);
     
+    Direction getDirection();
+    b2AABB getBodyBoundingBox();
+    
+    void setAnchorPointForAnimation(const cocos2d::CCPoint &anchorPoint);
+    void flipDirection(Direction direction);
+    
     virtual void setSkin(b2Body* body,cocos2d::CCSprite* sprite);
-    
-    
-    GameObject();
-    virtual ~GameObject();
-    
     virtual bool init();
-    
     virtual void update(float dt);
     virtual void setPositionInPixel(const cocos2d::CCPoint& pos);
     virtual cocos2d::CCPoint getPositionInPixel();
-    
     virtual void updateSpritePositionWithBodyPosition();
-    void setAnchorPointForAnimation(const cocos2d::CCPoint &anchorPoint);
-    void flipDirection(Direction direction);
-    Direction getDirection();
-    
     virtual void BeginContact(b2Contact *contact);
     virtual void EndContact(b2Contact *contact);
-    
-    virtual b2AABB getBodyBoundingBox();
 };
 
 #endif /* defined(__SampleCocosProject__GameObject__) */

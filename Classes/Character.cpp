@@ -19,7 +19,6 @@ USING_NS_CC;
 
 Character::Character()
 {
-    this->speed = 5;
     this->state = NULL;
     this->landing = 0;
     this->currentJumpCount = 0;
@@ -172,7 +171,7 @@ void Character::stopMove()
     this->body->SetLinearVelocity(b2Vec2(0, this->getBody()->GetLinearVelocity().y));
 }
 
-void Character::checkCollisionDataInBeginContact(PhysicData* data)
+void Character::checkCollisionDataInBeginContact(PhysicData* data, b2Contact *contact)
 {
     switch (data->Id)
     {
@@ -189,7 +188,7 @@ void Character::checkCollisionDataInBeginContact(PhysicData* data)
     }
 }
 
-void Character::checkCollisionDataInEndContact(PhysicData* data)
+void Character::checkCollisionDataInEndContact(PhysicData* data, b2Contact *contact)
 {
     switch (data->Id) {
         case CHARACTER_FOOT_SENSOR:
@@ -210,29 +209,14 @@ void Character::checkCollisionDataInEndContact(PhysicData* data)
 
 void Character::BeginContact(b2Contact *contact)
 {
-    if(contact->GetFixtureA()->GetUserData() != NULL)
-    {
-        PhysicData* data = (PhysicData*)contact->GetFixtureA()->GetUserData();
-        checkCollisionDataInBeginContact(data);
-    }
-
-    if(contact->GetFixtureB()->GetUserData() != NULL)
-    {
-        PhysicData* data = (PhysicData*)contact->GetFixtureB()->GetUserData();
-        checkCollisionDataInBeginContact(data);
-    }
+    GameObject::BeginContact(contact);
+    
+    normalAttack->BeginContact(contact);
 }
+
 void Character::EndContact(b2Contact *contact)
 {
-    if(contact->GetFixtureA()->GetUserData() != NULL)
-    {
-        PhysicData* data = (PhysicData*)contact->GetFixtureA()->GetUserData();
-        checkCollisionDataInEndContact(data);
-    }
+    GameObject::EndContact(contact);
     
-    if(contact->GetFixtureB()->GetUserData() != NULL)
-    {
-        PhysicData* data = (PhysicData*)contact->GetFixtureB()->GetUserData();
-        checkCollisionDataInEndContact(data);
-    }
+    normalAttack->EndContact(contact);
 }

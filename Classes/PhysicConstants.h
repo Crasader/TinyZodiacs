@@ -19,6 +19,7 @@
 #define MAP_BASE 0
 #define CHARACTER_BODY -1
 #define CHARACTER_FOOT_SENSOR -2
+#define PROJECTILE 1
 
 
 #endif

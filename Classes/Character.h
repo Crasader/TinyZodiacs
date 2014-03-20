@@ -23,22 +23,24 @@ class CharacterState;
 class Character: public GameObject
 {
 private:
-    float speed;
+    CharacterState* state;
+
     void setupJointSkillAndBody();
     void createFootSensor();
-    CharacterState* state;
 protected:
     int currentJumpCount;
-    void checkCollisionDataInBeginContact(PhysicData* data);
-    void checkCollisionDataInEndContact(PhysicData* data);
+    
+    void checkCollisionDataInBeginContact(PhysicData* data, b2Contact *contact);
+    void checkCollisionDataInEndContact(PhysicData* data, b2Contact *contact);
 public:
+    Character();
+    ~Character();
+    
     CC_SYNTHESIZE(int, landing, Landing);
     CC_SYNTHESIZE_READONLY(CharacterData, originCharacterData, OriginCharacterData);
     CC_SYNTHESIZE(CharacterData, characterData, characterData);
     CC_SYNTHESIZE(b2Body*, footSensor, FootSensor);
     CC_SYNTHESIZE(AbstractSkill*, normalAttack, NormalAttack);
-    
-    void setOriginCharacterData(CharacterData data);
     
     AnimationObject* runAnimation;
     AnimationObject* jumpAnimation;
@@ -49,17 +51,9 @@ public:
     AnimationObject* skill1Animation;
     AnimationObject* skill2Animation;
     
-    Character();
-    ~Character();
-    
-    virtual void setSkin(b2Body* body,cocos2d::CCSprite* sprite);
-    
+    void setOriginCharacterData(CharacterData data);
     void update(float dt);
-    
     void changeState(CharacterState* state);
-    
-    virtual void BeginContact(b2Contact *contact);
-    virtual void EndContact(b2Contact *contact);
     
     void move(Direction direction);
     void jump();
@@ -67,6 +61,10 @@ public:
     void useSkill1();
     void useSkill2();
     void stopMove();
+    
+    virtual void setSkin(b2Body* body,cocos2d::CCSprite* sprite);
+    virtual void BeginContact(b2Contact *contact);
+    virtual void EndContact(b2Contact *contact);
 };
 
 #endif /* defined(__SampleCocosProject__Character__) */
