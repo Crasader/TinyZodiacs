@@ -26,6 +26,9 @@ protected:
 public:
     CC_SYNTHESIZE(float, width, Width);
     CC_SYNTHESIZE(float, height, Height);
+    CC_SYNTHESIZE(CCParallaxNode*, parallaxBackground, ParallaxBackground);
+  
+    
     
     Map();
     virtual ~Map();
@@ -36,6 +39,8 @@ public:
     
     void addMapObject(MapObject* mapObject);
     void attachAllMapObject();
+    void addParallaxBackground(CCParallaxNode* parallaxBackground);
+ 
     
 };
 

@@ -11,6 +11,7 @@
 #include "GLES-Render.h"
 #include "ObjectFactory.h"
 #include "GameBackgroundLayer.h"
+#include "LayerIndexConstants.h"
 
 USING_NS_CC;
 
@@ -26,7 +27,7 @@ Map::Map()
 
 Map::~Map()
 {
-    CC_SAFE_DELETE(listMapObject);
+    CC_SAFE_RELEASE_NULL(listMapObject);
 }
 
 bool Map::init()
@@ -35,19 +36,7 @@ bool Map::init()
     {
         return false;
     }
-    //SIZE MAP
-    this->width = 2000;
-    this->height = 1000;
-    
-    
-    GameBackgroundLayer* backgroundLayer = GameBackgroundLayer::create();
-
-    this->addChild(backgroundLayer);
-    
-    
-    
-    // character2->run();
-    
+  
     return true;
 }
 
@@ -68,7 +57,7 @@ void Map::update(float dt)
 
 void Map::addMapObject(MapObject *mapObject)
 {
-    if(mapObject!=NULL)
+    if(mapObject != NULL)
     {
         this->listMapObject->addObject(mapObject);
     }
@@ -82,10 +71,15 @@ void Map::attachAllMapObject()
     CCARRAY_FOREACH(listMapObject,object)
     {
         MapObject* mapObject = (MapObject*)object;
-       // mapObject->getSprite()->setPosition(ccp(2000,2000));
+      //  mapObject->getSprite()->setPosition(ccp(2000,2000));
         batchNode->addChild(mapObject->getSprite());
         
     }
     
-    this->addChild(batchNode,1);
+    this->addChild(batchNode,MAPOBJECT_LAYER);
+}
+
+void Map::addParallaxBackground(CCParallaxNode* parallaxBackground)
+{
+    this->addChild(parallaxBackground, BACKGROUND_LAYER);
 }
