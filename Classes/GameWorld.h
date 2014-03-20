@@ -37,7 +37,8 @@ public:
     CC_SYNTHESIZE(Character*, character, Character);
     CC_SYNTHESIZE(Map*, map, map);
     
-    GameWorld(float bottom, float left, float width, float height);
+    GameWorld();
+    virtual ~GameWorld();
     
     
     virtual void update(float dt);
@@ -50,6 +51,7 @@ public:
     
     void setContactListener(b2ContactListener* listener);
     
+    CREATE_FUNC(GameWorld);
 };
 
 #endif /* defined(__Headball__GameWorld__) */

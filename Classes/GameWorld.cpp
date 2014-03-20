@@ -12,14 +12,20 @@
 #include "MapCreator.h"
 #include "MapObjectDTO.h"
 #include "MapFactory.h"
+#include "GameBackgroundLayer.h"
+#include "LayerIndexConstants.h"
 
-GameWorld::GameWorld(float bottom, float left, float width, float height)
+GameWorld::GameWorld()
 {
-    this->bottom = bottom;
-    this->left = left;
-    this->width = width;
-    this->height = height;
-    init();
+    this->width = 0;
+    this->height = 0;
+}
+
+GameWorld::~GameWorld()
+{
+    //CC_SAFE_RELEASE_NULL(this->map);
+//    this->world->ClearForces();
+ //   delete this->world;
 }
 
 bool GameWorld::init()
@@ -48,24 +54,21 @@ bool GameWorld::init()
     
     
     
-    this->addChild(map,1);
+    this->addChild(map,MAP_LAYER);
+   
     
     delete mapCreator;
     
-    
-    this->scheduleUpdate();
-     
-    
     //CHARACTER
     this->character = ObjectFactory::getSharedManager()->createCharacter("map2", world);
-    this->addChild(character->getSprite(),2);
-    this->character->setPositionInPixel(ccp(400,400));
+    this->addChild(character->getSprite(), CHARACTER_LAYER);
+    this->character->setPositionInPixel(ccp(400,800));
     this->setFollowCharacter(true);
     //this->map->scheduleUpdate();
     
     //
     createWorldBox();
-    
+
 
     return true;
 }
@@ -146,11 +149,11 @@ void GameWorld::update(float dt)
     if(this->world != NULL)
     {
         
-        world->Step(1/60.000f,8, 3);
+        world->Step(1/40.000f,8, 3);
         
     }
     
-    // this->map->update(dt);
+    this->map->update(dt);
     this->character->update(dt);
     
 }
