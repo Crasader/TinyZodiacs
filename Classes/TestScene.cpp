@@ -14,6 +14,7 @@
 #include "GameBackgroundLayer.h"
 #include "GameObjectLayer.h"
 #include "GameMenuLayer.h"
+#include "LayerIndexConstants.h"
 
 USING_NS_CC;
 
@@ -36,8 +37,7 @@ bool TestScene::init()
     menuBack->setPosition(CCPointZero);
  //   this->addChild(menuBack, 1);
     
-    GameManager::getSharedManager()->loadResource();
-    initScene();
+        initScene();
     
     
     return true;
@@ -59,10 +59,11 @@ CCScene* TestScene::scene()
     
     
     GameObjectLayer* objectLayer = GameObjectLayer::create();
-    scene->addChild(objectLayer, 1, 3);
+    scene->addChild(objectLayer, GAME_OBJECT_LAYER, 3);
     
     GameMenuLayer* menuLayer = GameMenuLayer::create();
-    scene->addChild(menuLayer, 1, 4);
+    scene->addChild(menuLayer, GAME_MENU_LAYER, 4);
+    
     
     // return the scene
     return scene;

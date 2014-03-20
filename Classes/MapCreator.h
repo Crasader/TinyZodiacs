@@ -17,6 +17,8 @@
 #include "Map.h"
 #include "ObjectFactory.h"
 #include "MapFactory.h"
+#include "MapParallaxBackground.h"
+#include "BackgroundDTO.h"
 
 
 
@@ -31,7 +33,8 @@ public:
     
     Map* createMap(const char *id, GameWorld* gameWorld);
     Map* createMap(MapDTO* mapDTO, GameWorld* gameWorld);
-   
+    MapParallaxBackground* createParallaxBackground(CCArray* listBackgroundDTO, float width, float height);
+       
     
     
 };

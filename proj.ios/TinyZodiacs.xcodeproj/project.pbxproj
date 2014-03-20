@@ -253,6 +253,9 @@
 		F50BD49618D8765F00A892E6 /* background1_spritesheet.plist in Resources */ = {isa = PBXBuildFile; fileRef = F50BD49218D8765F00A892E6 /* background1_spritesheet.plist */; };
 		F50BD49718D8765F00A892E6 /* background1_spritesheet.png in Resources */ = {isa = PBXBuildFile; fileRef = F50BD49318D8765F00A892E6 /* background1_spritesheet.png */; };
 		F53ACBAF18D831C700F958A8 /* map2.xml in Resources */ = {isa = PBXBuildFile; fileRef = F53ACBAE18D831C700F958A8 /* map2.xml */; };
+		F544FB9918D93CC100A818DF /* map2_body.plist in Resources */ = {isa = PBXBuildFile; fileRef = F544FB9818D93CC100A818DF /* map2_body.plist */; };
+		F544FB9C18D950C500A818DF /* MapParallaxBackground.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F544FB9A18D950C500A818DF /* MapParallaxBackground.cpp */; };
+		F544FB9F18D9567B00A818DF /* BackgroundDTO.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F544FB9D18D9567B00A818DF /* BackgroundDTO.cpp */; };
 		F54AE9B518D2F1AA00194E66 /* CharacterIdleState.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F54AE99F18D2F1AA00194E66 /* CharacterIdleState.cpp */; };
 		F54AE9B618D2F1AA00194E66 /* CharacterMidAirState.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F54AE9A018D2F1AA00194E66 /* CharacterMidAirState.cpp */; };
 		F54AE9B718D2F1AA00194E66 /* CharacterAttackState.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F54AE9A118D2F1AA00194E66 /* CharacterAttackState.cpp */; };
@@ -290,7 +293,6 @@
 		F54AEA0D18D2F50300194E66 /* PhysicData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F54AEA0A18D2F50300194E66 /* PhysicData.cpp */; };
 		F54AEA0E18D2F50300194E66 /* ObjectData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F54AEA0B18D2F50300194E66 /* ObjectData.cpp */; };
 		F54AEA8918D2F9F200194E66 /* Map.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F54AEA8718D2F9F200194E66 /* Map.cpp */; };
-		F55E865E18D84E9200246F02 /* map2_body.plist in Resources */ = {isa = PBXBuildFile; fileRef = F55E865D18D84E9200246F02 /* map2_body.plist */; };
 		F561F28618D8028600DD4598 /* MapFactory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F561F28318D8028600DD4598 /* MapFactory.cpp */; };
 		F561F28718D8028600DD4598 /* XMLMapParser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F561F28418D8028600DD4598 /* XMLMapParser.cpp */; };
 		F561F28D18D802A500DD4598 /* MapDTO.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F561F28918D802A500DD4598 /* MapDTO.cpp */; };
@@ -817,6 +819,11 @@
 		F50BD49218D8765F00A892E6 /* background1_spritesheet.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = background1_spritesheet.plist; sourceTree = "<group>"; };
 		F50BD49318D8765F00A892E6 /* background1_spritesheet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background1_spritesheet.png; sourceTree = "<group>"; };
 		F53ACBAE18D831C700F958A8 /* map2.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = map2.xml; sourceTree = "<group>"; };
+		F544FB9818D93CC100A818DF /* map2_body.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = map2_body.plist; sourceTree = "<group>"; };
+		F544FB9A18D950C500A818DF /* MapParallaxBackground.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MapParallaxBackground.cpp; sourceTree = "<group>"; };
+		F544FB9B18D950C500A818DF /* MapParallaxBackground.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapParallaxBackground.h; sourceTree = "<group>"; };
+		F544FB9D18D9567B00A818DF /* BackgroundDTO.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BackgroundDTO.cpp; sourceTree = "<group>"; };
+		F544FB9E18D9567B00A818DF /* BackgroundDTO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BackgroundDTO.h; sourceTree = "<group>"; };
 		F54AE99F18D2F1AA00194E66 /* CharacterIdleState.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CharacterIdleState.cpp; path = ../Classes/CharacterIdleState.cpp; sourceTree = "<group>"; };
 		F54AE9A018D2F1AA00194E66 /* CharacterMidAirState.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CharacterMidAirState.cpp; path = ../Classes/CharacterMidAirState.cpp; sourceTree = "<group>"; };
 		F54AE9A118D2F1AA00194E66 /* CharacterAttackState.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CharacterAttackState.cpp; path = ../Classes/CharacterAttackState.cpp; sourceTree = "<group>"; };
@@ -893,7 +900,6 @@
 		F54AEA0B18D2F50300194E66 /* ObjectData.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ObjectData.cpp; path = ../Classes/ObjectData.cpp; sourceTree = "<group>"; };
 		F54AEA8718D2F9F200194E66 /* Map.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Map.cpp; path = ../Classes/Map.cpp; sourceTree = "<group>"; };
 		F54AEA8818D2F9F200194E66 /* Map.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Map.h; path = ../Classes/Map.h; sourceTree = "<group>"; };
-		F55E865D18D84E9200246F02 /* map2_body.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = map2_body.plist; sourceTree = "<group>"; };
 		F561F28218D8028600DD4598 /* MapFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapFactory.h; sourceTree = "<group>"; };
 		F561F28318D8028600DD4598 /* MapFactory.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MapFactory.cpp; sourceTree = "<group>"; };
 		F561F28418D8028600DD4598 /* XMLMapParser.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = XMLMapParser.cpp; sourceTree = "<group>"; };
@@ -916,6 +922,7 @@
 		F5C89E0A18D2FF42006E909D /* map_spritesheet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = map_spritesheet.png; sourceTree = "<group>"; };
 		F5C89E0E18D2FF9A006E909D /* 2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 2.png; sourceTree = "<group>"; };
 		F5C89E0F18D2FF9A006E909D /* 1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1.png; sourceTree = "<group>"; };
+		F5CB2F0D18DA9A930035D27B /* LayerIndexConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LayerIndexConstants.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1970,6 +1977,8 @@
 				F54AE9DF18D2F33E00194E66 /* Monster.cpp */,
 				F54AE9DE18D2F33E00194E66 /* Monster.h */,
 				F54AE97118D2F08D00194E66 /* States */,
+				F544FB9A18D950C500A818DF /* MapParallaxBackground.cpp */,
+				F544FB9B18D950C500A818DF /* MapParallaxBackground.h */,
 			);
 			name = Objects;
 			sourceTree = "<group>";
@@ -1978,6 +1987,7 @@
 			isa = PBXGroup;
 			children = (
 				F54AE9C918D2F25100194E66 /* PhysicConstants.h */,
+				F5CB2F0D18DA9A930035D27B /* LayerIndexConstants.h */,
 			);
 			name = Constants;
 			sourceTree = "<group>";
@@ -2106,6 +2116,8 @@
 				F561F28A18D802A500DD4598 /* MapDTO.h */,
 				F561F28B18D802A500DD4598 /* MapObjectDTO.cpp */,
 				F561F28C18D802A500DD4598 /* MapObjectDTO.h */,
+				F544FB9D18D9567B00A818DF /* BackgroundDTO.cpp */,
+				F544FB9E18D9567B00A818DF /* BackgroundDTO.h */,
 			);
 			name = DTO;
 			sourceTree = "<group>";
@@ -2177,7 +2189,7 @@
 		F5C89E0018D2FCF2006E909D /* Body */ = {
 			isa = PBXGroup;
 			children = (
-				F55E865D18D84E9200246F02 /* map2_body.plist */,
+				F544FB9818D93CC100A818DF /* map2_body.plist */,
 				F5C89E0118D2FD2A006E909D /* body.plist */,
 				F5C89E0218D2FD2A006E909D /* map_body.plist */,
 			);
@@ -2264,10 +2276,10 @@
 			files = (
 				7855E0E1153FEF240059DD9A /* Default.png in Resources */,
 				D4EF949A15BD2D8B00D803EB /* Icon-57.png in Resources */,
+				F544FB9918D93CC100A818DF /* map2_body.plist in Resources */,
 				D4EF949C15BD2D8E00D803EB /* Icon-114.png in Resources */,
 				F5C89E0C18D2FF42006E909D /* map_spritesheet.png in Resources */,
 				F50BD49418D8765F00A892E6 /* background2_spritesheet.plist in Resources */,
-				F55E865E18D84E9200246F02 /* map2_body.plist in Resources */,
 				F5C89E0418D2FD2A006E909D /* map_body.plist in Resources */,
 				F5C89E0B18D2FF42006E909D /* map_spritesheet.plist in Resources */,
 				F5C89DFF18D2FCE9006E909D /* monkey_spritesheet.png in Resources */,
@@ -2443,6 +2455,7 @@
 				15A3DA511682F826002FB0C5 /* CCControlSwitch.cpp in Sources */,
 				15A3DA521682F826002FB0C5 /* CCControlUtils.cpp in Sources */,
 				375BD4C41868411B0024609E /* TriggerBase.cpp in Sources */,
+				F544FB9C18D950C500A818DF /* MapParallaxBackground.cpp in Sources */,
 				15A3DA531682F826002FB0C5 /* CCInvocation.cpp in Sources */,
 				F54AEA0418D2F4C100194E66 /* GameObjectLayer.cpp in Sources */,
 				15A3DA541682F826002FB0C5 /* CCScale9Sprite.cpp in Sources */,
@@ -2458,6 +2471,7 @@
 				15A3DA5F1682F826002FB0C5 /* CCPhysicsSprite.cpp in Sources */,
 				15A3DAEB1682F8A6002FB0C5 /* CDAudioManager.m in Sources */,
 				15A3DAEC1682F8A6002FB0C5 /* CDOpenALSupport.m in Sources */,
+				F544FB9F18D9567B00A818DF /* BackgroundDTO.cpp in Sources */,
 				F54AE9D718D2F2B400194E66 /* ObjectFactory.cpp in Sources */,
 				15A3DAED1682F8A6002FB0C5 /* CocosDenshion.m in Sources */,
 				15A3DAEE1682F8A6002FB0C5 /* SimpleAudioEngine.mm in Sources */,

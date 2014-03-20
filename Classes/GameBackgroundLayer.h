@@ -19,10 +19,13 @@ public:
     virtual ~GameBackgroundLayer();
     virtual bool init();
     
+    cocos2d::CCParallaxNode* parallaxBackgroundNode2;
+    
     CREATE_FUNC(GameBackgroundLayer);
     void scrollBackground(cocos2d::CCObject *pSender);
     
 private:
     cocos2d::CCParallaxNode* parallaxBackgroundNode;
+    
 };
 #endif /* defined(__SampleCocosProject__GameBackgroundLayer__) */

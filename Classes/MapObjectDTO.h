@@ -12,10 +12,8 @@
 #include <iostream>
 #include "Cocos2d.h"
 
-
 using namespace std;
 USING_NS_CC;
-
 
 class MapObjectDTO: public CCObject
 {

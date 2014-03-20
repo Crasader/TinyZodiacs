@@ -14,6 +14,7 @@ USING_NS_CC;
 GameBackgroundLayer::GameBackgroundLayer()
 {
     parallaxBackgroundNode = CCParallaxNode::create();
+    parallaxBackgroundNode2 =CCParallaxNode::create();
 }
 
 GameBackgroundLayer::~GameBackgroundLayer()
@@ -28,34 +29,6 @@ bool GameBackgroundLayer::init()
         return false;
     }
    
-    for(int i=0;i<5;i++)
-    {
-        CCSprite* background1 = CCSprite::createWithSpriteFrameName("background2.jpg");
-        background1->setAnchorPoint(ccp(0,0));
-       
-     
-        CCSprite* background2 = CCSprite::createWithSpriteFrameName("background1.png");
-        background2->setAnchorPoint(ccp(0,0));
-//
-        
-        parallaxBackgroundNode->addChild(background1, 0, ccp(0.1f,1), ccp(0+(background1->getContentSize().width-1)*i,80));
-        parallaxBackgroundNode->addChild(background2, 4, ccp(0.9f,1.09f), ccp(0+(background2->getContentSize().width-1)*i,84));
-//        parallaxBackgroundNode->addChild(background3, 3, ccp(0.6f,1.07f), ccp(0+(background2_2->getContentSize().width*background3->getScaleX()-1)*i,84));
-       
-
-
-//        
-        parallaxBackgroundNode->setAnchorPoint(ccp(0,0));
-        
-        
-        
-       
-
-    }
-  
- 
-    
-    this->addChild(parallaxBackgroundNode);
        return true;
     
 }

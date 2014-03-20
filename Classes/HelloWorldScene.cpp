@@ -1,5 +1,6 @@
 #include "HelloWorldScene.h"
 #include "TestScene.h"
+#include "GameManager.h"
 
 USING_NS_CC;
 
@@ -27,7 +28,7 @@ bool HelloWorld::init()
     {
         return false;
     }
-    
+    GameManager::getSharedManager()->loadResource();
     CCSize visibleSize = CCDirector::sharedDirector()->getVisibleSize();
     CCPoint origin = CCDirector::sharedDirector()->getVisibleOrigin();
     
@@ -92,7 +93,8 @@ bool HelloWorld::init()
     
     // add the sprite as a child to this layer
     this->addChild(this->sprite);
-    
+ 
+
     return true;
 }
 

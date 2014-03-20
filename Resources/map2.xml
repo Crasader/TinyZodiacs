@@ -1,8 +1,13 @@
 <map id="map2" width="8000" height="1543">
+    <background_list>
+        <background image_name="background1.png" spritesheet_name="background2_spritesheet.png" ratio_x="0.5" ratio_y="1.09" order="2"/>
+        <background image_name="background2.jpg" spritesheet_name="background1_spritesheet.png" ratio_x="0.1" ratio_y="1" order="1"/>
+         <background image_name="background1.png" spritesheet_name="background2_spritesheet.png"  ratio_x="0.9" ratio_y="1.09" order="3"/>
+    </background_list>
     <map_object_list>
-        <map_object id="23" image_name="map.png" body_name="map1">
-            <position x="1300" y="700"/>
+        <map_object id="23" image_name="map.png" body_name="map2">
+            <position x="0" y="0"/>
         </map_object>
         
-           </map_object_list>
+    </map_object_list>
 </map>

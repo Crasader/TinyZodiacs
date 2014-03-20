@@ -13,6 +13,7 @@
 #include "cocos2d.h"
 
 USING_NS_CC;
+using namespace std;
 
 class MapDTO: public CCObject
 {
@@ -20,10 +21,14 @@ public:
     MapDTO();
     virtual ~MapDTO();
     virtual bool init();
-    std::string id;
+    
+    string id;
     float width;
     float height;
-    CCArray* listMapObject;
+    
+    
+    CCArray* listMapObjectDTO;
+    CCArray* listBackgroundDTO;
     
     CREATE_FUNC(MapDTO);
 };
