@@ -78,11 +78,11 @@ void Character::move(Direction direction)
         b2Vec2 impulse = this->body->GetLinearVelocity();
         if(direction == LEFT)
         {
-            impulse.x = -5;
+            impulse.x = -10;
         }
         else
         {
-            impulse.x = 5;
+            impulse.x = 10;
         }
         this->body->SetLinearVelocity(impulse);
         flipDirection(direction);
