@@ -24,6 +24,7 @@ GameObjectLayer::GameObjectLayer()
 
 GameObjectLayer::~GameObjectLayer()
 {
+    CC_SAFE_RELEASE_NULL(this->gameWorld);
     delete this->characterActionEngine;
 }
 
@@ -34,12 +35,14 @@ bool GameObjectLayer::init()
     {
         return false;
     }
-
       
-    this->gameWorld = new GameWorld(0,0,2000,2000);
+    this->gameWorld = GameWorld::create();
+    
     this->addChild(gameWorld);
     
     this->characterActionEngine = new CharacterActionEngine(this->gameWorld->getCharacter());
+    
+    this->scheduleUpdate();
     
     return true;
 }
@@ -50,7 +53,7 @@ void GameObjectLayer::draw()
 
 void GameObjectLayer::update(float dt)
 {
-     // this->gameWorld->update(dt);
+      this->gameWorld->update(dt);
 }
 
 void GameObjectLayer::MoveSprite(float x, float y)
@@ -60,9 +63,11 @@ void GameObjectLayer::MoveSprite(float x, float y)
 
 void GameObjectLayer::MoveSpriteUp()
 {
-
-//  this->gameWorld->getCharacter()->jump();
+   // CC_SAFE_RELEASE(this->gameWorld);
+ // this->gameWorld->getCharacter()->jump();
     this->characterActionEngine->jump();
+    
+//CC_SAFE_RELEASE(this->gameWorld);
 }
 
 void GameObjectLayer::MoveSpriteDown()
