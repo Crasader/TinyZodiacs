@@ -113,15 +113,10 @@ MapObject* ObjectFactory::createMapObject(const char *idMapObject, b2World *worl
 
 MapObject* ObjectFactory::createMapObject(MapObjectDTO* mapObjectDTO, b2World *world)
 {
-    MapObject* mapObject = NULL;
-    
-    mapObject = MapObject::create();
-    mapObject->retain();
-    
-    
-    
+    MapObject* mapObject = mapObject = MapObject::create();
+   
     //sprite
-    CCSprite* sprite=CCSprite::createWithSpriteFrameName(mapObjectDTO->imageName.c_str());
+    CCSprite* sprite = CCSprite::createWithSpriteFrameName(mapObjectDTO->imageName.c_str());
     
     
     //body
@@ -135,6 +130,7 @@ MapObject* ObjectFactory::createMapObject(MapObjectDTO* mapObjectDTO, b2World *w
     gbox2d::GB2ShapeCache *sc =  gbox2d::GB2ShapeCache::sharedGB2ShapeCache();
     sc->addFixturesToBody(body, mapObjectDTO->bodyName.c_str());
     sprite->setAnchorPoint(sc->anchorPointForShape(mapObjectDTO->bodyName.c_str()));
+    
     
     //set data id
     body->SetUserData((void *) MAP_BASE);
