@@ -29,7 +29,9 @@ public:
     
     virtual void excute();
     virtual void stop();
-    virtual void Update(float dt);
+    virtual void update(float dt);
+    virtual void BeginContact(b2Contact *contact);
+    virtual void EndContact(b2Contact *contact);
 
 };
 #endif /* defined(__TinyZodiacs__NormalShootingAttack__) */

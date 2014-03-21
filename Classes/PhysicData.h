@@ -15,6 +15,8 @@ class PhysicData
 private:
 protected:
 public:
+    PhysicData();
+    
     int Id;
     void* Data;
 };

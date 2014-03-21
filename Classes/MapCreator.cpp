@@ -44,7 +44,7 @@ Map* MapCreator::createMap(const char *id, GameWorld* gameWorld)
     }
     
     //create background
-    map->addParallaxBackground(createParallaxBackground(mapDTO->listBackgroundDTO,mapDTO->width,mapDTO->height));
+  //  map->addParallaxBackground(createParallaxBackground(mapDTO->listBackgroundDTO,mapDTO->width,mapDTO->height));
     return map;
 }
 

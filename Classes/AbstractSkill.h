@@ -30,7 +30,7 @@ public:
     virtual void stop() =0;
     virtual void BeginContact(b2Contact *contact);
     virtual void EndContact(b2Contact *contact);
-    virtual void Update(float dt)=0;
+    virtual void update(float dt)=0;
     
     CC_SYNTHESIZE(GameObject* , holder, Holder);
     CC_SYNTHESIZE(SkillData, data, Data);

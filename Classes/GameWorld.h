@@ -16,11 +16,13 @@
 #include "Character.h"
 #include "Map.h"
 #include "NormalAttack.h"
+#include "PhysicBodyManager.h"
 
 USING_NS_CC;
 class GameWorld: public CCNode, public b2ContactListener
 {
 private:
+    PhysicBodyManager* manager;
 protected:
     bool init();
     void createWorldBox();

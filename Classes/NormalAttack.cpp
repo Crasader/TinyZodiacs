@@ -54,25 +54,41 @@ NormalAttack::NormalAttack(GameObject* holder)
 
 NormalAttack::~NormalAttack()
 {
-    AbstractSkill::~AbstractSkill();
+    
 }
 
 void NormalAttack::BeginContact(b2Contact *contact)
 {
-    
+    CCLOG("Attack begin");
 }
 
 void NormalAttack::EndContact(b2Contact *contact)
 {
-    
+    CCLOG("Attack end");
 }
 
+void NormalAttack::update(float dt)
+{
+    
+}
 
 void NormalAttack::excute()
 {
     this->data.getSkillSensor()->SetActive(true);   
 }
+
 void NormalAttack::stop()
 {
     this->data.getSkillSensor()->SetActive(false);
 }
+
+void NormalAttack::checkCollisionDataInBeginContact(PhysicData* data, b2Contact *contact)
+{
+    
+}
+
+void NormalAttack::checkCollisionDataInEndContact(PhysicData* data, b2Contact *contact)
+{
+    
+}
+

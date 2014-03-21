@@ -8,28 +8,44 @@
 
 #include "NormalProjectile.h"
 
+NormalProjectile::NormalProjectile()
+{
+    
+}
+
 NormalProjectile::~NormalProjectile()
 {
-    if(this->getBody() != NULL)
-    {
-        this->getBody()->SetActive(false);
-        this->getBody()->GetWorld()->DestroyBody(this->getBody());
-    }
+
+}
+
+bool NormalProjectile::init()
+{
+    return true;
+}
+
+void NormalProjectile::BeginContact(b2Contact *contact)
+{
+    CCLOG("Projectile begin");
+}
+
+void NormalProjectile::EndContact(b2Contact *contact)
+{
+    CCLOG("Projectile end");
+    remove();
 }
 
 void NormalProjectile::checkCollisionDataInBeginContact(PhysicData* data)
 {
-    switch (data->Id) {
-        case PROJECTILE:
-            delete this;
-            break;
-            
-        default:
-            break;
-    }
+
 }
 
 void NormalProjectile::checkCollisionDataInEndContact(PhysicData* data)
 {
     
+}
+
+void NormalProjectile::remove()
+{
+    PhysicBodyManager::getInstance()->addBody(this->body);
+    delete this;
 }

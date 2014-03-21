@@ -21,5 +21,5 @@ MapObject::~MapObject()
 
 void MapObject::update(float dt)
 {
-    GameObject::update(dt);
+//    GameObject::update(dt);
 }

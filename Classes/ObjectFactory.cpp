@@ -146,7 +146,10 @@ MapObject* ObjectFactory::createMapObject(MapObjectDTO* mapObjectDTO, b2World *w
     
     
     //set data id
-    body->SetUserData((void *) MAP_BASE);
+    PhysicData* data = new PhysicData();
+    data->Id = MAP_BASE;
+    
+    body->SetUserData(data);
     
     mapObject->setSkin(body, sprite);
     mapObject->setPositionInPixel(ccp(mapObjectDTO->x,mapObjectDTO->y));

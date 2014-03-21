@@ -17,6 +17,8 @@ class NormalAttack: public AbstractSkill
 {
 private:
 protected:
+    virtual void checkCollisionDataInBeginContact(PhysicData* data, b2Contact *contact);
+    virtual void checkCollisionDataInEndContact(PhysicData* data, b2Contact *contact);
 public:
     NormalAttack();
     NormalAttack(GameObject* holder);
@@ -24,6 +26,7 @@ public:
     
     virtual void excute();
     virtual void stop();
+    virtual void update(float dt);
     virtual void BeginContact(b2Contact *contact);
     virtual void EndContact(b2Contact *contact);
 };

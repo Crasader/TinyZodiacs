@@ -68,7 +68,9 @@ bool GameWorld::init()
     
     //
     createWorldBox();
-
+    //
+    manager = PhysicBodyManager::getInstance();
+    manager->setWorld(this->world);
 
     return true;
 }
@@ -148,9 +150,8 @@ void GameWorld::update(float dt)
 {
     if(this->world != NULL)
     {
-        
+        manager->update(dt);
         world->Step(1/40.000f,8, 3);
-        
     }
     
     this->map->update(dt);
