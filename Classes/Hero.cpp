@@ -19,6 +19,8 @@ bool Hero::init()
     {
         return false;
     }
+    this->sprite = CCSprite::create();
+    
     return true;
 }
 
@@ -36,13 +38,4 @@ Hero::~Hero()
     {
         this->ghostAnimation->release();
     }
-}
-
-void Hero::BeginContact(b2Contact *contact)
-{
-    
-}
-void Hero::EndContact(b2Contact *contact)
-{
-    
 }

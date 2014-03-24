@@ -13,6 +13,7 @@
 #include "PhysicConstants.h"
 #include "CharacterData.h"
 #include "NormalShootingAttack.h"
+#include "CharacterFactory.h"
 
 USING_NS_CC;
 enum _entityCategory {
@@ -46,46 +47,51 @@ ObjectFactory* ObjectFactory::getSharedManager()
 Character* ObjectFactory::createCharacter(const std::string &name, b2World *world)
 {
     
-    Character* character = NULL;
-    character = new Character();
+//    Character* character = NULL;
+//    character = new Character();
+//    
+//    //sprite
+//    CCSprite* sprite=CCSprite::createWithSpriteFrameName("monkey_idle_1.png");
+//    sprite->setScale(0.0f);
+//    
+//    //body
+//    
+//    b2BodyDef bodyDef;
+//    bodyDef.type = b2_dynamicBody;
+//    bodyDef.angle = ccpToAngle(ccp(0,0));
+//    bodyDef.userData = sprite;
+//    bodyDef.fixedRotation=true;
+//    
+//    b2Body *body = world->CreateBody(&bodyDef);
+//    
+//    gbox2d::GB2ShapeCache *sc =  gbox2d::GB2ShapeCache::sharedGB2ShapeCache();
+//    
+//    sc->addFixturesToBody(body, "body");
+//    sprite->setAnchorPoint(sc->anchorPointForShape("body"));
+//    b2Filter filter = body->GetFixtureList()->GetFilterData();
+//    filter.groupIndex = -2;
+//    body->GetFixtureList()->SetFilterData(filter);
+//    
+//    character->setSkin(body, sprite);
+//    //TEMP CREATE SKILL
+//    character->setNormalAttack(new NormalAttack(character));
+//    
+//    //set character data
+//    CharacterData data;
+//    data.setSpeed(10);
+//    data.setJumpHeight(50);
+//    data.setMaxJumpTimes(3);
+//    data.setAttackSpeed(0.1);
+//    
+//    
+//    
+//    character->setOriginCharacterData(data);
+//    character->attackAnimation->getAnimation()->setDelayPerUnit(data.getAttackSpeed());
+//    return character;
     
-    //sprite
-    CCSprite* sprite=CCSprite::createWithSpriteFrameName("monkey_idle_1.png");
-    sprite->setScale(0.0f);
+    Character* character = CharacterFactory::createMonkeyHero(world);
+    character->setNormalAttack(new NormalAttack(character));
     
-    //body
-    
-    b2BodyDef bodyDef;
-    bodyDef.type = b2_dynamicBody;
-    bodyDef.angle = ccpToAngle(ccp(0,0));
-    bodyDef.userData = sprite;
-    bodyDef.fixedRotation=true;
-    
-    b2Body *body = world->CreateBody(&bodyDef);
-    
-    gbox2d::GB2ShapeCache *sc =  gbox2d::GB2ShapeCache::sharedGB2ShapeCache();
-    
-    sc->addFixturesToBody(body, "body");
-    sprite->setAnchorPoint(sc->anchorPointForShape("body"));
-    b2Filter filter = body->GetFixtureList()->GetFilterData();
-    filter.groupIndex = -2;
-    body->GetFixtureList()->SetFilterData(filter);
-    
-    character->setSkin(body, sprite);
-    //TEMP CREATE SKILL
-    character->setNormalAttack(new NormalShootingAttack(character));
-    
-    //set character data
-    CharacterData data;
-    data.setSpeed(10);
-    data.setJumpHeight(10);
-    data.setMaxJumpTimes(3);
-    data.setAttackSpeed(0.1);
-    
-    
-    
-    character->setOriginCharacterData(data);
-    character->attackAnimation->getAnimation()->setDelayPerUnit(data.getAttackSpeed());
     return character;
     
 }

@@ -2,7 +2,7 @@
     <background_list>
         <background image_name="background1.png" spritesheet_name="background2_spritesheet.png" ratio_x="0.5" ratio_y="1.09" order="2"/>
         <background image_name="background2.jpg" spritesheet_name="background1_spritesheet.png" ratio_x="0.1" ratio_y="1" order="1"/>
-         <background image_name="background1.png" spritesheet_name="background2_spritesheet.png"  ratio_x="0.9" ratio_y="1.09" order="3"/>
+        <background image_name="background1.png" spritesheet_name="background2_spritesheet.png"  ratio_x="0.9" ratio_y="1.09" order="3"/>
     </background_list>
     <map_object_list>
         <map_object id="23" image_name="map.png" body_name="map2">

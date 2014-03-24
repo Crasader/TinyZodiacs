@@ -14,6 +14,7 @@
 #include "MapFactory.h"
 #include "GameBackgroundLayer.h"
 #include "LayerIndexConstants.h"
+#include "CharacterFactory.h"
 
 GameWorld::GameWorld()
 {
@@ -52,11 +53,8 @@ bool GameWorld::init()
     map = mapCreator->createMap("map2",this);
     map->attachAllMapObject();
     
-    
-    
     this->addChild(map,MAP_LAYER);
-   
-    
+
     delete mapCreator;
     
     //CHARACTER
@@ -71,7 +69,8 @@ bool GameWorld::init()
     //
     manager = PhysicBodyManager::getInstance();
     manager->setWorld(this->world);
-
+    //
+    
     return true;
 }
 
@@ -133,11 +132,6 @@ void GameWorld::createWorldBox()
     rightFixtureDef.friction=0.5;
     rightEdgeShape.Set(b2Vec2(0, 0), b2Vec2(0/PTM_RATIO,this->height/PTM_RATIO));
     this->rightLine->CreateFixture(&rightFixtureDef);
-    
-
-    
-  
-    
 }
 
 void GameWorld::setContactListener(b2ContactListener *listener){
