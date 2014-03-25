@@ -32,7 +32,7 @@ bool CharacterAttackState::onEnterState()
     
    
     this->character->getSprite()->runAction(sequence);
-     this->character->setAnchorPointForAnimation(this->character->attackAnimation->getOrigin());
+    this->character->setAnchorPointForAnimation(this->character->attackAnimation->getOrigin());
     
     //Excute attack
     this->character->getNormalAttack()->excute();

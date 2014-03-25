@@ -126,7 +126,7 @@ float CharacterFactory::readAttackSpeedData(tinyxml2::XMLElement* root)
     if(root != NULL)
     {
         string attackSpeedValue = root->GetText();
-        int value = atof(attackSpeedValue.c_str());
+        float value = atof(attackSpeedValue.c_str());
         return value;
     }
     return 0;
@@ -175,6 +175,8 @@ Hero* CharacterFactory::createHero(CharacterDTO heroDTOData, b2World* world)
     hero->idleAnimation = AnimationFactory::getSharedFactory()->getAnimationObjectByName(idle.append(IDLE).c_str());
     hero->fallAnimation = AnimationFactory::getSharedFactory()->getAnimationObjectByName(fall.append(FALL).c_str());
     hero->flyAnimation = AnimationFactory::getSharedFactory()->getAnimationObjectByName(fly.append(FLY).c_str());
+    
+    hero->attackAnimation->getAnimation()->setDelayPerUnit(hero->getOriginCharacterData().getAttackSpeed());
     
     //Create body
     b2BodyDef bodyDef;
