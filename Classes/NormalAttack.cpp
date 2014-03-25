@@ -20,7 +20,7 @@ NormalAttack::NormalAttack(GameObject* holder)
         this->holder = holder;
         
         b2PolygonShape rec;
-        rec.SetAsBox((float32)200/PTM_RATIO, (float32)200/PTM_RATIO)/*, b2Vec2(0,aabb.lowerBound.y), 0)*/;
+        rec.SetAsBox((float32)100/PTM_RATIO, (float32)100/PTM_RATIO)/*, b2Vec2(0,aabb.lowerBound.y), 0)*/;
         
         b2FixtureDef fixDef;
         fixDef.shape = &rec;
@@ -32,8 +32,11 @@ NormalAttack::NormalAttack(GameObject* holder)
         bodyDef.type=b2_dynamicBody;
         bodyDef.bullet=true;
         bodyDef.position.Set(0/PTM_RATIO, 0/PTM_RATIO);
+        bodyDef.fixedRotation = true;
+        
         this->data.setSkillSensor(this->holder->getBody()->GetWorld()->CreateBody(&bodyDef));
         this->data.getSkillSensor()->CreateFixture(&fixDef);
+        
         
         //
         //create joint
@@ -43,7 +46,9 @@ NormalAttack::NormalAttack(GameObject* holder)
         footBodyJoint.collideConnected =false;
         
         b2AABB aabb = this->holder->getBodyBoundingBox();
-        footBodyJoint.localAnchorA.Set(aabb.lowerBound.x/2,0);
+        footBodyJoint.localAnchorA.Set(aabb.upperBound.x,0);
+        footBodyJoint.localAnchorB.Set((float32)100/PTM_RATIO,0);
+        
         
         this->holder->getBody()->GetWorld()->CreateJoint(&footBodyJoint);
         

@@ -22,6 +22,7 @@ USING_NS_CC;
 class NormalProjectile: public GameObject
 {
 private:
+    int contact_count;
 protected:
     virtual void checkCollisionDataInBeginContact(PhysicData* data);
     virtual void checkCollisionDataInEndContact(PhysicData* data);

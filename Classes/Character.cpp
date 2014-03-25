@@ -140,10 +140,10 @@ void Character::createFootSensor()
     fixDef.isSensor = true;
     fixDef.density = WEIGHTLESS_DENSITY;
     
-    PhysicData* sensorData = new PhysicData();
-    sensorData->Id = CHARACTER_FOOT_SENSOR;
-    sensorData->Data = this;
-    fixDef.userData = (void*)sensorData;
+//    PhysicData* sensorData = new PhysicData();
+//    sensorData->Id = CHARACTER_FOOT_SENSOR;
+//    sensorData->Data = this;
+//    fixDef.userData = (void*)sensorData;
     //
     
     b2BodyDef bodyDef;
@@ -158,10 +158,16 @@ void Character::createFootSensor()
     footBodyJoint.bodyA = this->body;
     footBodyJoint.bodyB = this->footSensor;
     footBodyJoint.collideConnected =false;
-    footBodyJoint.localAnchorA.Set(0, aabb.lowerBound.y);
+    footBodyJoint.localAnchorA.Set((aabb.lowerBound.x+aabb.upperBound.x)/2, aabb.lowerBound.y);
     
     //Set foot sensor bullet
     this->footSensor->SetBullet(true);
+    
+    //
+    PhysicData* sensorData = new PhysicData();
+    sensorData->Id = CHARACTER_FOOT_SENSOR;
+    sensorData->Data = this;
+    footSensor->SetUserData(sensorData);
     
     this->body->GetWorld()->CreateJoint(&footBodyJoint);
 }

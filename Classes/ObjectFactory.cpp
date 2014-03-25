@@ -90,7 +90,7 @@ Character* ObjectFactory::createCharacter(const std::string &name, b2World *worl
 //    return character;
     
     Character* character = CharacterFactory::createMonkeyHero(world);
-    character->setNormalAttack(new NormalAttack(character));
+    character->setNormalAttack(new NormalShootingAttack(character));
     
     return character;
     
@@ -154,7 +154,7 @@ MapObject* ObjectFactory::createMapObject(MapObjectDTO* mapObjectDTO, b2World *w
     //set data id
     PhysicData* data = new PhysicData();
     data->Id = MAP_BASE;
-    
+    data->Data = NULL;
     body->SetUserData(data);
     
     mapObject->setSkin(body, sprite);

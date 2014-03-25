@@ -52,10 +52,7 @@ void NormalShootingAttack::excute()
 //        fixDef.isSensor = true;
         //
         
-        PhysicData* cdata = new PhysicData();
-        cdata->Id = PROJECTILE;
-        cdata->Data = proj;
-        fixDef.userData = cdata;
+
         
         b2BodyDef bodyDef;
         bodyDef.type=b2_dynamicBody;
@@ -82,6 +79,13 @@ void NormalShootingAttack::excute()
             body->ApplyForceToCenter(b2Vec2( 70,0));
         }
 
+        
+        PhysicData* cdata = new PhysicData();
+        cdata->Id = PROJECTILE;
+        cdata->Data = proj;
+        
+        body->SetUserData(cdata);
+        
         proj->setBody(body);
         listProjectiles->addObject(proj);
     }
@@ -109,6 +113,11 @@ void NormalShootingAttack::EndContact(b2Contact *contact)
 
 void NormalShootingAttack::checkCollisionDataInBeginContact(PhysicData* data, b2Contact *contact)
 {
+    if(data ==NULL || data->Data == NULL)
+    {
+        return;
+    }
+    
     switch (data->Id)
     {
         case PROJECTILE:
@@ -128,6 +137,11 @@ void NormalShootingAttack::checkCollisionDataInBeginContact(PhysicData* data, b2
 
 void NormalShootingAttack::checkCollisionDataInEndContact(PhysicData* data, b2Contact *contact)
 {
+    if(data ==NULL || data->Data == NULL)
+    {
+        return;
+    }
+    
     switch (data->Id) {
         case PROJECTILE:
             void* pData = data->Data;

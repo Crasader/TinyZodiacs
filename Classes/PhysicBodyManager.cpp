@@ -17,7 +17,21 @@ PhysicBodyManager::PhysicBodyManager()
 
 PhysicBodyManager::~PhysicBodyManager()
 {
-    
+    for(int i=0 ; i< listBody.size() ; i++)
+    {
+        if(listBody[i] != NULL)
+        {
+            delete listBody[i];
+        }
+    }
+}
+
+void PhysicBodyManager::release()
+{
+    if(getInstance() != NULL)
+    {
+        delete getInstance();
+    }
 }
 
 PhysicBodyManager* PhysicBodyManager::getInstance()
@@ -30,7 +44,7 @@ PhysicBodyManager* PhysicBodyManager::getInstance()
     return instance;
 }
 
-void PhysicBodyManager::addBody(b2Body *body)
+void PhysicBodyManager::addBody(GameObject *body)
 {
     this->listBody.push_back(body);
 }
@@ -41,8 +55,22 @@ void PhysicBodyManager::update(float dt)
     {
         for(int i=0 ; i< listBody.size() ; i++)
         {
-            this->world->DestroyBody(listBody[i]);
+            if(listBody[i] != NULL && listBody[i]->getBody() != NULL)
+            {
+                if(listBody[i]->getBody()->IsActive())
+                {
+                    listBody[i]->getBody()->SetActive(false);
+                }
+                else
+                {
+//                    GameObject* data = listBody[i];
+                    this->world->DestroyBody(listBody[i]->getBody());
+                    listBody[i]->setBody(NULL);
+//                    this->listBody.erase(this->listBody.begin()+i);
+//                    delete data;
+                }
+            }
         }
-        this->listBody.clear();
+//    this->listBody.clear();
     }
 }

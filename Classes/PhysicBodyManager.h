@@ -12,6 +12,7 @@
 #include <iostream>
 #include "cocos2d.h"
 #include "Box2D/Box2D.h"
+#include "GameObject.h"
 
 USING_NS_CC;
 class PhysicBodyManager
@@ -22,12 +23,14 @@ protected:
     PhysicBodyManager();
     ~PhysicBodyManager();
 public:
-    CC_SYNTHESIZE(std::vector<b2Body*>, listBody, ListBody);
+    CC_SYNTHESIZE(std::vector<GameObject*>, listBody, ListBody);
     CC_SYNTHESIZE(b2World*, world, World)
     
-    void addBody(b2Body* body);
+    void addBody(GameObject* body);
     
     void update(float dt);
+    
+    static void release();
     
     static PhysicBodyManager* getInstance();
 };

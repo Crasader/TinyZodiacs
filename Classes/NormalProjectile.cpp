@@ -10,12 +10,12 @@
 
 NormalProjectile::NormalProjectile()
 {
-    
+    contact_count=0;
 }
 
 NormalProjectile::~NormalProjectile()
 {
-
+    
 }
 
 bool NormalProjectile::init()
@@ -26,17 +26,24 @@ bool NormalProjectile::init()
 void NormalProjectile::BeginContact(b2Contact *contact)
 {
     CCLOG("Projectile begin");
+    contact_count++;
+    remove();
+
 }
 
 void NormalProjectile::EndContact(b2Contact *contact)
 {
     CCLOG("Projectile end");
-    remove();
+    contact_count--;
+    if(contact_count <= 0)
+    {
+        remove();
+    }
 }
 
 void NormalProjectile::checkCollisionDataInBeginContact(PhysicData* data)
 {
-
+    
 }
 
 void NormalProjectile::checkCollisionDataInEndContact(PhysicData* data)
@@ -46,6 +53,6 @@ void NormalProjectile::checkCollisionDataInEndContact(PhysicData* data)
 
 void NormalProjectile::remove()
 {
-    PhysicBodyManager::getInstance()->addBody(this->body);
-    delete this;
+    PhysicBodyManager::getInstance()->addBody(this);
+//    delete this;
 }

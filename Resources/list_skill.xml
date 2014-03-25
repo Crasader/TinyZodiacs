@@ -1,0 +1,20 @@
+<!--
+-1 = left/bottom
+0 = center
+1 = up/ right
+2 = rear
+ -->
+
+<skill_list>
+	<skill id="monkey_normal_attack" type="0">
+		<body>monkey_normal_attack</body>
+		<damage>100</damage>
+		<cool_down>0</cool_down>
+		<meta_data>
+			<joints>
+				<holder x="2" y="0" offset="0"></holder>
+				<this x="2" y="0" offset="0"></this>
+			</joints>
+		</meta_data>
+	</skill>
+</skill_list>
