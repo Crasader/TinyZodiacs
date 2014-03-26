@@ -15,16 +15,22 @@
 #include "GameObject.h"
 
 USING_NS_CC;
-class PhysicBodyManager
+class PhysicBodyManager: public CCNode
 {
 private:
 //    static PhysicBodyManager* instance;
 protected:
     PhysicBodyManager();
     ~PhysicBodyManager();
+    void addBodyToQueue(CCObject* pSender, void *body);
 public:
     CC_SYNTHESIZE(std::vector<GameObject*>, listBody, ListBody);
+//    CC_SYNTHESIZE(std::vector<GameObject*>, listqueue, ListQueue);
+
     CC_SYNTHESIZE(b2World*, world, World)
+    
+    virtual bool init();
+    CREATE_FUNC(PhysicBodyManager);
     
     void addBody(GameObject* body);
     

@@ -16,6 +16,7 @@
 #include "Hero.h"
 #include "GB2ShapeCache-x.h"
 #include "AnimationFactory.h"
+#include "SkillFactory.h"
 
 
 USING_NS_CC;

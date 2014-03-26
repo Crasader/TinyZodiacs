@@ -17,17 +17,21 @@
 #include "GameObject.h"
 #include "SkillData.h"
 #include "PhysicBodyManager.h"
+#include "ScheduleManager.h"
 
 USING_NS_CC;
 class NormalProjectile: public GameObject
 {
 private:
-    int contact_count;
 protected:
+    int contact_count;
+    
     virtual void checkCollisionDataInBeginContact(PhysicData* data);
     virtual void checkCollisionDataInEndContact(PhysicData* data);
     
     virtual void remove();
+    
+    bool scheduled;
 public:
     NormalProjectile();
     ~NormalProjectile();
@@ -38,5 +42,7 @@ public:
     virtual bool init();
     virtual void BeginContact(b2Contact *contact);
     virtual void EndContact(b2Contact *contact);
+    
+    virtual void excuteScheduledFunction(CCObject* pSender, void *body);
 };
 #endif /* defined(__TinyZodiacs__NormalProjectile__) */

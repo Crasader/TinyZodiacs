@@ -172,6 +172,7 @@
 		288765A50DF7441C002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765A40DF7441C002DB57D /* CoreGraphics.framework */; };
 		3412551318DAA44900D9FBA6 /* NormalProjectile.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3412551118DAA44900D9FBA6 /* NormalProjectile.cpp */; };
 		3414166218DC23A0007B8C2B /* PhysicBodyManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3414166018DC23A0007B8C2B /* PhysicBodyManager.cpp */; };
+		345F6B5318E2C71F00985A7A /* ScheduleManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 345F6B5118E2C71F00985A7A /* ScheduleManager.cpp */; };
 		3486802618D93B82001692BB /* AbstractSkill.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3486802418D93B82001692BB /* AbstractSkill.cpp */; };
 		3486802918D95FB2001692BB /* NormalShootingAttack.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3486802718D95FB2001692BB /* NormalShootingAttack.cpp */; };
 		3486802C18D97940001692BB /* SkillData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3486802A18D97940001692BB /* SkillData.cpp */; };
@@ -181,6 +182,7 @@
 		34F7F92718E136780084E87C /* skill_body.plist in Resources */ = {isa = PBXBuildFile; fileRef = 34F7F92618E136780084E87C /* skill_body.plist */; };
 		34F7F92918E15AA00084E87C /* list_skill.xml in Resources */ = {isa = PBXBuildFile; fileRef = 34F7F92818E15AA00084E87C /* list_skill.xml */; };
 		34F7F92D18E16BB70084E87C /* SkillFactory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 34F7F92B18E16BB70084E87C /* SkillFactory.cpp */; };
+		34F7F93018E194DD0084E87C /* SkillDTO.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 34F7F92E18E194DD0084E87C /* SkillDTO.cpp */; };
 		34FD845118DFCC7300373627 /* CharacterFactory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 34FD844F18DFCC7300373627 /* CharacterFactory.cpp */; };
 		34FD845618DFDCA400373627 /* character_monkey.xml in Resources */ = {isa = PBXBuildFile; fileRef = 34FD845518DFDCA400373627 /* character_monkey.xml */; };
 		34FD845B18DFE91100373627 /* CharacterDTO.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 34FD845918DFE91100373627 /* CharacterDTO.cpp */; };
@@ -671,6 +673,8 @@
 		3412551218DAA44900D9FBA6 /* NormalProjectile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NormalProjectile.h; path = ../Classes/NormalProjectile.h; sourceTree = "<group>"; };
 		3414166018DC23A0007B8C2B /* PhysicBodyManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PhysicBodyManager.cpp; sourceTree = "<group>"; };
 		3414166118DC23A0007B8C2B /* PhysicBodyManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhysicBodyManager.h; sourceTree = "<group>"; };
+		345F6B5118E2C71F00985A7A /* ScheduleManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ScheduleManager.cpp; sourceTree = "<group>"; };
+		345F6B5218E2C71F00985A7A /* ScheduleManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScheduleManager.h; sourceTree = "<group>"; };
 		3486802418D93B82001692BB /* AbstractSkill.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = AbstractSkill.cpp; path = ../Classes/AbstractSkill.cpp; sourceTree = "<group>"; };
 		3486802518D93B82001692BB /* AbstractSkill.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AbstractSkill.h; path = ../Classes/AbstractSkill.h; sourceTree = "<group>"; };
 		3486802718D95FB2001692BB /* NormalShootingAttack.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = NormalShootingAttack.cpp; path = ../Classes/NormalShootingAttack.cpp; sourceTree = "<group>"; };
@@ -686,6 +690,8 @@
 		34F7F92818E15AA00084E87C /* list_skill.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = list_skill.xml; sourceTree = "<group>"; };
 		34F7F92B18E16BB70084E87C /* SkillFactory.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SkillFactory.cpp; sourceTree = "<group>"; };
 		34F7F92C18E16BB70084E87C /* SkillFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SkillFactory.h; sourceTree = "<group>"; };
+		34F7F92E18E194DD0084E87C /* SkillDTO.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SkillDTO.cpp; sourceTree = "<group>"; };
+		34F7F92F18E194DD0084E87C /* SkillDTO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SkillDTO.h; sourceTree = "<group>"; };
 		34FD844F18DFCC7300373627 /* CharacterFactory.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CharacterFactory.cpp; sourceTree = "<group>"; };
 		34FD845018DFCC7300373627 /* CharacterFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CharacterFactory.h; sourceTree = "<group>"; };
 		34FD845518DFDCA400373627 /* character_monkey.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = character_monkey.xml; sourceTree = "<group>"; };
@@ -1622,6 +1628,8 @@
 				F54AE9D318D2F2B400194E66 /* GameManager.h */,
 				3414166018DC23A0007B8C2B /* PhysicBodyManager.cpp */,
 				3414166118DC23A0007B8C2B /* PhysicBodyManager.h */,
+				345F6B5118E2C71F00985A7A /* ScheduleManager.cpp */,
+				345F6B5218E2C71F00985A7A /* ScheduleManager.h */,
 			);
 			name = Managers;
 			sourceTree = "<group>";
@@ -2173,6 +2181,8 @@
 				F544FB9E18D9567B00A818DF /* BackgroundDTO.h */,
 				34FD845918DFE91100373627 /* CharacterDTO.cpp */,
 				34FD845A18DFE91100373627 /* CharacterDTO.h */,
+				34F7F92E18E194DD0084E87C /* SkillDTO.cpp */,
+				34F7F92F18E194DD0084E87C /* SkillDTO.h */,
 			);
 			name = DTO;
 			sourceTree = "<group>";
@@ -2626,6 +2636,7 @@
 				379BB9C317F03F3700829B88 /* UILabel.cpp in Sources */,
 				F54AE9E118D2F33E00194E66 /* Monster.cpp in Sources */,
 				379BB9C417F03F3700829B88 /* UILabelAtlas.cpp in Sources */,
+				34F7F93018E194DD0084E87C /* SkillDTO.cpp in Sources */,
 				379BB9C517F03F3700829B88 /* UILabelBMFont.cpp in Sources */,
 				F54AE9E418D2F34700194E66 /* Hero.cpp in Sources */,
 				379BB9C617F03F3700829B88 /* UILoadingBar.cpp in Sources */,
@@ -2635,6 +2646,7 @@
 				379BB9CB17F03F3700829B88 /* DictionaryHelper.cpp in Sources */,
 				379BB9D317F03F3700829B88 /* GUIReader.cpp in Sources */,
 				F54AE9BB18D2F1AA00194E66 /* CharacterSkillState.cpp in Sources */,
+				345F6B5318E2C71F00985A7A /* ScheduleManager.cpp in Sources */,
 				379BB9D417F03F3700829B88 /* SceneReader.cpp in Sources */,
 				F54AE9B518D2F1AA00194E66 /* CharacterIdleState.cpp in Sources */,
 				F54AE9EF18D2F38100194E66 /* ControllerLayer.cpp in Sources */,

@@ -86,7 +86,7 @@ void NormalShootingAttack::excute()
         
         body->SetUserData(cdata);
         
-        proj->setBody(body);
+        proj->setSkin(body, CCSprite::create());
         listProjectiles->addObject(proj);
     }
 }

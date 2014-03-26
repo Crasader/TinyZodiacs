@@ -69,10 +69,18 @@ bool GameWorld::init()
     //
     manager = PhysicBodyManager::getInstance();
     manager->setWorld(this->world);
-    //
     
+    
+    //Add manager
+    addManager();
     return true;
 }
+
+void GameWorld::addManager()
+{
+    this->addChild(ScheduleManager::getInstance());
+}
+
 
 void GameWorld::createWorldBox()
 {

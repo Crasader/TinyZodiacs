@@ -12,7 +12,7 @@ static PhysicBodyManager* instance;
 
 PhysicBodyManager::PhysicBodyManager()
 {
-    
+
 }
 
 PhysicBodyManager::~PhysicBodyManager()
@@ -24,6 +24,15 @@ PhysicBodyManager::~PhysicBodyManager()
             delete listBody[i];
         }
     }
+}
+
+bool PhysicBodyManager::init()
+{
+    if(!CCNode::init())
+    {
+        return false;
+    }
+    return true;
 }
 
 void PhysicBodyManager::release()
@@ -46,7 +55,25 @@ PhysicBodyManager* PhysicBodyManager::getInstance()
 
 void PhysicBodyManager::addBody(GameObject *body)
 {
-    this->listBody.push_back(body);
+    for(int i=0 ; i<this->listBody.size() ; i++)
+    {
+        if(body == listBody[i])
+        {
+            return;
+        }
+    }
+    
+    CCLOG("New");
+//    CCDelayTime *delayAction = CCDelayTime::create(0);
+//    CCCallFuncND *callFuncSelector = CCCallFuncND::create(NULL, callfuncND_selector(PhysicBodyManager::addBodyToQueue), body);
+//    this->runAction(CCSequence::create(delayAction,callFuncSelector));
+
+    PhysicBodyManager::getInstance()->listBody.push_back((GameObject*)body);
+}
+
+void PhysicBodyManager::addBodyToQueue(CCObject* pSender, void *body)
+{
+    PhysicBodyManager::getInstance()->listBody.push_back((GameObject*)body);
 }
 
 void PhysicBodyManager::update(float dt)
@@ -66,11 +93,11 @@ void PhysicBodyManager::update(float dt)
 //                    GameObject* data = listBody[i];
                     this->world->DestroyBody(listBody[i]->getBody());
                     listBody[i]->setBody(NULL);
-//                    this->listBody.erase(this->listBody.begin()+i);
+                    this->listBody.erase(this->listBody.begin()+i);
 //                    delete data;
                 }
             }
         }
-//    this->listBody.clear();
+    this->listBody.clear();
     }
 }

@@ -28,6 +28,12 @@ bool GameObject::init()
     return true;
 }
 
+void GameObject::excuteScheduledFunction(CCObject* pSender, void *body)
+{
+    
+}
+
+
 void GameObject::update(float dt)
 {
     updateSpritePositionWithBodyPosition();

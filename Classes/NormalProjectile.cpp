@@ -11,6 +11,7 @@
 NormalProjectile::NormalProjectile()
 {
     contact_count=0;
+    scheduled = false;
 }
 
 NormalProjectile::~NormalProjectile()
@@ -25,7 +26,7 @@ bool NormalProjectile::init()
 
 void NormalProjectile::BeginContact(b2Contact *contact)
 {
-    CCLOG("Projectile begin");
+//    CCLOG("Projectile begin");
     contact_count++;
     remove();
 
@@ -33,11 +34,14 @@ void NormalProjectile::BeginContact(b2Contact *contact)
 
 void NormalProjectile::EndContact(b2Contact *contact)
 {
-    CCLOG("Projectile end");
+//    CCLOG("Projectile end");
     contact_count--;
     if(contact_count <= 0)
     {
+        CCLOG("Add to physyc manager");
         remove();
+        contact_count=10;
+//        scheduled = true;
     }
 }
 
@@ -53,6 +57,14 @@ void NormalProjectile::checkCollisionDataInEndContact(PhysicData* data)
 
 void NormalProjectile::remove()
 {
-    PhysicBodyManager::getInstance()->addBody(this);
+//    PhysicBodyManager::getInstance()->addBody(this);
 //    delete this;
+    ScheduleManager::getInstance()->scheduleForGameObject(this, 1);
+
 }
+
+ void NormalProjectile::excuteScheduledFunction(CCObject* pSender, void *body)
+{
+    PhysicBodyManager::getInstance()->addBody((GameObject*)body);
+}
+

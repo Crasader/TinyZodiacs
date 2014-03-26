@@ -51,7 +51,6 @@ CharacterDTO CharacterFactory::loadXMLFile(const char *xmlFileName)
     data.data.setAttackSpeed(readAttackSpeedData(docElement->FirstChildElement(TAG_ATTACK_SPEED)));
     data.data.setMaxJumpTimes(readMaxJumpData(docElement->FirstChildElement(TAG_MAX_JUMP)));
     data.data.setJumpHeight(readJumpHeightData(docElement->FirstChildElement(TAG_JUMP_HEIGHT)));
-
     
     delete []pFileData;
     return data;
@@ -196,6 +195,10 @@ Hero* CharacterFactory::createHero(CharacterDTO heroDTOData, b2World* world)
     hero->setSkin(body, hero->getSprite());
     
     hero->retain();
+    
+    //
+    SkillFactory::createSkill("monkey_normal_attack", world, hero);
+
     
     return hero;
 }
