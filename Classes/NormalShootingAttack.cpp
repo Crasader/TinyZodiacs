@@ -9,8 +9,7 @@
 #include "NormalShootingAttack.h"
 NormalShootingAttack::~NormalShootingAttack()
 {
-   
-
+    CC_SAFE_RELEASE_NULL(this->listProjectiles);
 }
 
 NormalShootingAttack::NormalShootingAttack(GameObject* holder)
@@ -29,6 +28,12 @@ void NormalShootingAttack::excute()
 {
     if(holder != NULL)
     {
+        //create projectile
+//        NormalProjectile* proj = new NormalProjectile();
+        NormalProjectile* proj = NormalProjectile::create();
+
+        
+        //create arrow
         b2AABB aabb = holder->getBodyBoundingBox();
         
         b2PolygonShape rec;
@@ -37,16 +42,22 @@ void NormalShootingAttack::excute()
         vertices[1].Set(     0, -0.1f );
         vertices[2].Set(  1.0f,     0 );
         vertices[3].Set(     0,  0.1f );
+        
         rec.Set(vertices, 4);
         
         b2FixtureDef fixDef;
         fixDef.shape = &rec;
         fixDef.density = 0.24;
         fixDef.restitution=0.2;
+//        fixDef.isSensor = true;
+        //
+        
+
         
         b2BodyDef bodyDef;
         bodyDef.type=b2_dynamicBody;
         bodyDef.bullet=true;
+        
         if(holder->getDirection() == LEFT)
         {
             bodyDef.position.Set((this->holder->getPositionInPixel().x-aabb.lowerBound.x/2-100)/PTM_RATIO, this->holder->getPositionInPixel().y/PTM_RATIO);
@@ -67,20 +78,17 @@ void NormalShootingAttack::excute()
         {
             body->ApplyForceToCenter(b2Vec2( 70,0));
         }
+
         
-        //create projectile
-        NormalProjectile* proj = new NormalProjectile();
+        PhysicData* cdata = new PhysicData();
+        cdata->Id = PROJECTILE;
+        cdata->Data = proj;
+        
+        body->SetUserData(cdata);
+        
         proj->setBody(body);
-        
-        PhysicData* data = new PhysicData();
-        data->Id = PROJECTILE;
-        data->Data = proj;
-        
-        body->SetUserData(data);
-        
         listProjectiles->addObject(proj);
     }
-
 }
 
 void NormalShootingAttack::stop()
@@ -88,28 +96,64 @@ void NormalShootingAttack::stop()
     
 }
 
-void NormalShootingAttack::Update(float dt)
+void NormalShootingAttack::update(float dt)
 {
     
 }
 
+void NormalShootingAttack::BeginContact(b2Contact *contact)
+{
+    AbstractSkill::BeginContact(contact);
+}
+
+void NormalShootingAttack::EndContact(b2Contact *contact)
+{
+    AbstractSkill::EndContact(contact);
+}
+
 void NormalShootingAttack::checkCollisionDataInBeginContact(PhysicData* data, b2Contact *contact)
 {
+    if(data ==NULL || data->Data == NULL)
+    {
+        return;
+    }
+    
     switch (data->Id)
     {
         case PROJECTILE:
-            NormalProjectile* projectile = (NormalProjectile *)data->Data;
-            projectile->BeginContact(contact);
+            void* pData = data->Data;
+            NormalProjectile* projectile = (NormalProjectile *)pData;
+            if(projectile != NULL)
+            {
+                projectile->BeginContact(contact);
+            }
+            else
+            {
+                CCLOG("NULL data");
+            }
             break;
     }
 }
 
 void NormalShootingAttack::checkCollisionDataInEndContact(PhysicData* data, b2Contact *contact)
 {
+    if(data ==NULL || data->Data == NULL)
+    {
+        return;
+    }
+    
     switch (data->Id) {
         case PROJECTILE:
-            break;
-        default:
+            void* pData = data->Data;
+            NormalProjectile* projectile = (NormalProjectile *)pData;
+            if(projectile != NULL)
+            {
+                projectile->EndContact(contact);
+            }
+            else
+            {
+                CCLOG("NULL data");
+            }
             break;
     }
 }

@@ -7,3 +7,8 @@
 //
 
 #include "PhysicData.h"
+
+PhysicData::PhysicData()
+{
+    
+}

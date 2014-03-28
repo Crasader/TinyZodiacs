@@ -9,7 +9,7 @@
         <background image_name="nen.png" spritesheet_name="map2_background_spritesheet.png" layer_index="0">
             <ratio x="0.2" y="0.2"/>
         </background>
-        
+
     </background_list>
     <foreground_list>
         <foreground image_name="map1_22.png" layer_index="0">

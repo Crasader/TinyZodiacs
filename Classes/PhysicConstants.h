@@ -21,5 +21,15 @@
 #define CHARACTER_FOOT_SENSOR -2
 #define PROJECTILE 1
 
+#define JOINT_CENTER 0
+#define JOINT_TOP_OR_RIGHT 1
+#define JOINT_BOTTOM_OR_LEFT -1
+#define JOINT_REAR 2
+
+struct JointDef
+{
+    int x;
+    int y;
+};
 
 #endif

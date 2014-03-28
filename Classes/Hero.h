@@ -19,13 +19,9 @@ protected:
     Hero();
     ~Hero();
 public:
-    CC_SYNTHESIZE_RETAIN(CCAnimation*, skill2Animation, Skill2Animation);
-    CC_SYNTHESIZE_RETAIN(CCAnimation*, skill1Animation, Skill1Animation);
     CC_SYNTHESIZE_RETAIN(CCAnimation*, ghostAnimation, GhostAnimation);
     
     virtual bool init();
-    virtual void BeginContact(b2Contact *contact);
-    virtual void EndContact(b2Contact *contact);
-    
+    CREATE_FUNC(Hero);
 };
 #endif /* defined(__Headball__Hero__) */

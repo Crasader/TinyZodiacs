@@ -58,6 +58,8 @@ bool GameManager::loadResource()
     sc->addShapesWithFile("map_body.plist");
     sc->addShapesWithFile("map2_body.plist");
 
+    sc->addShapesWithFile("character_body.plist");
+
     sc->addShapesWithFile("map1_body.plist");
 
     
