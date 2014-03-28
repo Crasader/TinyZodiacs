@@ -14,11 +14,12 @@
 #define GAME_MENU_LAYER 1
 
 //Gameworld layer
-#define CHARACTER_LAYER 1
+
 #define MAP_LAYER 0
 
 //Map
 #define BACKGROUND_LAYER 0
 #define MAPOBJECT_LAYER 1
-
+#define CHARACTER_LAYER 2
+#define FOREGROUND_LAYER 3
 #endif

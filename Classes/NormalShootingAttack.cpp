@@ -9,7 +9,7 @@
 #include "NormalShootingAttack.h"
 NormalShootingAttack::~NormalShootingAttack()
 {
-    AbstractSkill::~AbstractSkill();
+   
 
 }
 
