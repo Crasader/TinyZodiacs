@@ -20,6 +20,5 @@ class SkillDTO
 private:
 protected:
 public:
-    string body;
     SkillData data;
 };

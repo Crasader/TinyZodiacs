@@ -20,6 +20,7 @@
 #define CHARACTER_BODY -1
 #define CHARACTER_FOOT_SENSOR -2
 #define PROJECTILE 1
+#define SKILL_SENSOR 2
 
 #define JOINT_CENTER 0
 #define JOINT_TOP_OR_RIGHT 1
@@ -30,6 +31,8 @@ struct JointDef
 {
     int x;
     int y;
+    int offsetX;
+    int offsetY;
 };
 
 #endif

@@ -9,12 +9,9 @@
 #include "SkillFactory.h"
 
 
-SkillDTO SkillFactory::loadXMLFile(string id, const char *xmlFileName)
+AbstractSkill* SkillFactory::loadXMLFile(const char* id, const char *xmlFileName, b2World* world, GameObject* holder)
 {
-    
     //
-    SkillDTO data;
-    
     std::string fullPath = CCFileUtils::sharedFileUtils()->fullPathForFilename(xmlFileName);
     
     unsigned long dataSize = 0;
@@ -26,7 +23,7 @@ SkillDTO SkillFactory::loadXMLFile(string id, const char *xmlFileName)
     if (!pFileData)
     {
         //        CCLOG("Empty file: %s", fullPath.c_str());
-        return data;
+        return NULL;
     }
     std::string fileContent;
     fileContent.assign(reinterpret_cast<const char*>( pFileData), dataSize);
@@ -35,49 +32,59 @@ SkillDTO SkillFactory::loadXMLFile(string id, const char *xmlFileName)
     if( document.Parse(fileContent.c_str()) != XML_NO_ERROR)
     {
         CCLOG("Cannot parse file: %s", fullPath.c_str());
-        return data;
+        return NULL;
     }
     
     //Parse data
     XMLElement* root = document.FirstChildElement();
-    const XMLElement* child = SkillFactory::loadElementById(id, root);
-   
-    if(child != NULL)
-    {
-        CCLOG("%s", child->Attribute("id"));
-    }
-    else
-    {
-        CCLOG("NULL CMNR");
-    }
     
+    //get child with id
+    const XMLElement* result = loadElementById(id, root);
+    
+    if(result != NULL)
+    {
+        int type = readSkillType(result);
+        CCLOG("type %d",type);
+        
+        switch (type) {
+            case SKILL_TYPE_0:
+                NormalAttack* normalAttack = new NormalAttack(holder, SkillType0Parser::parse(result, world));
+                return normalAttack;
+                break;
+        }
+    }
     delete []pFileData;
-    return data;
+    return NULL;
 }
 
-const XMLElement* SkillFactory::loadElementById(string id, const XMLElement* root)
+const XMLElement* SkillFactory::loadElementById(const char* id, const XMLElement* root)
 {
-    char* tag = (char*)TAG_SKILL;
-    const XMLElement* child = root->FirstChildElement(tag);
-    
-    do
+    const XMLElement* child = root->FirstChildElement(TAG_SKILL);
+    while(child != NULL)
     {
-        char* id_tag = (char*)ATTRIBUTE_ID;
-        if(child->Attribute(id_tag) == id.c_str())
+        if(strcmp(id, child->Attribute(ATTRIBUTE_ID))==0)
         {
-            return child;
+            return  child;
         }
         child = child->NextSiblingElement();
     }
-    while(child -> NextSiblingElement() != NULL);
     return NULL;
 }
 
-
-AbstractSkill* SkillFactory::createSkill(string id, b2World* world, GameObject* holder)
+int SkillFactory::readSkillType(const XMLElement* root)
 {
-    loadXMLFile(id, "list_skill.xml");
-    return NULL;
+    if(root != NULL)
+    {
+        string typeValue = root->Attribute(ATTRIBUTE_ID);
+        int value = atoi(typeValue.c_str());
+        return value;
+    }
+    return -1;
+}
+
+AbstractSkill* SkillFactory::createSkill(const char* id, b2World* world, GameObject* holder)
+{
+    return loadXMLFile(id, "list_skill.xml", world, holder);
 }
 
 

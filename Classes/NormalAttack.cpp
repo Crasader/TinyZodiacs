@@ -7,59 +7,51 @@
 //
 
 #include "NormalAttack.h"
+#include "Util.h"
+#include "ScheduleManager.h"
 
-NormalAttack::NormalAttack()
-{
-    
-}
-
-NormalAttack::NormalAttack(GameObject* holder)
+NormalAttack::NormalAttack(GameObject* holder, NormalMeleeSkillData data)
 {
     if(holder != NULL)
     {
         this->holder = holder;
+        this->data = data;
         
-        b2PolygonShape rec;
-        rec.SetAsBox((float32)100/PTM_RATIO, (float32)100/PTM_RATIO)/*, b2Vec2(0,aabb.lowerBound.y), 0)*/;
+//        this->data.getskillSensor()->SetActive(false);
         
-        b2FixtureDef fixDef;
-        fixDef.shape = &rec;
-        fixDef.isSensor = true;
-        fixDef.density = WEIGHTLESS_DENSITY;
-        //        fixDef.userData = (void*)"foot";
+        //create joint
+        skillJoint.bodyA = this->holder->getBody();
+        skillJoint.bodyB = this->data.getskillSensor();
+        skillJoint.collideConnected =true;
         
-        b2BodyDef bodyDef;
-        bodyDef.type=b2_dynamicBody;
-        bodyDef.bullet=true;
-        bodyDef.position.Set(0/PTM_RATIO, 0/PTM_RATIO);
-        bodyDef.fixedRotation = true;
+        JointDef tempA = data.getJointDefA();
+        holder_join_type = JOINT_BOTTOM_OR_LEFT;
+        tempA.x = holder_join_type;
+        b2Vec2 anchorA = Util::getb2VecAnchor(this->holder->getBody(), tempA);
+        skillJoint.localAnchorA.Set(anchorA.x,anchorA.y);
         
-        this->data.setSkillSensor(this->holder->getBody()->GetWorld()->CreateBody(&bodyDef));
-        this->data.getSkillSensor()->CreateFixture(&fixDef);
-        
+        JointDef tempB = data.getJointDefB();
+        this_join_type = JOINT_TOP_OR_RIGHT;
+        tempB.x = this_join_type;
+        b2Vec2 anchorB = Util::getb2VecAnchor(this->data.getskillSensor(), tempB);
+        skillJoint.localAnchorB.Set(anchorB.x, anchorB.y);
+
+        //Set foot sensor bullet
+//        this->data.getskillSensor()->SetBullet(true);
         
         //
-        //create joint
-        b2RevoluteJointDef footBodyJoint;
-        footBodyJoint.bodyA = this->holder->getBody();
-        footBodyJoint.bodyB = this->data.getSkillSensor();
-        footBodyJoint.collideConnected =false;
+        PhysicData* sensorData = new PhysicData();
+        sensorData->Id = SKILL_SENSOR;
+        sensorData->Data = this;
+        this->data.getskillSensor()->SetUserData(sensorData);
         
-        b2AABB aabb = this->holder->getBodyBoundingBox();
-        footBodyJoint.localAnchorA.Set(aabb.upperBound.x,0);
-        footBodyJoint.localAnchorB.Set((float32)100/PTM_RATIO,0);
-        
-        
-        this->holder->getBody()->GetWorld()->CreateJoint(&footBodyJoint);
-        
-        this->data.getSkillSensor()->SetActive(false);
-        //set data
+        this->holder->getBody()->GetWorld()->CreateJoint(&skillJoint);
     }
 }
 
 NormalAttack::~NormalAttack()
 {
-    
+    ScheduleManager::getInstance()->scheduleForSkill(this, this->data.getDelay());
 }
 
 void NormalAttack::BeginContact(b2Contact *contact)
@@ -79,13 +71,24 @@ void NormalAttack::update(float dt)
 
 void NormalAttack::excute()
 {
-    this->data.getSkillSensor()->SetActive(true);   
+    ScheduleManager::getInstance()->scheduleForSkill(this, this->data.getDelay());
 }
 
 void NormalAttack::stop()
 {
-    this->data.getSkillSensor()->SetActive(false);
+    this->data.getskillSensor()->SetActive(false);
 }
+
+void NormalAttack::excuteImmediately()
+{
+    if((holder->getDirection() == LEFT && holder_join_type != JOINT_BOTTOM_OR_LEFT) || (holder->getDirection() == RIGHT && holder_join_type != JOINT_TOP_OR_RIGHT))
+    {
+        flip();
+    }
+    
+    this->data.getskillSensor()->SetActive(true);
+}
+
 
 void NormalAttack::checkCollisionDataInBeginContact(PhysicData* data, b2Contact *contact)
 {
@@ -97,3 +100,15 @@ void NormalAttack::checkCollisionDataInEndContact(PhysicData* data, b2Contact *c
     
 }
 
+void NormalAttack::flip()
+{
+    JointDef tempA = data.getJointDefA();
+    holder_join_type = -holder_join_type;
+    tempA.x = holder_join_type;
+    skillJoint.localAnchorA = Util::getb2VecAnchor(this->holder->getBody(), tempA);
+    
+//    JointDef tempB = data.getJointDefB();
+//    this_join_type = -this_join_type;
+//    tempB.x = this_join_type;
+//    skillJoint.localAnchorB = Util::getb2VecAnchor(this->data.getskillSensor(), tempB);
+}

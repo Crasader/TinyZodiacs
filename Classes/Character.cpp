@@ -38,7 +38,7 @@ Character::Character()
 
 Character::~Character()
 {
-    
+    delete normalAttack;
 }
 
 void Character::changeState(CharacterState *states)
@@ -140,10 +140,10 @@ void Character::createFootSensor()
     fixDef.isSensor = true;
     fixDef.density = WEIGHTLESS_DENSITY;
     
-//    PhysicData* sensorData = new PhysicData();
-//    sensorData->Id = CHARACTER_FOOT_SENSOR;
-//    sensorData->Data = this;
-//    fixDef.userData = (void*)sensorData;
+    //    PhysicData* sensorData = new PhysicData();
+    //    sensorData->Id = CHARACTER_FOOT_SENSOR;
+    //    sensorData->Data = this;
+    //    fixDef.userData = (void*)sensorData;
     //
     
     b2BodyDef bodyDef;
@@ -217,12 +217,18 @@ void Character::BeginContact(b2Contact *contact)
 {
     GameObject::BeginContact(contact);
     
-    normalAttack->BeginContact(contact);
+    if(normalAttack != NULL)
+    {
+        normalAttack->BeginContact(contact);
+    }
 }
 
 void Character::EndContact(b2Contact *contact)
 {
     GameObject::EndContact(contact);
     
-    normalAttack->EndContact(contact);
+    if(normalAttack != NULL)
+    {
+        normalAttack->EndContact(contact);
+    }
 }

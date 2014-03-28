@@ -178,9 +178,12 @@
 		3486802C18D97940001692BB /* SkillData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3486802A18D97940001692BB /* SkillData.cpp */; };
 		34ED36C218D69ADF00FFA55A /* ActionEngine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 34ED36C018D69ADF00FFA55A /* ActionEngine.cpp */; };
 		34ED36C518D69C2C00FFA55A /* CharacterActionEngine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 34ED36C318D69C2C00FFA55A /* CharacterActionEngine.cpp */; };
+		34EECF8F18E589E2004018E3 /* skill_body.plist in Resources */ = {isa = PBXBuildFile; fileRef = 34EECF8E18E589E2004018E3 /* skill_body.plist */; };
+		34EED02218E50E5D001AFFC9 /* NormalMeleeSkillData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 34EED02018E50E5D001AFFC9 /* NormalMeleeSkillData.cpp */; };
+		34EED02518E525DF001AFFC9 /* SkillType0Parser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 34EED02318E525DF001AFFC9 /* SkillType0Parser.cpp */; };
+		34EED02918E5611F001AFFC9 /* Util.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 34EED02718E5611F001AFFC9 /* Util.cpp */; };
+		34EED02F18E56E3C001AFFC9 /* list_skill.xml in Resources */ = {isa = PBXBuildFile; fileRef = 34EED02E18E56E3C001AFFC9 /* list_skill.xml */; };
 		34F7F92518E130BE0084E87C /* character_body.plist in Resources */ = {isa = PBXBuildFile; fileRef = 34F7F92418E130BE0084E87C /* character_body.plist */; };
-		34F7F92718E136780084E87C /* skill_body.plist in Resources */ = {isa = PBXBuildFile; fileRef = 34F7F92618E136780084E87C /* skill_body.plist */; };
-		34F7F92918E15AA00084E87C /* list_skill.xml in Resources */ = {isa = PBXBuildFile; fileRef = 34F7F92818E15AA00084E87C /* list_skill.xml */; };
 		34F7F92D18E16BB70084E87C /* SkillFactory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 34F7F92B18E16BB70084E87C /* SkillFactory.cpp */; };
 		34F7F93018E194DD0084E87C /* SkillDTO.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 34F7F92E18E194DD0084E87C /* SkillDTO.cpp */; };
 		34FD845118DFCC7300373627 /* CharacterFactory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 34FD844F18DFCC7300373627 /* CharacterFactory.cpp */; };
@@ -685,9 +688,16 @@
 		34ED36C118D69ADF00FFA55A /* ActionEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActionEngine.h; sourceTree = "<group>"; };
 		34ED36C318D69C2C00FFA55A /* CharacterActionEngine.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CharacterActionEngine.cpp; sourceTree = "<group>"; };
 		34ED36C418D69C2C00FFA55A /* CharacterActionEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CharacterActionEngine.h; sourceTree = "<group>"; };
+		34EECF8E18E589E2004018E3 /* skill_body.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = skill_body.plist; sourceTree = "<group>"; };
+		34EED02018E50E5D001AFFC9 /* NormalMeleeSkillData.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = NormalMeleeSkillData.cpp; sourceTree = "<group>"; };
+		34EED02118E50E5D001AFFC9 /* NormalMeleeSkillData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NormalMeleeSkillData.h; sourceTree = "<group>"; };
+		34EED02318E525DF001AFFC9 /* SkillType0Parser.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SkillType0Parser.cpp; sourceTree = "<group>"; };
+		34EED02418E525DF001AFFC9 /* SkillType0Parser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SkillType0Parser.h; sourceTree = "<group>"; };
+		34EED02618E53C78001AFFC9 /* Constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
+		34EED02718E5611F001AFFC9 /* Util.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Util.cpp; sourceTree = "<group>"; };
+		34EED02818E5611F001AFFC9 /* Util.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Util.h; sourceTree = "<group>"; };
+		34EED02E18E56E3C001AFFC9 /* list_skill.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = list_skill.xml; sourceTree = "<group>"; };
 		34F7F92418E130BE0084E87C /* character_body.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = character_body.plist; sourceTree = "<group>"; };
-		34F7F92618E136780084E87C /* skill_body.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = skill_body.plist; sourceTree = "<group>"; };
-		34F7F92818E15AA00084E87C /* list_skill.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = list_skill.xml; sourceTree = "<group>"; };
 		34F7F92B18E16BB70084E87C /* SkillFactory.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SkillFactory.cpp; sourceTree = "<group>"; };
 		34F7F92C18E16BB70084E87C /* SkillFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SkillFactory.h; sourceTree = "<group>"; };
 		34F7F92E18E194DD0084E87C /* SkillDTO.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SkillDTO.cpp; sourceTree = "<group>"; };
@@ -1665,7 +1675,7 @@
 		34F7F92A18E15AA50084E87C /* Skills */ = {
 			isa = PBXGroup;
 			children = (
-				34F7F92818E15AA00084E87C /* list_skill.xml */,
+				34EED02E18E56E3C001AFFC9 /* list_skill.xml */,
 			);
 			name = Skills;
 			sourceTree = "<group>";
@@ -2047,6 +2057,7 @@
 			children = (
 				F54AE9C918D2F25100194E66 /* PhysicConstants.h */,
 				F5CB2F0D18DA9A930035D27B /* LayerIndexConstants.h */,
+				34EED02618E53C78001AFFC9 /* Constants.h */,
 			);
 			name = Constants;
 			sourceTree = "<group>";
@@ -2138,6 +2149,8 @@
 				F54AEA0B18D2F50300194E66 /* ObjectData.cpp */,
 				3486802A18D97940001692BB /* SkillData.cpp */,
 				3486802B18D97940001692BB /* SkillData.h */,
+				34EED02018E50E5D001AFFC9 /* NormalMeleeSkillData.cpp */,
+				34EED02118E50E5D001AFFC9 /* NormalMeleeSkillData.h */,
 			);
 			name = Data;
 			sourceTree = "<group>";
@@ -2151,6 +2164,10 @@
 				F54AE9F418D2F3F800194E66 /* GB2ShapeCache-x.h */,
 				F54AE9F518D2F3F800194E66 /* GLES-Render.cpp */,
 				F54AE9F618D2F3F800194E66 /* GLES-Render.h */,
+				34EED02318E525DF001AFFC9 /* SkillType0Parser.cpp */,
+				34EED02418E525DF001AFFC9 /* SkillType0Parser.h */,
+				34EED02718E5611F001AFFC9 /* Util.cpp */,
+				34EED02818E5611F001AFFC9 /* Util.h */,
 			);
 			name = Helper;
 			sourceTree = "<group>";
@@ -2253,7 +2270,7 @@
 		F5C89E0018D2FCF2006E909D /* Body */ = {
 			isa = PBXGroup;
 			children = (
-				34F7F92618E136780084E87C /* skill_body.plist */,
+				34EECF8E18E589E2004018E3 /* skill_body.plist */,
 				34F7F92418E130BE0084E87C /* character_body.plist */,
 				F544FB9818D93CC100A818DF /* map2_body.plist */,
 				F5C89E0118D2FD2A006E909D /* body.plist */,
@@ -2343,6 +2360,7 @@
 				7855E0E1153FEF240059DD9A /* Default.png in Resources */,
 				D4EF949A15BD2D8B00D803EB /* Icon-57.png in Resources */,
 				F544FB9918D93CC100A818DF /* map2_body.plist in Resources */,
+				34EECF8F18E589E2004018E3 /* skill_body.plist in Resources */,
 				D4EF949C15BD2D8E00D803EB /* Icon-114.png in Resources */,
 				F5C89E0C18D2FF42006E909D /* map_spritesheet.png in Resources */,
 				34F7F92518E130BE0084E87C /* character_body.plist in Resources */,
@@ -2354,7 +2372,6 @@
 				F5C89E0718D2FD97006E909D /* background_sheet_1.plist in Resources */,
 				F5C89E1018D2FF9A006E909D /* 2.png in Resources */,
 				34FD845618DFDCA400373627 /* character_monkey.xml in Resources */,
-				34F7F92718E136780084E87C /* skill_body.plist in Resources */,
 				D4EF94A015BD2D9800D803EB /* Icon-144.png in Resources */,
 				F5C89E1118D2FF9A006E909D /* 1.png in Resources */,
 				F53ACBAF18D831C700F958A8 /* map2.xml in Resources */,
@@ -2366,7 +2383,7 @@
 				15A3D9961682F7F9002FB0C5 /* CMakeLists.txt in Resources */,
 				F50BD48E18D8703A00A892E6 /* map2_spritesheet.plist in Resources */,
 				F5C89E0318D2FD2A006E909D /* body.plist in Resources */,
-				34F7F92918E15AA00084E87C /* list_skill.xml in Resources */,
+				34EED02F18E56E3C001AFFC9 /* list_skill.xml in Resources */,
 				F5C89E0818D2FD97006E909D /* background_sheet_1.png in Resources */,
 				1AFAF8BC16D35E4900DB1158 /* CloseNormal.png in Resources */,
 				F50BD49518D8765F00A892E6 /* background2_spritesheet.png in Resources */,
@@ -2416,6 +2433,7 @@
 				15A3D9151682F7D5002FB0C5 /* b2World.cpp in Sources */,
 				15A3D9161682F7D5002FB0C5 /* b2WorldCallbacks.cpp in Sources */,
 				15A3D9171682F7D5002FB0C5 /* b2ChainAndCircleContact.cpp in Sources */,
+				34EED02918E5611F001AFFC9 /* Util.cpp in Sources */,
 				15A3D9181682F7D5002FB0C5 /* b2ChainAndPolygonContact.cpp in Sources */,
 				F54AE9B618D2F1AA00194E66 /* CharacterMidAirState.cpp in Sources */,
 				34FD845B18DFE91100373627 /* CharacterDTO.cpp in Sources */,
@@ -2564,6 +2582,7 @@
 				1A8F3B72175E05DA00049216 /* AtlasAttachmentLoader.cpp in Sources */,
 				1A8F3B73175E05DA00049216 /* Attachment.cpp in Sources */,
 				F561F28E18D802A500DD4598 /* MapObjectDTO.cpp in Sources */,
+				34EED02218E50E5D001AFFC9 /* NormalMeleeSkillData.cpp in Sources */,
 				1A8F3B74175E05DA00049216 /* AttachmentLoader.cpp in Sources */,
 				F54AE9C518D2F1FC00194E66 /* AnimationObject.cpp in Sources */,
 				1A8F3B75175E05DA00049216 /* Bone.cpp in Sources */,
@@ -2586,6 +2605,7 @@
 				375BD4C51868411B0024609E /* TriggerMng.cpp in Sources */,
 				F561F28D18D802A500DD4598 /* MapDTO.cpp in Sources */,
 				1A9CE8781765A12C000E3062 /* AssetsManager.cpp in Sources */,
+				34EED02518E525DF001AFFC9 /* SkillType0Parser.cpp in Sources */,
 				379BB99A17F03F3700829B88 /* CCArmatureAnimation.cpp in Sources */,
 				379BB99B17F03F3700829B88 /* CCProcessBase.cpp in Sources */,
 				379BB99C17F03F3700829B88 /* CCTween.cpp in Sources */,

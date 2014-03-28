@@ -43,3 +43,18 @@ void AbstractSkill::EndContact(b2Contact *contact)
         checkCollisionDataInEndContact(data, contact);
     }
 }
+
+void AbstractSkill::excuteImmediately()
+{
+    
+}
+
+void AbstractSkill::stopImmediately()
+{
+    
+}
+
+void AbstractSkill::flip()
+{
+    
+}

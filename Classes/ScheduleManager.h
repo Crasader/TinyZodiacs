@@ -12,6 +12,8 @@
 #include <iostream>
 #include "cocos2d.h"
 #include "GameObject.h"
+#include "AbstractSkill.h"
+
 
 USING_NS_CC;
 class ScheduleManager: public CCNode
@@ -22,6 +24,8 @@ protected:
     ~ScheduleManager();
 public:
     void scheduleForGameObject(GameObject* object, float duration);
+    void scheduleForSkill(AbstractSkill* object, float duration);
+
     static ScheduleManager* getInstance();
     static void release();
 

@@ -31,8 +31,11 @@ public:
     virtual void BeginContact(b2Contact *contact);
     virtual void EndContact(b2Contact *contact);
     virtual void update(float dt)=0;
+    virtual void excuteImmediately();
+    virtual void stopImmediately();
+
+    virtual void flip();
     
     CC_SYNTHESIZE(GameObject* , holder, Holder);
-    CC_SYNTHESIZE(SkillData, data, Data);
 };
 #endif /* defined(__TinyZodiacs__AbstractSkill__) */

@@ -63,7 +63,7 @@ void PhysicBodyManager::addBody(GameObject *body)
         }
     }
     
-    CCLOG("New");
+//    CCLOG("New");
 //    CCDelayTime *delayAction = CCDelayTime::create(0);
 //    CCCallFuncND *callFuncSelector = CCCallFuncND::create(NULL, callfuncND_selector(PhysicBodyManager::addBodyToQueue), body);
 //    this->runAction(CCSequence::create(delayAction,callFuncSelector));

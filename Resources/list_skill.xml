@@ -1,29 +1,13 @@
-<!--
--1 = left/bottom
-0 = center
-1 = up/ right
-2 = rear
- -->
 
 <skill_list>
 	<skill id="monkey_normal_attack" type="0">
 		<body>monkey_normal_attack</body>
 		<damage>100</damage>
+        <delay>0.05</delay>
 		<cool_down>0</cool_down>
-        <speed>0</speed>
         <joints>
-            <holder x="2" y="0" offset="0"></holder>
-            <this x="2" y="0" offset="0"></this>
-        </joints>
-	</skill>
-    <skill id="monkey_skill_1" type="0">
-		<body>monkey_normal_attack</body>
-		<damage>100</damage>
-		<cool_down>0</cool_down>
-        <speed>0</speed>
-        <joints>
-            <holder x="2" y="0" offset="0"></holder>
-            <this x="2" y="0" offset="0"></this>
+            <holder x="2" y="0" offsetX="0" offsetY="0"></holder>
+            <this x="2" y="0" offsetX="0" offsetY="0"></this>
         </joints>
 	</skill>
 </skill_list>

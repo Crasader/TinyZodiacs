@@ -38,7 +38,7 @@ void NormalProjectile::EndContact(b2Contact *contact)
     contact_count--;
     if(contact_count <= 0)
     {
-        CCLOG("Add to physyc manager");
+//        CCLOG("Add to physyc manager");
         remove();
         contact_count=10;
 //        scheduled = true;
@@ -59,12 +59,13 @@ void NormalProjectile::remove()
 {
 //    PhysicBodyManager::getInstance()->addBody(this);
 //    delete this;
-    ScheduleManager::getInstance()->scheduleForGameObject(this, 1);
+    ScheduleManager::getInstance()->scheduleForGameObject(this, 2);
 
 }
 
  void NormalProjectile::excuteScheduledFunction(CCObject* pSender, void *body)
 {
     PhysicBodyManager::getInstance()->addBody((GameObject*)body);
+//    ((GameObject*)body)->getSprite()->getParent()->removeChild(((GameObject*)body)->getSprite());
 }
 

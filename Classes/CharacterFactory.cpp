@@ -190,14 +190,14 @@ Hero* CharacterFactory::createHero(CharacterDTO heroDTOData, b2World* world)
     sc->addFixturesToBody(body, heroDTOData.body.c_str());
     hero->getSprite()->setAnchorPoint(sc->anchorPointForShape(heroDTOData.body.c_str()));
     //
-//    hero->getSprite()->setScale(0);
-    
+    hero->getSprite()->setScale(0);
     hero->setSkin(body, hero->getSprite());
+    
+    hero->setNormalAttack(SkillFactory::createSkill("monkey_normal_attack", world, hero));
     
     hero->retain();
     
     //
-    SkillFactory::createSkill("monkey_normal_attack", world, hero);
 
     
     return hero;

@@ -120,12 +120,28 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../classes/SkillFactory.cpp"
-            timestampString = "417492967.18435"
+            timestampString = "417689535.378718"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "60"
-            endingLineNumber = "60"
-            landmarkName = "SkillFactory::loadElementById(string id, const XMLElement* root)"
+            startingLineNumber = "52"
+            endingLineNumber = "52"
+            landmarkName = "SkillFactory::loadXMLFile(const char* id, const char *xmlFileName, b2World* world, GameObject* holder)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../classes/SkillType0Parser.cpp"
+            timestampString = "417697545.337933"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "89"
+            endingLineNumber = "89"
+            landmarkName = "SkillType0Parser::readDelay(const XMLElement* root)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

@@ -90,7 +90,6 @@ Character* ObjectFactory::createCharacter(const std::string &name, b2World *worl
 //    return character;
     
     Character* character = CharacterFactory::createMonkeyHero(world);
-    character->setNormalAttack(new NormalShootingAttack(character));
     
     return character;
     
