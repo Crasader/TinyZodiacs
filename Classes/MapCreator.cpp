@@ -45,6 +45,8 @@ Map* MapCreator::createMap(const char *id, GameWorld* gameWorld)
     
     //create background
     map->addParallaxBackground(createParallaxBackground(mapDTO->listBackgroundDTO,mapDTO->width,mapDTO->height));
+    //create foreground
+    map->addParallaxForeground(createParallaxForeground(mapDTO->listForegroundDTO,mapDTO->width,mapDTO->height));
     return map;
 }
 
@@ -61,6 +63,21 @@ MapParallaxBackground* MapCreator::createParallaxBackground(CCArray* listBackgro
     }
     
     return parallaxBackground;
+}
+
+MapParallaxForeground* MapCreator::createParallaxForeground(CCArray* listForegroundDTO, float width, float height)
+{
+    MapParallaxForeground* parallaxForeground = MapParallaxForeground::create();
+    
+    CCObject* object = NULL;
+    CCARRAY_FOREACH(listForegroundDTO, object)
+    {
+        ForegroundDTO* foregroundDTO = dynamic_cast<ForegroundDTO*>(object);
+        
+        parallaxForeground->addForeground(foregroundDTO->imageName,"",foregroundDTO->ratioX, foregroundDTO->ratioY, foregroundDTO->layerIndex, foregroundDTO->positionX, foregroundDTO->positionY);
+    }
+    
+    return parallaxForeground;
 }
 
 

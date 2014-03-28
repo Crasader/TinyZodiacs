@@ -29,6 +29,7 @@ public:
     
     CCArray* listMapObjectDTO;
     CCArray* listBackgroundDTO;
+    CCArray* listForegroundDTO;
     
     CREATE_FUNC(MapDTO);
 };
