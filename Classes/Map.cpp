@@ -65,20 +65,21 @@ void Map::addMapObject(MapObject *mapObject)
 
 void Map::attachAllMapObject()
 {
-    CCSpriteBatchNode* batchNode = CCSpriteBatchNode::create("map2_spritesheet.png");
     CCObject* object;
     CCARRAY_FOREACH(listMapObject,object)
     {
         MapObject* mapObject = (MapObject*)object;
-      //  mapObject->getSprite()->setPosition(ccp(2000,2000));
-       batchNode->addChild(mapObject->getSprite());
+        //mapObject->getSprite()->setPosition(ccp(200000,200000));
+       this->addChild(mapObject->getSprite(),MAPOBJECT_LAYER);
         
     }
-    
-    this->addChild(batchNode,MAPOBJECT_LAYER);
 }
 
 void Map::addParallaxBackground(CCParallaxNode* parallaxBackground)
 {
     this->addChild(parallaxBackground, BACKGROUND_LAYER);
+}
+void Map::addParallaxForeground(CCParallaxNode* parallaxForeground)
+{
+    this->addChild(parallaxForeground,FOREGROUND_LAYER );
 }
