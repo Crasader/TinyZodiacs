@@ -6,7 +6,7 @@
 //
 //  Generic Shape Cache for box2d
 //
-//  Created by Thomas Broquist
+//  Created by Thomas
 //
 //      http://www.PhysicsEditor.de
 //      http://texturepacker.com
@@ -98,17 +98,20 @@ void GB2ShapeCache::reset() {
     shapeObjects.clear();
 }
 
-void GB2ShapeCache::addFixturesToBody(b2Body *body, const std::string &shape) {
+bool GB2ShapeCache::addFixturesToBody(b2Body *body, const std::string &shape) {
     std::map<std::string, BodyDef *>::iterator pos = shapeObjects.find(shape);
+   
+    //found
     assert(pos != shapeObjects.end());
-
+ 
     BodyDef *so = (*pos).second;
-
+    
     FixtureDef *fix = so->fixtures;
     while (fix) {
         body->CreateFixture(&fix->fixture);
         fix = fix->next;
     }
+
 }
 
 cocos2d::CCPoint GB2ShapeCache::anchorPointForShape(const std::string &shape) {
@@ -241,4 +244,21 @@ void GB2ShapeCache::addShapesWithFile(const std::string &plist) {
 
     }
 
+}
+
+////
+
+bool GB2ShapeCache::isBodyExisted(const char* bodyName)
+{
+    std::map<std::string, BodyDef *>::iterator pos = shapeObjects.find(bodyName);
+    
+    if(pos != shapeObjects.end()) //found
+    {
+        return true;
+    }
+    else //not found
+    {
+        CCLOG("body %s not found",bodyName);
+        return false;
+    }
 }
