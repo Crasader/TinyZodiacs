@@ -154,6 +154,12 @@ MapObject* ObjectFactory::createMapObject(MapObjectDTO* mapObjectDTO, b2World *w
 
         mapObject = MapObject::create();
         mapObject->setSkin(body, sprite);
+        
+        //set data id
+        PhysicData* data = new PhysicData();
+        data->Id = MAP_BASE;
+        data->Data = NULL;
+        body->SetUserData(data);
 
     }
     else
@@ -163,15 +169,7 @@ MapObject* ObjectFactory::createMapObject(MapObjectDTO* mapObjectDTO, b2World *w
         mapObject->setSprite(sprite);
     }
     
-    
-<<<<<<< HEAD
-=======
-    //set data id
-    PhysicData* data = new PhysicData();
-    data->Id = MAP_BASE;
-    data->Data = NULL;
-    body->SetUserData(data);
->>>>>>> FETCH_HEAD
+
     
       mapObject->setPositionInPixel(ccp(mapObjectDTO->x,mapObjectDTO->y));
     
