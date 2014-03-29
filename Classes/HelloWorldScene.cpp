@@ -41,7 +41,7 @@ bool HelloWorld::init()
                                                           "CloseNormal.png",
                                                           "CloseSelected.png",
                                                           this,
-                                                          menu_selector(HelloWorld::menuStartCallback));
+                                                          menu_selector(HelloWorld::menuCloseCallback));
     
     CCMenuItemImage *pStartItem = CCMenuItemImage::create(
                                                           "CloseNormal.png",

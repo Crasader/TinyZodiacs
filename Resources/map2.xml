@@ -1,87 +1,13 @@
-<map id="map2" width="8000" height="2000">
+<map id="map2" width="8000" height="1543">
     <background_list>
-        <background image_name="map2_background3.png" spritesheet_name="map2_background3_spritesheet.png"  layer_index="1">
-            <ratio x="0.4" y="0.3"/>
-        </background>
-        <background image_name="map2_background2.png" spritesheet_name="map2_background2_spritesheet.png" layer_index="2">
-            <ratio x="0.6" y="0.4"/>
-        </background>
-        <background image_name="nen.png" spritesheet_name="map2_background_spritesheet.png" layer_index="0">
-            <ratio x="0.2" y="0.2"/>
-        </background>
-
+        <background image_name="background1.png" spritesheet_name="background2_spritesheet.png" ratio_x="0.5" ratio_y="1.09" order="2"/>
+        <background image_name="background2.jpg" spritesheet_name="background1_spritesheet.png" ratio_x="0.1" ratio_y="1" order="1"/>
+        <background image_name="background1.png" spritesheet_name="background2_spritesheet.png"  ratio_x="0.9" ratio_y="1.09" order="3"/>
     </background_list>
-    <foreground_list>
-        <foreground image_name="map1_22.png" layer_index="0">
-            <position x="3201" y="209"/>
-            <ratio x="1.0" y="1.0"/>
-        </foreground>
-  
-
-    </foreground_list>
     <map_object_list>
-        <map_object id="23" image_name="map1_1.png" body_name="map1_1" order="0">
-            <position x="0" y="377"/>
+        <map_object id="23" image_name="map.png" body_name="map2">
+            <position x="0" y="0"/>
         </map_object>
-        <map_object id="23" image_name="map1_2.png" body_name="map1_2" order="0">
-            <position x="817" y="310"/>
-        </map_object>
-        <map_object id="23" image_name="map1_4.png" body_name="map1_4" order="0">
-            <position x="737" y="175"/>
-        </map_object>
-        <map_object id="23" image_name="map1_5.png" body_name="map1_5" order="0">
-            <position x="1330" y="0"/>
-        </map_object>
-        <map_object id="23" image_name="map1_6.png" body_name="map1_6" order="0">
-            <position x="753" y="0"/>
-        </map_object>
-        <map_object id="23" image_name="map1_7.png" body_name="map1_7" order="0">
-            <position x="2254" y="0"/>
-        </map_object>
-        <map_object id="23" image_name="map1_9.png" body_name="map1_9" order="0">
-            <position x="5510" y="0"/>
-        </map_object>
-        <map_object id="23" image_name="map1_10.png" body_name="map1_10" order="0">
-            <position x="4679" y="0"/>
-        </map_object>
-        <map_object id="23" image_name="map1_11.png" body_name="map1_11" order="0">
-            <position x="7291" y="0"/>
-        </map_object>
-        <map_object id="23" image_name="map1_12.png" body_name="map1_12" order="0">
-            <position x="6785" y="332"/>
-        </map_object>
-        <map_object id="23" image_name="map1_13.png" body_name="map1_13" order="0">
-            <position x="7071" y="0"/>
-        </map_object>
-        <map_object id="23" image_name="map1_14.png" body_name="map1_14" order="0">
-            <position x="5930" y="313"/>
-        </map_object>
-        <map_object id="23" image_name="map1_15.png" body_name="map1_15" order="0">
-            <position x="4970" y="856"/>
-        </map_object>
-        <map_object id="23" image_name="map1_16.png" body_name="map1_16" order="0">
-            <position x="6533" y="0"/>
-        </map_object>
-        <map_object id="23" image_name="map1_17.png" body_name="map1_17" order="0">
-            <position x="3625" y="942"/>
-        </map_object>
-        <map_object id="23" image_name="map1_18.png" body_name="map1_18" order="0">
-            <position x="3238" y="548"/>
-        </map_object>
-        <map_object id="23" image_name="map1_19.png" body_name="map1_19" order="0">
-            <position x="4237" y="417"/>
-        </map_object>
-        <map_object id="23" image_name="map1_20.png" body_name="map1_20" order="0">
-            <position x="3527" y="225"/>
-        </map_object>
-        <map_object id="23" image_name="map1_21.png" body_name="map1_21" order="0">
-            <position x="3234" y="189"/>
-        </map_object>
-        
-        
-        
-        
-        
         
     </map_object_list>
 </map>

@@ -13,7 +13,6 @@
 #include "Character.h"
 #include "MapObject.h"
 #include "MapObjectDTO.h"
-#include "NoBodyMapObject.h"
 
 class ObjectFactory
 {

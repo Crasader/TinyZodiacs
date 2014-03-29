@@ -29,7 +29,7 @@ public:
     std::string bodyName;
     float x;
     float y;
-    float layerIndex;
+    
     CREATE_FUNC(MapObjectDTO);
 };
 
