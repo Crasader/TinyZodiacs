@@ -46,7 +46,6 @@ ObjectFactory* ObjectFactory::getSharedManager()
 
 Character* ObjectFactory::createCharacter(const std::string &name, b2World *world)
 {
-    
 //    Character* character = NULL;
 //    character = new Character();
 //    
@@ -131,33 +130,50 @@ MapObject* ObjectFactory::createMapObject(const char *idMapObject, b2World *worl
 
 MapObject* ObjectFactory::createMapObject(MapObjectDTO* mapObjectDTO, b2World *world)
 {
-    MapObject* mapObject = mapObject = MapObject::create();
+    
+    
+    
+    MapObject* mapObject = NULL;
    
     //sprite
     CCSprite* sprite = CCSprite::createWithSpriteFrameName(mapObjectDTO->imageName.c_str());
-    
-    
-    //body
-    b2BodyDef bodyDef;
-    bodyDef.type = b2_staticBody;
-    bodyDef.angle = ccpToAngle(ccp(0,0));
-    bodyDef.userData = mapObject;
-    
-    b2Body *body = world->CreateBody(&bodyDef);
-    
+   
     gbox2d::GB2ShapeCache *sc =  gbox2d::GB2ShapeCache::sharedGB2ShapeCache();
-    sc->addFixturesToBody(body, mapObjectDTO->bodyName.c_str());
-    sprite->setAnchorPoint(sc->anchorPointForShape(mapObjectDTO->bodyName.c_str()));
+    if(sc->isBodyExisted(mapObjectDTO->bodyName.c_str()))
+    {
+        //body
+        b2BodyDef bodyDef;
+        bodyDef.type = b2_staticBody;
+        bodyDef.angle = ccpToAngle(ccp(0,0));
+        
+        b2Body *body = world->CreateBody(&bodyDef);
+        sc->addFixturesToBody(body, mapObjectDTO->bodyName.c_str());
+        //set data id
+        body->SetUserData((void *) MAP_BASE);
+        sprite->setAnchorPoint(sc->anchorPointForShape(mapObjectDTO->bodyName.c_str()));
+
+        mapObject = MapObject::create();
+        mapObject->setSkin(body, sprite);
+
+    }
+    else
+    {
+        mapObject = NoBodyMapObject::create();
+        sprite->setAnchorPoint(ccp(0,0));
+        mapObject->setSprite(sprite);
+    }
     
     
+<<<<<<< HEAD
+=======
     //set data id
     PhysicData* data = new PhysicData();
     data->Id = MAP_BASE;
     data->Data = NULL;
     body->SetUserData(data);
+>>>>>>> FETCH_HEAD
     
-    mapObject->setSkin(body, sprite);
-    mapObject->setPositionInPixel(ccp(mapObjectDTO->x,mapObjectDTO->y));
+      mapObject->setPositionInPixel(ccp(mapObjectDTO->x,mapObjectDTO->y));
     
     return mapObject;
     

@@ -51,8 +51,8 @@ NormalAttack::NormalAttack(GameObject* holder, NormalMeleeSkillData data)
 
 NormalAttack::~NormalAttack()
 {
-    ScheduleManager::getInstance()->scheduleForSkill(this, this->data.getDelay());
 }
+
 
 void NormalAttack::BeginContact(b2Contact *contact)
 {

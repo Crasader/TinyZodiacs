@@ -40,7 +40,8 @@ public:
     void addMapObject(MapObject* mapObject);
     void attachAllMapObject();
     void addParallaxBackground(CCParallaxNode* parallaxBackground);
- 
+    void addParallaxForeground(CCParallaxNode* parallaxForeground);
+
     
 };
 

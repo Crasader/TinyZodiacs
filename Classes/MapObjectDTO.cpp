@@ -15,6 +15,7 @@ MapObjectDTO::MapObjectDTO()
     this->bodyName = "";
     this->x = 0;
     this->y = 0;
+    this->layerIndex = 0;
 }
 
 MapObjectDTO::~MapObjectDTO()

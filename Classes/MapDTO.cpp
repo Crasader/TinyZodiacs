@@ -14,6 +14,9 @@ MapDTO::MapDTO()
     this->listMapObjectDTO->retain();
     this->listBackgroundDTO = CCArray::create();
     this->listBackgroundDTO->retain();
+    this->listForegroundDTO = CCArray::create();
+    this->listForegroundDTO->retain();
+    
     this->height = 0;
     this->width = 0;
     this->id = "";
@@ -23,6 +26,7 @@ MapDTO::~MapDTO()
 {
     CC_SAFE_RELEASE(this->listMapObjectDTO);
     CC_SAFE_RELEASE(this->listBackgroundDTO);
+    CC_SAFE_RELEASE(this->listForegroundDTO);
 }
 
 bool MapDTO::init()

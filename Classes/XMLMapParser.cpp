@@ -20,13 +20,18 @@ MapObjectDTO* XMLMapParser::getMapObjectDTOFromXMLNode(XMLElement *mapObjectXMLE
     mapObjectDTO->imageName = mapObjectXMLElement->Attribute(MAP_OBJECT_IMAGE_NAME);
     
     //body name
-    mapObjectDTO->bodyName = mapObjectXMLElement->Attribute(MAP_OBJECT_BODY_NAME);
+    if(mapObjectXMLElement->Attribute(MAP_OBJECT_BODY_NAME) != NULL)
+        mapObjectDTO->bodyName = mapObjectXMLElement->Attribute(MAP_OBJECT_BODY_NAME);
     
-    XMLElement* positionXMLElement = mapObjectXMLElement->FirstChildElement(MAP_OBJECT_POSITION);
+    mapObjectDTO->layerIndex = atof(mapObjectXMLElement->Attribute(LAYER_INDEX));
     
-    mapObjectDTO->x = atof(positionXMLElement->Attribute(MAP_OBJECT_POSITION_X));
-    mapObjectDTO->y = atof(positionXMLElement->Attribute(MAP_OBJECT_POSITION_Y));
+    if(mapObjectXMLElement->FirstChildElement(POSITION) != NULL)
+    {
+        XMLElement* positionXMLElement = mapObjectXMLElement->FirstChildElement(POSITION);
     
+        mapObjectDTO->x = atof(positionXMLElement->Attribute(POSITION_X));
+        mapObjectDTO->y = atof(positionXMLElement->Attribute(POSITION_Y));
+    }
     return mapObjectDTO;
 }
 
@@ -55,6 +60,14 @@ MapDTO* XMLMapParser::getMapDTOFromXMLNode(XMLElement *mapXMLElement)
         mapDTO->listBackgroundDTO->addObject(XMLMapParser::getBackgroundDTOFromXMLNode(element));
     }
     
+    //list foreground
+    XMLElement* foregroundListXMLNode = mapXMLElement->FirstChildElement(FOREGROUND_LIST);
+    
+    for (XMLElement* element = foregroundListXMLNode->FirstChildElement(FOREGROUND); element; element = element->NextSiblingElement())
+    {
+        mapDTO->listForegroundDTO->addObject(XMLMapParser::getForegroundDTOFromXMLNode(element));
+    }
+    
     return mapDTO;
 }
 
@@ -65,11 +78,34 @@ BackgroundDTO* XMLMapParser::getBackgroundDTOFromXMLNode(XMLElement *backgroundX
     
     backgroundDTO->imageName = backgroundXMLElement->Attribute(BACKGROUND_IMAGE_NAME);
     backgroundDTO->spritesheetName = backgroundXMLElement->Attribute(BACKGROUND_SPRITESHEET_NAME);
-    backgroundDTO->ratioX = atof(backgroundXMLElement->Attribute(BACKGROUND_RATIO_X));
-    backgroundDTO->ratioY = atof(backgroundXMLElement->Attribute(BACKGROUND_RATIO_Y));
-    backgroundDTO->orderIndex = atof(backgroundXMLElement->Attribute(BACKGROUND_ORDER_INDEX));
+    
+    XMLElement* ratioElement = backgroundXMLElement->FirstChildElement(RATIO);
+    backgroundDTO->ratioX = atof(ratioElement->Attribute(RATIO_X));
+    backgroundDTO->ratioY = atof(ratioElement->Attribute(RATIO_Y));
+    backgroundDTO->orderIndex = atof(backgroundXMLElement->Attribute(LAYER_INDEX));
     
     return backgroundDTO;
+}
+
+ForegroundDTO* XMLMapParser::getForegroundDTOFromXMLNode(XMLElement* foregroundXMLElement)
+{
+    ForegroundDTO* foregroundDTO = ForegroundDTO::create();
+    foregroundDTO->retain();
+    
+    foregroundDTO->imageName = foregroundXMLElement->Attribute(FOREGROUND_IMAGE_NAME);
+    foregroundDTO->layerIndex = atof(foregroundXMLElement->Attribute(LAYER_INDEX));
+    
+    XMLElement* ratioElement = foregroundXMLElement->FirstChildElement(RATIO);
+    foregroundDTO->ratioX = atof(ratioElement->Attribute(RATIO_X));
+    foregroundDTO->ratioY = atof(ratioElement->Attribute(RATIO_Y));
+ 
+    
+    XMLElement* positionElement = foregroundXMLElement->FirstChildElement(POSITION);
+    foregroundDTO->positionX = atof(positionElement->Attribute(POSITION_X));
+    foregroundDTO->positionY = atof(positionElement->Attribute(POSITION_Y));
+
+    
+    return foregroundDTO;
 }
 
 
