@@ -41,6 +41,9 @@ public:
     CC_SYNTHESIZE(CharacterData, characterData, characterData);
     CC_SYNTHESIZE(b2Body*, footSensor, FootSensor);
     CC_SYNTHESIZE(AbstractSkill*, normalAttack, NormalAttack);
+    CC_SYNTHESIZE(AbstractSkill*, skill1, Skill1);
+    CC_SYNTHESIZE(AbstractSkill*, skill2, Skill2);
+
     
     AnimationObject* runAnimation;
     AnimationObject* jumpAnimation;

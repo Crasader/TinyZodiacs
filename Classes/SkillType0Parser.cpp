@@ -30,6 +30,17 @@ float SkillType0Parser::readCoolDown(const XMLElement* root)
     return 0;
 }
 
+float SkillType0Parser::readLifeTime(const XMLElement* root)
+{
+    if(root != NULL)
+    {
+        string coolDownValue = root->GetText();
+        float value = atoi(coolDownValue.c_str());
+        return value;
+    }
+    return -1;
+}
+
 JointDef SkillType0Parser::readJoinDef(const XMLElement* root)
 {
     JointDef def;
@@ -42,10 +53,10 @@ JointDef SkillType0Parser::readJoinDef(const XMLElement* root)
         int y = atoi(yString.c_str());
         
         string xOffsetString = root->Attribute(ATTRIBUTE_OFFSET_X);
-        int xOffset = atoi(xOffsetString.c_str());
+        float xOffset = atof(xOffsetString.c_str());
         
         string yOffsetString = root->Attribute(ATTRIBUTE_OFFSET_Y);
-        int yOffset = atoi(yOffsetString.c_str());
+        float yOffset = atof(yOffsetString.c_str());
         
         def.x=x;
         def.y=y;
@@ -97,6 +108,7 @@ NormalMeleeSkillData SkillType0Parser::parse(const XMLElement* root, b2World* wo
     data.setDamage(readDamage(root->FirstChildElement(TAG_DAMAGE)));
     data.setCoolDown(readDamage(root->FirstChildElement(TAG_COOL_DOWN)));
     data.setDelay(readDelay(root->FirstChildElement(TAG_DELAY)));
+    data.setLifeTime(readDelay(root->FirstChildElement(TAG_LIFE_TIME)));
     data.setskillSensor(readBody(root->FirstChildElement(TAG_BODY), world));
     data.setJointDefA(readJoinDef(root->FirstChildElement(TAG_JOINTS)->FirstChildElement(TAG_HOLDER)));
     data.setJointDefB(readJoinDef(root->FirstChildElement(TAG_JOINTS)->FirstChildElement(TAG_THIS)));

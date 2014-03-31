@@ -22,7 +22,6 @@ private:
 protected:
     PhysicBodyManager();
     ~PhysicBodyManager();
-    void addBodyToQueue(CCObject* pSender, void *body);
 public:
     CC_SYNTHESIZE(std::vector<GameObject*>, listBody, ListBody);
 //    CC_SYNTHESIZE(std::vector<GameObject*>, listqueue, ListQueue);

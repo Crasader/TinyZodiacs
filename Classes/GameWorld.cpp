@@ -177,10 +177,10 @@ void GameWorld::setFollowCharacter(bool follow)
 
 void GameWorld::draw()
 {
-//    ccGLEnableVertexAttribs( kCCVertexAttribFlag_Position );
-//    kmGLPushMatrix();
-//    world->DrawDebugData();
-//    kmGLPopMatrix();
+    ccGLEnableVertexAttribs( kCCVertexAttribFlag_Position );
+    kmGLPushMatrix();
+    world->DrawDebugData();
+    kmGLPopMatrix();
 }
 
 void GameWorld::BeginContact(b2Contact *contact)

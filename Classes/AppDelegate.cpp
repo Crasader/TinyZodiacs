@@ -51,21 +51,21 @@ bool AppDelegate::applicationDidFinishLaunching() {
     // this can make sure that the resource's height could fit for the height of design resolution.
     
     // if the frame's height is larger than the height of medium resource size, select large resource.
-    if (frameSize.height >= largeResource.size.height)
-    {
+//    if (frameSize.height >= largeResource.size.height)
+//    {
         searchPath.push_back(largeResource.directory);
-        pDirector->setContentScaleFactor(1);
-    }
-    else if (frameSize.height >= mediumResource.size.height)
-    {
-        searchPath.push_back(mediumResource.directory);
-        pDirector->setContentScaleFactor(0.5f);
-    }
-    else
-    {
-        searchPath.push_back(smallResource.directory);
-        pDirector->setContentScaleFactor(0.25f);
-    }
+//        pDirector->setContentScaleFactor(1);
+//    }
+//    else if (frameSize.height >= mediumResource.size.height)
+//    {
+//        searchPath.push_back(mediumResource.directory);
+//        pDirector->setContentScaleFactor(0.5f);
+//    }
+//    else
+//    {
+//        searchPath.push_back(smallResource.directory);
+//        pDirector->setContentScaleFactor(0.25f);
+//    }
     
     CCFileUtils::sharedFileUtils()->setSearchPaths(searchPath);
     // create a scene. it's an autorelease object

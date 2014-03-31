@@ -13,12 +13,27 @@ b2AABB Util::getBodyBoundingBox(b2Body* body)
     {
         //Calculate b
         b2AABB aabb;
+        
+        b2Transform t;
+        t.SetIdentity();
+        
         aabb.lowerBound = b2Vec2(FLT_MAX,FLT_MAX);
         aabb.upperBound = b2Vec2(-FLT_MAX,-FLT_MAX);
         b2Fixture* fixture = body->GetFixtureList();
         while (fixture != NULL)
         {
-            aabb.Combine(aabb, fixture->GetAABB(0));
+            //            aabb.Combine(aabb, fixture->GetAABB(0));
+            //            fixture = fixture->GetNext();
+            const b2Shape *shape = fixture->GetShape();
+            const int childCount = shape->GetChildCount();
+            for (int child = 0; child < childCount; ++child) {
+                const b2Vec2 r(shape->m_radius, shape->m_radius);
+                b2AABB shapeAABB;
+                shape->ComputeAABB(&shapeAABB, t, child);
+                shapeAABB.lowerBound = shapeAABB.lowerBound + r;
+                shapeAABB.upperBound = shapeAABB.upperBound - r;
+                aabb.Combine(shapeAABB);
+            }
             fixture = fixture->GetNext();
         }
         return aabb;

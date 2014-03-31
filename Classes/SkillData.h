@@ -23,5 +23,6 @@ public:
     CC_SYNTHESIZE(int, damage, Damage);
     CC_SYNTHESIZE(float, coolDown, CoolDown);
     CC_SYNTHESIZE(float, delay, Delay);
+    CC_SYNTHESIZE(float, lifeTime, LifeTime);
 };
 #endif /* defined(__TinyZodiacs__SkillData__) */

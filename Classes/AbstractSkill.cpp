@@ -54,7 +54,7 @@ void AbstractSkill::stopImmediately()
     
 }
 
-void AbstractSkill::flip()
+void AbstractSkill::setExcuteAble()
 {
     
 }

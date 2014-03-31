@@ -31,8 +31,8 @@ struct JointDef
 {
     int x;
     int y;
-    int offsetX;
-    int offsetY;
+    float offsetX;
+    float offsetY;
 };
 
 #endif

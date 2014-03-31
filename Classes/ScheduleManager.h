@@ -24,7 +24,7 @@ protected:
     ~ScheduleManager();
 public:
     void scheduleForGameObject(GameObject* object, float duration);
-    void scheduleForSkill(AbstractSkill* object, float duration);
+    void scheduleForSkill(AbstractSkill* object, float duration, int fuctionCall);
 
     static ScheduleManager* getInstance();
     static void release();

@@ -71,11 +71,6 @@ void PhysicBodyManager::addBody(GameObject *body)
     PhysicBodyManager::getInstance()->listBody.push_back((GameObject*)body);
 }
 
-void PhysicBodyManager::addBodyToQueue(CCObject* pSender, void *body)
-{
-    PhysicBodyManager::getInstance()->listBody.push_back((GameObject*)body);
-}
-
 void PhysicBodyManager::update(float dt)
 {
     if(this->world != NULL && this->world->IsLocked() == false)

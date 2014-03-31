@@ -4,6 +4,7 @@
 		<body>monkey_normal_attack</body>
 		<damage>100</damage>
         <delay>0.05</delay>
+        <life_time>0</life_time>
 		<cool_down>0</cool_down>
         <joints>
             <holder x="2" y="0" offsetX="0" offsetY="0"></holder>
