@@ -20,25 +20,32 @@ NormalAttack::NormalAttack(GameObject* holder, NormalMeleeSkillData data)
         this->initJointType();
         
         this->createJoint();
-        this->data.getskillSensor()->SetActive(false);
-        
-        //create joint
-        
+        this->data.getSkillSensor()->SetActive(false);
         
         //Set foot sensor bullet
-        //        this->data.getskillSensor()->SetBullet(true);
+        this->data.getSkillSensor()->SetBullet(true);
         
         //
         PhysicData* sensorData = new PhysicData();
         sensorData->Id = SKILL_SENSOR;
         sensorData->Data = this;
-        this->data.getskillSensor()->SetUserData(sensorData);
+        this->data.getSkillSensor()->SetUserData(sensorData);
         
+        //
+        this->skillSprite = NULL;
+        if(this->data.getSkillAnimation() != NULL && this->data.getSkillAnimation()->getAnimation() != NULL)
+        {
+            this->skillSprite = CCSprite::create("Default.png");
+            this->skillSprite->retain();
+            this->data.getSkillAnimation()->getAnimation()->setLoops(INFINITY);
+        }
+
     }
 }
 
 NormalAttack::~NormalAttack()
 {
+    this->skillSprite->release();
 }
 
 
@@ -75,7 +82,12 @@ void NormalAttack::EndContact(b2Contact *contact)
 
 void NormalAttack::update(float dt)
 {
-    
+    if(this->skillSprite != NULL)
+    {
+        CCPoint bodyPosition = ccp(this->data.getSkillSensor()->GetPosition().x*PTM_RATIO,this->data.getSkillSensor()->GetPosition().y*PTM_RATIO);
+        this->skillSprite->setPosition(bodyPosition);
+        this->skillSprite->setRotation(-1 * CC_RADIANS_TO_DEGREES(this->data.getSkillSensor()->GetAngle()));
+    }
 }
 
 void NormalAttack::excute()
@@ -105,12 +117,27 @@ void NormalAttack::stop()
 void NormalAttack::excuteImmediately()
 {
 //    this->destroyJoint();
-    this->data.getskillSensor()->SetActive(true);
+    this->data.getSkillSensor()->SetActive(true);
+    if(this->data.getSkillAnimation() != NULL)
+    {
+        this->holder->getSprite()->getParent()->addChild(this->skillSprite);
+        
+        CCAnimate* action = CCAnimate::create(this->data.getSkillAnimation()->getAnimation());
+        this->skillSprite->runAction(action);
+        
+        this->skillSprite->setPosition(ccp(0,0));
+    }
 }
 
 void NormalAttack::stopImmediately()
 {
-    this->data.getskillSensor()->SetActive(false);
+    this->data.getSkillSensor()->SetActive(false);
+    if(this->data.getSkillAnimation() != NULL)
+    {
+        this->skillSprite->stopAllActions();
+        
+        this->holder->getSprite()->getParent()->cocos2d::CCNode::removeChild(this->skillSprite);
+    }
 }
 
 void NormalAttack::checkCollisionDataInBeginContact(PhysicData* data, b2Contact *contact)
@@ -159,7 +186,7 @@ void NormalAttack::createJoint()
     //create joint
     b2RevoluteJointDef skillJointDef;
     skillJointDef.bodyA = this->holder->getBody();
-    skillJointDef.bodyB = this->data.getskillSensor();
+    skillJointDef.bodyB = this->data.getSkillSensor();
     skillJointDef.collideConnected =false;
     
     JointDef tempA = data.getJointDefA();
@@ -169,7 +196,7 @@ void NormalAttack::createJoint()
     
     JointDef tempB = data.getJointDefB();
     tempB.x = this_join_type;
-    b2Vec2 anchorB = Util::getb2VecAnchor(this->data.getskillSensor(), tempB);
+    b2Vec2 anchorB = Util::getb2VecAnchor(this->data.getSkillSensor(), tempB);
     skillJointDef.localAnchorB.Set(anchorB.x, anchorB.y);
     
     this->skillJoint=this->holder->getBody()->GetWorld()->CreateJoint(&skillJointDef);

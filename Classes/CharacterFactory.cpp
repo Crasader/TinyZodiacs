@@ -204,12 +204,12 @@ Hero* CharacterFactory::createHero(CharacterDTO heroDTOData, b2World* world)
     sc->addFixturesToBody(body, heroDTOData.body.c_str());
     hero->getSprite()->setAnchorPoint(sc->anchorPointForShape(heroDTOData.body.c_str()));
     //
-    hero->getSprite()->setScale(0);
+//    hero->getSprite()->setScale(0);
     hero->setSkin(body, hero->getSprite());
     
     hero->setNormalAttack(SkillFactory::createSkill(heroDTOData.data.getSkill0().c_str(), world, hero));
-    hero->setNormalAttack(SkillFactory::createSkill(heroDTOData.data.getSkill1().c_str(), world, hero));
-    hero->setNormalAttack(SkillFactory::createSkill(heroDTOData.data.getSkill2().c_str(), world, hero));
+    hero->setSkill1(SkillFactory::createSkill(heroDTOData.data.getSkill1().c_str(), world, hero));
+    hero->setSkill2(SkillFactory::createSkill(heroDTOData.data.getSkill2().c_str(), world, hero));
 
     
     hero->retain();

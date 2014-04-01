@@ -120,12 +120,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../classes/SkillType0Parser.cpp"
-            timestampString = "417943373.311019"
+            timestampString = "418033498.118227"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "100"
-            endingLineNumber = "100"
-            landmarkName = "SkillType0Parser::readDelay(const XMLElement* root)"
+            startingLineNumber = "73"
+            endingLineNumber = "73"
+            landmarkName = "SkillType0Parser::readBody(const XMLElement* root, b2World* world)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

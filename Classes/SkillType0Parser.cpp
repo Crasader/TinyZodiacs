@@ -7,6 +7,7 @@
 //
 
 #include "SkillType0Parser.h"
+#include "AnimationFactory.h"
 
 int SkillType0Parser::readDamage(const XMLElement* root)
 {
@@ -102,6 +103,22 @@ float SkillType0Parser::readDelay(const XMLElement* root)
     return 0;
 }
 
+AnimationObject* SkillType0Parser::readAnimation(const XMLElement* root)
+{
+    if(root != NULL)
+    {
+        string typeValue = root->GetText();
+        if(typeValue.length() ==0)
+        {
+            return NULL;
+        }
+        AnimationObject* anim = AnimationFactory::getSharedFactory()->getAnimationObjectByName(typeValue.c_str());
+        return anim;
+    }
+    return NULL;
+
+}
+
 NormalMeleeSkillData SkillType0Parser::parse(const XMLElement* root, b2World* world)
 {
     NormalMeleeSkillData data;
@@ -109,9 +126,18 @@ NormalMeleeSkillData SkillType0Parser::parse(const XMLElement* root, b2World* wo
     data.setCoolDown(readDamage(root->FirstChildElement(TAG_COOL_DOWN)));
     data.setDelay(readDelay(root->FirstChildElement(TAG_DELAY)));
     data.setLifeTime(readDelay(root->FirstChildElement(TAG_LIFE_TIME)));
-    data.setskillSensor(readBody(root->FirstChildElement(TAG_BODY), world));
+    data.setSkillSensor(readBody(root->FirstChildElement(TAG_BODY), world));
     data.setJointDefA(readJoinDef(root->FirstChildElement(TAG_JOINTS)->FirstChildElement(TAG_HOLDER)));
     data.setJointDefB(readJoinDef(root->FirstChildElement(TAG_JOINTS)->FirstChildElement(TAG_THIS)));
 
+    if(root->FirstChildElement(TAG_ANIMATION) != NULL)
+    {
+        data.setSkillAnimation(readAnimation(root->FirstChildElement(TAG_ANIMATION)));
+    }
+    else
+    {
+        data.setSkillAnimation(NULL);
+    }
+    
     return data;
 }

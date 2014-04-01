@@ -74,6 +74,20 @@ void Character::setOriginCharacterData(CharacterData data)
 bool falling = false;
 void Character::update(float dt)
 {
+    //
+    if(this->normalAttack != NULL)
+    {
+        this->normalAttack->update(dt);
+    }
+    if(this->skill1 != NULL)
+    {
+        this->skill1->update(dt);
+    }
+    if(this->skill2 != NULL)
+    {
+        this->skill2->update(dt);
+    }
+    //
     this->state->update(dt);
     GameObject::update(dt);
 }

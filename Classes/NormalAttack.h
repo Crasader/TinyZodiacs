@@ -31,11 +31,13 @@ protected:
     virtual void initJointType();
     
     virtual void setExcuteAble();
+    
 public:
     NormalAttack(GameObject* holder, NormalMeleeSkillData data);
     ~NormalAttack();
     
     CC_SYNTHESIZE(NormalMeleeSkillData, data, Data);
+    CC_SYNTHESIZE(CCSprite*, skillSprite, SkillSprite);
     
     virtual void excute();
     virtual void stop();

@@ -8,6 +8,7 @@
 
 #include "GameObject.h"
 #include "Box2D/Box2d.h"
+#include "Util.h"
 
 USING_NS_CC;
 
@@ -161,4 +162,5 @@ b2AABB GameObject::getBodyBoundingBox()
         return aabb;
     }
     return b2AABB();
+//    return Util::getBodyBoundingBox(this->getBody());
 }

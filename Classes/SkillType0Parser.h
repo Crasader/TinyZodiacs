@@ -36,6 +36,7 @@
 #define TAG_COOL_DOWN "cool_down"
 #define TAG_DELAY "delay"
 #define TAG_LIFE_TIME "life_time"
+#define TAG_ANIMATION "animation"
 
 
 using namespace tinyxml2;
@@ -48,14 +49,11 @@ protected:
     static int readDamage(const XMLElement* root);
     static float readCoolDown(const XMLElement* root);
     static JointDef readJoinDef(const XMLElement* root);
-
     static void readJointDef(const NormalMeleeSkillData* data);
-    
     static b2Body* readBody(const XMLElement* root, b2World* world);
-    
     static float readDelay(const XMLElement* root);
-    
     static float readLifeTime(const XMLElement* root);
+    static AnimationObject* readAnimation(const XMLElement* root);
 
 public:
     static NormalMeleeSkillData parse(const XMLElement* root, b2World* world);

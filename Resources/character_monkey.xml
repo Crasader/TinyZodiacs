@@ -8,7 +8,7 @@
     <atk_speed>0.1</atk_speed>
     <max_jump>5</max_jump>
     <jump_height>10</jump_height>
-    <skill_0>monkey_normal_attack</skill_0>
+    <skill_0>monkey_aura</skill_0>
     <skill_1>monkey_normal_attack</skill_1>
     <skill_2>monkey_normal_attack</skill_2>
 </character>
