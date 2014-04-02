@@ -25,7 +25,7 @@ GameObject::~GameObject()
 
 bool GameObject::init()
 {
-   
+    
     return true;
 }
 
@@ -162,5 +162,25 @@ b2AABB GameObject::getBodyBoundingBox()
         return aabb;
     }
     return b2AABB();
-//    return Util::getBodyBoundingBox(this->getBody());
+    //    return Util::getBodyBoundingBox(this->getBody());
+}
+
+void GameObject::setGroup(int group)
+{
+    if(this->body != NULL)
+    {
+        for (b2Fixture* f = this->body->GetFixtureList(); f; f = f->GetNext())
+        {
+            if(f != NULL)
+            {
+//                b2Filter filter = f->GetFilterData();
+//                filter.groupIndex = group;
+//                filter.categoryBits = group;
+//                filter.maskBits = 0xFFFF;
+//                f->SetFilterData(filter);
+//                CCLOG("Here");
+                Util::setFixtureGroup(f, group);
+            }
+        }
+    }
 }

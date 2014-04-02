@@ -12,8 +12,7 @@
 #include "CharacterMidAirState.h"
 #include "CharacterJumpState.h"
 #include "CharacterIdleState.h"
-
-
+#include "Util.h"
 
 USING_NS_CC;
 
@@ -22,23 +21,13 @@ Character::Character()
     this->state = NULL;
     this->landing = 0;
     this->currentJumpCount = 0;
-    
-    
-    runAnimation = AnimationFactory::getSharedFactory()->getAnimationObjectByName("monkey-run");
-    attackAnimation = AnimationFactory::getSharedFactory()->getAnimationObjectByName("monkey-attack");
-    jumpAnimation = AnimationFactory::getSharedFactory()->getAnimationObjectByName("monkey-jump");
-    idleAnimation = AnimationFactory::getSharedFactory()->getAnimationObjectByName("monkey-idle");
-    fallAnimation = AnimationFactory::getSharedFactory()->getAnimationObjectByName("monkey-fall");
-    flyAnimation = AnimationFactory::getSharedFactory()->getAnimationObjectByName("monkey-fly");
-    skill1Animation = AnimationFactory::getSharedFactory()->getAnimationObjectByName("monkey-skill");
-    
-    
-    //create attack skill
 }
 
 Character::~Character()
 {
     delete normalAttack;
+    delete skill1;
+    delete skill2;
 }
 
 void Character::changeState(CharacterState *states)
@@ -129,7 +118,10 @@ void Character::jump()
 
 void Character::attack()
 {
-    this->state->attack();
+    if(this->normalAttack->getIsExcutable())
+    {
+        this->state->attack();
+    }
 }
 
 void Character::useSkill1()
@@ -235,6 +227,16 @@ void Character::BeginContact(b2Contact *contact)
     {
         normalAttack->BeginContact(contact);
     }
+    
+    if(skill2 != NULL)
+    {
+        skill2->BeginContact(contact);
+    }
+    
+    if(skill1 != NULL)
+    {
+        skill1->BeginContact(contact);
+    }
 }
 
 void Character::EndContact(b2Contact *contact)
@@ -245,4 +247,36 @@ void Character::EndContact(b2Contact *contact)
     {
         normalAttack->EndContact(contact);
     }
+    
+    if(skill1 != NULL)
+    {
+        skill1->EndContact(contact);
+    }
+    
+    if(skill2 != NULL)
+    {
+        skill2->EndContact(contact);
+    }
+}
+
+void Character::setGroup(int group)
+{
+    //    b2Filter data = this->footSensor->GetFixtureList()[0].GetFilterData();
+    //    data.groupIndex = group;
+    //    this->footSensor->GetFixtureList()[0].SetFilterData(data);
+    for (b2Fixture* f = this->footSensor->GetFixtureList(); f; f = f->GetNext())
+    {
+        if(f != NULL)
+        {
+            Util::setFixtureGroup(f, group);
+        }
+    }
+    
+    
+    if(this->normalAttack != NULL)
+    {
+        this->normalAttack->setGroup(group);
+    }
+    
+    GameObject::setGroup(group);
 }

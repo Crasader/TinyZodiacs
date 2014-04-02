@@ -15,9 +15,9 @@
     <skill id="monkey_aura" type="0">
 		<body>monkey_aura</body>
 		<damage>200</damage>
-        <delay>0.05</delay>
-        <life_time>5</life_time>
-		<cool_down>5</cool_down>
+        <delay>0.1</delay>
+        <life_time>1</life_time>
+		<cool_down>2</cool_down>
         <joints>
             <holder x="0" y="0" offsetX="0" offsetY="0"></holder>
             <this x="0" y="0" offsetX="0" offsetY="0"></this>

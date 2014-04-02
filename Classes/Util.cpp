@@ -84,3 +84,36 @@ b2Vec2 Util::getb2VecAnchor(b2Body* body, JointDef jointDef)
     
     return jointAAnchor;
 }
+
+void Util::setFixtureGroup(b2Fixture* fixture, uint16 group)
+{
+    if(fixture != NULL)
+    {
+        b2Filter filter = fixture->GetFilterData();
+//        filter.groupIndex = group;
+        filter.categoryBits = group;
+        switch (group) {
+            case GROUP_A:
+                filter.maskBits = GROUP_B | GROUP_HERO_B | GROUP_NEUTRUAL | GROUP_TERRAIN;
+                break;
+            case GROUP_B:
+                filter.maskBits = GROUP_A | GROUP_HERO_A | GROUP_NEUTRUAL | GROUP_TERRAIN;
+                break;
+            case GROUP_NEUTRUAL:
+                filter.maskBits = GROUP_A | GROUP_HERO_A | GROUP_B | GROUP_HERO_B | GROUP_NEUTRUAL | GROUP_TERRAIN;
+                break;
+            case GROUP_TERRAIN:
+                filter.maskBits = 0xFFFFFF;
+                break;
+            case GROUP_HERO_A:
+                filter.maskBits = GROUP_B | GROUP_NEUTRUAL | GROUP_TERRAIN;
+                break;
+            case GROUP_HERO_B:
+                filter.maskBits = GROUP_A | GROUP_NEUTRUAL | GROUP_TERRAIN;
+                break;
+            default:
+                break;
+        }
+        fixture->SetFilterData(filter);
+    }
+}

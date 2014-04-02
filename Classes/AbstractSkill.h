@@ -42,6 +42,8 @@ public:
     virtual void excuteImmediately();
     virtual void stopImmediately();
     
+    virtual void setGroup(int group)=0;
+    
     CC_SYNTHESIZE(GameObject* , holder, Holder);
 };
 #endif /* defined(__TinyZodiacs__AbstractSkill__) */

@@ -27,6 +27,14 @@
 #define JOINT_BOTTOM_OR_LEFT -1
 #define JOINT_REAR 2
 
+#define GROUP_A 0x0002
+#define GROUP_B 0x0004
+#define GROUP_NEUTRUAL 0x0008
+#define GROUP_TERRAIN 0x0010
+#define GROUP_HERO_A 0x0020
+#define GROUP_HERO_B 0x0040
+
+
 struct JointDef
 {
     int x;

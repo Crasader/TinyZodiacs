@@ -48,6 +48,7 @@ public:
     virtual void EndContact(b2Contact *contact);
     
     virtual void excuteScheduledFunction(CCObject* pSender, void *body);
+    virtual void setGroup(int group);
 };
 
 #endif /* defined(__SampleCocosProject__GameObject__) */

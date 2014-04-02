@@ -68,6 +68,8 @@ public:
     virtual void setSkin(b2Body* body,cocos2d::CCSprite* sprite);
     virtual void BeginContact(b2Contact *contact);
     virtual void EndContact(b2Contact *contact);
+    
+    virtual void setGroup(int group);
 };
 
 #endif /* defined(__SampleCocosProject__Character__) */

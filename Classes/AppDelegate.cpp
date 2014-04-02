@@ -29,8 +29,7 @@ bool AppDelegate::applicationDidFinishLaunching() {
     CCEGLView* pEGLView = CCEGLView::sharedOpenGLView();
     
     pDirector->setOpenGLView(pEGLView);
-    
-    
+        
     // turn on display FPS
     pDirector->setDisplayStats(true);
     
@@ -54,7 +53,7 @@ bool AppDelegate::applicationDidFinishLaunching() {
 //    if (frameSize.height >= largeResource.size.height)
 //    {
         searchPath.push_back(largeResource.directory);
-//        pDirector->setContentScaleFactor(1);
+       pDirector->setContentScaleFactor(1);
 //    }
 //    else if (frameSize.height >= mediumResource.size.height)
 //    {

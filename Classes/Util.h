@@ -20,6 +20,7 @@ protected:
 public:
     static b2AABB getBodyBoundingBox(b2Body* body);
     static b2Vec2 getb2VecAnchor(b2Body* body, JointDef jointDef);
+    static void setFixtureGroup(b2Fixture* fixture, uint16 group);
 };
 
 #endif /* defined(__TinyZodiacs__Util__) */

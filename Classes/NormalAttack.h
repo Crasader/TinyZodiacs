@@ -48,5 +48,6 @@ public:
     virtual void excuteImmediately();
     virtual void stopImmediately();
 
+    virtual void setGroup(int group);
 };
 #endif /* defined(__TinyZodiacs__NormalAttack__) */

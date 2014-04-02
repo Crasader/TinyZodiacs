@@ -161,6 +161,7 @@ MapObject* ObjectFactory::createMapObject(MapObjectDTO* mapObjectDTO, b2World *w
         data->Data = NULL;
         body->SetUserData(data);
 
+        mapObject->setGroup(GROUP_TERRAIN);
     }
     else
     {
@@ -171,8 +172,7 @@ MapObject* ObjectFactory::createMapObject(MapObjectDTO* mapObjectDTO, b2World *w
     
 
     
-      mapObject->setPositionInPixel(ccp(mapObjectDTO->x,mapObjectDTO->y));
-    
+    mapObject->setPositionInPixel(ccp(mapObjectDTO->x,mapObjectDTO->y));
     return mapObject;
     
 }

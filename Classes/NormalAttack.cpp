@@ -9,6 +9,7 @@
 #include "NormalAttack.h"
 #include "Util.h"
 #include "ScheduleManager.h"
+#include "LayerIndexConstants.h"
 
 NormalAttack::NormalAttack(GameObject* holder, NormalMeleeSkillData data)
 {
@@ -22,8 +23,9 @@ NormalAttack::NormalAttack(GameObject* holder, NormalMeleeSkillData data)
         this->createJoint();
         this->data.getSkillSensor()->SetActive(false);
         
-        //Set foot sensor bullet
         this->data.getSkillSensor()->SetBullet(true);
+        
+        this->isExcutable = true;
         
         //
         PhysicData* sensorData = new PhysicData();
@@ -96,8 +98,8 @@ void NormalAttack::excute()
     {
         destroyJoint();
         createJoint();
-        ScheduleManager::getInstance()->scheduleForSkill(this, this->data.getDelay(), FUCTION_EXCUTE);
         ScheduleManager::getInstance()->scheduleForSkill(this, this->data.getCoolDown(), FUCTION_SET_EXCUTABLE);
+        ScheduleManager::getInstance()->scheduleForSkill(this, this->data.getDelay(), FUCTION_EXCUTE);
         this->isExcutable = false;
     }
 }
@@ -120,7 +122,7 @@ void NormalAttack::excuteImmediately()
     this->data.getSkillSensor()->SetActive(true);
     if(this->data.getSkillAnimation() != NULL)
     {
-        this->holder->getSprite()->getParent()->addChild(this->skillSprite);
+        this->holder->getSprite()->getParent()->addChild(this->skillSprite, ABOVE_CHARACTER_LAYER);
         
         CCAnimate* action = CCAnimate::create(this->data.getSkillAnimation()->getAnimation());
         this->skillSprite->runAction(action);
@@ -136,7 +138,7 @@ void NormalAttack::stopImmediately()
     {
         this->skillSprite->stopAllActions();
         
-        this->holder->getSprite()->getParent()->cocos2d::CCNode::removeChild(this->skillSprite);
+        this->holder->getSprite()->getParent()->removeChild(this->skillSprite);        
     }
 }
 
@@ -223,6 +225,17 @@ void NormalAttack::initJointType()
         }
     }
 }
+
+void NormalAttack::setGroup(int group)
+{
+//    if(this->data.getSkillSensor() != NULL)
+//    {
+//        b2Filter data = this->data.getSkillSensor()->GetFixtureList()->GetFilterData();
+//        data.groupIndex = group;
+//        this->data.getSkillSensor()->GetFixtureList()->SetFilterData(data);
+//    }
+}
+
 
 void NormalAttack::setExcuteAble()
 {

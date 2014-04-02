@@ -64,6 +64,20 @@ bool GameWorld::init()
     this->setFollowCharacter(true);
     //this->map->scheduleUpdate();
     
+    //CHARACTER
+    this->c1 = ObjectFactory::getSharedManager()->createCharacter("map2", world);
+    this->map->addChild(c1->getSprite(), CHARACTER_LAYER);
+    this->c1->setPositionInPixel(ccp(600,1000));
+
+    //CHARACTER
+    this->c2 = ObjectFactory::getSharedManager()->createCharacter("map2", world);
+    this->map->addChild(c2->getSprite(), CHARACTER_LAYER);
+    this->c2->setPositionInPixel(ccp(800,1200));
+
+    this->character->setGroup(GROUP_HERO_A);
+    this->c1->setGroup(GROUP_B);
+    this->c2->setGroup(GROUP_HERO_B);
+
     //
     createWorldBox();
     //
@@ -158,7 +172,9 @@ void GameWorld::update(float dt)
     
     this->map->update(dt);
     this->character->update(dt);
-    
+    this->c1->update(dt);
+    this->c2->update(dt);
+
 }
 
 void GameWorld::setFollowCharacter(bool follow)
@@ -186,8 +202,12 @@ void GameWorld::draw()
 void GameWorld::BeginContact(b2Contact *contact)
 {
     character->BeginContact(contact);
+    this->c1->BeginContact(contact);
+    this->c2->BeginContact(contact);
 }
 void GameWorld::EndContact(b2Contact *contact)
 {
     character->EndContact(contact);
+    this->c1->EndContact(contact);
+    this->c2->EndContact(contact);
 }
