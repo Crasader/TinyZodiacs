@@ -55,14 +55,13 @@ CCScene* TestScene::scene()
     // add layer as a child to scene
     scene->addChild(layer);
   
-
-    
+    GameMenuLayer* menuLayer = GameMenuLayer::create();
+    scene->addChild(menuLayer, GAME_MENU_LAYER, 4);
     
     GameObjectLayer* objectLayer = GameObjectLayer::create();
     scene->addChild(objectLayer, GAME_OBJECT_LAYER, 3);
     
-    GameMenuLayer* menuLayer = GameMenuLayer::create();
-    scene->addChild(menuLayer, GAME_MENU_LAYER, 4);
+
     
     
     // return the scene

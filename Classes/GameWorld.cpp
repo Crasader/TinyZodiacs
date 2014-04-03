@@ -59,19 +59,19 @@ bool GameWorld::init()
     delete mapCreator;
     
     //CHARACTER
-    this->character = ObjectFactory::getSharedManager()->createCharacter("map2", world);
+    this->character = ObjectFactory::getSharedManager()->createCharacter("map2", world, true);
     this->map->addChild(character->getSprite(), CHARACTER_LAYER);
     this->character->setPositionInPixel(ccp(400,800));
     this->setFollowCharacter(true);
     //this->map->scheduleUpdate();
     
     //CHARACTER
-    this->c1 = ObjectFactory::getSharedManager()->createCharacter("map2", world);
+    this->c1 = ObjectFactory::getSharedManager()->createCharacter("map2", world, false);
     this->map->addChild(c1->getSprite(), CHARACTER_LAYER);
     this->c1->setPositionInPixel(ccp(600,1000));
 
     //CHARACTER
-    this->c2 = ObjectFactory::getSharedManager()->createCharacter("map2", world);
+    this->c2 = ObjectFactory::getSharedManager()->createCharacter("map2", world, false);
     this->map->addChild(c2->getSprite(), CHARACTER_LAYER);
     this->c2->setPositionInPixel(ccp(800,1200));
 

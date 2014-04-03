@@ -169,13 +169,29 @@ void GameObject::setGroup(int group)
 {
     if(this->body != NULL)
     {
-        for (b2Fixture* f = this->body->GetFixtureList()
-             ; f; f = f->GetNext())
+        //        for (b2Fixture* f = this->body->GetFixtureList()
+        //             ; f; f = f->GetNext())
+        //        {
+        //            if(f != NULL)
+        //            {
+        //                Util::setFixtureGroup(f, group);
+        //            }
+        //        }
+        
+        for (b2Fixture* f = this->body->GetFixtureList(); f; f = f->GetNext())
         {
             if(f != NULL)
             {
                 Util::setFixtureGroup(f, group);
+                
+                if(f->GetNext() != NULL)
+                {
+                    b2Filter filter = f->GetFilterData();
+                    filter.maskBits = filter.maskBits ^ GROUP_SKILL_DEFAULT;
+                    f->SetFilterData(filter);
+                }
             }
         }
+        
     }
 }

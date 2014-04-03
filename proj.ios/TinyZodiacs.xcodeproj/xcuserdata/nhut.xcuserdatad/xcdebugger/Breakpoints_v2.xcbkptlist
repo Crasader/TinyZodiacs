@@ -119,22 +119,6 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "../classes/NormalAttack.cpp"
-            timestampString = "418189340.934468"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "176"
-            endingLineNumber = "176"
-            landmarkName = "NormalAttack::checkCollisionDataInEndContact(PhysicData* data, b2Contact *contact, bool isSideA)"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "../Classes/AbstractSkill.cpp"
             timestampString = "418187400.26833"
             startingColumnNumber = "9223372036854775807"
@@ -142,22 +126,6 @@
             startingLineNumber = "19"
             endingLineNumber = "19"
             landmarkName = "AbstractSkill::BeginContact(b2Contact *contact)"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "../Classes/Character.cpp"
-            timestampString = "418187796.1543"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "241"
-            endingLineNumber = "241"
-            landmarkName = "Character::BeginContact(b2Contact *contact)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

@@ -15,6 +15,7 @@
 #include "PhysicConstants.h"
 #include "GameObject.h"
 #include "SkillData.h"
+#include "GamePlayButton.h"
 
 #define FUCTION_EXCUTE 0
 #define FUCTION_STOP 1
@@ -45,5 +46,6 @@ public:
     virtual void setGroup(int group)=0;
     
     CC_SYNTHESIZE(GameObject* , holder, Holder);
+    CC_SYNTHESIZE(GameplayButton* , holderButton, holderButton);
 };
 #endif /* defined(__TinyZodiacs__AbstractSkill__) */

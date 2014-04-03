@@ -65,9 +65,9 @@ protected:
     static string readSkill(tinyxml2::XMLElement* root);
 
 
-    static Hero* createHero(CharacterDTO heroDTOData, b2World* world);
+    static Hero* createHero(CharacterDTO heroDTOData, b2World* world, bool isLocal);
 
 public:
-    static Hero* createMonkeyHero(b2World* world);
+    static Hero* createMonkeyHero(b2World* world, bool isLocal);
 };
 #endif /* defined(__TinyZodiacs__CharacterFactory__) */

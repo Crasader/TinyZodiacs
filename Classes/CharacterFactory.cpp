@@ -167,7 +167,7 @@ int CharacterFactory::readJumpHeightData(tinyxml2::XMLElement* root)
     return 1;
 }
 
-Hero* CharacterFactory::createHero(CharacterDTO heroDTOData, b2World* world)
+Hero* CharacterFactory::createHero(CharacterDTO heroDTOData, b2World* world, bool isLocal)
 {
     Hero* hero = Hero::create();
 
@@ -206,9 +206,9 @@ Hero* CharacterFactory::createHero(CharacterDTO heroDTOData, b2World* world)
     //
     hero->setSkin(body, hero->getSprite());
     
-    hero->setNormalAttack(SkillFactory::createSkill(heroDTOData.data.getSkill0().c_str(), world, hero));
-    hero->setSkill1(SkillFactory::createSkill(heroDTOData.data.getSkill1().c_str(), world, hero));
-    hero->setSkill2(SkillFactory::createSkill(heroDTOData.data.getSkill2().c_str(), world, hero));
+    hero->setNormalAttack(SkillFactory::createSkill(heroDTOData.data.getSkill0().c_str(), world, hero, isLocal, SKILL_0_BUTTON));
+    hero->setSkill1(SkillFactory::createSkill(heroDTOData.data.getSkill1().c_str(), world, hero, isLocal, SKILL_1_BUTTON));
+    hero->setSkill2(SkillFactory::createSkill(heroDTOData.data.getSkill2().c_str(), world, hero, isLocal, SKILL_2_BUTTON));
     
     //
     hero->retain();
@@ -218,14 +218,14 @@ Hero* CharacterFactory::createHero(CharacterDTO heroDTOData, b2World* world)
     return hero;
 }
 
-Hero* CharacterFactory::createMonkeyHero(b2World* world)
+Hero* CharacterFactory::createMonkeyHero(b2World* world, bool isLocal)
 {
     if (world == NULL) {
         return  NULL;
     }
     CharacterDTO dtoData = loadXMLFile(CHARACTER_MONKEY_XML_FILE);
     
-    return createHero(dtoData, world);
+    return createHero(dtoData, world, isLocal);
 }
 
 

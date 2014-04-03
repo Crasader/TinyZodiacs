@@ -17,6 +17,45 @@
                 <key>sourceSize</key>
                 <string>{87,17}</string>
             </dict>
+            <key>attack_deactive.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{339,469},{132,136}}</string>
+                <key>offset</key>
+                <string>{0,1}</string>
+                <key>rotated</key>
+                <true/>
+                <key>sourceColorRect</key>
+                <string>{{3,0},{132,136}}</string>
+                <key>sourceSize</key>
+                <string>{138,138}</string>
+            </dict>
+            <key>attack_normal.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{782,520},{132,136}}</string>
+                <key>offset</key>
+                <string>{0,1}</string>
+                <key>rotated</key>
+                <true/>
+                <key>sourceColorRect</key>
+                <string>{{3,0},{132,136}}</string>
+                <key>sourceSize</key>
+                <string>{138,138}</string>
+            </dict>
+            <key>attack_selected.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{2,398},{138,138}}</string>
+                <key>offset</key>
+                <string>{0,0}</string>
+                <key>rotated</key>
+                <false/>
+                <key>sourceColorRect</key>
+                <string>{{0,0},{138,138}}</string>
+                <key>sourceSize</key>
+                <string>{138,138}</string>
+            </dict>
             <key>aura_1.png</key>
             <dict>
                 <key>frame</key>
@@ -82,6 +121,84 @@
                 <key>sourceSize</key>
                 <string>{166,111}</string>
             </dict>
+            <key>jump_deactive.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{2,829},{98,98}}</string>
+                <key>offset</key>
+                <string>{0,0}</string>
+                <key>rotated</key>
+                <false/>
+                <key>sourceColorRect</key>
+                <string>{{1,1},{98,98}}</string>
+                <key>sourceSize</key>
+                <string>{100,100}</string>
+            </dict>
+            <key>jump_normal.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{920,622},{98,98}}</string>
+                <key>offset</key>
+                <string>{0,0}</string>
+                <key>rotated</key>
+                <false/>
+                <key>sourceColorRect</key>
+                <string>{{1,1},{98,98}}</string>
+                <key>sourceSize</key>
+                <string>{100,100}</string>
+            </dict>
+            <key>jump_selected.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{920,520},{100,100}}</string>
+                <key>offset</key>
+                <string>{0,0}</string>
+                <key>rotated</key>
+                <false/>
+                <key>sourceColorRect</key>
+                <string>{{0,0},{100,100}}</string>
+                <key>sourceSize</key>
+                <string>{100,100}</string>
+            </dict>
+            <key>left_deactive.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{848,722},{105,130}}</string>
+                <key>offset</key>
+                <string>{0,0}</string>
+                <key>rotated</key>
+                <true/>
+                <key>sourceColorRect</key>
+                <string>{{0,0},{105,130}}</string>
+                <key>sourceSize</key>
+                <string>{105,130}</string>
+            </dict>
+            <key>left_normal.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{716,654},{105,130}}</string>
+                <key>offset</key>
+                <string>{0,0}</string>
+                <key>rotated</key>
+                <true/>
+                <key>sourceColorRect</key>
+                <string>{{0,0},{105,130}}</string>
+                <key>sourceSize</key>
+                <string>{105,130}</string>
+            </dict>
+            <key>left_selected.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{584,629},{105,130}}</string>
+                <key>offset</key>
+                <string>{0,0}</string>
+                <key>rotated</key>
+                <true/>
+                <key>sourceColorRect</key>
+                <string>{{0,0},{105,130}}</string>
+                <key>sourceSize</key>
+                <string>{105,130}</string>
+            </dict>
             <key>normal_meelee_deactive.png</key>
             <dict>
                 <key>frame</key>
@@ -120,6 +237,45 @@
                 <string>{{0,0},{172,172}}</string>
                 <key>sourceSize</key>
                 <string>{172,172}</string>
+            </dict>
+            <key>right_deactive.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{477,601},{105,130}}</string>
+                <key>offset</key>
+                <string>{0,0}</string>
+                <key>rotated</key>
+                <false/>
+                <key>sourceColorRect</key>
+                <string>{{0,0},{105,130}}</string>
+                <key>sourceSize</key>
+                <string>{105,130}</string>
+            </dict>
+            <key>right_normal.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{584,522},{105,130}}</string>
+                <key>offset</key>
+                <string>{0,0}</string>
+                <key>rotated</key>
+                <true/>
+                <key>sourceColorRect</key>
+                <string>{{0,0},{105,130}}</string>
+                <key>sourceSize</key>
+                <string>{105,130}</string>
+            </dict>
+            <key>right_selected.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{477,469},{105,130}}</string>
+                <key>offset</key>
+                <string>{0,0}</string>
+                <key>rotated</key>
+                <false/>
+                <key>sourceColorRect</key>
+                <string>{{0,0},{105,130}}</string>
+                <key>sourceSize</key>
+                <string>{105,130}</string>
             </dict>
             <key>skill_1_deactive.png</key>
             <dict>
@@ -209,7 +365,7 @@
             <key>size</key>
             <string>{1024,1024}</string>
             <key>smartupdate</key>
-            <string>$TexturePacker:SmartUpdate:37fccf37eb47f28564af4710c2a4fae4:b62c5e59db180c6b48dcd28fa23cb726:3c2c48a76179ec4ab57555f1b88cee55$</string>
+            <string>$TexturePacker:SmartUpdate:b025d4c9b5e189e8ff90ecd49c8800d5:41bdbc56507cc6490fbb6f33441cc6b4:3c2c48a76179ec4ab57555f1b88cee55$</string>
             <key>textureFileName</key>
             <string>test_sheet.png</string>
         </dict>

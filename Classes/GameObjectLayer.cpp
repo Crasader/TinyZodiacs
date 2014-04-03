@@ -93,3 +93,15 @@ void GameObjectLayer::Attack()
 //    this->gameWorld->getCharacter()->attack();
     this->characterActionEngine->attack();
 }
+
+void GameObjectLayer::Skill1()
+{
+    //    this->gameWorld->getCharacter()->attack();
+    this->characterActionEngine->skill1();
+}
+
+void GameObjectLayer::Skill2()
+{
+    //    this->gameWorld->getCharacter()->attack();
+    this->characterActionEngine->skill2();
+}

@@ -62,6 +62,9 @@ bool GameMenuLayer::init()
     mlayer->setRightButtonEventHadler(this);
     mlayer->setJumpButtonEventHadler(this);
     mlayer->setAtkButtonEventHadler(this);
+    mlayer->setSkill1ButtonEventHadler(this);
+    mlayer->setSkill2ButtonEventHadler(this);
+
     
     this->addChild(mlayer, 1);
     
@@ -137,6 +140,18 @@ void GameMenuLayer::touchBegan(void* sender ,CCSet* pTouches, CCEvent* event)
     {
        
     }
+    else if(id.compare(SKILL_1_BTN_ID) == 0)
+    {
+        if(this->getParent()->getChildByTag(3)!=NULL)
+            ((GameObjectLayer*)this->getParent()->getChildByTag(3))->Skill1();
+        
+    }
+    else if(id.compare(SKILL_2_BTN_ID) == 0)
+    {
+        if(this->getParent()->getChildByTag(3)!=NULL)
+            ((GameObjectLayer*)this->getParent()->getChildByTag(3))->Skill2();
+        
+    }
 }
 void GameMenuLayer::touchHold(void* sender ,CCSet* pTouches, CCEvent* event)
 {
@@ -182,11 +197,9 @@ void GameMenuLayer::touchEnded(void* sender ,CCSet* pTouches, CCEvent* event)
     }
     else if(id.compare(JUMP_BTN_ID) == 0)
     {
-        CCLOG("jump touch ended");
     }
     else if(id.compare(ATK_BTN_ID) == 0)
     {
-        CCLOG("jump attack ended");
     }
 }
 

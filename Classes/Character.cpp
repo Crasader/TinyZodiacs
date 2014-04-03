@@ -133,12 +133,18 @@ void Character::attack()
 
 void Character::useSkill1()
 {
-    
+    if(this->skill1->getIsExcutable())
+    {
+        this->state->attack();
+    }
 }
 
 void Character::useSkill2()
 {
-    
+    if(this->skill2->getIsExcutable())
+    {
+        this->state->attack();
+    }
 }
 
 void Character::createFootSensor()

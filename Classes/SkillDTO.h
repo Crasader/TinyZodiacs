@@ -21,4 +21,7 @@ private:
 protected:
 public:
     SkillData data;
+    std::string selectedTextureId;
+    std::string activeTextureId;
+    std::string deactiveTextureId;
 };

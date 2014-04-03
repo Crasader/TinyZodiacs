@@ -44,7 +44,7 @@ ObjectFactory* ObjectFactory::getSharedManager()
     return sharedFactory;
 }
 
-Character* ObjectFactory::createCharacter(const std::string &name, b2World *world)
+Character* ObjectFactory::createCharacter(const std::string &name, b2World *world, bool isLocal)
 {
 //    Character* character = NULL;
 //    character = new Character();
@@ -88,7 +88,7 @@ Character* ObjectFactory::createCharacter(const std::string &name, b2World *worl
 //    character->attackAnimation->getAnimation()->setDelayPerUnit(data.getAttackSpeed());
 //    return character;
     
-    Character* character = CharacterFactory::createMonkeyHero(world);
+    Character* character = CharacterFactory::createMonkeyHero(world, isLocal);
     
     return character;
     

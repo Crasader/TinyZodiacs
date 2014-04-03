@@ -31,6 +31,9 @@ public:
     void MoveSpriteDown();
     void MoveSprite(float x, float y);
     void Attack();
+    void Skill1();
+    void Skill2();
+
     
     CC_SYNTHESIZE(CharacterActionEngine*, characterActionEngine, CharacterActionEngine);
     

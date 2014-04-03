@@ -101,6 +101,11 @@ void NormalAttack::excute()
         ScheduleManager::getInstance()->scheduleForSkill(this, this->data.getCoolDown(), FUCTION_SET_EXCUTABLE);
         ScheduleManager::getInstance()->scheduleForSkill(this, this->data.getDelay(), FUCTION_EXCUTE);
         this->isExcutable = false;
+        
+        if(this-> holderButton != NULL && this->data.getCoolDown() != 0)
+        {
+            this->holderButton->changeState(DISABLE);
+        }
     }
 }
 
@@ -284,4 +289,8 @@ void NormalAttack::setGroup(int group)
 void NormalAttack::setExcuteAble()
 {
     this->isExcutable = true;
+    if(this->holderButton != NULL)
+    {
+        this->holderButton->changeState(ENABLE);
+    }
 }
