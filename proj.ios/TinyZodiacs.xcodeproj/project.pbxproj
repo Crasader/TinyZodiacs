@@ -176,6 +176,7 @@
 		3486802618D93B82001692BB /* AbstractSkill.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3486802418D93B82001692BB /* AbstractSkill.cpp */; };
 		3486802918D95FB2001692BB /* NormalShootingAttack.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3486802718D95FB2001692BB /* NormalShootingAttack.cpp */; };
 		3486802C18D97940001692BB /* SkillData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3486802A18D97940001692BB /* SkillData.cpp */; };
+		34B8CC6518ED1ED5002FAEF7 /* character_body.plist in Resources */ = {isa = PBXBuildFile; fileRef = 34B8CC6418ED1ED5002FAEF7 /* character_body.plist */; };
 		34C9428718EA75A1000A1E26 /* skill_animation.xml in Resources */ = {isa = PBXBuildFile; fileRef = 34C9428618EA75A1000A1E26 /* skill_animation.xml */; };
 		34C9428F18EAAFD2000A1E26 /* skill_body.plist in Resources */ = {isa = PBXBuildFile; fileRef = 34C9428E18EAAFD2000A1E26 /* skill_body.plist */; };
 		34C9429318EAC657000A1E26 /* test_sheet.plist in Resources */ = {isa = PBXBuildFile; fileRef = 34C9429118EAC657000A1E26 /* test_sheet.plist */; };
@@ -186,7 +187,6 @@
 		34EED02518E525DF001AFFC9 /* SkillType0Parser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 34EED02318E525DF001AFFC9 /* SkillType0Parser.cpp */; };
 		34EED02918E5611F001AFFC9 /* Util.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 34EED02718E5611F001AFFC9 /* Util.cpp */; };
 		34EED02F18E56E3C001AFFC9 /* list_skill.xml in Resources */ = {isa = PBXBuildFile; fileRef = 34EED02E18E56E3C001AFFC9 /* list_skill.xml */; };
-		34F7F92518E130BE0084E87C /* character_body.plist in Resources */ = {isa = PBXBuildFile; fileRef = 34F7F92418E130BE0084E87C /* character_body.plist */; };
 		34F7F92D18E16BB70084E87C /* SkillFactory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 34F7F92B18E16BB70084E87C /* SkillFactory.cpp */; };
 		34F7F93018E194DD0084E87C /* SkillDTO.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 34F7F92E18E194DD0084E87C /* SkillDTO.cpp */; };
 		34FD845118DFCC7300373627 /* CharacterFactory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 34FD844F18DFCC7300373627 /* CharacterFactory.cpp */; };
@@ -707,6 +707,7 @@
 		3486802818D95FB2001692BB /* NormalShootingAttack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NormalShootingAttack.h; path = ../Classes/NormalShootingAttack.h; sourceTree = "<group>"; };
 		3486802A18D97940001692BB /* SkillData.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = SkillData.cpp; path = ../Classes/SkillData.cpp; sourceTree = "<group>"; };
 		3486802B18D97940001692BB /* SkillData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SkillData.h; path = ../Classes/SkillData.h; sourceTree = "<group>"; };
+		34B8CC6418ED1ED5002FAEF7 /* character_body.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = character_body.plist; sourceTree = "<group>"; };
 		34C9428618EA75A1000A1E26 /* skill_animation.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = skill_animation.xml; sourceTree = "<group>"; };
 		34C9428E18EAAFD2000A1E26 /* skill_body.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = skill_body.plist; sourceTree = "<group>"; };
 		34C9429118EAC657000A1E26 /* test_sheet.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = test_sheet.plist; sourceTree = "<group>"; };
@@ -723,7 +724,6 @@
 		34EED02718E5611F001AFFC9 /* Util.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Util.cpp; sourceTree = "<group>"; };
 		34EED02818E5611F001AFFC9 /* Util.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Util.h; sourceTree = "<group>"; };
 		34EED02E18E56E3C001AFFC9 /* list_skill.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = list_skill.xml; sourceTree = "<group>"; };
-		34F7F92418E130BE0084E87C /* character_body.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = character_body.plist; sourceTree = "<group>"; };
 		34F7F92B18E16BB70084E87C /* SkillFactory.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SkillFactory.cpp; sourceTree = "<group>"; };
 		34F7F92C18E16BB70084E87C /* SkillFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SkillFactory.h; sourceTree = "<group>"; };
 		34F7F92E18E194DD0084E87C /* SkillDTO.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SkillDTO.cpp; sourceTree = "<group>"; };
@@ -2369,8 +2369,8 @@
 			children = (
 				34C9428E18EAAFD2000A1E26 /* skill_body.plist */,
 				F5A6F7A718E16742008C145C /* map1_body.plist */,
-				34F7F92418E130BE0084E87C /* character_body.plist */,
 				F544FB9818D93CC100A818DF /* map2_body.plist */,
+				34B8CC6418ED1ED5002FAEF7 /* character_body.plist */,
 				F5C89E0118D2FD2A006E909D /* body.plist */,
 				F5C89E0218D2FD2A006E909D /* map_body.plist */,
 			);
@@ -2464,7 +2464,6 @@
 				F5779C2518E52BDB0044D5CD /* map1_spritesheet_1.plist in Resources */,
 				F5779C2418E52BDB0044D5CD /* map1_background_spritesheet_2.png in Resources */,
 				F5A6F7AD18E16AAF008C145C /* map2_background_spritesheet.plist in Resources */,
-				34F7F92518E130BE0084E87C /* character_body.plist in Resources */,
 				F50BD49418D8765F00A892E6 /* background2_spritesheet.plist in Resources */,
 				F5779C2C18E52BDB0044D5CD /* map1_spritesheet_4.png in Resources */,
 				F5C89E0418D2FD2A006E909D /* map_body.plist in Resources */,
@@ -2483,6 +2482,7 @@
 				F53ACBAF18D831C700F958A8 /* map2.xml in Resources */,
 				F5A6F7B018E16AAF008C145C /* map2_background3_spritesheet.png in Resources */,
 				D41A0AD1160F154A004552AE /* Default-568h@2x.png in Resources */,
+				34B8CC6518ED1ED5002FAEF7 /* character_body.plist in Resources */,
 				34C9429318EAC657000A1E26 /* test_sheet.plist in Resources */,
 				D446FD6E16102124000ADA7B /* Default@2x.png in Resources */,
 				F50BD49718D8765F00A892E6 /* background1_spritesheet.png in Resources */,

@@ -27,8 +27,8 @@ private:
 protected:
     CC_SYNTHESIZE_READONLY(bool, isExcutable, IsExcutable);
     
-    virtual void checkCollisionDataInBeginContact(PhysicData* data, b2Contact *contact)=0;
-    virtual void checkCollisionDataInEndContact(PhysicData* data, b2Contact *contact)=0;
+    virtual void checkCollisionDataInBeginContact(PhysicData* data, b2Contact *contact, bool isSideA)=0;
+    virtual void checkCollisionDataInEndContact(PhysicData* data, b2Contact *contact, bool isSideA)=0;
     
     virtual void setExcuteAble();
 public:

@@ -36,29 +36,14 @@
 						<key>polygons</key>
 						<array>
 							<array>	
-								<string>{ -24.500,71.000 }</string>	
-								<string>{ -24.500,-65.000 }</string>	
-								<string>{ 36.500,-65.000 }</string>	
-								<string>{ 36.500,71.000 }</string>
+								<string>{ -39.500,92.000 }</string>	
+								<string>{ -39.500,-66.000 }</string>	
+								<string>{ -20.500,-85.000 }</string>	
+								<string>{ 30.500,-85.000 }</string>	
+								<string>{ 53.500,-67.000 }</string>	
+								<string>{ 53.500,92.000 }</string>
 							</array>
 						</array>
-                    </dict>
-					<dict>
-                        <key>density</key> <real>2</real>
-                        <key>friction</key> <real>0.2</real>
-                        <key>restitution</key> <real>0</real>
-                        <key>filter_categoryBits</key> <integer>1</integer>
-                        <key>filter_groupIndex</key> <integer>0</integer>
-                        <key>filter_maskBits</key> <integer>65535</integer>
-                        <key>isSensor</key> <false/>
-                        <key>id</key> <string></string>
-                        <key>fixture_type</key> <string>CIRCLE</string>
-
-                         <key>circle</key>
-                         <dict>
-                             <key>radius</key> <real>30.000</real>
-                             <key>position</key> <string>{ 6.033,-62.467 }</string>
-                         </dict>
                     </dict>
 				</array>
 			</dict>

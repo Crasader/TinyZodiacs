@@ -108,13 +108,13 @@ void GameObject::BeginContact(b2Contact *contact)
     if(contact->GetFixtureA()->GetBody()->GetUserData() != NULL)
     {
         PhysicData* data = (PhysicData*)contact->GetFixtureA()->GetBody()->GetUserData();
-        checkCollisionDataInBeginContact(data, contact);
+        checkCollisionDataInBeginContact(data, contact, true);
     }
     
     if(contact->GetFixtureB()->GetBody()->GetUserData() != NULL)
     {
         PhysicData* data = (PhysicData*)contact->GetFixtureB()->GetBody()->GetUserData();
-        checkCollisionDataInBeginContact(data, contact);
+        checkCollisionDataInBeginContact(data, contact, false);
     }
 }
 void GameObject::EndContact(b2Contact *contact)
@@ -122,20 +122,20 @@ void GameObject::EndContact(b2Contact *contact)
     if(contact->GetFixtureA()->GetBody()->GetUserData() != NULL)
     {
         PhysicData* data = (PhysicData*)contact->GetFixtureA()->GetBody()->GetUserData();
-        checkCollisionDataInEndContact(data, contact);
+        checkCollisionDataInEndContact(data, contact, true);
     }
     
     if(contact->GetFixtureB()->GetBody()->GetUserData() != NULL)
     {
         PhysicData* data = (PhysicData*)contact->GetFixtureB()->GetBody()->GetUserData();
-        checkCollisionDataInEndContact(data, contact);
+        checkCollisionDataInEndContact(data, contact, false);
     }
 }
-void GameObject::checkCollisionDataInBeginContact(PhysicData* data, b2Contact *contact)
+void GameObject::checkCollisionDataInBeginContact(PhysicData* data, b2Contact *contact, bool isSideA)
 {
     
 }
-void GameObject::checkCollisionDataInEndContact(PhysicData* data, b2Contact *contact)
+void GameObject::checkCollisionDataInEndContact(PhysicData* data, b2Contact *contact, bool isSideA)
 {
     
 }
@@ -169,16 +169,11 @@ void GameObject::setGroup(int group)
 {
     if(this->body != NULL)
     {
-        for (b2Fixture* f = this->body->GetFixtureList(); f; f = f->GetNext())
+        for (b2Fixture* f = this->body->GetFixtureList()
+             ; f; f = f->GetNext())
         {
             if(f != NULL)
             {
-//                b2Filter filter = f->GetFilterData();
-//                filter.groupIndex = group;
-//                filter.categoryBits = group;
-//                filter.maskBits = 0xFFFF;
-//                f->SetFilterData(filter);
-//                CCLOG("Here");
                 Util::setFixtureGroup(f, group);
             }
         }

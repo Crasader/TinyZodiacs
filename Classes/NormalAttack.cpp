@@ -41,7 +41,7 @@ NormalAttack::NormalAttack(GameObject* holder, NormalMeleeSkillData data)
             this->skillSprite->retain();
             this->data.getSkillAnimation()->getAnimation()->setLoops(INFINITY);
         }
-
+        
     }
 }
 
@@ -56,13 +56,13 @@ void NormalAttack::BeginContact(b2Contact *contact)
     if(contact->GetFixtureA()->GetBody()->GetUserData() != NULL)
     {
         PhysicData* data = (PhysicData*)contact->GetFixtureA()->GetBody()->GetUserData();
-        checkCollisionDataInBeginContact(data, contact);
+        checkCollisionDataInBeginContact(data, contact, true);
     }
     
     if(contact->GetFixtureB()->GetBody()->GetUserData() != NULL)
     {
         PhysicData* data = (PhysicData*)contact->GetFixtureB()->GetBody()->GetUserData();
-        checkCollisionDataInBeginContact(data, contact);
+        checkCollisionDataInBeginContact(data, contact, false);
     }
     
 }
@@ -72,13 +72,13 @@ void NormalAttack::EndContact(b2Contact *contact)
     if(contact->GetFixtureA()->GetBody()->GetUserData() != NULL)
     {
         PhysicData* data = (PhysicData*)contact->GetFixtureA()->GetBody()->GetUserData();
-        checkCollisionDataInEndContact(data, contact);
+        checkCollisionDataInEndContact(data, contact, true);
     }
     
     if(contact->GetFixtureB()->GetBody()->GetUserData() != NULL)
     {
         PhysicData* data = (PhysicData*)contact->GetFixtureB()->GetBody()->GetUserData();
-        checkCollisionDataInEndContact(data, contact);
+        checkCollisionDataInEndContact(data, contact, false);
     }
 }
 
@@ -118,7 +118,7 @@ void NormalAttack::stop()
 
 void NormalAttack::excuteImmediately()
 {
-//    this->destroyJoint();
+    //    this->destroyJoint();
     this->data.getSkillSensor()->SetActive(true);
     if(this->data.getSkillAnimation() != NULL)
     {
@@ -138,23 +138,66 @@ void NormalAttack::stopImmediately()
     {
         this->skillSprite->stopAllActions();
         
-        this->holder->getSprite()->getParent()->removeChild(this->skillSprite);        
+        this->holder->getSprite()->getParent()->removeChild(this->skillSprite);
     }
 }
 
-void NormalAttack::checkCollisionDataInBeginContact(PhysicData* data, b2Contact *contact)
+void NormalAttack::checkCollisionDataInBeginContact(PhysicData* data, b2Contact *contact, bool isSideA)
 {
-    if(data->Id == SKILL_SENSOR && data->Data == this)
+    if(data->Id == SKILL_SENSOR && data->Data == this )
     {
-        CCLOG("Attack collide begin");
+        PhysicData* otherData;
+        if(isSideA)
+        {
+            otherData = (PhysicData* )contact->GetFixtureB()->GetBody()->GetUserData();
+        }
+        else
+        {
+            otherData = (PhysicData* )contact->GetFixtureA()->GetBody()->GetUserData();
+        }
+        if(otherData != NULL)
+        {
+            switch (otherData->Id) {
+                case CHARACTER_BODY:
+                    if(this->holder != otherData->Data)
+                    {
+                        CCLOG("Attack collide begin");
+                    }
+                    break;
+                default:
+                    break;
+            }
+        }
     }
 }
 
-void NormalAttack::checkCollisionDataInEndContact(PhysicData* data, b2Contact *contact)
+void NormalAttack::checkCollisionDataInEndContact(PhysicData* data, b2Contact *contact, bool isSideA)
 {
     if(data->Id == SKILL_SENSOR && data->Data == this)
     {
-        CCLOG("Attack collide end");
+        PhysicData* otherData;
+        if(isSideA)
+        {
+            otherData = (PhysicData* )contact->GetFixtureB()->GetBody()->GetUserData();
+        }
+        else
+        {
+            otherData = (PhysicData* )contact->GetFixtureA()->GetBody()->GetUserData();
+        }
+        
+        if(otherData != NULL)
+        {
+            switch (otherData->Id) {
+                case CHARACTER_BODY:
+                    if(this->holder != otherData->Data)
+                    {
+                        CCLOG("Attack collide end");
+                    }
+                    break;
+                default:
+                    break;
+            }
+        }
     }
 }
 
@@ -228,12 +271,13 @@ void NormalAttack::initJointType()
 
 void NormalAttack::setGroup(int group)
 {
-//    if(this->data.getSkillSensor() != NULL)
-//    {
-//        b2Filter data = this->data.getSkillSensor()->GetFixtureList()->GetFilterData();
-//        data.groupIndex = group;
-//        this->data.getSkillSensor()->GetFixtureList()->SetFilterData(data);
-//    }
+    for (b2Fixture* f = this->data.getSkillSensor()->GetFixtureList(); f; f = f->GetNext())
+    {
+        if(f != NULL)
+        {
+            Util::setFixtureGroup(f, group);
+        }
+    }
 }
 
 

@@ -30,8 +30,8 @@ private:
 protected:
     int currentJumpCount;
     
-    void checkCollisionDataInBeginContact(PhysicData* data, b2Contact *contact);
-    void checkCollisionDataInEndContact(PhysicData* data, b2Contact *contact);
+    void checkCollisionDataInBeginContact(PhysicData* data, b2Contact *contact, bool isSideA);
+    void checkCollisionDataInEndContact(PhysicData* data, b2Contact *contact, bool isSideA);
 public:
     Character();
     ~Character();

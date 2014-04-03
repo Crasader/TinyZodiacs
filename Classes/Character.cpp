@@ -46,11 +46,18 @@ b2Joint* joint;
 void Character::setSkin(b2Body *body, CCSprite *sprite)
 {
     GameObject::setSkin(body, sprite);
+    //create foot sensor
     b2BodyDef bodyDef;
     bodyDef.type = b2_dynamicBody;
     b2FixtureDef fixtureDef;
     createFootSensor();
     this->changeState(new CharacterIdleState(this));
+    
+    //set body data
+    PhysicData* scharacterData = new PhysicData();
+    scharacterData->Id = CHARACTER_BODY;
+    scharacterData->Data = this;
+    this->getBody()->SetUserData(scharacterData);
 }
 
 void Character::setOriginCharacterData(CharacterData data)
@@ -183,39 +190,45 @@ void Character::stopMove()
     this->body->SetLinearVelocity(b2Vec2(0, this->getBody()->GetLinearVelocity().y));
 }
 
-void Character::checkCollisionDataInBeginContact(PhysicData* data, b2Contact *contact)
+void Character::checkCollisionDataInBeginContact(PhysicData* data, b2Contact *contact, bool isSideA)
 {
-    switch (data->Id)
+    if(data->Data == this)
     {
-        case CHARACTER_FOOT_SENSOR:
-            if(this == data->Data)
-            {
-                this -> landing ++;
-                this-> currentJumpCount =0;
-            }
-            break;
-            
-        default:
-            break;
+        switch (data->Id)
+        {
+            case CHARACTER_FOOT_SENSOR:
+                if(this == data->Data)
+                {
+                    this -> landing ++;
+                    this-> currentJumpCount =0;
+                }
+                break;
+                
+            default:
+                break;
+        }
     }
 }
 
-void Character::checkCollisionDataInEndContact(PhysicData* data, b2Contact *contact)
+void Character::checkCollisionDataInEndContact(PhysicData* data, b2Contact *contact, bool isSideA)
 {
-    switch (data->Id) {
-        case CHARACTER_FOOT_SENSOR:
-            if(this == data->Data)
-            {
-                this -> landing --;
-                if(this->landing <0)
+    if(data->Data == this)
+    {
+        switch (data->Id) {
+            case CHARACTER_FOOT_SENSOR:
+                if(this == data->Data)
                 {
-                    this->landing =0;
+                    this -> landing --;
+                    if(this->landing <0)
+                    {
+                        this->landing =0;
+                    }
                 }
-            }
-            break;
-            
-        default:
-            break;
+                break;
+                
+            default:
+                break;
+        }
     }
 }
 
@@ -268,15 +281,26 @@ void Character::setGroup(int group)
     {
         if(f != NULL)
         {
-            Util::setFixtureGroup(f, group);
+            Util::setFixtureGroup(f, GROUP_SENSOR);
         }
     }
     
     
     if(this->normalAttack != NULL)
     {
-        this->normalAttack->setGroup(group);
+        this->normalAttack->setGroup(GROUP_SKILL_DEFAULT);
     }
+    
+    if(this->skill1 != NULL)
+    {
+        this->skill1->setGroup(GROUP_SKILL_DEFAULT);
+    }
+
+    if(this->skill2 != NULL)
+    {
+        this->skill2->setGroup(GROUP_SKILL_DEFAULT);
+    }
+
     
     GameObject::setGroup(group);
 }

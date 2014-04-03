@@ -111,7 +111,7 @@ void NormalShootingAttack::EndContact(b2Contact *contact)
     AbstractSkill::EndContact(contact);
 }
 
-void NormalShootingAttack::checkCollisionDataInBeginContact(PhysicData* data, b2Contact *contact)
+void NormalShootingAttack::checkCollisionDataInBeginContact(PhysicData* data, b2Contact *contact, bool isSideA)
 {
     if(data ==NULL || data->Data == NULL)
     {
@@ -135,7 +135,7 @@ void NormalShootingAttack::checkCollisionDataInBeginContact(PhysicData* data, b2
     }
 }
 
-void NormalShootingAttack::checkCollisionDataInEndContact(PhysicData* data, b2Contact *contact)
+void NormalShootingAttack::checkCollisionDataInEndContact(PhysicData* data, b2Contact *contact, bool isSideA)
 {
     if(data ==NULL || data->Data == NULL)
     {

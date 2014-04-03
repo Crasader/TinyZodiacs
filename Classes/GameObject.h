@@ -22,8 +22,8 @@ private:
     
 protected:
     Direction direction;
-    virtual void checkCollisionDataInBeginContact(PhysicData* data, b2Contact *contact);
-    virtual void checkCollisionDataInEndContact(PhysicData* data, b2Contact *contact);
+    virtual void checkCollisionDataInBeginContact(PhysicData* data, b2Contact *contact, bool isSideA);
+    virtual void checkCollisionDataInEndContact(PhysicData* data, b2Contact *contact, bool isSideA);
 
 public:
     GameObject();

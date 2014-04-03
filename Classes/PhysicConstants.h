@@ -33,6 +33,9 @@
 #define GROUP_TERRAIN 0x0010
 #define GROUP_HERO_A 0x0020
 #define GROUP_HERO_B 0x0040
+#define GROUP_SKILL_DEFAULT 0x0080
+#define GROUP_SENSOR 0x0100
+
 
 
 struct JointDef

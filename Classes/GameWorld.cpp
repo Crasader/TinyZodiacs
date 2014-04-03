@@ -15,6 +15,7 @@
 #include "GameBackgroundLayer.h"
 #include "LayerIndexConstants.h"
 #include "CharacterFactory.h"
+#include "Util.h"
 
 GameWorld::GameWorld()
 {
@@ -75,7 +76,7 @@ bool GameWorld::init()
     this->c2->setPositionInPixel(ccp(800,1200));
 
     this->character->setGroup(GROUP_HERO_A);
-    this->c1->setGroup(GROUP_B);
+    this->c1->setGroup(GROUP_HERO_B);
     this->c2->setGroup(GROUP_HERO_B);
 
     //
@@ -109,6 +110,8 @@ void GameWorld::createWorldBox()
     b2FixtureDef bottomFixtureDef;
     bottomFixtureDef.shape = &bottomEdgeShape;
     bottomFixtureDef.friction=0.5;
+    bottomFixtureDef.filter.maskBits = 0xFFFFFF;
+    bottomFixtureDef.filter.categoryBits = GROUP_TERRAIN;
     
     bottomEdgeShape.Set(b2Vec2(0, 0), b2Vec2(this->width/PTM_RATIO,0));
     this->bottomLine->CreateFixture(&bottomFixtureDef);
@@ -124,9 +127,12 @@ void GameWorld::createWorldBox()
     b2FixtureDef topFixtureDef;
     topFixtureDef.shape = &topEdgeShape;
     topFixtureDef.friction=0.5;
+    topFixtureDef.filter.maskBits = 0xFFFFFF;
+    topFixtureDef.filter.categoryBits = GROUP_TERRAIN;
     
     topEdgeShape.Set(b2Vec2(0, 0), b2Vec2(this->width/PTM_RATIO,0));
     this-> topLine ->CreateFixture(&topFixtureDef);
+    
     //set ground left
     b2BodyDef leftGroundBodyDef;
     leftGroundBodyDef.type = b2_staticBody;
@@ -138,6 +144,8 @@ void GameWorld::createWorldBox()
     b2FixtureDef leftFixtureDef;
     leftFixtureDef.shape = &leftEdgeShape;
     leftFixtureDef.friction=0.5;
+    leftFixtureDef.filter.maskBits = 0xFFFFFF;
+    leftFixtureDef.filter.categoryBits = GROUP_TERRAIN;
     
     leftEdgeShape.Set(b2Vec2(0, 0), b2Vec2(0,(this->height)/PTM_RATIO));
     this->leftLine->CreateFixture(&leftFixtureDef);
@@ -152,8 +160,14 @@ void GameWorld::createWorldBox()
     b2FixtureDef rightFixtureDef;
     rightFixtureDef.shape = &rightEdgeShape;
     rightFixtureDef.friction=0.5;
+    rightFixtureDef.filter.maskBits = 0xFFFFFF;
+    rightFixtureDef.filter.categoryBits = GROUP_TERRAIN;
+    
     rightEdgeShape.Set(b2Vec2(0, 0), b2Vec2(0/PTM_RATIO,this->height/PTM_RATIO));
     this->rightLine->CreateFixture(&rightFixtureDef);
+    
+    //
+    
 }
 
 void GameWorld::setContactListener(b2ContactListener *listener){
