@@ -40,8 +40,11 @@ void ScheduleManager::scheduleForSkill(AbstractSkill* object, float duration, in
     {
         callFuncSelector = CCCallFunc::create(object, callfunc_selector(AbstractSkill::setExcuteAble));
     }
-    
-    this->runAction(CCSequence::create(delayAction,callFuncSelector));
+    CCArray* array = CCArray::create();
+    array->addObject(delayAction);
+    array->addObject(callFuncSelector);
+    CCSequence* sequence = CCSequence::create(array);
+    this->runAction(sequence);
 }
 ScheduleManager* ScheduleManager::getInstance()
 {
