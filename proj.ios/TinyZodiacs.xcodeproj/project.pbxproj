@@ -2644,7 +2644,7 @@
 				F5779C4318E52C980044D5CD /* map1_spritesheet_3.png in Resources */,
 				F5779C4418E52C980044D5CD /* map1_spritesheet_4.plist in Resources */,
 				F5779C3D18E52C980044D5CD /* map1_background_spritesheet_2.png in Resources */,
-=======
+
 				F50BD48E18D8703A00A892E6 /* map2_spritesheet.plist in Resources */,
 				F5C89E0318D2FD2A006E909D /* body.plist in Resources */,
 				34EED02F18E56E3C001AFFC9 /* list_skill.xml in Resources */,
