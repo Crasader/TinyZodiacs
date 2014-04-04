@@ -22,8 +22,8 @@ private:
     
 protected:
     Direction direction;
-    virtual void checkCollisionDataInBeginContact(PhysicData* data, b2Contact *contact);
-    virtual void checkCollisionDataInEndContact(PhysicData* data, b2Contact *contact);
+    virtual void checkCollisionDataInBeginContact(PhysicData* data, b2Contact *contact, bool isSideA);
+    virtual void checkCollisionDataInEndContact(PhysicData* data, b2Contact *contact, bool isSideA);
 
 public:
     GameObject();
@@ -46,6 +46,9 @@ public:
     virtual void updateSpritePositionWithBodyPosition();
     virtual void BeginContact(b2Contact *contact);
     virtual void EndContact(b2Contact *contact);
+    
+    virtual void excuteScheduledFunction(CCObject* pSender, void *body);
+    virtual void setGroup(int group);
 };
 
 #endif /* defined(__SampleCocosProject__GameObject__) */

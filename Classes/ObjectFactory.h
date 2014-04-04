@@ -23,7 +23,7 @@ public:
 
     static ObjectFactory* getSharedManager();
     
-    Character* createCharacter(const std::string &name, b2World *world);
+    Character* createCharacter(const std::string &name, b2World *world, bool isLocal);
     MapObject* createMapObject(const char *idMapObject, b2World *world);
     MapObject* createMapObject(MapObjectDTO* mapObjectDTO, b2World *world);
 };

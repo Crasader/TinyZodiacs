@@ -21,8 +21,8 @@ private:
 protected:
     CCArray* listProjectiles;
     
-    virtual void checkCollisionDataInBeginContact(PhysicData* data, b2Contact *contact);
-    virtual void checkCollisionDataInEndContact(PhysicData* data, b2Contact *contact);
+    virtual void checkCollisionDataInBeginContact(PhysicData* data, b2Contact *contact, bool isSideA);
+    virtual void checkCollisionDataInEndContact(PhysicData* data, b2Contact *contact, bool isSideA);
 public:
     ~NormalShootingAttack();
     NormalShootingAttack(GameObject* holder);

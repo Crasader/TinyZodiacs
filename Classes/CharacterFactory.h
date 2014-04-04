@@ -16,6 +16,7 @@
 #include "Hero.h"
 #include "GB2ShapeCache-x.h"
 #include "AnimationFactory.h"
+#include "SkillFactory.h"
 
 
 USING_NS_CC;
@@ -29,6 +30,10 @@ USING_NS_CC;
 #define TAG_ATTACK_SPEED "atk_speed"
 #define TAG_MAX_JUMP "max_jump"
 #define TAG_JUMP_HEIGHT "jump_height"
+#define TAG_SKILL_0 "skill_0"
+#define TAG_SKILL_1 "skill_1"
+#define TAG_SKILL_2 "skill_2"
+
 
 #define RUN "-run"
 #define ATTACK "-attack"
@@ -57,10 +62,12 @@ protected:
     static int readMaxJumpData(tinyxml2::XMLElement* root);
     static int readJumpHeightData(tinyxml2::XMLElement* root);
     static string readAnimationData(tinyxml2::XMLElement* root);
+    static string readSkill(tinyxml2::XMLElement* root);
 
-    static Hero* createHero(CharacterDTO heroDTOData, b2World* world);
+
+    static Hero* createHero(CharacterDTO heroDTOData, b2World* world, bool isLocal);
 
 public:
-    static Hero* createMonkeyHero(b2World* world);
+    static Hero* createMonkeyHero(b2World* world, bool isLocal);
 };
 #endif /* defined(__TinyZodiacs__CharacterFactory__) */

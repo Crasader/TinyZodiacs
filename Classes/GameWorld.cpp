@@ -17,6 +17,7 @@
 #include "CharacterFactory.h"
 #include "GameObjectInfoView.h"
 #include "InfoViewCreator.h"
+#include "Util.h"
 
 GameWorld::GameWorld()
 {
@@ -42,10 +43,10 @@ bool GameWorld::init()
     b2Draw* _debugDraw = new GLESDebugDraw(PTM_RATIO);
     uint32 flags = 0;
     flags += b2Draw::e_shapeBit;
-    //    flags += b2Draw::e_jointBit;
-    //    flags += b2Draw::e_aabbBit;
-    //    flags += b2Draw::e_pairBit;
-    //    flags += b2Draw::e_centerOfMassBit;
+    flags += b2Draw::e_jointBit;
+//    flags += b2Draw::e_aabbBit;
+//    flags += b2Draw::e_pairBit;
+//    flags += b2Draw::e_centerOfMassBit;
     _debugDraw->SetFlags(flags);
     this->world->SetDebugDraw(_debugDraw);
       //Set contact listener
@@ -62,17 +63,32 @@ bool GameWorld::init()
     delete mapCreator;
     
     //CHARACTER
-    this->character = ObjectFactory::getSharedManager()->createCharacter("map2", world);
+    this->character = ObjectFactory::getSharedManager()->createCharacter("map2", world, true);
     this->map->addChild(character->getSprite(), CHARACTER_LAYER);
     this->character->setPositionInPixel(ccp(400,800));
     this->setFollowCharacter(true);
     //this->map->scheduleUpdate();
     
+    //CHARACTER
+    this->c1 = ObjectFactory::getSharedManager()->createCharacter("map2", world, false);
+    this->map->addChild(c1->getSprite(), CHARACTER_LAYER);
+    this->c1->setPositionInPixel(ccp(600,1000));
+
+    //CHARACTER
+    this->c2 = ObjectFactory::getSharedManager()->createCharacter("map2", world, false);
+    this->map->addChild(c2->getSprite(), CHARACTER_LAYER);
+    this->c2->setPositionInPixel(ccp(800,1200));
+
+    this->character->setGroup(GROUP_HERO_A);
+    this->c1->setGroup(GROUP_HERO_B);
+    this->c2->setGroup(GROUP_HERO_B);
+
     //
     createWorldBox();
     //
     manager = PhysicBodyManager::getInstance();
     manager->setWorld(this->world);
+
     
     this->listInfoView->addObject(InfoViewCreator::createHeroInfoView(this->character, NULL));
     
@@ -85,8 +101,16 @@ bool GameWorld::init()
 
     
     
+    //Add manager
+    addManager();
     return true;
 }
+
+void GameWorld::addManager()
+{
+    this->addChild(ScheduleManager::getInstance());
+}
+
 
 void GameWorld::createWorldBox()
 {
@@ -101,6 +125,8 @@ void GameWorld::createWorldBox()
     b2FixtureDef bottomFixtureDef;
     bottomFixtureDef.shape = &bottomEdgeShape;
     bottomFixtureDef.friction=0.5;
+    bottomFixtureDef.filter.maskBits = 0xFFFFFF;
+    bottomFixtureDef.filter.categoryBits = GROUP_TERRAIN;
     
     bottomEdgeShape.Set(b2Vec2(0, 0), b2Vec2(this->width/PTM_RATIO,0));
     this->bottomLine->CreateFixture(&bottomFixtureDef);
@@ -116,9 +142,12 @@ void GameWorld::createWorldBox()
     b2FixtureDef topFixtureDef;
     topFixtureDef.shape = &topEdgeShape;
     topFixtureDef.friction=0.5;
+    topFixtureDef.filter.maskBits = 0xFFFFFF;
+    topFixtureDef.filter.categoryBits = GROUP_TERRAIN;
     
     topEdgeShape.Set(b2Vec2(0, 0), b2Vec2(this->width/PTM_RATIO,0));
     this-> topLine ->CreateFixture(&topFixtureDef);
+    
     //set ground left
     b2BodyDef leftGroundBodyDef;
     leftGroundBodyDef.type = b2_staticBody;
@@ -130,6 +159,8 @@ void GameWorld::createWorldBox()
     b2FixtureDef leftFixtureDef;
     leftFixtureDef.shape = &leftEdgeShape;
     leftFixtureDef.friction=0.5;
+    leftFixtureDef.filter.maskBits = 0xFFFFFF;
+    leftFixtureDef.filter.categoryBits = GROUP_TERRAIN;
     
     leftEdgeShape.Set(b2Vec2(0, 0), b2Vec2(0,(this->height)/PTM_RATIO));
     this->leftLine->CreateFixture(&leftFixtureDef);
@@ -144,8 +175,14 @@ void GameWorld::createWorldBox()
     b2FixtureDef rightFixtureDef;
     rightFixtureDef.shape = &rightEdgeShape;
     rightFixtureDef.friction=0.5;
+    rightFixtureDef.filter.maskBits = 0xFFFFFF;
+    rightFixtureDef.filter.categoryBits = GROUP_TERRAIN;
+    
     rightEdgeShape.Set(b2Vec2(0, 0), b2Vec2(0/PTM_RATIO,this->height/PTM_RATIO));
     this->rightLine->CreateFixture(&rightFixtureDef);
+    
+    //
+    
 }
 
 void GameWorld::setContactListener(b2ContactListener *listener){
@@ -164,7 +201,7 @@ void GameWorld::update(float dt)
     
     this->map->update(dt);
     this->character->update(dt);
-    
+
     // update infoview
     CCObject* object = NULL;
     CCARRAY_FOREACH(this->listInfoView, object)
@@ -172,6 +209,9 @@ void GameWorld::update(float dt)
         GameObjectInfoView* gameObjectInfoView = dynamic_cast<GameObjectInfoView*>(object);
         gameObjectInfoView->update(dt);
     }
+
+    this->c1->update(dt);
+    this->c2->update(dt);
 }
 
 void GameWorld::setFollowCharacter(bool follow)
@@ -199,8 +239,12 @@ void GameWorld::draw()
 void GameWorld::BeginContact(b2Contact *contact)
 {
     character->BeginContact(contact);
+    this->c1->BeginContact(contact);
+    this->c2->BeginContact(contact);
 }
 void GameWorld::EndContact(b2Contact *contact)
 {
     character->EndContact(contact);
+    this->c1->EndContact(contact);
+    this->c2->EndContact(contact);
 }

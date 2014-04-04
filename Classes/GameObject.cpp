@@ -8,6 +8,7 @@
 
 #include "GameObject.h"
 #include "Box2D/Box2d.h"
+#include "Util.h"
 
 USING_NS_CC;
 
@@ -24,9 +25,15 @@ GameObject::~GameObject()
 
 bool GameObject::init()
 {
-   
+    
     return true;
 }
+
+void GameObject::excuteScheduledFunction(CCObject* pSender, void *body)
+{
+    
+}
+
 
 void GameObject::update(float dt)
 {
@@ -101,13 +108,13 @@ void GameObject::BeginContact(b2Contact *contact)
     if(contact->GetFixtureA()->GetBody()->GetUserData() != NULL)
     {
         PhysicData* data = (PhysicData*)contact->GetFixtureA()->GetBody()->GetUserData();
-        checkCollisionDataInBeginContact(data, contact);
+        checkCollisionDataInBeginContact(data, contact, true);
     }
     
     if(contact->GetFixtureB()->GetBody()->GetUserData() != NULL)
     {
         PhysicData* data = (PhysicData*)contact->GetFixtureB()->GetBody()->GetUserData();
-        checkCollisionDataInBeginContact(data, contact);
+        checkCollisionDataInBeginContact(data, contact, false);
     }
 }
 void GameObject::EndContact(b2Contact *contact)
@@ -115,20 +122,20 @@ void GameObject::EndContact(b2Contact *contact)
     if(contact->GetFixtureA()->GetBody()->GetUserData() != NULL)
     {
         PhysicData* data = (PhysicData*)contact->GetFixtureA()->GetBody()->GetUserData();
-        checkCollisionDataInEndContact(data, contact);
+        checkCollisionDataInEndContact(data, contact, true);
     }
     
     if(contact->GetFixtureB()->GetBody()->GetUserData() != NULL)
     {
         PhysicData* data = (PhysicData*)contact->GetFixtureB()->GetBody()->GetUserData();
-        checkCollisionDataInEndContact(data, contact);
+        checkCollisionDataInEndContact(data, contact, false);
     }
 }
-void GameObject::checkCollisionDataInBeginContact(PhysicData* data, b2Contact *contact)
+void GameObject::checkCollisionDataInBeginContact(PhysicData* data, b2Contact *contact, bool isSideA)
 {
     
 }
-void GameObject::checkCollisionDataInEndContact(PhysicData* data, b2Contact *contact)
+void GameObject::checkCollisionDataInEndContact(PhysicData* data, b2Contact *contact, bool isSideA)
 {
     
 }
@@ -155,4 +162,36 @@ b2AABB GameObject::getBodyBoundingBox()
         return aabb;
     }
     return b2AABB();
+    //    return Util::getBodyBoundingBox(this->getBody());
+}
+
+void GameObject::setGroup(int group)
+{
+    if(this->body != NULL)
+    {
+        //        for (b2Fixture* f = this->body->GetFixtureList()
+        //             ; f; f = f->GetNext())
+        //        {
+        //            if(f != NULL)
+        //            {
+        //                Util::setFixtureGroup(f, group);
+        //            }
+        //        }
+        
+        for (b2Fixture* f = this->body->GetFixtureList(); f; f = f->GetNext())
+        {
+            if(f != NULL)
+            {
+                Util::setFixtureGroup(f, group);
+                
+                if(f->GetNext() != NULL)
+                {
+                    b2Filter filter = f->GetFilterData();
+                    filter.maskBits = filter.maskBits ^ GROUP_SKILL_DEFAULT;
+                    f->SetFilterData(filter);
+                }
+            }
+        }
+        
+    }
 }

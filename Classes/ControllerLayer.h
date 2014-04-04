@@ -28,10 +28,13 @@ private:
     char * RIGHT_BTN_SPRITE ;
     char * JUMP_BTN_SPRITE ;
     
-    GameplayButton * _LeftButtonSprite;
-    GameplayButton * _RightButtonSprite;
-    GameplayButton * _JumpButtonSprite;
-    GameplayButton * _AtkButtonSprite;
+//    GameplayButton * _LeftButtonSprite;
+//    GameplayButton * _RightButtonSprite;
+//    GameplayButton * _JumpButtonSprite;
+//    GameplayButton * _AtkButtonSprite;
+//    GameplayButton * _Skill1ButtonSprite;
+//    GameplayButton * _Skill2ButtonSprite;
+
 
     
     CCLayer * _ContainerLayer;
@@ -50,6 +53,13 @@ private:
     iUIObjectTouchEventInterface * _AtkButtonEventHandler;
 
 public:
+    CC_SYNTHESIZE(GameplayButton *, _LeftButtonSprite, LeftButtonSprite);
+    CC_SYNTHESIZE(GameplayButton *, _RightButtonSprite, RightButtonSprite);
+    CC_SYNTHESIZE(GameplayButton *, _JumpButtonSprite, JumpButtonSprite);
+    CC_SYNTHESIZE(GameplayButton *, _AtkButtonSprite, AtkButtonSprite);
+    CC_SYNTHESIZE(GameplayButton *, _Skill1ButtonSprite, Skill1ButtonSprite);
+    CC_SYNTHESIZE(GameplayButton *, _Skill2ButtonSprite, Skill2ButtonSprite);
+
     //Get, set declare
     void setLeftButtonEventHadler(iUIObjectTouchEventInterface * handler);
     
@@ -58,18 +68,24 @@ public:
     void setJumpButtonEventHadler(iUIObjectTouchEventInterface * handler);
 
     void setAtkButtonEventHadler(iUIObjectTouchEventInterface * handler);
+    
+    void setSkill1ButtonEventHadler(iUIObjectTouchEventInterface * handler);
+
+    void setSkill2ButtonEventHadler(iUIObjectTouchEventInterface * handler);
     //Fuctions
     ~ControllerLayer();
     
     static ControllerLayer * create(cocos2d::CCLayer * containLayer);
     
+    static ControllerLayer * getInstance();
+    
     void setLeftButtonPosition(float x, float y);
-    
     void setRightButtonPosition(float x, float y);
-    
     void setJumpButtonPosition(float x, float y);
-    
     void setAtkButtonPosition(float x, float y);
+    void setSkill1ButtonPosition(float x, float y);
+    void setSkill2ButtonPosition(float x, float y);
+
 
     //THE OVERRIDES
     virtual void ccTouchesBegan(CCSet* pTouches, CCEvent* event);

@@ -69,7 +69,10 @@ void Map::attachAllMapObject()
     CCARRAY_FOREACH(listMapObject,object)
     {
         MapObject* mapObject = (MapObject*)object;
+
        mapObject->getSprite()->setPosition(ccp(200000,200000));
+
+
        this->addChild(mapObject->getSprite(),MAPOBJECT_LAYER);
         
         

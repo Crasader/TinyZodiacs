@@ -26,6 +26,7 @@ public:
     void RightCallBack(cocos2d::CCObject* sender);
     void UpCallBack(cocos2d::CCObject* sender);
     void DownCallBack(cocos2d::CCObject* sender);
+
     
 
 

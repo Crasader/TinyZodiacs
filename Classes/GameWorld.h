@@ -18,6 +18,7 @@
 #include "NormalAttack.h"
 #include "PhysicBodyManager.h"
 #include "HealthBar.h"
+#include "ScheduleManager.h"
 
 USING_NS_CC;
 class GameWorld: public CCNode, public b2ContactListener
@@ -43,6 +44,10 @@ public:
     CC_SYNTHESIZE(Character*, character, Character);
     CC_SYNTHESIZE(Map*, map, map);
     
+    CC_SYNTHESIZE(Character*, c1, c1);
+    CC_SYNTHESIZE(Character*, c2, c2);
+
+
     GameWorld();
     virtual ~GameWorld();
     
@@ -56,6 +61,8 @@ public:
     virtual void EndContact(b2Contact *contact);
     
     void setContactListener(b2ContactListener* listener);
+    
+    void addManager();
     
     CREATE_FUNC(GameWorld);
 };

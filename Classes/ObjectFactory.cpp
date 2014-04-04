@@ -45,7 +45,7 @@ ObjectFactory* ObjectFactory::getSharedManager()
     return sharedFactory;
 }
 
-Character* ObjectFactory::createCharacter(const std::string &name, b2World *world)
+Character* ObjectFactory::createCharacter(const std::string &name, b2World *world, bool isLocal)
 {
 //    Character* character = NULL;
 //    character = new Character();
@@ -89,8 +89,7 @@ Character* ObjectFactory::createCharacter(const std::string &name, b2World *worl
 //    character->attackAnimation->getAnimation()->setDelayPerUnit(data.getAttackSpeed());
 //    return character;
     
-    Character* character = CharacterFactory::createMonkeyHero(world);
-    character->setNormalAttack(new NormalShootingAttack(character));
+    Character* character = CharacterFactory::createMonkeyHero(world, isLocal);
     
     return character;
     
@@ -164,7 +163,14 @@ MapObject* ObjectFactory::createMapObject(MapObjectDTO* mapObjectDTO, b2World *w
         
         
         mapObject->setSkin(body, sprite);
+        
+        //set data id
+        PhysicData* data = new PhysicData();
+        data->Id = MAP_BASE;
+        data->Data = NULL;
+        body->SetUserData(data);
 
+        mapObject->setGroup(GROUP_TERRAIN);
     }
     else
     {
@@ -173,11 +179,10 @@ MapObject* ObjectFactory::createMapObject(MapObjectDTO* mapObjectDTO, b2World *w
         mapObject->setSprite(sprite);
     }
     
-    
 
-    
+
     mapObject->setPositionInPixel(ccp(mapObjectDTO->x,mapObjectDTO->y));
-    
+
     return mapObject;
     
 }

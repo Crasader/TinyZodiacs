@@ -7,7 +7,7 @@
 //
 
 #include "GamePlayButton.h"
-GameplayButton::GameplayButton(CCTexture2D * enableTexture, CCTexture2D * disableTexture, CCTexture2D * touchedTexture, CCLayer* containLayer, CCPoint position, std::string ID){
+GameplayButton::GameplayButton(CCSpriteFrame * enableTexture, CCSpriteFrame * disableTexture, CCSpriteFrame * touchedTexture, CCLayer* containLayer, CCPoint position, std::string ID){
     this->_enableTexture = enableTexture;
     this->_disableTexture = disableTexture;
     this->_touchedTexture = touchedTexture;
@@ -21,7 +21,7 @@ bool GameplayButton::init()
 {
     UIObject::init();
     _currentSprite = CCSprite::create("1.png");
-    _currentSprite->setTexture(this->_enableTexture);
+    _currentSprite->setDisplayFrame(this->_enableTexture);
     _currentSprite->setPosition(this->_mPosition);    
     return true;
 }
@@ -88,11 +88,11 @@ void GameplayButton::changeState(UIState state)
     _mState = state;
     if(this->_currentSprite != NULL){
         if(this->_mState == TOUCHED){
-            this->_currentSprite->setTexture(_touchedTexture);
+            this->_currentSprite->setDisplayFrame(_touchedTexture);
         } else if(this->_mState == ENABLE){
-            this->_currentSprite->setTexture(_enableTexture);
+            this->_currentSprite->setDisplayFrame(_enableTexture);
         } else if(this->_mState == DISABLE){
-            this->_currentSprite->setTexture(_disableTexture);
+            this->_currentSprite->setDisplayFrame(_disableTexture);
         }
     }
 }
@@ -129,4 +129,13 @@ void GameplayButton::attach(){
 
 void GameplayButton::detach(){
     this->_containLayer->removeChild(this->_currentSprite);
+}
+
+void GameplayButton::setTextureSelector(TextureSelector selector)
+{
+    this->_enableTexture = selector.activeTexture;
+    this->_disableTexture = selector.deactiveTexture;
+    this->_touchedTexture = selector.selectedTexture;
+    
+    changeState(this->getState());
 }

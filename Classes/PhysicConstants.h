@@ -20,16 +20,30 @@
 #define CHARACTER_BODY -1
 #define CHARACTER_FOOT_SENSOR -2
 #define PROJECTILE 1
+#define SKILL_SENSOR 2
 
 #define JOINT_CENTER 0
 #define JOINT_TOP_OR_RIGHT 1
 #define JOINT_BOTTOM_OR_LEFT -1
 #define JOINT_REAR 2
 
+#define GROUP_A 0x0002
+#define GROUP_B 0x0004
+#define GROUP_NEUTRUAL 0x0008
+#define GROUP_TERRAIN 0x0010
+#define GROUP_HERO_A 0x0020
+#define GROUP_HERO_B 0x0040
+#define GROUP_SKILL_DEFAULT 0x0080
+#define GROUP_SENSOR 0x0100
+
+
+
 struct JointDef
 {
     int x;
     int y;
+    float offsetX;
+    float offsetY;
 };
 
 #endif

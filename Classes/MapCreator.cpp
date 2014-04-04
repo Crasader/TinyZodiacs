@@ -44,80 +44,12 @@ Map* MapCreator::createMap(const char *id, GameWorld* gameWorld)
         map->addMapObject(mapObject);
     }
     
-    //    //create background
-    //    map->addParallaxBackground(createParallaxBackground(mapDTO->listBackgroundDTO,mapDTO->width,mapDTO->height));
-    //    //create foreground
-    //    map->addParallaxForeground(createParallaxForeground(mapDTO->listForegroundDTO,mapDTO->width,mapDTO->height));
-    
-    ///////////////////////////////////
-    ///////////////////////////////////
-    
-    MapObject* mapObject = NULL;
-    
-    //sprite
-    CCSprite* sprite = CCSprite::createWithSpriteFrameName("map1_1.png");
-    
-    
-    //body
-    b2BodyDef bodyDef;
-    bodyDef.type = b2_kinematicBody;
-    bodyDef.angle = ccpToAngle(ccp(0,0));
-    
-    b2PolygonShape shape;
-    shape.SetAsBox(4, 4);
-    
-    b2FixtureDef fix;
-    fix.shape = &shape;
-    fix.density = 2;
-    
-   
 
+//    //create background
+//    map->addParallaxBackground(createParallaxBackground(mapDTO->listBackgroundDTO,mapDTO->width,mapDTO->height));
+//    //create foreground
+    map->addParallaxForeground(createParallaxForeground(mapDTO->listForegroundDTO,mapDTO->width,mapDTO->height));
 
-    
-    
-    
-    
-    b2Body *body = gameWorld->getWorld()->CreateBody(&bodyDef);
-    //set data id
-    body->SetUserData((void *) MAP_BASE);
-    body->CreateFixture(&fix);
-    
-    ///
-    
-    
-    b2PolygonShape shapeJoint;
-    shape.SetAsBox(1, 1);
-    
-    b2FixtureDef fixDefJoint;
-    fixDefJoint.shape = &shape;
-    fixDefJoint.density=1;
-    
-    b2BodyDef bodyDefJoint;
-    bodyDef.type =b2_kinematicBody;
-    bodyDef.fixedRotation = true;
-    
-   // b2Body* bodyJoint = gameWorld->getWorld()->CreateBody(<#const b2BodyDef *def#>)
-    ///
-    
-    
-    
-    //set data id
-    PhysicData* data = new PhysicData();
-    data->Id = MAP_BASE;
-    data->Data = NULL;
-    body->SetUserData(data);
-    
-    mapObject = MoveableMapObject::create();
-    
-    
-    mapObject->setSkin(body, sprite);
-    mapObject->setPositionInPixel(ccp(500  ,800));
-    
-    map->addMapObject(mapObject);
-    /////////////////////////////////
-    //////////////////////////////////
-  
-    
     return map;
 }
 

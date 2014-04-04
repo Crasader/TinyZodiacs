@@ -172,15 +172,25 @@
 		288765A50DF7441C002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765A40DF7441C002DB57D /* CoreGraphics.framework */; };
 		3412551318DAA44900D9FBA6 /* NormalProjectile.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3412551118DAA44900D9FBA6 /* NormalProjectile.cpp */; };
 		3414166218DC23A0007B8C2B /* PhysicBodyManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3414166018DC23A0007B8C2B /* PhysicBodyManager.cpp */; };
+		345F6B5318E2C71F00985A7A /* ScheduleManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 345F6B5118E2C71F00985A7A /* ScheduleManager.cpp */; };
 		3486802618D93B82001692BB /* AbstractSkill.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3486802418D93B82001692BB /* AbstractSkill.cpp */; };
 		3486802918D95FB2001692BB /* NormalShootingAttack.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3486802718D95FB2001692BB /* NormalShootingAttack.cpp */; };
 		3486802C18D97940001692BB /* SkillData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3486802A18D97940001692BB /* SkillData.cpp */; };
+		34B1273018EF9619005DAF04 /* skill_body.plist in Resources */ = {isa = PBXBuildFile; fileRef = 34B1272F18EF9619005DAF04 /* skill_body.plist */; };
+		34B1273318EF9619005DAF04 /* NormalShootingSkillData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 34B1273118EF9619005DAF04 /* NormalShootingSkillData.cpp */; };
+		34B1273718EF9619005DAF04 /* SkillType1Parser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 34B1273518EF9619005DAF04 /* SkillType1Parser.cpp */; };
+		34B8CC6918ED484B002FAEF7 /* character_body.plist in Resources */ = {isa = PBXBuildFile; fileRef = 34B8CC6818ED484B002FAEF7 /* character_body.plist */; };
+		34B8CC6C18ED73B8002FAEF7 /* test_sheet.png in Resources */ = {isa = PBXBuildFile; fileRef = 34B8CC6A18ED73B8002FAEF7 /* test_sheet.png */; };
+		34B8CC6D18ED73B8002FAEF7 /* test_sheet.plist in Resources */ = {isa = PBXBuildFile; fileRef = 34B8CC6B18ED73B8002FAEF7 /* test_sheet.plist */; };
+		34C9428718EA75A1000A1E26 /* skill_animation.xml in Resources */ = {isa = PBXBuildFile; fileRef = 34C9428618EA75A1000A1E26 /* skill_animation.xml */; };
 		34ED36C218D69ADF00FFA55A /* ActionEngine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 34ED36C018D69ADF00FFA55A /* ActionEngine.cpp */; };
 		34ED36C518D69C2C00FFA55A /* CharacterActionEngine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 34ED36C318D69C2C00FFA55A /* CharacterActionEngine.cpp */; };
-		34F7F92518E130BE0084E87C /* character_body.plist in Resources */ = {isa = PBXBuildFile; fileRef = 34F7F92418E130BE0084E87C /* character_body.plist */; };
-		34F7F92718E136780084E87C /* skill_body.plist in Resources */ = {isa = PBXBuildFile; fileRef = 34F7F92618E136780084E87C /* skill_body.plist */; };
-		34F7F92918E15AA00084E87C /* list_skill.xml in Resources */ = {isa = PBXBuildFile; fileRef = 34F7F92818E15AA00084E87C /* list_skill.xml */; };
+		34EED02218E50E5D001AFFC9 /* NormalMeleeSkillData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 34EED02018E50E5D001AFFC9 /* NormalMeleeSkillData.cpp */; };
+		34EED02518E525DF001AFFC9 /* SkillType0Parser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 34EED02318E525DF001AFFC9 /* SkillType0Parser.cpp */; };
+		34EED02918E5611F001AFFC9 /* Util.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 34EED02718E5611F001AFFC9 /* Util.cpp */; };
+		34EED02F18E56E3C001AFFC9 /* list_skill.xml in Resources */ = {isa = PBXBuildFile; fileRef = 34EED02E18E56E3C001AFFC9 /* list_skill.xml */; };
 		34F7F92D18E16BB70084E87C /* SkillFactory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 34F7F92B18E16BB70084E87C /* SkillFactory.cpp */; };
+		34F7F93018E194DD0084E87C /* SkillDTO.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 34F7F92E18E194DD0084E87C /* SkillDTO.cpp */; };
 		34FD845118DFCC7300373627 /* CharacterFactory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 34FD844F18DFCC7300373627 /* CharacterFactory.cpp */; };
 		34FD845618DFDCA400373627 /* character_monkey.xml in Resources */ = {isa = PBXBuildFile; fileRef = 34FD845518DFDCA400373627 /* character_monkey.xml */; };
 		34FD845B18DFE91100373627 /* CharacterDTO.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 34FD845918DFE91100373627 /* CharacterDTO.cpp */; };
@@ -313,6 +323,7 @@
 		F5779C2A18E52BDB0044D5CD /* map1_spritesheet_3.png in Resources */ = {isa = PBXBuildFile; fileRef = F5779C1E18E52BDB0044D5CD /* map1_spritesheet_3.png */; };
 		F5779C2B18E52BDB0044D5CD /* map1_spritesheet_4.plist in Resources */ = {isa = PBXBuildFile; fileRef = F5779C1F18E52BDB0044D5CD /* map1_spritesheet_4.plist */; };
 		F5779C2C18E52BDB0044D5CD /* map1_spritesheet_4.png in Resources */ = {isa = PBXBuildFile; fileRef = F5779C2018E52BDB0044D5CD /* map1_spritesheet_4.png */; };
+
 		F5779C3A18E52C980044D5CD /* map1_background_spritesheet_1.plist in Resources */ = {isa = PBXBuildFile; fileRef = F5779C2E18E52C980044D5CD /* map1_background_spritesheet_1.plist */; };
 		F5779C3B18E52C980044D5CD /* map1_background_spritesheet_1.png in Resources */ = {isa = PBXBuildFile; fileRef = F5779C2F18E52C980044D5CD /* map1_background_spritesheet_1.png */; };
 		F5779C3C18E52C980044D5CD /* map1_background_spritesheet_2.plist in Resources */ = {isa = PBXBuildFile; fileRef = F5779C3018E52C980044D5CD /* map1_background_spritesheet_2.plist */; };
@@ -341,6 +352,7 @@
 		F5779C6D18E56CF10044D5CD /* healthbar_foreground_blue.png in Resources */ = {isa = PBXBuildFile; fileRef = F5779C6A18E56CF10044D5CD /* healthbar_foreground_blue.png */; };
 		F5779C6E18E56CF10044D5CD /* healthbar_foreground_red.png in Resources */ = {isa = PBXBuildFile; fileRef = F5779C6B18E56CF10044D5CD /* healthbar_foreground_red.png */; };
 		F5779C6F18E56CF10044D5CD /* healthbar_background.png in Resources */ = {isa = PBXBuildFile; fileRef = F5779C6C18E56CF10044D5CD /* healthbar_background.png */; };
+
 		F59E0BDC18D85E90001048BD /* NormalAttack.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F59E0BDA18D85E8F001048BD /* NormalAttack.cpp */; };
 		F5A6F7A818E16742008C145C /* map1_body.plist in Resources */ = {isa = PBXBuildFile; fileRef = F5A6F7A718E16742008C145C /* map1_body.plist */; };
 		F5A6F7AD18E16AAF008C145C /* map2_background_spritesheet.plist in Resources */ = {isa = PBXBuildFile; fileRef = F5A6F7A918E16AAF008C145C /* map2_background_spritesheet.plist */; };
@@ -716,21 +728,39 @@
 		3412551218DAA44900D9FBA6 /* NormalProjectile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NormalProjectile.h; path = ../Classes/NormalProjectile.h; sourceTree = "<group>"; };
 		3414166018DC23A0007B8C2B /* PhysicBodyManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PhysicBodyManager.cpp; sourceTree = "<group>"; };
 		3414166118DC23A0007B8C2B /* PhysicBodyManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhysicBodyManager.h; sourceTree = "<group>"; };
+		345F6B5118E2C71F00985A7A /* ScheduleManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ScheduleManager.cpp; sourceTree = "<group>"; };
+		345F6B5218E2C71F00985A7A /* ScheduleManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScheduleManager.h; sourceTree = "<group>"; };
 		3486802418D93B82001692BB /* AbstractSkill.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = AbstractSkill.cpp; path = ../Classes/AbstractSkill.cpp; sourceTree = "<group>"; };
 		3486802518D93B82001692BB /* AbstractSkill.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AbstractSkill.h; path = ../Classes/AbstractSkill.h; sourceTree = "<group>"; };
 		3486802718D95FB2001692BB /* NormalShootingAttack.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = NormalShootingAttack.cpp; path = ../Classes/NormalShootingAttack.cpp; sourceTree = "<group>"; };
 		3486802818D95FB2001692BB /* NormalShootingAttack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NormalShootingAttack.h; path = ../Classes/NormalShootingAttack.h; sourceTree = "<group>"; };
 		3486802A18D97940001692BB /* SkillData.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = SkillData.cpp; path = ../Classes/SkillData.cpp; sourceTree = "<group>"; };
 		3486802B18D97940001692BB /* SkillData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SkillData.h; path = ../Classes/SkillData.h; sourceTree = "<group>"; };
+		34B1272F18EF9619005DAF04 /* skill_body.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = skill_body.plist; sourceTree = "<group>"; };
+		34B1273118EF9619005DAF04 /* NormalShootingSkillData.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = NormalShootingSkillData.cpp; sourceTree = "<group>"; };
+		34B1273218EF9619005DAF04 /* NormalShootingSkillData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NormalShootingSkillData.h; sourceTree = "<group>"; };
+		34B1273518EF9619005DAF04 /* SkillType1Parser.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SkillType1Parser.cpp; sourceTree = "<group>"; };
+		34B1273618EF9619005DAF04 /* SkillType1Parser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SkillType1Parser.h; sourceTree = "<group>"; };
+		34B8CC6818ED484B002FAEF7 /* character_body.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = character_body.plist; sourceTree = "<group>"; };
+		34B8CC6A18ED73B8002FAEF7 /* test_sheet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = test_sheet.png; sourceTree = "<group>"; };
+		34B8CC6B18ED73B8002FAEF7 /* test_sheet.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = test_sheet.plist; sourceTree = "<group>"; };
+		34C9428618EA75A1000A1E26 /* skill_animation.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = skill_animation.xml; sourceTree = "<group>"; };
 		34ED36C018D69ADF00FFA55A /* ActionEngine.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ActionEngine.cpp; sourceTree = "<group>"; };
 		34ED36C118D69ADF00FFA55A /* ActionEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActionEngine.h; sourceTree = "<group>"; };
 		34ED36C318D69C2C00FFA55A /* CharacterActionEngine.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CharacterActionEngine.cpp; sourceTree = "<group>"; };
 		34ED36C418D69C2C00FFA55A /* CharacterActionEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CharacterActionEngine.h; sourceTree = "<group>"; };
-		34F7F92418E130BE0084E87C /* character_body.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = character_body.plist; sourceTree = "<group>"; };
-		34F7F92618E136780084E87C /* skill_body.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = skill_body.plist; sourceTree = "<group>"; };
-		34F7F92818E15AA00084E87C /* list_skill.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = list_skill.xml; sourceTree = "<group>"; };
+		34EED02018E50E5D001AFFC9 /* NormalMeleeSkillData.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = NormalMeleeSkillData.cpp; sourceTree = "<group>"; };
+		34EED02118E50E5D001AFFC9 /* NormalMeleeSkillData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NormalMeleeSkillData.h; sourceTree = "<group>"; };
+		34EED02318E525DF001AFFC9 /* SkillType0Parser.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SkillType0Parser.cpp; sourceTree = "<group>"; };
+		34EED02418E525DF001AFFC9 /* SkillType0Parser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SkillType0Parser.h; sourceTree = "<group>"; };
+		34EED02618E53C78001AFFC9 /* Constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
+		34EED02718E5611F001AFFC9 /* Util.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Util.cpp; sourceTree = "<group>"; };
+		34EED02818E5611F001AFFC9 /* Util.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Util.h; sourceTree = "<group>"; };
+		34EED02E18E56E3C001AFFC9 /* list_skill.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = list_skill.xml; sourceTree = "<group>"; };
 		34F7F92B18E16BB70084E87C /* SkillFactory.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SkillFactory.cpp; sourceTree = "<group>"; };
 		34F7F92C18E16BB70084E87C /* SkillFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SkillFactory.h; sourceTree = "<group>"; };
+		34F7F92E18E194DD0084E87C /* SkillDTO.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SkillDTO.cpp; sourceTree = "<group>"; };
+		34F7F92F18E194DD0084E87C /* SkillDTO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SkillDTO.h; sourceTree = "<group>"; };
 		34FD844F18DFCC7300373627 /* CharacterFactory.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CharacterFactory.cpp; sourceTree = "<group>"; };
 		34FD845018DFCC7300373627 /* CharacterFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CharacterFactory.h; sourceTree = "<group>"; };
 		34FD845518DFDCA400373627 /* character_monkey.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = character_monkey.xml; sourceTree = "<group>"; };
@@ -982,6 +1012,7 @@
 		F5779C1E18E52BDB0044D5CD /* map1_spritesheet_3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = map1_spritesheet_3.png; sourceTree = "<group>"; };
 		F5779C1F18E52BDB0044D5CD /* map1_spritesheet_4.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = map1_spritesheet_4.plist; sourceTree = "<group>"; };
 		F5779C2018E52BDB0044D5CD /* map1_spritesheet_4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = map1_spritesheet_4.png; sourceTree = "<group>"; };
+
 		F5779C2E18E52C980044D5CD /* map1_background_spritesheet_1.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = map1_background_spritesheet_1.plist; sourceTree = "<group>"; };
 		F5779C2F18E52C980044D5CD /* map1_background_spritesheet_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = map1_background_spritesheet_1.png; sourceTree = "<group>"; };
 		F5779C3018E52C980044D5CD /* map1_background_spritesheet_2.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = map1_background_spritesheet_2.plist; sourceTree = "<group>"; };
@@ -1011,6 +1042,7 @@
 		F5779C6A18E56CF10044D5CD /* healthbar_foreground_blue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = healthbar_foreground_blue.png; sourceTree = "<group>"; };
 		F5779C6B18E56CF10044D5CD /* healthbar_foreground_red.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = healthbar_foreground_red.png; sourceTree = "<group>"; };
 		F5779C6C18E56CF10044D5CD /* healthbar_background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = healthbar_background.png; sourceTree = "<group>"; };
+
 		F59E0BDA18D85E8F001048BD /* NormalAttack.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = NormalAttack.cpp; sourceTree = "<group>"; };
 		F59E0BDB18D85E90001048BD /* NormalAttack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NormalAttack.h; sourceTree = "<group>"; };
 		F5A6F7A718E16742008C145C /* map1_body.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = map1_body.plist; sourceTree = "<group>"; };
@@ -1721,6 +1753,8 @@
 				F54AE9D318D2F2B400194E66 /* GameManager.h */,
 				3414166018DC23A0007B8C2B /* PhysicBodyManager.cpp */,
 				3414166118DC23A0007B8C2B /* PhysicBodyManager.h */,
+				345F6B5118E2C71F00985A7A /* ScheduleManager.cpp */,
+				345F6B5218E2C71F00985A7A /* ScheduleManager.h */,
 			);
 			name = Managers;
 			sourceTree = "<group>";
@@ -1756,7 +1790,9 @@
 		34F7F92A18E15AA50084E87C /* Skills */ = {
 			isa = PBXGroup;
 			children = (
-				34F7F92818E15AA00084E87C /* list_skill.xml */,
+				34B8CC6B18ED73B8002FAEF7 /* test_sheet.plist */,
+				34B8CC6A18ED73B8002FAEF7 /* test_sheet.png */,
+				34EED02E18E56E3C001AFFC9 /* list_skill.xml */,
 			);
 			name = Skills;
 			sourceTree = "<group>";
@@ -2084,8 +2120,7 @@
 			isa = PBXGroup;
 			children = (
 				F5779C6918E56CBD0044D5CD /* HealthBar */,
-				F5779C4618E52E7E0044D5CD /* mediumResource */,
-				F5779C2D18E52C980044D5CD /* smallResource */,
+
 				F5779C1418E52BDB0044D5CD /* largeResource */,
 				34F7F92A18E15AA50084E87C /* Skills */,
 				F5C89E0D18D2FF87006E909D /* UI */,
@@ -2148,8 +2183,10 @@
 		F54AE96E18D2F02100194E66 /* Constants */ = {
 			isa = PBXGroup;
 			children = (
+				F54AE9E918D2F38100194E66 /* UIConstant.h */,
 				F54AE9C918D2F25100194E66 /* PhysicConstants.h */,
 				F5CB2F0D18DA9A930035D27B /* LayerIndexConstants.h */,
+				34EED02618E53C78001AFFC9 /* Constants.h */,
 			);
 			name = Constants;
 			sourceTree = "<group>";
@@ -2187,7 +2224,6 @@
 				F54AE9EC18D2F38100194E66 /* GamePlayButton.h */,
 				F54AE9E518D2F38100194E66 /* iUIObjectTouchInterface.cpp */,
 				F54AE9E618D2F38100194E66 /* iUIObjectTouchInterface.h */,
-				F54AE9E918D2F38100194E66 /* UIConstant.h */,
 				F54AE9EB18D2F38100194E66 /* UIObject.cpp */,
 				F54AE9ED18D2F38100194E66 /* UIObject.h */,
 			);
@@ -2244,6 +2280,10 @@
 				F54AEA0B18D2F50300194E66 /* ObjectData.cpp */,
 				3486802A18D97940001692BB /* SkillData.cpp */,
 				3486802B18D97940001692BB /* SkillData.h */,
+				34EED02018E50E5D001AFFC9 /* NormalMeleeSkillData.cpp */,
+				34EED02118E50E5D001AFFC9 /* NormalMeleeSkillData.h */,
+				34B1273118EF9619005DAF04 /* NormalShootingSkillData.cpp */,
+				34B1273218EF9619005DAF04 /* NormalShootingSkillData.h */,
 			);
 			name = Data;
 			sourceTree = "<group>";
@@ -2257,6 +2297,12 @@
 				F54AE9F418D2F3F800194E66 /* GB2ShapeCache-x.h */,
 				F54AE9F518D2F3F800194E66 /* GLES-Render.cpp */,
 				F54AE9F618D2F3F800194E66 /* GLES-Render.h */,
+				34EED02318E525DF001AFFC9 /* SkillType0Parser.cpp */,
+				34EED02418E525DF001AFFC9 /* SkillType0Parser.h */,
+				34EED02718E5611F001AFFC9 /* Util.cpp */,
+				34EED02818E5611F001AFFC9 /* Util.h */,
+				34B1273518EF9619005DAF04 /* SkillType1Parser.cpp */,
+				34B1273618EF9619005DAF04 /* SkillType1Parser.h */,
 			);
 			name = Helper;
 			sourceTree = "<group>";
@@ -2288,6 +2334,8 @@
 				F544FB9E18D9567B00A818DF /* BackgroundDTO.h */,
 				34FD845918DFE91100373627 /* CharacterDTO.cpp */,
 				34FD845A18DFE91100373627 /* CharacterDTO.h */,
+				34F7F92E18E194DD0084E87C /* SkillDTO.cpp */,
+				34F7F92F18E194DD0084E87C /* SkillDTO.h */,
 			);
 			name = DTO;
 			sourceTree = "<group>";
@@ -2384,6 +2432,7 @@
 			name = HealthBar;
 			sourceTree = "<group>";
 		};
+
 		F59E0BD918D85E62001048BD /* Skills */ = {
 			isa = PBXGroup;
 			children = (
@@ -2416,6 +2465,7 @@
 			isa = PBXGroup;
 			children = (
 				F5C89DFA18D2FCB5006E909D /* monkey_animation.xml */,
+				34C9428618EA75A1000A1E26 /* skill_animation.xml */,
 			);
 			name = Animation;
 			sourceTree = "<group>";
@@ -2453,10 +2503,10 @@
 			isa = PBXGroup;
 			children = (
 				F5A6F7A718E16742008C145C /* map1_body.plist */,
-				34F7F92618E136780084E87C /* skill_body.plist */,
-				34F7F92418E130BE0084E87C /* character_body.plist */,
+				34B8CC6818ED484B002FAEF7 /* character_body.plist */,
 				F544FB9818D93CC100A818DF /* map2_body.plist */,
 				F5C89E0118D2FD2A006E909D /* body.plist */,
+				34B1272F18EF9619005DAF04 /* skill_body.plist */,
 				F5C89E0218D2FD2A006E909D /* map_body.plist */,
 			);
 			name = Body;
@@ -2540,8 +2590,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F5779C5A18E52E7E0044D5CD /* map1_spritesheet_2.png in Resources */,
-				F5779C5B18E52E7E0044D5CD /* map1_spritesheet_3.plist in Resources */,
 				7855E0E1153FEF240059DD9A /* Default.png in Resources */,
 				D4EF949A15BD2D8B00D803EB /* Icon-57.png in Resources */,
 				F5779C2318E52BDB0044D5CD /* map1_background_spritesheet_2.plist in Resources */,
@@ -2549,37 +2597,44 @@
 				F544FB9918D93CC100A818DF /* map2_body.plist in Resources */,
 				D4EF949C15BD2D8E00D803EB /* Icon-114.png in Resources */,
 				F5779C2518E52BDB0044D5CD /* map1_spritesheet_1.plist in Resources */,
-				F5779C4218E52C980044D5CD /* map1_spritesheet_3.plist in Resources */,
-				F5779C3F18E52C980044D5CD /* map1_spritesheet_1.png in Resources */,
 				F5779C2418E52BDB0044D5CD /* map1_background_spritesheet_2.png in Resources */,
 				F5A6F7AD18E16AAF008C145C /* map2_background_spritesheet.plist in Resources */,
+
 				34F7F92518E130BE0084E87C /* character_body.plist in Resources */,
+
+				34B8CC6C18ED73B8002FAEF7 /* test_sheet.png in Resources */,
+				F50BD49418D8765F00A892E6 /* background2_spritesheet.plist in Resources */,
+
 				F5779C2C18E52BDB0044D5CD /* map1_spritesheet_4.png in Resources */,
-				F5779C3C18E52C980044D5CD /* map1_background_spritesheet_2.plist in Resources */,
 				F5C89E0418D2FD2A006E909D /* map_body.plist in Resources */,
+
 				F5779C6F18E56CF10044D5CD /* healthbar_background.png in Resources */,
 				F5779C5418E52E7E0044D5CD /* map1_background_spritesheet_1.png in Resources */,
 				F5779C6D18E56CF10044D5CD /* healthbar_foreground_blue.png in Resources */,
 				F5779C5918E52E7E0044D5CD /* map1_spritesheet_2.plist in Resources */,
+
+				34B1273018EF9619005DAF04 /* skill_body.plist in Resources */,
+
 				F5C89DFF18D2FCE9006E909D /* monkey_spritesheet.png in Resources */,
-				F5779C4018E52C980044D5CD /* map1_spritesheet_2.plist in Resources */,
 				D4EF949E15BD2D9600D803EB /* Icon-72.png in Resources */,
 				F5779C2A18E52BDB0044D5CD /* map1_spritesheet_3.png in Resources */,
 				F5779C2618E52BDB0044D5CD /* map1_spritesheet_1.png in Resources */,
 				F5779C2218E52BDB0044D5CD /* map1_background_spritesheet_1.png in Resources */,
 				F5C89E1018D2FF9A006E909D /* 2.png in Resources */,
 				34FD845618DFDCA400373627 /* character_monkey.xml in Resources */,
-				34F7F92718E136780084E87C /* skill_body.plist in Resources */,
 				D4EF94A015BD2D9800D803EB /* Icon-144.png in Resources */,
+				34C9428718EA75A1000A1E26 /* skill_animation.xml in Resources */,
 				F5A6F7AE18E16AAF008C145C /* map2_background_spritesheet.png in Resources */,
 				F5C89E1118D2FF9A006E909D /* 1.png in Resources */,
 				F53ACBAF18D831C700F958A8 /* map2.xml in Resources */,
 				F5A6F7B018E16AAF008C145C /* map2_background3_spritesheet.png in Resources */,
 				D41A0AD1160F154A004552AE /* Default-568h@2x.png in Resources */,
+				34B8CC6918ED484B002FAEF7 /* character_body.plist in Resources */,
 				D446FD6E16102124000ADA7B /* Default@2x.png in Resources */,
 				F561F29118D805BE00DD4598 /* map1.xml in Resources */,
 				F5C89DFE18D2FCE9006E909D /* monkey_spritesheet.plist in Resources */,
 				15A3D9961682F7F9002FB0C5 /* CMakeLists.txt in Resources */,
+
 				F5779C5518E52E7E0044D5CD /* map1_background_spritesheet_2.plist in Resources */,
 				F5779C5C18E52E7E0044D5CD /* map1_spritesheet_3.png in Resources */,
 				F5779C4518E52C980044D5CD /* map1_spritesheet_4.png in Resources */,
@@ -2589,25 +2644,37 @@
 				F5779C4318E52C980044D5CD /* map1_spritesheet_3.png in Resources */,
 				F5779C4418E52C980044D5CD /* map1_spritesheet_4.plist in Resources */,
 				F5779C3D18E52C980044D5CD /* map1_background_spritesheet_2.png in Resources */,
+=======
+				F50BD48E18D8703A00A892E6 /* map2_spritesheet.plist in Resources */,
+				F5C89E0318D2FD2A006E909D /* body.plist in Resources */,
+				34EED02F18E56E3C001AFFC9 /* list_skill.xml in Resources */,
+				F5C89E0818D2FD97006E909D /* background_sheet_1.png in Resources */,
+
 				F5779C2918E52BDB0044D5CD /* map1_spritesheet_3.plist in Resources */,
 				F5A6F7A818E16742008C145C /* map1_body.plist in Resources */,
-				F5779C5D18E52E7E0044D5CD /* map1_spritesheet_4.plist in Resources */,
 				F5779C2818E52BDB0044D5CD /* map1_spritesheet_2.png in Resources */,
-				F5779C4118E52C980044D5CD /* map1_spritesheet_2.png in Resources */,
+				34B8CC6D18ED73B8002FAEF7 /* test_sheet.plist in Resources */,
 				F5A6F7B318E16AD9008C145C /* map2_background2_spritesheet.plist in Resources */,
+
 				F5779C5718E52E7E0044D5CD /* map1_spritesheet_1.plist in Resources */,
 				F5779C6E18E56CF10044D5CD /* healthbar_foreground_red.png in Resources */,
 				1AFAF8BC16D35E4900DB1158 /* CloseNormal.png in Resources */,
 				F5779C3E18E52C980044D5CD /* map1_spritesheet_1.plist in Resources */,
 				F5779C5E18E52E7E0044D5CD /* map1_spritesheet_4.png in Resources */,
+
+				1AFAF8BC16D35E4900DB1158 /* CloseNormal.png in Resources */,
+				F50BD49518D8765F00A892E6 /* background2_spritesheet.png in Resources */,
+
 				F5C89DFB18D2FCB5006E909D /* monkey_animation.xml in Resources */,
-				F5779C3A18E52C980044D5CD /* map1_background_spritesheet_1.plist in Resources */,
 				F5779C2B18E52BDB0044D5CD /* map1_spritesheet_4.plist in Resources */,
 				F5A6F7AF18E16AAF008C145C /* map2_background3_spritesheet.plist in Resources */,
+
 				F5779C3B18E52C980044D5CD /* map1_background_spritesheet_1.png in Resources */,
 				F5779C5318E52E7E0044D5CD /* map1_background_spritesheet_1.plist in Resources */,
+
+				F50BD48F18D8703A00A892E6 /* map2_spritesheet.png in Resources */,
+
 				F5779C2718E52BDB0044D5CD /* map1_spritesheet_2.plist in Resources */,
-				F5779C5818E52E7E0044D5CD /* map1_spritesheet_1.png in Resources */,
 				1AFAF8BD16D35E4900DB1158 /* CloseSelected.png in Resources */,
 				1AFAF8BE16D35E4900DB1158 /* HelloWorld.png in Resources */,
 				F5779C2118E52BDB0044D5CD /* map1_background_spritesheet_1.plist in Resources */,
@@ -2652,6 +2719,7 @@
 				15A3D9151682F7D5002FB0C5 /* b2World.cpp in Sources */,
 				15A3D9161682F7D5002FB0C5 /* b2WorldCallbacks.cpp in Sources */,
 				15A3D9171682F7D5002FB0C5 /* b2ChainAndCircleContact.cpp in Sources */,
+				34EED02918E5611F001AFFC9 /* Util.cpp in Sources */,
 				15A3D9181682F7D5002FB0C5 /* b2ChainAndPolygonContact.cpp in Sources */,
 				F54AE9B618D2F1AA00194E66 /* CharacterMidAirState.cpp in Sources */,
 				34FD845B18DFE91100373627 /* CharacterDTO.cpp in Sources */,
@@ -2699,6 +2767,7 @@
 				15A3D99D1682F7F9002FB0C5 /* cpPivotJoint.c in Sources */,
 				15A3D99E1682F7F9002FB0C5 /* cpRatchetJoint.c in Sources */,
 				15A3D99F1682F7F9002FB0C5 /* cpRotaryLimitJoint.c in Sources */,
+				34B1273718EF9619005DAF04 /* SkillType1Parser.cpp in Sources */,
 				F561F28618D8028600DD4598 /* MapFactory.cpp in Sources */,
 				F561F28718D8028600DD4598 /* XMLMapParser.cpp in Sources */,
 				15A3D9A01682F7F9002FB0C5 /* cpSimpleMotor.c in Sources */,
@@ -2710,6 +2779,7 @@
 				15A3D9A61682F7F9002FB0C5 /* cpBody.c in Sources */,
 				34ED36C218D69ADF00FFA55A /* ActionEngine.cpp in Sources */,
 				15A3D9A71682F7F9002FB0C5 /* cpCollision.c in Sources */,
+				34B1273318EF9619005DAF04 /* NormalShootingSkillData.cpp in Sources */,
 				15A3D9A81682F7F9002FB0C5 /* cpHashSet.c in Sources */,
 				15A3D9A91682F7F9002FB0C5 /* cpPolyShape.c in Sources */,
 				15A3D9AA1682F7F9002FB0C5 /* cpShape.c in Sources */,
@@ -2808,6 +2878,9 @@
 				1A8F3B73175E05DA00049216 /* Attachment.cpp in Sources */,
 				F561F28E18D802A500DD4598 /* MapObjectDTO.cpp in Sources */,
 				F5B4B79418E66E8700E4C2AA /* GameObjectInfoView.cpp in Sources */,
+
+				34EED02218E50E5D001AFFC9 /* NormalMeleeSkillData.cpp in Sources */,
+
 				1A8F3B74175E05DA00049216 /* AttachmentLoader.cpp in Sources */,
 				F54AE9C518D2F1FC00194E66 /* AnimationObject.cpp in Sources */,
 				1A8F3B75175E05DA00049216 /* Bone.cpp in Sources */,
@@ -2831,6 +2904,7 @@
 				375BD4C51868411B0024609E /* TriggerMng.cpp in Sources */,
 				F561F28D18D802A500DD4598 /* MapDTO.cpp in Sources */,
 				1A9CE8781765A12C000E3062 /* AssetsManager.cpp in Sources */,
+				34EED02518E525DF001AFFC9 /* SkillType0Parser.cpp in Sources */,
 				379BB99A17F03F3700829B88 /* CCArmatureAnimation.cpp in Sources */,
 				379BB99B17F03F3700829B88 /* CCProcessBase.cpp in Sources */,
 				379BB99C17F03F3700829B88 /* CCTween.cpp in Sources */,
@@ -2881,6 +2955,7 @@
 				379BB9C317F03F3700829B88 /* UILabel.cpp in Sources */,
 				F54AE9E118D2F33E00194E66 /* Monster.cpp in Sources */,
 				379BB9C417F03F3700829B88 /* UILabelAtlas.cpp in Sources */,
+				34F7F93018E194DD0084E87C /* SkillDTO.cpp in Sources */,
 				379BB9C517F03F3700829B88 /* UILabelBMFont.cpp in Sources */,
 				F54AE9E418D2F34700194E66 /* Hero.cpp in Sources */,
 				379BB9C617F03F3700829B88 /* UILoadingBar.cpp in Sources */,
@@ -2890,6 +2965,7 @@
 				379BB9CB17F03F3700829B88 /* DictionaryHelper.cpp in Sources */,
 				379BB9D317F03F3700829B88 /* GUIReader.cpp in Sources */,
 				F54AE9BB18D2F1AA00194E66 /* CharacterSkillState.cpp in Sources */,
+				345F6B5318E2C71F00985A7A /* ScheduleManager.cpp in Sources */,
 				379BB9D417F03F3700829B88 /* SceneReader.cpp in Sources */,
 				F54AE9B518D2F1AA00194E66 /* CharacterIdleState.cpp in Sources */,
 				F54AE9EF18D2F38100194E66 /* ControllerLayer.cpp in Sources */,

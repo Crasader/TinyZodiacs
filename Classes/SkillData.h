@@ -11,7 +11,7 @@
 
 #include <iostream>
 #include "cocos2d.h"
-#include "Box2D/Box2D.h"
+#include "PhysicConstants.h"
 
 USING_NS_CC;
 
@@ -21,9 +21,11 @@ private:
 protected:
 public:
     CC_SYNTHESIZE(int, damage, Damage);
-    CC_SYNTHESIZE(int, delay, Delay);
-    
-    CC_SYNTHESIZE(CCPoint, location, Location);
-    CC_SYNTHESIZE(b2Body*, skillSensor, SkillSensor);
+    CC_SYNTHESIZE(float, coolDown, CoolDown);
+    CC_SYNTHESIZE(float, delay, Delay);
+    CC_SYNTHESIZE(float, lifeTime, LifeTime);
+    CC_SYNTHESIZE(float, critical, Critical);
+    CC_SYNTHESIZE(JointDef, jointDefA, JointDefA);
+    CC_SYNTHESIZE(JointDef, jointDefB, JointDefB);
 };
 #endif /* defined(__TinyZodiacs__SkillData__) */

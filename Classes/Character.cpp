@@ -12,6 +12,7 @@
 #include "CharacterMidAirState.h"
 #include "CharacterJumpState.h"
 #include "CharacterIdleState.h"
+#include "Util.h"
 
 
 USING_NS_CC;
@@ -21,23 +22,13 @@ Character::Character()
     this->state = NULL;
     this->landing = 0;
     this->currentJumpCount = 0;
-    
-    
-    runAnimation = AnimationFactory::getSharedFactory()->getAnimationObjectByName("monkey-run");
-    attackAnimation = AnimationFactory::getSharedFactory()->getAnimationObjectByName("monkey-attack");
-    jumpAnimation = AnimationFactory::getSharedFactory()->getAnimationObjectByName("monkey-jump");
-    idleAnimation = AnimationFactory::getSharedFactory()->getAnimationObjectByName("monkey-idle");
-    fallAnimation = AnimationFactory::getSharedFactory()->getAnimationObjectByName("monkey-fall");
-    flyAnimation = AnimationFactory::getSharedFactory()->getAnimationObjectByName("monkey-fly");
-    skill1Animation = AnimationFactory::getSharedFactory()->getAnimationObjectByName("monkey-skill");
-    
-    
-    //create attack skill
 }
 
 Character::~Character()
 {
-    
+    delete normalAttack;
+    delete skill1;
+    delete skill2;
 }
 
 void Character::changeState(CharacterState *states)
@@ -56,15 +47,18 @@ b2Joint* joint;
 void Character::setSkin(b2Body *body, CCSprite *sprite)
 {
     GameObject::setSkin(body, sprite);
+    //create foot sensor
     b2BodyDef bodyDef;
     bodyDef.type = b2_dynamicBody;
     b2FixtureDef fixtureDef;
     createFootSensor();
     this->changeState(new CharacterIdleState(this));
-    
 
-    
-    
+    //set body data
+    PhysicData* scharacterData = new PhysicData();
+    scharacterData->Id = CHARACTER_BODY;
+    scharacterData->Data = this;
+    this->getBody()->SetUserData(scharacterData);
 }
 
 void Character::setOriginCharacterData(CharacterData data)
@@ -77,6 +71,20 @@ void Character::setOriginCharacterData(CharacterData data)
 bool falling = false;
 void Character::update(float dt)
 {
+    //
+    if(this->normalAttack != NULL)
+    {
+        this->normalAttack->update(dt);
+    }
+    if(this->skill1 != NULL)
+    {
+        this->skill1->update(dt);
+    }
+    if(this->skill2 != NULL)
+    {
+        this->skill2->update(dt);
+    }
+    //
     this->state->update(dt);
     GameObject::update(dt);
 }
@@ -118,17 +126,26 @@ void Character::jump()
 
 void Character::attack()
 {
-    this->state->attack();
+    if(this->normalAttack->getIsExcutable())
+    {
+        this->state->attack();
+    }
 }
 
 void Character::useSkill1()
 {
-    
+    if(this->normalAttack->getIsExcutable())
+    {
+        this->state->attack();
+    }
 }
 
 void Character::useSkill2()
 {
-    
+    if(this->normalAttack->getIsExcutable())
+    {
+        this->state->attack();
+    }
 }
 
 void Character::createFootSensor()
@@ -143,10 +160,10 @@ void Character::createFootSensor()
     fixDef.isSensor = true;
     fixDef.density = WEIGHTLESS_DENSITY;
     
-//    PhysicData* sensorData = new PhysicData();
-//    sensorData->Id = CHARACTER_FOOT_SENSOR;
-//    sensorData->Data = this;
-//    fixDef.userData = (void*)sensorData;
+    //    PhysicData* sensorData = new PhysicData();
+    //    sensorData->Id = CHARACTER_FOOT_SENSOR;
+    //    sensorData->Data = this;
+    //    fixDef.userData = (void*)sensorData;
     //
     
     b2BodyDef bodyDef;
@@ -180,39 +197,45 @@ void Character::stopMove()
     this->body->SetLinearVelocity(b2Vec2(0, this->getBody()->GetLinearVelocity().y));
 }
 
-void Character::checkCollisionDataInBeginContact(PhysicData* data, b2Contact *contact)
+void Character::checkCollisionDataInBeginContact(PhysicData* data, b2Contact *contact, bool isSideA)
 {
-    switch (data->Id)
+    if(data->Data == this)
     {
-        case CHARACTER_FOOT_SENSOR:
-            if(this == data->Data)
-            {
-                this -> landing ++;
-                this-> currentJumpCount =0;
-            }
-            break;
-            
-        default:
-            break;
+        switch (data->Id)
+        {
+            case CHARACTER_FOOT_SENSOR:
+                if(this == data->Data)
+                {
+                    this -> landing ++;
+                    this-> currentJumpCount =0;
+                }
+                break;
+                
+            default:
+                break;
+        }
     }
 }
 
-void Character::checkCollisionDataInEndContact(PhysicData* data, b2Contact *contact)
+void Character::checkCollisionDataInEndContact(PhysicData* data, b2Contact *contact, bool isSideA)
 {
-    switch (data->Id) {
-        case CHARACTER_FOOT_SENSOR:
-            if(this == data->Data)
-            {
-                this -> landing --;
-                if(this->landing <0)
+    if(data->Data == this)
+    {
+        switch (data->Id) {
+            case CHARACTER_FOOT_SENSOR:
+                if(this == data->Data)
                 {
-                    this->landing =0;
+                    this -> landing --;
+                    if(this->landing <0)
+                    {
+                        this->landing =0;
+                    }
                 }
-            }
-            break;
-            
-        default:
-            break;
+                break;
+                
+            default:
+                break;
+        }
     }
 }
 
@@ -220,12 +243,71 @@ void Character::BeginContact(b2Contact *contact)
 {
     GameObject::BeginContact(contact);
     
-    normalAttack->BeginContact(contact);
+    if(normalAttack != NULL)
+    {
+        normalAttack->BeginContact(contact);
+    }
+    
+    if(skill2 != NULL)
+    {
+        skill2->BeginContact(contact);
+    }
+    
+    if(skill1 != NULL)
+    {
+        skill1->BeginContact(contact);
+    }
 }
 
 void Character::EndContact(b2Contact *contact)
 {
     GameObject::EndContact(contact);
     
-    normalAttack->EndContact(contact);
+    if(normalAttack != NULL)
+    {
+        normalAttack->EndContact(contact);
+    }
+    
+    if(skill1 != NULL)
+    {
+        skill1->EndContact(contact);
+    }
+    
+    if(skill2 != NULL)
+    {
+        skill2->EndContact(contact);
+    }
+}
+
+void Character::setGroup(int group)
+{
+    //    b2Filter data = this->footSensor->GetFixtureList()[0].GetFilterData();
+    //    data.groupIndex = group;
+    //    this->footSensor->GetFixtureList()[0].SetFilterData(data);
+    for (b2Fixture* f = this->footSensor->GetFixtureList(); f; f = f->GetNext())
+    {
+        if(f != NULL)
+        {
+            Util::setFixtureGroup(f, GROUP_SENSOR);
+        }
+    }
+    
+    
+    if(this->normalAttack != NULL)
+    {
+        this->normalAttack->setGroup(GROUP_SKILL_DEFAULT);
+    }
+    
+    if(this->skill1 != NULL)
+    {
+        this->skill1->setGroup(GROUP_SKILL_DEFAULT);
+    }
+
+    if(this->skill2 != NULL)
+    {
+        this->skill2->setGroup(GROUP_SKILL_DEFAULT);
+    }
+
+    
+    GameObject::setGroup(group);
 }

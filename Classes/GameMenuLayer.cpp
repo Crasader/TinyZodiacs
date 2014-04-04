@@ -62,6 +62,9 @@ bool GameMenuLayer::init()
     mlayer->setRightButtonEventHadler(this);
     mlayer->setJumpButtonEventHadler(this);
     mlayer->setAtkButtonEventHadler(this);
+    mlayer->setSkill1ButtonEventHadler(this);
+    mlayer->setSkill2ButtonEventHadler(this);
+
     
     this->addChild(mlayer, 1);
     
@@ -121,11 +124,9 @@ void GameMenuLayer::touchBegan(void* sender ,CCSet* pTouches, CCEvent* event)
     std::string id = ((UIObject *)sender)->getID();
     if(id.compare(LEFT_BTN_ID) == 0)
     {
-        CCLOG("left touch began");
     }
     else if(id.compare(RIGHT_BTN_ID) == 0)
     {
-        CCLOG("right touch began");
     }
     else if(id.compare(JUMP_BTN_ID) == 0)
     {
@@ -136,6 +137,18 @@ void GameMenuLayer::touchBegan(void* sender ,CCSet* pTouches, CCEvent* event)
     else if(id.compare(ATK_BTN_ID) == 0)
     {
        
+    }
+    else if(id.compare(SKILL_1_BTN_ID) == 0)
+    {
+        if(this->getParent()->getChildByTag(3)!=NULL)
+            ((GameObjectLayer*)this->getParent()->getChildByTag(3))->Skill1();
+        
+    }
+    else if(id.compare(SKILL_2_BTN_ID) == 0)
+    {
+        if(this->getParent()->getChildByTag(3)!=NULL)
+            ((GameObjectLayer*)this->getParent()->getChildByTag(3))->Skill2();
+        
     }
 }
 void GameMenuLayer::touchHold(void* sender ,CCSet* pTouches, CCEvent* event)
@@ -160,6 +173,8 @@ void GameMenuLayer::touchHold(void* sender ,CCSet* pTouches, CCEvent* event)
     {
         if(this->getParent()->getChildByTag(3)!=NULL)
             ((GameObjectLayer*)this->getParent()->getChildByTag(3))->Attack();
+//        if(this->getParent()->getChildByTag(3)!=NULL)
+//            ((GameObjectLayer*)this->getParent()->getChildByTag(3))->MoveSpriteRight();
 
     }
 }
@@ -182,11 +197,9 @@ void GameMenuLayer::touchEnded(void* sender ,CCSet* pTouches, CCEvent* event)
     }
     else if(id.compare(JUMP_BTN_ID) == 0)
     {
-        CCLOG("jump touch ended");
     }
     else if(id.compare(ATK_BTN_ID) == 0)
     {
-        CCLOG("jump attack ended");
     }
 }
 
