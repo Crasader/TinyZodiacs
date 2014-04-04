@@ -53,7 +53,7 @@ bool AppDelegate::applicationDidFinishLaunching() {
     // if the frame's height is larger than the height of medium resource size, select large resource.
 //    if (frameSize.height >= largeResource.size.height)
 //    {
-        searchPath.push_back(largeResource.directory);
+       //searchPath.push_back(largeResource.directory);
        pDirector->setContentScaleFactor(1);
 //    }
 //    else if (frameSize.height >= mediumResource.size.height)
