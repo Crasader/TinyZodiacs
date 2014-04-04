@@ -124,11 +124,9 @@ void GameMenuLayer::touchBegan(void* sender ,CCSet* pTouches, CCEvent* event)
     std::string id = ((UIObject *)sender)->getID();
     if(id.compare(LEFT_BTN_ID) == 0)
     {
-        CCLOG("left touch began");
     }
     else if(id.compare(RIGHT_BTN_ID) == 0)
     {
-        CCLOG("right touch began");
     }
     else if(id.compare(JUMP_BTN_ID) == 0)
     {
@@ -175,6 +173,8 @@ void GameMenuLayer::touchHold(void* sender ,CCSet* pTouches, CCEvent* event)
     {
         if(this->getParent()->getChildByTag(3)!=NULL)
             ((GameObjectLayer*)this->getParent()->getChildByTag(3))->Attack();
+//        if(this->getParent()->getChildByTag(3)!=NULL)
+//            ((GameObjectLayer*)this->getParent()->getChildByTag(3))->MoveSpriteRight();
 
     }
 }

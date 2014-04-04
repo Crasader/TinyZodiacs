@@ -8,6 +8,10 @@
 
 #include "SkillFactory.h"
 #include "ControllerLayer.h"
+#include "NormalShootingSkillData.h"
+#include "SkillType0Parser.h"
+#include "SkillType1Parser.h"
+
 
 
 AbstractSkill* SkillFactory::loadXMLFile(const char* id, const char *xmlFileName, b2World* world, GameObject* holder, bool isLocal, int buttonIndex)
@@ -45,12 +49,16 @@ AbstractSkill* SkillFactory::loadXMLFile(const char* id, const char *xmlFileName
     if(result != NULL)
     {
         //read skill
-        int type = readSkillType(result);
+        string type = readSkillType(result);
         AbstractSkill* normalAttack;
-        switch (type) {
-            case SKILL_TYPE_0:
-                normalAttack = new NormalAttack(holder, SkillType0Parser::parse(result, world));
-                break;
+        
+        if(strcmp(type.c_str(), SKILL_TYPE_0) == 0)
+        {
+            normalAttack = new NormalAttack(holder, SkillType0Parser::parse(result, world));
+        }
+        if(strcmp(type.c_str(), SKILL_TYPE_1) == 0)
+        {
+            NormalShootingSkillData data = SkillType1Parser::parse(result, world);
         }
         
         if(isLocal)
@@ -79,12 +87,14 @@ AbstractSkill* SkillFactory::loadXMLFile(const char* id, const char *xmlFileName
                         break;
                     case SKILL_1_BUTTON:
                         instance->getSkill1ButtonSprite()->setTextureSelector(selector);
+                        if(normalAttack!= NULL)
                         {
                             normalAttack->setholderButton(instance->getSkill1ButtonSprite());
                         }
                         break;
                     case SKILL_2_BUTTON:
                         instance->getSkill2ButtonSprite()->setTextureSelector(selector);
+                        if(normalAttack!= NULL)
                         {
                             normalAttack->setholderButton(instance->getSkill2ButtonSprite());
                         }
@@ -113,15 +123,16 @@ const XMLElement* SkillFactory::loadElementById(const char* id, const XMLElement
     return NULL;
 }
 
-int SkillFactory::readSkillType(const XMLElement* root)
+string SkillFactory::readSkillType(const XMLElement* root)
 {
     if(root != NULL)
     {
-        string typeValue = root->Attribute(ATTRIBUTE_ID);
-        int value = atoi(typeValue.c_str());
-        return value;
+        string typeValue = root->Attribute(ATTRIBUTE_TYPE);
+//        int value = atoi(typeValue.c_str());
+//        return value;
+        return typeValue;
     }
-    return -1;
+    return NULL;
 }
 
 std::string SkillFactory::readTextureId(const XMLElement* root, string tagName)

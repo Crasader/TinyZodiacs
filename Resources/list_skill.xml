@@ -6,6 +6,7 @@
         <delay>0.05</delay>
         <life_time>0</life_time>
 		<cool_down>0</cool_down>
+        <critical_chance>0.01</critical_chance>
         <joints>
             <holder x="2" y="0" offsetX="0" offsetY="0"></holder>
             <this x="2" y="0" offsetX="0" offsetY="0"></this>
@@ -24,6 +25,7 @@
         <delay>0.1</delay>
         <life_time>1</life_time>
 		<cool_down>3</cool_down>
+        <critical_chance>0.01</critical_chance>
         <joints>
             <holder x="0" y="0" offsetX="0" offsetY="0"></holder>
             <this x="0" y="0" offsetX="0" offsetY="0"></this>
@@ -41,8 +43,9 @@
 		<body>monkey_aura</body>
 		<damage>200</damage>
         <delay>0.1</delay>
-        <life_time>2</life_time>
-		<cool_down>3</cool_down>
+        <life_time>10</life_time>
+		<cool_down>11</cool_down>
+        <critical_chance>0.01</critical_chance>
         <joints>
             <holder x="0" y="0" offsetX="0" offsetY="0"></holder>
             <this x="0" y="0" offsetX="0" offsetY="0"></this>
@@ -53,6 +56,29 @@
             <active>skill_2_normal.png</active>
             <deactive>skill_2_deactive.png</deactive>
             <selected>skill_2_selected.png</selected>
+        </texture>
+	</skill>
+    
+    <skill id="monkey_shooting" type="1">
+		<body>arrow</body>
+		<damage>50</damage>
+        <delay>0.1</delay>
+        <life_time>10</life_time>
+		<cool_down>11</cool_down>
+        <critical_chance>0.01</critical_chance>
+        <joints>
+            <holder x="0" y="0" offsetX="0" offsetY="0"></holder>
+            <this x="0" y="0" offsetX="0" offsetY="0"></this>
+        </joints>
+        <animation>skill-arrow</animation>
+        <speed>10</speed>
+        <gravity_scale>1</gravity_scale>
+        <collide_terrain>1</collide_terrain>
+        
+        <texture>
+            <active>normal_meelee_normal.png</active>
+            <deactive>normal_meelee_deactive.png</deactive>
+            <selected>normal_meelee_selected.png</selected>
         </texture>
 	</skill>
 </skill_list>

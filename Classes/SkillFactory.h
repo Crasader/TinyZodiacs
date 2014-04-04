@@ -18,7 +18,6 @@
 #include "GameObject.h"
 #include "SkillDTO.h"
 #include "Constants.h"
-#include "SkillType0Parser.h"
 #include "NormalAttack.h"
 
 #define ATTRIBUTE_ID "id"
@@ -41,7 +40,7 @@ protected:
     static AbstractSkill* loadXMLFile(const char* id,const char* xmlFileName, b2World* world, GameObject* holder, bool isLocal, int buttonIndex);
     static const XMLElement* loadElementById(const char* id, const XMLElement* root);
     
-    static int readSkillType(const XMLElement* root);
+    static string readSkillType(const XMLElement* root);
     static std::string readTextureId(const XMLElement* root, string tagName);
     
     static void setButton();

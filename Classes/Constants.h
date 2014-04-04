@@ -11,7 +11,9 @@
 
 #include "Cocos2d.h"
 
-#define SKILL_TYPE_0 0
+#define SKILL_TYPE_0 "0"
+#define SKILL_TYPE_1 "1"
+
 
 #define SKILL_0_BUTTON 0
 #define SKILL_1_BUTTON 1

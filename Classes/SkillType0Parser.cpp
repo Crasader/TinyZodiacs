@@ -103,6 +103,17 @@ float SkillType0Parser::readDelay(const XMLElement* root)
     return 0;
 }
 
+float SkillType0Parser::readCriticalChance(const XMLElement* root)
+{
+    if(root != NULL)
+    {
+        string typeValue = root->GetText();
+        float value = atof(typeValue.c_str());
+        return value;
+    }
+    return 0;
+}
+
 AnimationObject* SkillType0Parser::readAnimation(const XMLElement* root)
 {
     if(root != NULL)
@@ -129,6 +140,7 @@ NormalMeleeSkillData SkillType0Parser::parse(const XMLElement* root, b2World* wo
     data.setSkillSensor(readBody(root->FirstChildElement(TAG_BODY), world));
     data.setJointDefA(readJoinDef(root->FirstChildElement(TAG_JOINTS)->FirstChildElement(TAG_HOLDER)));
     data.setJointDefB(readJoinDef(root->FirstChildElement(TAG_JOINTS)->FirstChildElement(TAG_THIS)));
+    data.setCritical(readCriticalChance(root->FirstChildElement(TAG_CRITICAL_CHANCE)));
 
     if(root->FirstChildElement(TAG_ANIMATION) != NULL)
     {

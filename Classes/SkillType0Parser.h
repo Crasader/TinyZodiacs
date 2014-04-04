@@ -37,6 +37,7 @@
 #define TAG_DELAY "delay"
 #define TAG_LIFE_TIME "life_time"
 #define TAG_ANIMATION "animation"
+#define TAG_CRITICAL_CHANCE "critical_chance"
 
 
 using namespace tinyxml2;
@@ -53,6 +54,7 @@ protected:
     static b2Body* readBody(const XMLElement* root, b2World* world);
     static float readDelay(const XMLElement* root);
     static float readLifeTime(const XMLElement* root);
+    static float readCriticalChance(const XMLElement* root);
     static AnimationObject* readAnimation(const XMLElement* root);
 
 public:

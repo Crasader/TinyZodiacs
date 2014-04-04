@@ -133,7 +133,7 @@ void Character::attack()
 
 void Character::useSkill1()
 {
-    if(this->skill1->getIsExcutable())
+    if(this->normalAttack->getIsExcutable())
     {
         this->state->attack();
     }
@@ -141,7 +141,7 @@ void Character::useSkill1()
 
 void Character::useSkill2()
 {
-    if(this->skill2->getIsExcutable())
+    if(this->normalAttack->getIsExcutable())
     {
         this->state->attack();
     }

@@ -99,11 +99,11 @@ void NormalAttack::excute()
         destroyJoint();
         createJoint();
         ScheduleManager::getInstance()->scheduleForSkill(this, this->data.getCoolDown(), FUCTION_SET_EXCUTABLE);
-        ScheduleManager::getInstance()->scheduleForSkill(this, this->data.getDelay(), FUCTION_EXCUTE);
         this->isExcutable = false;
         
         if(this-> holderButton != NULL && this->data.getCoolDown() != 0)
         {
+            ScheduleManager::getInstance()->scheduleForSkill(this, this->data.getDelay(), FUCTION_EXCUTE);
             this->holderButton->changeState(DISABLE);
         }
     }
@@ -289,7 +289,7 @@ void NormalAttack::setGroup(int group)
 void NormalAttack::setExcuteAble()
 {
     this->isExcutable = true;
-    if(this->holderButton != NULL)
+    if(this->holderButton != NULL && this->holderButton->getState() == DISABLE)
     {
         this->holderButton->changeState(ENABLE);
     }
