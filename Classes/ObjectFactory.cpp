@@ -14,6 +14,7 @@
 #include "CharacterData.h"
 #include "NormalShootingAttack.h"
 #include "CharacterFactory.h"
+#include "MoveableMapObject.h"
 
 USING_NS_CC;
 enum _entityCategory {
@@ -153,7 +154,15 @@ MapObject* ObjectFactory::createMapObject(MapObjectDTO* mapObjectDTO, b2World *w
         body->SetUserData((void *) MAP_BASE);
         sprite->setAnchorPoint(sc->anchorPointForShape(mapObjectDTO->bodyName.c_str()));
 
+        //set data id
+        PhysicData* data = new PhysicData();
+        data->Id = MAP_BASE;
+        data->Data = NULL;
+        body->SetUserData(data);
+
         mapObject = MapObject::create();
+        
+        
         mapObject->setSkin(body, sprite);
 
     }
@@ -165,16 +174,9 @@ MapObject* ObjectFactory::createMapObject(MapObjectDTO* mapObjectDTO, b2World *w
     }
     
     
-<<<<<<< HEAD
-=======
-    //set data id
-    PhysicData* data = new PhysicData();
-    data->Id = MAP_BASE;
-    data->Data = NULL;
-    body->SetUserData(data);
->>>>>>> FETCH_HEAD
+
     
-      mapObject->setPositionInPixel(ccp(mapObjectDTO->x,mapObjectDTO->y));
+    mapObject->setPositionInPixel(ccp(mapObjectDTO->x,mapObjectDTO->y));
     
     return mapObject;
     

@@ -29,16 +29,7 @@ bool GameManager::loadResource()
     
 //    CCSpriteFrameCache::sharedSpriteFrameCache()->addSpriteFramesWithFile("map_spritesheet.plist", "map_spritesheet.png");
     CCSpriteFrameCache::sharedSpriteFrameCache()->addSpriteFramesWithFile("monkey_spritesheet.plist", "monkey_spritesheet.png");
-//    CCSpriteFrameCache::sharedSpriteFrameCache()->addSpriteFramesWithFile("map2_spritesheet.plist", "map2_spritesheet.png");
-//    CCSpriteFrameCache::sharedSpriteFrameCache()->addSpriteFramesWithFile("background1_spritesheet.plist", "background1_spritesheet.png");
-//    CCSpriteFrameCache::sharedSpriteFrameCache()->addSpriteFramesWithFile("background2_spritesheet.plist", "background2_spritesheet.png");
-    CCSpriteFrameCache::sharedSpriteFrameCache()->addSpriteFramesWithFile("map2_background_spritesheet.plist", "map2_background_spritesheet.png");
-    CCSpriteFrameCache::sharedSpriteFrameCache()->addSpriteFramesWithFile("map2_background2_spritesheet.plist", "map2_background2_spritesheet.png");
-    CCSpriteFrameCache::sharedSpriteFrameCache()->addSpriteFramesWithFile("map2_background3_spritesheet.plist", "map2_background3_spritesheet.png");
     
-//    CCSpriteFrameCache::sharedSpriteFrameCache()->addSpriteFramesWithFile("background2_spritesheet.plist", "background2_spritesheet.png");
-//
-//    CCSpriteFrameCache::sharedSpriteFrameCache()->addSpriteFramesWithFile("background2_spritesheet.plist", "background2_spritesheet.png");
 
     
     

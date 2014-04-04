@@ -15,11 +15,15 @@
 #include "GameBackgroundLayer.h"
 #include "LayerIndexConstants.h"
 #include "CharacterFactory.h"
+#include "GameObjectInfoView.h"
+#include "InfoViewCreator.h"
 
 GameWorld::GameWorld()
 {
     this->width = 0;
     this->height = 0;
+    this->listInfoView = CCArray::create();
+    this->listInfoView->retain();
 }
 
 GameWorld::~GameWorld()
@@ -69,7 +73,17 @@ bool GameWorld::init()
     //
     manager = PhysicBodyManager::getInstance();
     manager->setWorld(this->world);
-    //
+    
+    this->listInfoView->addObject(InfoViewCreator::createHeroInfoView(this->character, NULL));
+    
+    CCObject* object = NULL;
+    CCARRAY_FOREACH(this->listInfoView, object)
+    {
+        GameObjectInfoView* gameObjectInfoView = dynamic_cast<GameObjectInfoView*>(object);
+        this->addChild(gameObjectInfoView,100);
+    }
+
+    
     
     return true;
 }
@@ -151,6 +165,13 @@ void GameWorld::update(float dt)
     this->map->update(dt);
     this->character->update(dt);
     
+    // update infoview
+    CCObject* object = NULL;
+    CCARRAY_FOREACH(this->listInfoView, object)
+    {
+        GameObjectInfoView* gameObjectInfoView = dynamic_cast<GameObjectInfoView*>(object);
+        gameObjectInfoView->update(dt);
+    }
 }
 
 void GameWorld::setFollowCharacter(bool follow)
@@ -169,10 +190,10 @@ void GameWorld::setFollowCharacter(bool follow)
 
 void GameWorld::draw()
 {
-//    ccGLEnableVertexAttribs( kCCVertexAttribFlag_Position );
-//    kmGLPushMatrix();
-//    world->DrawDebugData();
-//    kmGLPopMatrix();
+    ccGLEnableVertexAttribs( kCCVertexAttribFlag_Position );
+    kmGLPushMatrix();
+    world->DrawDebugData();
+    kmGLPopMatrix();
 }
 
 void GameWorld::BeginContact(b2Contact *contact)

@@ -17,6 +17,7 @@
 #include "CharacterData.h"
 #include "NormalAttack.h"
 #include "PhysicData.h"
+#include "HealthBar.h"
 
 class CharacterState;
 
@@ -24,6 +25,7 @@ class Character: public GameObject
 {
 private:
     CharacterState* state;
+    HealthBar* bar;
 
     void setupJointSkillAndBody();
     void createFootSensor();

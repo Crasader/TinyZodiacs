@@ -14,7 +14,6 @@
 #include "CharacterIdleState.h"
 
 
-
 USING_NS_CC;
 
 Character::Character()
@@ -62,6 +61,10 @@ void Character::setSkin(b2Body *body, CCSprite *sprite)
     b2FixtureDef fixtureDef;
     createFootSensor();
     this->changeState(new CharacterIdleState(this));
+    
+
+    
+    
 }
 
 void Character::setOriginCharacterData(CharacterData data)

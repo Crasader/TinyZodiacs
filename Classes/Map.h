@@ -14,6 +14,7 @@
 #include "MapObject.h"
 #include "Box2D/Box2D.h"
 #include "Character.h"
+#include "HealthBar.h"
 
 
 class Map: public cocos2d::CCNode
@@ -21,6 +22,7 @@ class Map: public cocos2d::CCNode
 private:
 
     cocos2d::CCArray* listMapObject;
+    HealthBar* bar;
     
 protected:
 public:

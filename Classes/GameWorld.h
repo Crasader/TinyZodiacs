@@ -17,12 +17,16 @@
 #include "Map.h"
 #include "NormalAttack.h"
 #include "PhysicBodyManager.h"
+#include "HealthBar.h"
 
 USING_NS_CC;
 class GameWorld: public CCNode, public b2ContactListener
 {
 private:
     PhysicBodyManager* manager;
+    
+    CCArray* listInfoView;
+    
 protected:
     bool init();
     void createWorldBox();
