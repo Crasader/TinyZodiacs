@@ -98,6 +98,7 @@ void NormalAttack::excute()
     {
         destroyJoint();
         createJoint();
+        
         ScheduleManager::getInstance()->scheduleForSkill(this, this->data.getCoolDown(), FUCTION_SET_EXCUTABLE);
         this->isExcutable = false;
         
@@ -128,10 +129,8 @@ void NormalAttack::excuteImmediately()
     if(this->data.getSkillAnimation() != NULL)
     {
         this->holder->getSprite()->getParent()->addChild(this->skillSprite, ABOVE_CHARACTER_LAYER);
-        
         CCAnimate* action = CCAnimate::create(this->data.getSkillAnimation()->getAnimation());
         this->skillSprite->runAction(action);
-        
         this->skillSprite->setPosition(ccp(0,0));
     }
 }

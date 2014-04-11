@@ -11,6 +11,10 @@
 #include "NormalShootingSkillData.h"
 #include "SkillType0Parser.h"
 #include "SkillType1Parser.h"
+#include "NormalAttack.h"
+#include "SkillDTO.h"
+#include "NormalShootingAttack.h"
+
 
 
 
@@ -58,7 +62,7 @@ AbstractSkill* SkillFactory::loadXMLFile(const char* id, const char *xmlFileName
         }
         if(strcmp(type.c_str(), SKILL_TYPE_1) == 0)
         {
-            NormalShootingSkillData data = SkillType1Parser::parse(result, world);
+            normalAttack = new NormalShootingAttack(holder, SkillType1Parser::parse(result,world));
         }
         
         if(isLocal)

@@ -41,11 +41,6 @@ bool GameManager::loadResource()
     
     gbox2d::GB2ShapeCache *sc = gbox2d::GB2ShapeCache::sharedGB2ShapeCache();
     
-    sc->addShapesWithFile("body.plist");
-    
-    sc->addShapesWithFile("map_body.plist");
-    sc->addShapesWithFile("map2_body.plist");
-
     sc->addShapesWithFile("character_body.plist");
     sc->addShapesWithFile("skill_body.plist");
 

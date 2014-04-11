@@ -87,6 +87,15 @@ void Character::update(float dt)
     //
     this->state->update(dt);
     GameObject::update(dt);
+    //
+    if(this->body->GetLinearVelocity().x >=2)
+    {
+        flipDirection(RIGHT);
+    }
+    else if(this->body->GetLinearVelocity().x <=-2)
+    {
+        flipDirection(LEFT);
+    }
 }
 
 void Character::move(Direction direction)
@@ -309,5 +318,18 @@ void Character::setGroup(int group)
     }
 
     
-    GameObject::setGroup(group);
+    for (b2Fixture* f = this->body->GetFixtureList(); f; f = f->GetNext())
+    {
+        if(f != NULL)
+        {
+            Util::setFixtureGroup(f, group);
+            
+            if(f->GetNext() != NULL)
+            {
+                b2Filter filter = f->GetFilterData();
+                filter.maskBits = filter.maskBits ^ GROUP_SKILL_DEFAULT;
+                f->SetFilterData(filter);
+            }
+        }
+    }
 }

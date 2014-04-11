@@ -207,9 +207,11 @@ Hero* CharacterFactory::createHero(CharacterDTO heroDTOData, b2World* world, boo
     hero->setSkin(body, hero->getSprite());
     
     hero->setNormalAttack(SkillFactory::createSkill(heroDTOData.data.getSkill0().c_str(), world, hero, isLocal, SKILL_0_BUTTON));
-    hero->setSkill1(SkillFactory::createSkill(heroDTOData.data.getSkill1().c_str(), world, hero, isLocal, SKILL_1_BUTTON));
-    hero->setSkill2(SkillFactory::createSkill(heroDTOData.data.getSkill2().c_str(), world, hero, isLocal, SKILL_2_BUTTON));
-    
+//    hero->setSkill1(SkillFactory::createSkill(heroDTOData.data.getSkill1().c_str(), world, hero, isLocal, SKILL_1_BUTTON));
+//    hero->setSkill2(SkillFactory::createSkill(heroDTOData.data.getSkill2().c_str(), world, hero, isLocal, SKILL_2_BUTTON));
+    hero->setSkill1(SkillFactory::createSkill(heroDTOData.data.getSkill0().c_str(), world, hero, isLocal, SKILL_0_BUTTON));
+    hero->setSkill2(SkillFactory::createSkill(heroDTOData.data.getSkill0().c_str(), world, hero, isLocal, SKILL_0_BUTTON));
+
     //
     hero->retain();
     //

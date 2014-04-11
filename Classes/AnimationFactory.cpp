@@ -37,12 +37,9 @@ AnimationFactory* AnimationFactory::getSharedFactory()
 
 bool AnimationFactory::loadXMLAnimation()
 {
-//    loadXMLAnimationByNameFile("etna_animation.xml");
-//    loadXMLAnimationByNameFile("miku_animation.xml");
-        loadXMLAnimationByNameFile("monkey_animation.xml");
-        loadXMLAnimationByNameFile("skill_animation.xml");
-
-
+    loadXMLAnimationByNameFile("monkey_animation.xml");
+    loadXMLAnimationByNameFile("skill_animation.xml");
+    
     return true;
 }
 
@@ -55,7 +52,7 @@ bool AnimationFactory::loadXMLAnimationByNameFile(const char *xmlFileName)
     unsigned char* pFileData = NULL;
     pFileData = (unsigned char*) CCFileUtils::sharedFileUtils()->getFileData(fullPath.c_str(), "r", &dataSize);
     CCLOG("Empty file: %s", fullPath.c_str());
-
+    
     if (!pFileData)
     {
         CCLOG("Empty file: %s", fullPath.c_str());
@@ -89,7 +86,7 @@ bool AnimationFactory::loadXMLAnimationByNameFile(const char *xmlFileName)
     {
         CCString* animationName = CCString::create(element->Attribute("name"));
         if (animationName) {
-         
+            
             AnimationObject* animation = XMLAnimationParser::getAnimationObjectFromXMLNode(element);
             std::string keyName = std::string(characterName) + std::string("-") + std::string(animationName->getCString());
             this->animationDictionary->setObject(animation, keyName);

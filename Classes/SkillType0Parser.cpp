@@ -25,7 +25,7 @@ float SkillType0Parser::readCoolDown(const XMLElement* root)
     if(root != NULL)
     {
         string coolDownValue = root->GetText();
-        float value = atoi(coolDownValue.c_str());
+        float value = atof(coolDownValue.c_str());
         return value;
     }
     return 0;
@@ -36,7 +36,7 @@ float SkillType0Parser::readLifeTime(const XMLElement* root)
     if(root != NULL)
     {
         string coolDownValue = root->GetText();
-        float value = atoi(coolDownValue.c_str());
+        float value = atof(coolDownValue.c_str());
         return value;
     }
     return -1;

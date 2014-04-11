@@ -10,7 +10,6 @@
 #define __TinyZodiacs__NormalProjectile__
 
 #include <iostream>
-#include <iostream>
 #include "Box2D/Box2D.h"
 #include "cocos2d.h"
 #include "PhysicConstants.h"
@@ -18,6 +17,7 @@
 #include "SkillData.h"
 #include "PhysicBodyManager.h"
 #include "ScheduleManager.h"
+#include "NormalShootingSkillData.h"
 
 USING_NS_CC;
 class NormalProjectile: public GameObject
@@ -33,16 +33,18 @@ protected:
     
     bool scheduled;
 public:
-    NormalProjectile();
+    NormalProjectile(NormalShootingSkillData data, GameObject* holder);
     ~NormalProjectile();
     
-    CC_SYNTHESIZE(SkillData*, data, Data);
-    CREATE_FUNC(NormalProjectile);
+    CC_SYNTHESIZE(NormalShootingSkillData, data, Data);
+    CC_SYNTHESIZE_READONLY(b2Body*, body, Body);
     
-    virtual bool init();
     virtual void BeginContact(b2Contact *contact);
     virtual void EndContact(b2Contact *contact);
+    virtual void update(float dt);
     
+    virtual void setGroup(int group);
+
     virtual void excuteScheduledFunction(CCObject* pSender, void *body);
 };
 #endif /* defined(__TinyZodiacs__NormalProjectile__) */

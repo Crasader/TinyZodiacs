@@ -81,7 +81,7 @@ bool GameWorld::init()
 
     this->character->setGroup(GROUP_HERO_A);
     this->c1->setGroup(GROUP_HERO_B);
-    this->c2->setGroup(GROUP_HERO_B);
+    this->c2->setGroup(GROUP_NEUTRUAL);
 
     //
     createWorldBox();
@@ -196,7 +196,7 @@ void GameWorld::update(float dt)
     if(this->world != NULL)
     {
         manager->update(dt);
-        world->Step(1/40.000f,8, 3);
+        world->Step(1/40.000f,8, 1);
     }
     
     this->map->update(dt);
