@@ -23,3 +23,5 @@ proj.android/.project
 *.xml
 
 proj.android/jni/Android.mk
+
+Resources/body.plist
