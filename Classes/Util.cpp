@@ -41,6 +41,27 @@ b2AABB Util::getBodyBoundingBox(b2Body* body)
     return b2AABB();
 }
 
+b2AABB Util::getBodyBoundingBoxDynamic(b2Body* body)
+{
+    if(body != NULL)
+    {
+        //Calculate b
+        b2AABB aabb;
+        aabb.lowerBound = b2Vec2(FLT_MAX,FLT_MAX);
+        aabb.upperBound = b2Vec2(-FLT_MAX,-FLT_MAX);
+        b2Fixture* fixture = body->GetFixtureList();
+        while (fixture != NULL)
+        {
+            aabb.Combine(aabb, fixture->GetAABB(0));
+            fixture = fixture->GetNext();
+        }
+        return aabb;
+    }
+    
+    
+    return b2AABB();
+}
+
 b2Vec2 Util::getb2VecAnchor(b2Body* body, JointDef jointDef)
 {
     if(body == NULL)

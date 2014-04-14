@@ -23,15 +23,15 @@ USING_NS_CC;
 class NormalProjectile: public GameObject
 {
 private:
+    b2Vec2 getGlobalBodyStartPosition(b2Body* body, JointDef jointDef);
 protected:
     int contact_count;
+    bool scheduled;
     
     virtual void checkCollisionDataInBeginContact(PhysicData* data);
     virtual void checkCollisionDataInEndContact(PhysicData* data);
-    
     virtual void remove();
-    
-    bool scheduled;
+    virtual b2Vec2 getStartPosition(GameObject* holder, b2Body* me);
 public:
     NormalProjectile(NormalShootingSkillData data, GameObject* holder);
     ~NormalProjectile();

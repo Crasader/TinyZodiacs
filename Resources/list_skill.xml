@@ -11,7 +11,6 @@
             <holder x="2" y="0" offsetX="0" offsetY="0"></holder>
             <this x="2" y="0" offsetX="0" offsetY="0"></this>
         </joints>
-        
         <texture>
             <active>normal_meelee_normal.png</active>
             <deactive>normal_meelee_deactive.png</deactive>
@@ -31,7 +30,8 @@
             <this x="0" y="0" offsetX="0" offsetY="0"></this>
         </joints>
         <animation>skill-aura</animation>
-        
+        <animation_layer>2</animation_layer>
+
         <texture>
             <active>skill_1_normal.png</active>
             <deactive>skill_1_deactive.png</deactive>
@@ -51,7 +51,7 @@
             <this x="0" y="0" offsetX="0" offsetY="0"></this>
         </joints>
         <animation>skill-aura</animation>
-        
+        <animation_layer>4</animation_layer>
         <texture>
             <active>skill_2_normal.png</active>
             <deactive>skill_2_deactive.png</deactive>
@@ -60,7 +60,7 @@
 	</skill>
     
     <skill id="monkey_shooting" type="1">
-		<body>monkey_aura</body>
+		<body>pig</body>
 		<damage>50</damage>
         <delay>0.1</delay>
         <life_time>10</life_time>
@@ -71,14 +71,15 @@
             <this x="2" y="0" offsetX="0" offsetY="0"></this>
         </joints>
         <animation>skill-aura</animation>
-        <speed>75</speed>
-        <gravity_scale>0</gravity_scale>
-        <collide_terrain>0</collide_terrain>
-        
+        <animation_layer>4</animation_layer>
         <texture>
             <active>normal_meelee_normal.png</active>
             <deactive>normal_meelee_deactive.png</deactive>
             <selected>normal_meelee_selected.png</selected>
         </texture>
+
+        <speed>105</speed>
+        <gravity_scale>0</gravity_scale>
+        <collide_terrain>1</collide_terrain>
 	</skill>
 </skill_list>

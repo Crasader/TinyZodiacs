@@ -38,6 +38,7 @@
 #define TAG_LIFE_TIME "life_time"
 #define TAG_ANIMATION "animation"
 #define TAG_CRITICAL_CHANCE "critical_chance"
+#define TAG_ANIMATION_LAYER "animation_layer"
 
 
 using namespace tinyxml2;
@@ -56,7 +57,7 @@ protected:
     static float readLifeTime(const XMLElement* root);
     static float readCriticalChance(const XMLElement* root);
     static AnimationObject* readAnimation(const XMLElement* root);
-
+    static int readAnimationLayerIndex(const XMLElement* root);
 public:
     static NormalMeleeSkillData parse(const XMLElement* root, b2World* world);
 };

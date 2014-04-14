@@ -128,7 +128,7 @@ void NormalAttack::excuteImmediately()
     this->data.getSkillSensor()->SetActive(true);
     if(this->data.getSkillAnimation() != NULL)
     {
-        this->holder->getSprite()->getParent()->addChild(this->skillSprite, ABOVE_CHARACTER_LAYER);
+        this->holder->getSprite()->getParent()->addChild(this->skillSprite, this->data.getAnimationLayerIndex());
         CCAnimate* action = CCAnimate::create(this->data.getSkillAnimation()->getAnimation());
         this->skillSprite->runAction(action);
         this->skillSprite->setPosition(ccp(0,0));

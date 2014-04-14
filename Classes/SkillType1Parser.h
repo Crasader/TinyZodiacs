@@ -24,7 +24,6 @@ class SkillType1Parser: public SkillType0Parser
 private:
 protected:
     static string readProjectileBodyId(const XMLElement* root);
-//    static CCAnimation* readProjectileAnimation(const XMLElement* root);
     static float readProjectileSpeed(const XMLElement* root);
     static float readProjectileGravityScale(const XMLElement* root);
     static bool readTerrainCollide(const XMLElement* root);

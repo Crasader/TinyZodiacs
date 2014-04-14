@@ -76,6 +76,7 @@ NormalShootingSkillData SkillType1Parser::parse(const XMLElement* root, b2World*
     data.setSpeed(readProjectileSpeed(root->FirstChildElement(TAG_SPEED)));
     data.setTerrainCollide(readTerrainCollide(root->FirstChildElement(TAG_COLLIDE_TERRAIN)));
     data.setGravityScale(readProjectileGravityScale(root->FirstChildElement(TAG_GRAVITY_SCALE)));
+    data.setAnimationLayerIndex(readAnimationLayerIndex(root->FirstChildElement(TAG_ANIMATION_LAYER)));
 
     return data;
 }

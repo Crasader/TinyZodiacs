@@ -21,5 +21,6 @@ class NormalShootingSkillData: public SkillData
     CC_SYNTHESIZE(bool, terrainCollide, TerrainCollide);
     CC_SYNTHESIZE(float, gravityScale, GravityScale);
     CC_SYNTHESIZE(float, speed, Speed);
+    CC_SYNTHESIZE(int, animationLayerIndex, AnimationLayerIndex);
 };
 #endif /* defined(__TinyZodiacs__NormalShootingSkillData__) */
