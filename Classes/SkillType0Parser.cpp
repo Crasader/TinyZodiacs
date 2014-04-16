@@ -8,6 +8,7 @@
 
 #include "SkillType0Parser.h"
 #include "AnimationFactory.h"
+#include "LayerIndexConstants.h"
 
 int SkillType0Parser::readDamage(const XMLElement* root)
 {
@@ -25,7 +26,7 @@ float SkillType0Parser::readCoolDown(const XMLElement* root)
     if(root != NULL)
     {
         string coolDownValue = root->GetText();
-        float value = atoi(coolDownValue.c_str());
+        float value = atof(coolDownValue.c_str());
         return value;
     }
     return 0;
@@ -36,7 +37,7 @@ float SkillType0Parser::readLifeTime(const XMLElement* root)
     if(root != NULL)
     {
         string coolDownValue = root->GetText();
-        float value = atoi(coolDownValue.c_str());
+        float value = atof(coolDownValue.c_str());
         return value;
     }
     return -1;
@@ -130,6 +131,18 @@ AnimationObject* SkillType0Parser::readAnimation(const XMLElement* root)
 
 }
 
+int SkillType0Parser::readAnimationLayerIndex(const XMLElement* root)
+{
+    if(root != NULL)
+    {
+        string layerValue = root->GetText();
+        int value = atoi(layerValue.c_str());
+        return value;
+    }
+    return ABOVE_CHARACTER_LAYER;
+}
+
+
 NormalMeleeSkillData SkillType0Parser::parse(const XMLElement* root, b2World* world)
 {
     NormalMeleeSkillData data;
@@ -141,6 +154,7 @@ NormalMeleeSkillData SkillType0Parser::parse(const XMLElement* root, b2World* wo
     data.setJointDefA(readJoinDef(root->FirstChildElement(TAG_JOINTS)->FirstChildElement(TAG_HOLDER)));
     data.setJointDefB(readJoinDef(root->FirstChildElement(TAG_JOINTS)->FirstChildElement(TAG_THIS)));
     data.setCritical(readCriticalChance(root->FirstChildElement(TAG_CRITICAL_CHANCE)));
+    data.setAnimationLayerIndex(readAnimationLayerIndex(root->FirstChildElement(TAG_ANIMATION_LAYER)));
 
     if(root->FirstChildElement(TAG_ANIMATION) != NULL)
     {

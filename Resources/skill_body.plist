@@ -91,7 +91,7 @@
 			<array>
 				<dict>
 					<key>density</key>
-					<real>2</real>
+					<real>9.999999999999999e-12</real>
 					<key>friction</key>
 					<real>0</real>
 					<key>restitution</key>
@@ -103,7 +103,7 @@
 					<key>filter_maskBits</key>
 					<integer>65535</integer>
 					<key>isSensor</key>
-					<false/>
+					<true/>
 					<key>id</key>
 					<string></string>
 					<key>fixture_type</key>
@@ -120,10 +120,10 @@
 				</dict>
 			</array>
 		</dict>
-		<key>big</key>
+		<key>pig</key>
 		<dict>
 			<key>anchorpoint</key>
-			<string>{ 0.0000,0.0000 }</string>
+			<string>{ 0.5000,0.5000 }</string>
 			<key>fixtures</key>
 			<array>
 				<dict>
@@ -148,14 +148,14 @@
 					<key>polygons</key>
 					<array>
 						<array>
-							<string>{ 41.000,97.000 }</string>
-							<string>{ 19.000,52.000 }</string>
-							<string>{ 19.000,15.000 }</string>
-							<string>{ 38.000,6.000 }</string>
-							<string>{ 150.000,6.000 }</string>
-							<string>{ 165.000,27.000 }</string>
-							<string>{ 151.000,83.000 }</string>
-							<string>{ 114.000,97.000 }</string>
+							<string>{ -42.000,41.500 }</string>
+							<string>{ -64.000,-3.500 }</string>
+							<string>{ -64.000,-40.500 }</string>
+							<string>{ -45.000,-49.500 }</string>
+							<string>{ 67.000,-49.500 }</string>
+							<string>{ 82.000,-28.500 }</string>
+							<string>{ 68.000,27.500 }</string>
+							<string>{ 31.000,41.500 }</string>
 						</array>
 					</array>
 				</dict>

@@ -84,6 +84,7 @@ bool GameWorld::init()
     this->c2->setPositionInPixel(ccp(800,1200));
     
     this->character->setGroup(GROUP_HERO_A);
+
     this->c1->setGroup(GROUP_TERRAIN);
     this->c2->setGroup(GROUP_TERRAIN);
     
@@ -107,6 +108,7 @@ bool GameWorld::init()
     
     this->addChild(batchnode,100);
     
+
     //
     createWorldBox();
     //

@@ -52,7 +52,8 @@ public:
     virtual void PostSolve(b2Contact* contact, const b2ContactImpulse* impulse);
   
     virtual void excuteScheduledFunction(CCObject* pSender, void *body);
-    virtual void setGroup(int group);
+    virtual void setGroup(uint16 group);
+    virtual uint16 getGroup();
 };
 
 #endif /* defined(__SampleCocosProject__GameObject__) */

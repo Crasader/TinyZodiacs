@@ -12,20 +12,25 @@
 #include <iostream>
 #include "AbstractSkill.h"
 #include "NormalProjectile.h"
+#include "NormalShootingSkillData.h"
 
 
 USING_NS_CC;
 class NormalShootingAttack: public AbstractSkill
 {
 private:
+    CCArray* projectTileList;
 protected:
-    CCArray* listProjectiles;
-    
+    CC_SYNTHESIZE_READONLY(int, group, Group);
+    CC_SYNTHESIZE(NormalShootingSkillData, data, Data);
+
     virtual void checkCollisionDataInBeginContact(PhysicData* data, b2Contact *contact, bool isSideA);
     virtual void checkCollisionDataInEndContact(PhysicData* data, b2Contact *contact, bool isSideA);
+    
+    virtual void setExcuteAble();
 public:
     ~NormalShootingAttack();
-    NormalShootingAttack(GameObject* holder);
+    NormalShootingAttack(GameObject* holder, NormalShootingSkillData data);
     
     virtual void excute();
     virtual void stop();
@@ -33,5 +38,9 @@ public:
     virtual void BeginContact(b2Contact *contact);
     virtual void EndContact(b2Contact *contact);
 
+    virtual void excuteImmediately();
+    virtual void stopImmediately();
+    
+    virtual void setGroup(int group);
 };
 #endif /* defined(__TinyZodiacs__NormalShootingAttack__) */

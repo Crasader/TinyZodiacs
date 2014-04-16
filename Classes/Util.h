@@ -20,8 +20,10 @@ protected:
 public:
     static b2AABB getBodyBoundingBox(b2Body* body);
     static b2AABB getBodyBoundingBoxDynamic(b2Body* body);
+    
     static bool bodiesAreTouching( b2Body* body1, b2Body* body2 );
-      static bool bodiesArePassingThrough( b2Body* body1, b2Body* body2 );
+    static bool bodiesArePassingThrough( b2Body* body1, b2Body* body2 );
+    
     static b2Vec2 getb2VecAnchor(b2Body* body, JointDef jointDef);
     static void setFixtureGroup(b2Fixture* fixture, uint16 group);
 };

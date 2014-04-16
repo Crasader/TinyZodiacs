@@ -89,6 +89,15 @@ void Character::update(float dt)
     //
     this->state->update(dt);
     GameObject::update(dt);
+    //
+    if(this->body->GetLinearVelocity().x >=2)
+    {
+        flipDirection(RIGHT);
+    }
+    else if(this->body->GetLinearVelocity().x <=-2)
+    {
+        flipDirection(LEFT);
+    }
 }
 
 void Character::move(Direction direction)
@@ -161,12 +170,6 @@ void Character::createFootSensor()
     fixDef.shape = &rec;
     fixDef.isSensor = true;
     fixDef.density = WEIGHTLESS_DENSITY;
-    
-    //    PhysicData* sensorData = new PhysicData();
-    //    sensorData->Id = CHARACTER_FOOT_SENSOR;
-    //    sensorData->Data = this;
-    //    fixDef.userData = (void*)sensorData;
-    //
     
     b2BodyDef bodyDef;
     bodyDef.type=b2_dynamicBody;
@@ -260,6 +263,7 @@ void Character::checkCollisionDataInBeginContact(PhysicData* data, b2Contact *co
                 
                 if(physicData!=NULL)
                 {
+
                     switch (physicData->Id) {
                         case MAP_BASE:
                         {
@@ -277,6 +281,7 @@ void Character::checkCollisionDataInBeginContact(PhysicData* data, b2Contact *co
                             
                             break;
                     }
+
                 }
                 
             }
@@ -383,11 +388,8 @@ void Character::EndContact(b2Contact *contact)
     }
 }
 
-void Character::setGroup(int group)
+void Character::setGroup(uint16 group)
 {
-    //    b2Filter data = this->footSensor->GetFixtureList()[0].GetFilterData();
-    //    data.groupIndex = group;
-    //    this->footSensor->GetFixtureList()[0].SetFilterData(data);
     for (b2Fixture* f = this->footSensor->GetFixtureList(); f; f = f->GetNext())
     {
         if(f != NULL)
@@ -395,7 +397,6 @@ void Character::setGroup(int group)
             Util::setFixtureGroup(f, GROUP_SENSOR);
         }
     }
-    
     
     if(this->normalAttack != NULL)
     {
@@ -411,7 +412,21 @@ void Character::setGroup(int group)
     {
         this->skill2->setGroup(GROUP_SKILL_DEFAULT);
     }
-    
-    
-    GameObject::setGroup(group);
+
+
+    for (b2Fixture* f = this->body->GetFixtureList(); f; f = f->GetNext())
+    {
+        if(f != NULL)
+        {
+            Util::setFixtureGroup(f, group);
+            
+            if(f->GetNext() != NULL)
+            {
+                b2Filter filter = f->GetFilterData();
+                filter.maskBits = filter.maskBits ^ GROUP_SKILL_DEFAULT;
+                f->SetFilterData(filter);
+            }
+        }
+    }
 }
+

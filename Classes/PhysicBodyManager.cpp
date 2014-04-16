@@ -85,14 +85,14 @@ void PhysicBodyManager::update(float dt)
                 }
                 else
                 {
-//                    GameObject* data = listBody[i];
+                    GameObject* data = listBody[i];
                     this->world->DestroyBody(listBody[i]->getBody());
                     listBody[i]->setBody(NULL);
                     this->listBody.erase(this->listBody.begin()+i);
-//                    delete data;
+                    delete data;
                 }
             }
         }
-    this->listBody.clear();
+//    this->listBody.clear();
     }
 }

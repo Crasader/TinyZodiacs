@@ -11,8 +11,9 @@
 #include "NormalShootingSkillData.h"
 #include "SkillType0Parser.h"
 #include "SkillType1Parser.h"
-#include "string.h"
-
+#include "NormalAttack.h"
+#include "SkillDTO.h"
+#include "NormalShootingAttack.h"
 
 
 AbstractSkill* SkillFactory::loadXMLFile(const char* id, const char *xmlFileName, b2World* world, GameObject* holder, bool isLocal, int buttonIndex)
@@ -60,7 +61,7 @@ AbstractSkill* SkillFactory::loadXMLFile(const char* id, const char *xmlFileName
         }
         if(strcmp(type.c_str(), SKILL_TYPE_1) == 0)
         {
-            NormalShootingSkillData data = SkillType1Parser::parse(result, world);
+            normalAttack = new NormalShootingAttack(holder, SkillType1Parser::parse(result,world));
         }
         
         if(isLocal)
@@ -157,7 +158,8 @@ std::string SkillFactory::readTextureId(const XMLElement* root, string tagName)
 
 AbstractSkill* SkillFactory::createSkill(const char* id, b2World* world, GameObject* holder, bool isLocal, int buttonIndex)
 {
-    return loadXMLFile(id, "list_skill.xml", world, holder, isLocal, buttonIndex);
+    AbstractSkill* skill = loadXMLFile(id, "list_skill.xml", world, holder, isLocal, buttonIndex);
+    return skill;
 }
 
 

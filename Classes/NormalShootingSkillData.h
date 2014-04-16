@@ -11,6 +11,7 @@
 
 #include <iostream>
 #include "SkillData.h"
+#include "AnimationObject.h"
 
 USING_NS_CC;
 class NormalShootingSkillData: public SkillData
@@ -22,9 +23,11 @@ public:
     ~NormalShootingSkillData();
     
     CC_SYNTHESIZE(std::string, projectileBodyId, ProjectileBodyId);
-    CC_SYNTHESIZE(std::string, animationId, AnimationId);
+    CC_SYNTHESIZE(AnimationObject*, animation, Animation);
     CC_SYNTHESIZE(bool, terrainCollide, TerrainCollide);
+    CC_SYNTHESIZE(bool, piercing, Piercing);
     CC_SYNTHESIZE(float, gravityScale, GravityScale);
     CC_SYNTHESIZE(float, speed, Speed);
+    CC_SYNTHESIZE(int, animationLayerIndex, AnimationLayerIndex);
 };
 #endif /* defined(__TinyZodiacs__NormalShootingSkillData__) */

@@ -41,6 +41,27 @@ b2AABB Util::getBodyBoundingBox(b2Body* body)
     return b2AABB();
 }
 
+b2AABB Util::getBodyBoundingBoxDynamic(b2Body* body)
+{
+    if(body != NULL)
+    {
+        //Calculate b
+        b2AABB aabb;
+        aabb.lowerBound = b2Vec2(FLT_MAX,FLT_MAX);
+        aabb.upperBound = b2Vec2(-FLT_MAX,-FLT_MAX);
+        b2Fixture* fixture = body->GetFixtureList();
+        while (fixture != NULL)
+        {
+            aabb.Combine(aabb, fixture->GetAABB(0));
+            fixture = fixture->GetNext();
+        }
+        return aabb;
+    }
+    
+    
+    return b2AABB();
+}
+
 b2Vec2 Util::getb2VecAnchor(b2Body* body, JointDef jointDef)
 {
     if(body == NULL)
@@ -100,7 +121,7 @@ void Util::setFixtureGroup(b2Fixture* fixture, uint16 group)
                 filter.maskBits = GROUP_A | GROUP_NEUTRUAL | GROUP_TERRAIN| GROUP_SKILL_DEFAULT;
                 break;
             case GROUP_NEUTRUAL:
-                filter.maskBits = GROUP_A | GROUP_HERO_A | GROUP_B | GROUP_HERO_B | GROUP_NEUTRUAL | GROUP_TERRAIN | GROUP_SKILL_DEFAULT;
+                filter.maskBits = GROUP_A | GROUP_B | GROUP_NEUTRUAL | GROUP_TERRAIN | GROUP_SKILL_DEFAULT;
                 break;
             case GROUP_TERRAIN:
                 filter.maskBits = 0xFFFFFF;

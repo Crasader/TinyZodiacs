@@ -211,39 +211,23 @@ b2AABB GameObject::getBodyBoundingBox()
     //    return Util::getBodyBoundingBox(this->getBody());
 }
 
-void GameObject::setGroup(int group)
+void GameObject::setGroup(uint16 group)
 {
     if(this->body != NULL)
     {
-        //        for (b2Fixture* f = this->body->GetFixtureList()
-        //             ; f; f = f->GetNext())
-        //        {
-        //            if(f != NULL)
-        //            {
-        //                Util::setFixtureGroup(f, group);
-        //            }
-        //        }
-        
+
         for (b2Fixture* f = this->body->GetFixtureList(); f; f = f->GetNext())
         {
             if(f != NULL)
             {
                 Util::setFixtureGroup(f, group);
-                
-                if(f->GetNext() != NULL)
-                {
-                    b2Filter filter = f->GetFilterData();
-                    filter.maskBits = filter.maskBits ^ GROUP_SKILL_DEFAULT;
-                    f->SetFilterData(filter);
-                }
-//                else
-//                {
-//                    b2Filter filter = f->GetFilterData();
-//                    filter.maskBits = filter.maskBits ^ GROUP_TERRAIN;
-//                    f->SetFilterData(filter);
-//                }
             }
         }
         
     }
+}
+
+uint16 GameObject::getGroup()
+{
+    return this->body->GetFixtureList()->GetFilterData().categoryBits;
 }

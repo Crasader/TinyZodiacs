@@ -17,35 +17,41 @@ ScheduleManager::~ScheduleManager()
 {
     
 }
-void ScheduleManager::scheduleForGameObject(GameObject* object, float duration)
+CCSequence* ScheduleManager::scheduleForGameObject(GameObject* object, float duration)
 {
     CCDelayTime *delayAction = CCDelayTime::create(duration);
     CCCallFuncND *callFuncSelector = CCCallFuncND::create(object, callfuncND_selector(GameObject::excuteScheduledFunction), object);
-    this->runAction(CCSequence::create(delayAction,callFuncSelector));
+    CCSequence* sequence = CCSequence::create(delayAction,callFuncSelector);
+    sequence->retain();
+    this->runAction(sequence);
+    return sequence;
 }
 void ScheduleManager::scheduleForSkill(AbstractSkill* object, float duration, int fuctionCall)
 {
-    CCDelayTime *delayAction = CCDelayTime::create(duration);
     CCCallFunc *callFuncSelector;
-    
     if(fuctionCall == FUCTION_EXCUTE)
     {
-         callFuncSelector = CCCallFunc::create(object, callfunc_selector(AbstractSkill::excuteImmediately));
+        callFuncSelector = CCCallFunc::create(object, callfunc_selector(AbstractSkill::excuteImmediately));
     }
     else if (fuctionCall == FUCTION_STOP)
     {
-         callFuncSelector = CCCallFunc::create(object, callfunc_selector(AbstractSkill::stopImmediately));
+        callFuncSelector = CCCallFunc::create(object, callfunc_selector(AbstractSkill::stopImmediately));
     }
     else if (fuctionCall == FUCTION_SET_EXCUTABLE)
     {
         callFuncSelector = CCCallFunc::create(object, callfunc_selector(AbstractSkill::setExcuteAble));
     }
     CCArray* array = CCArray::create();
-    array->addObject(delayAction);
+    if(duration>0)
+    {
+        CCDelayTime *delayAction = CCDelayTime::create(duration);
+        array->addObject(delayAction);
+    }
     array->addObject(callFuncSelector);
     CCSequence* sequence = CCSequence::create(array);
     this->runAction(sequence);
 }
+
 ScheduleManager* ScheduleManager::getInstance()
 {
     if(instance == NULL)
@@ -54,7 +60,14 @@ ScheduleManager* ScheduleManager::getInstance()
     }
     return instance;
 }
+
 void ScheduleManager::release()
 {
     delete  instance;
+}
+
+
+void ScheduleManager::stopScheduledObjectAction(CCSequence* target)
+{
+    this->stopAction(target);
 }

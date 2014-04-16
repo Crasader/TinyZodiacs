@@ -73,7 +73,7 @@ public:
     virtual void BeginContact(b2Contact *contact);
     virtual void EndContact(b2Contact *contact);
     
-    virtual void setGroup(int group);
+    virtual void setGroup(uint16 group);
 };
 
 #endif /* defined(__SampleCocosProject__Character__) */

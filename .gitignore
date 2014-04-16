@@ -24,8 +24,12 @@ proj.android/.project
 
 proj.android/jni/Android.mk
 
+<<<<<<< HEAD
 proj.android/AndroidManifest.xml
 
 proj.android/AndroidManifest.xml
 
 proj.ios/TinyZodiacs.xcodeproj/xcuserdata/hoaphat.xcuserdatad/xcdebugger/Breakpoints_v2.xcbkptlist
+=======
+Resources/body.plist
+>>>>>>> FETCH_HEAD

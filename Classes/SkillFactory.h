@@ -16,9 +16,7 @@
 #include "GB2ShapeCache-x.h"
 #include "PhysicConstants.h"
 #include "GameObject.h"
-#include "SkillDTO.h"
 #include "Constants.h"
-#include "NormalAttack.h"
 
 #define ATTRIBUTE_ID "id"
 #define ATTRIBUTE_TYPE "type"
