@@ -91,7 +91,7 @@
 			<array>
 				<dict>
 					<key>density</key>
-					<real>9.999999999999999e-12</real>
+					<integer>1</integer>
 					<key>friction</key>
 					<real>0</real>
 					<key>restitution</key>

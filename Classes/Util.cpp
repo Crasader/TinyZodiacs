@@ -145,27 +145,6 @@ void Util::setFixtureGroup(b2Fixture* fixture, uint16 group)
     }
 }
 
-b2AABB Util::getBodyBoundingBoxDynamic(b2Body* body)
-{
-    if(body != NULL)
-    {
-        //Calculate b
-        b2AABB aabb;
-        aabb.lowerBound = b2Vec2(FLT_MAX,FLT_MAX);
-        aabb.upperBound = b2Vec2(-FLT_MAX,-FLT_MAX);
-        b2Fixture* fixture = body->GetFixtureList();
-        while (fixture != NULL)
-        {
-            aabb.Combine(aabb, fixture->GetAABB(0));
-            fixture = fixture->GetNext();
-        }
-        return aabb;
-    }
-    
-    
-    return b2AABB();
-}
-
 bool Util::bodiesAreTouching( b2Body* body1, b2Body* body2 )
 {
     for (b2ContactEdge* edge = body1->GetContactList(); edge; edge = edge->next)

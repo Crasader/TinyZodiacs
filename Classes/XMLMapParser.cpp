@@ -38,6 +38,7 @@ MapObjectDTO* XMLMapParser::getMapObjectDTOFromXMLNode(XMLElement *mapObjectXMLE
     if(mapObjectXMLElement->FirstChildElement(TAG_CAN_PASS) != NULL)
     {
         mapObjectDTO->canPass = strcasecmp("true", mapObjectXMLElement->FirstChildElement(TAG_CAN_PASS)->GetText());
+        CCLOG("%s",mapObjectXMLElement->FirstChildElement(TAG_CAN_PASS)->GetText());
     }
     return mapObjectDTO;
 }

@@ -21,7 +21,12 @@ CCSequence* ScheduleManager::scheduleForGameObject(GameObject* object, float dur
 {
     CCDelayTime *delayAction = CCDelayTime::create(duration);
     CCCallFuncND *callFuncSelector = CCCallFuncND::create(object, callfuncND_selector(GameObject::excuteScheduledFunction), object);
-    CCSequence* sequence = CCSequence::create(delayAction,callFuncSelector);
+    CCArray* arr = CCArray::create();
+    arr->addObject(delayAction);
+    arr->addObject(callFuncSelector);
+    
+    
+    CCSequence* sequence = CCSequence::create(arr);
     sequence->retain();
     this->runAction(sequence);
     return sequence;

@@ -49,10 +49,10 @@ NormalProjectile::NormalProjectile(NormalShootingSkillData data, GameObject* hol
     //
     this->sprite = CCSprite::create();
     this->sprite->retain();
-    
+//    
     CCAnimate* action = CCAnimate::create(this->data.getAnimation()->getAnimation());
     this->sprite->runAction(action);
-    
+//
     holder->getSprite()->getParent()->addChild(this->sprite, this->data.getAnimationLayerIndex());
     //
     if(holder->getDirection() == LEFT)

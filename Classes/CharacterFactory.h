@@ -45,7 +45,7 @@ USING_NS_CC;
 
 #define CHARACTER_MONKEY_ID "monkey"
 
-#define CHARACTER_MONKEY_XML_FILE "character_cat.xml"
+#define CHARACTER_MONKEY_XML_FILE "character_monkey.xml"
 
 class CharacterFactory
 {
