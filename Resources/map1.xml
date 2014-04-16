@@ -1,6 +1,5 @@
 <map id="map1" width="8000" height="2000">
     <background_list>
-
         <background image_name="background1.jpg" spritesheet_name="map1_background_spritesheet_1.png" layer_index="0">
             <ratio x="0.2" y="0.2"/>
         </background>
@@ -12,8 +11,6 @@
         <background image_name="background3.png" spritesheet_name="map1_background_spritesheet_2.png" layer_index="0">
             <ratio x="0.6" y="0.4"/>
         </background>
-
-    
     </background_list>
     <foreground_list>
         <foreground image_name="map1_3.png" layer_index="0">
@@ -36,11 +33,11 @@
             <position x="1340" y="921"/>
             <ratio x="1.0f" y="1.0f"/>
         </foreground>
- 
     </foreground_list>
     <map_object_list>
         <map_object id="23" image_name="map1_2.png" body_name="map1_2" layer_index="1">
             <position x="979" y="276"/>
+            <can_pass>true</can_pass>
         </map_object>
         <map_object id="23" image_name="map1_1.png" body_name="map1_1" layer_index="2">
             <position x="0" y="380"/>
