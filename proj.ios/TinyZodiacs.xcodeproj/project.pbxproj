@@ -264,7 +264,11 @@
 		D4EF949E15BD2D9600D803EB /* Icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = D4EF949D15BD2D9600D803EB /* Icon-72.png */; };
 		D4EF94A015BD2D9800D803EB /* Icon-144.png in Resources */ = {isa = PBXBuildFile; fileRef = D4EF949F15BD2D9800D803EB /* Icon-144.png */; };
 		F50702C018E958220025B666 /* MoveableMapObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F50702BE18E958220025B666 /* MoveableMapObject.cpp */; };
-		F526786418EE9D6600CE1E3B /* skill_animation.xml in Resources */ = {isa = PBXBuildFile; fileRef = F526786318EE9D6600CE1E3B /* skill_animation.xml */; };
+		F50BF81B18F2426D00CD518D /* cat_spritesheet.png in Resources */ = {isa = PBXBuildFile; fileRef = F50BF81918F2426D00CD518D /* cat_spritesheet.png */; };
+		F50BF81C18F2426D00CD518D /* cat_spritesheet.plist in Resources */ = {isa = PBXBuildFile; fileRef = F50BF81A18F2426D00CD518D /* cat_spritesheet.plist */; };
+		F50BF81E18F2429A00CD518D /* cat_animation.xml in Resources */ = {isa = PBXBuildFile; fileRef = F50BF81D18F2429A00CD518D /* cat_animation.xml */; };
+		F50BF82018F246D300CD518D /* character_cat.xml in Resources */ = {isa = PBXBuildFile; fileRef = F50BF81F18F246D300CD518D /* character_cat.xml */; };
+		F50BF82418F2513800CD518D /* cat_body.plist in Resources */ = {isa = PBXBuildFile; fileRef = F50BF82318F2513800CD518D /* cat_body.plist */; };
 		F52678F318EEAEA500CE1E3B /* arial.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F52678E518EEAEA500CE1E3B /* arial.ttf */; };
 		F52678F418EEAEA500CE1E3B /* Marker Felt.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F52678E618EEAEA500CE1E3B /* Marker Felt.ttf */; };
 		F52678F518EEAEA500CE1E3B /* map1_background_spritesheet_1.png in Resources */ = {isa = PBXBuildFile; fileRef = F52678E718EEAEA500CE1E3B /* map1_background_spritesheet_1.png */; };
@@ -279,6 +283,7 @@
 		F52678FE18EEAEA500CE1E3B /* map1_spritesheet_2.plist in Resources */ = {isa = PBXBuildFile; fileRef = F52678F018EEAEA500CE1E3B /* map1_spritesheet_2.plist */; };
 		F52678FF18EEAEA500CE1E3B /* map1_spritesheet_3.plist in Resources */ = {isa = PBXBuildFile; fileRef = F52678F118EEAEA500CE1E3B /* map1_spritesheet_3.plist */; };
 		F526790018EEAEA500CE1E3B /* map1_spritesheet_4.plist in Resources */ = {isa = PBXBuildFile; fileRef = F52678F218EEAEA500CE1E3B /* map1_spritesheet_4.plist */; };
+		F526790218EEB72000CE1E3B /* skill_animation.xml in Resources */ = {isa = PBXBuildFile; fileRef = F526790118EEB72000CE1E3B /* skill_animation.xml */; };
 		F53ACBAF18D831C700F958A8 /* map2.xml in Resources */ = {isa = PBXBuildFile; fileRef = F53ACBAE18D831C700F958A8 /* map2.xml */; };
 		F544FB9918D93CC100A818DF /* map2_body.plist in Resources */ = {isa = PBXBuildFile; fileRef = F544FB9818D93CC100A818DF /* map2_body.plist */; };
 		F544FB9C18D950C500A818DF /* MapParallaxBackground.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F544FB9A18D950C500A818DF /* MapParallaxBackground.cpp */; };
@@ -325,6 +330,7 @@
 		F561F28D18D802A500DD4598 /* MapDTO.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F561F28918D802A500DD4598 /* MapDTO.cpp */; };
 		F561F28E18D802A500DD4598 /* MapObjectDTO.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F561F28B18D802A500DD4598 /* MapObjectDTO.cpp */; };
 		F561F29118D805BE00DD4598 /* map1.xml in Resources */ = {isa = PBXBuildFile; fileRef = F561F29018D805BE00DD4598 /* map1.xml */; };
+		F57665B618FD49C9001919D8 /* MonsterFactory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F57665B418FD49C9001919D8 /* MonsterFactory.cpp */; };
 		F5779C6818E5693C0044D5CD /* HealthBar.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F5779C6618E5693C0044D5CD /* HealthBar.cpp */; };
 		F5779C6D18E56CF10044D5CD /* healthbar_foreground_blue.png in Resources */ = {isa = PBXBuildFile; fileRef = F5779C6A18E56CF10044D5CD /* healthbar_foreground_blue.png */; };
 		F5779C6E18E56CF10044D5CD /* healthbar_foreground_red.png in Resources */ = {isa = PBXBuildFile; fileRef = F5779C6B18E56CF10044D5CD /* healthbar_foreground_red.png */; };
@@ -351,6 +357,7 @@
 		F5C89E1118D2FF9A006E909D /* 1.png in Resources */ = {isa = PBXBuildFile; fileRef = F5C89E0F18D2FF9A006E909D /* 1.png */; };
 		F5E2929518E6768F00B9B152 /* InfoViewCreator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F5E2929318E6768F00B9B152 /* InfoViewCreator.cpp */; };
 		F5E2929818E6779500B9B152 /* Player.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F5E2929618E6779500B9B152 /* Player.cpp */; };
+		F5EE379518FE1968001CC636 /* monster.xml in Resources */ = {isa = PBXBuildFile; fileRef = F5EE379418FE1968001CC636 /* monster.xml */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -884,7 +891,11 @@
 		D4F9F37B12E54555005CA6D2 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = SOURCE_ROOT; };
 		F50702BE18E958220025B666 /* MoveableMapObject.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MoveableMapObject.cpp; sourceTree = "<group>"; };
 		F50702BF18E958220025B666 /* MoveableMapObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoveableMapObject.h; sourceTree = "<group>"; };
-		F526786318EE9D6600CE1E3B /* skill_animation.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = skill_animation.xml; path = ../../../../../../Users/hoaphat/Downloads/skill_animation.xml; sourceTree = "<group>"; };
+		F50BF81918F2426D00CD518D /* cat_spritesheet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cat_spritesheet.png; sourceTree = "<group>"; };
+		F50BF81A18F2426D00CD518D /* cat_spritesheet.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = cat_spritesheet.plist; sourceTree = "<group>"; };
+		F50BF81D18F2429A00CD518D /* cat_animation.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = cat_animation.xml; sourceTree = "<group>"; };
+		F50BF81F18F246D300CD518D /* character_cat.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = character_cat.xml; sourceTree = "<group>"; };
+		F50BF82318F2513800CD518D /* cat_body.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = cat_body.plist; sourceTree = "<group>"; };
 		F52678E518EEAEA500CE1E3B /* arial.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = arial.ttf; sourceTree = "<group>"; };
 		F52678E618EEAEA500CE1E3B /* Marker Felt.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Marker Felt.ttf"; sourceTree = "<group>"; };
 		F52678E718EEAEA500CE1E3B /* map1_background_spritesheet_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = map1_background_spritesheet_1.png; sourceTree = "<group>"; };
@@ -899,6 +910,7 @@
 		F52678F018EEAEA500CE1E3B /* map1_spritesheet_2.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = map1_spritesheet_2.plist; sourceTree = "<group>"; };
 		F52678F118EEAEA500CE1E3B /* map1_spritesheet_3.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = map1_spritesheet_3.plist; sourceTree = "<group>"; };
 		F52678F218EEAEA500CE1E3B /* map1_spritesheet_4.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = map1_spritesheet_4.plist; sourceTree = "<group>"; };
+		F526790118EEB72000CE1E3B /* skill_animation.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = skill_animation.xml; sourceTree = "<group>"; };
 		F53ACBAE18D831C700F958A8 /* map2.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = map2.xml; sourceTree = "<group>"; };
 		F544FB9818D93CC100A818DF /* map2_body.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = map2_body.plist; sourceTree = "<group>"; };
 		F544FB9A18D950C500A818DF /* MapParallaxBackground.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MapParallaxBackground.cpp; sourceTree = "<group>"; };
@@ -990,6 +1002,8 @@
 		F561F28B18D802A500DD4598 /* MapObjectDTO.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MapObjectDTO.cpp; sourceTree = "<group>"; };
 		F561F28C18D802A500DD4598 /* MapObjectDTO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapObjectDTO.h; sourceTree = "<group>"; };
 		F561F29018D805BE00DD4598 /* map1.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = map1.xml; sourceTree = "<group>"; };
+		F57665B418FD49C9001919D8 /* MonsterFactory.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MonsterFactory.cpp; sourceTree = "<group>"; };
+		F57665B518FD49C9001919D8 /* MonsterFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MonsterFactory.h; sourceTree = "<group>"; };
 		F5779C6618E5693C0044D5CD /* HealthBar.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = HealthBar.cpp; sourceTree = "<group>"; };
 		F5779C6718E5693C0044D5CD /* HealthBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HealthBar.h; sourceTree = "<group>"; };
 		F5779C6A18E56CF10044D5CD /* healthbar_foreground_blue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = healthbar_foreground_blue.png; sourceTree = "<group>"; };
@@ -1026,6 +1040,7 @@
 		F5E2929418E6768F00B9B152 /* InfoViewCreator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InfoViewCreator.h; sourceTree = "<group>"; };
 		F5E2929618E6779500B9B152 /* Player.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Player.cpp; sourceTree = "<group>"; };
 		F5E2929718E6779500B9B152 /* Player.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Player.h; sourceTree = "<group>"; };
+		F5EE379418FE1968001CC636 /* monster.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = monster.xml; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -2107,6 +2122,16 @@
 			path = ../Resources;
 			sourceTree = "<group>";
 		};
+		F50BF81818F2425200CD518D /* Cat */ = {
+			isa = PBXGroup;
+			children = (
+				F50BF81F18F246D300CD518D /* character_cat.xml */,
+				F50BF81918F2426D00CD518D /* cat_spritesheet.png */,
+				F50BF81A18F2426D00CD518D /* cat_spritesheet.plist */,
+			);
+			name = Cat;
+			sourceTree = "<group>";
+		};
 		F52678E418EEAEA500CE1E3B /* fonts */ = {
 			isa = PBXGroup;
 			children = (
@@ -2182,6 +2207,8 @@
 				34F7F92C18E16BB70084E87C /* SkillFactory.h */,
 				F5E2929318E6768F00B9B152 /* InfoViewCreator.cpp */,
 				F5E2929418E6768F00B9B152 /* InfoViewCreator.h */,
+				F57665B418FD49C9001919D8 /* MonsterFactory.cpp */,
+				F57665B518FD49C9001919D8 /* MonsterFactory.h */,
 			);
 			name = Factories;
 			sourceTree = "<group>";
@@ -2375,7 +2402,8 @@
 		F5C89DF618D2FC7F006E909D /* Animation */ = {
 			isa = PBXGroup;
 			children = (
-				F526786318EE9D6600CE1E3B /* skill_animation.xml */,
+				F50BF81D18F2429A00CD518D /* cat_animation.xml */,
+				F526790118EEB72000CE1E3B /* skill_animation.xml */,
 				F5C89DFA18D2FCB5006E909D /* monkey_animation.xml */,
 			);
 			name = Animation;
@@ -2384,6 +2412,8 @@
 		F5C89DF718D2FC8A006E909D /* Character */ = {
 			isa = PBXGroup;
 			children = (
+				F5EE379318FE192B001CC636 /* Monster */,
+				F50BF81818F2425200CD518D /* Cat */,
 				34FD845418DFD69A00373627 /* Monkey */,
 			);
 			name = Character;
@@ -2413,6 +2443,7 @@
 		F5C89E0018D2FCF2006E909D /* Body */ = {
 			isa = PBXGroup;
 			children = (
+				F50BF82318F2513800CD518D /* cat_body.plist */,
 				F5A6F7A718E16742008C145C /* map1_body.plist */,
 				34B8CC6818ED484B002FAEF7 /* character_body.plist */,
 				F544FB9818D93CC100A818DF /* map2_body.plist */,
@@ -2430,6 +2461,14 @@
 				F5C89E0F18D2FF9A006E909D /* 1.png */,
 			);
 			name = UI;
+			sourceTree = "<group>";
+		};
+		F5EE379318FE192B001CC636 /* Monster */ = {
+			isa = PBXGroup;
+			children = (
+				F5EE379418FE1968001CC636 /* monster.xml */,
+			);
+			name = Monster;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -2512,29 +2551,34 @@
 				34B8CC6C18ED73B8002FAEF7 /* test_sheet.png in Resources */,
 				F5C89E0418D2FD2A006E909D /* map_body.plist in Resources */,
 				F52678F318EEAEA500CE1E3B /* arial.ttf in Resources */,
+				F50BF82418F2513800CD518D /* cat_body.plist in Resources */,
 				F52678FA18EEAEA500CE1E3B /* map1_spritesheet_4.png in Resources */,
+				F50BF81E18F2429A00CD518D /* cat_animation.xml in Resources */,
 				F52678FC18EEAEA500CE1E3B /* map1_background_spritesheet_2.plist in Resources */,
 				F5779C6F18E56CF10044D5CD /* healthbar_background.png in Resources */,
 				F5779C6D18E56CF10044D5CD /* healthbar_foreground_blue.png in Resources */,
 				34B1273018EF9619005DAF04 /* skill_body.plist in Resources */,
+				F526790218EEB72000CE1E3B /* skill_animation.xml in Resources */,
 				F5C89DFF18D2FCE9006E909D /* monkey_spritesheet.png in Resources */,
 				D4EF949E15BD2D9600D803EB /* Icon-72.png in Resources */,
 				F5C89E1018D2FF9A006E909D /* 2.png in Resources */,
 				34FD845618DFDCA400373627 /* character_monkey.xml in Resources */,
 				F52678F418EEAEA500CE1E3B /* Marker Felt.ttf in Resources */,
+				F50BF81C18F2426D00CD518D /* cat_spritesheet.plist in Resources */,
 				D4EF94A015BD2D9800D803EB /* Icon-144.png in Resources */,
 				F5A6F7AE18E16AAF008C145C /* map2_background_spritesheet.png in Resources */,
 				F5C89E1118D2FF9A006E909D /* 1.png in Resources */,
 				F53ACBAF18D831C700F958A8 /* map2.xml in Resources */,
-				F526786418EE9D6600CE1E3B /* skill_animation.xml in Resources */,
 				F5A6F7B018E16AAF008C145C /* map2_background3_spritesheet.png in Resources */,
 				D41A0AD1160F154A004552AE /* Default-568h@2x.png in Resources */,
 				34B8CC6918ED484B002FAEF7 /* character_body.plist in Resources */,
+				F50BF81B18F2426D00CD518D /* cat_spritesheet.png in Resources */,
 				D446FD6E16102124000ADA7B /* Default@2x.png in Resources */,
 				F561F29118D805BE00DD4598 /* map1.xml in Resources */,
 				F5C89DFE18D2FCE9006E909D /* monkey_spritesheet.plist in Resources */,
 				F52678FF18EEAEA500CE1E3B /* map1_spritesheet_3.plist in Resources */,
 				15A3D9961682F7F9002FB0C5 /* CMakeLists.txt in Resources */,
+				F5EE379518FE1968001CC636 /* monster.xml in Resources */,
 				F52678F818EEAEA500CE1E3B /* map1_spritesheet_2.png in Resources */,
 				F52678FE18EEAEA500CE1E3B /* map1_spritesheet_2.plist in Resources */,
 				F5C89E0318D2FD2A006E909D /* body.plist in Resources */,
@@ -2550,6 +2594,7 @@
 				1AFAF8BC16D35E4900DB1158 /* CloseNormal.png in Resources */,
 				1AFAF8BC16D35E4900DB1158 /* CloseNormal.png in Resources */,
 				F5C89DFB18D2FCB5006E909D /* monkey_animation.xml in Resources */,
+				F50BF82018F246D300CD518D /* character_cat.xml in Resources */,
 				F5A6F7AF18E16AAF008C145C /* map2_background3_spritesheet.plist in Resources */,
 				F52678F918EEAEA500CE1E3B /* map1_spritesheet_3.png in Resources */,
 				1AFAF8BD16D35E4900DB1158 /* CloseSelected.png in Resources */,
@@ -2744,6 +2789,7 @@
 				F54AEA0C18D2F50300194E66 /* CharacterData.cpp in Sources */,
 				1AFAF8B816D35DE700DB1158 /* HelloWorldScene.cpp in Sources */,
 				1AC3624916D4A1E8000847F2 /* AppController.mm in Sources */,
+				F57665B618FD49C9001919D8 /* MonsterFactory.cpp in Sources */,
 				F5E2929518E6768F00B9B152 /* InfoViewCreator.cpp in Sources */,
 				1AC3624B16D4A1E8000847F2 /* main.m in Sources */,
 				1AFCDA8216D4A25900906EA6 /* RootViewController.mm in Sources */,
@@ -2892,7 +2938,7 @@
 					"\"$(SRCROOT)/../../../cocos2dx/platform/ios/Simulation\"",
 				);
 				INFOPLIST_FILE = Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				LIBRARY_SEARCH_PATHS = (
 					"\"$(SRCROOT)/../../../cocos2dx/platform/third_party/ios/libraries\"",
 					"\"$(SRCROOT)/../../../external/libwebsockets/ios/lib\"",
@@ -2940,7 +2986,7 @@
 					"\"$(SRCROOT)/../../../cocos2dx/platform/ios/Simulation\"",
 				);
 				INFOPLIST_FILE = Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				LIBRARY_SEARCH_PATHS = (
 					"\"$(SRCROOT)/../../../cocos2dx/platform/third_party/ios/libraries\"",
 					"\"$(SRCROOT)/../../../external/libwebsockets/ios/lib\"",
