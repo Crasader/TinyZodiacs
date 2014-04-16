@@ -63,14 +63,14 @@
 		<body>pig</body>
 		<damage>50</damage>
         <delay>0.1</delay>
-        <life_time>10</life_time>
-		<cool_down>11</cool_down>
+        <life_time>6</life_time>
+		<cool_down>0</cool_down>
         <critical_chance>0.01</critical_chance>
         <joints>
             <holder x="2" y="0" offsetX="0" offsetY="0"></holder>
             <this x="2" y="0" offsetX="0" offsetY="0"></this>
         </joints>
-        <animation>skill-aura</animation>
+        <animation>skill-pig</animation>
         <animation_layer>4</animation_layer>
         <texture>
             <active>normal_meelee_normal.png</active>
@@ -78,8 +78,9 @@
             <selected>normal_meelee_selected.png</selected>
         </texture>
 
-        <speed>105</speed>
+        <speed>100</speed>
         <gravity_scale>0</gravity_scale>
         <collide_terrain>1</collide_terrain>
+        <piercing>0</piercing>
 	</skill>
 </skill_list>

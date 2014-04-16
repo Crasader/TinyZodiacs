@@ -165,7 +165,7 @@ b2AABB GameObject::getBodyBoundingBox()
     //    return Util::getBodyBoundingBox(this->getBody());
 }
 
-void GameObject::setGroup(int group)
+void GameObject::setGroup(uint16 group)
 {
     if(this->body != NULL)
     {
@@ -194,4 +194,9 @@ void GameObject::setGroup(int group)
         }
         
     }
+}
+
+uint16 GameObject::getGroup()
+{
+    return this->body->GetFixtureList()->GetFilterData().categoryBits;
 }

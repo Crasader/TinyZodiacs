@@ -169,12 +169,6 @@ void Character::createFootSensor()
     fixDef.isSensor = true;
     fixDef.density = WEIGHTLESS_DENSITY;
     
-    //    PhysicData* sensorData = new PhysicData();
-    //    sensorData->Id = CHARACTER_FOOT_SENSOR;
-    //    sensorData->Data = this;
-    //    fixDef.userData = (void*)sensorData;
-    //
-    
     b2BodyDef bodyDef;
     bodyDef.type=b2_dynamicBody;
     bodyDef.bullet=true;
@@ -216,7 +210,7 @@ void Character::checkCollisionDataInBeginContact(PhysicData* data, b2Contact *co
                 if(this == data->Data)
                 {
                     this -> landing ++;
-                    this-> currentJumpCount =0;
+                    this -> currentJumpCount =0;
                 }
                 break;
                 
@@ -288,11 +282,8 @@ void Character::EndContact(b2Contact *contact)
     }
 }
 
-void Character::setGroup(int group)
+void Character::setGroup(uint16 group)
 {
-    //    b2Filter data = this->footSensor->GetFixtureList()[0].GetFilterData();
-    //    data.groupIndex = group;
-    //    this->footSensor->GetFixtureList()[0].SetFilterData(data);
     for (b2Fixture* f = this->footSensor->GetFixtureList(); f; f = f->GetNext())
     {
         if(f != NULL)
@@ -300,7 +291,6 @@ void Character::setGroup(int group)
             Util::setFixtureGroup(f, GROUP_SENSOR);
         }
     }
-    
     
     if(this->normalAttack != NULL)
     {
@@ -317,7 +307,6 @@ void Character::setGroup(int group)
         this->skill2->setGroup(GROUP_SKILL_DEFAULT);
     }
 
-    
     for (b2Fixture* f = this->body->GetFixtureList(); f; f = f->GetNext())
     {
         if(f != NULL)

@@ -156,7 +156,6 @@ NormalMeleeSkillData SkillType0Parser::parse(const XMLElement* root, b2World* wo
     data.setCritical(readCriticalChance(root->FirstChildElement(TAG_CRITICAL_CHANCE)));
     data.setAnimationLayerIndex(readAnimationLayerIndex(root->FirstChildElement(TAG_ANIMATION_LAYER)));
 
-
     if(root->FirstChildElement(TAG_ANIMATION) != NULL)
     {
         data.setSkillAnimation(readAnimation(root->FirstChildElement(TAG_ANIMATION)));

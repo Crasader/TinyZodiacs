@@ -93,6 +93,6 @@ void PhysicBodyManager::update(float dt)
                 }
             }
         }
-    this->listBody.clear();
+//    this->listBody.clear();
     }
 }

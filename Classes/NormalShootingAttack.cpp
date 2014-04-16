@@ -9,6 +9,7 @@
 #include "NormalShootingAttack.h"
 #include "Util.h"
 #include "GB2ShapeCache-x.h"
+#include "ScheduleManager.h"
 
 
 NormalShootingAttack::~NormalShootingAttack()
@@ -22,6 +23,8 @@ NormalShootingAttack::NormalShootingAttack(GameObject* holder, NormalShootingSki
     {
         this->holder = holder;
         this->data = data;
+        this->isExcutable = true;
+        this->holderButton = NULL;
         
         projectTileList = CCArray::create();
         projectTileList->retain();
@@ -31,12 +34,22 @@ NormalShootingAttack::NormalShootingAttack(GameObject* holder, NormalShootingSki
 
 void NormalShootingAttack::excute()
 {
-    if(holder != NULL)
+    if(this->getIsExcutable())
     {
-        NormalProjectile* proj = new NormalProjectile(this->data, this->holder);
-        proj->setGroup(GROUP_SKILL_DEFAULT);
-        //
-        projectTileList->addObject(proj);
+        ScheduleManager::getInstance()->scheduleForSkill(this, this->data.getDelay(), FUCTION_EXCUTE);
+        if(this->data.getCoolDown() > 0)
+        {
+            ScheduleManager::getInstance()->scheduleForSkill(this, this->data.getCoolDown(), FUCTION_SET_EXCUTABLE);
+            this->isExcutable = false;
+            if(this-> holderButton != NULL)
+            {
+                this->holderButton->changeState(DISABLE);
+            }
+        }
+        else
+        {
+            this->AbstractSkill::excuteImmediately();
+        }
     }
 }
 
@@ -52,6 +65,18 @@ void NormalShootingAttack::update(float dt)
         if(((NormalProjectile*)projectTileList->objectAtIndex(i)) != NULL)
         {
             ((NormalProjectile*)projectTileList->objectAtIndex(i))->update(dt);
+        }
+    }
+    
+    if(this->holderButton != NULL)
+    {
+        if(this->isExcutable)
+        {
+            //            this->holderButton->changeState(ENABLE);
+        }
+        else
+        {
+            this->holderButton->changeState(DISABLE);
         }
     }
 }
@@ -73,7 +98,14 @@ void NormalShootingAttack::setGroup(int group)
 
 void NormalShootingAttack::excuteImmediately()
 {
-    
+    if(holder != NULL)
+    {
+        NormalProjectile* proj = new NormalProjectile(this->data, this->holder, this->projectTileList);
+        proj->setGroup(GROUP_SKILL_DEFAULT);
+        //
+        projectTileList->addObject(proj);
+    }
+
 }
 
 void NormalShootingAttack::stopImmediately()
@@ -83,7 +115,11 @@ void NormalShootingAttack::stopImmediately()
 
 void NormalShootingAttack::setExcuteAble()
 {
-    
+    this->isExcutable = true;
+    if(this->holderButton != NULL && this->holderButton->getState() == DISABLE)
+    {
+        this->holderButton->changeState(ENABLE);
+    }
 }
 
 void NormalShootingAttack::checkCollisionDataInBeginContact(PhysicData* data, b2Contact *contact, bool isSideA)
@@ -98,13 +134,9 @@ void NormalShootingAttack::checkCollisionDataInBeginContact(PhysicData* data, b2
         case PROJECTILE:
             void* pData = data->Data;
             NormalProjectile* projectile = (NormalProjectile *)pData;
-            if(projectile != NULL)
+            if(projectile != NULL && projectile->getHolder() == this->holder)
             {
-                projectile->BeginContact(contact);
-            }
-            else
-            {
-                CCLOG("NULL data");
+                projectile->checkCollisionDataInBeginContact(data, contact, isSideA);
             }
             break;
     }
@@ -121,13 +153,9 @@ void NormalShootingAttack::checkCollisionDataInEndContact(PhysicData* data, b2Co
         case PROJECTILE:
             void* pData = data->Data;
             NormalProjectile* projectile = (NormalProjectile *)pData;
-            if(projectile != NULL)
+            if(projectile != NULL && projectile->getHolder() == this->holder)
             {
-                projectile->EndContact(contact);
-            }
-            else
-            {
-                CCLOG("NULL data");
+                projectile->checkCollisionDataInEndContact(data, contact, isSideA);
             }
             break;
     }

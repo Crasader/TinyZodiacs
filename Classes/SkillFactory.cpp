@@ -153,7 +153,8 @@ std::string SkillFactory::readTextureId(const XMLElement* root, string tagName)
 
 AbstractSkill* SkillFactory::createSkill(const char* id, b2World* world, GameObject* holder, bool isLocal, int buttonIndex)
 {
-    return loadXMLFile(id, "list_skill.xml", world, holder, isLocal, buttonIndex);
+    AbstractSkill* skill = loadXMLFile(id, "list_skill.xml", world, holder, isLocal, buttonIndex);
+    return skill;
 }
 
 

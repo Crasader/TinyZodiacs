@@ -12,12 +12,17 @@
 #include "AnimationFactory.h"
 #include "Util.h"
 #include "LayerIndexConstants.h"
+#include "Character.h"
+#include "PhysicBodyManager.h"
+#include "ScheduleManager.h"
 
-NormalProjectile::NormalProjectile(NormalShootingSkillData data, GameObject* holder)
+NormalProjectile::NormalProjectile(NormalShootingSkillData data, GameObject* holder, CCArray* collector)
 {
-    contact_count=0;
-    scheduled = false;
+//    contact_count=0;
+//    scheduled = false;
     this->data = data;
+    this->holder = holder;
+    this->collector = collector;
     
     //Create body
     b2BodyDef bodyDef;
@@ -50,21 +55,24 @@ NormalProjectile::NormalProjectile(NormalShootingSkillData data, GameObject* hol
     
     holder->getSprite()->getParent()->addChild(this->sprite, this->data.getAnimationLayerIndex());
     //
-//    if(holder->getDirection() == LEFT)
-//    {
-//        this->flipDirection(RIGHT);
-//        this->body->ApplyLinearImpulse(b2Vec2(-this->data.getSpeed(), 0), b2Vec2(0,0));
-//    }
-//    else if(holder->getDirection() == RIGHT)
-//    {
-//        this->flipDirection(LEFT);
-//        this->body->ApplyLinearImpulse(b2Vec2(this->data.getSpeed(), 0), b2Vec2(0,0));
-//    }
+    if(holder->getDirection() == LEFT)
+    {
+        this->flipDirection(RIGHT);
+        this->body->ApplyLinearImpulse(b2Vec2(-this->data.getSpeed(), 0), b2Vec2(0,0));
+    }
+    else if(holder->getDirection() == RIGHT)
+    {
+        this->flipDirection(LEFT);
+        this->body->ApplyLinearImpulse(b2Vec2(this->data.getSpeed(), 0), b2Vec2(0,0));
+    }
+    //schedule life time
+    this->lifeTimeScheduled = ScheduleManager::getInstance()->scheduleForGameObject(this, this->data.getLifeTime());
 }
 
 NormalProjectile::~NormalProjectile()
 {
-    this->sprite->release();
+    this->collector->removeObject(this);
+    CC_SAFE_RELEASE_NULL(this->sprite);
 }
 
 b2Vec2 NormalProjectile::getStartPosition(GameObject* holder, b2Body* me)
@@ -92,12 +100,12 @@ b2Vec2 NormalProjectile::getStartPosition(GameObject* holder, b2Body* me)
     tempA.x = holder_join_type;
     b2Vec2 anchorA = getGlobalBodyStartPosition(holder->getBody(), tempA);
     
-    CCLOG("%f-%f",anchorA.x,anchorA.y);
+//    CCLOG("%f-%f",anchorA.x,anchorA.y);
     
     b2AABB thisBoudningBox = Util::getBodyBoundingBoxDynamic(body);
     
-    CCLOG("%f-%f-%f-%f",thisBoudningBox.lowerBound.x,thisBoudningBox.lowerBound.y,thisBoudningBox.upperBound.x,thisBoudningBox.upperBound.y);
-
+//    CCLOG("%f-%f-%f-%f",thisBoudningBox.lowerBound.x,thisBoudningBox.lowerBound.y,thisBoudningBox.upperBound.x,thisBoudningBox.upperBound.y);
+    
     
     if(this->data.getJointDefA().x == JOINT_REAR && this->data.getJointDefB().x == JOINT_REAR)
     {
@@ -112,8 +120,8 @@ b2Vec2 NormalProjectile::getStartPosition(GameObject* holder, b2Body* me)
             anchorA.x += abs(thisBoudningBox.lowerBound.x);
         }
     }
-    CCLOG("%f-%f",anchorA.x,anchorA.y);
-
+//    CCLOG("%f-%f",anchorA.x,anchorA.y);
+    
     return anchorA;
 }
 
@@ -160,25 +168,6 @@ b2Vec2 NormalProjectile::getGlobalBodyStartPosition(b2Body* body, JointDef joint
     return jointAAnchor;
 }
 
-void NormalProjectile::BeginContact(b2Contact *contact)
-{
-    CCLOG("Projectile begin");
-    contact_count++;
-//    remove();
-    contact->SetEnabled(false);
-}
-
-void NormalProjectile::EndContact(b2Contact *contact)
-{
-    CCLOG("Projectile end");
-    contact_count--;
-    if(contact_count <= 0)
-    {
-        remove();
-        contact_count=10;
-    }
-}
-
 void NormalProjectile::update(float dt)
 {
     if(this->sprite != NULL)
@@ -190,31 +179,107 @@ void NormalProjectile::update(float dt)
 }
 
 
-void NormalProjectile::checkCollisionDataInBeginContact(PhysicData* data)
+void NormalProjectile::checkCollisionDataInBeginContact(PhysicData* data, b2Contact *contact, bool isSideA)
 {
-    
+    PhysicData* otherData;
+    if(isSideA)
+    {
+        otherData = (PhysicData* )contact->GetFixtureB()->GetBody()->GetUserData();
+    }
+    else
+    {
+        otherData = (PhysicData* )contact->GetFixtureA()->GetBody()->GetUserData();
+    }
+    if(otherData == NULL || otherData->Data == this->holder)
+    {
+        return;
+    }
+    //
+    switch (otherData->Id)
+    {
+        case CHARACTER_BODY:
+        {
+            Character* character = (Character*)otherData->Data;
+            if(character != holder)
+            {
+                if(character->getGroup() == this->holder->getGroup())
+                {
+                    CCLOG("Allie");
+                }
+                else
+                {
+                    CCLOG("Enemy");
+                }
+            }
+        }
+        default:
+            if(this->data.getPiercing() == false)
+            {
+                remove();
+            }
+        break;
+    }
 }
 
-void NormalProjectile::checkCollisionDataInEndContact(PhysicData* data)
+void NormalProjectile::checkCollisionDataInEndContact(PhysicData* data, b2Contact *contact, bool isSideA)
 {
+    PhysicData* otherData;
+    if(isSideA)
+    {
+        otherData = (PhysicData* )contact->GetFixtureB()->GetBody()->GetUserData();
+    }
+    else
+    {
+        otherData = (PhysicData* )contact->GetFixtureA()->GetBody()->GetUserData();
+    }
+    //
+    if(otherData == NULL)
+    {
+        return;
+    }
+    
+    switch (otherData->Id)
+    {
+        case CHARACTER_BODY:
+            Character* character = (Character*)otherData->Data;
+            if(character != holder)
+            {
+                if(character->getGroup() == this->holder->getGroup())
+                {
+                    CCLOG("Allie");
+                }
+                else
+                {
+                    CCLOG("Enemy");
+                }
+            }
+            break;
+    }
     
 }
 
 void NormalProjectile::remove()
 {
-    ScheduleManager::getInstance()->scheduleForGameObject(this, 0);
-}
-
- void NormalProjectile::excuteScheduledFunction(CCObject* pSender, void *body)
-{
-    PhysicBodyManager::getInstance()->addBody((GameObject*)body);
-    if(this->sprite)
+    ScheduleManager::getInstance()->stopScheduledObjectAction(this->lifeTimeScheduled);
+    CC_SAFE_RELEASE_NULL(this->lifeTimeScheduled);
+    PhysicBodyManager::getInstance()->addBody((GameObject*)this);
+    if(this->sprite != NULL)
     {
-        ((GameObject*)body)->getSprite()->getParent()->removeChild(((GameObject*)body)->getSprite());
+        this->sprite->getParent()->removeChild(this->getSprite());
+        CC_SAFE_RELEASE_NULL(this->sprite);
     }
 }
 
-void NormalProjectile::setGroup(int group)
+void NormalProjectile::excuteScheduledFunction(CCObject* pSender, void *object)
+{
+    PhysicBodyManager::getInstance()->addBody((GameObject*)object);
+    if(this->sprite)
+    {
+        ((GameObject*)object)->getSprite()->getParent()->removeChild(((GameObject*)object)->getSprite());
+    }
+}
+
+void NormalProjectile::setGroup(uint16 group)
 {
     for (b2Fixture* f = this->body->GetFixtureList(); f; f = f->GetNext())
     {
@@ -230,4 +295,3 @@ void NormalProjectile::setGroup(int group)
         }
     }
 }
-

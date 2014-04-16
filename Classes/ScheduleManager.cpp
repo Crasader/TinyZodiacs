@@ -17,11 +17,14 @@ ScheduleManager::~ScheduleManager()
 {
     
 }
-void ScheduleManager::scheduleForGameObject(GameObject* object, float duration)
+CCSequence* ScheduleManager::scheduleForGameObject(GameObject* object, float duration)
 {
     CCDelayTime *delayAction = CCDelayTime::create(duration);
     CCCallFuncND *callFuncSelector = CCCallFuncND::create(object, callfuncND_selector(GameObject::excuteScheduledFunction), object);
-    this->runAction(CCSequence::create(delayAction,callFuncSelector));
+    CCSequence* sequence = CCSequence::create(delayAction,callFuncSelector);
+    sequence->retain();
+    this->runAction(sequence);
+    return sequence;
 }
 void ScheduleManager::scheduleForSkill(AbstractSkill* object, float duration, int fuctionCall)
 {
@@ -48,6 +51,7 @@ void ScheduleManager::scheduleForSkill(AbstractSkill* object, float duration, in
     CCSequence* sequence = CCSequence::create(array);
     this->runAction(sequence);
 }
+
 ScheduleManager* ScheduleManager::getInstance()
 {
     if(instance == NULL)
@@ -56,7 +60,14 @@ ScheduleManager* ScheduleManager::getInstance()
     }
     return instance;
 }
+
 void ScheduleManager::release()
 {
     delete  instance;
+}
+
+
+void ScheduleManager::stopScheduledObjectAction(CCSequence* target)
+{
+    this->stopAction(target);
 }

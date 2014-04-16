@@ -17,6 +17,7 @@ NormalAttack::NormalAttack(GameObject* holder, NormalMeleeSkillData data)
     {
         this->holder = holder;
         this->data = data;
+        this->holderButton = NULL;
         
         this->initJointType();
         
@@ -90,6 +91,18 @@ void NormalAttack::update(float dt)
         this->skillSprite->setPosition(bodyPosition);
         this->skillSprite->setRotation(-1 * CC_RADIANS_TO_DEGREES(this->data.getSkillSensor()->GetAngle()));
     }
+    
+    if(this->holderButton != NULL)
+    {
+        if(this->isExcutable)
+        {
+            //            this->holderButton->changeState(ENABLE);
+        }
+        else
+        {
+            this->holderButton->changeState(DISABLE);
+        }
+    }
 }
 
 void NormalAttack::excute()
@@ -98,14 +111,15 @@ void NormalAttack::excute()
     {
         destroyJoint();
         createJoint();
-        
-        ScheduleManager::getInstance()->scheduleForSkill(this, this->data.getCoolDown(), FUCTION_SET_EXCUTABLE);
-        this->isExcutable = false;
-        
-        if(this-> holderButton != NULL && this->data.getCoolDown() != 0)
+        ScheduleManager::getInstance()->scheduleForSkill(this, this->data.getDelay(), FUCTION_EXCUTE);
+        if(this->data.getCoolDown() > 0)
         {
-            ScheduleManager::getInstance()->scheduleForSkill(this, this->data.getDelay(), FUCTION_EXCUTE);
-            this->holderButton->changeState(DISABLE);
+            ScheduleManager::getInstance()->scheduleForSkill(this, this->data.getCoolDown(), FUCTION_SET_EXCUTABLE);
+            this->isExcutable = false;
+            if(this-> holderButton != NULL)
+            {
+                this->holderButton->changeState(DISABLE);
+            }
         }
     }
 }
@@ -141,7 +155,6 @@ void NormalAttack::stopImmediately()
     if(this->data.getSkillAnimation() != NULL)
     {
         this->skillSprite->stopAllActions();
-        
         this->holder->getSprite()->getParent()->removeChild(this->skillSprite);
     }
 }

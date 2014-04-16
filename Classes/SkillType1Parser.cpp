@@ -18,16 +18,6 @@ string SkillType1Parser::readProjectileBodyId(const XMLElement* root)
     return "";
 }
 
-//CCAnimation* SkillType1Parser::readProjectileAnimationId(const XMLElement* root)
-//{
-//    if(root != NULL)
-//    {
-//        string value = root->GetText();
-//        return value;
-//    }
-//    return "";
-//}
-
 float SkillType1Parser::readProjectileSpeed(const XMLElement* root)
 {
     if(root != NULL)
@@ -61,6 +51,17 @@ bool SkillType1Parser::readTerrainCollide(const XMLElement* root)
     return false;
 }
 
+bool SkillType1Parser::readPiercing(const XMLElement* root)
+{
+    if(root != NULL)
+    {
+        string textValue = root->GetText();
+        bool value = atoi(textValue.c_str());
+        return value;
+    }
+    return false;
+}
+
 NormalShootingSkillData SkillType1Parser::parse(const XMLElement* root, b2World* world)
 {
     NormalShootingSkillData data;
@@ -77,6 +78,7 @@ NormalShootingSkillData SkillType1Parser::parse(const XMLElement* root, b2World*
     data.setTerrainCollide(readTerrainCollide(root->FirstChildElement(TAG_COLLIDE_TERRAIN)));
     data.setGravityScale(readProjectileGravityScale(root->FirstChildElement(TAG_GRAVITY_SCALE)));
     data.setAnimationLayerIndex(readAnimationLayerIndex(root->FirstChildElement(TAG_ANIMATION_LAYER)));
+    data.setPiercing(readPiercing(root->FirstChildElement(TAG_PIERCING)));
 
     return data;
 }
