@@ -39,7 +39,7 @@ bool AnimationFactory::loadXMLAnimation()
 {
 //    loadXMLAnimationByNameFile("etna_animation.xml");
 //    loadXMLAnimationByNameFile("miku_animation.xml");
-        loadXMLAnimationByNameFile("monkey_animation.xml");
+    loadXMLAnimationByNameFile("monkey_animation.xml");
     loadXMLAnimationByNameFile("cat_animation.xml");
 
     loadXMLAnimationByNameFile("skill_animation.xml");
