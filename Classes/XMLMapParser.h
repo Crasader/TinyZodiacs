@@ -43,6 +43,8 @@
 #define MAP_OBJECT_IMAGE_NAME "image_name"
 #define MAP_OBJECT_BODY_NAME "body_name"
 
+#define TAG_CAN_PASS "can_pass"
+
 
 
 

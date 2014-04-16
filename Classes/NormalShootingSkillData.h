@@ -15,6 +15,12 @@
 USING_NS_CC;
 class NormalShootingSkillData: public SkillData
 {
+private:
+protected:
+public:
+    NormalShootingSkillData();
+    ~NormalShootingSkillData();
+    
     CC_SYNTHESIZE(std::string, projectileBodyId, ProjectileBodyId);
     CC_SYNTHESIZE(std::string, animationId, AnimationId);
     CC_SYNTHESIZE(bool, terrainCollide, TerrainCollide);

@@ -53,7 +53,7 @@ void GameObjectLayer::draw()
 
 void GameObjectLayer::update(float dt)
 {
-      this->gameWorld->update(dt);
+    this->gameWorld->update(dt);
 }
 
 void GameObjectLayer::MoveSprite(float x, float y)
@@ -104,4 +104,8 @@ void GameObjectLayer::Skill2()
 {
     //    this->gameWorld->getCharacter()->attack();
     this->characterActionEngine->skill2();
+}
+
+Character* GameObjectLayer::getCharacter(){
+    return this->characterActionEngine->getCharacter();
 }

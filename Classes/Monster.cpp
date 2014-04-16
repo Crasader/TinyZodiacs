@@ -7,3 +7,22 @@
 //
 
 #include "Monster.h"
+
+Monster::Monster()
+{
+    
+}
+
+Monster::~Monster()
+{
+    
+}
+
+bool Monster::init()
+{
+    if (!Character::init()) {
+        return false;
+    }
+    this->sprite = CCSprite::create();
+    return true;
+}

@@ -11,6 +11,7 @@
 #include "NormalShootingSkillData.h"
 #include "SkillType0Parser.h"
 #include "SkillType1Parser.h"
+#include "string.h"
 
 
 
@@ -23,11 +24,12 @@ AbstractSkill* SkillFactory::loadXMLFile(const char* id, const char *xmlFileName
     unsigned char* pFileData = NULL;
     
     pFileData = (unsigned char*) CCFileUtils::sharedFileUtils()->getFileData(fullPath.c_str(), "r", &dataSize);
-    //    CCLOG("Empty file: %s", fullPath.c_str());
-    
+   
+    CCLOG("Co file: %s", fullPath.c_str());
+
     if (!pFileData)
     {
-        //        CCLOG("Empty file: %s", fullPath.c_str());
+        CCLOG("Empty file: %s", fullPath.c_str());
         return NULL;
     }
     std::string fileContent;
@@ -112,9 +114,15 @@ AbstractSkill* SkillFactory::loadXMLFile(const char* id, const char *xmlFileName
 const XMLElement* SkillFactory::loadElementById(const char* id, const XMLElement* root)
 {
     const XMLElement* child = root->FirstChildElement(TAG_SKILL);
+ 
     while(child != NULL)
     {
-        if(strcmp(id, child->Attribute(ATTRIBUTE_ID))==0)
+       CCString* temp1 = CCString::createWithFormat("%s",id);
+       CCString* temp2 = CCString::createWithFormat("%s",child->Attribute(ATTRIBUTE_ID));
+    
+        
+        CCLOG("skill: %s", temp2->getCString());
+        if(strcmp(temp1->getCString(),temp2->getCString())== 0)
         {
             return  child;
         }

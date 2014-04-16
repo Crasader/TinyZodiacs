@@ -20,6 +20,9 @@ class SkillData
 private:
 protected:
 public:
+    SkillData();
+    ~SkillData();
+    
     CC_SYNTHESIZE(int, damage, Damage);
     CC_SYNTHESIZE(float, coolDown, CoolDown);
     CC_SYNTHESIZE(float, delay, Delay);

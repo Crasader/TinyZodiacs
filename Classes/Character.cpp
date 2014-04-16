@@ -15,6 +15,7 @@
 #include "Util.h"
 
 
+
 USING_NS_CC;
 
 Character::Character()
@@ -53,7 +54,7 @@ void Character::setSkin(b2Body *body, CCSprite *sprite)
     b2FixtureDef fixtureDef;
     createFootSensor();
     this->changeState(new CharacterIdleState(this));
-
+    
     //set body data
     PhysicData* scharacterData = new PhysicData();
     scharacterData->Id = CHARACTER_BODY;
@@ -72,6 +73,7 @@ bool falling = false;
 void Character::update(float dt)
 {
     //
+    
     if(this->normalAttack != NULL)
     {
         this->normalAttack->update(dt);
@@ -153,7 +155,7 @@ void Character::createFootSensor()
     b2AABB aabb = this->getBodyBoundingBox();
     
     b2PolygonShape rec;
-    rec.SetAsBox((float32)abs(aabb.lowerBound.x)*9/10, (float32)FOOT_SENSOR_HEIGHT)/*, b2Vec2(0,aabb.lowerBound.y), 0)*/;
+    rec.SetAsBox((float32)abs(aabb.lowerBound.x)*5/10, (float32)FOOT_SENSOR_HEIGHT)/*, b2Vec2(0,aabb.lowerBound.y), 0)*/;
     
     b2FixtureDef fixDef;
     fixDef.shape = &rec;
@@ -192,6 +194,20 @@ void Character::createFootSensor()
     this->body->GetWorld()->CreateJoint(&footBodyJoint);
 }
 
+bool Character::isCharacterCanPassThoughMapObject(MapObject* mapObject)
+{
+    b2AABB footSensorAABB = Util::getBodyBoundingBoxDynamic(this->footSensor);
+    b2AABB mapObjectAABB = Util::getBodyBoundingBoxDynamic(mapObject->getBody());
+    
+    if( this->body->GetLinearVelocity().y > 3 || Util::bodiesArePassingThrough(mapObject->getBody(), this->body) || (!Util::bodiesAreTouching(this->footSensor, mapObject->getBody()) &&!(mapObjectAABB.lowerBound.x < footSensorAABB.lowerBound.x && footSensorAABB.upperBound.x < mapObjectAABB.upperBound.x) && mapObjectAABB.upperBound.y - footSensorAABB.upperBound.y > ((20*1.0f)/32)))
+    {
+        return true;
+        
+    }
+    
+    return false;
+}
+
 void Character::stopMove()
 {
     this->body->SetLinearVelocity(b2Vec2(0, this->getBody()->GetLinearVelocity().y));
@@ -199,21 +215,79 @@ void Character::stopMove()
 
 void Character::checkCollisionDataInBeginContact(PhysicData* data, b2Contact *contact, bool isSideA)
 {
+    
     if(data->Data == this)
     {
+        PhysicData* physicData = NULL;
+        if(isSideA)
+        {
+            physicData = (PhysicData*)contact->GetFixtureB()->GetBody()->GetUserData();
+        }
+        else
+        {
+            physicData = (PhysicData*)contact->GetFixtureA()->GetBody()->GetUserData();
+        }
+        
+        
+        GameObject::checkCollisionDataInBeginContact(data, contact, isSideA);
         switch (data->Id)
         {
             case CHARACTER_FOOT_SENSOR:
-                if(this == data->Data)
+            {
+                if(physicData!=NULL)
                 {
-                    this -> landing ++;
-                    this-> currentJumpCount =0;
+                    switch (physicData->Id) {
+                        case MAP_BASE:
+                        {
+                            GameObject* mapObject = (GameObject*)physicData->Data;
+                            if(!Util::bodiesArePassingThrough(mapObject->getBody(), this->body))
+                            {
+                                this->landing ++;
+                                this->currentJumpCount =0;
+                            }
+                        }
+                            break;
+                            
+                        default:
+                            break;
+                    }
                 }
+                
+            }
                 break;
+            case CHARACTER_BODY:
+            {
+                
+                if(physicData!=NULL)
+                {
+                    switch (physicData->Id) {
+                        case MAP_BASE:
+                        {
+                            MapObject* mapObject = (MapObject*)physicData->Data;
+        
+                            
+                            if(isCharacterCanPassThoughMapObject(mapObject) && mapObject->getCanPass() == true)
+                            {
+                                contact->SetEnabled(false);
+                            }
+                        }
+                            break;
+                            
+                        default:
+                            
+                            break;
+                    }
+                }
+                
+            }
+                break;
+                
                 
             default:
                 break;
         }
+        ///
+        
     }
 }
 
@@ -221,6 +295,7 @@ void Character::checkCollisionDataInEndContact(PhysicData* data, b2Contact *cont
 {
     if(data->Data == this)
     {
+        GameObject::checkCollisionDataInEndContact(data, contact, isSideA);
         switch (data->Id) {
             case CHARACTER_FOOT_SENSOR:
                 if(this == data->Data)
@@ -233,9 +308,38 @@ void Character::checkCollisionDataInEndContact(PhysicData* data, b2Contact *cont
                 }
                 break;
                 
+            case CHARACTER_BODY:
+            {
+                PhysicData* physicData = NULL;
+                if(isSideA)
+                {
+                    physicData = (PhysicData*)contact->GetFixtureB()->GetBody()->GetUserData();
+                }
+                else
+                {
+                    physicData = (PhysicData*)contact->GetFixtureA()->GetBody()->GetUserData();
+                }
+                
+                if(physicData != NULL)
+                {
+                    switch (physicData->Id) {
+                        case MAP_BASE:
+                            
+                            break;
+                            
+                        default:
+                            break;
+                    }
+                }
+                
+            }
+                break;
+                
             default:
                 break;
         }
+        ///
+        contact->SetEnabled(true);
     }
 }
 
@@ -302,12 +406,12 @@ void Character::setGroup(int group)
     {
         this->skill1->setGroup(GROUP_SKILL_DEFAULT);
     }
-
+    
     if(this->skill2 != NULL)
     {
         this->skill2->setGroup(GROUP_SKILL_DEFAULT);
     }
-
+    
     
     GameObject::setGroup(group);
 }

@@ -18,6 +18,7 @@
 #include "NormalAttack.h"
 #include "PhysicData.h"
 #include "HealthBar.h"
+#include "MapObject.h"
 
 class CharacterState;
 
@@ -29,6 +30,7 @@ private:
 
     void setupJointSkillAndBody();
     void createFootSensor();
+    bool isCharacterCanPassThoughMapObject(MapObject* mapObject);
 protected:
     int currentJumpCount;
     

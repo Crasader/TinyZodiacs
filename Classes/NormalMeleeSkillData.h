@@ -19,6 +19,9 @@ class NormalMeleeSkillData: public SkillData
 private:
 protected:
 public:
+    NormalMeleeSkillData();
+    ~NormalMeleeSkillData();
+    
     CC_SYNTHESIZE(b2Body*, skillSensor, SkillSensor);
     CC_SYNTHESIZE(AnimationObject*, skillAnimation, SkillAnimation)
 };

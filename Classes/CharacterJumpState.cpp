@@ -29,7 +29,7 @@ bool CharacterJumpState::onEnterState()
     
     CCSequence* sequence = CCSequence::create(arr);
     
-    this->character->setAnchorPointForAnimation(this->character->jumpAnimation->getOrigin());
+//    this->character->setAnchorPointForAnimation(this->character->jumpAnimation->getOrigin());
     this->character->getSprite()->runAction(sequence);
     
     return true;

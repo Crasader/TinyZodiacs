@@ -40,7 +40,9 @@ bool AnimationFactory::loadXMLAnimation()
 //    loadXMLAnimationByNameFile("etna_animation.xml");
 //    loadXMLAnimationByNameFile("miku_animation.xml");
         loadXMLAnimationByNameFile("monkey_animation.xml");
-        loadXMLAnimationByNameFile("skill_animation.xml");
+    loadXMLAnimationByNameFile("cat_animation.xml");
+
+    loadXMLAnimationByNameFile("skill_animation.xml");
 
 
     return true;
@@ -71,23 +73,14 @@ bool AnimationFactory::loadXMLAnimationByNameFile(const char *xmlFileName)
         return false;
     }
     
-    // Get plist file
-    
-    
+    // Get plist fi
     XMLElement* docElement = document.FirstChildElement();
     
-    const char* characterName= docElement->Attribute("name");
-    const char* plistFileName = docElement->Attribute("plist_name");
-    const char* imageFileName = docElement->Attribute("image_name");
+    const char* characterName= docElement->Attribute(NAME_TAG);
     
-    std::string plistFileNamFullPath = CCFileUtils::sharedFileUtils()->fullPathForFilename(plistFileName);
-    std::string imageFileNameFullPath = CCFileUtils::sharedFileUtils()->fullPathForFilename(imageFileName);
-    
-    //CCSpriteFrameCache::sharedSpriteFrameCache()->addSpriteFramesWithFile(plistFileNamFullPath.c_str());
-    
-    for (XMLElement* element = docElement->FirstChildElement("animation"); element; element = element->NextSiblingElement())
+    for (XMLElement* element = docElement->FirstChildElement(ANIMATION_TAG); element; element = element->NextSiblingElement())
     {
-        CCString* animationName = CCString::create(element->Attribute("name"));
+        CCString* animationName = CCString::create(element->Attribute(NAME_TAG));
         if (animationName) {
          
             AnimationObject* animation = XMLAnimationParser::getAnimationObjectFromXMLNode(element);

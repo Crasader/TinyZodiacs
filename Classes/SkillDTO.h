@@ -20,6 +20,9 @@ class SkillDTO
 private:
 protected:
 public:
+    SkillDTO();
+    ~SkillDTO();
+    
     SkillData data;
     std::string selectedTextureId;
     std::string activeTextureId;

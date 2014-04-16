@@ -25,7 +25,6 @@ void NoBodyMapObject::update(float dt)
 
 void NoBodyMapObject::setPositionInPixel(const cocos2d::CCPoint &pos)
 {
- 
     this->sprite->setPosition(pos);
 }
 

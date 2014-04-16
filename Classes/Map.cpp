@@ -70,7 +70,7 @@ void Map::attachAllMapObject()
     {
         MapObject* mapObject = (MapObject*)object;
 
-       mapObject->getSprite()->setPosition(ccp(200000,200000));
+   mapObject->getSprite()->setPosition(ccp(200000,200000));
 
 
        this->addChild(mapObject->getSprite(),MAPOBJECT_LAYER);

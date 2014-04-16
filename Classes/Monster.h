@@ -13,8 +13,19 @@
 #include "cocos2d.h"
 #include "Character.h"
 
+USING_NS_CC;
+
 class Monster: public Character
 {
+private:
+protected:
+public:
+    Monster();
+    ~Monster();
+    
+    virtual bool init();
+    
+    CREATE_FUNC(Monster);
     
 };
 

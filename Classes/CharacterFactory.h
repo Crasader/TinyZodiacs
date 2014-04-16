@@ -45,7 +45,7 @@ USING_NS_CC;
 
 #define CHARACTER_MONKEY_ID "monkey"
 
-#define CHARACTER_MONKEY_XML_FILE "character_monkey.xml"
+#define CHARACTER_MONKEY_XML_FILE "character_cat.xml"
 
 class CharacterFactory
 {
@@ -66,6 +66,7 @@ protected:
 
 
     static Hero* createHero(CharacterDTO heroDTOData, b2World* world, bool isLocal);
+    
 
 public:
     static Hero* createMonkeyHero(b2World* world, bool isLocal);

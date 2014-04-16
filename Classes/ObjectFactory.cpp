@@ -146,22 +146,23 @@ MapObject* ObjectFactory::createMapObject(MapObjectDTO* mapObjectDTO, b2World *w
         b2BodyDef bodyDef;
         bodyDef.type = b2_staticBody;
         bodyDef.angle = ccpToAngle(ccp(0,0));
+        bodyDef.bullet = true;
         
         b2Body *body = world->CreateBody(&bodyDef);
         sc->addFixturesToBody(body, mapObjectDTO->bodyName.c_str());
-        //set data id
-        body->SetUserData((void *) MAP_BASE);
+    
         sprite->setAnchorPoint(sc->anchorPointForShape(mapObjectDTO->bodyName.c_str()));
+        mapObject = MapObject::create();
 
         //set data id
         PhysicData* data = new PhysicData();
         data->Id = MAP_BASE;
-        data->Data = NULL;
+        data->Data = mapObject;
         body->SetUserData(data);
 
-        mapObject = MapObject::create();
         
         mapObject->setSkin(body, sprite);
+        mapObject->setCanPass(mapObjectDTO->canPass);
 
         mapObject->setGroup(GROUP_TERRAIN);
     }
@@ -169,7 +170,9 @@ MapObject* ObjectFactory::createMapObject(MapObjectDTO* mapObjectDTO, b2World *w
     {
         mapObject = NoBodyMapObject::create();
         sprite->setAnchorPoint(ccp(0,0));
-        mapObject->setSprite(sprite);
+        mapObject->setSkin(NULL, sprite);
+        
+        mapObject->setGroup(GROUP_TERRAIN);
     }
     
 

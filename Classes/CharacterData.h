@@ -19,6 +19,9 @@ class CharacterData: public ObjectData
 private:
 protected:
 public:
+    CharacterData();
+    ~CharacterData();
+    
     CC_SYNTHESIZE(int, health, Health);
     CC_SYNTHESIZE(int, attack, Attack);
     CC_SYNTHESIZE(int, defense, Defense);

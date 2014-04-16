@@ -7,3 +7,13 @@
 //
 
 #include "NormalShootingSkillData.h"
+
+NormalShootingSkillData::NormalShootingSkillData()
+{
+    
+}
+
+NormalShootingSkillData::~NormalShootingSkillData()
+{
+    
+}

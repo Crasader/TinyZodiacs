@@ -25,12 +25,19 @@ MapObjectDTO* XMLMapParser::getMapObjectDTOFromXMLNode(XMLElement *mapObjectXMLE
     
     mapObjectDTO->layerIndex = atof(mapObjectXMLElement->Attribute(LAYER_INDEX));
     
+    //position
     if(mapObjectXMLElement->FirstChildElement(POSITION) != NULL)
     {
         XMLElement* positionXMLElement = mapObjectXMLElement->FirstChildElement(POSITION);
-    
+        
         mapObjectDTO->x = atof(positionXMLElement->Attribute(POSITION_X));
         mapObjectDTO->y = atof(positionXMLElement->Attribute(POSITION_Y));
+    }
+    
+    //can pass
+    if(mapObjectXMLElement->FirstChildElement(TAG_CAN_PASS) != NULL)
+    {
+        mapObjectDTO->canPass = strcasecmp("true", mapObjectXMLElement->FirstChildElement(TAG_CAN_PASS)->GetText());
     }
     return mapObjectDTO;
 }
@@ -98,12 +105,12 @@ ForegroundDTO* XMLMapParser::getForegroundDTOFromXMLNode(XMLElement* foregroundX
     XMLElement* ratioElement = foregroundXMLElement->FirstChildElement(RATIO);
     foregroundDTO->ratioX = atof(ratioElement->Attribute(RATIO_X));
     foregroundDTO->ratioY = atof(ratioElement->Attribute(RATIO_Y));
- 
+    
     
     XMLElement* positionElement = foregroundXMLElement->FirstChildElement(POSITION);
     foregroundDTO->positionX = atof(positionElement->Attribute(POSITION_X));
     foregroundDTO->positionY = atof(positionElement->Attribute(POSITION_Y));
-
+    
     
     return foregroundDTO;
 }

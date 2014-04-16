@@ -7,3 +7,13 @@
 //
 
 #include "SkillDTO.h"
+
+SkillDTO::SkillDTO()
+{
+    
+}
+
+SkillDTO::~SkillDTO()
+{
+    
+}

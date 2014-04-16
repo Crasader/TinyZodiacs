@@ -22,9 +22,8 @@ CharacterMoveState::CharacterMoveState(Character* character): CharacterState(cha
 bool CharacterMoveState::onEnterState()
 {
     this->character->runAnimation->getAnimation()->setLoops(INFINITY);
-    this->character->getSprite()->stopAllActions();
     this->character->getSprite()->runAction(CCAnimate::create(this->character->runAnimation->getAnimation()));
-    this->character->setAnchorPointForAnimation(this->character->runAnimation->getOrigin());
+//    this->character->setAnchorPointForAnimation(this->character->runAnimation->getOrigin());
     
     return true;
 }

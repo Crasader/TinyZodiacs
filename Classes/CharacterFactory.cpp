@@ -15,7 +15,7 @@ CharacterDTO CharacterFactory::loadXMLFile(const char *xmlFileName)
 {
     
     //
-    CharacterDTO data;
+    CharacterDTO data ;
     
     std::string fullPath = CCFileUtils::sharedFileUtils()->fullPathForFilename(xmlFileName);
     
@@ -24,7 +24,7 @@ CharacterDTO CharacterFactory::loadXMLFile(const char *xmlFileName)
     
     pFileData = (unsigned char*) CCFileUtils::sharedFileUtils()->getFileData(fullPath.c_str(), "r", &dataSize);
     //    CCLOG("Empty file: %s", fullPath.c_str());
-    
+
     if (!pFileData)
     {
         //        CCLOG("Empty file: %s", fullPath.c_str());
@@ -188,7 +188,7 @@ Hero* CharacterFactory::createHero(CharacterDTO heroDTOData, b2World* world, boo
     hero->idleAnimation = AnimationFactory::getSharedFactory()->getAnimationObjectByName(idle.append(IDLE).c_str());
     hero->fallAnimation = AnimationFactory::getSharedFactory()->getAnimationObjectByName(fall.append(FALL).c_str());
     hero->flyAnimation = AnimationFactory::getSharedFactory()->getAnimationObjectByName(fly.append(FLY).c_str());
-    
+//    
     hero->attackAnimation->getAnimation()->setDelayPerUnit(hero->getOriginCharacterData().getAttackSpeed());
     
     //Create body
@@ -202,7 +202,10 @@ Hero* CharacterFactory::createHero(CharacterDTO heroDTOData, b2World* world, boo
     
     gbox2d::GB2ShapeCache *sc =  gbox2d::GB2ShapeCache::sharedGB2ShapeCache();
     sc->addFixturesToBody(body, heroDTOData.body.c_str());
+    hero->setSpriteAnchorPoint(sc->anchorPointForShape(heroDTOData.body.c_str()));
     hero->getSprite()->setAnchorPoint(sc->anchorPointForShape(heroDTOData.body.c_str()));
+    
+    hero->getSprite()->setScale(0);
     //
     hero->setSkin(body, hero->getSprite());
     

@@ -14,6 +14,9 @@ USING_NS_CC;
 
 GameObject::GameObject()
 {
+    this->isPassingThroughBody = 0;
+    this->body = NULL;
+    this->sprite = NULL;
     direction = LEFT;
     init();
 }
@@ -64,15 +67,18 @@ void GameObject::setSkin(b2Body *body, cocos2d::CCSprite *sprite)
 
 void GameObject::updateSpritePositionWithBodyPosition()
 {
-    CCPoint bodyPosition = this->getPositionInPixel();
-    
-    this->sprite->setPosition(bodyPosition);
-    
-    this->sprite->setRotation(-1 * CC_RADIANS_TO_DEGREES(this->body->GetAngle()));
+    if(this->body!=NULL)
+    {
+        CCPoint bodyPosition = this->getPositionInPixel();
+        
+        this->sprite->setPosition(bodyPosition);
+        
+        this->sprite->setRotation(-1 * CC_RADIANS_TO_DEGREES(this->body->GetAngle()));
+    }
     
 }
 
-void GameObject::setAnchorPointForAnimation(const cocos2d::CCPoint &anchorPoint)
+void GameObject::setAnchorPointForAnimation1(const cocos2d::CCPoint &anchorPoint)
 {
     if(this->direction == LEFT)
     {
@@ -99,7 +105,8 @@ void GameObject::flipDirection(Direction direction)
             this->sprite->setFlipX(true);
             
         }
-        this->sprite->setAnchorPoint(ccp(1 - this->sprite->getAnchorPoint().x,this->sprite->getAnchorPoint().y));
+        this->sprite->setAnchorPoint(ccp(1 - this->getSprite()->getAnchorPoint().x,this->getSprite()->getAnchorPoint().y));
+        
     }
 }
 
@@ -116,6 +123,7 @@ void GameObject::BeginContact(b2Contact *contact)
         PhysicData* data = (PhysicData*)contact->GetFixtureB()->GetBody()->GetUserData();
         checkCollisionDataInBeginContact(data, contact, false);
     }
+    
 }
 void GameObject::EndContact(b2Contact *contact)
 {
@@ -131,13 +139,49 @@ void GameObject::EndContact(b2Contact *contact)
         checkCollisionDataInEndContact(data, contact, false);
     }
 }
+
+void GameObject::PreSolve(b2Contact* contact, const b2Manifold* oldManifold)
+{
+ //   CCLOG("presolve");
+    
+    //    if(contact->GetFixtureA()->GetBody()->GetUserData() != NULL)
+    //    {
+    //        PhysicData* data = (PhysicData*)contact->GetFixtureA()->GetBody()->GetUserData();
+    //        checkCollisionDataInBeginContact(data, contact, true);
+    //    }
+    //
+    //    if(contact->GetFixtureB()->GetBody()->GetUserData() != NULL)
+    //    {
+    //        PhysicData* data = (PhysicData*)contact->GetFixtureB()->GetBody()->GetUserData();
+    //        checkCollisionDataInBeginContact(data, contact, false);
+    //    }
+    
+    
+}
+void GameObject::PostSolve(b2Contact* contact, const b2ContactImpulse* impulse)
+{
+  //  CCLOG("postsolve");
+    //    if(contact->GetFixtureA()->GetBody()->GetUserData() != NULL)
+    //    {
+    //        PhysicData* data = (PhysicData*)contact->GetFixtureA()->GetBody()->GetUserData();
+    //        checkCollisionDataInBeginContact(data, contact, true);
+    //    }
+    //
+    //    if(contact->GetFixtureB()->GetBody()->GetUserData() != NULL)
+    //    {
+    //        PhysicData* data = (PhysicData*)contact->GetFixtureB()->GetBody()->GetUserData();
+    //        checkCollisionDataInBeginContact(data, contact, false);
+    //    }
+    //
+}
+
 void GameObject::checkCollisionDataInBeginContact(PhysicData* data, b2Contact *contact, bool isSideA)
 {
-    
+   
 }
 void GameObject::checkCollisionDataInEndContact(PhysicData* data, b2Contact *contact, bool isSideA)
 {
-    
+   
 }
 Direction GameObject::getDirection()
 {
@@ -161,6 +205,8 @@ b2AABB GameObject::getBodyBoundingBox()
         }
         return aabb;
     }
+    
+
     return b2AABB();
     //    return Util::getBodyBoundingBox(this->getBody());
 }
@@ -190,6 +236,12 @@ void GameObject::setGroup(int group)
                     filter.maskBits = filter.maskBits ^ GROUP_SKILL_DEFAULT;
                     f->SetFilterData(filter);
                 }
+//                else
+//                {
+//                    b2Filter filter = f->GetFilterData();
+//                    filter.maskBits = filter.maskBits ^ GROUP_TERRAIN;
+//                    f->SetFilterData(filter);
+//                }
             }
         }
         

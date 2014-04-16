@@ -24,10 +24,10 @@ GameManager::~GameManager()
 bool GameManager::loadResource()
 {
     CCSpriteFrameCache::sharedSpriteFrameCache()->addSpriteFramesWithFile("monkey_spritesheet.plist", "monkey_spritesheet.png");
-
-//    CCSpriteFrameCache::sharedSpriteFrameCache()->addSpriteFramesWithFile("map2_background_spritesheet.plist", "map2_background_spritesheet.png");
-//    CCSpriteFrameCache::sharedSpriteFrameCache()->addSpriteFramesWithFile("map2_background2_spritesheet.plist", "map2_background2_spritesheet.png");
-//    CCSpriteFrameCache::sharedSpriteFrameCache()->addSpriteFramesWithFile("map2_background3_spritesheet.plist", "map2_background3_spritesheet.png");
+    CCSpriteFrameCache::sharedSpriteFrameCache()->addSpriteFramesWithFile("cat_spritesheet.plist", "cat_spritesheet.png");
+    //    CCSpriteFrameCache::sharedSpriteFrameCache()->addSpriteFramesWithFile("map2_background_spritesheet.plist", "map2_background_spritesheet.png");
+    //    CCSpriteFrameCache::sharedSpriteFrameCache()->addSpriteFramesWithFile("map2_background2_spritesheet.plist", "map2_background2_spritesheet.png");
+    //    CCSpriteFrameCache::sharedSpriteFrameCache()->addSpriteFramesWithFile("map2_background3_spritesheet.plist", "map2_background3_spritesheet.png");
     
     CCSpriteFrameCache::sharedSpriteFrameCache()->addSpriteFramesWithFile("map1_spritesheet_1.plist", "map1_spritesheet_1.png");
     CCSpriteFrameCache::sharedSpriteFrameCache()->addSpriteFramesWithFile("map1_spritesheet_2.plist", "map1_spritesheet_2.png");
@@ -37,7 +37,8 @@ bool GameManager::loadResource()
     CCSpriteFrameCache::sharedSpriteFrameCache()->addSpriteFramesWithFile("map1_background_spritesheet_1.plist", "map1_background_spritesheet_1.png");
     CCSpriteFrameCache::sharedSpriteFrameCache()->addSpriteFramesWithFile("map1_background_spritesheet_2.plist", "map1_background_spritesheet_2.png");
     CCSpriteFrameCache::sharedSpriteFrameCache()->addSpriteFramesWithFile("test_sheet.plist", "test_sheet.png");
-
+    
+    
     
     gbox2d::GB2ShapeCache *sc = gbox2d::GB2ShapeCache::sharedGB2ShapeCache();
     
@@ -45,13 +46,14 @@ bool GameManager::loadResource()
     
     sc->addShapesWithFile("map_body.plist");
     sc->addShapesWithFile("map2_body.plist");
-
+    
     sc->addShapesWithFile("character_body.plist");
+    sc->addShapesWithFile("cat_body.plist");
     sc->addShapesWithFile("skill_body.plist");
-
-
+    
+    
     sc->addShapesWithFile("map1_body.plist");
-
+    
     
     
     AnimationFactory::getSharedFactory()->loadXMLAnimation();

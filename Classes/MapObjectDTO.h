@@ -30,6 +30,7 @@ public:
     float x;
     float y;
     float layerIndex;
+    bool canPass;
     CREATE_FUNC(MapObjectDTO);
 };
 

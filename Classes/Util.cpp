@@ -123,3 +123,58 @@ void Util::setFixtureGroup(b2Fixture* fixture, uint16 group)
         fixture->SetFilterData(filter);
     }
 }
+
+b2AABB Util::getBodyBoundingBoxDynamic(b2Body* body)
+{
+    if(body != NULL)
+    {
+        //Calculate b
+        b2AABB aabb;
+        aabb.lowerBound = b2Vec2(FLT_MAX,FLT_MAX);
+        aabb.upperBound = b2Vec2(-FLT_MAX,-FLT_MAX);
+        b2Fixture* fixture = body->GetFixtureList();
+        while (fixture != NULL)
+        {
+            aabb.Combine(aabb, fixture->GetAABB(0));
+            fixture = fixture->GetNext();
+        }
+        return aabb;
+    }
+    
+    
+    return b2AABB();
+}
+
+bool Util::bodiesAreTouching( b2Body* body1, b2Body* body2 )
+{
+    for (b2ContactEdge* edge = body1->GetContactList(); edge; edge = edge->next)
+    {
+        if ( !edge->contact->IsTouching() )
+            continue;
+        b2Body* bA = edge->contact->GetFixtureA()->GetBody();
+        b2Body* bB = edge->contact->GetFixtureB()->GetBody();
+        if ( ( bA == body1 && bB == body2 ) || ( bB == body1 && bA == body2 ) )
+            return true;
+    }
+    return false;
+}
+
+bool Util::bodiesArePassingThrough( b2Body* body1, b2Body* body2 )
+{
+    for (b2ContactEdge* edge = body1->GetContactList(); edge; edge = edge->next)
+    {
+        if ( !edge->contact->IsTouching() )
+             continue;
+        b2Body* bA = edge->contact->GetFixtureA()->GetBody();
+        b2Body* bB = edge->contact->GetFixtureB()->GetBody();
+        if ( (( bA == body1 && bB == body2 ) || ( bB == body1 && bA == body2 )) && edge->contact->IsEnabled() == false )
+        {
+              return true;
+        }
+    }
+    return false;
+}
+
+
+
+

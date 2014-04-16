@@ -33,7 +33,7 @@ public:
     void Attack();
     void Skill1();
     void Skill2();
-
+    Character* getCharacter();
     
     CC_SYNTHESIZE(CharacterActionEngine*, characterActionEngine, CharacterActionEngine);
     

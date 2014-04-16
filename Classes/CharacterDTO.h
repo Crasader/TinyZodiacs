@@ -19,6 +19,9 @@ class CharacterDTO
 private:
 protected:
 public:
+    CharacterDTO();
+    ~CharacterDTO();
+    
     string body;
     string animation;
     CharacterData data;

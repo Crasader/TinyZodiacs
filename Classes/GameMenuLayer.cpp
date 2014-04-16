@@ -69,6 +69,15 @@ bool GameMenuLayer::init()
     this->addChild(mlayer, 1);
     
     this->setTouchEnabled(true);
+    
+    
+     label = CCLabelTTF::create("0", "Arial", 30);
+    label->setPosition(ccp(500,500));
+    label->setAnchorPoint(ccp(0,0));
+    
+    this->addChild(label);
+    
+    this->scheduleUpdate();
 
     
     //CONTROLLER
@@ -91,7 +100,13 @@ void GameMenuLayer::update(float dt)
 //    
 //    if(this->getParent()->getChildByTag(3)!=NULL)
 //        ((GameObjectLayer*)this->getParent()->getChildByTag(3))->MoveSprite(vx*5,vy*5);
+    if(this->getParent()->getChildByTag(3)!=NULL)
+    {
+        label->setString(CCString::createWithFormat("%f",((GameObjectLayer*)this->getParent()->getChildByTag(3))->getCharacter()->isPassingThroughBody)->getCString());
+       }
 
+    
+    
 }
 
 

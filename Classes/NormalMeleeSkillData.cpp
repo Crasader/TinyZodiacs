@@ -7,3 +7,13 @@
 //
 
 #include "NormalMeleeSkillData.h"
+
+NormalMeleeSkillData::NormalMeleeSkillData()
+{
+    
+}
+
+NormalMeleeSkillData::~NormalMeleeSkillData()
+{
+    
+}
