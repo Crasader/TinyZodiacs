@@ -4,10 +4,83 @@
 		<body>monkey_normal_attack</body>
 		<damage>100</damage>
         <delay>0.05</delay>
-		<cool_down>0</cool_down>
+        <life_time>-1</life_time>
+		<cool_down>-1</cool_down>
+        <critical_chance>0.01</critical_chance>
         <joints>
             <holder x="2" y="0" offsetX="0" offsetY="0"></holder>
             <this x="2" y="0" offsetX="0" offsetY="0"></this>
         </joints>
+        <texture>
+            <active>normal_meelee_normal.png</active>
+            <deactive>normal_meelee_deactive.png</deactive>
+            <selected>normal_meelee_selected.png</selected>
+        </texture>
+	</skill>
+    
+    <skill id="monkey_aura" type="0">
+		<body>monkey_aura</body>
+		<damage>200</damage>
+        <delay>0.1</delay>
+        <life_time>1</life_time>
+		<cool_down>3</cool_down>
+        <critical_chance>0.01</critical_chance>
+        <joints>
+            <holder x="0" y="0" offsetX="0" offsetY="0"></holder>
+            <this x="0" y="0" offsetX="0" offsetY="0"></this>
+        </joints>
+        <animation>skill-aura</animation>
+        <animation_layer>2</animation_layer>
+
+        <texture>
+            <active>skill_1_normal.png</active>
+            <deactive>skill_1_deactive.png</deactive>
+            <selected>skill_1_selected.png</selected>
+        </texture>
+	</skill>
+    
+    <skill id="monkey_ultimate" type="0">
+		<body>monkey_aura</body>
+		<damage>200</damage>
+        <delay>0.1</delay>
+        <life_time>10</life_time>
+		<cool_down>11</cool_down>
+        <critical_chance>0.01</critical_chance>
+        <joints>
+            <holder x="0" y="0" offsetX="0" offsetY="0"></holder>
+            <this x="0" y="0" offsetX="0" offsetY="0"></this>
+        </joints>
+        <animation>skill-aura</animation>
+        <animation_layer>4</animation_layer>
+        <texture>
+            <active>skill_2_normal.png</active>
+            <deactive>skill_2_deactive.png</deactive>
+            <selected>skill_2_selected.png</selected>
+        </texture>
+	</skill>
+    
+    <skill id="monkey_shooting" type="1">
+		<body>arrow</body>
+		<damage>50</damage>
+        <delay>0.1</delay>
+        <life_time>6</life_time>
+		<cool_down>2</cool_down>
+        <critical_chance>0.01</critical_chance>
+        <joints>
+            <holder x="2" y="0" offsetX="0" offsetY="0"></holder>
+            <this x="2" y="0" offsetX="0" offsetY="0"></this>
+        </joints>
+        <animation>skill-arrow</animation>
+        <animation_layer>4</animation_layer>
+        <texture>
+            <active>normal_meelee_normal.png</active>
+            <deactive>normal_meelee_deactive.png</deactive>
+            <selected>normal_meelee_selected.png</selected>
+        </texture>
+
+        <speed>1</speed>
+        <gravity_scale>0</gravity_scale>
+        <collide_terrain>1</collide_terrain>
+        <piercing>0</piercing>
 	</skill>
 </skill_list>

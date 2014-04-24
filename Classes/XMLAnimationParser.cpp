@@ -11,23 +11,25 @@
 
 
 
-CCAnimation* XMLAnimationParser::getAnimationFromXMLNode(tinyxml2::XMLElement *xmlElement)
+CCAnimation* XMLAnimationParser::getAnimationFromXMLNode(tinyxml2::XMLElement *animationXMLElement)
 {
     // Get delay param
-    float delay = atof(xmlElement->Attribute("delay"));
+    float delay = atof(animationXMLElement->Attribute(DELAY_TAG));
+    
+    
+    XMLElement* framelistXMLNode = animationXMLElement->FirstChildElement(FRAME_LIST_TAG);
+
     
     // Get frames
-    CCArray* frames = new CCArray();
+    CCArray* frames = CCArray::create();
     
-    
-    for (XMLElement* element = xmlElement->FirstChildElement("frame"); element; element = element->NextSiblingElement())
+    for (XMLElement* element = animationXMLElement->FirstChildElement(FRAME_TAG); element; element = element->NextSiblingElement())
     {
-        const char* frameName = element->Attribute("name");
+        const char* frameName = element->Attribute(NAME_TAG);
         frames->addObject(CCSpriteFrameCache::sharedSpriteFrameCache()->spriteFrameByName(frameName));
     }
     
     CCAnimation* animation = CCAnimation::createWithSpriteFrames(frames, delay);
-    frames->autorelease();
     
     return animation;
     
@@ -40,24 +42,24 @@ AnimationObject* XMLAnimationParser::getAnimationObjectFromXMLNode(XMLElement *a
     animationObject->retain();
     
     // Get delay param
-    float delay = atof(animationXMLElement->Attribute("delay"));
+    float delay = atof(animationXMLElement->Attribute(DELAY_TAG));
     
     // Get frames
     CCArray* frames = CCArray::create();
     //origin Node
-    XMLElement* originXMLElement = animationXMLElement->FirstChildElement("origin");
+  //  XMLElement* originXMLElement = animationXMLElement->FirstChildElement("origin");
     
-    CCPoint origin;
-    origin.x = atof(originXMLElement->Attribute("x"));
-    origin.y = atof(originXMLElement->Attribute("y"));
+//    CCPoint origin;
+//    origin.x = atof(originXMLElement->Attribute("x"));
+//    origin.y = atof(originXMLElement->Attribute("y"));
     
     //frame Node
-    XMLElement* framelistXMLNode = animationXMLElement->FirstChildElement("framelist");
+    XMLElement* framelistXMLNode = animationXMLElement->FirstChildElement(FRAME_LIST_TAG);
     
     
-    for (XMLElement* element = framelistXMLNode->FirstChildElement("frame"); element; element = element->NextSiblingElement())
+    for (XMLElement* element = framelistXMLNode->FirstChildElement(FRAME_TAG); element; element = element->NextSiblingElement())
     {
-        const char* frameName = element->Attribute("name");
+        const char* frameName = element->Attribute(NAME_TAG);
         frames->addObject(CCSpriteFrameCache::sharedSpriteFrameCache()->spriteFrameByName(frameName));
     }
     
@@ -67,7 +69,7 @@ AnimationObject* XMLAnimationParser::getAnimationObjectFromXMLNode(XMLElement *a
     
     //
     animationObject->setAnimation(animation);
-    animationObject->setOrigin(origin);
+ //   animationObject->setOrigin(origin);
     
     
     

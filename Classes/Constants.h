@@ -9,6 +9,21 @@
 #ifndef TinyZodiacs_Constants_h
 #define TinyZodiacs_Constants_h
 
-#define SKILL_TYPE_0 0
+#include "Cocos2d.h"
+
+#define SKILL_TYPE_0 "0"
+#define SKILL_TYPE_1 "1"
+
+
+#define SKILL_0_BUTTON 0
+#define SKILL_1_BUTTON 1
+#define SKILL_2_BUTTON 2
+
+struct TextureSelector
+{
+    CCSpriteFrame* activeTexture;
+    CCSpriteFrame* deactiveTexture;
+    CCSpriteFrame* selectedTexture;
+};
 
 #endif

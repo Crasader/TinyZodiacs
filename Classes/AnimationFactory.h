@@ -13,6 +13,8 @@
 #include "cocos2d.h"
 #include "AnimationObject.h"
 
+#define OBJECT_ANIMATION
+
 USING_NS_CC;
 
 class AnimationFactory

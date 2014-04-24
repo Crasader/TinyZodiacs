@@ -5,7 +5,11 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
+<<<<<<< HEAD
 	<string>2A68201A-E48B-4D65-8B08-4823DEE8C43C</string>
+=======
+	<string>DE98AA87-0E8D-4D03-B176-173004430841</string>
+>>>>>>> FETCH_HEAD
 	<key>IDESourceControlProjectName</key>
 	<string>TinyZodiacs</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>

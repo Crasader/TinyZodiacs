@@ -30,6 +30,10 @@ USING_NS_CC;
 #define TAG_ATTACK_SPEED "atk_speed"
 #define TAG_MAX_JUMP "max_jump"
 #define TAG_JUMP_HEIGHT "jump_height"
+#define TAG_SKILL_0 "skill_0"
+#define TAG_SKILL_1 "skill_1"
+#define TAG_SKILL_2 "skill_2"
+
 
 #define RUN "-run"
 #define ATTACK "-attack"
@@ -41,13 +45,13 @@ USING_NS_CC;
 
 #define CHARACTER_MONKEY_ID "monkey"
 
-#define CHARACTER_MONKEY_XML_FILE "character_monkey.xml"
+#define CHARACTER_MONKEY_XML_FILE "character_cat.xml"
 
 class CharacterFactory
 {
 private:
 protected:
-    static CharacterDTO loadXMLFile(const char* xmlFileName);
+   
     
     static string readBodyData(tinyxml2::XMLElement* root);
     static int readHealthData(tinyxml2::XMLElement* root);
@@ -58,10 +62,14 @@ protected:
     static int readMaxJumpData(tinyxml2::XMLElement* root);
     static int readJumpHeightData(tinyxml2::XMLElement* root);
     static string readAnimationData(tinyxml2::XMLElement* root);
+    static string readSkill(tinyxml2::XMLElement* root);
 
-    static Hero* createHero(CharacterDTO heroDTOData, b2World* world);
+
+    static Hero* createHero(CharacterDTO heroDTOData, b2World* world, bool isLocal);
+    
 
 public:
-    static Hero* createMonkeyHero(b2World* world);
+    static CharacterDTO loadXMLFile(const char* xmlFileName);
+    static Hero* createMonkeyHero(b2World* world, bool isLocal);
 };
 #endif /* defined(__TinyZodiacs__CharacterFactory__) */

@@ -20,8 +20,15 @@ class SkillData
 private:
 protected:
 public:
+    SkillData();
+    ~SkillData();
+    
     CC_SYNTHESIZE(int, damage, Damage);
     CC_SYNTHESIZE(float, coolDown, CoolDown);
     CC_SYNTHESIZE(float, delay, Delay);
+    CC_SYNTHESIZE(float, lifeTime, LifeTime);
+    CC_SYNTHESIZE(float, critical, Critical);
+    CC_SYNTHESIZE(JointDef, jointDefA, JointDefA);
+    CC_SYNTHESIZE(JointDef, jointDefB, JointDefB);
 };
 #endif /* defined(__TinyZodiacs__SkillData__) */

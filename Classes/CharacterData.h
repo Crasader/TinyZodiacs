@@ -19,6 +19,9 @@ class CharacterData: public ObjectData
 private:
 protected:
 public:
+    CharacterData();
+    ~CharacterData();
+    
     CC_SYNTHESIZE(int, health, Health);
     CC_SYNTHESIZE(int, attack, Attack);
     CC_SYNTHESIZE(int, defense, Defense);
@@ -27,6 +30,11 @@ public:
     CC_SYNTHESIZE(int, jumpHeight, JumpHeight);
     CC_SYNTHESIZE(float, attackSpeed, AttackSpeed);
     CC_SYNTHESIZE(int, maxJumpTimes, MaxJumpTimes);
+    
+    CC_SYNTHESIZE(std::string, skill0, Skill0);
+    CC_SYNTHESIZE(std::string, skill1, Skill1);
+    CC_SYNTHESIZE(std::string, skill2, Skill2);
+
 };
 
 #endif /* defined(__Headball__CharacterData__) */

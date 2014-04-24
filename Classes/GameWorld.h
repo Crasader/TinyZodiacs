@@ -17,13 +17,19 @@
 #include "Map.h"
 #include "NormalAttack.h"
 #include "PhysicBodyManager.h"
+#include "HealthBar.h"
 #include "ScheduleManager.h"
+#include "Monster.h"
 
 USING_NS_CC;
 class GameWorld: public CCNode, public b2ContactListener
 {
 private:
     PhysicBodyManager* manager;
+    
+    CCArray* listCharacter;
+    CCArray* listInfoView;
+    
 protected:
     bool init();
     void createWorldBox();
@@ -40,6 +46,10 @@ public:
     CC_SYNTHESIZE(Character*, character, Character);
     CC_SYNTHESIZE(Map*, map, map);
     
+    CC_SYNTHESIZE(Character*, c1, c1);
+    CC_SYNTHESIZE(Character*, c2, c2);
+    Monster* monster;
+    
     GameWorld();
     virtual ~GameWorld();
     
@@ -51,6 +61,8 @@ public:
 
     virtual void BeginContact(b2Contact *contact);
     virtual void EndContact(b2Contact *contact);
+    virtual void PreSolve(b2Contact* contact, const b2Manifold* oldManifold);
+    virtual void PostSolve(b2Contact* contact, const b2ContactImpulse* impulse);
     
     void setContactListener(b2ContactListener* listener);
     

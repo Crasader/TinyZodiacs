@@ -7,3 +7,13 @@
 //
 
 #include "CharacterDTO.h"
+
+CharacterDTO::CharacterDTO()
+{
+    
+}
+
+CharacterDTO::~CharacterDTO()
+{
+    
+}

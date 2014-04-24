@@ -31,9 +31,15 @@ public:
     void MoveSpriteDown();
     void MoveSprite(float x, float y);
     void Attack();
+    void Skill1();
+    void Skill2();
+    Character* getCharacter();
     
     CC_SYNTHESIZE(CharacterActionEngine*, characterActionEngine, CharacterActionEngine);
+    virtual void ccTouchesBegan(CCSet* pTouches, CCEvent* event);
     
+    CCString *text;
+
     CREATE_FUNC(GameObjectLayer);
 
 private:

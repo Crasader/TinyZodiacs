@@ -20,15 +20,24 @@ private:
     char holder_join_type;
     char this_join_type;
     
-    b2RevoluteJointDef skillJoint;
+    b2Joint* skillJoint;
 protected:
-    virtual void checkCollisionDataInBeginContact(PhysicData* data, b2Contact *contact);
-    virtual void checkCollisionDataInEndContact(PhysicData* data, b2Contact *contact);
+    virtual void checkCollisionDataInBeginContact(PhysicData* data, b2Contact *contact, bool isSideA);
+    virtual void checkCollisionDataInEndContact(PhysicData* data, b2Contact *contact, bool isSideA);
+    
+    virtual void destroyJoint();
+    virtual void createJoint();
+    
+    virtual void initJointType();
+    
+    virtual void setExcuteAble();
+    
 public:
     NormalAttack(GameObject* holder, NormalMeleeSkillData data);
     ~NormalAttack();
     
     CC_SYNTHESIZE(NormalMeleeSkillData, data, Data);
+    CC_SYNTHESIZE(CCSprite*, skillSprite, SkillSprite);
     
     virtual void excute();
     virtual void stop();
@@ -37,6 +46,8 @@ public:
     virtual void EndContact(b2Contact *contact);
     
     virtual void excuteImmediately();
-    virtual void flip();
+    virtual void stopImmediately();
+
+    virtual void setGroup(int group);
 };
 #endif /* defined(__TinyZodiacs__NormalAttack__) */

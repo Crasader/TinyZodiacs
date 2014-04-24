@@ -19,6 +19,8 @@ CharacterJumpState::CharacterJumpState(Character* character): CharacterState(cha
 
 bool CharacterJumpState::onEnterState()
 {
+     CCLOG("enter jump state");
+    
     CCAction* jumpAction = CCAnimate::create(this->character->jumpAnimation->getAnimation());
     CCCallFuncND* callBack = CCCallFuncND::create(NULL, callfuncND_selector(CharacterJumpState::finishJumpAction), this->character);
     
@@ -29,7 +31,7 @@ bool CharacterJumpState::onEnterState()
     
     CCSequence* sequence = CCSequence::create(arr);
     
-    this->character->setAnchorPointForAnimation(this->character->jumpAnimation->getOrigin());
+//    this->character->setAnchorPointForAnimation(this->character->jumpAnimation->getOrigin());
     this->character->getSprite()->runAction(sequence);
     
     return true;

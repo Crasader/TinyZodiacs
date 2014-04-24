@@ -14,6 +14,10 @@
 #include "MapObject.h"
 #include "MapObjectDTO.h"
 
+#include "NoBodyMapObject.h"
+#include "SensorObject.h"
+#include "SensorObjectDTO.h"
+
 class ObjectFactory
 {
 public:
@@ -22,9 +26,13 @@ public:
 
     static ObjectFactory* getSharedManager();
     
-    Character* createCharacter(const std::string &name, b2World *world);
+    Character* createCharacter(const std::string &name, b2World *world, bool isLocal);
     MapObject* createMapObject(const char *idMapObject, b2World *world);
     MapObject* createMapObject(MapObjectDTO* mapObjectDTO, b2World *world);
+    SensorObject* createSensorObject(b2Vec2 dumb, b2World *world, CCPoint position);
+
+    SensorObject* createSensorObject(SensorObjectDTO* sensorObjectDTO, b2World* world);
+
 };
 
 #endif /* defined(__SampleCocosProject__ObjectFactory__) */

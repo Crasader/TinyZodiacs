@@ -13,5 +13,7 @@
 #define RIGHT_BTN_ID "1"
 #define JUMP_BTN_ID "2"
 #define ATK_BTN_ID "3"
+#define SKILL_1_BTN_ID "4"
+#define SKILL_2_BTN_ID "5"
 
 #endif

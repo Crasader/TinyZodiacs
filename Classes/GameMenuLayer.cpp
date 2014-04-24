@@ -62,10 +62,22 @@ bool GameMenuLayer::init()
     mlayer->setRightButtonEventHadler(this);
     mlayer->setJumpButtonEventHadler(this);
     mlayer->setAtkButtonEventHadler(this);
+    mlayer->setSkill1ButtonEventHadler(this);
+    mlayer->setSkill2ButtonEventHadler(this);
+
     
     this->addChild(mlayer, 1);
     
     this->setTouchEnabled(true);
+    
+    
+     label = CCLabelTTF::create("0", "Arial", 30);
+    label->setPosition(ccp(500,500));
+    label->setAnchorPoint(ccp(0,0));
+    
+    this->addChild(label);
+    
+    this->scheduleUpdate();
 
     
     //CONTROLLER
@@ -74,6 +86,7 @@ bool GameMenuLayer::init()
     //this->addChild(mlayer, 1);
 
     
+    this->setTouchEnabled(true);
     return true;
     
     
@@ -88,7 +101,13 @@ void GameMenuLayer::update(float dt)
 //    
 //    if(this->getParent()->getChildByTag(3)!=NULL)
 //        ((GameObjectLayer*)this->getParent()->getChildByTag(3))->MoveSprite(vx*5,vy*5);
+    if(this->getParent()->getChildByTag(3)!=NULL)
+    {
+        label->setString(((GameObjectLayer*)this->getParent()->getChildByTag(3))->text->getCString());
+       }
 
+    
+    
 }
 
 
@@ -121,11 +140,9 @@ void GameMenuLayer::touchBegan(void* sender ,CCSet* pTouches, CCEvent* event)
     std::string id = ((UIObject *)sender)->getID();
     if(id.compare(LEFT_BTN_ID) == 0)
     {
-        CCLOG("left touch began");
     }
     else if(id.compare(RIGHT_BTN_ID) == 0)
     {
-        CCLOG("right touch began");
     }
     else if(id.compare(JUMP_BTN_ID) == 0)
     {
@@ -135,7 +152,21 @@ void GameMenuLayer::touchBegan(void* sender ,CCSet* pTouches, CCEvent* event)
     }
     else if(id.compare(ATK_BTN_ID) == 0)
     {
-       
+        if(this->getParent()->getChildByTag(3)!=NULL)
+            ((GameObjectLayer*)this->getParent()->getChildByTag(3))->Attack();
+
+    }
+    else if(id.compare(SKILL_1_BTN_ID) == 0)
+    {
+        if(this->getParent()->getChildByTag(3)!=NULL)
+            ((GameObjectLayer*)this->getParent()->getChildByTag(3))->Skill1();
+        
+    }
+    else if(id.compare(SKILL_2_BTN_ID) == 0)
+    {
+        if(this->getParent()->getChildByTag(3)!=NULL)
+            ((GameObjectLayer*)this->getParent()->getChildByTag(3))->Skill2();
+        
     }
 }
 void GameMenuLayer::touchHold(void* sender ,CCSet* pTouches, CCEvent* event)
@@ -158,13 +189,16 @@ void GameMenuLayer::touchHold(void* sender ,CCSet* pTouches, CCEvent* event)
     }
     else if(id.compare(ATK_BTN_ID) == 0)
     {
-        if(this->getParent()->getChildByTag(3)!=NULL)
-            ((GameObjectLayer*)this->getParent()->getChildByTag(3))->Attack();
+//        if(this->getParent()->getChildByTag(3)!=NULL)
+//            ((GameObjectLayer*)this->getParent()->getChildByTag(3))->Attack();
+//        if(this->getParent()->getChildByTag(3)!=NULL)
+//            ((GameObjectLayer*)this->getParent()->getChildByTag(3))->MoveSpriteRight();
 
     }
 }
 void GameMenuLayer::touchEnded(void* sender ,CCSet* pTouches, CCEvent* event)
 {
+    ;
     std::string id = ((UIObject *)sender)->getID();
     if(id.compare(LEFT_BTN_ID) == 0)
     {
@@ -182,11 +216,18 @@ void GameMenuLayer::touchEnded(void* sender ,CCSet* pTouches, CCEvent* event)
     }
     else if(id.compare(JUMP_BTN_ID) == 0)
     {
-        CCLOG("jump touch ended");
     }
     else if(id.compare(ATK_BTN_ID) == 0)
     {
-        CCLOG("jump attack ended");
     }
+}
+
+void GameMenuLayer::ccTouchesBegan(cocos2d::CCSet *pTouches, cocos2d::CCEvent *event)
+{
+//    CCTouch* touch = (CCTouch*)pTouches->anyObject();
+//    CCPoint touchPoint = CCDirector::sharedDirector()->convertToGL(touch->getLocationInView()) ;
+//    
+//    
+//    label->setString(CCString::createWithFormat("%0.2f-%0.2f",touchPoint.x,touchPoint.y)->getCString());
 }
 

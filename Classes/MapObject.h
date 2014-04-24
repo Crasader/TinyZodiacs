@@ -16,6 +16,7 @@
 class MapObject: public GameObject
 {
 private:
+    CC_SYNTHESIZE(bool, canPass, CanPass);
 protected:
 public:
     MapObject();

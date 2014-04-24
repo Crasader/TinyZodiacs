@@ -12,15 +12,19 @@
 #include <iostream>
 #include "SkillData.h"
 #include "Box2D/Box2D.h"
+#include "AnimationObject.h"
 
 class NormalMeleeSkillData: public SkillData
 {
 private:
 protected:
 public:
-    CC_SYNTHESIZE(JointDef, jointDefA, JointDefA);
-    CC_SYNTHESIZE(JointDef, jointDefB, JointDefB);
-    CC_SYNTHESIZE(b2Body*, skillSensor, skillSensor);
+    NormalMeleeSkillData();
+    ~NormalMeleeSkillData();
+    
+    CC_SYNTHESIZE(b2Body*, skillSensor, SkillSensor);
+    CC_SYNTHESIZE(AnimationObject*, skillAnimation, SkillAnimation)
+    CC_SYNTHESIZE(int, animationLayerIndex, AnimationLayerIndex);
 };
 
 #endif /* defined(__TinyZodiacs__NormalMeleeSkillData__) */

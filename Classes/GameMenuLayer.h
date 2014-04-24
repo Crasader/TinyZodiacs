@@ -18,6 +18,8 @@
 class GameMenuLayer: public cocos2d::CCLayer, public iUIObjectTouchEventInterface
 {
 public:
+    CCLabelTTF* label;
+    
     virtual bool init();
     virtual void update(float dt);
     CREATE_FUNC(GameMenuLayer);
@@ -26,6 +28,8 @@ public:
     void RightCallBack(cocos2d::CCObject* sender);
     void UpCallBack(cocos2d::CCObject* sender);
     void DownCallBack(cocos2d::CCObject* sender);
+
+    virtual void ccTouchesBegan(CCSet* pTouches, CCEvent* event);
     
 
 

@@ -14,63 +14,201 @@ MapObjectDTO* XMLMapParser::getMapObjectDTOFromXMLNode(XMLElement *mapObjectXMLE
     MapObjectDTO *mapObjectDTO = MapObjectDTO::create();
     
     //id
-    mapObjectDTO->id  = mapObjectXMLElement->Attribute(MAP_OBJECT_ID);
+    mapObjectDTO->id  = mapObjectXMLElement->Attribute(ATTRIBUTE_MAP_OBJECT_ID);
     
     //image name
-    mapObjectDTO->imageName = mapObjectXMLElement->Attribute(MAP_OBJECT_IMAGE_NAME);
+    mapObjectDTO->imageName = mapObjectXMLElement->Attribute(ATTRIBUTE_MAP_OBJECT_IMAGE_NAME);
     
     //body name
-    mapObjectDTO->bodyName = mapObjectXMLElement->Attribute(MAP_OBJECT_BODY_NAME);
+    if(mapObjectXMLElement->Attribute(ATTRIBUTE_MAP_OBJECT_BODY_NAME) != NULL)
+        mapObjectDTO->bodyName = mapObjectXMLElement->Attribute(ATTRIBUTE_MAP_OBJECT_BODY_NAME);
     
-    XMLElement* positionXMLElement = mapObjectXMLElement->FirstChildElement(MAP_OBJECT_POSITION);
+    mapObjectDTO->layerIndex = atof(mapObjectXMLElement->Attribute(ATTRIBUTE_LAYER_INDEX));
     
-    mapObjectDTO->x = atof(positionXMLElement->Attribute(MAP_OBJECT_POSITION_X));
-    mapObjectDTO->y = atof(positionXMLElement->Attribute(MAP_OBJECT_POSITION_Y));
+    //position
+    if(mapObjectXMLElement->FirstChildElement(TAG_POSITION) != NULL)
+    {
+        XMLElement* positionXMLElement = mapObjectXMLElement->FirstChildElement(TAG_POSITION);
+        
+        mapObjectDTO->x = atof(positionXMLElement->Attribute(ATTRIBUTE_POSITION_X));
+        mapObjectDTO->y = atof(positionXMLElement->Attribute(ATTRIBUTE_POSITION_Y));
+    }
     
+    //can pass
+    if(mapObjectXMLElement->FirstChildElement(TAG_CAN_PASS) != NULL)
+    {
+        mapObjectDTO->canPass = strcasecmp("false", mapObjectXMLElement->FirstChildElement(TAG_CAN_PASS)->GetText());
+    }
     return mapObjectDTO;
 }
 
 MapDTO* XMLMapParser::getMapDTOFromXMLNode(XMLElement *mapXMLElement)
 {
     MapDTO* mapDTO = MapDTO::create();
-    mapDTO->retain();
     
-    mapDTO->id = mapXMLElement->Attribute(MAP_ID);
-    mapDTO->width = atof(mapXMLElement->Attribute(MAP_WIDTH));
-    mapDTO->height = atof(mapXMLElement->Attribute(MAP_HEIGHT));
+    mapDTO->id = mapXMLElement->Attribute(ATTRIBUTE_MAP_ID);
+    mapDTO->width = atof(mapXMLElement->Attribute(ATTRIBUTE_MAP_WIDTH));
+    mapDTO->height = atof(mapXMLElement->Attribute(ATTRIBUTE_MAP_HEIGHT));
     
     //list map object
-    XMLElement* mapObjectListXMLNode = mapXMLElement->FirstChildElement(MAP_OBJECT_LIST);
+    XMLElement* mapObjectListXMLNode = mapXMLElement->FirstChildElement(TAG_MAP_OBJECT_LIST);
     
-    for (XMLElement* element = mapObjectListXMLNode->FirstChildElement(MAP_OBJECT); element; element = element->NextSiblingElement())
+    for (XMLElement* element = mapObjectListXMLNode->FirstChildElement(TAG_MAP_OBJECT); element; element = element->NextSiblingElement())
     {
         mapDTO->listMapObjectDTO->addObject(XMLMapParser::getMapObjectDTOFromXMLNode(element));
     }
     
     //list background
-    XMLElement* backgroundListXMLNode = mapXMLElement->FirstChildElement(BACKGROUND_LIST);
+    XMLElement* backgroundListXMLNode = mapXMLElement->FirstChildElement(TAG_BACKGROUND_LIST);
     
-    for (XMLElement* element = backgroundListXMLNode->FirstChildElement(BACKGROUND); element; element = element->NextSiblingElement())
+    for (XMLElement* element = backgroundListXMLNode->FirstChildElement(TAG_BACKGROUND); element; element = element->NextSiblingElement())
     {
         mapDTO->listBackgroundDTO->addObject(XMLMapParser::getBackgroundDTOFromXMLNode(element));
     }
     
+<<<<<<< HEAD
+=======
+    //list foreground
+    XMLElement* foregroundListXMLNode = mapXMLElement->FirstChildElement(TAG_FOREGROUND_LIST);
+    
+    for (XMLElement* element = foregroundListXMLNode->FirstChildElement(TAG_FOREGROUND); element; element = element->NextSiblingElement())
+    {
+        mapDTO->listForegroundDTO->addObject(XMLMapParser::getForegroundDTOFromXMLNode(element));
+    }
+    
+    //list sensor
+    XMLElement* sensorListXMLNode = mapXMLElement->FirstChildElement(TAG_SENSOR_OBJECT_LIST);
+    
+    for (XMLElement* element = sensorListXMLNode->FirstChildElement(TAG_SENSOR_OBJECT); element; element = element->NextSiblingElement())
+    {
+        mapDTO->listSensorObjectDTO->addObject(XMLMapParser::getSensorObjectDTOFromXMLNode(element));
+    }
+    
+>>>>>>> FETCH_HEAD
     return mapDTO;
 }
 
 BackgroundDTO* XMLMapParser::getBackgroundDTOFromXMLNode(XMLElement *backgroundXMLElement)
 {
     BackgroundDTO* backgroundDTO = BackgroundDTO::create();
-    backgroundDTO->retain();
     
+<<<<<<< HEAD
     backgroundDTO->imageName = backgroundXMLElement->Attribute(BACKGROUND_IMAGE_NAME);
     backgroundDTO->spritesheetName = backgroundXMLElement->Attribute(BACKGROUND_SPRITESHEET_NAME);
     backgroundDTO->ratioX = atof(backgroundXMLElement->Attribute(BACKGROUND_RATIO_X));
     backgroundDTO->ratioY = atof(backgroundXMLElement->Attribute(BACKGROUND_RATIO_Y));
     backgroundDTO->orderIndex = atof(backgroundXMLElement->Attribute(BACKGROUND_ORDER_INDEX));
+=======
+    backgroundDTO->imageName = backgroundXMLElement->Attribute(ATTRIBUTE_BACKGROUND_IMAGE_NAME);
+    backgroundDTO->spritesheetName = backgroundXMLElement->Attribute(ATTRIBUTE_BACKGROUND_SPRITESHEET_NAME);
+    
+    XMLElement* ratioElement = backgroundXMLElement->FirstChildElement(TAG_RATIO);
+    backgroundDTO->ratioX = atof(ratioElement->Attribute(ATTRIBUTE_RATIO_X));
+    backgroundDTO->ratioY = atof(ratioElement->Attribute(ATTRIBUTE_RATIO_Y));
+    backgroundDTO->orderIndex = atof(backgroundXMLElement->Attribute(ATTRIBUTE_LAYER_INDEX));
+>>>>>>> FETCH_HEAD
     
     return backgroundDTO;
 }
 
+<<<<<<< HEAD
+=======
+ForegroundDTO* XMLMapParser::getForegroundDTOFromXMLNode(XMLElement* foregroundXMLElement)
+{
+    ForegroundDTO* foregroundDTO = ForegroundDTO::create();
+    
+    foregroundDTO->imageName = foregroundXMLElement->Attribute(ATTRIBUTE_FOREGROUND_IMAGE_NAME);
+    foregroundDTO->layerIndex = atof(foregroundXMLElement->Attribute(ATTRIBUTE_LAYER_INDEX));
+    
+    XMLElement* ratioElement = foregroundXMLElement->FirstChildElement(TAG_RATIO);
+    foregroundDTO->ratioX = atof(ratioElement->Attribute(ATTRIBUTE_RATIO_X));
+    foregroundDTO->ratioY = atof(ratioElement->Attribute(ATTRIBUTE_RATIO_Y));
+    
+    
+    XMLElement* positionElement = foregroundXMLElement->FirstChildElement(TAG_POSITION);
+    foregroundDTO->positionX = atof(positionElement->Attribute(ATTRIBUTE_POSITION_X));
+    foregroundDTO->positionY = atof(positionElement->Attribute(ATTRIBUTE_POSITION_Y));
+    
+    return foregroundDTO;
+}
+
+SensorObjectDTO* XMLMapParser::getSensorObjectDTOFromXMLNode(XMLElement* sensorObjectXMLElement)
+{
+    SensorObjectDTO *sensorObjectDTO = SensorObjectDTO::create();
+    
+    
+    sensorObjectDTO->isBack = strcasecmp("false", sensorObjectXMLElement->Attribute(ATTRIBUTE_SENSOR_OBJECT_ISBACK));
+    sensorObjectDTO->mustStop = strcasecmp("false", sensorObjectXMLElement->Attribute(ATTRIBUTE_SENSOR_OBJECT_MUSTSTOP));
+    sensorObjectDTO->moveSpeed = atof(sensorObjectXMLElement->Attribute(ATTRIBUTE_SENSOR_OBJECT_MOVE_SPEED));
+    sensorObjectDTO->jumpHeight = atof(sensorObjectXMLElement->Attribute(ATTRIBUTE_SENSOR_OBJECT_JUMP_HEIGHT));
+    
+    const char* direc = sensorObjectXMLElement->Attribute(ATTRIBUTE_SENSOR_OBJECT_DIRECTION);
+    
+    if(strcasecmp(direc, "left")==0)
+    {
+        sensorObjectDTO->direction = LEFT;
+    }
+    else
+    {
+        sensorObjectDTO->direction = RIGHT;
+    }
+    
+    //position
+    if(sensorObjectXMLElement->FirstChildElement(TAG_POSITION) != NULL)
+    {
+        XMLElement* positionXMLElement = sensorObjectXMLElement->FirstChildElement(TAG_POSITION);
+        
+        sensorObjectDTO->x = atof(positionXMLElement->Attribute(ATTRIBUTE_POSITION_X));
+        sensorObjectDTO->y = atof(positionXMLElement->Attribute(ATTRIBUTE_POSITION_Y));
+    }
+    
+    
+    if(sensorObjectXMLElement->FirstChildElement(TAG_EDGE) != NULL)
+    {
+        XMLElement* positionXMLElement = sensorObjectXMLElement->FirstChildElement(TAG_EDGE);
+        
+        sensorObjectDTO->edge_x = atof(positionXMLElement->Attribute(ATTRIBUTE_EDGE_X));
+        sensorObjectDTO->edge_y = atof(positionXMLElement->Attribute(ATTRIBUTE_EDGE_Y));
+    }
+    
+    if(sensorObjectXMLElement->FirstChildElement(TAG_LANE) != NULL)
+    {
+        XMLElement* laneXMLElement = sensorObjectXMLElement->FirstChildElement(TAG_LANE);
+        //
+        char* laneString = (char*)laneXMLElement->GetText();
+        
+        if(laneString!=NULL)
+        {
+            char buffer[128] = {0};
+            int count = 0;
+            for(int i=0;i<strlen(laneString);i++)
+            {
+                if(laneString[i] != ' ')
+                {
+                    buffer[count] = laneString[i];
+                    count++;
+                }
+            }
+            
+            const char s[2] = ",";
+            
+            char *token;
+            
+            /* get the first token */
+            token = std::strtok(buffer, s);
+            
+            /* walk through other tokens */
+            while( token != NULL )
+            {
+                sensorObjectDTO->listLaneID.push_back(atoi(token));
+                token = strtok(NULL, s);
+            }
+        }
+    }
+    return sensorObjectDTO;
+}
+
+
+>>>>>>> FETCH_HEAD
 
 

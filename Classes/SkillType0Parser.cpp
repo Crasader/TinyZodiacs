@@ -7,6 +7,8 @@
 //
 
 #include "SkillType0Parser.h"
+#include "AnimationFactory.h"
+#include "LayerIndexConstants.h"
 
 int SkillType0Parser::readDamage(const XMLElement* root)
 {
@@ -24,10 +26,21 @@ float SkillType0Parser::readCoolDown(const XMLElement* root)
     if(root != NULL)
     {
         string coolDownValue = root->GetText();
-        float value = atoi(coolDownValue.c_str());
+        float value = atof(coolDownValue.c_str());
         return value;
     }
     return 0;
+}
+
+float SkillType0Parser::readLifeTime(const XMLElement* root)
+{
+    if(root != NULL)
+    {
+        string coolDownValue = root->GetText();
+        float value = atof(coolDownValue.c_str());
+        return value;
+    }
+    return -1;
 }
 
 JointDef SkillType0Parser::readJoinDef(const XMLElement* root)
@@ -42,10 +55,10 @@ JointDef SkillType0Parser::readJoinDef(const XMLElement* root)
         int y = atoi(yString.c_str());
         
         string xOffsetString = root->Attribute(ATTRIBUTE_OFFSET_X);
-        int xOffset = atoi(xOffsetString.c_str());
+        float xOffset = atof(xOffsetString.c_str());
         
         string yOffsetString = root->Attribute(ATTRIBUTE_OFFSET_Y);
-        int yOffset = atoi(yOffsetString.c_str());
+        float yOffset = atof(yOffsetString.c_str());
         
         def.x=x;
         def.y=y;
@@ -91,15 +104,66 @@ float SkillType0Parser::readDelay(const XMLElement* root)
     return 0;
 }
 
+float SkillType0Parser::readCriticalChance(const XMLElement* root)
+{
+    if(root != NULL)
+    {
+        string typeValue = root->GetText();
+        float value = atof(typeValue.c_str());
+        return value;
+    }
+    return 0;
+}
+
+AnimationObject* SkillType0Parser::readAnimation(const XMLElement* root)
+{
+    if(root != NULL)
+    {
+        string typeValue = root->GetText();
+        if(typeValue.length() ==0)
+        {
+            return NULL;
+        }
+        AnimationObject* anim = AnimationFactory::getSharedFactory()->getAnimationObjectByName(typeValue.c_str());
+        return anim;
+    }
+    return NULL;
+
+}
+
+int SkillType0Parser::readAnimationLayerIndex(const XMLElement* root)
+{
+    if(root != NULL)
+    {
+        string layerValue = root->GetText();
+        int value = atoi(layerValue.c_str());
+        return value;
+    }
+    return ABOVE_CHARACTER_LAYER;
+}
+
+
 NormalMeleeSkillData SkillType0Parser::parse(const XMLElement* root, b2World* world)
 {
     NormalMeleeSkillData data;
     data.setDamage(readDamage(root->FirstChildElement(TAG_DAMAGE)));
-    data.setCoolDown(readDamage(root->FirstChildElement(TAG_COOL_DOWN)));
+    data.setCoolDown(readCoolDown(root->FirstChildElement(TAG_COOL_DOWN)));
     data.setDelay(readDelay(root->FirstChildElement(TAG_DELAY)));
-    data.setskillSensor(readBody(root->FirstChildElement(TAG_BODY), world));
+    data.setLifeTime(readLifeTime(root->FirstChildElement(TAG_LIFE_TIME)));
+    data.setSkillSensor(readBody(root->FirstChildElement(TAG_BODY), world));
     data.setJointDefA(readJoinDef(root->FirstChildElement(TAG_JOINTS)->FirstChildElement(TAG_HOLDER)));
     data.setJointDefB(readJoinDef(root->FirstChildElement(TAG_JOINTS)->FirstChildElement(TAG_THIS)));
+    data.setCritical(readCriticalChance(root->FirstChildElement(TAG_CRITICAL_CHANCE)));
+    data.setAnimationLayerIndex(readAnimationLayerIndex(root->FirstChildElement(TAG_ANIMATION_LAYER)));
 
+    if(root->FirstChildElement(TAG_ANIMATION) != NULL)
+    {
+        data.setSkillAnimation(readAnimation(root->FirstChildElement(TAG_ANIMATION)));
+    }
+    else
+    {
+        data.setSkillAnimation(NULL);
+    }
+    
     return data;
 }

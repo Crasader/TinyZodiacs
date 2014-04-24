@@ -21,10 +21,10 @@ CharacterMoveState::CharacterMoveState(Character* character): CharacterState(cha
 
 bool CharacterMoveState::onEnterState()
 {
+    CCLOG("enter move state");
     this->character->runAnimation->getAnimation()->setLoops(INFINITY);
-    this->character->getSprite()->stopAllActions();
     this->character->getSprite()->runAction(CCAnimate::create(this->character->runAnimation->getAnimation()));
-    this->character->setAnchorPointForAnimation(this->character->runAnimation->getOrigin());
+//    this->character->setAnchorPointForAnimation(this->character->runAnimation->getOrigin());
     
     return true;
 }
@@ -38,7 +38,7 @@ bool CharacterMoveState::onExitState()
 void CharacterMoveState::update(float dt)
 {
    
-    if(this->character->getLanding())
+    if(this->character->getLanding() > 0)
     {
        
         if((this->character->getBody()->GetLinearVelocity().x < 2 && this->character->getBody()->GetLinearVelocity().x >-2))
@@ -49,6 +49,7 @@ void CharacterMoveState::update(float dt)
     }
     else
     {
+        CCLOG("landing %d", this->character->getLanding());
         this->character->changeState(new CharacterMidAirState(this->character));
        //CCLOG("%d", this->character->getLanding());
     }

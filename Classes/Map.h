@@ -14,6 +14,8 @@
 #include "MapObject.h"
 #include "Box2D/Box2D.h"
 #include "Character.h"
+#include "HealthBar.h"
+#include "SensorObject.h"
 
 
 class Map: public cocos2d::CCNode
@@ -21,14 +23,15 @@ class Map: public cocos2d::CCNode
 private:
 
     cocos2d::CCArray* listMapObject;
+    cocos2d::CCArray* listSensorObject;
+    
+    HealthBar* bar;
     
 protected:
 public:
     CC_SYNTHESIZE(float, width, Width);
     CC_SYNTHESIZE(float, height, Height);
     CC_SYNTHESIZE(CCParallaxNode*, parallaxBackground, ParallaxBackground);
-  
-    
     
     Map();
     virtual ~Map();
@@ -38,9 +41,15 @@ public:
     CREATE_FUNC(Map);
     
     void addMapObject(MapObject* mapObject);
+    void addSensorObject(SensorObject* sensorObject);
+
     void attachAllMapObject();
     void addParallaxBackground(CCParallaxNode* parallaxBackground);
- 
+
+    void addParallaxForeground(CCParallaxNode* parallaxForeground);
+
+    void BeginContact(b2Contact *contact);
+    void EndContact(b2Contact *contact);
     
 };
 

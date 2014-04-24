@@ -10,7 +10,7 @@
 #define __TinyZodiacs__MapObjectDTO__
 
 #include <iostream>
-#include "Cocos2d.h"
+#include "cocos2d.h"
 
 using namespace std;
 USING_NS_CC;
@@ -29,7 +29,9 @@ public:
     std::string bodyName;
     float x;
     float y;
-    
+
+    float layerIndex;
+    bool canPass;
     CREATE_FUNC(MapObjectDTO);
 };
 

@@ -1,4 +1,4 @@
-<character_animation name="monkey" plist_name="monkey_spritesheet.plist" image_name="monkey_spritesheet.png">
+<object_animation name="monkey" plist_name="monkey_spritesheet.plist" image_name="monkey_spritesheet.png">
     <animation name="run" delay="0.06">
         <origin x="0.55" y="0.5" />
         <framelist>
@@ -90,4 +90,4 @@
         	<frame name="monkey_idle_9.png" />
         </framelist>
     </animation>
-</character_animation>
+</object_animation>

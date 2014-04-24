@@ -13,8 +13,7 @@ using namespace tinyxml2;
 
 CharacterDTO CharacterFactory::loadXMLFile(const char *xmlFileName)
 {
-    
-    //
+
     CharacterDTO data;
     
     std::string fullPath = CCFileUtils::sharedFileUtils()->fullPathForFilename(xmlFileName);
@@ -24,7 +23,7 @@ CharacterDTO CharacterFactory::loadXMLFile(const char *xmlFileName)
     
     pFileData = (unsigned char*) CCFileUtils::sharedFileUtils()->getFileData(fullPath.c_str(), "r", &dataSize);
     //    CCLOG("Empty file: %s", fullPath.c_str());
-    
+
     if (!pFileData)
     {
         //        CCLOG("Empty file: %s", fullPath.c_str());
@@ -51,6 +50,10 @@ CharacterDTO CharacterFactory::loadXMLFile(const char *xmlFileName)
     data.data.setAttackSpeed(readAttackSpeedData(docElement->FirstChildElement(TAG_ATTACK_SPEED)));
     data.data.setMaxJumpTimes(readMaxJumpData(docElement->FirstChildElement(TAG_MAX_JUMP)));
     data.data.setJumpHeight(readJumpHeightData(docElement->FirstChildElement(TAG_JUMP_HEIGHT)));
+    data.data.setSkill0(readSkill(docElement->FirstChildElement(TAG_SKILL_0)));
+    data.data.setSkill1(readSkill(docElement->FirstChildElement(TAG_SKILL_1)));
+    data.data.setSkill2(readSkill(docElement->FirstChildElement(TAG_SKILL_2)));
+
     
     delete []pFileData;
     return data;
@@ -96,6 +99,16 @@ int CharacterFactory::readAttackData(tinyxml2::XMLElement* root)
         return value;
     }
     return 0;
+}
+
+string CharacterFactory::readSkill(tinyxml2::XMLElement *root)
+{
+    if(root != NULL)
+    {
+        string skillId = root->GetText();
+        return skillId;
+    }
+    return NULL;
 }
 
 int CharacterFactory::readDefenseData(tinyxml2::XMLElement* root)
@@ -153,10 +166,10 @@ int CharacterFactory::readJumpHeightData(tinyxml2::XMLElement* root)
     return 1;
 }
 
-Hero* CharacterFactory::createHero(CharacterDTO heroDTOData, b2World* world)
+Hero* CharacterFactory::createHero(CharacterDTO heroDTOData, b2World* world, bool isLocal)
 {
     Hero* hero = Hero::create();
-
+//    hero->getSprite()->setScale(0);
     //
     hero->setOriginCharacterData(heroDTOData.data);
     
@@ -174,7 +187,7 @@ Hero* CharacterFactory::createHero(CharacterDTO heroDTOData, b2World* world)
     hero->idleAnimation = AnimationFactory::getSharedFactory()->getAnimationObjectByName(idle.append(IDLE).c_str());
     hero->fallAnimation = AnimationFactory::getSharedFactory()->getAnimationObjectByName(fall.append(FALL).c_str());
     hero->flyAnimation = AnimationFactory::getSharedFactory()->getAnimationObjectByName(fly.append(FLY).c_str());
-    
+//    
     hero->attackAnimation->getAnimation()->setDelayPerUnit(hero->getOriginCharacterData().getAttackSpeed());
     
     //Create body
@@ -188,29 +201,33 @@ Hero* CharacterFactory::createHero(CharacterDTO heroDTOData, b2World* world)
     
     gbox2d::GB2ShapeCache *sc =  gbox2d::GB2ShapeCache::sharedGB2ShapeCache();
     sc->addFixturesToBody(body, heroDTOData.body.c_str());
+    hero->setSpriteAnchorPoint(sc->anchorPointForShape(heroDTOData.body.c_str()));
     hero->getSprite()->setAnchorPoint(sc->anchorPointForShape(heroDTOData.body.c_str()));
+    
+    //hero->getSprite()->setScale(0);
     //
-    hero->getSprite()->setScale(0);
     hero->setSkin(body, hero->getSprite());
     
-    hero->setNormalAttack(SkillFactory::createSkill("monkey_normal_attack", world, hero));
-    
+    hero->setNormalAttack(SkillFactory::createSkill(heroDTOData.data.getSkill0().c_str(), world, hero, isLocal, SKILL_0_BUTTON));
+    hero->setSkill1(SkillFactory::createSkill(heroDTOData.data.getSkill1().c_str(), world, hero, isLocal, SKILL_1_BUTTON));
+    hero->setSkill2(SkillFactory::createSkill(heroDTOData.data.getSkill2().c_str(), world, hero, isLocal, SKILL_2_BUTTON));
+    //
     hero->retain();
-    
     //
 
     
     return hero;
 }
 
-Hero* CharacterFactory::createMonkeyHero(b2World* world)
+Hero* CharacterFactory::createMonkeyHero(b2World* world, bool isLocal)
 {
     if (world == NULL) {
         return  NULL;
     }
     CharacterDTO dtoData = loadXMLFile(CHARACTER_MONKEY_XML_FILE);
     
-    return createHero(dtoData, world);
+    Hero* hero = createHero(dtoData, world, isLocal);
+    return hero;
 }
 
 

@@ -19,7 +19,7 @@ bool Hero::init()
     {
         return false;
     }
-    this->sprite = CCSprite::create();
+    this->sprite = CCSprite::createWithSpriteFrameName("cat_idle_1.png");
     
     return true;
 }

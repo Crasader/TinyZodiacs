@@ -13,13 +13,15 @@
 #include "ObjectFactory.h"
 #include "GLES-Render.h"
 #include "MapCreator.h"
+#include "MonsterFactory.h"
 
 
 USING_NS_CC;
 
 GameObjectLayer::GameObjectLayer()
 {
-    
+    text = CCString::create("dsdsd");
+    text->retain();
 }
 
 GameObjectLayer::~GameObjectLayer()
@@ -42,6 +44,7 @@ bool GameObjectLayer::init()
     
     this->characterActionEngine = new CharacterActionEngine(this->gameWorld->getCharacter());
     
+    this->setTouchEnabled(true);
     this->scheduleUpdate();
     
     return true;
@@ -53,7 +56,7 @@ void GameObjectLayer::draw()
 
 void GameObjectLayer::update(float dt)
 {
-      this->gameWorld->update(dt);
+    this->gameWorld->update(dt);
 }
 
 void GameObjectLayer::MoveSprite(float x, float y)
@@ -91,5 +94,34 @@ void GameObjectLayer::MoveSpriteRight()
 void GameObjectLayer::Attack()
 {
 //    this->gameWorld->getCharacter()->attack();
-    this->characterActionEngine->attack();
+    //this->characterActionEngine->attack();
+    
+    MonsterFactory::getSharedFactory()->removeMonster(NULL);
 }
+
+void GameObjectLayer::Skill1()
+{
+    //    this->gameWorld->getCharacter()->attack();
+    this->characterActionEngine->skill1();
+}
+
+void GameObjectLayer::Skill2()
+{
+    //    this->gameWorld->getCharacter()->attack();
+    this->characterActionEngine->skill2();
+}
+
+Character* GameObjectLayer::getCharacter(){
+    return this->characterActionEngine->getCharacter();
+}
+
+void GameObjectLayer::ccTouchesBegan(cocos2d::CCSet *pTouches, cocos2d::CCEvent *event)
+{
+    CCTouch* touch = (CCTouch*)pTouches->anyObject();
+    CCPoint touchPoint = CCDirector::sharedDirector()->convertToGL(touch->getLocationInView()) ;
+    
+    CCPoint temp =   this->gameWorld->convertToNodeSpace(touchPoint);
+    text = CCString::createWithFormat("%0.2f-%0.2f",temp.x,temp.y);
+    text->retain();
+}
+

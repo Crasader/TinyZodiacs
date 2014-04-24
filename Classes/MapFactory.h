@@ -22,7 +22,6 @@ private:
     MapFactory();
     cocos2d::CCDictionary* mapDTODictionary;
 public:
-    
     virtual ~MapFactory();
     
     static MapFactory* getSharedFactory();

@@ -116,32 +116,16 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "../classes/SkillFactory.cpp"
-            timestampString = "417689535.378718"
+            filePath = "../Classes/NormalProjectile.cpp"
+            timestampString = "419229500.371946"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "52"
-            endingLineNumber = "52"
-            landmarkName = "SkillFactory::loadXMLFile(const char* id, const char *xmlFileName, b2World* world, GameObject* holder)"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "../classes/SkillType0Parser.cpp"
-            timestampString = "417697545.337933"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "89"
-            endingLineNumber = "89"
-            landmarkName = "SkillType0Parser::readDelay(const XMLElement* root)"
+            startingLineNumber = "248"
+            endingLineNumber = "248"
+            landmarkName = "NormalProjectile::checkCollisionDataInEndContact(PhysicData* data, b2Contact *contact, bool isSideA)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

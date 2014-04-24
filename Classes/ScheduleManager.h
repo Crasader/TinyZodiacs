@@ -23,10 +23,13 @@ protected:
     ScheduleManager();
     ~ScheduleManager();
 public:
-    void scheduleForGameObject(GameObject* object, float duration);
-    void scheduleForSkill(AbstractSkill* object, float duration);
-
-    static ScheduleManager* getInstance();
+    CCSequence* scheduleForGameObject(GameObject* object, float duration);
+    void scheduleForSkill(AbstractSkill* object, float duration, int fuctionCall);
+    void stopScheduledObjectAction(CCSequence* target);
+    
+    void scheduleFunction(CCCallFunc* callFunction, CCCallFunc* endFunction, float duration, int repeatTime);
+       static ScheduleManager* getInstance();
+    void finishScheduleFunction(CCNode* sender, void* data);
     static void release();
 
 };
