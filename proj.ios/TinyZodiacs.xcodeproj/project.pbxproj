@@ -256,6 +256,7 @@
 		51136AE51908E8C300317D3A /* cat_animation.xml in Resources */ = {isa = PBXBuildFile; fileRef = 51136AE31908E8C300317D3A /* cat_animation.xml */; };
 		51136AE61908E8C300317D3A /* skill_animation.xml in Resources */ = {isa = PBXBuildFile; fileRef = 51136AE41908E8C300317D3A /* skill_animation.xml */; };
 		51136AE81908E91000317D3A /* character_cat.xml in Resources */ = {isa = PBXBuildFile; fileRef = 51136AE71908E91000317D3A /* character_cat.xml */; };
+		51136AEA1908F60300317D3A /* monster.xml in Resources */ = {isa = PBXBuildFile; fileRef = 51136AE91908F60300317D3A /* monster.xml */; };
 		7855E0E1153FEF240059DD9A /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 7855E0DF153FEF240059DD9A /* Default.png */; };
 		BF171245129291EC00B8313A /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF170DB012928DE900B8313A /* OpenGLES.framework */; };
 		BF1712461292920000B8313A /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BF170DB212928DE900B8313A /* libxml2.dylib */; };
@@ -880,6 +881,7 @@
 		51136AE31908E8C300317D3A /* cat_animation.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = cat_animation.xml; sourceTree = "<group>"; };
 		51136AE41908E8C300317D3A /* skill_animation.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = skill_animation.xml; sourceTree = "<group>"; };
 		51136AE71908E91000317D3A /* character_cat.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = character_cat.xml; sourceTree = "<group>"; };
+		51136AE91908F60300317D3A /* monster.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = monster.xml; sourceTree = "<group>"; };
 		7855E0DF153FEF240059DD9A /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = SOURCE_ROOT; };
 		BF170DB012928DE900B8313A /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		BF170DB212928DE900B8313A /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
@@ -1010,12 +1012,6 @@
 		F59E0BDB18D85E90001048BD /* NormalAttack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NormalAttack.h; sourceTree = "<group>"; };
 		F5A46B24190508A900A8FF55 /* SensorObject.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SensorObject.cpp; sourceTree = "<group>"; };
 		F5A46B25190508A900A8FF55 /* SensorObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SensorObject.h; sourceTree = "<group>"; };
-		F5A6F7A918E16AAF008C145C /* map2_background_spritesheet.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = map2_background_spritesheet.plist; sourceTree = "<group>"; };
-		F5A6F7AA18E16AAF008C145C /* map2_background_spritesheet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = map2_background_spritesheet.png; sourceTree = "<group>"; };
-		F5A6F7AB18E16AAF008C145C /* map2_background3_spritesheet.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = map2_background3_spritesheet.plist; sourceTree = "<group>"; };
-		F5A6F7AC18E16AAF008C145C /* map2_background3_spritesheet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = map2_background3_spritesheet.png; sourceTree = "<group>"; };
-		F5A6F7B118E16AD9008C145C /* map2_background2_spritesheet.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = map2_background2_spritesheet.plist; sourceTree = "<group>"; };
-		F5A6F7B218E16AD9008C145C /* map2_background2_spritesheet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = map2_background2_spritesheet.png; sourceTree = "<group>"; };
 		F5AE36A71906799900FB7519 /* SensorObjectDTO.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SensorObjectDTO.cpp; sourceTree = "<group>"; };
 		F5AE36A81906799900FB7519 /* SensorObjectDTO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SensorObjectDTO.h; sourceTree = "<group>"; };
 		F5B4B79218E66E8700E4C2AA /* GameObjectInfoView.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameObjectInfoView.cpp; sourceTree = "<group>"; };
@@ -1041,7 +1037,6 @@
 		F5E2929418E6768F00B9B152 /* InfoViewCreator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InfoViewCreator.h; sourceTree = "<group>"; };
 		F5E2929618E6779500B9B152 /* Player.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Player.cpp; sourceTree = "<group>"; };
 		F5E2929718E6779500B9B152 /* Player.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Player.h; sourceTree = "<group>"; };
-		F5EE379418FE1968001CC636 /* monster.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = monster.xml; sourceTree = "<group>"; };
 		F5FA5B5C1900E78300B80EF0 /* ParameterObject.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ParameterObject.cpp; sourceTree = "<group>"; };
 		F5FA5B5D1900E78300B80EF0 /* ParameterObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParameterObject.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -2443,12 +2438,6 @@
 		F5C89DF918D2FC9B006E909D /* Background */ = {
 			isa = PBXGroup;
 			children = (
-				F5A6F7B118E16AD9008C145C /* map2_background2_spritesheet.plist */,
-				F5A6F7B218E16AD9008C145C /* map2_background2_spritesheet.png */,
-				F5A6F7A918E16AAF008C145C /* map2_background_spritesheet.plist */,
-				F5A6F7AA18E16AAF008C145C /* map2_background_spritesheet.png */,
-				F5A6F7AB18E16AAF008C145C /* map2_background3_spritesheet.plist */,
-				F5A6F7AC18E16AAF008C145C /* map2_background3_spritesheet.png */,
 			);
 			name = Background;
 			sourceTree = "<group>";
@@ -2478,7 +2467,7 @@
 		F5EE379318FE192B001CC636 /* Monster */ = {
 			isa = PBXGroup;
 			children = (
-				F5EE379418FE1968001CC636 /* monster.xml */,
+				51136AE91908F60300317D3A /* monster.xml */,
 			);
 			name = Monster;
 			sourceTree = "<group>";
@@ -2554,6 +2543,7 @@
 			files = (
 				7855E0E1153FEF240059DD9A /* Default.png in Resources */,
 				D4EF949A15BD2D8B00D803EB /* Icon-57.png in Resources */,
+				51136AEA1908F60300317D3A /* monster.xml in Resources */,
 				F52678F618EEAEA500CE1E3B /* map1_background_spritesheet_2.png in Resources */,
 				F526790018EEAEA500CE1E3B /* map1_spritesheet_4.plist in Resources */,
 				F544FB9918D93CC100A818DF /* map2_body.plist in Resources */,
