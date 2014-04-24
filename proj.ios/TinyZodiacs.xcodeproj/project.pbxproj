@@ -249,6 +249,13 @@
 		379BB9D317F03F3700829B88 /* GUIReader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 379BB99117F03F3700829B88 /* GUIReader.cpp */; };
 		379BB9D417F03F3700829B88 /* SceneReader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 379BB99317F03F3700829B88 /* SceneReader.cpp */; };
 		46513EB1187BFBA200B5ABE1 /* UITouchGroup.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 46513EAF187BFBA200B5ABE1 /* UITouchGroup.cpp */; };
+		51136AD61908E0CA00317D3A /* MapParallaxForeground.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 51136AD41908E0CA00317D3A /* MapParallaxForeground.cpp */; };
+		51136AD91908E13A00317D3A /* GB2ShapeCache-x.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 51136AD71908E13A00317D3A /* GB2ShapeCache-x.cpp */; };
+		51136ADC1908E62F00317D3A /* NoBodyMapObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 51136ADA1908E62F00317D3A /* NoBodyMapObject.cpp */; };
+		51136AE21908E69F00317D3A /* map1_body.plist in Resources */ = {isa = PBXBuildFile; fileRef = 51136AE11908E69F00317D3A /* map1_body.plist */; };
+		51136AE51908E8C300317D3A /* cat_animation.xml in Resources */ = {isa = PBXBuildFile; fileRef = 51136AE31908E8C300317D3A /* cat_animation.xml */; };
+		51136AE61908E8C300317D3A /* skill_animation.xml in Resources */ = {isa = PBXBuildFile; fileRef = 51136AE41908E8C300317D3A /* skill_animation.xml */; };
+		51136AE81908E91000317D3A /* character_cat.xml in Resources */ = {isa = PBXBuildFile; fileRef = 51136AE71908E91000317D3A /* character_cat.xml */; };
 		7855E0E1153FEF240059DD9A /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 7855E0DF153FEF240059DD9A /* Default.png */; };
 		BF171245129291EC00B8313A /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF170DB012928DE900B8313A /* OpenGLES.framework */; };
 		BF1712461292920000B8313A /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BF170DB212928DE900B8313A /* libxml2.dylib */; };
@@ -266,8 +273,6 @@
 		F50702C018E958220025B666 /* MoveableMapObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F50702BE18E958220025B666 /* MoveableMapObject.cpp */; };
 		F50BF81B18F2426D00CD518D /* cat_spritesheet.png in Resources */ = {isa = PBXBuildFile; fileRef = F50BF81918F2426D00CD518D /* cat_spritesheet.png */; };
 		F50BF81C18F2426D00CD518D /* cat_spritesheet.plist in Resources */ = {isa = PBXBuildFile; fileRef = F50BF81A18F2426D00CD518D /* cat_spritesheet.plist */; };
-		F50BF81E18F2429A00CD518D /* cat_animation.xml in Resources */ = {isa = PBXBuildFile; fileRef = F50BF81D18F2429A00CD518D /* cat_animation.xml */; };
-		F50BF82018F246D300CD518D /* character_cat.xml in Resources */ = {isa = PBXBuildFile; fileRef = F50BF81F18F246D300CD518D /* character_cat.xml */; };
 		F50BF82418F2513800CD518D /* cat_body.plist in Resources */ = {isa = PBXBuildFile; fileRef = F50BF82318F2513800CD518D /* cat_body.plist */; };
 		F52678F318EEAEA500CE1E3B /* arial.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F52678E518EEAEA500CE1E3B /* arial.ttf */; };
 		F52678F418EEAEA500CE1E3B /* Marker Felt.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F52678E618EEAEA500CE1E3B /* Marker Felt.ttf */; };
@@ -283,7 +288,6 @@
 		F52678FE18EEAEA500CE1E3B /* map1_spritesheet_2.plist in Resources */ = {isa = PBXBuildFile; fileRef = F52678F018EEAEA500CE1E3B /* map1_spritesheet_2.plist */; };
 		F52678FF18EEAEA500CE1E3B /* map1_spritesheet_3.plist in Resources */ = {isa = PBXBuildFile; fileRef = F52678F118EEAEA500CE1E3B /* map1_spritesheet_3.plist */; };
 		F526790018EEAEA500CE1E3B /* map1_spritesheet_4.plist in Resources */ = {isa = PBXBuildFile; fileRef = F52678F218EEAEA500CE1E3B /* map1_spritesheet_4.plist */; };
-		F526790218EEB72000CE1E3B /* skill_animation.xml in Resources */ = {isa = PBXBuildFile; fileRef = F526790118EEB72000CE1E3B /* skill_animation.xml */; };
 		F53ACBAF18D831C700F958A8 /* map2.xml in Resources */ = {isa = PBXBuildFile; fileRef = F53ACBAE18D831C700F958A8 /* map2.xml */; };
 		F544FB9918D93CC100A818DF /* map2_body.plist in Resources */ = {isa = PBXBuildFile; fileRef = F544FB9818D93CC100A818DF /* map2_body.plist */; };
 		F544FB9C18D950C500A818DF /* MapParallaxBackground.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F544FB9A18D950C500A818DF /* MapParallaxBackground.cpp */; };
@@ -314,7 +318,6 @@
 		F54AE9EF18D2F38100194E66 /* ControllerLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F54AE9E718D2F38100194E66 /* ControllerLayer.cpp */; };
 		F54AE9F018D2F38100194E66 /* GamePlayButton.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F54AE9EA18D2F38100194E66 /* GamePlayButton.cpp */; };
 		F54AE9F118D2F38100194E66 /* UIObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F54AE9EB18D2F38100194E66 /* UIObject.cpp */; };
-		F54AE9F718D2F3F800194E66 /* GB2ShapeCache-x.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F54AE9F318D2F3F800194E66 /* GB2ShapeCache-x.cpp */; };
 		F54AE9F818D2F3F800194E66 /* GLES-Render.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F54AE9F518D2F3F800194E66 /* GLES-Render.cpp */; };
 		F54AE9FC18D2F4A100194E66 /* TestScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F54AE9FA18D2F4A100194E66 /* TestScene.cpp */; };
 		F54AEA0318D2F4C100194E66 /* GameMenuLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F54AE9FD18D2F4C100194E66 /* GameMenuLayer.cpp */; };
@@ -327,7 +330,6 @@
 		F561F28618D8028600DD4598 /* MapFactory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F561F28318D8028600DD4598 /* MapFactory.cpp */; };
 		F561F28718D8028600DD4598 /* XMLMapParser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F561F28418D8028600DD4598 /* XMLMapParser.cpp */; };
 		F561F29118D805BE00DD4598 /* map1.xml in Resources */ = {isa = PBXBuildFile; fileRef = F561F29018D805BE00DD4598 /* map1.xml */; };
-
 		F57519C41905016200F6A519 /* MonsterAIActionEngine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F57519C21905016200F6A519 /* MonsterAIActionEngine.cpp */; };
 		F57665B618FD49C9001919D8 /* MonsterFactory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F57665B418FD49C9001919D8 /* MonsterFactory.cpp */; };
 		F5779C6818E5693C0044D5CD /* HealthBar.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F5779C6618E5693C0044D5CD /* HealthBar.cpp */; };
@@ -336,15 +338,6 @@
 		F5779C6F18E56CF10044D5CD /* healthbar_background.png in Resources */ = {isa = PBXBuildFile; fileRef = F5779C6C18E56CF10044D5CD /* healthbar_background.png */; };
 		F59E0BDC18D85E90001048BD /* NormalAttack.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F59E0BDA18D85E8F001048BD /* NormalAttack.cpp */; };
 		F5A46B26190508A900A8FF55 /* SensorObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F5A46B24190508A900A8FF55 /* SensorObject.cpp */; };
-		F5A6F7A818E16742008C145C /* map1_body.plist in Resources */ = {isa = PBXBuildFile; fileRef = F5A6F7A718E16742008C145C /* map1_body.plist */; };
-		F5A6F7AD18E16AAF008C145C /* map2_background_spritesheet.plist in Resources */ = {isa = PBXBuildFile; fileRef = F5A6F7A918E16AAF008C145C /* map2_background_spritesheet.plist */; };
-		F5A6F7AE18E16AAF008C145C /* map2_background_spritesheet.png in Resources */ = {isa = PBXBuildFile; fileRef = F5A6F7AA18E16AAF008C145C /* map2_background_spritesheet.png */; };
-		F5A6F7AF18E16AAF008C145C /* map2_background3_spritesheet.plist in Resources */ = {isa = PBXBuildFile; fileRef = F5A6F7AB18E16AAF008C145C /* map2_background3_spritesheet.plist */; };
-		F5A6F7B018E16AAF008C145C /* map2_background3_spritesheet.png in Resources */ = {isa = PBXBuildFile; fileRef = F5A6F7AC18E16AAF008C145C /* map2_background3_spritesheet.png */; };
-		F5A6F7B318E16AD9008C145C /* map2_background2_spritesheet.plist in Resources */ = {isa = PBXBuildFile; fileRef = F5A6F7B118E16AD9008C145C /* map2_background2_spritesheet.plist */; };
-		F5A6F7B418E16AD9008C145C /* map2_background2_spritesheet.png in Resources */ = {isa = PBXBuildFile; fileRef = F5A6F7B218E16AD9008C145C /* map2_background2_spritesheet.png */; };
-		F5A6F7B718E16DBE008C145C /* NoBodyMapObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F5A6F7B518E16DBE008C145C /* NoBodyMapObject.cpp */; };
-		F5A6F7BE18E18961008C145C /* MapParallaxForeground.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F5A6F7BC18E18961008C145C /* MapParallaxForeground.cpp */; };
 		F5AE36A91906799900FB7519 /* SensorObjectDTO.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F5AE36A71906799900FB7519 /* SensorObjectDTO.cpp */; };
 		F5B4B79418E66E8700E4C2AA /* GameObjectInfoView.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F5B4B79218E66E8700E4C2AA /* GameObjectInfoView.cpp */; };
 		F5B4B79718E671FC00E4C2AA /* HeroInfoView.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F5B4B79518E671FC00E4C2AA /* HeroInfoView.cpp */; };
@@ -360,7 +353,6 @@
 		F5C89E1118D2FF9A006E909D /* 1.png in Resources */ = {isa = PBXBuildFile; fileRef = F5C89E0F18D2FF9A006E909D /* 1.png */; };
 		F5E2929518E6768F00B9B152 /* InfoViewCreator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F5E2929318E6768F00B9B152 /* InfoViewCreator.cpp */; };
 		F5E2929818E6779500B9B152 /* Player.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F5E2929618E6779500B9B152 /* Player.cpp */; };
-		F5EE379518FE1968001CC636 /* monster.xml in Resources */ = {isa = PBXBuildFile; fileRef = F5EE379418FE1968001CC636 /* monster.xml */; };
 		F5FA5B5E1900E78300B80EF0 /* ParameterObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F5FA5B5C1900E78300B80EF0 /* ParameterObject.cpp */; };
 /* End PBXBuildFile section */
 
@@ -878,6 +870,16 @@
 		379BB99417F03F3700829B88 /* SceneReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SceneReader.h; sourceTree = "<group>"; };
 		46513EAF187BFBA200B5ABE1 /* UITouchGroup.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = UITouchGroup.cpp; sourceTree = "<group>"; };
 		46513EB0187BFBA200B5ABE1 /* UITouchGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UITouchGroup.h; sourceTree = "<group>"; };
+		51136AD41908E0CA00317D3A /* MapParallaxForeground.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MapParallaxForeground.cpp; sourceTree = "<group>"; };
+		51136AD51908E0CA00317D3A /* MapParallaxForeground.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapParallaxForeground.h; sourceTree = "<group>"; };
+		51136AD71908E13A00317D3A /* GB2ShapeCache-x.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = "GB2ShapeCache-x.cpp"; sourceTree = "<group>"; };
+		51136AD81908E13A00317D3A /* GB2ShapeCache-x.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GB2ShapeCache-x.h"; sourceTree = "<group>"; };
+		51136ADA1908E62F00317D3A /* NoBodyMapObject.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = NoBodyMapObject.cpp; path = ../Classes/NoBodyMapObject.cpp; sourceTree = "<group>"; };
+		51136ADB1908E62F00317D3A /* NoBodyMapObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NoBodyMapObject.h; path = ../Classes/NoBodyMapObject.h; sourceTree = "<group>"; };
+		51136AE11908E69F00317D3A /* map1_body.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = map1_body.plist; sourceTree = "<group>"; };
+		51136AE31908E8C300317D3A /* cat_animation.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = cat_animation.xml; sourceTree = "<group>"; };
+		51136AE41908E8C300317D3A /* skill_animation.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = skill_animation.xml; sourceTree = "<group>"; };
+		51136AE71908E91000317D3A /* character_cat.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = character_cat.xml; sourceTree = "<group>"; };
 		7855E0DF153FEF240059DD9A /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = SOURCE_ROOT; };
 		BF170DB012928DE900B8313A /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		BF170DB212928DE900B8313A /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
@@ -897,8 +899,6 @@
 		F50702BF18E958220025B666 /* MoveableMapObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoveableMapObject.h; sourceTree = "<group>"; };
 		F50BF81918F2426D00CD518D /* cat_spritesheet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cat_spritesheet.png; sourceTree = "<group>"; };
 		F50BF81A18F2426D00CD518D /* cat_spritesheet.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = cat_spritesheet.plist; sourceTree = "<group>"; };
-		F50BF81D18F2429A00CD518D /* cat_animation.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = cat_animation.xml; sourceTree = "<group>"; };
-		F50BF81F18F246D300CD518D /* character_cat.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = character_cat.xml; sourceTree = "<group>"; };
 		F50BF82318F2513800CD518D /* cat_body.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = cat_body.plist; sourceTree = "<group>"; };
 		F52678E518EEAEA500CE1E3B /* arial.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = arial.ttf; sourceTree = "<group>"; };
 		F52678E618EEAEA500CE1E3B /* Marker Felt.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Marker Felt.ttf"; sourceTree = "<group>"; };
@@ -914,7 +914,6 @@
 		F52678F018EEAEA500CE1E3B /* map1_spritesheet_2.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = map1_spritesheet_2.plist; sourceTree = "<group>"; };
 		F52678F118EEAEA500CE1E3B /* map1_spritesheet_3.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = map1_spritesheet_3.plist; sourceTree = "<group>"; };
 		F52678F218EEAEA500CE1E3B /* map1_spritesheet_4.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = map1_spritesheet_4.plist; sourceTree = "<group>"; };
-		F526790118EEB72000CE1E3B /* skill_animation.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = skill_animation.xml; sourceTree = "<group>"; };
 		F53ACBAE18D831C700F958A8 /* map2.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = map2.xml; sourceTree = "<group>"; };
 		F544FB9818D93CC100A818DF /* map2_body.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = map2_body.plist; sourceTree = "<group>"; };
 		F544FB9A18D950C500A818DF /* MapParallaxBackground.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MapParallaxBackground.cpp; sourceTree = "<group>"; };
@@ -975,8 +974,6 @@
 		F54AE9EB18D2F38100194E66 /* UIObject.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = UIObject.cpp; path = ../Classes/UIObject.cpp; sourceTree = "<group>"; };
 		F54AE9EC18D2F38100194E66 /* GamePlayButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GamePlayButton.h; path = ../Classes/GamePlayButton.h; sourceTree = "<group>"; };
 		F54AE9ED18D2F38100194E66 /* UIObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UIObject.h; path = ../Classes/UIObject.h; sourceTree = "<group>"; };
-		F54AE9F318D2F3F800194E66 /* GB2ShapeCache-x.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = "GB2ShapeCache-x.cpp"; path = "../Classes/GB2ShapeCache-x.cpp"; sourceTree = "<group>"; };
-		F54AE9F418D2F3F800194E66 /* GB2ShapeCache-x.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "GB2ShapeCache-x.h"; path = "../Classes/GB2ShapeCache-x.h"; sourceTree = "<group>"; };
 		F54AE9F518D2F3F800194E66 /* GLES-Render.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = "GLES-Render.cpp"; path = "../Classes/GLES-Render.cpp"; sourceTree = "<group>"; };
 		F54AE9F618D2F3F800194E66 /* GLES-Render.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "GLES-Render.h"; path = "../Classes/GLES-Render.h"; sourceTree = "<group>"; };
 		F54AE9FA18D2F4A100194E66 /* TestScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = TestScene.cpp; path = ../Classes/TestScene.cpp; sourceTree = "<group>"; };
@@ -1000,7 +997,6 @@
 		F561F28418D8028600DD4598 /* XMLMapParser.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = XMLMapParser.cpp; sourceTree = "<group>"; };
 		F561F28518D8028600DD4598 /* XMLMapParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMLMapParser.h; sourceTree = "<group>"; };
 		F561F29018D805BE00DD4598 /* map1.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = map1.xml; sourceTree = "<group>"; };
-
 		F57519C21905016200F6A519 /* MonsterAIActionEngine.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MonsterAIActionEngine.cpp; sourceTree = "<group>"; };
 		F57519C31905016200F6A519 /* MonsterAIActionEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MonsterAIActionEngine.h; sourceTree = "<group>"; };
 		F57665B418FD49C9001919D8 /* MonsterFactory.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MonsterFactory.cpp; sourceTree = "<group>"; };
@@ -1014,17 +1010,12 @@
 		F59E0BDB18D85E90001048BD /* NormalAttack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NormalAttack.h; sourceTree = "<group>"; };
 		F5A46B24190508A900A8FF55 /* SensorObject.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SensorObject.cpp; sourceTree = "<group>"; };
 		F5A46B25190508A900A8FF55 /* SensorObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SensorObject.h; sourceTree = "<group>"; };
-		F5A6F7A718E16742008C145C /* map1_body.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = map1_body.plist; sourceTree = "<group>"; };
 		F5A6F7A918E16AAF008C145C /* map2_background_spritesheet.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = map2_background_spritesheet.plist; sourceTree = "<group>"; };
 		F5A6F7AA18E16AAF008C145C /* map2_background_spritesheet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = map2_background_spritesheet.png; sourceTree = "<group>"; };
 		F5A6F7AB18E16AAF008C145C /* map2_background3_spritesheet.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = map2_background3_spritesheet.plist; sourceTree = "<group>"; };
 		F5A6F7AC18E16AAF008C145C /* map2_background3_spritesheet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = map2_background3_spritesheet.png; sourceTree = "<group>"; };
 		F5A6F7B118E16AD9008C145C /* map2_background2_spritesheet.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = map2_background2_spritesheet.plist; sourceTree = "<group>"; };
 		F5A6F7B218E16AD9008C145C /* map2_background2_spritesheet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = map2_background2_spritesheet.png; sourceTree = "<group>"; };
-		F5A6F7B518E16DBE008C145C /* NoBodyMapObject.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = NoBodyMapObject.cpp; sourceTree = "<group>"; };
-		F5A6F7B618E16DBE008C145C /* NoBodyMapObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NoBodyMapObject.h; sourceTree = "<group>"; };
-		F5A6F7BC18E18961008C145C /* MapParallaxForeground.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MapParallaxForeground.cpp; sourceTree = "<group>"; };
-		F5A6F7BD18E18961008C145C /* MapParallaxForeground.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapParallaxForeground.h; sourceTree = "<group>"; };
 		F5AE36A71906799900FB7519 /* SensorObjectDTO.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SensorObjectDTO.cpp; sourceTree = "<group>"; };
 		F5AE36A81906799900FB7519 /* SensorObjectDTO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SensorObjectDTO.h; sourceTree = "<group>"; };
 		F5B4B79218E66E8700E4C2AA /* GameObjectInfoView.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameObjectInfoView.cpp; sourceTree = "<group>"; };
@@ -2100,7 +2091,6 @@
 		78C7DDAA14EBA5050085D0C2 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-
 				F52678E418EEAEA500CE1E3B /* fonts */,
 				F52678E718EEAEA500CE1E3B /* map1_background_spritesheet_1.png */,
 				F52678E818EEAEA500CE1E3B /* map1_background_spritesheet_2.png */,
@@ -2140,7 +2130,7 @@
 		F50BF81818F2425200CD518D /* Cat */ = {
 			isa = PBXGroup;
 			children = (
-				F50BF81F18F246D300CD518D /* character_cat.xml */,
+				51136AE71908E91000317D3A /* character_cat.xml */,
 				F50BF81918F2426D00CD518D /* cat_spritesheet.png */,
 				F50BF81A18F2426D00CD518D /* cat_spritesheet.plist */,
 			);
@@ -2159,11 +2149,10 @@
 		F54AE96D18D2F01B00194E66 /* Objects */ = {
 			isa = PBXGroup;
 			children = (
-				F5A46B201905071A00A8FF55 /* Monster AI Detection */,
-				3486802D18D97E88001692BB /* Projectiles */,
-				F59E0BD918D85E62001048BD /* Skills */,
-				F54AEA8718D2F9F200194E66 /* Map.cpp */,
-				F54AEA8818D2F9F200194E66 /* Map.h */,
+				51136ADA1908E62F00317D3A /* NoBodyMapObject.cpp */,
+				51136ADB1908E62F00317D3A /* NoBodyMapObject.h */,
+				51136AD41908E0CA00317D3A /* MapParallaxForeground.cpp */,
+				51136AD51908E0CA00317D3A /* MapParallaxForeground.h */,
 				F54AE9C218D2F1FC00194E66 /* AnimationObject.cpp */,
 				F54AE9C318D2F1FC00194E66 /* AnimationObject.h */,
 				F54AE9C618D2F22800194E66 /* Character.cpp */,
@@ -2174,22 +2163,22 @@
 				F54AE9E318D2F34700194E66 /* GameWorld.h */,
 				F54AE9E218D2F34700194E66 /* Hero.cpp */,
 				F54AE9DD18D2F33E00194E66 /* Hero.h */,
+				F54AEA8718D2F9F200194E66 /* Map.cpp */,
+				F54AEA8818D2F9F200194E66 /* Map.h */,
 				F54AE9D918D2F30D00194E66 /* MapObject.cpp */,
 				F54AE9DA18D2F30D00194E66 /* MapObject.h */,
-				F54AE9DF18D2F33E00194E66 /* Monster.cpp */,
-				F54AE9DE18D2F33E00194E66 /* Monster.h */,
-				F54AE97118D2F08D00194E66 /* States */,
 				F544FB9A18D950C500A818DF /* MapParallaxBackground.cpp */,
 				F544FB9B18D950C500A818DF /* MapParallaxBackground.h */,
-
-				F5A6F7B518E16DBE008C145C /* NoBodyMapObject.cpp */,
-				F5A6F7B618E16DBE008C145C /* NoBodyMapObject.h */,
-				F5A6F7BC18E18961008C145C /* MapParallaxForeground.cpp */,
-				F5A6F7BD18E18961008C145C /* MapParallaxForeground.h */,
-				F5E2929618E6779500B9B152 /* Player.cpp */,
-				F5E2929718E6779500B9B152 /* Player.h */,
+				F5A46B201905071A00A8FF55 /* Monster AI Detection */,
+				F54AE9DF18D2F33E00194E66 /* Monster.cpp */,
+				F54AE9DE18D2F33E00194E66 /* Monster.h */,
 				F50702BE18E958220025B666 /* MoveableMapObject.cpp */,
 				F50702BF18E958220025B666 /* MoveableMapObject.h */,
+				F5E2929618E6779500B9B152 /* Player.cpp */,
+				F5E2929718E6779500B9B152 /* Player.h */,
+				3486802D18D97E88001692BB /* Projectiles */,
+				F59E0BD918D85E62001048BD /* Skills */,
+				F54AE97118D2F08D00194E66 /* States */,
 			);
 			name = Objects;
 			sourceTree = "<group>";
@@ -2307,10 +2296,10 @@
 		F54AE9F218D2F3C000194E66 /* Helper */ = {
 			isa = PBXGroup;
 			children = (
+				51136AD71908E13A00317D3A /* GB2ShapeCache-x.cpp */,
+				51136AD81908E13A00317D3A /* GB2ShapeCache-x.h */,
 				F561F28418D8028600DD4598 /* XMLMapParser.cpp */,
 				F561F28518D8028600DD4598 /* XMLMapParser.h */,
-				F54AE9F318D2F3F800194E66 /* GB2ShapeCache-x.cpp */,
-				F54AE9F418D2F3F800194E66 /* GB2ShapeCache-x.h */,
 				F54AE9F518D2F3F800194E66 /* GLES-Render.cpp */,
 				F54AE9F618D2F3F800194E66 /* GLES-Render.h */,
 				34EED02318E525DF001AFFC9 /* SkillType0Parser.cpp */,
@@ -2361,7 +2350,6 @@
 			name = XML;
 			sourceTree = "<group>";
 		};
-
 		F5779C6218E563770044D5CD /* GamePlay UI */ = {
 			isa = PBXGroup;
 			children = (
@@ -2398,7 +2386,6 @@
 			name = Skills;
 			sourceTree = "<group>";
 		};
-
 		F5A46B201905071A00A8FF55 /* Monster AI Detection */ = {
 			isa = PBXGroup;
 			children = (
@@ -2428,8 +2415,8 @@
 		F5C89DF618D2FC7F006E909D /* Animation */ = {
 			isa = PBXGroup;
 			children = (
-				F50BF81D18F2429A00CD518D /* cat_animation.xml */,
-				F526790118EEB72000CE1E3B /* skill_animation.xml */,
+				51136AE31908E8C300317D3A /* cat_animation.xml */,
+				51136AE41908E8C300317D3A /* skill_animation.xml */,
 				F5C89DFA18D2FCB5006E909D /* monkey_animation.xml */,
 			);
 			name = Animation;
@@ -2449,8 +2436,6 @@
 			isa = PBXGroup;
 			children = (
 				F561F28F18D805AC00DD4598 /* XML */,
-				F5C89E0918D2FF42006E909D /* map_spritesheet.plist */,
-				F5C89E0A18D2FF42006E909D /* map_spritesheet.png */,
 			);
 			name = Map;
 			sourceTree = "<group>";
@@ -2458,7 +2443,6 @@
 		F5C89DF918D2FC9B006E909D /* Background */ = {
 			isa = PBXGroup;
 			children = (
-
 				F5A6F7B118E16AD9008C145C /* map2_background2_spritesheet.plist */,
 				F5A6F7B218E16AD9008C145C /* map2_background2_spritesheet.png */,
 				F5A6F7A918E16AAF008C145C /* map2_background_spritesheet.plist */,
@@ -2472,10 +2456,9 @@
 		F5C89E0018D2FCF2006E909D /* Body */ = {
 			isa = PBXGroup;
 			children = (
-
+				51136AE11908E69F00317D3A /* map1_body.plist */,
 				F50BF82318F2513800CD518D /* cat_body.plist */,
 				34A3C9B118F7A5610050866F /* skill_body.plist */,
-				F5A6F7A718E16742008C145C /* map1_body.plist */,
 				34B8CC6818ED484B002FAEF7 /* character_body.plist */,
 				F544FB9818D93CC100A818DF /* map2_body.plist */,
 				F5C89E0218D2FD2A006E909D /* map_body.plist */,
@@ -2571,24 +2554,19 @@
 			files = (
 				7855E0E1153FEF240059DD9A /* Default.png in Resources */,
 				D4EF949A15BD2D8B00D803EB /* Icon-57.png in Resources */,
-
 				F52678F618EEAEA500CE1E3B /* map1_background_spritesheet_2.png in Resources */,
 				F526790018EEAEA500CE1E3B /* map1_spritesheet_4.plist in Resources */,
-				F5A6F7B418E16AD9008C145C /* map2_background2_spritesheet.png in Resources */,
 				F544FB9918D93CC100A818DF /* map2_body.plist in Resources */,
 				D4EF949C15BD2D8E00D803EB /* Icon-114.png in Resources */,
-
-				F5A6F7AD18E16AAF008C145C /* map2_background_spritesheet.plist in Resources */,
 				34B8CC6C18ED73B8002FAEF7 /* test_sheet.png in Resources */,
 				F5C89E0418D2FD2A006E909D /* map_body.plist in Resources */,
+				51136AE81908E91000317D3A /* character_cat.xml in Resources */,
 				F52678F318EEAEA500CE1E3B /* arial.ttf in Resources */,
 				F50BF82418F2513800CD518D /* cat_body.plist in Resources */,
 				F52678FA18EEAEA500CE1E3B /* map1_spritesheet_4.png in Resources */,
-				F50BF81E18F2429A00CD518D /* cat_animation.xml in Resources */,
 				F52678FC18EEAEA500CE1E3B /* map1_background_spritesheet_2.plist in Resources */,
 				F5779C6F18E56CF10044D5CD /* healthbar_background.png in Resources */,
 				F5779C6D18E56CF10044D5CD /* healthbar_foreground_blue.png in Resources */,
-				F526790218EEB72000CE1E3B /* skill_animation.xml in Resources */,
 				F5C89DFF18D2FCE9006E909D /* monkey_spritesheet.png in Resources */,
 				D4EF949E15BD2D9600D803EB /* Icon-72.png in Resources */,
 				F5C89E1018D2FF9A006E909D /* 2.png in Resources */,
@@ -2599,6 +2577,7 @@
 				F5C89E1118D2FF9A006E909D /* 1.png in Resources */,
 				F53ACBAF18D831C700F958A8 /* map2.xml in Resources */,
 				D41A0AD1160F154A004552AE /* Default-568h@2x.png in Resources */,
+				51136AE61908E8C300317D3A /* skill_animation.xml in Resources */,
 				34B8CC6918ED484B002FAEF7 /* character_body.plist in Resources */,
 				F50BF81B18F2426D00CD518D /* cat_spritesheet.png in Resources */,
 				D446FD6E16102124000ADA7B /* Default@2x.png in Resources */,
@@ -2606,23 +2585,20 @@
 				F5C89DFE18D2FCE9006E909D /* monkey_spritesheet.plist in Resources */,
 				F52678FF18EEAEA500CE1E3B /* map1_spritesheet_3.plist in Resources */,
 				15A3D9961682F7F9002FB0C5 /* CMakeLists.txt in Resources */,
-				F5EE379518FE1968001CC636 /* monster.xml in Resources */,
 				F52678F818EEAEA500CE1E3B /* map1_spritesheet_2.png in Resources */,
 				F52678FE18EEAEA500CE1E3B /* map1_spritesheet_2.plist in Resources */,
 				34EED02F18E56E3C001AFFC9 /* list_skill.xml in Resources */,
 				F52678FD18EEAEA500CE1E3B /* map1_spritesheet_1.plist in Resources */,
-				F5A6F7A818E16742008C145C /* map1_body.plist in Resources */,
 				34A3C9B218F7A5610050866F /* skill_body.plist in Resources */,
 				F52678F718EEAEA500CE1E3B /* map1_spritesheet_1.png in Resources */,
+				51136AE21908E69F00317D3A /* map1_body.plist in Resources */,
+				51136AE51908E8C300317D3A /* cat_animation.xml in Resources */,
 				34B8CC6D18ED73B8002FAEF7 /* test_sheet.plist in Resources */,
-				F5A6F7B318E16AD9008C145C /* map2_background2_spritesheet.plist in Resources */,
 				F5779C6E18E56CF10044D5CD /* healthbar_foreground_red.png in Resources */,
 				F52678FB18EEAEA500CE1E3B /* map1_background_spritesheet_1.plist in Resources */,
 				1AFAF8BC16D35E4900DB1158 /* CloseNormal.png in Resources */,
 				1AFAF8BC16D35E4900DB1158 /* CloseNormal.png in Resources */,
 				F5C89DFB18D2FCB5006E909D /* monkey_animation.xml in Resources */,
-				F50BF82018F246D300CD518D /* character_cat.xml in Resources */,
-				F5A6F7AF18E16AAF008C145C /* map2_background3_spritesheet.plist in Resources */,
 				F52678F918EEAEA500CE1E3B /* map1_spritesheet_3.png in Resources */,
 				1AFAF8BD16D35E4900DB1158 /* CloseSelected.png in Resources */,
 				1AFAF8BE16D35E4900DB1158 /* HelloWorld.png in Resources */,
@@ -2697,6 +2673,7 @@
 				15A3D9241682F7D5002FB0C5 /* b2MouseJoint.cpp in Sources */,
 				15A3D9251682F7D5002FB0C5 /* b2PrismaticJoint.cpp in Sources */,
 				15A3D9261682F7D5002FB0C5 /* b2PulleyJoint.cpp in Sources */,
+				51136ADC1908E62F00317D3A /* NoBodyMapObject.cpp in Sources */,
 				F54AEA8918D2F9F200194E66 /* Map.cpp in Sources */,
 				15A3D9271682F7D5002FB0C5 /* b2RevoluteJoint.cpp in Sources */,
 				15A3D9281682F7D5002FB0C5 /* b2RopeJoint.cpp in Sources */,
@@ -2825,6 +2802,7 @@
 				1AFCDA8216D4A25900906EA6 /* RootViewController.mm in Sources */,
 				1A8F3B6E175E05DA00049216 /* Animation.cpp in Sources */,
 				1A8F3B6F175E05DA00049216 /* AnimationState.cpp in Sources */,
+				51136AD61908E0CA00317D3A /* MapParallaxForeground.cpp in Sources */,
 				1A8F3B70175E05DA00049216 /* AnimationStateData.cpp in Sources */,
 				1A8F3B71175E05DA00049216 /* Atlas.cpp in Sources */,
 				1A8F3B72175E05DA00049216 /* AtlasAttachmentLoader.cpp in Sources */,
@@ -2876,7 +2854,6 @@
 				379BB9A917F03F3700829B88 /* CCSpriteFrameCacheHelper.cpp in Sources */,
 				379BB9AA17F03F3700829B88 /* CCTransformHelp.cpp in Sources */,
 				379BB9AB17F03F3700829B88 /* CCTweenFunction.cpp in Sources */,
-				F54AE9F718D2F3F800194E66 /* GB2ShapeCache-x.cpp in Sources */,
 				F54AEA0D18D2F50300194E66 /* PhysicData.cpp in Sources */,
 				379BB9AC17F03F3700829B88 /* CCUtilMath.cpp in Sources */,
 				F54AE9F018D2F38100194E66 /* GamePlayButton.cpp in Sources */,
@@ -2903,6 +2880,7 @@
 				379BB9C117F03F3700829B88 /* UICheckBox.cpp in Sources */,
 				379BB9C217F03F3700829B88 /* UIImageView.cpp in Sources */,
 				379BB9C317F03F3700829B88 /* UILabel.cpp in Sources */,
+				51136AD91908E13A00317D3A /* GB2ShapeCache-x.cpp in Sources */,
 				F54AE9E118D2F33E00194E66 /* Monster.cpp in Sources */,
 				379BB9C417F03F3700829B88 /* UILabelAtlas.cpp in Sources */,
 				34F7F93018E194DD0084E87C /* SkillDTO.cpp in Sources */,

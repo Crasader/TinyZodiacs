@@ -79,4 +79,19 @@ MapParallaxBackground* MapCreator::createParallaxBackground(CCArray* listBackgro
     return parallaxBackground;
 }
 
+MapParallaxForeground* MapCreator::createParallaxForeground(CCArray* listForegroundDTO, float width, float height)
+{
+    MapParallaxForeground* parallaxForeground = MapParallaxForeground::create();
+    
+    CCObject* object = NULL;
+    CCARRAY_FOREACH(listForegroundDTO, object)
+    {
+        ForegroundDTO* foregroundDTO = dynamic_cast<ForegroundDTO*>(object);
+        
+        parallaxForeground->addForeground(foregroundDTO->imageName,"",foregroundDTO->ratioX, foregroundDTO->ratioY, foregroundDTO->layerIndex, foregroundDTO->positionX, foregroundDTO->positionY);
+    }
+    
+    return parallaxForeground;
+}
+
 

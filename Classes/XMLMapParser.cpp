@@ -66,8 +66,6 @@ MapDTO* XMLMapParser::getMapDTOFromXMLNode(XMLElement *mapXMLElement)
         mapDTO->listBackgroundDTO->addObject(XMLMapParser::getBackgroundDTOFromXMLNode(element));
     }
     
-<<<<<<< HEAD
-=======
     //list foreground
     XMLElement* foregroundListXMLNode = mapXMLElement->FirstChildElement(TAG_FOREGROUND_LIST);
     
@@ -84,7 +82,6 @@ MapDTO* XMLMapParser::getMapDTOFromXMLNode(XMLElement *mapXMLElement)
         mapDTO->listSensorObjectDTO->addObject(XMLMapParser::getSensorObjectDTOFromXMLNode(element));
     }
     
->>>>>>> FETCH_HEAD
     return mapDTO;
 }
 
@@ -92,13 +89,6 @@ BackgroundDTO* XMLMapParser::getBackgroundDTOFromXMLNode(XMLElement *backgroundX
 {
     BackgroundDTO* backgroundDTO = BackgroundDTO::create();
     
-<<<<<<< HEAD
-    backgroundDTO->imageName = backgroundXMLElement->Attribute(BACKGROUND_IMAGE_NAME);
-    backgroundDTO->spritesheetName = backgroundXMLElement->Attribute(BACKGROUND_SPRITESHEET_NAME);
-    backgroundDTO->ratioX = atof(backgroundXMLElement->Attribute(BACKGROUND_RATIO_X));
-    backgroundDTO->ratioY = atof(backgroundXMLElement->Attribute(BACKGROUND_RATIO_Y));
-    backgroundDTO->orderIndex = atof(backgroundXMLElement->Attribute(BACKGROUND_ORDER_INDEX));
-=======
     backgroundDTO->imageName = backgroundXMLElement->Attribute(ATTRIBUTE_BACKGROUND_IMAGE_NAME);
     backgroundDTO->spritesheetName = backgroundXMLElement->Attribute(ATTRIBUTE_BACKGROUND_SPRITESHEET_NAME);
     
@@ -106,13 +96,10 @@ BackgroundDTO* XMLMapParser::getBackgroundDTOFromXMLNode(XMLElement *backgroundX
     backgroundDTO->ratioX = atof(ratioElement->Attribute(ATTRIBUTE_RATIO_X));
     backgroundDTO->ratioY = atof(ratioElement->Attribute(ATTRIBUTE_RATIO_Y));
     backgroundDTO->orderIndex = atof(backgroundXMLElement->Attribute(ATTRIBUTE_LAYER_INDEX));
->>>>>>> FETCH_HEAD
     
     return backgroundDTO;
 }
 
-<<<<<<< HEAD
-=======
 ForegroundDTO* XMLMapParser::getForegroundDTOFromXMLNode(XMLElement* foregroundXMLElement)
 {
     ForegroundDTO* foregroundDTO = ForegroundDTO::create();
@@ -209,6 +196,5 @@ SensorObjectDTO* XMLMapParser::getSensorObjectDTOFromXMLNode(XMLElement* sensorO
 }
 
 
->>>>>>> FETCH_HEAD
 
 

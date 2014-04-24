@@ -51,6 +51,7 @@ NormalAttack::~NormalAttack()
     this->skillSprite->release();
 }
 
+
 void NormalAttack::BeginContact(b2Contact *contact)
 {
     if(contact->GetFixtureA()->GetBody()->GetUserData() != NULL)

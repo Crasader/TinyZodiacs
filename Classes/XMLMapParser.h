@@ -13,7 +13,6 @@
 #include "MapObjectDTO.h"
 #include "MapDTO.h"
 #include "BackgroundDTO.h"
-
 #include "ForegroundDTO.h"
 #include "SensorObjectDTO.h"
 #include <string.h>

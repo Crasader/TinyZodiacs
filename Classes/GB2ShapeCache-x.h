@@ -70,7 +70,9 @@ namespace gbox2d {
          * @param body the body
          * @param shape the shape name
          */
-        void addFixturesToBody(b2Body *body, const std::string &shape);
+        bool addFixturesToBody(b2Body *body, const std::string &shape);
+        
+        bool isBodyExisted(const char* bodyName);
         
         /**
          * Returns the anchor point for the shape with the name given

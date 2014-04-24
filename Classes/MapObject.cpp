@@ -20,5 +20,7 @@ MapObject::~MapObject()
 
 void MapObject::update(float dt)
 {
+
   //  GameObject::update(dt);
+
 }

@@ -83,14 +83,20 @@ void Map::addSensorObject(SensorObject* sensorObject)
 
 void Map::attachAllMapObject()
 {
-    CCSpriteBatchNode* batchNode = CCSpriteBatchNode::create("map2_spritesheet.png");
     CCObject* object;
     CCARRAY_FOREACH(listMapObject,object)
     {
         MapObject* mapObject = (MapObject*)object;
+
         mapObject->getSprite()->setVisible(false);
+
+
        this->addChild(mapObject->getSprite(),MAPOBJECT_LAYER);
+        
+        
     }
+   
+
 }
 
 void Map::addParallaxBackground(CCParallaxNode* parallaxBackground)

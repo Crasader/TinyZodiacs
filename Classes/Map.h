@@ -45,11 +45,11 @@ public:
 
     void attachAllMapObject();
     void addParallaxBackground(CCParallaxNode* parallaxBackground);
-
     void addParallaxForeground(CCParallaxNode* parallaxForeground);
 
     void BeginContact(b2Contact *contact);
     void EndContact(b2Contact *contact);
+
     
 };
 

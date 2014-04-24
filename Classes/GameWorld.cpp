@@ -60,7 +60,7 @@ bool GameWorld::init()
     //MAP
     MapCreator* mapCreator = new MapCreator();
     
-    map = mapCreator->createMap("map2",this);
+    map = mapCreator->createMap("map1",this);
     map->attachAllMapObject();
     
     this->addChild(map,MAP_LAYER);
@@ -128,7 +128,7 @@ bool GameWorld::init()
     
     //MONSTER
      addManager();
-    CharacterDTO dto = CharacterFactory::loadXMLFile("character_cat.xml");
+    CharacterDTO dto = CharacterFactory::loadXMLFile("character_monkey.xml");
     
     MonsterFactory::getSharedFactory()->setHolder(this->map);
     
@@ -278,10 +278,10 @@ void GameWorld::setFollowCharacter(bool follow)
 
 void GameWorld::draw()
 {
-    ccGLEnableVertexAttribs( kCCVertexAttribFlag_Position );
-    kmGLPushMatrix();
-    world->DrawDebugData();
-    kmGLPopMatrix();
+        ccGLEnableVertexAttribs( kCCVertexAttribFlag_Position );
+        kmGLPushMatrix();
+        world->DrawDebugData();
+        kmGLPopMatrix();
 }
 
 //PHYSICS CONTACT

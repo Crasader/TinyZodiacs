@@ -29,7 +29,6 @@ public:
     std::string bodyName;
     float x;
     float y;
-
     float layerIndex;
     bool canPass;
     CREATE_FUNC(MapObjectDTO);

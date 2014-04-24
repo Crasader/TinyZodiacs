@@ -47,7 +47,48 @@ ObjectFactory* ObjectFactory::getSharedManager()
 
 Character* ObjectFactory::createCharacter(const std::string &name, b2World *world, bool isLocal)
 {
-
+    //    Character* character = NULL;
+    //    character = new Character();
+    //
+    //    //sprite
+    //    CCSprite* sprite=CCSprite::createWithSpriteFrameName("monkey_idle_1.png");
+    //    sprite->setScale(0.0f);
+    //
+    //    //body
+    //
+    //    b2BodyDef bodyDef;
+    //    bodyDef.type = b2_dynamicBody;
+    //    bodyDef.angle = ccpToAngle(ccp(0,0));
+    //    bodyDef.userData = sprite;
+    //    bodyDef.fixedRotation=true;
+    //
+    //    b2Body *body = world->CreateBody(&bodyDef);
+    //
+    //    gbox2d::GB2ShapeCache *sc =  gbox2d::GB2ShapeCache::sharedGB2ShapeCache();
+    //
+    //    sc->addFixturesToBody(body, "body");
+    //    sprite->setAnchorPoint(sc->anchorPointForShape("body"));
+    //    b2Filter filter = body->GetFixtureList()->GetFilterData();
+    //    filter.groupIndex = -2;
+    //    body->GetFixtureList()->SetFilterData(filter);
+    //
+    //    character->setSkin(body, sprite);
+    //    //TEMP CREATE SKILL
+    //    character->setNormalAttack(new NormalAttack(character));
+    //
+    //    //set character data
+    //    CharacterData data;
+    //    data.setSpeed(10);
+    //    data.setJumpHeight(50);
+    //    data.setMaxJumpTimes(3);
+    //    data.setAttackSpeed(0.1);
+    //
+    //
+    //
+    //    character->setOriginCharacterData(data);
+    //    character->attackAnimation->getAnimation()->setDelayPerUnit(data.getAttackSpeed());
+    //    return character;
+    
     Character* character = CharacterFactory::createMonkeyHero(world, isLocal);
     
     return character;
@@ -90,6 +131,9 @@ MapObject* ObjectFactory::createMapObject(const char *idMapObject, b2World *worl
 
 MapObject* ObjectFactory::createMapObject(MapObjectDTO* mapObjectDTO, b2World *world)
 {
+    
+    
+    
     MapObject* mapObject = NULL;
     
     //sprite
@@ -166,12 +210,15 @@ SensorObject* ObjectFactory::createSensorObject(b2Vec2 dumb,b2World *world, CCPo
     body->CreateFixture(&fixDef);
     
     
+    
     //set data id
     PhysicData* data = new PhysicData();
     data->Id = MAP_SENSOR;
     data->Data = sensorObject;
     
-    body->SetUserData(data);    
+    body->SetUserData(data);
+    
+    
     sensorObject->setSkin(body, NULL);
     
     sensorObject->setPositionInPixel(position);

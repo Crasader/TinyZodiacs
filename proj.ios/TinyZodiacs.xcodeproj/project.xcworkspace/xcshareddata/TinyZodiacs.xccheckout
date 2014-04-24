@@ -5,23 +5,19 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-<<<<<<< HEAD
-	<string>2A68201A-E48B-4D65-8B08-4823DEE8C43C</string>
-=======
-	<string>DE98AA87-0E8D-4D03-B176-173004430841</string>
->>>>>>> FETCH_HEAD
+	<string>7A9B3EA0-246B-44D9-8DEE-13B4CB2BB872</string>
 	<key>IDESourceControlProjectName</key>
 	<string>TinyZodiacs</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>D81AB4F8-5140-42B9-9B64-1F524EB67084</key>
+		<key>ABB7AE4F-0C5A-446F-924A-B01B8730A12D</key>
 		<string>https://github.com/vominhnhut99/TinyZodiacs.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>proj.ios/TinyZodiacs.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>D81AB4F8-5140-42B9-9B64-1F524EB67084</key>
+		<key>ABB7AE4F-0C5A-446F-924A-B01B8730A12D</key>
 		<string>../../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
@@ -29,14 +25,14 @@
 	<key>IDESourceControlProjectVersion</key>
 	<integer>110</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>D81AB4F8-5140-42B9-9B64-1F524EB67084</string>
+	<string>ABB7AE4F-0C5A-446F-924A-B01B8730A12D</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>D81AB4F8-5140-42B9-9B64-1F524EB67084</string>
+			<string>ABB7AE4F-0C5A-446F-924A-B01B8730A12D</string>
 			<key>IDESourceControlWCCName</key>
 			<string>TinyZodiacs</string>
 		</dict>
