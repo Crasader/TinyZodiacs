@@ -12,18 +12,27 @@
 #include <iostream>
 #include "cocos2d.h"
 #include "Character.h"
+#include "SensorObject.h"
 
 USING_NS_CC;
 
 class Monster: public Character
 {
 private:
+    CC_SYNTHESIZE(int, laneID, LaneID);
 protected:
+    void checkCollisionDataInBeginContact(PhysicData* data, b2Contact *contact, bool isSideA);
+    void checkCollisionDataInEndContact(PhysicData* data, b2Contact *contact, bool isSideA);
 public:
+    bool isStopMove;
     Monster();
     ~Monster();
     
     virtual bool init();
+    virtual void update(float dt);
+    
+    void doAction(SensorObject* sensorObject);
+
     
     CREATE_FUNC(Monster);
     

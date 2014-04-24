@@ -9,6 +9,7 @@
 #include "GameObject.h"
 #include "Box2D/Box2d.h"
 #include "Util.h"
+#include "PhysicBodyManager.h"
 
 USING_NS_CC;
 
@@ -19,10 +20,15 @@ GameObject::GameObject()
     this->sprite = NULL;
     direction = LEFT;
     init();
+    
 }
 
 GameObject::~GameObject()
 {
+    if(this->sprite != NULL)
+        this->sprite->removeFromParent();
+    this->body->GetWorld()->DestroyBody(this->body);
+    //    PhysicBodyManager::getInstance()->addBody(this);
     
 }
 
@@ -45,15 +51,19 @@ void GameObject::update(float dt)
 
 void GameObject::setPositionInPixel(const cocos2d::CCPoint &pos)
 {
+    
     b2Vec2 bodyPosition = b2Vec2(pos.x/PTM_RATIO, pos.y/PTM_RATIO) ;
     this->body->SetTransform(bodyPosition, this->body->GetAngle());
     
     updateSpritePositionWithBodyPosition();
+    
 }
 
 CCPoint GameObject::getPositionInPixel()
 {
     CCPoint position = ccp(this->body->GetPosition().x*PTM_RATIO,this->body->GetPosition().y*PTM_RATIO);
+    
+    
     return position;
 }
 
@@ -67,7 +77,7 @@ void GameObject::setSkin(b2Body *body, cocos2d::CCSprite *sprite)
 
 void GameObject::updateSpritePositionWithBodyPosition()
 {
-    if(this->body!=NULL)
+    if(this->body != NULL && this->sprite != NULL)
     {
         CCPoint bodyPosition = this->getPositionInPixel();
         
@@ -96,17 +106,19 @@ void GameObject::flipDirection(Direction direction)
     if(this->direction != direction)
     {
         this->direction = direction;
-        if(direction == LEFT)
+        if(this->sprite!=NULL)
         {
-            this->sprite->setFlipX(false);
+            if(direction == LEFT)
+            {
+                this->sprite->setFlipX(false);
+            }
+            else
+            {
+                this->sprite->setFlipX(true);
+                
+            }
+            this->sprite->setAnchorPoint(ccp(1 - this->getSprite()->getAnchorPoint().x,this->getSprite()->getAnchorPoint().y));
         }
-        else
-        {
-            this->sprite->setFlipX(true);
-            
-        }
-        this->sprite->setAnchorPoint(ccp(1 - this->getSprite()->getAnchorPoint().x,this->getSprite()->getAnchorPoint().y));
-        
     }
 }
 
@@ -142,7 +154,7 @@ void GameObject::EndContact(b2Contact *contact)
 
 void GameObject::PreSolve(b2Contact* contact, const b2Manifold* oldManifold)
 {
- //   CCLOG("presolve");
+    //   CCLOG("presolve");
     
     //    if(contact->GetFixtureA()->GetBody()->GetUserData() != NULL)
     //    {
@@ -160,7 +172,7 @@ void GameObject::PreSolve(b2Contact* contact, const b2Manifold* oldManifold)
 }
 void GameObject::PostSolve(b2Contact* contact, const b2ContactImpulse* impulse)
 {
-  //  CCLOG("postsolve");
+    //  CCLOG("postsolve");
     //    if(contact->GetFixtureA()->GetBody()->GetUserData() != NULL)
     //    {
     //        PhysicData* data = (PhysicData*)contact->GetFixtureA()->GetBody()->GetUserData();
@@ -177,11 +189,11 @@ void GameObject::PostSolve(b2Contact* contact, const b2ContactImpulse* impulse)
 
 void GameObject::checkCollisionDataInBeginContact(PhysicData* data, b2Contact *contact, bool isSideA)
 {
-   
+    
 }
 void GameObject::checkCollisionDataInEndContact(PhysicData* data, b2Contact *contact, bool isSideA)
 {
-   
+    
 }
 Direction GameObject::getDirection()
 {
@@ -206,7 +218,7 @@ b2AABB GameObject::getBodyBoundingBox()
         return aabb;
     }
     
-
+    
     return b2AABB();
     //    return Util::getBodyBoundingBox(this->getBody());
 }
@@ -215,7 +227,6 @@ void GameObject::setGroup(uint16 group)
 {
     if(this->body != NULL)
     {
-
         for (b2Fixture* f = this->body->GetFixtureList(); f; f = f->GetNext())
         {
             if(f != NULL)

@@ -44,12 +44,23 @@ Map* MapCreator::createMap(const char *id, GameWorld* gameWorld)
         map->addMapObject(mapObject);
     }
     
+    object = NULL;
+    CCARRAY_FOREACH(mapDTO->listSensorObjectDTO, object)
+    {
+        SensorObjectDTO* sensorObjectDTO = dynamic_cast<SensorObjectDTO*>(object);
+        
+        SensorObject* sensorObject = ObjectFactory::getSharedManager()->createSensorObject(sensorObjectDTO, gameWorld->getWorld());
+   
+        map->addSensorObject(sensorObject);
+    }
 
-//    //create background
-//    map->addParallaxBackground(createParallaxBackground(mapDTO->listBackgroundDTO,mapDTO->width,mapDTO->height));
-//    //create foreground
-//    map->addParallaxForeground(createParallaxForeground(mapDTO->listForegroundDTO,mapDTO->width,mapDTO->height));
-
+    
+    
+    //    //create background
+    //    map->addParallaxBackground(createParallaxBackground(mapDTO->listBackgroundDTO,mapDTO->width,mapDTO->height));
+    //    //create foreground
+    //    map->addParallaxForeground(createParallaxForeground(mapDTO->listForegroundDTO,mapDTO->width,mapDTO->height));
+    
     return map;
 }
 

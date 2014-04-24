@@ -76,3 +76,30 @@ void ScheduleManager::stopScheduledObjectAction(CCSequence* target)
 {
     this->stopAction(target);
 }
+
+void ScheduleManager::scheduleFunction(CCCallFunc* callFunction, CCCallFunc* endFunction, float duration, int repeatTime)
+{
+    
+    
+    CCArray* arr1 = CCArray::create();
+    arr1->addObject(CCDelayTime::create(duration));
+    arr1->addObject(callFunction);
+    
+    CCArray* arr2 = CCArray::create();
+    arr2->addObject(CCRepeat::create(CCSequence::create(arr1), repeatTime));
+    arr2->addObject(endFunction);
+   
+    this->runAction(CCSequence::create(arr2));
+    
+}
+
+void ScheduleManager::finishScheduleFunction(CCNode* sender, void* data)
+{
+    CCArray* prms = static_cast<CCArray*>(data);
+    prms->release();
+}
+
+
+
+
+

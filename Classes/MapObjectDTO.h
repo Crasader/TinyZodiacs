@@ -10,7 +10,7 @@
 #define __TinyZodiacs__MapObjectDTO__
 
 #include <iostream>
-#include "Cocos2d.h"
+#include "cocos2d.h"
 
 using namespace std;
 USING_NS_CC;

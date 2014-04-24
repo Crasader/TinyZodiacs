@@ -15,6 +15,7 @@ CharacterSkillState::CharacterSkillState(Character* character): CharacterState(c
 
 bool CharacterSkillState::onEnterState()
 {
+     CCLOG("enter skill state");
     return false;
 }
 

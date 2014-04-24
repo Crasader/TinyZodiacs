@@ -86,6 +86,7 @@ bool GameMenuLayer::init()
     //this->addChild(mlayer, 1);
 
     
+    this->setTouchEnabled(true);
     return true;
     
     
@@ -102,7 +103,7 @@ void GameMenuLayer::update(float dt)
 //        ((GameObjectLayer*)this->getParent()->getChildByTag(3))->MoveSprite(vx*5,vy*5);
     if(this->getParent()->getChildByTag(3)!=NULL)
     {
-        label->setString(CCString::createWithFormat("%f",((GameObjectLayer*)this->getParent()->getChildByTag(3))->getCharacter()->isPassingThroughBody)->getCString());
+        label->setString(((GameObjectLayer*)this->getParent()->getChildByTag(3))->text->getCString());
        }
 
     
@@ -151,7 +152,9 @@ void GameMenuLayer::touchBegan(void* sender ,CCSet* pTouches, CCEvent* event)
     }
     else if(id.compare(ATK_BTN_ID) == 0)
     {
-       
+        if(this->getParent()->getChildByTag(3)!=NULL)
+            ((GameObjectLayer*)this->getParent()->getChildByTag(3))->Attack();
+
     }
     else if(id.compare(SKILL_1_BTN_ID) == 0)
     {
@@ -186,8 +189,8 @@ void GameMenuLayer::touchHold(void* sender ,CCSet* pTouches, CCEvent* event)
     }
     else if(id.compare(ATK_BTN_ID) == 0)
     {
-        if(this->getParent()->getChildByTag(3)!=NULL)
-            ((GameObjectLayer*)this->getParent()->getChildByTag(3))->Attack();
+//        if(this->getParent()->getChildByTag(3)!=NULL)
+//            ((GameObjectLayer*)this->getParent()->getChildByTag(3))->Attack();
 //        if(this->getParent()->getChildByTag(3)!=NULL)
 //            ((GameObjectLayer*)this->getParent()->getChildByTag(3))->MoveSpriteRight();
 
@@ -195,6 +198,7 @@ void GameMenuLayer::touchHold(void* sender ,CCSet* pTouches, CCEvent* event)
 }
 void GameMenuLayer::touchEnded(void* sender ,CCSet* pTouches, CCEvent* event)
 {
+    ;
     std::string id = ((UIObject *)sender)->getID();
     if(id.compare(LEFT_BTN_ID) == 0)
     {
@@ -216,5 +220,14 @@ void GameMenuLayer::touchEnded(void* sender ,CCSet* pTouches, CCEvent* event)
     else if(id.compare(ATK_BTN_ID) == 0)
     {
     }
+}
+
+void GameMenuLayer::ccTouchesBegan(cocos2d::CCSet *pTouches, cocos2d::CCEvent *event)
+{
+//    CCTouch* touch = (CCTouch*)pTouches->anyObject();
+//    CCPoint touchPoint = CCDirector::sharedDirector()->convertToGL(touch->getLocationInView()) ;
+//    
+//    
+//    label->setString(CCString::createWithFormat("%0.2f-%0.2f",touchPoint.x,touchPoint.y)->getCString());
 }
 

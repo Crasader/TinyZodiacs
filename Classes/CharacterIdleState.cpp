@@ -19,6 +19,7 @@ CharacterIdleState::CharacterIdleState(Character* character): CharacterState(cha
 
 bool CharacterIdleState::onEnterState()
 {
+    CCLOG("enter idle state");
     this->character->idleAnimation->getAnimation()->setLoops(INFINITY);
 //   this->character->setAnchorPointForAnimation(this->character->idleAnimation->getOrigin());
     this->character->getSprite()->runAction(CCAnimate::create(this->character->idleAnimation->getAnimation()));
@@ -36,6 +37,7 @@ void CharacterIdleState::update(float dt)
     if((this->character->getBody()->GetLinearVelocity().x > 2 || this->character->getBody()->GetLinearVelocity().x <-2))
     {
         this->character->changeState(new CharacterMoveState(this->character));
+        CCLOG("change state moving");
         return;
     }
     if(this->character->getBody()->GetLinearVelocity().y > 5|| this->character->getBody()->GetLinearVelocity().y < -5)

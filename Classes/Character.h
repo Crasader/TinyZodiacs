@@ -39,7 +39,7 @@ protected:
 public:
     Character();
     ~Character();
-    
+  
     CC_SYNTHESIZE(int, landing, Landing);
     CC_SYNTHESIZE_READONLY(CharacterData, originCharacterData, OriginCharacterData);
     CC_SYNTHESIZE(CharacterData, characterData, characterData);
@@ -68,6 +68,10 @@ public:
     void useSkill1();
     void useSkill2();
     void stopMove();
+    
+    void move(Direction direction, float speed);
+    void jump(float force);
+
     
     virtual void setSkin(b2Body* body,cocos2d::CCSprite* sprite);
     virtual void BeginContact(b2Contact *contact);

@@ -136,7 +136,7 @@ void Util::setFixtureGroup(b2Fixture* fixture, uint16 group)
             filter.maskBits = GROUP_A | GROUP_B | GROUP_HERO_A | GROUP_HERO_B | GROUP_NEUTRUAL;
                 break;
             case GROUP_SENSOR:
-                filter.maskBits = GROUP_TERRAIN | GROUP_SENSOR;
+                filter.maskBits = GROUP_TERRAIN;
                 break;
             default:
                 break;

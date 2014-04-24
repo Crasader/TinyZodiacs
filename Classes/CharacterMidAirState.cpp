@@ -19,6 +19,7 @@ CharacterMidAirState::CharacterMidAirState(Character* character): CharacterState
 
 bool CharacterMidAirState::onEnterState()
 {
+    CCLOG("enter mid air state");
     return false;
 }
 

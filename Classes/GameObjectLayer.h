@@ -36,7 +36,10 @@ public:
     Character* getCharacter();
     
     CC_SYNTHESIZE(CharacterActionEngine*, characterActionEngine, CharacterActionEngine);
+    virtual void ccTouchesBegan(CCSet* pTouches, CCEvent* event);
     
+    CCString *text;
+
     CREATE_FUNC(GameObjectLayer);
 
 private:

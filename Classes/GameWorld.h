@@ -19,6 +19,7 @@
 #include "PhysicBodyManager.h"
 #include "HealthBar.h"
 #include "ScheduleManager.h"
+#include "Monster.h"
 
 USING_NS_CC;
 class GameWorld: public CCNode, public b2ContactListener
@@ -47,8 +48,8 @@ public:
     
     CC_SYNTHESIZE(Character*, c1, c1);
     CC_SYNTHESIZE(Character*, c2, c2);
-
-
+    Monster* monster;
+    
     GameWorld();
     virtual ~GameWorld();
     

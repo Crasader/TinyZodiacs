@@ -14,38 +14,50 @@
 #include "MapDTO.h"
 #include "BackgroundDTO.h"
 #include "ForegroundDTO.h"
+#include "SensorObjectDTO.h"
+#include <string.h>
 
-#define BACKGROUND_LIST "background_list"
-#define BACKGROUND "background"
-#define BACKGROUND_IMAGE_NAME "image_name"
-#define BACKGROUND_SPRITESHEET_NAME "spritesheet_name"
+#define TAG_BACKGROUND_LIST "background_list"
+#define TAG_BACKGROUND "background"
+#define ATTRIBUTE_BACKGROUND_IMAGE_NAME "image_name"
+#define ATTRIBUTE_BACKGROUND_SPRITESHEET_NAME "spritesheet_name"
 
-#define RATIO "ratio"
-#define RATIO_X "x"
-#define RATIO_Y "y"
-#define LAYER_INDEX "layer_index"
-#define POSITION "position"
-#define POSITION_X "x"
-#define POSITION_Y "y"
+#define TAG_RATIO "ratio"
+#define ATTRIBUTE_RATIO_X "x"
+#define ATTRIBUTE_RATIO_Y "y"
+#define ATTRIBUTE_LAYER_INDEX "layer_index"
+#define TAG_POSITION "position"
+#define ATTRIBUTE_POSITION_X "x"
+#define ATTRIBUTE_POSITION_Y "y"
 
 
-#define FOREGROUND_LIST "foreground_list"
-#define FOREGROUND "foreground"
-#define FOREGROUND_IMAGE_NAME "image_name"
+#define TAG_FOREGROUND_LIST "foreground_list"
+#define TAG_FOREGROUND "foreground"
+#define ATTRIBUTE_FOREGROUND_IMAGE_NAME "image_name"
 
-#define MAP_ID "id"
-#define MAP_WIDTH "width"
-#define MAP_HEIGHT "height"
+#define ATTRIBUTE_MAP_ID "id"
+#define ATTRIBUTE_MAP_WIDTH "width"
+#define ATTRIBUTE_MAP_HEIGHT "height"
 
-#define MAP_OBJECT_LIST "map_object_list"
-#define MAP_OBJECT "map_object"
-#define MAP_OBJECT_ID "id"
-#define MAP_OBJECT_IMAGE_NAME "image_name"
-#define MAP_OBJECT_BODY_NAME "body_name"
+#define TAG_MAP_OBJECT_LIST "map_object_list"
+#define TAG_MAP_OBJECT "map_object"
+#define ATTRIBUTE_MAP_OBJECT_ID "id"
+#define ATTRIBUTE_MAP_OBJECT_IMAGE_NAME "image_name"
+#define ATTRIBUTE_MAP_OBJECT_BODY_NAME "body_name"
 
 #define TAG_CAN_PASS "can_pass"
 
-
+#define TAG_SENSOR_OBJECT_LIST "sensor_object_list"
+#define TAG_SENSOR_OBJECT "sensor_object"
+#define ATTRIBUTE_SENSOR_OBJECT_MUSTSTOP "must_stop"
+#define ATTRIBUTE_SENSOR_OBJECT_ISBACK "is_back"
+#define ATTRIBUTE_SENSOR_OBJECT_DIRECTION "direction"
+#define ATTRIBUTE_SENSOR_OBJECT_MOVE_SPEED "move_speed"
+#define ATTRIBUTE_SENSOR_OBJECT_JUMP_HEIGHT "jump_height"
+#define TAG_EDGE "edge"
+#define ATTRIBUTE_EDGE_X "x"
+#define ATTRIBUTE_EDGE_Y "y"
+#define TAG_LANE "lane"
 
 
 USING_NS_CC;
@@ -58,6 +70,7 @@ public:
     static MapDTO* getMapDTOFromXMLNode(XMLElement* mapXMLElement);
     static BackgroundDTO* getBackgroundDTOFromXMLNode(XMLElement* backgroundXMLElement);
     static ForegroundDTO* getForegroundDTOFromXMLNode(XMLElement* foregroundXMLElement);
+    static SensorObjectDTO* getSensorObjectDTOFromXMLNode(XMLElement* sensorObjectXMLElement);
 };
 
 #endif /* defined(__TinyZodiacs__XMLMapParser__) */

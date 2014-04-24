@@ -79,18 +79,16 @@ void PhysicBodyManager::update(float dt)
         {
             if(listBody[i] != NULL && listBody[i]->getBody() != NULL)
             {
-                if(listBody[i]->getBody()->IsActive())
-                {
+                
                     listBody[i]->getBody()->SetActive(false);
-                }
-                else
-                {
+                
+            
                     GameObject* data = listBody[i];
-                    this->world->DestroyBody(listBody[i]->getBody());
-                    listBody[i]->setBody(NULL);
+                  //  this->world->DestroyBody(listBody[i]->getBody());
+                    //listBody[i]->setBody(NULL);
                     this->listBody.erase(this->listBody.begin()+i);
                     delete data;
-                }
+    
             }
         }
 //    this->listBody.clear();

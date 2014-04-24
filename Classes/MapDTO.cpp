@@ -16,6 +16,9 @@ MapDTO::MapDTO()
     this->listBackgroundDTO->retain();
     this->listForegroundDTO = CCArray::create();
     this->listForegroundDTO->retain();
+    this->listSensorObjectDTO = CCArray::create();
+    this->listSensorObjectDTO->retain();
+    
     
     this->height = 0;
     this->width = 0;
@@ -27,6 +30,7 @@ MapDTO::~MapDTO()
     CC_SAFE_RELEASE(this->listMapObjectDTO);
     CC_SAFE_RELEASE(this->listBackgroundDTO);
     CC_SAFE_RELEASE(this->listForegroundDTO);
+    CC_SAFE_RELEASE(this->listSensorObjectDTO);
 }
 
 bool MapDTO::init()

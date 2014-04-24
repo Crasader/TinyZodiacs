@@ -37,7 +37,7 @@
     <map_object_list>
         <map_object id="23" image_name="map1_2.png" body_name="map1_2" layer_index="1">
             <position x="979" y="276"/>
-            <can_pass>false</can_pass>
+            <can_pass>true</can_pass>
         </map_object>
         <map_object id="23" image_name="map1_1.png" body_name="map1_1" layer_index="2">
             <position x="0" y="380"/>
@@ -106,4 +106,106 @@
             <position x="1240" y="687"/>
         </map_object>
     </map_object_list>
+    <sensor_object_list>
+        <sensor_object is_back = "true" must_stop = "false" direction = "right" move_speed="8" jump_height = "0">
+            <position x="150" y="645"/>
+            <edge x="0" y="100"/>
+            <lane>2</lane>
+        </sensor_object>
+        <sensor_object is_back = "false" must_stop = "true" direction = "right" move_speed="5" jump_height = "11">
+            <position x="820" y="650"/>
+            <edge x="200" y="150"/>
+            <lane>2</lane>
+        </sensor_object>
+        <sensor_object is_back = "false" must_stop = "true" direction = "right" move_speed="3" jump_height = "10.5">
+            <position x="1150" y="810"/>
+            <edge x="0" y="50"/>
+            <lane>2</lane>
+
+        </sensor_object>
+        <sensor_object is_back = "false" must_stop = "true" direction = "left" move_speed="0" jump_height = "10.5">
+            <position x="758" y="490"/>
+            <edge x="0" y="50"/>
+            <lane>2</lane>
+
+        </sensor_object>
+        <sensor_object is_back = "false" must_stop = "true" direction = "left" move_speed="4" jump_height = "8">
+            <position x="1555" y="255"/>
+            <edge x="0" y="50"/>
+            <lane>2</lane>
+
+        </sensor_object>
+        <sensor_object is_back = "false" must_stop = "true" direction = "left" move_speed="0" jump_height = "11">
+            <position x="1010" y="313"/>
+            <edge x="0" y="50"/>
+            <lane>2</lane>
+
+        </sensor_object>
+        <sensor_object is_back = "true" must_stop = "true" direction = "left" move_speed="0" jump_height = "10.5">
+            <position x="3980" y="1145"/>
+            <edge x="0" y="50"/>
+            <lane>2</lane>
+
+        </sensor_object>
+        <sensor_object is_back = "true" must_stop = "false" direction = "left" move_speed="5" jump_height = "10">
+            <position x="3975" y="1320"/>
+            <edge x="50" y="0"/>
+            <lane>2</lane>
+
+        </sensor_object>
+        <sensor_object is_back = "true" must_stop = "true" direction = "right" move_speed="5" jump_height = "10">
+            <position x="3600" y="1437"/>
+            <edge x="0" y="50"/>
+            <lane>2</lane>
+
+        </sensor_object>
+        <sensor_object is_back = "false" must_stop = "false" direction = "right" move_speed="5" jump_height = "10">
+            <position x="3824" y="1562"/>
+            <edge x="0" y="50"/>
+            <lane>2</lane>
+
+        </sensor_object>
+
+
+
+
+        <sensor_object is_back = "false" must_stop = "true" direction = "right" move_speed="5" jump_height = "10">
+            <position x="3200" y="950"/>
+            <edge x="350" y="220"/>
+       
+        </sensor_object>
+        <sensor_object is_back = "false" must_stop = "true" direction = "right" move_speed="0" jump_height = "10">
+            <position x="6520" y="260"/>
+            <edge x="0" y="50"/>
+        </sensor_object>
+        <sensor_object is_back = "false" must_stop = "true" direction = "right" move_speed="5" jump_height = "0">
+            <position x="6500" y="350"/>
+            <edge x="50" y="0"/>
+        </sensor_object>
+        <sensor_object is_back = "false" must_stop = "true" direction = "right" move_speed="0" jump_height = "13">
+            <position x="7000" y="330"/>
+            <edge x="350" y="220"/>
+        </sensor_object>
+        <sensor_object is_back = "false" must_stop = "true" direction = "right" move_speed="5" jump_height = "0">
+            <position x="7000" y="540"/>
+            <edge x="50" y="0"/>
+        </sensor_object>
+        <sensor_object is_back = "false" must_stop = "true" direction = "right" move_speed="0" jump_height = "11">
+            <position x="7250" y="510"/>
+            <edge x="0" y="50"/>
+        </sensor_object>
+        <sensor_object is_back = "false" must_stop = "true" direction = "right" move_speed="5" jump_height = "0">
+            <position x="7250" y="680"/>
+            <edge x="50" y="0"/>
+        </sensor_object>
+        <sensor_object is_back = "true" must_stop = "false" direction = "left" move_speed="8" jump_height = "0">
+            <position x="7890" y="652"/>
+            <edge x="0" y="100"/>
+        </sensor_object>
+<!-- <sensor_object is_back = "true" must_stop = "false" direction = "right" move_speed="8" jump_height = "0">
+            <position x="5678" y="251"/>
+            <edge x="0" y="100"/>
+        </sensor_object> -->
+    </sensor_object_list>
+        
 </map>

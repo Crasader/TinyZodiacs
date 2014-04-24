@@ -18,6 +18,7 @@
 #include "GameObjectInfoView.h"
 #include "InfoViewCreator.h"
 #include "Util.h"
+#include "MonsterFactory.h"
 
 GameWorld::GameWorld()
 {
@@ -69,24 +70,24 @@ bool GameWorld::init()
     //CHARACTER
     this->character = ObjectFactory::getSharedManager()->createCharacter("map2", world, true);
     this->map->addChild(character->getSprite(), CHARACTER_LAYER);
-    this->character->setPositionInPixel(ccp(400,800));
+    this->character->setPositionInPixel(ccp(1500,1200));
     this->setFollowCharacter(true);
     this->map->scheduleUpdate();
     
     //CHARACTER
     this->c1 = ObjectFactory::getSharedManager()->createCharacter("map2", world, false);
     this->map->addChild(c1->getSprite(), CHARACTER_LAYER);
-    this->c1->setPositionInPixel(ccp(600,1000));
+    this->c1->setPositionInPixel(ccp(3600,1000));
     
     //CHARACTER
     this->c2 = ObjectFactory::getSharedManager()->createCharacter("map2", world, false);
     this->map->addChild(c2->getSprite(), CHARACTER_LAYER);
-    this->c2->setPositionInPixel(ccp(800,1200));
+    this->c2->setPositionInPixel(ccp(3800,1200));
     
     this->character->setGroup(GROUP_HERO_A);
 
-    this->c1->setGroup(GROUP_TERRAIN);
-    this->c2->setGroup(GROUP_TERRAIN);
+    this->c1->setGroup(GROUP_HERO_A);
+    this->c2->setGroup(GROUP_HERO_B);
     
     CCObject* object1 = NULL;
     //
@@ -125,10 +126,18 @@ bool GameWorld::init()
         this->addChild(gameObjectInfoView,100);
     }
     
-    
-    
-    //Add manager
+    //MONSTER
      addManager();
+    CharacterDTO dto = CharacterFactory::loadXMLFile("character_cat.xml");
+    
+    MonsterFactory::getSharedFactory()->setHolder(this->map);
+    
+   
+    
+    
+    MonsterFactory::getSharedFactory()->createMonsters(dto,ccp(2000,400),30,1, this->world);
+
+    
     return true;
 }
 
@@ -247,6 +256,10 @@ void GameWorld::update(float dt)
             hero->update(dt);
         }
     
+    ///
+    
+    MonsterFactory::getSharedFactory()->update(dt);
+
 }
 
 void GameWorld::setFollowCharacter(bool follow)
@@ -274,6 +287,7 @@ void GameWorld::draw()
 //PHYSICS CONTACT
 void GameWorld::BeginContact(b2Contact *contact)
 {
+    this->map->BeginContact(contact);
     character->BeginContact(contact);
     this->c1->BeginContact(contact);
     this->c2->BeginContact(contact);
@@ -286,9 +300,20 @@ void GameWorld::BeginContact(b2Contact *contact)
         hero->BeginContact(contact);
     }
     
+    CCObject* object2 = NULL;
+    
+    CCARRAY_FOREACH(MonsterFactory::getSharedFactory()->listMonster, object2)
+    {
+        Monster* hero = dynamic_cast<Monster*>(object2);
+        hero->BeginContact(contact);
+    }
+
+    
 }
 void GameWorld::EndContact(b2Contact *contact)
 {
+    this->map->EndContact(contact);
+
     character->EndContact(contact);
     this->c1->EndContact(contact);
     this->c2->EndContact(contact);
@@ -298,9 +323,19 @@ void GameWorld::EndContact(b2Contact *contact)
     CCARRAY_FOREACH(this->listCharacter, object1)
     {
         Character* hero = dynamic_cast<Character*>(object1);
-        hero->BeginContact(contact);
+        if(hero != NULL)
+        hero->EndContact(contact);
     }
     
+    CCObject* object2 = NULL;
+    
+    CCARRAY_FOREACH(MonsterFactory::getSharedFactory()->listMonster, object2)
+    {
+        Monster* hero = dynamic_cast<Monster*>(object2);
+        if(hero != NULL)
+        hero->EndContact(contact);
+    }
+
 }
 
 void GameWorld::PreSolve(b2Contact* contact, const b2Manifold* oldManifold)

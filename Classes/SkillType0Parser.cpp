@@ -147,9 +147,9 @@ NormalMeleeSkillData SkillType0Parser::parse(const XMLElement* root, b2World* wo
 {
     NormalMeleeSkillData data;
     data.setDamage(readDamage(root->FirstChildElement(TAG_DAMAGE)));
-    data.setCoolDown(readDamage(root->FirstChildElement(TAG_COOL_DOWN)));
+    data.setCoolDown(readCoolDown(root->FirstChildElement(TAG_COOL_DOWN)));
     data.setDelay(readDelay(root->FirstChildElement(TAG_DELAY)));
-    data.setLifeTime(readDelay(root->FirstChildElement(TAG_LIFE_TIME)));
+    data.setLifeTime(readLifeTime(root->FirstChildElement(TAG_LIFE_TIME)));
     data.setSkillSensor(readBody(root->FirstChildElement(TAG_BODY), world));
     data.setJointDefA(readJoinDef(root->FirstChildElement(TAG_JOINTS)->FirstChildElement(TAG_HOLDER)));
     data.setJointDefB(readJoinDef(root->FirstChildElement(TAG_JOINTS)->FirstChildElement(TAG_THIS)));

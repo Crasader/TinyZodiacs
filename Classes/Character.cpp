@@ -23,6 +23,10 @@ Character::Character()
     this->state = NULL;
     this->landing = 0;
     this->currentJumpCount = 0;
+    
+    this->normalAttack = NULL;
+    this->skill1 = NULL;
+    this->skill2 = NULL;
 }
 
 Character::~Character()
@@ -30,6 +34,8 @@ Character::~Character()
     delete normalAttack;
     delete skill1;
     delete skill2;
+    
+    this->footSensor->GetWorld()->DestroyBody(this->footSensor);
 }
 
 void Character::changeState(CharacterState *states)
@@ -102,37 +108,45 @@ void Character::update(float dt)
 
 void Character::move(Direction direction)
 {
+    move(direction, this->characterData.getSpeed());
+}
+
+void Character::jump()
+{
+    jump(this->characterData.getJumpHeight());
+}
+
+void Character::move(Direction direction, float speed)
+{
     if(this->state->move())
     {
         b2Vec2 impulse = this->body->GetLinearVelocity();
         if(direction == LEFT)
         {
-            impulse.x = -1*this->characterData.getSpeed();
+            impulse.x = -1*speed;
         }
         else
         {
-            impulse.x = this->characterData.getSpeed();
+            impulse.x = speed;
         }
         this->body->SetLinearVelocity(impulse);
         flipDirection(direction);
     }
-    
 }
-
-void Character::jump()
+void Character::jump(float force)
 {
     if(this->currentJumpCount < this->characterData.getMaxJumpTimes())
     {
         if(this->state->jump())
         {
             b2Vec2 vel = this->body->GetLinearVelocity();
-            vel.y = this->characterData.getJumpHeight();
+            vel.y = force;
             this->body->SetLinearVelocity( vel );
             
             this->currentJumpCount++;
         }
     }
-    //
+
 }
 
 void Character::attack()
@@ -231,8 +245,6 @@ void Character::checkCollisionDataInBeginContact(PhysicData* data, b2Contact *co
             physicData = (PhysicData*)contact->GetFixtureA()->GetBody()->GetUserData();
         }
         
-        
-        GameObject::checkCollisionDataInBeginContact(data, contact, isSideA);
         switch (data->Id)
         {
             case CHARACTER_FOOT_SENSOR:
@@ -300,17 +312,39 @@ void Character::checkCollisionDataInEndContact(PhysicData* data, b2Contact *cont
 {
     if(data->Data == this)
     {
-        GameObject::checkCollisionDataInEndContact(data, contact, isSideA);
+        PhysicData* physicData = NULL;
+        if(isSideA)
+        {
+            physicData = (PhysicData*)contact->GetFixtureB()->GetBody()->GetUserData();
+        }
+        else
+        {
+            physicData = (PhysicData*)contact->GetFixtureA()->GetBody()->GetUserData();
+        }
+
         switch (data->Id) {
             case CHARACTER_FOOT_SENSOR:
-                if(this == data->Data)
+            {
+                if(physicData!=NULL)
                 {
-                    this -> landing --;
-                    if(this->landing <0)
-                    {
-                        this->landing =0;
+                    switch (physicData->Id) {
+                        case MAP_BASE:
+                        {
+                            this -> landing --;
+                            if(this->landing <0)
+                            {
+                                this->landing =0;
+                            }
+                        }
+                            break;
+                            
+                        default:
+                            break;
                     }
                 }
+
+            }
+                
                 break;
                 
             case CHARACTER_BODY:

@@ -4,7 +4,7 @@
     <hp>100</hp>
     <atk>5</atk>
     <def>2</def>
-    <speed>10</speed>
+    <speed>4</speed>
     <atk_speed>0.1</atk_speed>
     <max_jump>5</max_jump>
     <jump_height>10</jump_height>

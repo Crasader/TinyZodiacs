@@ -15,6 +15,7 @@
 #include "PhysicConstants.h"
 #include "PhysicData.h"
 
+
 enum Direction {LEFT, RIGHT};
 class GameObject: public cocos2d::CCObject
 {

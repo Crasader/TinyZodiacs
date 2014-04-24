@@ -45,13 +45,13 @@ USING_NS_CC;
 
 #define CHARACTER_MONKEY_ID "monkey"
 
-#define CHARACTER_MONKEY_XML_FILE "character_monkey.xml"
+#define CHARACTER_MONKEY_XML_FILE "character_cat.xml"
 
 class CharacterFactory
 {
 private:
 protected:
-    static CharacterDTO loadXMLFile(const char* xmlFileName);
+   
     
     static string readBodyData(tinyxml2::XMLElement* root);
     static int readHealthData(tinyxml2::XMLElement* root);
@@ -69,6 +69,7 @@ protected:
     
 
 public:
+    static CharacterDTO loadXMLFile(const char* xmlFileName);
     static Hero* createMonkeyHero(b2World* world, bool isLocal);
 };
 #endif /* defined(__TinyZodiacs__CharacterFactory__) */

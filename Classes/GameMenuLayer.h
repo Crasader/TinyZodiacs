@@ -29,6 +29,7 @@ public:
     void UpCallBack(cocos2d::CCObject* sender);
     void DownCallBack(cocos2d::CCObject* sender);
 
+    virtual void ccTouchesBegan(CCSet* pTouches, CCEvent* event);
     
 
 

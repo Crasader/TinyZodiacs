@@ -18,6 +18,7 @@ CharacterAttackState::CharacterAttackState(Character* character): CharacterState
 
 bool CharacterAttackState::onEnterState()
 {
+     CCLOG("enter attack state");
     CCAction* jumpAction = CCAnimate::create(this->character->attackAnimation->getAnimation());
     CCCallFuncND* callBack = CCCallFuncND::create(NULL, callfuncND_selector(CharacterAttackState::onFinishAttackAnimation), this->character);
     
