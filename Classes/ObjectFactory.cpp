@@ -147,7 +147,7 @@ MapObject* ObjectFactory::createMapObject(MapObjectDTO* mapObjectDTO, b2World *w
         bodyDef.type = b2_staticBody;
         bodyDef.angle = ccpToAngle(ccp(0,0));
         bodyDef.bullet = true;
-        
+      //
         b2Body *body = world->CreateBody(&bodyDef);
         sc->addFixturesToBody(body, mapObjectDTO->bodyName.c_str());
         
@@ -174,8 +174,6 @@ MapObject* ObjectFactory::createMapObject(MapObjectDTO* mapObjectDTO, b2World *w
         
         mapObject->setGroup(GROUP_TERRAIN);
     }
-    
-    
     
     mapObject->setPositionInPixel(ccp(mapObjectDTO->x,mapObjectDTO->y));
     

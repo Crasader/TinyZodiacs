@@ -46,10 +46,6 @@ public:
     CC_SYNTHESIZE(Character*, character, Character);
     CC_SYNTHESIZE(Map*, map, map);
     
-    CC_SYNTHESIZE(Character*, c1, c1);
-    CC_SYNTHESIZE(Character*, c2, c2);
-    Monster* monster;
-    
     GameWorld();
     virtual ~GameWorld();
     

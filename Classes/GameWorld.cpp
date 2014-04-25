@@ -48,7 +48,7 @@ bool GameWorld::init()
     b2Draw* _debugDraw = new GLESDebugDraw(PTM_RATIO);
     uint32 flags = 0;
     flags += b2Draw::e_shapeBit;
- //   flags += b2Draw::e_jointBit;
+    //   flags += b2Draw::e_jointBit;
     flags += b2Draw::e_aabbBit;
     flags += b2Draw::e_pairBit;
     //    flags += b2Draw::e_centerOfMassBit;
@@ -66,7 +66,7 @@ bool GameWorld::init()
     this->addChild(map,MAP_LAYER);
     
     delete mapCreator;
-    //
+    
     //CHARACTER
     this->character = ObjectFactory::getSharedManager()->createCharacter("map2", world, true);
     this->map->addChild(character->getSprite(), CHARACTER_LAYER);
@@ -74,20 +74,6 @@ bool GameWorld::init()
     this->setFollowCharacter(true);
     this->map->scheduleUpdate();
     
-    //CHARACTER
-    this->c1 = ObjectFactory::getSharedManager()->createCharacter("map2", world, false);
-    this->map->addChild(c1->getSprite(), CHARACTER_LAYER);
-    this->c1->setPositionInPixel(ccp(3600,1000));
-    
-    //CHARACTER
-    this->c2 = ObjectFactory::getSharedManager()->createCharacter("map2", world, false);
-    this->map->addChild(c2->getSprite(), CHARACTER_LAYER);
-    this->c2->setPositionInPixel(ccp(3800,1200));
-    
-    this->character->setGroup(GROUP_HERO_A);
-
-    this->c1->setGroup(GROUP_HERO_A);
-    this->c2->setGroup(GROUP_HERO_B);
     
     CCObject* object1 = NULL;
     //
@@ -109,7 +95,7 @@ bool GameWorld::init()
     
     this->addChild(batchnode,100);
     
-
+    
     //
     createWorldBox();
     //
@@ -127,16 +113,11 @@ bool GameWorld::init()
     }
     
     //MONSTER
-     addManager();
+    addManager();
     CharacterDTO dto = CharacterFactory::loadXMLFile("character_monkey.xml");
     
     MonsterFactory::getSharedFactory()->setHolder(this->map);
-    
-   
-    
-    
-    MonsterFactory::getSharedFactory()->createMonsters(dto,ccp(2000,400),30,1, this->world);
-
+    MonsterFactory::getSharedFactory()->createMonsters(dto,ccp(2000,400),300,1, this->world);
     
     return true;
 }
@@ -216,8 +197,6 @@ void GameWorld::createWorldBox()
     rightEdgeShape.Set(b2Vec2(0, 0), b2Vec2(0/PTM_RATIO,this->height/PTM_RATIO));
     this->rightLine->CreateFixture(&rightFixtureDef);
     
-    //
-    
 }
 
 void GameWorld::setContactListener(b2ContactListener *listener){
@@ -233,33 +212,29 @@ void GameWorld::update(float dt)
         manager->update(dt);
         world->Step(1/40.000f,8, 1);
     }
-    //  
-        this->map->update(dt);
-        this->character->update(dt);
+    //
+    this->map->update(dt);
+    this->character->update(dt);
     
-        // update infoview
-        CCObject* object = NULL;
-       CCARRAY_FOREACH(this->listInfoView, object)
-        {
-            GameObjectInfoView* gameObjectInfoView = dynamic_cast<GameObjectInfoView*>(object);
-            gameObjectInfoView->update(dt);
-        }
+    // update infoview
+    CCObject* object = NULL;
+    CCARRAY_FOREACH(this->listInfoView, object)
+    {
+        GameObjectInfoView* gameObjectInfoView = dynamic_cast<GameObjectInfoView*>(object);
+        gameObjectInfoView->update(dt);
+    }
     
-        this->c1->update(dt);
-        this->c2->update(dt);
+    object = NULL;
+    CCARRAY_FOREACH(this->listCharacter, object)
+    {
+        Character* hero = dynamic_cast<Character*>(object);
+        hero->update(dt);
+    }
     
-        CCObject* object1 = NULL;
-   
-        CCARRAY_FOREACH(this->listCharacter, object1)
-        {
-            Character* hero = dynamic_cast<Character*>(object1);
-            hero->update(dt);
-        }
-    
-    ///
+    ///factory monster
     
     MonsterFactory::getSharedFactory()->update(dt);
-
+    
 }
 
 void GameWorld::setFollowCharacter(bool follow)
@@ -278,19 +253,17 @@ void GameWorld::setFollowCharacter(bool follow)
 
 void GameWorld::draw()
 {
-        ccGLEnableVertexAttribs( kCCVertexAttribFlag_Position );
-        kmGLPushMatrix();
-        world->DrawDebugData();
-        kmGLPopMatrix();
+    ccGLEnableVertexAttribs( kCCVertexAttribFlag_Position );
+    kmGLPushMatrix();
+    world->DrawDebugData();
+    kmGLPopMatrix();
 }
 
 //PHYSICS CONTACT
 void GameWorld::BeginContact(b2Contact *contact)
 {
     this->map->BeginContact(contact);
-    character->BeginContact(contact);
-    this->c1->BeginContact(contact);
-    this->c2->BeginContact(contact);
+    this->character->BeginContact(contact);
     
     CCObject* object1 = NULL;
     
@@ -307,16 +280,13 @@ void GameWorld::BeginContact(b2Contact *contact)
         Monster* hero = dynamic_cast<Monster*>(object2);
         hero->BeginContact(contact);
     }
-
+    
     
 }
 void GameWorld::EndContact(b2Contact *contact)
 {
     this->map->EndContact(contact);
-
-    character->EndContact(contact);
-    this->c1->EndContact(contact);
-    this->c2->EndContact(contact);
+     this->character->EndContact(contact);
     
     CCObject* object1 = NULL;
     
@@ -324,7 +294,7 @@ void GameWorld::EndContact(b2Contact *contact)
     {
         Character* hero = dynamic_cast<Character*>(object1);
         if(hero != NULL)
-        hero->EndContact(contact);
+            hero->EndContact(contact);
     }
     
     CCObject* object2 = NULL;
@@ -333,18 +303,17 @@ void GameWorld::EndContact(b2Contact *contact)
     {
         Monster* hero = dynamic_cast<Monster*>(object2);
         if(hero != NULL)
-        hero->EndContact(contact);
+            hero->EndContact(contact);
     }
-
+    
 }
 
 void GameWorld::PreSolve(b2Contact* contact, const b2Manifold* oldManifold)
 {
-    character->PreSolve(contact,oldManifold);
-
+    //character->PreSolve(contact,oldManifold);
+    
 }
 void GameWorld::PostSolve(b2Contact* contact, const b2ContactImpulse* impulse)
 {
-    character->PostSolve(contact,impulse);
-
+    //character->PostSolve(contact,impulse);
 }

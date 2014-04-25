@@ -10,10 +10,20 @@
 
 ObjectState::ObjectState()
 {
-   
+    //this->onEnterState();
 }
 
 ObjectState::~ObjectState()
 {
-    
+   // this->onExitState();
+}
+
+bool ObjectState::onEnterState()
+{
+    return true;
+}
+
+bool ObjectState::onExitState()
+{
+    return true;
 }

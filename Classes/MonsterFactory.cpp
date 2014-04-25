@@ -76,6 +76,7 @@ Monster* MonsterFactory::createMonster(CharacterDTO monsterDTO, CCPoint position
     monster->getSprite()->setAnchorPoint(sc->anchorPointForShape(monsterDTO.body.c_str()));
     
     monster->setSkin(body, monster->getSprite());
+  //  monster->getSprite()->setVisible(false);
     
     //
     monster->setPositionInPixel(position);

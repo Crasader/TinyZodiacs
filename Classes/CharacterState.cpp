@@ -23,3 +23,13 @@ CharacterState::~CharacterState()
 {
     this->character = NULL;
 }
+
+bool CharacterState::onEnterState()
+{
+    return false;
+}
+
+bool CharacterState::onExitState()
+{
+    return false;
+}

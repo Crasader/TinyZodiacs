@@ -12,7 +12,7 @@
 #include <iostream>
 #include "Character.h"
 
-class ObjectState
+class ObjectState: public CCObject
 {
 private:
 protected:
@@ -22,7 +22,7 @@ public:
 
     virtual void update(float dt) = 0;
     
-    virtual bool onEnterState() = 0;
-    virtual bool onExitState() = 0;
+    virtual bool onEnterState();
+    virtual bool onExitState();
 };
 #endif /* defined(__Headball__ObjectState__) */
