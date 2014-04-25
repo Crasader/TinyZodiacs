@@ -54,7 +54,7 @@ void NormalProjectile::setData(NormalShootingSkillData data, GameObject* holder,
     
     body->SetGravityScale(this->data.getGravityScale());
     //set position
-    body->SetTransform(getStartPosition(holder, body), body->GetAngle());
+    body->SetTransform(getStartPosition(holder, body), data.getRotateAngle());
     //
     PhysicData* pData= new PhysicData();
     pData->Id = PROJECTILE;
@@ -64,7 +64,6 @@ void NormalProjectile::setData(NormalShootingSkillData data, GameObject* holder,
     
     //
     this->sprite = CCSprite::create();
-//    this->sprite->retain();
     //
     this->data.getAnimation()->getAnimation()->setLoops(INFINITY);
     CCAnimate* action = CCAnimate::create(this->data.getAnimation()->getAnimation());

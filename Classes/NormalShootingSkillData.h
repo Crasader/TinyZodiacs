@@ -24,6 +24,7 @@ public:
     
     CC_SYNTHESIZE(std::string, projectileBodyId, ProjectileBodyId);
     CC_SYNTHESIZE(AnimationObject*, animation, Animation);
+    CC_SYNTHESIZE(float, rotateAngle, RotateAngle);
     CC_SYNTHESIZE(bool, terrainCollide, TerrainCollide);
     CC_SYNTHESIZE(bool, piercing, Piercing);
     CC_SYNTHESIZE(float, gravityScale, GravityScale);

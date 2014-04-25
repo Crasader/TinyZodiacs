@@ -228,8 +228,7 @@ void Tower::aimTarget()
         NormalShootingSkillData data = attack->getData();
         data.setSpeedX(-sp.x);
         data.setSpeedY(sp.y);
-        
-        
+        data.setRotateAngle(atan2(targetPoint.y - towerPoint.y,targetPoint.x - towerPoint.x));
         attack->setData(data);
     }
     
