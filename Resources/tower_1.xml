@@ -1,0 +1,14 @@
+<character id="tower1">
+    <animation>tower1</animation>
+	<body>tower_1</body>
+    <hp>100</hp>
+    <atk>5</atk>
+    <def>2</def>
+    <speed>10</speed>
+    <atk_speed>0.1</atk_speed>
+    <max_jump>5</max_jump>
+    <jump_height>10</jump_height>
+    <skill_0>tower_shooting_1</skill_0>
+    <skill_1>monkey_aura</skill_1>
+    <skill_2>monkey_ultimate</skill_2>
+</character>

@@ -28,6 +28,8 @@ NormalShootingAttack::NormalShootingAttack(GameObject* holder, NormalShootingSki
         
         projectTileList = CCArray::create();
         projectTileList->retain();
+        
+        this->autorelease();
     }
 }
 
@@ -100,8 +102,11 @@ void NormalShootingAttack::excuteImmediately()
 {
     if(holder != NULL)
     {
-        NormalProjectile* proj = new NormalProjectile(this->data, this->holder, this->projectTileList);
+//        NormalProjectile* proj = new NormalProjectile(this->data, this->holder, this->projectTileList);
+        NormalProjectile* proj = NormalProjectile::create();
+        proj->setData(this->data, this->holder, this->projectTileList);
         proj->setGroup(GROUP_SKILL_DEFAULT);
+//        proj->retain();
         //
         projectTileList->addObject(proj);
     }
@@ -133,7 +138,7 @@ void NormalShootingAttack::checkCollisionDataInBeginContact(PhysicData* data, b2
     {
         case PROJECTILE:
             void* pData = data->Data;
-            NormalProjectile* projectile = (NormalProjectile *)pData;
+            NormalProjectile* projectile = static_cast<NormalProjectile*>(pData);
             if(projectile != NULL && projectile->getHolder() == this->holder)
             {
                 projectile->checkCollisionDataInBeginContact(data, contact, isSideA);
@@ -144,7 +149,7 @@ void NormalShootingAttack::checkCollisionDataInBeginContact(PhysicData* data, b2
 
 void NormalShootingAttack::checkCollisionDataInEndContact(PhysicData* data, b2Contact *contact, bool isSideA)
 {
-    if(data ==NULL || data->Data == NULL)
+    if(data == NULL || data->Data == NULL)
     {
         return;
     }

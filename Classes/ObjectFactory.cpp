@@ -89,7 +89,7 @@ Character* ObjectFactory::createCharacter(const std::string &name, b2World *worl
     //    character->attackAnimation->getAnimation()->setDelayPerUnit(data.getAttackSpeed());
     //    return character;
     
-    Character* character = CharacterFactory::createMonkeyHero(world, isLocal);
+    Character* character = CharacterFactory::createHero(name,world, isLocal);
     
     return character;
     

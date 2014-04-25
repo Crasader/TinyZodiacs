@@ -17,6 +17,8 @@
 #define TAG_GRAVITY_SCALE "gravity_scale"
 #define TAG_COLLIDE_TERRAIN "collide_terrain"
 #define TAG_PIERCING "piercing"
+#define TAG_X "x"
+#define TAG_Y "y"
 
 
 

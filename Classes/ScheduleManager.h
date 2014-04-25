@@ -25,12 +25,14 @@ protected:
 public:
     CCSequence* scheduleForGameObject(GameObject* object, float duration);
     void scheduleForSkill(AbstractSkill* object, float duration, int fuctionCall);
-    void stopScheduledObjectAction(CCSequence* target);
+    void stopScheduledObjectAction(CCAction* target);
     
     void scheduleFunction(CCCallFunc* callFunction, CCCallFunc* endFunction, float duration, int repeatTime);
        static ScheduleManager* getInstance();
     void finishScheduleFunction(CCNode* sender, void* data);
     static void release();
 
+    CCSequence* scheduleFuction(CCCallFunc* funcion, float duration);
+    CCRepeat* scheduleFuctionRepeatly(CCCallFunc* funcion, float duration, int times);
 };
 #endif /* defined(__TinyZodiacs__ScheduleManager__) */

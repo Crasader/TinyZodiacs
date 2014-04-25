@@ -170,24 +170,42 @@
 		1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
 		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
 		288765A50DF7441C002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765A40DF7441C002DB57D /* CoreGraphics.framework */; };
+		2D0DA13F1908F65800881C8D /* tower_1_animation.xml in Resources */ = {isa = PBXBuildFile; fileRef = 2D0DA13D1908F65800881C8D /* tower_1_animation.xml */; };
+		2D0DA1401908F65800881C8D /* tower_2_animation.xml in Resources */ = {isa = PBXBuildFile; fileRef = 2D0DA13E1908F65800881C8D /* tower_2_animation.xml */; };
+		2D0DA1421908F67400881C8D /* skill_animation.xml in Resources */ = {isa = PBXBuildFile; fileRef = 2D0DA1411908F67400881C8D /* skill_animation.xml */; };
+		2D0DA1451908F69C00881C8D /* character_body.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2D0DA1431908F69C00881C8D /* character_body.plist */; };
+		2D0DA1461908F69C00881C8D /* skill_body.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2D0DA1441908F69C00881C8D /* skill_body.plist */; };
+		2D0DA14B1908F6C800881C8D /* list_effect.xml in Resources */ = {isa = PBXBuildFile; fileRef = 2D0DA1471908F6C800881C8D /* list_effect.xml */; };
+		2D0DA14C1908F6C800881C8D /* list_skill.xml in Resources */ = {isa = PBXBuildFile; fileRef = 2D0DA1481908F6C800881C8D /* list_skill.xml */; };
+		2D0DA14D1908F6C800881C8D /* test_sheet.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2D0DA1491908F6C800881C8D /* test_sheet.plist */; };
+		2D0DA14E1908F6C800881C8D /* test_sheet.png in Resources */ = {isa = PBXBuildFile; fileRef = 2D0DA14A1908F6C800881C8D /* test_sheet.png */; };
+		2D0DA1581908F72200881C8D /* tower_1_default.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2D0DA1501908F72200881C8D /* tower_1_default.plist */; };
+		2D0DA1591908F72200881C8D /* tower_1_default.png in Resources */ = {isa = PBXBuildFile; fileRef = 2D0DA1511908F72200881C8D /* tower_1_default.png */; };
+		2D0DA15A1908F72200881C8D /* tower_1.xml in Resources */ = {isa = PBXBuildFile; fileRef = 2D0DA1521908F72200881C8D /* tower_1.xml */; };
+		2D0DA15B1908F72200881C8D /* tower_2_default.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2D0DA1531908F72200881C8D /* tower_2_default.plist */; };
+		2D0DA15C1908F72200881C8D /* tower_2_default.png in Resources */ = {isa = PBXBuildFile; fileRef = 2D0DA1541908F72200881C8D /* tower_2_default.png */; };
+		2D0DA15D1908F72200881C8D /* tower_2.xml in Resources */ = {isa = PBXBuildFile; fileRef = 2D0DA1551908F72200881C8D /* tower_2.xml */; };
+		2D0DA15E1908F72200881C8D /* tower_orb_default.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2D0DA1561908F72200881C8D /* tower_orb_default.plist */; };
+		2D0DA15F1908F72200881C8D /* tower_orb_default.png in Resources */ = {isa = PBXBuildFile; fileRef = 2D0DA1571908F72200881C8D /* tower_orb_default.png */; };
+		2D0DA1621908F7DE00881C8D /* XMLHelper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2D0DA1601908F7DE00881C8D /* XMLHelper.cpp */; };
+		2D0DA1651908F7F200881C8D /* EffectData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2D0DA1631908F7F200881C8D /* EffectData.cpp */; };
+		2D0DA16D1908F83900881C8D /* EffectFactory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2D0DA1691908F83900881C8D /* EffectFactory.cpp */; };
+		2D0DA16E1908F83900881C8D /* TowerFactory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2D0DA16B1908F83900881C8D /* TowerFactory.cpp */; };
+		2D0DA1731908F86300881C8D /* Effect.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2D0DA16F1908F86300881C8D /* Effect.cpp */; };
+		2D0DA1741908F86300881C8D /* Tower.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2D0DA1711908F86300881C8D /* Tower.cpp */; };
 		3412551318DAA44900D9FBA6 /* NormalProjectile.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3412551118DAA44900D9FBA6 /* NormalProjectile.cpp */; };
-		3414166218DC23A0007B8C2B /* PhysicBodyManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3414166018DC23A0007B8C2B /* PhysicBodyManager.cpp */; };
+		3414166218DC23A0007B8C2B /* GameObjectManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3414166018DC23A0007B8C2B /* GameObjectManager.cpp */; };
 		345F6B5318E2C71F00985A7A /* ScheduleManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 345F6B5118E2C71F00985A7A /* ScheduleManager.cpp */; };
 		3486802618D93B82001692BB /* AbstractSkill.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3486802418D93B82001692BB /* AbstractSkill.cpp */; };
 		3486802918D95FB2001692BB /* NormalShootingAttack.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3486802718D95FB2001692BB /* NormalShootingAttack.cpp */; };
 		3486802C18D97940001692BB /* SkillData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3486802A18D97940001692BB /* SkillData.cpp */; };
-		34A3C9B218F7A5610050866F /* skill_body.plist in Resources */ = {isa = PBXBuildFile; fileRef = 34A3C9B118F7A5610050866F /* skill_body.plist */; };
 		34B1273318EF9619005DAF04 /* NormalShootingSkillData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 34B1273118EF9619005DAF04 /* NormalShootingSkillData.cpp */; };
 		34B1273718EF9619005DAF04 /* SkillType1Parser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 34B1273518EF9619005DAF04 /* SkillType1Parser.cpp */; };
-		34B8CC6918ED484B002FAEF7 /* character_body.plist in Resources */ = {isa = PBXBuildFile; fileRef = 34B8CC6818ED484B002FAEF7 /* character_body.plist */; };
-		34B8CC6C18ED73B8002FAEF7 /* test_sheet.png in Resources */ = {isa = PBXBuildFile; fileRef = 34B8CC6A18ED73B8002FAEF7 /* test_sheet.png */; };
-		34B8CC6D18ED73B8002FAEF7 /* test_sheet.plist in Resources */ = {isa = PBXBuildFile; fileRef = 34B8CC6B18ED73B8002FAEF7 /* test_sheet.plist */; };
 		34ED36C218D69ADF00FFA55A /* ActionEngine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 34ED36C018D69ADF00FFA55A /* ActionEngine.cpp */; };
 		34ED36C518D69C2C00FFA55A /* CharacterActionEngine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 34ED36C318D69C2C00FFA55A /* CharacterActionEngine.cpp */; };
 		34EED02218E50E5D001AFFC9 /* NormalMeleeSkillData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 34EED02018E50E5D001AFFC9 /* NormalMeleeSkillData.cpp */; };
 		34EED02518E525DF001AFFC9 /* SkillType0Parser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 34EED02318E525DF001AFFC9 /* SkillType0Parser.cpp */; };
 		34EED02918E5611F001AFFC9 /* Util.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 34EED02718E5611F001AFFC9 /* Util.cpp */; };
-		34EED02F18E56E3C001AFFC9 /* list_skill.xml in Resources */ = {isa = PBXBuildFile; fileRef = 34EED02E18E56E3C001AFFC9 /* list_skill.xml */; };
 		34F7F92D18E16BB70084E87C /* SkillFactory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 34F7F92B18E16BB70084E87C /* SkillFactory.cpp */; };
 		34F7F93018E194DD0084E87C /* SkillDTO.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 34F7F92E18E194DD0084E87C /* SkillDTO.cpp */; };
 		34FD845118DFCC7300373627 /* CharacterFactory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 34FD844F18DFCC7300373627 /* CharacterFactory.cpp */; };
@@ -254,7 +272,6 @@
 		51136ADC1908E62F00317D3A /* NoBodyMapObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 51136ADA1908E62F00317D3A /* NoBodyMapObject.cpp */; };
 		51136AE21908E69F00317D3A /* map1_body.plist in Resources */ = {isa = PBXBuildFile; fileRef = 51136AE11908E69F00317D3A /* map1_body.plist */; };
 		51136AE51908E8C300317D3A /* cat_animation.xml in Resources */ = {isa = PBXBuildFile; fileRef = 51136AE31908E8C300317D3A /* cat_animation.xml */; };
-		51136AE61908E8C300317D3A /* skill_animation.xml in Resources */ = {isa = PBXBuildFile; fileRef = 51136AE41908E8C300317D3A /* skill_animation.xml */; };
 		51136AE81908E91000317D3A /* character_cat.xml in Resources */ = {isa = PBXBuildFile; fileRef = 51136AE71908E91000317D3A /* character_cat.xml */; };
 		51136AEA1908F60300317D3A /* monster.xml in Resources */ = {isa = PBXBuildFile; fileRef = 51136AE91908F60300317D3A /* monster.xml */; };
 		7855E0E1153FEF240059DD9A /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 7855E0DF153FEF240059DD9A /* Default.png */; };
@@ -704,10 +721,39 @@
 		1D6058910D05DD3D006BFB54 /* TinyZodiacs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TinyZodiacs.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1DF5F4DF0D08C38300B7A737 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		288765A40DF7441C002DB57D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		2D0DA13D1908F65800881C8D /* tower_1_animation.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = tower_1_animation.xml; sourceTree = "<group>"; };
+		2D0DA13E1908F65800881C8D /* tower_2_animation.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = tower_2_animation.xml; sourceTree = "<group>"; };
+		2D0DA1411908F67400881C8D /* skill_animation.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = skill_animation.xml; sourceTree = "<group>"; };
+		2D0DA1431908F69C00881C8D /* character_body.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = character_body.plist; sourceTree = "<group>"; };
+		2D0DA1441908F69C00881C8D /* skill_body.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = skill_body.plist; sourceTree = "<group>"; };
+		2D0DA1471908F6C800881C8D /* list_effect.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = list_effect.xml; sourceTree = "<group>"; };
+		2D0DA1481908F6C800881C8D /* list_skill.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = list_skill.xml; sourceTree = "<group>"; };
+		2D0DA1491908F6C800881C8D /* test_sheet.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = test_sheet.plist; sourceTree = "<group>"; };
+		2D0DA14A1908F6C800881C8D /* test_sheet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = test_sheet.png; sourceTree = "<group>"; };
+		2D0DA1501908F72200881C8D /* tower_1_default.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = tower_1_default.plist; sourceTree = "<group>"; };
+		2D0DA1511908F72200881C8D /* tower_1_default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tower_1_default.png; sourceTree = "<group>"; };
+		2D0DA1521908F72200881C8D /* tower_1.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = tower_1.xml; sourceTree = "<group>"; };
+		2D0DA1531908F72200881C8D /* tower_2_default.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = tower_2_default.plist; sourceTree = "<group>"; };
+		2D0DA1541908F72200881C8D /* tower_2_default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tower_2_default.png; sourceTree = "<group>"; };
+		2D0DA1551908F72200881C8D /* tower_2.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = tower_2.xml; sourceTree = "<group>"; };
+		2D0DA1561908F72200881C8D /* tower_orb_default.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = tower_orb_default.plist; sourceTree = "<group>"; };
+		2D0DA1571908F72200881C8D /* tower_orb_default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tower_orb_default.png; sourceTree = "<group>"; };
+		2D0DA1601908F7DE00881C8D /* XMLHelper.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = XMLHelper.cpp; sourceTree = "<group>"; };
+		2D0DA1611908F7DE00881C8D /* XMLHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMLHelper.h; sourceTree = "<group>"; };
+		2D0DA1631908F7F200881C8D /* EffectData.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = EffectData.cpp; sourceTree = "<group>"; };
+		2D0DA1641908F7F200881C8D /* EffectData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EffectData.h; sourceTree = "<group>"; };
+		2D0DA1691908F83900881C8D /* EffectFactory.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = EffectFactory.cpp; sourceTree = "<group>"; };
+		2D0DA16A1908F83900881C8D /* EffectFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EffectFactory.h; sourceTree = "<group>"; };
+		2D0DA16B1908F83900881C8D /* TowerFactory.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TowerFactory.cpp; sourceTree = "<group>"; };
+		2D0DA16C1908F83900881C8D /* TowerFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TowerFactory.h; sourceTree = "<group>"; };
+		2D0DA16F1908F86300881C8D /* Effect.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Effect.cpp; sourceTree = "<group>"; };
+		2D0DA1701908F86300881C8D /* Effect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Effect.h; sourceTree = "<group>"; };
+		2D0DA1711908F86300881C8D /* Tower.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Tower.cpp; sourceTree = "<group>"; };
+		2D0DA1721908F86300881C8D /* Tower.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tower.h; sourceTree = "<group>"; };
 		3412551118DAA44900D9FBA6 /* NormalProjectile.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = NormalProjectile.cpp; path = ../Classes/NormalProjectile.cpp; sourceTree = "<group>"; };
 		3412551218DAA44900D9FBA6 /* NormalProjectile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NormalProjectile.h; path = ../Classes/NormalProjectile.h; sourceTree = "<group>"; };
-		3414166018DC23A0007B8C2B /* PhysicBodyManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PhysicBodyManager.cpp; sourceTree = "<group>"; };
-		3414166118DC23A0007B8C2B /* PhysicBodyManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhysicBodyManager.h; sourceTree = "<group>"; };
+		3414166018DC23A0007B8C2B /* GameObjectManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameObjectManager.cpp; sourceTree = "<group>"; };
+		3414166118DC23A0007B8C2B /* GameObjectManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameObjectManager.h; sourceTree = "<group>"; };
 		345F6B5118E2C71F00985A7A /* ScheduleManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ScheduleManager.cpp; sourceTree = "<group>"; };
 		345F6B5218E2C71F00985A7A /* ScheduleManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScheduleManager.h; sourceTree = "<group>"; };
 		3486802418D93B82001692BB /* AbstractSkill.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = AbstractSkill.cpp; path = ../Classes/AbstractSkill.cpp; sourceTree = "<group>"; };
@@ -716,14 +762,10 @@
 		3486802818D95FB2001692BB /* NormalShootingAttack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NormalShootingAttack.h; path = ../Classes/NormalShootingAttack.h; sourceTree = "<group>"; };
 		3486802A18D97940001692BB /* SkillData.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = SkillData.cpp; path = ../Classes/SkillData.cpp; sourceTree = "<group>"; };
 		3486802B18D97940001692BB /* SkillData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SkillData.h; path = ../Classes/SkillData.h; sourceTree = "<group>"; };
-		34A3C9B118F7A5610050866F /* skill_body.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = skill_body.plist; sourceTree = "<group>"; };
 		34B1273118EF9619005DAF04 /* NormalShootingSkillData.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = NormalShootingSkillData.cpp; sourceTree = "<group>"; };
 		34B1273218EF9619005DAF04 /* NormalShootingSkillData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NormalShootingSkillData.h; sourceTree = "<group>"; };
 		34B1273518EF9619005DAF04 /* SkillType1Parser.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SkillType1Parser.cpp; sourceTree = "<group>"; };
 		34B1273618EF9619005DAF04 /* SkillType1Parser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SkillType1Parser.h; sourceTree = "<group>"; };
-		34B8CC6818ED484B002FAEF7 /* character_body.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = character_body.plist; sourceTree = "<group>"; };
-		34B8CC6A18ED73B8002FAEF7 /* test_sheet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = test_sheet.png; sourceTree = "<group>"; };
-		34B8CC6B18ED73B8002FAEF7 /* test_sheet.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = test_sheet.plist; sourceTree = "<group>"; };
 		34ED36C018D69ADF00FFA55A /* ActionEngine.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ActionEngine.cpp; sourceTree = "<group>"; };
 		34ED36C118D69ADF00FFA55A /* ActionEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActionEngine.h; sourceTree = "<group>"; };
 		34ED36C318D69C2C00FFA55A /* CharacterActionEngine.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CharacterActionEngine.cpp; sourceTree = "<group>"; };
@@ -735,7 +777,6 @@
 		34EED02618E53C78001AFFC9 /* Constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		34EED02718E5611F001AFFC9 /* Util.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Util.cpp; sourceTree = "<group>"; };
 		34EED02818E5611F001AFFC9 /* Util.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Util.h; sourceTree = "<group>"; };
-		34EED02E18E56E3C001AFFC9 /* list_skill.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = list_skill.xml; sourceTree = "<group>"; };
 		34F7F92B18E16BB70084E87C /* SkillFactory.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SkillFactory.cpp; sourceTree = "<group>"; };
 		34F7F92C18E16BB70084E87C /* SkillFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SkillFactory.h; sourceTree = "<group>"; };
 		34F7F92E18E194DD0084E87C /* SkillDTO.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SkillDTO.cpp; sourceTree = "<group>"; };
@@ -879,7 +920,6 @@
 		51136ADB1908E62F00317D3A /* NoBodyMapObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NoBodyMapObject.h; path = ../Classes/NoBodyMapObject.h; sourceTree = "<group>"; };
 		51136AE11908E69F00317D3A /* map1_body.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = map1_body.plist; sourceTree = "<group>"; };
 		51136AE31908E8C300317D3A /* cat_animation.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = cat_animation.xml; sourceTree = "<group>"; };
-		51136AE41908E8C300317D3A /* skill_animation.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = skill_animation.xml; sourceTree = "<group>"; };
 		51136AE71908E91000317D3A /* character_cat.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = character_cat.xml; sourceTree = "<group>"; };
 		51136AE91908F60300317D3A /* monster.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = monster.xml; sourceTree = "<group>"; };
 		7855E0DF153FEF240059DD9A /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = SOURCE_ROOT; };
@@ -1711,13 +1751,28 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		2D0DA14F1908F6D000881C8D /* Towers */ = {
+			isa = PBXGroup;
+			children = (
+				2D0DA1501908F72200881C8D /* tower_1_default.plist */,
+				2D0DA1511908F72200881C8D /* tower_1_default.png */,
+				2D0DA1521908F72200881C8D /* tower_1.xml */,
+				2D0DA1531908F72200881C8D /* tower_2_default.plist */,
+				2D0DA1541908F72200881C8D /* tower_2_default.png */,
+				2D0DA1551908F72200881C8D /* tower_2.xml */,
+				2D0DA1561908F72200881C8D /* tower_orb_default.plist */,
+				2D0DA1571908F72200881C8D /* tower_orb_default.png */,
+			);
+			name = Towers;
+			sourceTree = "<group>";
+		};
 		3414165F18DC2286007B8C2B /* Managers */ = {
 			isa = PBXGroup;
 			children = (
 				F54AE9D118D2F2B400194E66 /* GameManager.cpp */,
 				F54AE9D318D2F2B400194E66 /* GameManager.h */,
-				3414166018DC23A0007B8C2B /* PhysicBodyManager.cpp */,
-				3414166118DC23A0007B8C2B /* PhysicBodyManager.h */,
+				3414166018DC23A0007B8C2B /* GameObjectManager.cpp */,
+				3414166118DC23A0007B8C2B /* GameObjectManager.h */,
 				345F6B5118E2C71F00985A7A /* ScheduleManager.cpp */,
 				345F6B5218E2C71F00985A7A /* ScheduleManager.h */,
 			);
@@ -1757,9 +1812,10 @@
 		34F7F92A18E15AA50084E87C /* Skills */ = {
 			isa = PBXGroup;
 			children = (
-				34B8CC6B18ED73B8002FAEF7 /* test_sheet.plist */,
-				34B8CC6A18ED73B8002FAEF7 /* test_sheet.png */,
-				34EED02E18E56E3C001AFFC9 /* list_skill.xml */,
+				2D0DA1471908F6C800881C8D /* list_effect.xml */,
+				2D0DA1481908F6C800881C8D /* list_skill.xml */,
+				2D0DA1491908F6C800881C8D /* test_sheet.plist */,
+				2D0DA14A1908F6C800881C8D /* test_sheet.png */,
 			);
 			name = Skills;
 			sourceTree = "<group>";
@@ -2086,6 +2142,7 @@
 		78C7DDAA14EBA5050085D0C2 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				2D0DA14F1908F6D000881C8D /* Towers */,
 				F52678E418EEAEA500CE1E3B /* fonts */,
 				F52678E718EEAEA500CE1E3B /* map1_background_spritesheet_1.png */,
 				F52678E818EEAEA500CE1E3B /* map1_background_spritesheet_2.png */,
@@ -2144,6 +2201,10 @@
 		F54AE96D18D2F01B00194E66 /* Objects */ = {
 			isa = PBXGroup;
 			children = (
+				2D0DA16F1908F86300881C8D /* Effect.cpp */,
+				2D0DA1701908F86300881C8D /* Effect.h */,
+				2D0DA1711908F86300881C8D /* Tower.cpp */,
+				2D0DA1721908F86300881C8D /* Tower.h */,
 				51136ADA1908E62F00317D3A /* NoBodyMapObject.cpp */,
 				51136ADB1908E62F00317D3A /* NoBodyMapObject.h */,
 				51136AD41908E0CA00317D3A /* MapParallaxForeground.cpp */,
@@ -2192,6 +2253,10 @@
 		F54AE96F18D2F05200194E66 /* Factories */ = {
 			isa = PBXGroup;
 			children = (
+				2D0DA1691908F83900881C8D /* EffectFactory.cpp */,
+				2D0DA16A1908F83900881C8D /* EffectFactory.h */,
+				2D0DA16B1908F83900881C8D /* TowerFactory.cpp */,
+				2D0DA16C1908F83900881C8D /* TowerFactory.h */,
 				F561F28218D8028600DD4598 /* MapFactory.h */,
 				F561F28318D8028600DD4598 /* MapFactory.cpp */,
 				F54AE9CF18D2F2B400194E66 /* AnimationFactory.cpp */,
@@ -2272,6 +2337,8 @@
 		F54AE97318D2F0A900194E66 /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				2D0DA1631908F7F200881C8D /* EffectData.cpp */,
+				2D0DA1641908F7F200881C8D /* EffectData.h */,
 				F54AEA0618D2F50300194E66 /* CharacterData.h */,
 				F54AEA0718D2F50300194E66 /* ObjectData.h */,
 				F54AEA0818D2F50300194E66 /* PhysicData.h */,
@@ -2291,6 +2358,8 @@
 		F54AE9F218D2F3C000194E66 /* Helper */ = {
 			isa = PBXGroup;
 			children = (
+				2D0DA1601908F7DE00881C8D /* XMLHelper.cpp */,
+				2D0DA1611908F7DE00881C8D /* XMLHelper.h */,
 				51136AD71908E13A00317D3A /* GB2ShapeCache-x.cpp */,
 				51136AD81908E13A00317D3A /* GB2ShapeCache-x.h */,
 				F561F28418D8028600DD4598 /* XMLMapParser.cpp */,
@@ -2410,8 +2479,10 @@
 		F5C89DF618D2FC7F006E909D /* Animation */ = {
 			isa = PBXGroup;
 			children = (
+				2D0DA1411908F67400881C8D /* skill_animation.xml */,
+				2D0DA13D1908F65800881C8D /* tower_1_animation.xml */,
+				2D0DA13E1908F65800881C8D /* tower_2_animation.xml */,
 				51136AE31908E8C300317D3A /* cat_animation.xml */,
-				51136AE41908E8C300317D3A /* skill_animation.xml */,
 				F5C89DFA18D2FCB5006E909D /* monkey_animation.xml */,
 			);
 			name = Animation;
@@ -2445,10 +2516,10 @@
 		F5C89E0018D2FCF2006E909D /* Body */ = {
 			isa = PBXGroup;
 			children = (
+				2D0DA1431908F69C00881C8D /* character_body.plist */,
+				2D0DA1441908F69C00881C8D /* skill_body.plist */,
 				51136AE11908E69F00317D3A /* map1_body.plist */,
 				F50BF82318F2513800CD518D /* cat_body.plist */,
-				34A3C9B118F7A5610050866F /* skill_body.plist */,
-				34B8CC6818ED484B002FAEF7 /* character_body.plist */,
 				F544FB9818D93CC100A818DF /* map2_body.plist */,
 				F5C89E0218D2FD2A006E909D /* map_body.plist */,
 			);
@@ -2545,13 +2616,17 @@
 				D4EF949A15BD2D8B00D803EB /* Icon-57.png in Resources */,
 				51136AEA1908F60300317D3A /* monster.xml in Resources */,
 				F52678F618EEAEA500CE1E3B /* map1_background_spritesheet_2.png in Resources */,
+				2D0DA1581908F72200881C8D /* tower_1_default.plist in Resources */,
+				2D0DA14C1908F6C800881C8D /* list_skill.xml in Resources */,
 				F526790018EEAEA500CE1E3B /* map1_spritesheet_4.plist in Resources */,
 				F544FB9918D93CC100A818DF /* map2_body.plist in Resources */,
 				D4EF949C15BD2D8E00D803EB /* Icon-114.png in Resources */,
-				34B8CC6C18ED73B8002FAEF7 /* test_sheet.png in Resources */,
 				F5C89E0418D2FD2A006E909D /* map_body.plist in Resources */,
+				2D0DA1421908F67400881C8D /* skill_animation.xml in Resources */,
+				2D0DA14E1908F6C800881C8D /* test_sheet.png in Resources */,
 				51136AE81908E91000317D3A /* character_cat.xml in Resources */,
 				F52678F318EEAEA500CE1E3B /* arial.ttf in Resources */,
+				2D0DA15F1908F72200881C8D /* tower_orb_default.png in Resources */,
 				F50BF82418F2513800CD518D /* cat_body.plist in Resources */,
 				F52678FA18EEAEA500CE1E3B /* map1_spritesheet_4.png in Resources */,
 				F52678FC18EEAEA500CE1E3B /* map1_background_spritesheet_2.plist in Resources */,
@@ -2566,32 +2641,39 @@
 				D4EF94A015BD2D9800D803EB /* Icon-144.png in Resources */,
 				F5C89E1118D2FF9A006E909D /* 1.png in Resources */,
 				F53ACBAF18D831C700F958A8 /* map2.xml in Resources */,
+				2D0DA15C1908F72200881C8D /* tower_2_default.png in Resources */,
 				D41A0AD1160F154A004552AE /* Default-568h@2x.png in Resources */,
-				51136AE61908E8C300317D3A /* skill_animation.xml in Resources */,
-				34B8CC6918ED484B002FAEF7 /* character_body.plist in Resources */,
+				2D0DA1461908F69C00881C8D /* skill_body.plist in Resources */,
 				F50BF81B18F2426D00CD518D /* cat_spritesheet.png in Resources */,
+				2D0DA14D1908F6C800881C8D /* test_sheet.plist in Resources */,
 				D446FD6E16102124000ADA7B /* Default@2x.png in Resources */,
+				2D0DA1401908F65800881C8D /* tower_2_animation.xml in Resources */,
 				F561F29118D805BE00DD4598 /* map1.xml in Resources */,
 				F5C89DFE18D2FCE9006E909D /* monkey_spritesheet.plist in Resources */,
 				F52678FF18EEAEA500CE1E3B /* map1_spritesheet_3.plist in Resources */,
+				2D0DA1451908F69C00881C8D /* character_body.plist in Resources */,
+				2D0DA13F1908F65800881C8D /* tower_1_animation.xml in Resources */,
 				15A3D9961682F7F9002FB0C5 /* CMakeLists.txt in Resources */,
+				2D0DA14B1908F6C800881C8D /* list_effect.xml in Resources */,
 				F52678F818EEAEA500CE1E3B /* map1_spritesheet_2.png in Resources */,
 				F52678FE18EEAEA500CE1E3B /* map1_spritesheet_2.plist in Resources */,
-				34EED02F18E56E3C001AFFC9 /* list_skill.xml in Resources */,
 				F52678FD18EEAEA500CE1E3B /* map1_spritesheet_1.plist in Resources */,
-				34A3C9B218F7A5610050866F /* skill_body.plist in Resources */,
+				2D0DA1591908F72200881C8D /* tower_1_default.png in Resources */,
 				F52678F718EEAEA500CE1E3B /* map1_spritesheet_1.png in Resources */,
 				51136AE21908E69F00317D3A /* map1_body.plist in Resources */,
 				51136AE51908E8C300317D3A /* cat_animation.xml in Resources */,
-				34B8CC6D18ED73B8002FAEF7 /* test_sheet.plist in Resources */,
+				2D0DA15E1908F72200881C8D /* tower_orb_default.plist in Resources */,
 				F5779C6E18E56CF10044D5CD /* healthbar_foreground_red.png in Resources */,
 				F52678FB18EEAEA500CE1E3B /* map1_background_spritesheet_1.plist in Resources */,
 				1AFAF8BC16D35E4900DB1158 /* CloseNormal.png in Resources */,
 				1AFAF8BC16D35E4900DB1158 /* CloseNormal.png in Resources */,
+				2D0DA15D1908F72200881C8D /* tower_2.xml in Resources */,
+				2D0DA15B1908F72200881C8D /* tower_2_default.plist in Resources */,
 				F5C89DFB18D2FCB5006E909D /* monkey_animation.xml in Resources */,
 				F52678F918EEAEA500CE1E3B /* map1_spritesheet_3.png in Resources */,
 				1AFAF8BD16D35E4900DB1158 /* CloseSelected.png in Resources */,
 				1AFAF8BE16D35E4900DB1158 /* HelloWorld.png in Resources */,
+				2D0DA15A1908F72200881C8D /* tower_1.xml in Resources */,
 				F52678F518EEAEA500CE1E3B /* map1_background_spritesheet_1.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2605,8 +2687,9 @@
 			files = (
 				F54AE9B818D2F1AA00194E66 /* CharacterJumpState.cpp in Sources */,
 				15A3D8FF1682F7D5002FB0C5 /* b2BroadPhase.cpp in Sources */,
+				2D0DA1651908F7F200881C8D /* EffectData.cpp in Sources */,
 				F54AE9C418D2F1FC00194E66 /* GameObject.cpp in Sources */,
-				3414166218DC23A0007B8C2B /* PhysicBodyManager.cpp in Sources */,
+				3414166218DC23A0007B8C2B /* GameObjectManager.cpp in Sources */,
 				15A3D9001682F7D5002FB0C5 /* b2CollideCircle.cpp in Sources */,
 				15A3D9011682F7D5002FB0C5 /* b2CollideEdge.cpp in Sources */,
 				15A3D9021682F7D5002FB0C5 /* b2CollidePolygon.cpp in Sources */,
@@ -2817,6 +2900,7 @@
 				1A8F3B7F175E05DA00049216 /* Skin.cpp in Sources */,
 				1A8F3B80175E05DA00049216 /* Slot.cpp in Sources */,
 				1A8F3B81175E05DA00049216 /* SlotData.cpp in Sources */,
+				2D0DA1621908F7DE00881C8D /* XMLHelper.cpp in Sources */,
 				1A8F3B82175E05DA00049216 /* spine-cocos2dx.cpp in Sources */,
 				1AB87035175E0A84005D39BF /* WebSocket.cpp in Sources */,
 				375BD4C51868411B0024609E /* TriggerMng.cpp in Sources */,
@@ -2835,6 +2919,7 @@
 				379BB9A217F03F3700829B88 /* CCDisplayFactory.cpp in Sources */,
 				F54AE9B918D2F1AA00194E66 /* CharacterMoveState.cpp in Sources */,
 				379BB9A317F03F3700829B88 /* CCDisplayManager.cpp in Sources */,
+				2D0DA16E1908F83900881C8D /* TowerFactory.cpp in Sources */,
 				379BB9A417F03F3700829B88 /* CCSkin.cpp in Sources */,
 				379BB9A517F03F3700829B88 /* CCColliderDetector.cpp in Sources */,
 				F54AE9FC18D2F4A100194E66 /* TestScene.cpp in Sources */,
@@ -2854,6 +2939,7 @@
 				379BB9B017F03F3700829B88 /* CCComRender.cpp in Sources */,
 				379BB9B117F03F3700829B88 /* CCInputDelegate.cpp in Sources */,
 				F54AE9F118D2F38100194E66 /* UIObject.cpp in Sources */,
+				2D0DA16D1908F83900881C8D /* EffectFactory.cpp in Sources */,
 				379BB9B317F03F3700829B88 /* UIWidget.cpp in Sources */,
 				379BB9B417F03F3700829B88 /* UILayout.cpp in Sources */,
 				379BB9B617F03F3700829B88 /* UILayoutParameter.cpp in Sources */,
@@ -2862,9 +2948,11 @@
 				379BB9B817F03F3700829B88 /* CocosGUI.cpp in Sources */,
 				379BB9B917F03F3700829B88 /* UIHelper.cpp in Sources */,
 				379BB9BD17F03F3700829B88 /* UIListView.cpp in Sources */,
+				2D0DA1741908F86300881C8D /* Tower.cpp in Sources */,
 				379BB9BE17F03F3700829B88 /* UIPageView.cpp in Sources */,
 				379BB9BF17F03F3700829B88 /* UIScrollView.cpp in Sources */,
 				379BB9C017F03F3700829B88 /* UIButton.cpp in Sources */,
+				2D0DA1731908F86300881C8D /* Effect.cpp in Sources */,
 				375BD50E1868454E0024609E /* CCActionEaseEx.cpp in Sources */,
 				F54AE9B718D2F1AA00194E66 /* CharacterAttackState.cpp in Sources */,
 				379BB9C117F03F3700829B88 /* UICheckBox.cpp in Sources */,

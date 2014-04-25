@@ -31,11 +31,16 @@ protected:
     virtual void remove();
     virtual b2Vec2 getStartPosition(GameObject* holder, b2Body* me);
 public:
-    NormalProjectile(NormalShootingSkillData data, GameObject* holder, CCArray* collector);
+    NormalProjectile();
     ~NormalProjectile();
     
+    void setData(NormalShootingSkillData data, GameObject* holder, CCArray* collector);
+    
+    virtual bool init();
+    CREATE_FUNC(NormalProjectile);
+    
     CC_SYNTHESIZE(NormalShootingSkillData, data, Data);
-    CC_SYNTHESIZE_READONLY(b2Body*, body, Body);
+//    CC_SYNTHESIZE_READONLY(b2Body*, body, Body);
     CC_SYNTHESIZE_READONLY(GameObject*, holder, Holder);
     
 //    virtual void BeginContact(b2Contact *contact);

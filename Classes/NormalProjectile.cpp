@@ -13,13 +13,29 @@
 #include "Util.h"
 #include "LayerIndexConstants.h"
 #include "Character.h"
-#include "PhysicBodyManager.h"
+#include "GameObjectManager.h"
 #include "ScheduleManager.h"
+#include "Effect.h"
+#include "EffectData.h"
 
-NormalProjectile::NormalProjectile(NormalShootingSkillData data, GameObject* holder, CCArray* collector)
+NormalProjectile::NormalProjectile()
 {
-//    contact_count=0;
-//    scheduled = false;
+    this->holder = NULL;
+    this->lifeTimeScheduled = NULL;
+}
+
+bool NormalProjectile::init()
+{
+    if(!GameObject::init())
+    {
+        return false;
+    }
+    return true;
+}
+
+
+void NormalProjectile::setData(NormalShootingSkillData data, GameObject* holder, CCArray* collector)
+{
     this->data = data;
     this->holder = holder;
     this->collector = collector;
@@ -48,31 +64,36 @@ NormalProjectile::NormalProjectile(NormalShootingSkillData data, GameObject* hol
     
     //
     this->sprite = CCSprite::create();
-    this->sprite->retain();
-//    
+//    this->sprite->retain();
+    //
+    this->data.getAnimation()->getAnimation()->setLoops(INFINITY);
     CCAnimate* action = CCAnimate::create(this->data.getAnimation()->getAnimation());
     this->sprite->runAction(action);
-//
+    //
     holder->getSprite()->getParent()->addChild(this->sprite, this->data.getAnimationLayerIndex());
     //
     if(holder->getDirection() == LEFT)
     {
         this->flipDirection(RIGHT);
-        this->body->ApplyLinearImpulse(b2Vec2(-this->data.getSpeed(), 0), b2Vec2(0,0));
+        this->body->SetLinearVelocity(b2Vec2(-this->data.getSpeedX(), this->data.getSpeedY()));
     }
     else if(holder->getDirection() == RIGHT)
     {
         this->flipDirection(LEFT);
-        this->body->ApplyLinearImpulse(b2Vec2(this->data.getSpeed(), 0), b2Vec2(0,0));
+        this->body->SetLinearVelocity(b2Vec2(this->data.getSpeedX(), this->data.getSpeedY()));
     }
     //schedule life time
     this->lifeTimeScheduled = ScheduleManager::getInstance()->scheduleForGameObject(this, this->data.getLifeTime());
+    //
 }
 
 NormalProjectile::~NormalProjectile()
 {
-    this->collector->removeObject(this);
-    CC_SAFE_RELEASE_NULL(this->sprite);
+//    CC_SAFE_RELEASE_NULL(this->lifeTimeScheduled);
+//    this->collector->removeObject(this);
+//    CC_SAFE_RELEASE_NULL(this->sprite);
+    this->body->SetActive(false);
+   
 }
 
 b2Vec2 NormalProjectile::getStartPosition(GameObject* holder, b2Body* me)
@@ -174,6 +195,7 @@ void NormalProjectile::update(float dt)
     {
         CCPoint bodyPosition = ccp(this->body->GetPosition().x*PTM_RATIO,this->body->GetPosition().y*PTM_RATIO);
         this->sprite->setPosition(bodyPosition);
+//        this->sprite->setVisible(false);
         this->sprite->setRotation(-1 * CC_RADIANS_TO_DEGREES(this->body->GetAngle()));
     }
 }
@@ -204,19 +226,27 @@ void NormalProjectile::checkCollisionDataInBeginContact(PhysicData* data, b2Cont
             {
                 if(character->getGroup() == this->holder->getGroup())
                 {
-                    CCLOG("Allie");
+                    CCLOG("Allie begin");
                 }
                 else
                 {
-                    CCLOG("Enemy");
+                    CCLOG("Enemy begin");
+                    CCObject* effectData;
+                    CCARRAY_FOREACH(this->data.getListEnemyEffect(), effectData)
+                    {
+                        Effect* effect = new Effect(*((EffectData*)effectData), character);
+                        character->applyEffect(effect);
+                    }
+                    
+                    if(this->data.getPiercing() == false)
+                    {
+                        remove();
+                    }
                 }
             }
         }
         default:
-            if(this->data.getPiercing() == false)
-            {
-                remove();
-            }
+           
         break;
     }
 }
@@ -246,11 +276,11 @@ void NormalProjectile::checkCollisionDataInEndContact(PhysicData* data, b2Contac
             {
                 if(character->getGroup() == this->holder->getGroup())
                 {
-                    CCLOG("Allie");
+                    CCLOG("Allie end");
                 }
                 else
                 {
-                    CCLOG("Enemy");
+                    CCLOG("Enemy end");
                 }
             }
             break;
@@ -261,22 +291,33 @@ void NormalProjectile::checkCollisionDataInEndContact(PhysicData* data, b2Contac
 void NormalProjectile::remove()
 {
     ScheduleManager::getInstance()->stopScheduledObjectAction(this->lifeTimeScheduled);
-    CC_SAFE_RELEASE_NULL(this->lifeTimeScheduled);
-    PhysicBodyManager::getInstance()->addBody((GameObject*)this);
-    if(this->sprite != NULL)
-    {
-        this->sprite->getParent()->removeChild(this->getSprite());
-        CC_SAFE_RELEASE_NULL(this->sprite);
-    }
-}
+//    this->lifeTimeScheduled->stop();
+//    GameObjectManager::getInstance()->addObject((GameObject*)this);
+//    if(this->sprite != NULL)
+//    {
+//        this->sprite->getParent()->removeChild(this->getSprite());
+//        CC_SAFE_RELEASE_NULL(this->sprite);
+//    }
+//    this->release();
+  //  CC_SAFE_RELEASE_NULL(this->lifeTimeScheduled);
+    GameObjectManager::getInstance()->addObject(this);
+    this->collector->removeObject(this);
+//     this -> release();
+//    CCLOG("");
+  }
 
 void NormalProjectile::excuteScheduledFunction(CCObject* pSender, void *object)
 {
-    PhysicBodyManager::getInstance()->addBody((GameObject*)object);
-    if(this->sprite)
-    {
-        ((GameObject*)object)->getSprite()->getParent()->removeChild(((GameObject*)object)->getSprite());
-    }
+//    GameObjectManager::getInstance()->addObject((GameObject*)object);
+//    if(this->sprite)
+//    {
+//        ((GameObject*)object)->getSprite()->getParent()->removeChild(((GameObject*)object)->getSprite());
+//    }
+//    this -> release();
+    GameObjectManager::getInstance()->addObject(this);
+    this->collector->removeObject(this);
+//     this -> release();
+
 }
 
 void NormalProjectile::setGroup(uint16 group)
@@ -295,3 +336,4 @@ void NormalProjectile::setGroup(uint16 group)
         }
     }
 }
+

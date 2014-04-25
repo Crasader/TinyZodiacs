@@ -9,38 +9,42 @@
 #include "SkillType0Parser.h"
 #include "AnimationFactory.h"
 #include "LayerIndexConstants.h"
+#include "EffectData.h"
+#include "EffectFactory.h"
 
-int SkillType0Parser::readDamage(const XMLElement* root)
-{
-    if(root != NULL)
-    {
-        string damageValue = root->GetText();
-        int value = atoi(damageValue.c_str());
-        return value;
-    }
-    return 0;
-}
+//int SkillType0Parser::readDamage(const XMLElement* root)
+//{
+//    if(root != NULL)
+//    {
+//        string damageValue = root->GetText();
+//        int value = atoi(damageValue.c_str());
+//        return value;
+//    }
+//    return 0;
+//}
 
 float SkillType0Parser::readCoolDown(const XMLElement* root)
 {
-    if(root != NULL)
-    {
-        string coolDownValue = root->GetText();
-        float value = atof(coolDownValue.c_str());
-        return value;
-    }
-    return 0;
+//    if(root != NULL)
+//    {
+//        string coolDownValue = root->GetText();
+//        float value = atof(coolDownValue.c_str());
+//        return value;
+//    }
+//    return 0;
+    return XMLHelper::readFloat(root, -1);
 }
 
 float SkillType0Parser::readLifeTime(const XMLElement* root)
 {
-    if(root != NULL)
-    {
-        string coolDownValue = root->GetText();
-        float value = atof(coolDownValue.c_str());
-        return value;
-    }
-    return -1;
+//    if(root != NULL)
+//    {
+//        string coolDownValue = root->GetText();
+//        float value = atof(coolDownValue.c_str());
+//        return value;
+//    }
+//    return -1;
+    return XMLHelper::readFloat(root, -1);
 }
 
 JointDef SkillType0Parser::readJoinDef(const XMLElement* root)
@@ -48,22 +52,21 @@ JointDef SkillType0Parser::readJoinDef(const XMLElement* root)
     JointDef def;
     if(root != NULL)
     {
-        string xString = root->Attribute(ATTRIBUTE_X);
-        int x = atoi(xString.c_str());
-        
-        string yString = root->Attribute(ATTRIBUTE_Y);
-        int y = atoi(yString.c_str());
-        
-        string xOffsetString = root->Attribute(ATTRIBUTE_OFFSET_X);
-        float xOffset = atof(xOffsetString.c_str());
-        
-        string yOffsetString = root->Attribute(ATTRIBUTE_OFFSET_Y);
-        float yOffset = atof(yOffsetString.c_str());
-        
-        def.x=x;
-        def.y=y;
-        def.offsetX=xOffset;
-        def.offsetY=yOffset;
+//        string xString = root->Attribute(ATTRIBUTE_X);
+//        int x = atoi(xString.c_str());
+//        
+//        string yString = root->Attribute(ATTRIBUTE_Y);
+//        int y = atoi(yString.c_str());
+//        
+//        string xOffsetString = root->Attribute(ATTRIBUTE_OFFSET_X);
+//        float xOffset = atof(xOffsetString.c_str());
+//        
+//        string yOffsetString = root->Attribute(ATTRIBUTE_OFFSET_Y);
+//        float yOffset = atof(yOffsetString.c_str());
+        def.x=XMLHelper::readAttributeInt(root, ATTRIBUTE_X, 0);
+        def.y=XMLHelper::readAttributeInt(root, ATTRIBUTE_Y, 0);
+        def.offsetX=XMLHelper::readAttributeFloat(root, ATTRIBUTE_OFFSET_X, 0);
+        def.offsetY=XMLHelper::readAttributeFloat(root, ATTRIBUTE_OFFSET_Y, 0);
     }
     return def;
 }
@@ -73,7 +76,7 @@ b2Body* SkillType0Parser::readBody(const XMLElement* root, b2World* world)
 {
     if(root != NULL)
     {
-        string bodyId = root->GetText();
+        std::string bodyId = XMLHelper::readString(root, "");
         
         //Create body
         b2BodyDef bodyDef;
@@ -95,31 +98,32 @@ b2Body* SkillType0Parser::readBody(const XMLElement* root, b2World* world)
 
 float SkillType0Parser::readDelay(const XMLElement* root)
 {
-    if(root != NULL)
-    {
-        string typeValue = root->GetText();
-        float value = atof(typeValue.c_str());
-        return value;
-    }
-    return 0;
+//    if(root != NULL)
+//    {
+//        string typeValue = root->GetText();
+//        float value = atof(typeValue.c_str());
+//        return value;
+//    }
+//    return 0;
+    return XMLHelper::readFloat(root, 0);
 }
 
-float SkillType0Parser::readCriticalChance(const XMLElement* root)
-{
-    if(root != NULL)
-    {
-        string typeValue = root->GetText();
-        float value = atof(typeValue.c_str());
-        return value;
-    }
-    return 0;
-}
+//float SkillType0Parser::readCriticalChance(const XMLElement* root)
+//{
+//    if(root != NULL)
+//    {
+//        string typeValue = root->GetText();
+//        float value = atof(typeValue.c_str());
+//        return value;
+//    }
+//    return 0;
+//}
 
 AnimationObject* SkillType0Parser::readAnimation(const XMLElement* root)
 {
     if(root != NULL)
     {
-        string typeValue = root->GetText();
+        string typeValue = XMLHelper::readString(root, "");
         if(typeValue.length() ==0)
         {
             return NULL;
@@ -133,28 +137,71 @@ AnimationObject* SkillType0Parser::readAnimation(const XMLElement* root)
 
 int SkillType0Parser::readAnimationLayerIndex(const XMLElement* root)
 {
-    if(root != NULL)
-    {
-        string layerValue = root->GetText();
-        int value = atoi(layerValue.c_str());
-        return value;
-    }
-    return ABOVE_CHARACTER_LAYER;
+//    if(root != NULL)
+//    {
+//        string layerValue = root->GetText();
+//        int value = atoi(layerValue.c_str());
+//        return value;
+//    }
+//    return ABOVE_CHARACTER_LAYER;
+    return XMLHelper::readInt(root, ABOVE_CHARACTER_LAYER);
 }
 
+SkillTarget SkillType0Parser::readTarget(const XMLElement* root)
+{
+//    if(root != NULL)
+//    {
+//        string layerValue = root->GetText();
+//        int value = atoi(layerValue.c_str());
+        int value = XMLHelper::readInt(root, ENEMY);
+        return static_cast<SkillTarget>(value);
+//    }
+//    return ENEMY;
+}
+
+CCArray* SkillType0Parser::readEffectList(const XMLElement* root)
+{
+    if(root != NULL)
+    {
+        const XMLElement* effectNode = root->FirstChildElement(TAG_EFFECT);
+        if(effectNode == NULL)
+        {
+            return NULL;
+        }
+        
+        CCArray* effectList = CCArray::create();
+        effectList->retain();
+        while (effectNode != NULL)
+        {
+            std::string effectId= XMLHelper::readString(effectNode, "");
+            
+            if(effectId != "")
+            {
+//                CCLOG("\t \t %s",effectId.c_str());
+                EffectData* effect = EffectFactory::createEffectData(effectId.c_str());
+                effectList->addObject(effect);
+            }
+            
+            effectNode = effectNode->NextSiblingElement();
+        }
+        return effectList;
+    }
+    return NULL;
+}
 
 NormalMeleeSkillData SkillType0Parser::parse(const XMLElement* root, b2World* world)
 {
     NormalMeleeSkillData data;
-    data.setDamage(readDamage(root->FirstChildElement(TAG_DAMAGE)));
+//    data.setDamage(readDamage(root->FirstChildElement(TAG_DAMAGE)));
     data.setCoolDown(readCoolDown(root->FirstChildElement(TAG_COOL_DOWN)));
     data.setDelay(readDelay(root->FirstChildElement(TAG_DELAY)));
     data.setLifeTime(readLifeTime(root->FirstChildElement(TAG_LIFE_TIME)));
     data.setSkillSensor(readBody(root->FirstChildElement(TAG_BODY), world));
     data.setJointDefA(readJoinDef(root->FirstChildElement(TAG_JOINTS)->FirstChildElement(TAG_HOLDER)));
     data.setJointDefB(readJoinDef(root->FirstChildElement(TAG_JOINTS)->FirstChildElement(TAG_THIS)));
-    data.setCritical(readCriticalChance(root->FirstChildElement(TAG_CRITICAL_CHANCE)));
+//    data.setCritical(readCriticalChance(root->FirstChildElement(TAG_CRITICAL_CHANCE)));
     data.setAnimationLayerIndex(readAnimationLayerIndex(root->FirstChildElement(TAG_ANIMATION_LAYER)));
+    data.setTarget(readTarget(root->FirstChildElement(TAG_TARGET)));
 
     if(root->FirstChildElement(TAG_ANIMATION) != NULL)
     {
@@ -165,5 +212,20 @@ NormalMeleeSkillData SkillType0Parser::parse(const XMLElement* root, b2World* wo
         data.setSkillAnimation(NULL);
     }
     
+    if(root->FirstChildElement(TAG_LIST_EFFECT) != NULL)
+    {
+//        CCLOG("\t %s","AFFECT ENEMY");
+        data.setListEnemyEffect(readEffectList(root->FirstChildElement(TAG_LIST_EFFECT)->FirstChildElement(TAG_LIST_EFFECT_ENEMY)));
+//        if(data.getListEnemyEffect() != NULL)
+//        {
+//            CCLOG("%d",data.getListEnemyEffect()->count());
+//        }
+//        CCLOG("\t %s","AFFECT ALLIES");
+        data.setListAlliesEffect(readEffectList(root->FirstChildElement(TAG_LIST_EFFECT)->FirstChildElement(TAG_LIST_EFFECT_ALLIES)));
+//        if(data.getListAlliesEffect() != NULL)
+//        {
+//            CCLOG("%d",data.getListAlliesEffect()->count());
+//        }
+    }
     return data;
 }

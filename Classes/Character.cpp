@@ -13,6 +13,7 @@
 #include "CharacterJumpState.h"
 #include "CharacterIdleState.h"
 #include "Util.h"
+#include "Effect.h"
 
 
 
@@ -31,9 +32,13 @@ Character::Character()
 
 Character::~Character()
 {
-    delete normalAttack;
-    delete skill1;
-    delete skill2;
+//    delete normalAttack;
+//    delete skill1;
+//    delete skill2;
+    normalAttack->release();
+    skill1->release();
+    skill2->release();
+    
     
     this->footSensor->GetWorld()->DestroyBody(this->footSensor);
 }
@@ -464,3 +469,11 @@ void Character::setGroup(uint16 group)
     }
 }
 
+void Character::notifyByEffect(CCObject* effect)
+{
+    this->characterData.setHealth(this->characterData.getHealth()+((Effect*)effect)->getHealth());
+    //    if(this->characterData.getHealth()<=0)
+    //    {
+    //        PhysicBodyManager::getInstance()->addBody(this);
+    //    }
+}

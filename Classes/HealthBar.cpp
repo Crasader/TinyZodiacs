@@ -57,7 +57,7 @@ void HealthBar::setForeground(const char *imageName)
 void HealthBar::updateProgress(float max, float current)
 {
     float scale = current/max;
-    
+    scale = MAX(0, MIN(1, scale));
     this->foreground->setScaleX(scale);
     
 }

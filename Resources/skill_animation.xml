@@ -1,4 +1,4 @@
-<object_animation name="skill" plist_name="test_sheet.plist" image_name="test_sheet.png">
+<character_animation name="skill" plist_name="test_sheet.plist" image_name="test_sheet.png">
     <animation name="aura" delay="0.1">
         <origin x="0.5" y="0.5" />
         <framelist>
@@ -10,10 +10,42 @@
         </framelist>
     </animation>
     
-    <animation name="arrow" delay="-1">
+    <animation name="arrow" delay="0.1">
         <origin x="0.5" y="0.5" />
         <framelist>
             <frame name="arrow.png" />
-                  </framelist>
+        </framelist>
     </animation>
-</object_animation>
+    
+    <animation name="pig" delay="0.1">
+        <origin x="0.5" y="0.5" />
+        <framelist>
+            <frame name="big.png" />
+        </framelist>
+    </animation>
+    
+    <animation name="tower_orb_1" delay="0.1">
+        <origin x="0.5" y="0.5" />
+        <framelist>
+            <frame name="tower_orb_1_1.png" />
+            <frame name="tower_orb_1_2.png" />
+            <frame name="tower_orb_1_3.png" />
+            <frame name="tower_orb_1_4.png" />
+            <frame name="tower_orb_1_5.png" />
+            <frame name="tower_orb_1_6.png" />
+        </framelist>
+    </animation>
+    
+    <animation name="tower_orb_2" delay="0.1">
+        <origin x="0.5" y="0.5" />
+        <framelist>
+            <frame name="tower_orb_2_1.png" />
+            <frame name="tower_orb_2_2.png" />
+            <frame name="tower_orb_2_3.png" />
+            <frame name="tower_orb_2_4.png" />
+            <frame name="tower_orb_2_5.png" />
+            <frame name="tower_orb_2_6.png" />
+        </framelist>
+    </animation>
+
+</character_animation>

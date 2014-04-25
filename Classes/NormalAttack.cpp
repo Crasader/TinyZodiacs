@@ -42,7 +42,7 @@ NormalAttack::NormalAttack(GameObject* holder, NormalMeleeSkillData data)
             this->skillSprite->retain();
             this->data.getSkillAnimation()->getAnimation()->setLoops(INFINITY);
         }
-        
+        this->autorelease();
     }
 }
 

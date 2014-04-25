@@ -7,6 +7,7 @@
 //
 
 #include "HeroInfoView.h"
+#include "Character.h"
 
 HeroInfoView::HeroInfoView()
 {
@@ -29,7 +30,7 @@ bool HeroInfoView::init()
 
 void HeroInfoView::update(float dt)
 {
-    this->healthBar->updateProgress(100, 75);
+    this->healthBar->updateProgress(((Character*)this->gameObject)->getOriginCharacterData().getHealth(), ((Character*)this->gameObject)->getcharacterData().getHealth());
     this->healthBar->setPosition(this->gameObject->getPositionInPixel() + ccp(0,100));
     this->textName->setPosition(this->gameObject->getPositionInPixel() - ccp(0,100));
 }

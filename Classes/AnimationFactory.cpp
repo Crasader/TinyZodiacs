@@ -41,6 +41,10 @@ bool AnimationFactory::loadXMLAnimation()
     loadXMLAnimationByNameFile("monkey_animation.xml");
     loadXMLAnimationByNameFile("cat_animation.xml");
     loadXMLAnimationByNameFile("skill_animation.xml");
+    loadXMLAnimationByNameFile("effect_animation.xml");
+    loadXMLAnimationByNameFile("tower_1_animation.xml");
+    loadXMLAnimationByNameFile("tower_2_animation.xml");
+
 
     return true;
 }

@@ -9,7 +9,7 @@
 #include "MonsterFactory.h"
 #include "ScheduleManager.h"
 #include "ParameterObject.h"
-#include "PhysicBodyManager.h"
+#include "GameObjectManager.h"
 #include "LayerIndexConstants.h"
 
 static MonsterFactory* sharedFactory = NULL;
@@ -80,7 +80,7 @@ Monster* MonsterFactory::createMonster(CharacterDTO monsterDTO, CCPoint position
     //
     monster->setPositionInPixel(position);
     
-    monster->setGroup(GROUP_HERO_A);
+    monster->setGroup(GROUP_A);
     monster->flipDirection(LEFT);
     monster->setLaneID(2);
     
