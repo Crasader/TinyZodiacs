@@ -10,6 +10,9 @@
 #include "Util.h"
 #include "ScheduleManager.h"
 #include "LayerIndexConstants.h"
+#include "EffectData.h"
+#include "Character.h"
+#include "Effect.h"
 
 NormalAttack::NormalAttack(GameObject* holder, NormalMeleeSkillData data)
 {
@@ -176,11 +179,27 @@ void NormalAttack::checkCollisionDataInBeginContact(PhysicData* data, b2Contact 
         {
             switch (otherData->Id) {
                 case CHARACTER_BODY:
-                    if(this->holder != otherData->Data)
+                {
+                    Character* character = (Character*)otherData->Data;
+                    if(character != holder)
                     {
-                        CCLOG("Attack collide begin");
+                        if(character->getGroup() == this->holder->getGroup())
+                        {
+                            CCLOG("Allie begin");
+                        }
+                        else
+                        {
+                            CCLOG("Enemy begin");
+                            CCObject* effectData;
+                            CCARRAY_FOREACH(this->data.getListEnemyEffect(), effectData)
+                            {
+                                Effect* effect = new Effect(*((EffectData*)effectData), character);
+                                character->applyEffect(effect);
+                            }
+                        }
                     }
                     break;
+                }
                 default:
                     break;
             }
@@ -206,11 +225,20 @@ void NormalAttack::checkCollisionDataInEndContact(PhysicData* data, b2Contact *c
         {
             switch (otherData->Id) {
                 case CHARACTER_BODY:
-                    if(this->holder != otherData->Data)
+                {
+                    Character* character = (Character*)otherData->Data;
+                    if(character != holder)
                     {
-                        CCLOG("Attack collide end");
+                        if(character->getGroup() == this->holder->getGroup())
+                        {
+                            CCLOG("Allie end");
+                        }
+                        else
+                        {
+                            CCLOG("Enemy end");
+                        }
                     }
-                    break;
+                }
                 default:
                     break;
             }
