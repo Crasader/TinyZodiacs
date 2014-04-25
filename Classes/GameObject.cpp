@@ -9,7 +9,8 @@
 #include "GameObject.h"
 #include "Box2D/Box2d.h"
 #include "Util.h"
-#include "PhysicBodyManager.h"
+#include "GameObjectManager.h"
+#include "Effect.h"
 
 USING_NS_CC;
 
@@ -21,15 +22,29 @@ GameObject::GameObject()
     direction = LEFT;
     init();
     
+    this->listEffect = CCArray::create();
+    this->listEffect->retain();
+    
+    init();
 }
 
 GameObject::~GameObject()
 {
     if(this->sprite != NULL)
+    {
         this->sprite->removeFromParent();
-    this->body->GetWorld()->DestroyBody(this->body);
-    //    PhysicBodyManager::getInstance()->addBody(this);
-    
+    }
+   
+    if(this->body != NULL)
+    {
+        CCLOG("des body");
+        this->body->GetWorld()->DestroyBody(this->body);
+    }
+    else
+    {
+        CCLOG("body null");
+    }
+    CC_SAFE_RELEASE(this->listEffect);
 }
 
 bool GameObject::init()
@@ -47,6 +62,7 @@ void GameObject::excuteScheduledFunction(CCObject* pSender, void *body)
 void GameObject::update(float dt)
 {
     updateSpritePositionWithBodyPosition();
+    updateAllEffect(dt);
 }
 
 void GameObject::setPositionInPixel(const cocos2d::CCPoint &pos)
@@ -65,6 +81,11 @@ CCPoint GameObject::getPositionInPixel()
     
     
     return position;
+}
+
+b2Vec2 GameObject::getPositionInPhysicWorld()
+{
+    return this->getBody()->GetPosition();
 }
 
 void GameObject::setSkin(b2Body *body, cocos2d::CCSprite *sprite)
@@ -86,6 +107,15 @@ void GameObject::updateSpritePositionWithBodyPosition()
         this->sprite->setRotation(-1 * CC_RADIANS_TO_DEGREES(this->body->GetAngle()));
     }
     
+}
+
+void GameObject::updateAllEffect(float dt)
+{
+    CCObject* effect;
+    CCARRAY_FOREACH(this->listEffect, effect)
+    {
+        ((Effect*)effect)->update(dt);
+    }
 }
 
 void GameObject::setAnchorPointForAnimation1(const cocos2d::CCPoint &anchorPoint)
@@ -241,4 +271,19 @@ void GameObject::setGroup(uint16 group)
 uint16 GameObject::getGroup()
 {
     return this->body->GetFixtureList()->GetFilterData().categoryBits;
+}
+
+void GameObject::applyEffect(CCObject* effect)
+{
+    this->listEffect->addObject(effect);
+}
+
+void GameObject::removeEffect(CCObject* object)
+{
+    this->listEffect->removeObject(object);
+}
+
+void GameObject::notifyByEffect(CCObject* effect)
+{
+    
 }

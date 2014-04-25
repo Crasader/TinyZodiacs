@@ -26,11 +26,11 @@ AbstractSkill* SkillFactory::loadXMLFile(const char* id, const char *xmlFileName
     
     pFileData = (unsigned char*) CCFileUtils::sharedFileUtils()->getFileData(fullPath.c_str(), "r", &dataSize);
    
-    CCLOG("Co file: %s", fullPath.c_str());
+//    CCLOG("Co file: %s", fullPath.c_str());
 
     if (!pFileData)
     {
-        CCLOG("Empty file: %s", fullPath.c_str());
+//        CCLOG("Empty file: %s", fullPath.c_str());
         return NULL;
     }
     std::string fileContent;
@@ -39,7 +39,7 @@ AbstractSkill* SkillFactory::loadXMLFile(const char* id, const char *xmlFileName
     XMLDocument document;
     if( document.Parse(fileContent.c_str()) != XML_NO_ERROR)
     {
-        CCLOG("Cannot parse file: %s", fullPath.c_str());
+//        CCLOG("Cannot parse file: %s", fullPath.c_str());
         return NULL;
     }
     
@@ -51,6 +51,7 @@ AbstractSkill* SkillFactory::loadXMLFile(const char* id, const char *xmlFileName
     
     if(result != NULL)
     {
+//        CCLOG("SKILL: %s",id);
         //read skill
         string type = readSkillType(result);
         AbstractSkill* normalAttack;
@@ -122,7 +123,7 @@ const XMLElement* SkillFactory::loadElementById(const char* id, const XMLElement
        CCString* temp2 = CCString::createWithFormat("%s",child->Attribute(ATTRIBUTE_ID));
     
         
-        CCLOG("skill: %s", temp2->getCString());
+//        CCLOG("skill: %s", temp2->getCString());
         if(strcmp(temp1->getCString(),temp2->getCString())== 0)
         {
             return  child;
@@ -132,33 +133,35 @@ const XMLElement* SkillFactory::loadElementById(const char* id, const XMLElement
     return NULL;
 }
 
-string SkillFactory::readSkillType(const XMLElement* root)
+std::string SkillFactory::readSkillType(const XMLElement* root)
 {
-    if(root != NULL)
-    {
-        string typeValue = root->Attribute(ATTRIBUTE_TYPE);
-//        int value = atoi(typeValue.c_str());
-//        return value;
-        return typeValue;
-    }
-    return NULL;
+//    if(root != NULL)
+//    {
+//        string typeValue = root->Attribute(ATTRIBUTE_TYPE);
+////        int value = atoi(typeValue.c_str());
+////        return value;
+//        return typeValue;
+//    }
+//    return NULL;
+    return XMLHelper::readAttributeString(root, ATTRIBUTE_TYPE, "");
 }
 
 std::string SkillFactory::readTextureId(const XMLElement* root, string tagName)
 {
-    
-    if(root != NULL)
-    {
-        string typeValue = root->FirstChildElement(tagName.c_str())->GetText();
-        return typeValue;
-    }
-    return "";
+//    if(root != NULL)
+//    {
+//        string typeValue = root->FirstChildElement(tagName.c_str())->GetText();
+//        return typeValue;
+//    }
+//    return "";
+    return XMLHelper::readString(root->FirstChildElement(tagName.c_str()), "");
 }
 
 
 AbstractSkill* SkillFactory::createSkill(const char* id, b2World* world, GameObject* holder, bool isLocal, int buttonIndex)
 {
-    AbstractSkill* skill = loadXMLFile(id, "list_skill.xml", world, holder, isLocal, buttonIndex);
+    AbstractSkill* skill = loadXMLFile(id, SKILL_XML_FILE, world, holder, isLocal, buttonIndex);
+    skill->retain();
     return skill;
 }
 

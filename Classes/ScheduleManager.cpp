@@ -27,7 +27,7 @@ CCSequence* ScheduleManager::scheduleForGameObject(GameObject* object, float dur
     
     
     CCSequence* sequence = CCSequence::create(arr);
-    sequence->retain();
+
     this->runAction(sequence);
     return sequence;
 }
@@ -72,9 +72,10 @@ void ScheduleManager::release()
 }
 
 
-void ScheduleManager::stopScheduledObjectAction(CCSequence* target)
+void ScheduleManager::stopScheduledObjectAction(CCAction* target)
 {
     this->stopAction(target);
+    CCLog("");
 }
 
 void ScheduleManager::scheduleFunction(CCCallFunc* callFunction, CCCallFunc* endFunction, float duration, int repeatTime)
@@ -99,7 +100,33 @@ void ScheduleManager::finishScheduleFunction(CCNode* sender, void* data)
     prms->release();
 }
 
+CCSequence* ScheduleManager::scheduleFuction(CCCallFunc* funcion, float duration)
+{
+    CCDelayTime *delayAction = CCDelayTime::create(duration);
+    CCArray* array = CCArray::create();
+    array->addObject(delayAction);
+    array->addObject(funcion);
+    
+    CCSequence* sequence = CCSequence::create(array);
+    this->runAction(sequence);
+    
+    return sequence;
+}
 
+CCRepeat* ScheduleManager::scheduleFuctionRepeatly(CCCallFunc* funcion, float duration, int times)
+{
+    CCDelayTime *delayAction = CCDelayTime::create(duration);
+    CCArray* array = CCArray::create();
+    array->addObject(delayAction);
+    array->addObject(funcion);
+    
+    CCSequence* sequence = CCSequence::create(array);
+    CCRepeat* repeat = CCRepeat::create(sequence, times);
+    
+    this->runAction(repeat);
+    
+    return repeat;
+}
 
 
 

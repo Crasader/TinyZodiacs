@@ -7,14 +7,16 @@
 //
 
 #include "CharacterFactory.h"
+#include "XMLHelper.h"
 
 using namespace tinyxml2;
 
 
 CharacterDTO CharacterFactory::loadXMLFile(const char *xmlFileName)
 {
-
-    CharacterDTO data;
+    
+    //
+    CharacterDTO data ;
     
     std::string fullPath = CCFileUtils::sharedFileUtils()->fullPathForFilename(xmlFileName);
     
@@ -61,109 +63,119 @@ CharacterDTO CharacterFactory::loadXMLFile(const char *xmlFileName)
 
 string CharacterFactory::readBodyData(tinyxml2::XMLElement* root)
 {
-    if(root != NULL)
-    {
-        string bodyId = root->GetText();
-        return bodyId;
-    }
-    return NULL;
+//    if(root != NULL)
+//    {
+//        string bodyId = root->GetText();
+//        return bodyId;
+//    }
+//    return NULL;
+    return XMLHelper::readString(root, "");
 }
 
 string CharacterFactory::readAnimationData(tinyxml2::XMLElement* root)
 {
-    if(root != NULL)
-    {
-        string animationId = root->GetText();
-        return animationId;
-    }
-    return NULL;
+//    if(root != NULL)
+//    {
+//        string animationId = root->GetText();
+//        return animationId;
+//    }
+//    return NULL;
+    return XMLHelper::readString(root, "");
 }
 
 int CharacterFactory::readHealthData(tinyxml2::XMLElement* root)
 {
-    if(root != NULL)
-    {
-        string healthValue = root->GetText();
-        int value = atoi(healthValue.c_str());
-        return value;
-    }
-    return 0;
+//    if(root != NULL)
+//    {
+//        string healthValue = root->GetText();
+//        int value = atoi(healthValue.c_str());
+//        return value;
+//    }
+//    return 0;
+    return XMLHelper::readInt(root, 0);
 }
 
 int CharacterFactory::readAttackData(tinyxml2::XMLElement* root)
 {
-    if(root != NULL)
-    {
-        string attackValue = root->GetText();
-        int value = atoi(attackValue.c_str());
-        return value;
-    }
-    return 0;
+//    if(root != NULL)
+//    {
+//        string attackValue = root->GetText();
+//        int value = atoi(attackValue.c_str());
+//        return value;
+//    }
+//    return 0;
+    return XMLHelper::readInt(root, 0);
 }
 
 string CharacterFactory::readSkill(tinyxml2::XMLElement *root)
 {
-    if(root != NULL)
-    {
-        string skillId = root->GetText();
-        return skillId;
-    }
-    return NULL;
+//    if(root != NULL)
+//    {
+//        string skillId = root->GetText();
+//        return skillId;
+//    }
+//    return NULL;
+    return XMLHelper::readString(root, "");
 }
 
 int CharacterFactory::readDefenseData(tinyxml2::XMLElement* root)
 {
-    if(root != NULL)
-    {
-        string defenseValue = root->GetText();
-        int value = atoi(defenseValue.c_str());
-        return value;
-    }
-    return 0;
+//    if(root != NULL)
+//    {
+//        string defenseValue = root->GetText();
+//        int value = atoi(defenseValue.c_str());
+//        return value;
+//    }
+//    return 0;
+    return XMLHelper::readInt(root, 0);
 }
 
 int CharacterFactory::readSpeedData(tinyxml2::XMLElement* root)
 {
-    if(root != NULL)
-    {
-        string speedValue = root->GetText();
-        int value = atoi(speedValue.c_str());
-        return value;
-    }
-    return 0;
+//    if(root != NULL)
+//    {
+//        string speedValue = root->GetText();
+//        int value = atoi(speedValue.c_str());
+//        return value;
+//    }
+//    return 0;
+    return XMLHelper::readInt(root, 0);
 }
 
 float CharacterFactory::readAttackSpeedData(tinyxml2::XMLElement* root)
 {
-    if(root != NULL)
-    {
-        string attackSpeedValue = root->GetText();
-        float value = atof(attackSpeedValue.c_str());
-        return value;
-    }
-    return 0;
+//    if(root != NULL)
+//    {
+//        string attackSpeedValue = root->GetText();
+//        float value = atof(attackSpeedValue.c_str());
+//        return value;
+//    }
+//    return 0;
+    return XMLHelper::readFloat(root, 0);
 }
 
 int CharacterFactory::readMaxJumpData(tinyxml2::XMLElement* root)
 {
-    if(root != NULL)
-    {
-        string maxJumpValue = root->GetText();
-        int value = atoi(maxJumpValue.c_str());
-        return value;
-    }
-    return 0;
+//    if(root != NULL)
+//    {
+//        string maxJumpValue = root->GetText();
+//        int value = atoi(maxJumpValue.c_str());
+//        return value;
+//    }
+//    return 0;
+    return XMLHelper::readInt(root, 0);
 }
 
 int CharacterFactory::readJumpHeightData(tinyxml2::XMLElement* root)
 {
-    if(root != NULL)
-    {
-        string jumpHeightValue = root->GetText();
-        int value = atoi(jumpHeightValue.c_str());
-        return value;
-    }
-    return 1;
+//    if(root != NULL)
+//    {
+//        string jumpHeightValue = root->GetText();
+//        int value = atoi(jumpHeightValue.c_str());
+//        return value;
+//    }
+//    return 1;
+    return XMLHelper::readInt(root, 0);
 }
 
 Hero* CharacterFactory::createHero(CharacterDTO heroDTOData, b2World* world, bool isLocal)
@@ -190,23 +202,9 @@ Hero* CharacterFactory::createHero(CharacterDTO heroDTOData, b2World* world, boo
 //    
     hero->attackAnimation->getAnimation()->setDelayPerUnit(hero->getOriginCharacterData().getAttackSpeed());
     
-    //Create body
-    b2BodyDef bodyDef;
-    bodyDef.type = b2_dynamicBody;
-    bodyDef.angle = ccpToAngle(ccp(0,0));
-    bodyDef.fixedRotation=true;
-    bodyDef.userData = hero;
-    
-    b2Body *body = world->CreateBody(&bodyDef);
-    
-    gbox2d::GB2ShapeCache *sc =  gbox2d::GB2ShapeCache::sharedGB2ShapeCache();
-    sc->addFixturesToBody(body, heroDTOData.body.c_str());
-    hero->setSpriteAnchorPoint(sc->anchorPointForShape(heroDTOData.body.c_str()));
-    hero->getSprite()->setAnchorPoint(sc->anchorPointForShape(heroDTOData.body.c_str()));
-    
-    //hero->getSprite()->setScale(0);
+    loadBody(heroDTOData, hero, world);
+//    hero->getSprite()->setScale(0);
     //
-    hero->setSkin(body, hero->getSprite());
     
     hero->setNormalAttack(SkillFactory::createSkill(heroDTOData.data.getSkill0().c_str(), world, hero, isLocal, SKILL_0_BUTTON));
     hero->setSkill1(SkillFactory::createSkill(heroDTOData.data.getSkill1().c_str(), world, hero, isLocal, SKILL_1_BUTTON));
@@ -214,10 +212,28 @@ Hero* CharacterFactory::createHero(CharacterDTO heroDTOData, b2World* world, boo
     //
     hero->retain();
     //
-
     
     return hero;
 }
+
+void CharacterFactory::loadBody(CharacterDTO heroDTOData, Character* character, b2World* world)
+{
+    //Create body
+    b2BodyDef bodyDef;
+    bodyDef.type = b2_dynamicBody;
+    bodyDef.angle = ccpToAngle(ccp(0,0));
+    bodyDef.fixedRotation=true;
+    bodyDef.userData = character;
+    
+    b2Body *body = world->CreateBody(&bodyDef);
+    
+    gbox2d::GB2ShapeCache *sc =  gbox2d::GB2ShapeCache::sharedGB2ShapeCache();
+    sc->addFixturesToBody(body, heroDTOData.body.c_str());
+    character->setSpriteAnchorPoint(sc->anchorPointForShape(heroDTOData.body.c_str()));
+    character->getSprite()->setAnchorPoint(sc->anchorPointForShape(heroDTOData.body.c_str()));
+    character->setSkin(body, character->getSprite());
+}
+
 
 Hero* CharacterFactory::createMonkeyHero(b2World* world, bool isLocal)
 {
@@ -226,8 +242,16 @@ Hero* CharacterFactory::createMonkeyHero(b2World* world, bool isLocal)
     }
     CharacterDTO dtoData = loadXMLFile(CHARACTER_MONKEY_XML_FILE);
     
-    Hero* hero = createHero(dtoData, world, isLocal);
-    return hero;
+    return createHero(dtoData, world, isLocal);
 }
 
+Hero* CharacterFactory::createHero(string ID,b2World* world, bool isLocal)
+{
+    if (world == NULL) {
+        return  NULL;
+    }
+    CharacterDTO dtoData = loadXMLFile(ID.c_str());
+    
+    return createHero(dtoData, world, isLocal);
+}
 

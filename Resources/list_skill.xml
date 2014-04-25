@@ -16,6 +16,12 @@
             <deactive>normal_meelee_deactive.png</deactive>
             <selected>normal_meelee_selected.png</selected>
         </texture>
+        
+        <list_effect>
+            <enemy>
+                    <effect>cat_normal_attack_affect</effect>
+            </enemy>
+        </list_effect>
 	</skill>
     
     <skill id="monkey_aura" type="0">
@@ -37,6 +43,12 @@
             <deactive>skill_1_deactive.png</deactive>
             <selected>skill_1_selected.png</selected>
         </texture>
+        
+        <list_effect>
+            <enemy>
+                <effect>cat_normal_attack_affect</effect>
+            </enemy>
+        </list_effect>
 	</skill>
     
     <skill id="monkey_ultimate" type="0">
@@ -57,14 +69,20 @@
             <deactive>skill_2_deactive.png</deactive>
             <selected>skill_2_selected.png</selected>
         </texture>
+        
+        <list_effect>
+            <enemy>
+                <effect>cat_normal_attack_affect</effect>
+            </enemy>
+        </list_effect>
 	</skill>
     
     <skill id="monkey_shooting" type="1">
 		<body>arrow</body>
 		<damage>50</damage>
         <delay>0.1</delay>
-        <life_time>6</life_time>
-		<cool_down>2</cool_down>
+        <life_time>1</life_time>
+		<cool_down>-1</cool_down>
         <critical_chance>0.01</critical_chance>
         <joints>
             <holder x="2" y="0" offsetX="0" offsetY="0"></holder>
@@ -78,9 +96,88 @@
             <selected>normal_meelee_selected.png</selected>
         </texture>
 
-        <speed>1</speed>
+<speed>
+    <x>20</x>
+    <y>0</y>
+</speed>
+
         <gravity_scale>0</gravity_scale>
         <collide_terrain>1</collide_terrain>
         <piercing>0</piercing>
+        
+        <list_effect>
+            <enemy>
+                <effect>cat_normal_attack_affect</effect>
+                <effect>cat_bleeding</effect>
+            </enemy>
+        </list_effect>
+	</skill>
+    
+    <skill id="tower_shooting_1" type="1">
+		<body>tower_orb_1_2</body>
+		<damage>50</damage>
+        <delay>0.1</delay>
+        <life_time>6</life_time>
+		<cool_down>0.1</cool_down>
+        <critical_chance>0.01</critical_chance>
+        <joints>
+            <holder x="0" y="0" offsetX="0" offsetY="0"></holder>
+            <this x="0" y="0" offsetX="0" offsetY="0"></this>
+        </joints>
+        <animation>skill-tower_orb_1</animation>
+        <animation_layer>4</animation_layer>
+        <texture>
+            <active>normal_meelee_normal.png</active>
+            <deactive>normal_meelee_deactive.png</deactive>
+            <selected>normal_meelee_selected.png</selected>
+        </texture>
+        
+        <speed>
+            <x>10</x>
+            <y>0</y>
+        </speed>
+        <gravity_scale>0</gravity_scale>
+        <collide_terrain>1</collide_terrain>
+        <piercing>0</piercing>
+        
+        <list_effect>
+            <enemy>
+                <effect>cat_bleeding</effect>
+            </enemy>
+        </list_effect>
+	</skill>
+    
+    <skill id="tower_shooting_2" type="1">
+		<body>tower_orb_1_2</body>
+		<damage>50</damage>
+        <delay>0.1</delay>
+        <life_time>6</life_time>
+		<cool_down>0.1</cool_down>
+        <critical_chance>0.01</critical_chance>
+        <joints>
+            <holder x="0" y="0" offsetX="0" offsetY="0"></holder>
+            <this x="0" y="0" offsetX="0" offsetY="0"></this>
+        </joints>
+        <animation>skill-tower_orb_2</animation>
+        <animation_layer>4</animation_layer>
+        <texture>
+            <active>normal_meelee_normal.png</active>
+            <deactive>normal_meelee_deactive.png</deactive>
+            <selected>normal_meelee_selected.png</selected>
+        </texture>
+        
+        <speed>
+            <x>10</x>
+            <y>0</y>
+        </speed>
+        <gravity_scale>0</gravity_scale>
+        <collide_terrain>2</collide_terrain>
+        <piercing>0</piercing>
+        
+        <list_effect>
+            <enemy>
+                <effect>cat_bleeding</effect>
+            </enemy>
+        </list_effect>
 	</skill>
 </skill_list>

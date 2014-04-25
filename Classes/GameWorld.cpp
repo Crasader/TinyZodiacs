@@ -19,6 +19,7 @@
 #include "InfoViewCreator.h"
 #include "Util.h"
 #include "MonsterFactory.h"
+#include "TowerFactory.h"
 
 GameWorld::GameWorld()
 {
@@ -41,6 +42,7 @@ GameWorld::~GameWorld()
 
 bool GameWorld::init()
 {
+    count = 0;
     b2Vec2 gravity = b2Vec2(GRAVITY_ACCELERATION_X, GRAVITY_ACCELERATION_Y);
     this->world = new b2World(gravity);
     
@@ -68,12 +70,26 @@ bool GameWorld::init()
     delete mapCreator;
     
     //CHARACTER
-    this->character = ObjectFactory::getSharedManager()->createCharacter("map2", world, true);
+    this->character = ObjectFactory::getSharedManager()->createCharacter("character_cat.xml", world, true);
     this->map->addChild(character->getSprite(), CHARACTER_LAYER);
     this->character->setPositionInPixel(ccp(1500,1200));
     this->setFollowCharacter(true);
     this->map->scheduleUpdate();
+
+    //CHARACTER
+    this->c1 = TowerFactory::createTower("tower_1.xml", world);
+    this->map->addChild(c1->getSprite(), CHARACTER_LAYER);
+    this->c1->setPositionInPixel(ccp(4220,1300));
     
+    //CHARACTER
+    this->c2 = TowerFactory::createTower("tower_2.xml", world);
+    this->map->addChild(c2->getSprite(), CHARACTER_LAYER);
+    this->c2->setPositionInPixel(ccp(3400,1595));
+    
+    this->character->setGroup(GROUP_A);
+
+    this->c1->setGroup(GROUP_B);
+    this->c2->setGroup(GROUP_B);
     
     CCObject* object1 = NULL;
     //
@@ -99,10 +115,6 @@ bool GameWorld::init()
     //
     createWorldBox();
     //
-    manager = PhysicBodyManager::getInstance();
-    manager->setWorld(this->world);
-    
-    
     this->listInfoView->addObject(InfoViewCreator::createHeroInfoView(this->character, NULL));
     
     CCObject* object = NULL;
@@ -118,12 +130,22 @@ bool GameWorld::init()
     
     MonsterFactory::getSharedFactory()->setHolder(this->map);
     MonsterFactory::getSharedFactory()->createMonsters(dto,ccp(2000,400),300,1, this->world);
+
     
     return true;
 }
 
+
 void GameWorld::addManager()
 {
+    count++;
+     CCAssert(count<=1, "sfafsasf");
+    manager = GameObjectManager::getInstance();
+    manager->setWorld(this->world);
+    
+   
+    this->addChild(manager);
+    
     this->addChild(ScheduleManager::getInstance());
 }
 
@@ -215,6 +237,8 @@ void GameWorld::update(float dt)
     //
     this->map->update(dt);
     this->character->update(dt);
+    this->c1->update(dt);
+    this->c2->update(dt);
     
     // update infoview
     CCObject* object = NULL;
@@ -264,6 +288,8 @@ void GameWorld::BeginContact(b2Contact *contact)
 {
     this->map->BeginContact(contact);
     this->character->BeginContact(contact);
+    this->c1->BeginContact(contact);
+    this->c2->BeginContact(contact);
     
     CCObject* object1 = NULL;
     
@@ -287,7 +313,9 @@ void GameWorld::EndContact(b2Contact *contact)
 {
     this->map->EndContact(contact);
      this->character->EndContact(contact);
-    
+    this->c1->EndContact(contact);
+    this->c2->EndContact(contact);
+
     CCObject* object1 = NULL;
     
     CCARRAY_FOREACH(this->listCharacter, object1)

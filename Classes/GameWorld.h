@@ -16,20 +16,21 @@
 #include "Character.h"
 #include "Map.h"
 #include "NormalAttack.h"
-#include "PhysicBodyManager.h"
+#include "GameObjectManager.h"
 #include "HealthBar.h"
 #include "ScheduleManager.h"
 #include "Monster.h"
+#include "Tower.h"
 
 USING_NS_CC;
 class GameWorld: public CCNode, public b2ContactListener
 {
 private:
-    PhysicBodyManager* manager;
+    GameObjectManager* manager;
     
     CCArray* listCharacter;
     CCArray* listInfoView;
-    
+    int count;
 protected:
     bool init();
     void createWorldBox();
@@ -45,6 +46,9 @@ public:
     CC_SYNTHESIZE_READONLY(b2Body*, bottomLine, BottomLine);
     CC_SYNTHESIZE(Character*, character, Character);
     CC_SYNTHESIZE(Map*, map, map);
+
+    CC_SYNTHESIZE(Tower*, c1, c1);
+    CC_SYNTHESIZE(Tower*, c2, c2);
     
     GameWorld();
     virtual ~GameWorld();

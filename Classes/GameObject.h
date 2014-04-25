@@ -20,11 +20,12 @@ enum Direction {LEFT, RIGHT};
 class GameObject: public cocos2d::CCObject
 {
 private:
-   
 protected:
+    cocos2d::CCArray* listEffect;
     Direction direction;
     virtual void checkCollisionDataInBeginContact(PhysicData* data, b2Contact *contact, bool isSideA);
     virtual void checkCollisionDataInEndContact(PhysicData* data, b2Contact *contact, bool isSideA);
+    virtual void updateAllEffect(float dt);
 
 public:
     GameObject();
@@ -45,6 +46,8 @@ public:
     virtual void update(float dt);
     virtual void setPositionInPixel(const cocos2d::CCPoint& pos);
     virtual cocos2d::CCPoint getPositionInPixel();
+    virtual b2Vec2 getPositionInPhysicWorld();
+
     virtual void updateSpritePositionWithBodyPosition();
     
     virtual void BeginContact(b2Contact *contact);
@@ -55,6 +58,11 @@ public:
     virtual void excuteScheduledFunction(CCObject* pSender, void *body);
     virtual void setGroup(uint16 group);
     virtual uint16 getGroup();
+    
+    virtual void applyEffect(CCObject* effect);
+    virtual void removeEffect(CCObject* object);
+    
+    virtual void notifyByEffect(CCObject* effect);
 };
 
 #endif /* defined(__SampleCocosProject__GameObject__) */

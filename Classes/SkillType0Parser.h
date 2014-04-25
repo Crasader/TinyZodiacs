@@ -15,6 +15,8 @@
 #include "Box2D/Box2D.h"
 #include "PhysicConstants.h"
 #include "GB2ShapeCache-x.h"
+#include "Constants.h"
+#include "XMLHelper.h"
 
 
 
@@ -32,13 +34,17 @@
 #define TAG_THIS "this"
 
 #define TAG_BODY "body"
-#define TAG_DAMAGE "damage"
 #define TAG_COOL_DOWN "cool_down"
 #define TAG_DELAY "delay"
 #define TAG_LIFE_TIME "life_time"
 #define TAG_ANIMATION "animation"
-#define TAG_CRITICAL_CHANCE "critical_chance"
 #define TAG_ANIMATION_LAYER "animation_layer"
+#define TAG_TARGET "target"
+#define TAG_LIST_EFFECT "list_effect"
+#define TAG_LIST_EFFECT_ENEMY "enemy"
+#define TAG_LIST_EFFECT_ALLIES "allies"
+#define TAG_EFFECT "effect"
+
 
 
 using namespace tinyxml2;
@@ -48,16 +54,18 @@ class SkillType0Parser
 {
 private:
 protected:
-    static int readDamage(const XMLElement* root);
+//    static int readDamage(const XMLElement* root);
     static float readCoolDown(const XMLElement* root);
     static JointDef readJoinDef(const XMLElement* root);
     static void readJointDef(const NormalMeleeSkillData* data);
     static b2Body* readBody(const XMLElement* root, b2World* world);
     static float readDelay(const XMLElement* root);
     static float readLifeTime(const XMLElement* root);
-    static float readCriticalChance(const XMLElement* root);
+//    static float readCriticalChance(const XMLElement* root);
     static AnimationObject* readAnimation(const XMLElement* root);
     static int readAnimationLayerIndex(const XMLElement* root);
+    static SkillTarget readTarget(const XMLElement* root);
+    static CCArray* readEffectList(const XMLElement* root);
 public:
     static NormalMeleeSkillData parse(const XMLElement* root, b2World* world);
 };

@@ -18,6 +18,8 @@
 #include "GameObject.h"
 #include "Constants.h"
 
+#define SKILL_XML_FILE "list_skill.xml"
+
 #define ATTRIBUTE_ID "id"
 #define ATTRIBUTE_TYPE "type"
 

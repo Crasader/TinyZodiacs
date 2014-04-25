@@ -78,6 +78,8 @@ public:
     virtual void EndContact(b2Contact *contact);
     
     virtual void setGroup(uint16 group);
+    
+    virtual void notifyByEffect(CCObject* effect);
 };
 
 #endif /* defined(__SampleCocosProject__Character__) */

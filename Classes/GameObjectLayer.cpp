@@ -94,9 +94,9 @@ void GameObjectLayer::MoveSpriteRight()
 void GameObjectLayer::Attack()
 {
 //    this->gameWorld->getCharacter()->attack();
-    //this->characterActionEngine->attack();
+    this->characterActionEngine->attack();
     
-    MonsterFactory::getSharedFactory()->removeMonster(NULL);
+//    MonsterFactory::getSharedFactory()->removeMonster(NULL);
 }
 
 void GameObjectLayer::Skill1()

@@ -27,7 +27,9 @@ public:
     CC_SYNTHESIZE(bool, terrainCollide, TerrainCollide);
     CC_SYNTHESIZE(bool, piercing, Piercing);
     CC_SYNTHESIZE(float, gravityScale, GravityScale);
-    CC_SYNTHESIZE(float, speed, Speed);
+    CC_SYNTHESIZE(float, speedX, SpeedX);
+    CC_SYNTHESIZE(float, speedY, SpeedY);
+
     CC_SYNTHESIZE(int, animationLayerIndex, AnimationLayerIndex);
 };
 #endif /* defined(__TinyZodiacs__NormalShootingSkillData__) */

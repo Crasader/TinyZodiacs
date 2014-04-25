@@ -35,7 +35,9 @@ bool GameManager::loadResource()
     CCSpriteFrameCache::sharedSpriteFrameCache()->addSpriteFramesWithFile("map1_background_spritesheet_2.plist", "map1_background_spritesheet_2.png");
     CCSpriteFrameCache::sharedSpriteFrameCache()->addSpriteFramesWithFile("test_sheet.plist", "test_sheet.png");
     
-    
+    CCSpriteFrameCache::sharedSpriteFrameCache()->addSpriteFramesWithFile("tower_1_default.plist", "tower_1_default.png");
+    CCSpriteFrameCache::sharedSpriteFrameCache()->addSpriteFramesWithFile("tower_2_default.plist", "tower_2_default.png");
+    CCSpriteFrameCache::sharedSpriteFrameCache()->addSpriteFramesWithFile("tower_orb_default.plist", "tower_orb_default.png");
     
     gbox2d::GB2ShapeCache *sc = gbox2d::GB2ShapeCache::sharedGB2ShapeCache();
     

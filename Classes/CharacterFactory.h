@@ -18,7 +18,6 @@
 #include "AnimationFactory.h"
 #include "SkillFactory.h"
 
-
 USING_NS_CC;
 
 #define TAG_BODY "body"
@@ -45,13 +44,14 @@ USING_NS_CC;
 
 #define CHARACTER_MONKEY_ID "monkey"
 
-#define CHARACTER_MONKEY_XML_FILE "character_cat.xml"
+#define CHARACTER_MONKEY_XML_FILE "character_monkey.xml"
+#define CHARACTER_CAT_XML_FILE "character_cat.xml"
+
 
 class CharacterFactory
 {
 private:
 protected:
-   
     
     static string readBodyData(tinyxml2::XMLElement* root);
     static int readHealthData(tinyxml2::XMLElement* root);
@@ -64,12 +64,16 @@ protected:
     static string readAnimationData(tinyxml2::XMLElement* root);
     static string readSkill(tinyxml2::XMLElement* root);
 
-
+    static void loadBody(CharacterDTO heroDTOData, Character* character, b2World* world);
+    
     static Hero* createHero(CharacterDTO heroDTOData, b2World* world, bool isLocal);
     
 
 public:
     static CharacterDTO loadXMLFile(const char* xmlFileName);
+    
     static Hero* createMonkeyHero(b2World* world, bool isLocal);
+    static Hero* createHero(string ID,b2World* world, bool isLocal);
+
 };
 #endif /* defined(__TinyZodiacs__CharacterFactory__) */
