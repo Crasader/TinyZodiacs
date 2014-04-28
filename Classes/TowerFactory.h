@@ -18,6 +18,7 @@
 #include "GB2ShapeCache-x.h"
 #include "AnimationFactory.h"
 #include "SkillFactory.h"
+#include "TowerDTO.h"
 
 USING_NS_CC;
 
@@ -29,6 +30,8 @@ protected:
     static Tower* createTower(CharacterDTO heroDTOData, b2World* world, bool isLocal);
 public:
     static Tower* createTower(string ID,b2World* world);
+    static Tower* createTower(TowerDTO* towerDTO ,b2World* world);
+
 };
 
 

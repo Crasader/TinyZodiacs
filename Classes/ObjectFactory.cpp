@@ -146,7 +146,7 @@ MapObject* ObjectFactory::createMapObject(MapObjectDTO* mapObjectDTO, b2World *w
         b2BodyDef bodyDef;
         bodyDef.type = b2_staticBody;
         bodyDef.angle = ccpToAngle(ccp(0,0));
-        bodyDef.bullet = true;
+//        bodyDef.bullet = true;
       //
         b2Body *body = world->CreateBody(&bodyDef);
         sc->addFixturesToBody(body, mapObjectDTO->bodyName.c_str());

@@ -15,6 +15,7 @@
 #include "BackgroundDTO.h"
 #include "ForegroundDTO.h"
 #include "SensorObjectDTO.h"
+#include "TowerDTO.h"
 #include <string.h>
 
 #define TAG_BACKGROUND_LIST "background_list"
@@ -47,6 +48,7 @@
 
 #define TAG_CAN_PASS "can_pass"
 
+//sensor
 #define TAG_SENSOR_OBJECT_LIST "sensor_object_list"
 #define TAG_SENSOR_OBJECT "sensor_object"
 #define ATTRIBUTE_SENSOR_OBJECT_MUSTSTOP "must_stop"
@@ -58,6 +60,13 @@
 #define ATTRIBUTE_EDGE_X "x"
 #define ATTRIBUTE_EDGE_Y "y"
 #define TAG_LANE "lane"
+
+//tower
+#define TAG_TOWER_LIST "tower_list"
+#define TAG_TOWER "tower"
+#define ATTRIBUTE_TOWER_ID "id"
+#define ATTRIBUTE_TOWER_GROUP "group"
+
 
 
 USING_NS_CC;
@@ -71,6 +80,7 @@ public:
     static BackgroundDTO* getBackgroundDTOFromXMLNode(XMLElement* backgroundXMLElement);
     static ForegroundDTO* getForegroundDTOFromXMLNode(XMLElement* foregroundXMLElement);
     static SensorObjectDTO* getSensorObjectDTOFromXMLNode(XMLElement* sensorObjectXMLElement);
+    static TowerDTO* getTowerDTOFromXMLNode(XMLElement* towerXMLElement);
 };
 
 #endif /* defined(__TinyZodiacs__XMLMapParser__) */

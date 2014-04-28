@@ -12,15 +12,18 @@
 #include <iostream>
 #include "CharacterState.h"
 #include "NormalAttack.h"
+#include "AbstractSkill.h"
 
 USING_NS_CC;
 
 class CharacterAttackState: public CharacterState
 {
 private:
+    AbstractSkill* skill;
+    AnimationObject* skillAnimation;
 protected:
 public:
-    CharacterAttackState(Character* character);
+    CharacterAttackState(Character* character, AbstractSkill* skill, AnimationObject* skillAnimation);
     
     virtual void update(float dt);
 
@@ -32,7 +35,7 @@ public:
     virtual bool useSkill();
     virtual bool move();
     
-    void onFinishAttackAnimation(cocos2d::CCObject* pSender, void* object);
+    void onFinishAttackAnimation();
 
 };
 #endif /* defined(__Headball__CharacterAttackState__) */

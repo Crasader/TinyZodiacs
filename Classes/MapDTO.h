@@ -31,6 +31,7 @@ public:
     CCArray* listBackgroundDTO;
     CCArray* listForegroundDTO;
     CCArray* listSensorObjectDTO;
+    CCArray* listTowerDTO;
 
     
     CREATE_FUNC(MapDTO);

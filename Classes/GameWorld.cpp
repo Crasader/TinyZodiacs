@@ -107,7 +107,6 @@ bool GameWorld::init()
     listPoint.push_back(ccp(5623,503));
     listPoint.push_back(ccp(7402,903));
 
-    
     for(int i=0 ; i<6 ; i++)
     {
         Tower* tower = NULL;
@@ -232,7 +231,6 @@ void GameWorld::update(float dt)
     //
     this->map->update(dt);
     this->character->update(dt);
-    
     // update infoview
     CCObject* object = NULL;
     CCARRAY_FOREACH(this->listInfoView, object)
@@ -278,8 +276,6 @@ void GameWorld::draw()
 void GameWorld::BeginContact(b2Contact *contact)
 {
     this->map->BeginContact(contact);
-    this->character->BeginContact(contact);
-    
     CCObject* object = NULL;
     CCARRAY_FOREACH(this->listTower, object)
     {
@@ -300,8 +296,7 @@ void GameWorld::BeginContact(b2Contact *contact)
 void GameWorld::EndContact(b2Contact *contact)
 {
     this->map->EndContact(contact);
-    this->character->EndContact(contact);
-
+     this->character->EndContact(contact);
     CCObject* object = NULL;
     CCARRAY_FOREACH(this->listTower, object)
     {

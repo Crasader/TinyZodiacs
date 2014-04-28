@@ -315,7 +315,6 @@
 		F54AE9B818D2F1AA00194E66 /* CharacterJumpState.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F54AE9A318D2F1AA00194E66 /* CharacterJumpState.cpp */; };
 		F54AE9B918D2F1AA00194E66 /* CharacterMoveState.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F54AE9A418D2F1AA00194E66 /* CharacterMoveState.cpp */; };
 		F54AE9BA18D2F1AA00194E66 /* CharacterMidAirAttackState.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F54AE9A518D2F1AA00194E66 /* CharacterMidAirAttackState.cpp */; };
-		F54AE9BB18D2F1AA00194E66 /* CharacterSkillState.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F54AE9A718D2F1AA00194E66 /* CharacterSkillState.cpp */; };
 		F54AE9BC18D2F1AA00194E66 /* CharacterHitState.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F54AE9A818D2F1AA00194E66 /* CharacterHitState.cpp */; };
 		F54AE9BD18D2F1AA00194E66 /* CharacterGhostState.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F54AE9A918D2F1AA00194E66 /* CharacterGhostState.cpp */; };
 		F54AE9BE18D2F1AA00194E66 /* CharacterState.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F54AE9B218D2F1AA00194E66 /* CharacterState.cpp */; };
@@ -345,6 +344,7 @@
 		F54AEA0D18D2F50300194E66 /* PhysicData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F54AEA0A18D2F50300194E66 /* PhysicData.cpp */; };
 		F54AEA0E18D2F50300194E66 /* ObjectData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F54AEA0B18D2F50300194E66 /* ObjectData.cpp */; };
 		F54AEA8918D2F9F200194E66 /* Map.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F54AEA8718D2F9F200194E66 /* Map.cpp */; };
+		F5514C38190B6351008F3005 /* TowerDTO.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F5514C36190B6351008F3005 /* TowerDTO.cpp */; };
 		F561F28618D8028600DD4598 /* MapFactory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F561F28318D8028600DD4598 /* MapFactory.cpp */; };
 		F561F28718D8028600DD4598 /* XMLMapParser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F561F28418D8028600DD4598 /* XMLMapParser.cpp */; };
 		F561F29118D805BE00DD4598 /* map1.xml in Resources */ = {isa = PBXBuildFile; fileRef = F561F29018D805BE00DD4598 /* map1.xml */; };
@@ -969,11 +969,9 @@
 		F54AE9A418D2F1AA00194E66 /* CharacterMoveState.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CharacterMoveState.cpp; path = ../Classes/CharacterMoveState.cpp; sourceTree = "<group>"; };
 		F54AE9A518D2F1AA00194E66 /* CharacterMidAirAttackState.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CharacterMidAirAttackState.cpp; path = ../Classes/CharacterMidAirAttackState.cpp; sourceTree = "<group>"; };
 		F54AE9A618D2F1AA00194E66 /* CharacterMidAirState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CharacterMidAirState.h; path = ../Classes/CharacterMidAirState.h; sourceTree = "<group>"; };
-		F54AE9A718D2F1AA00194E66 /* CharacterSkillState.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CharacterSkillState.cpp; path = ../Classes/CharacterSkillState.cpp; sourceTree = "<group>"; };
 		F54AE9A818D2F1AA00194E66 /* CharacterHitState.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CharacterHitState.cpp; path = ../Classes/CharacterHitState.cpp; sourceTree = "<group>"; };
 		F54AE9A918D2F1AA00194E66 /* CharacterGhostState.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CharacterGhostState.cpp; path = ../Classes/CharacterGhostState.cpp; sourceTree = "<group>"; };
 		F54AE9AA18D2F1AA00194E66 /* CharacterMidAirAttackState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CharacterMidAirAttackState.h; path = ../Classes/CharacterMidAirAttackState.h; sourceTree = "<group>"; };
-		F54AE9AB18D2F1AA00194E66 /* CharacterSkillState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CharacterSkillState.h; path = ../Classes/CharacterSkillState.h; sourceTree = "<group>"; };
 		F54AE9AC18D2F1AA00194E66 /* CharacterGhostState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CharacterGhostState.h; path = ../Classes/CharacterGhostState.h; sourceTree = "<group>"; };
 		F54AE9AD18D2F1AA00194E66 /* CharacterHitState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CharacterHitState.h; path = ../Classes/CharacterHitState.h; sourceTree = "<group>"; };
 		F54AE9AE18D2F1AA00194E66 /* CharacterIdleState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CharacterIdleState.h; path = ../Classes/CharacterIdleState.h; sourceTree = "<group>"; };
@@ -1035,6 +1033,8 @@
 		F54AEA0B18D2F50300194E66 /* ObjectData.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ObjectData.cpp; path = ../Classes/ObjectData.cpp; sourceTree = "<group>"; };
 		F54AEA8718D2F9F200194E66 /* Map.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Map.cpp; path = ../Classes/Map.cpp; sourceTree = "<group>"; };
 		F54AEA8818D2F9F200194E66 /* Map.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Map.h; path = ../Classes/Map.h; sourceTree = "<group>"; };
+		F5514C36190B6351008F3005 /* TowerDTO.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TowerDTO.cpp; sourceTree = "<group>"; };
+		F5514C37190B6351008F3005 /* TowerDTO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TowerDTO.h; sourceTree = "<group>"; };
 		F561F28218D8028600DD4598 /* MapFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapFactory.h; sourceTree = "<group>"; };
 		F561F28318D8028600DD4598 /* MapFactory.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MapFactory.cpp; sourceTree = "<group>"; };
 		F561F28418D8028600DD4598 /* XMLMapParser.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = XMLMapParser.cpp; sourceTree = "<group>"; };
@@ -2317,8 +2317,6 @@
 				F54AE9A618D2F1AA00194E66 /* CharacterMidAirState.h */,
 				F54AE9A418D2F1AA00194E66 /* CharacterMoveState.cpp */,
 				F54AE9B018D2F1AA00194E66 /* CharacterMoveState.h */,
-				F54AE9A718D2F1AA00194E66 /* CharacterSkillState.cpp */,
-				F54AE9AB18D2F1AA00194E66 /* CharacterSkillState.h */,
 				F54AE9B218D2F1AA00194E66 /* CharacterState.cpp */,
 				F54AE9B118D2F1AA00194E66 /* CharacterState.h */,
 				F54AE9B418D2F1AA00194E66 /* ObjectState.cpp */,
@@ -2477,6 +2475,8 @@
 				F5B85FB91904BABF00CE4604 /* MapObjectDTO.h */,
 				F5AE36A71906799900FB7519 /* SensorObjectDTO.cpp */,
 				F5AE36A81906799900FB7519 /* SensorObjectDTO.h */,
+				F5514C36190B6351008F3005 /* TowerDTO.cpp */,
+				F5514C37190B6351008F3005 /* TowerDTO.h */,
 			);
 			name = MapDTO;
 			sourceTree = "<group>";
@@ -2940,6 +2940,7 @@
 				F54AE9F018D2F38100194E66 /* GamePlayButton.cpp in Sources */,
 				F54AE9F818D2F3F800194E66 /* GLES-Render.cpp in Sources */,
 				379BB9AD17F03F3700829B88 /* CCComAttribute.cpp in Sources */,
+				F5514C38190B6351008F3005 /* TowerDTO.cpp in Sources */,
 				379BB9AE17F03F3700829B88 /* CCComAudio.cpp in Sources */,
 				379BB9AF17F03F3700829B88 /* CCComController.cpp in Sources */,
 				379BB9B017F03F3700829B88 /* CCComRender.cpp in Sources */,
@@ -2976,7 +2977,6 @@
 				379BB9C917F03F3700829B88 /* UITextField.cpp in Sources */,
 				379BB9CB17F03F3700829B88 /* DictionaryHelper.cpp in Sources */,
 				379BB9D317F03F3700829B88 /* GUIReader.cpp in Sources */,
-				F54AE9BB18D2F1AA00194E66 /* CharacterSkillState.cpp in Sources */,
 				345F6B5318E2C71F00985A7A /* ScheduleManager.cpp in Sources */,
 				379BB9D417F03F3700829B88 /* SceneReader.cpp in Sources */,
 				F54AE9B518D2F1AA00194E66 /* CharacterIdleState.cpp in Sources */,

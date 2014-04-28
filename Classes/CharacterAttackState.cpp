@@ -11,38 +11,35 @@
 #include "CharacterJumpState.h"
 
 
-CharacterAttackState::CharacterAttackState(Character* character): CharacterState(character)
+CharacterAttackState::CharacterAttackState(Character* character, AbstractSkill* skill, AnimationObject* skillAnimation): CharacterState(character)
 {
-    
-} 
+    this->skillAnimation = skillAnimation;
+    this->skill = skill;
+}
 
 bool CharacterAttackState::onEnterState()
 {
-     CCLOG("enter attack state");
-    CCAction* jumpAction = CCAnimate::create(this->character->attackAnimation->getAnimation());
-    CCCallFuncND* callBack = CCCallFuncND::create(NULL, callfuncND_selector(CharacterAttackState::onFinishAttackAnimation), this->character);
-    
+    CCLOG("enter attack state");
+    CCAnimate* animation = CCAnimate::create(this->skillAnimation->getAnimation());
+    CCCallFunc* callBack = CCCallFunc::create(this, callfunc_selector(CharacterAttackState::onFinishAttackAnimation));
     
     CCArray* arr = CCArray::create();
-    arr->addObject(jumpAction);
+    arr->addObject(animation);
     arr->addObject(callBack);
     
-    CCSequence* sequence = CCSequence::create(arr);
-    
-   
-    this->character->getSprite()->runAction(sequence);
-//    this->character->setAnchorPointForAnimation(this->character->attackAnimation->getOrigin());
+    this->action = CCSequence::create(arr);
+    this->character->getSprite()->runAction( this->action);
     
     //Excute attack
-    this->character->getNormalAttack()->excute();
+    this->skill->excute();
     return true;
 }
 
 bool CharacterAttackState::onExitState()
 {
-    this->character->getSprite()->stopAllActions();
-    //Excute attack
-    this->character->getNormalAttack()->stop();
+    stopAction();
+    //stop attack
+    this->skill->stop();
     return true;
 }
 
@@ -63,7 +60,6 @@ bool CharacterAttackState::move()
 
 bool CharacterAttackState::jump()
 {
-    this->character->changeState(new CharacterJumpState(this->character));
     return true;
 }
 
@@ -72,8 +68,7 @@ bool CharacterAttackState::useSkill()
     return false;
 }
 
-void CharacterAttackState::onFinishAttackAnimation(cocos2d::CCObject* pSender, void* object)
+void CharacterAttackState::onFinishAttackAnimation()
 {
-    Character* character = (Character*)object;
-    character->changeState(new CharacterIdleState(character));
+    this->character->changeState(new CharacterIdleState(this->character));
 }

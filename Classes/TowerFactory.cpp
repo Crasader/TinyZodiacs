@@ -7,6 +7,7 @@
 //
 
 #include "TowerFactory.h"
+#include <string.h>
 
 void TowerFactory::loadBody(CharacterDTO heroDTOData, Character* character, b2World* world)
 {
@@ -72,4 +73,25 @@ Tower* TowerFactory::createTower(string ID,b2World* world)
     CharacterDTO dtoData = loadXMLFile(ID.c_str());
     
     return createTower(dtoData, world, false);
+}
+
+Tower* TowerFactory::createTower(TowerDTO* towerDTO ,b2World* world)
+{
+    if (world == NULL) {
+        return  NULL;
+    }
+    CharacterDTO dtoData = loadXMLFile(towerDTO->id.c_str());
+    
+    Tower*  tower = createTower(dtoData, world, false);
+    tower->setPositionInPixel(ccp(towerDTO->x,towerDTO->y));
+    if(strcasecmp(towerDTO->group.c_str(),"A") == 0)
+    {
+        tower->setGroup(GROUP_A);
+    }
+    else
+    {
+        tower->setGroup(GROUP_B);
+    }
+   
+    return tower;
 }

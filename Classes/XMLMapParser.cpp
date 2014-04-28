@@ -81,7 +81,15 @@ MapDTO* XMLMapParser::getMapDTOFromXMLNode(XMLElement *mapXMLElement)
     {
         mapDTO->listSensorObjectDTO->addObject(XMLMapParser::getSensorObjectDTOFromXMLNode(element));
     }
+
+    //list tower
+    XMLElement* towerListXMLNode = mapXMLElement->FirstChildElement(TAG_TOWER_LIST);
     
+    for (XMLElement* element = towerListXMLNode->FirstChildElement(TAG_TOWER); element; element = element->NextSiblingElement())
+    {
+        mapDTO->listTowerDTO->addObject(XMLMapParser::getTowerDTOFromXMLNode(element));
+    }
+
     return mapDTO;
 }
 
@@ -195,6 +203,24 @@ SensorObjectDTO* XMLMapParser::getSensorObjectDTOFromXMLNode(XMLElement* sensorO
     return sensorObjectDTO;
 }
 
+TowerDTO* XMLMapParser::getTowerDTOFromXMLNode(XMLElement* towerXMLElement)
+{
+    TowerDTO *towerDTO = TowerDTO::create();
+    
+    towerDTO->id = towerXMLElement->Attribute(ATTRIBUTE_TOWER_ID);
+    towerDTO->group = towerXMLElement->Attribute(ATTRIBUTE_TOWER_GROUP);
+
+    //position
+    if(towerXMLElement->FirstChildElement(TAG_POSITION) != NULL)
+    {
+        XMLElement* positionXMLElement = towerXMLElement->FirstChildElement(TAG_POSITION);
+        
+        towerDTO->x = atof(positionXMLElement->Attribute(ATTRIBUTE_POSITION_X));
+        towerDTO->y = atof(positionXMLElement->Attribute(ATTRIBUTE_POSITION_Y));
+    }
+    
+    return towerDTO;
+}
 
 
 

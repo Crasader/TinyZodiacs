@@ -23,6 +23,7 @@ public:
     
     static bool bodiesAreTouching( b2Body* body1, b2Body* body2 );
     static bool bodiesArePassingThrough( b2Body* body1, b2Body* body2 );
+    static bool bodiesAreTouchingWith(b2Body* body, int type);
     
     static b2Vec2 getb2VecAnchor(b2Body* body, JointDef jointDef);
     static void setFixtureGroup(b2Fixture* fixture, uint16 group);

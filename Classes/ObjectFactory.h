@@ -29,8 +29,9 @@ public:
     MapObject* createMapObject(const char *idMapObject, b2World *world);
     MapObject* createMapObject(MapObjectDTO* mapObjectDTO, b2World *world);
     SensorObject* createSensorObject(b2Vec2 dumb, b2World *world, CCPoint position);
-
     SensorObject* createSensorObject(SensorObjectDTO* sensorObjectDTO, b2World* world);
+   // SensorObject* createSensorObject(SensorObjectDTO* sensorObjectDTO, b2World* world);
+    
 
 };
 

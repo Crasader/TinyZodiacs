@@ -18,7 +18,6 @@ private:
 protected:
 public:
     CharacterIdleState(Character* character);
-
     virtual void update(float dt);
     
     virtual bool onEnterState();

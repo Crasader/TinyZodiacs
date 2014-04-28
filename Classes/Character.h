@@ -25,6 +25,7 @@ class CharacterState;
 class Character: public GameObject
 {
 private:
+    
     CharacterState* state;
     HealthBar* bar;
 
@@ -41,6 +42,7 @@ public:
     ~Character();
   
     CC_SYNTHESIZE(int, landing, Landing);
+    CC_SYNTHESIZE(bool, isLanding, IsLanding);
     CC_SYNTHESIZE_READONLY(CharacterData, originCharacterData, OriginCharacterData);
     CC_SYNTHESIZE(CharacterData, characterData, characterData);
     CC_SYNTHESIZE(b2Body*, footSensor, FootSensor);

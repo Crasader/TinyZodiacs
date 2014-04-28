@@ -19,54 +19,57 @@ CharacterMidAirState::CharacterMidAirState(Character* character): CharacterState
 
 bool CharacterMidAirState::onEnterState()
 {
-    CCLOG("enter mid air state");
     return false;
 }
 
 bool CharacterMidAirState::onExitState()
 {
-    this->character->getSprite()->stopAllActions();
+    stopAction();
     return true;
 }
 
 void CharacterMidAirState::update(float dt)
 {
-    if(this->character->getBody()->GetLinearVelocity().y < -2 && isFalling == false)
+    if(this->character->getBody()->GetLinearVelocity().y < -3 && isFalling == false)
     {
         isFalling = true;
         
-        this->character->getSprite()->stopAllActions();
+        stopAction();
+        //fall Action
         this->character->fallAnimation->getAnimation()->setLoops(INFINITY);
-        CCAction* fallAction = CCAnimate::create(this->character->fallAnimation->getAnimation());
-        this->character->getSprite()->runAction(fallAction);
-//        this->character->setAnchorPointForAnimation( this->character->fallAnimation->getOrigin());
-        
+        this->action = CCAnimate::create(this->character->fallAnimation->getAnimation());
+        this->character->getSprite()->runAction(this->action);
+         CCLOG("1");
+        return;
     }
-    else if(this->character->getBody()->GetLinearVelocity().y > 2 && isFlying == false)
+    else if(this->character->getBody()->GetLinearVelocity().y > 3 && isFlying == false)
     {
         isFlying = true;
         
-        this->character->getSprite()->stopAllActions();
+        stopAction();
+        //fly action
         this->character->flyAnimation->getAnimation()->setLoops(INFINITY);
-        CCAction* flyAction = CCAnimate::create(this->character->flyAnimation->getAnimation());
-        this->character->getSprite()->runAction(flyAction);
-//        this->character->setAnchorPointForAnimation( this->character->flyAnimation->getOrigin());
+        this->action = CCAnimate::create(this->character->flyAnimation->getAnimation());
+        this->character->getSprite()->runAction(this->action);
+         CCLOG("2");
+        return;
         
     }
-//    if (this->character->getBody()->GetLinearVelocity().y <2 && this->character->getBody()->GetLinearVelocity().y > -2 &&  isFalling == true)
-//    {
-//        this->character->changeState(new CharacterIdleState(this->character));
-//    }
-    if(this->character->getLanding())
+    else if(this->character->getLanding())
     {
         this->character->changeState(new CharacterIdleState(this->character));
+         CCLOG("3");
+        return;
+    }
+    else
+    {
+        assert(1);
+        CCLOG("4");
     }
 }
 
 bool CharacterMidAirState::attack()
 {
-    this->character->changeState(new CharacterAttackState(this->character));
-
     return true;
 }
 
@@ -77,7 +80,6 @@ bool CharacterMidAirState::move()
 
 bool CharacterMidAirState::jump()
 {
-    this->character->changeState(new CharacterJumpState(this->character));
     return true;
 }
 

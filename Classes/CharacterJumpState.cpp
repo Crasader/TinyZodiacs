@@ -16,30 +16,25 @@ CharacterJumpState::CharacterJumpState(Character* character): CharacterState(cha
     
 }
 
-
 bool CharacterJumpState::onEnterState()
 {
-     CCLOG("enter jump state");
-    
+    CCLOG("enter jump state");
     CCAction* jumpAction = CCAnimate::create(this->character->jumpAnimation->getAnimation());
-    CCCallFuncND* callBack = CCCallFuncND::create(NULL, callfuncND_selector(CharacterJumpState::finishJumpAction), this->character);
-    
+    CCCallFunc* callBack = CCCallFunc::create(this, callfunc_selector(CharacterJumpState::finishJumpAction));
     
     CCArray* arr = CCArray::create();
     arr->addObject(jumpAction);
     arr->addObject(callBack);
     
-    CCSequence* sequence = CCSequence::create(arr);
-    
-//    this->character->setAnchorPointForAnimation(this->character->jumpAnimation->getOrigin());
-    this->character->getSprite()->runAction(sequence);
+    this->action = CCSequence::create(arr);
+    this->character->getSprite()->runAction(this->action);
     
     return true;
 }
 
 bool CharacterJumpState::onExitState()
 {
-    this->character->getSprite()->stopAllActions();
+    stopAction();
     return true;
 }
 
@@ -49,10 +44,9 @@ void CharacterJumpState::update(float dt)
     
 }
 
-void CharacterJumpState::finishJumpAction(cocos2d::CCObject* pSender, void* object)
+void CharacterJumpState::finishJumpAction()
 {
-    Character* character = (Character*)object;
-    character->changeState(new CharacterMidAirState(character));
+    this->character->changeState(new CharacterMidAirState(this->character));
 }
 
 bool CharacterJumpState::attack()
@@ -67,8 +61,7 @@ bool CharacterJumpState::move()
 
 bool CharacterJumpState::jump()
 {
-    this->character->changeState(new CharacterJumpState(this->character));
-    return false;
+    return true;
 }
 
 bool CharacterJumpState::useSkill()

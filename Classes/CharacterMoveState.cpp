@@ -23,25 +23,24 @@ bool CharacterMoveState::onEnterState()
 {
     CCLOG("enter move state");
     this->character->runAnimation->getAnimation()->setLoops(INFINITY);
-    this->character->getSprite()->runAction(CCAnimate::create(this->character->runAnimation->getAnimation()));
-//    this->character->setAnchorPointForAnimation(this->character->runAnimation->getOrigin());
-    
+    this->action = CCAnimate::create(this->character->runAnimation->getAnimation());
+    this->character->getSprite()->runAction(this->action);
     return true;
 }
 
 bool CharacterMoveState::onExitState()
 {
-    this->character->getSprite()->stopAllActions();
+    stopAction();
     return true;
 }
 
 void CharacterMoveState::update(float dt)
 {
-   
+    
     if(this->character->getLanding() > 0)
     {
-       
-        if((this->character->getBody()->GetLinearVelocity().x < 2 && this->character->getBody()->GetLinearVelocity().x >-2))
+        
+        if((this->character->getBody()->GetLinearVelocity().x < 3 && this->character->getBody()->GetLinearVelocity().x >-3))
         {
             this->character->changeState(new CharacterIdleState(this->character));
             return;
@@ -49,15 +48,14 @@ void CharacterMoveState::update(float dt)
     }
     else
     {
-        CCLOG("landing %d", this->character->getLanding());
         this->character->changeState(new CharacterMidAirState(this->character));
-       //CCLOG("%d", this->character->getLanding());
+        return;
     }
 }
 
 bool CharacterMoveState::attack()
 {
-    this->character->changeState(new CharacterAttackState(this->character));
+  
     return true;
 }
 
@@ -68,8 +66,7 @@ bool CharacterMoveState::move()
 
 bool CharacterMoveState::jump()
 {
-    this->character->changeState(new CharacterJumpState(this->character));
-       return true;
+    return false;
 }
 
 bool CharacterMoveState::useSkill()
