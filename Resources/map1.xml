@@ -209,10 +209,22 @@
     </sensor_object_list>
     <tower_list>
         <tower id="tower_1.xml" group="A" >
-            <position x="1000" y="1000"/>
+            <position x="753" y="920"/>
+        </tower>
+        <tower id="tower_1.xml" group="A" >
+            <position x="2823" y="510"/>
+        </tower>
+        <tower id="tower_1.xml" group="A" >
+            <position x="2823" y="1179"/>
         </tower>
         <tower id="tower_2.xml" group="B" >
-            <position x="800" y="1000"/>
+            <position x="5623" y="1180"/>
+        </tower>
+        <tower id="tower_2.xml" group="B" >
+            <position x="5623" y="503"/>
+        </tower>
+        <tower id="tower_2.xml" group="B" >
+            <position x="7402" y="903"/>
         </tower>
     </tower_list>
     
