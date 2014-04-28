@@ -27,10 +27,6 @@ GameWorld::GameWorld()
     this->height = 0;
     this->listInfoView = CCArray::create();
     this->listInfoView->retain();
-    
-    this->listCharacter = CCArray::create();
-    this->listCharacter->retain();
-    
 }
 
 GameWorld::~GameWorld()
@@ -49,10 +45,10 @@ bool GameWorld::init()
     //DEBUG WORLD
     b2Draw* _debugDraw = new GLESDebugDraw(PTM_RATIO);
     uint32 flags = 0;
-    flags += b2Draw::e_shapeBit;
+//    flags += b2Draw::e_shapeBit;
     //   flags += b2Draw::e_jointBit;
-    flags += b2Draw::e_aabbBit;
-    flags += b2Draw::e_pairBit;
+//    flags += b2Draw::e_aabbBit;
+//    flags += b2Draw::e_pairBit;
     //    flags += b2Draw::e_centerOfMassBit;
     _debugDraw->SetFlags(flags);
     this->world->SetDebugDraw(_debugDraw);
@@ -75,43 +71,7 @@ bool GameWorld::init()
     this->character->setPositionInPixel(ccp(1500,1200));
     this->setFollowCharacter(true);
     this->map->scheduleUpdate();
-
-    //CHARACTER
-    this->c1 = TowerFactory::createTower("tower_1.xml", world);
-    this->map->addChild(c1->getSprite(), CHARACTER_LAYER);
-    this->c1->setPositionInPixel(ccp(4220,1300));
-    
-    //CHARACTER
-    this->c2 = TowerFactory::createTower("tower_2.xml", world);
-    this->map->addChild(c2->getSprite(), CHARACTER_LAYER);
-    this->c2->setPositionInPixel(ccp(3400,1595));
-    
-    this->character->setGroup(GROUP_A);
-
-    this->c1->setGroup(GROUP_B);
-    this->c2->setGroup(GROUP_B);
-    
-    CCObject* object1 = NULL;
-    //
-    for(int i=0;i<0;i++)
-    {
-        Character* hero = ObjectFactory::getSharedManager()->createCharacter("map2", world, false);
-        hero->setPositionInPixel(ccp(20+30*i,400+20*i));
-        
-        hero->setGroup(GROUP_TERRAIN);
-        this->listCharacter->addObject(hero);
-        
-    }
-    CCSpriteBatchNode* batchnode = CCSpriteBatchNode::create("cat_spritesheet.png");
-    CCARRAY_FOREACH(this->listCharacter, object1)
-    {
-        Character* hero = dynamic_cast<Character*>(object1);
-        batchnode->addChild(hero->getSprite());
-    }
-    
-    this->addChild(batchnode,100);
-    
-    
+    this->character->setGroup(GROUP_B);
     //
     createWorldBox();
     //
@@ -123,14 +83,49 @@ bool GameWorld::init()
         GameObjectInfoView* gameObjectInfoView = dynamic_cast<GameObjectInfoView*>(object);
         this->addChild(gameObjectInfoView,100);
     }
-    
     //MONSTER
     addManager();
     CharacterDTO dto = CharacterFactory::loadXMLFile("character_monkey.xml");
     
     MonsterFactory::getSharedFactory()->setHolder(this->map);
-    MonsterFactory::getSharedFactory()->createMonsters(dto,ccp(2000,400),0,1, this->world);
+    MonsterFactory::getSharedFactory()->createMonsters(dto,ccp(2000,400),50,1, this->world);
 
+    CharacterDTO dto2 = CharacterFactory::loadXMLFile("character_cat.xml");
+    MonsterFactory::getSharedFactory()->createMonsters(dto2,ccp(3000,400),50,2, this->world);
+
+    
+    //TOWER
+    this->listTower= CCArray::create();
+    this->listTower->retain();
+    
+    //
+    vector<CCPoint> listPoint;
+    listPoint.push_back(ccp(753,920));
+    listPoint.push_back(ccp(2823,510));
+    listPoint.push_back(ccp(2823,1179));
+    listPoint.push_back(ccp(5623,1180));
+    listPoint.push_back(ccp(5623,503));
+    listPoint.push_back(ccp(7402,903));
+
+    
+    for(int i=0 ; i<6 ; i++)
+    {
+        Tower* tower = NULL;
+        if(i<3)
+        {
+            tower = TowerFactory::createTower("tower_1.xml", world);
+            tower->setGroup(GROUP_A);
+        }
+        else
+        {
+            tower = TowerFactory::createTower("tower_2.xml", world);
+            tower->setGroup(GROUP_A);
+        }
+        tower->setPositionInPixel(listPoint[i]);
+        this->map->addChild(tower->getSprite(),UNDER_CHARACTER_LAYER);
+        
+        this->listTower->addObject(tower);
+    }
     
     return true;
 }
@@ -237,8 +232,6 @@ void GameWorld::update(float dt)
     //
     this->map->update(dt);
     this->character->update(dt);
-    this->c1->update(dt);
-    this->c2->update(dt);
     
     // update infoview
     CCObject* object = NULL;
@@ -249,16 +242,14 @@ void GameWorld::update(float dt)
     }
     
     object = NULL;
-    CCARRAY_FOREACH(this->listCharacter, object)
+    CCARRAY_FOREACH(this->listTower, object)
     {
-        Character* hero = dynamic_cast<Character*>(object);
-        hero->update(dt);
+        Tower* tower = dynamic_cast<Tower*>(object);
+        tower->update(dt);
     }
     
     ///factory monster
-    
     MonsterFactory::getSharedFactory()->update(dt);
-    
 }
 
 void GameWorld::setFollowCharacter(bool follow)
@@ -288,15 +279,12 @@ void GameWorld::BeginContact(b2Contact *contact)
 {
     this->map->BeginContact(contact);
     this->character->BeginContact(contact);
-    this->c1->BeginContact(contact);
-    this->c2->BeginContact(contact);
     
-    CCObject* object1 = NULL;
-    
-    CCARRAY_FOREACH(this->listCharacter, object1)
+    CCObject* object = NULL;
+    CCARRAY_FOREACH(this->listTower, object)
     {
-        Character* hero = dynamic_cast<Character*>(object1);
-        hero->BeginContact(contact);
+        Tower* tower = dynamic_cast<Tower*>(object);
+        tower->BeginContact(contact);
     }
     
     CCObject* object2 = NULL;
@@ -312,17 +300,13 @@ void GameWorld::BeginContact(b2Contact *contact)
 void GameWorld::EndContact(b2Contact *contact)
 {
     this->map->EndContact(contact);
-     this->character->EndContact(contact);
-    this->c1->EndContact(contact);
-    this->c2->EndContact(contact);
+    this->character->EndContact(contact);
 
-    CCObject* object1 = NULL;
-    
-    CCARRAY_FOREACH(this->listCharacter, object1)
+    CCObject* object = NULL;
+    CCARRAY_FOREACH(this->listTower, object)
     {
-        Character* hero = dynamic_cast<Character*>(object1);
-        if(hero != NULL)
-            hero->EndContact(contact);
+        Tower* tower = dynamic_cast<Tower*>(object);
+        tower->EndContact(contact);
     }
     
     CCObject* object2 = NULL;

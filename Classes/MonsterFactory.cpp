@@ -142,8 +142,7 @@ void MonsterFactory::addNewMonster(Monster* monster)
 }
 void MonsterFactory::removeMonster(Monster* monster)
 {
-    Monster* mons =  (Monster*)this->listMonster->objectAtIndex(0);
-    this->listMonster->removeObject(mons);
+    this->listMonster->removeObject(monster);
 }
 
 void MonsterFactory::update(float dt)

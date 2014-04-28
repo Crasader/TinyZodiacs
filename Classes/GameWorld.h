@@ -27,8 +27,6 @@ class GameWorld: public CCNode, public b2ContactListener
 {
 private:
     GameObjectManager* manager;
-    
-    CCArray* listCharacter;
     CCArray* listInfoView;
     int count;
 protected:
@@ -47,8 +45,7 @@ public:
     CC_SYNTHESIZE(Character*, character, Character);
     CC_SYNTHESIZE(Map*, map, map);
 
-    CC_SYNTHESIZE(Tower*, c1, c1);
-    CC_SYNTHESIZE(Tower*, c2, c2);
+    CC_SYNTHESIZE(CCArray*, listTower, ListTower);
     
     GameWorld();
     virtual ~GameWorld();

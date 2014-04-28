@@ -33,6 +33,7 @@ public:
     
     void doAction(SensorObject* sensorObject);
 
+    void notifyByEffect(CCObject* effect);
     
     CREATE_FUNC(Monster);
     

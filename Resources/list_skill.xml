@@ -119,14 +119,14 @@
 		<damage>50</damage>
         <delay>0.1</delay>
         <life_time>6</life_time>
-		<cool_down>1</cool_down>
+		<cool_down>0.5</cool_down>
         <critical_chance>0.01</critical_chance>
         <joints>
-            <holder x="0" y="0" offsetX="0" offsetY="0"></holder>
+            <holder x="0" y="0" offsetX="0" offsetY="100"></holder>
             <this x="0" y="0" offsetX="0" offsetY="0"></this>
         </joints>
         <animation>skill-tower_orb_1</animation>
-        <animation_layer>4</animation_layer>
+        <animation_layer>2</animation_layer>
         <texture>
             <active>normal_meelee_normal.png</active>
             <deactive>normal_meelee_deactive.png</deactive>
@@ -143,7 +143,7 @@
         
         <list_effect>
             <enemy>
-                <effect>cat_bleeding</effect>
+                <effect>cat_normal_attack_affect</effect>
             </enemy>
         </list_effect>
 	</skill>
@@ -153,10 +153,10 @@
 		<damage>50</damage>
         <delay>0.1</delay>
         <life_time>6</life_time>
-		<cool_down>1</cool_down>
+		<cool_down>0.5</cool_down>
         <critical_chance>0.01</critical_chance>
         <joints>
-            <holder x="0" y="0" offsetX="0" offsetY="0"></holder>
+            <holder x="0" y="0" offsetX="-1" offsetY="4.8"></holder>
             <this x="0" y="0" offsetX="0" offsetY="0"></this>
         </joints>
         <animation>skill-tower_orb_2</animation>
@@ -172,12 +172,12 @@
             <y>0</y>
         </speed>
         <gravity_scale>0</gravity_scale>
-        <collide_terrain>2</collide_terrain>
+        <collide_terrain>4</collide_terrain>
         <piercing>0</piercing>
         
         <list_effect>
             <enemy>
-                <effect>cat_bleeding</effect>
+                <effect>cat_normal_attack_affect</effect>
             </enemy>
         </list_effect>
 	</skill>

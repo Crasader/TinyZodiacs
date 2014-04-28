@@ -9,6 +9,8 @@
 #include "Monster.h"
 #include "SensorObject.h"
 #include "Util.h"
+#include "MonsterFactory.h"
+
 Monster::Monster()
 {
     isStopMove = false;
@@ -149,5 +151,14 @@ void Monster::doAction(SensorObject* sensorObject)
     {
         this->jump(sensorObject->getJumpHeight());
     }
+}
+
+void Monster::notifyByEffect(CCObject* effect)
+{
+    Character::notifyByEffect(effect);
+//    if(this->getcharacterData().getHealth() <= 0)
+//    {
+//        MonsterFactory::getSharedFactory()->removeMonster(this);
+//    }
 }
 
