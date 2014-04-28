@@ -120,12 +120,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../Classes/NormalProjectile.cpp"
-            timestampString = "419229500.371946"
+            timestampString = "420102704.859426"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "248"
-            endingLineNumber = "248"
-            landmarkName = "NormalProjectile::checkCollisionDataInEndContact(PhysicData* data, b2Contact *contact, bool isSideA)"
+            startingLineNumber = "247"
+            endingLineNumber = "247"
+            landmarkName = "NormalProjectile::checkCollisionDataInBeginContact(PhysicData* data, b2Contact *contact, bool isSideA)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

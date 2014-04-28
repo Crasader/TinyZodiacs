@@ -129,7 +129,9 @@ bool GameWorld::init()
     CharacterDTO dto = CharacterFactory::loadXMLFile("character_monkey.xml");
     
     MonsterFactory::getSharedFactory()->setHolder(this->map);
-  //  MonsterFactory::getSharedFactory()->createMonsters(dto,ccp(2000,400),300,1, this->world);
+
+    MonsterFactory::getSharedFactory()->createMonsters(dto,ccp(2000,400),10,1, this->world);
+
 
     
     return true;

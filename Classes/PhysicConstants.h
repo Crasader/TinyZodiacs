@@ -42,7 +42,7 @@
 //#define GROUP_TOWER 0x0200
 
 #define RADIUS_TOWER_SENSOR 1000/32
-#define TOWER_VELOCITY 0.1
+#define TOWER_VELOCITY 0.5
 
 
 struct JointDef

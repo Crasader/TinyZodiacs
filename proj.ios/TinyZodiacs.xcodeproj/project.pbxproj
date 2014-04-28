@@ -185,8 +185,6 @@
 		2D0DA15B1908F72200881C8D /* tower_2_default.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2D0DA1531908F72200881C8D /* tower_2_default.plist */; };
 		2D0DA15C1908F72200881C8D /* tower_2_default.png in Resources */ = {isa = PBXBuildFile; fileRef = 2D0DA1541908F72200881C8D /* tower_2_default.png */; };
 		2D0DA15D1908F72200881C8D /* tower_2.xml in Resources */ = {isa = PBXBuildFile; fileRef = 2D0DA1551908F72200881C8D /* tower_2.xml */; };
-		2D0DA15E1908F72200881C8D /* tower_orb_default.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2D0DA1561908F72200881C8D /* tower_orb_default.plist */; };
-		2D0DA15F1908F72200881C8D /* tower_orb_default.png in Resources */ = {isa = PBXBuildFile; fileRef = 2D0DA1571908F72200881C8D /* tower_orb_default.png */; };
 		2D0DA1621908F7DE00881C8D /* XMLHelper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2D0DA1601908F7DE00881C8D /* XMLHelper.cpp */; };
 		2D0DA1651908F7F200881C8D /* EffectData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2D0DA1631908F7F200881C8D /* EffectData.cpp */; };
 		2D0DA16D1908F83900881C8D /* EffectFactory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2D0DA1691908F83900881C8D /* EffectFactory.cpp */; };
@@ -199,6 +197,8 @@
 		3486802618D93B82001692BB /* AbstractSkill.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3486802418D93B82001692BB /* AbstractSkill.cpp */; };
 		3486802918D95FB2001692BB /* NormalShootingAttack.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3486802718D95FB2001692BB /* NormalShootingAttack.cpp */; };
 		3486802C18D97940001692BB /* SkillData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3486802A18D97940001692BB /* SkillData.cpp */; };
+		34A91DD7190A462200DED8A3 /* tower_orb_default.plist in Resources */ = {isa = PBXBuildFile; fileRef = 34A91DD5190A462200DED8A3 /* tower_orb_default.plist */; };
+		34A91DD8190A462200DED8A3 /* tower_orb_default.png in Resources */ = {isa = PBXBuildFile; fileRef = 34A91DD6190A462200DED8A3 /* tower_orb_default.png */; };
 		34B1273318EF9619005DAF04 /* NormalShootingSkillData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 34B1273118EF9619005DAF04 /* NormalShootingSkillData.cpp */; };
 		34B1273718EF9619005DAF04 /* SkillType1Parser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 34B1273518EF9619005DAF04 /* SkillType1Parser.cpp */; };
 		34ED36C218D69ADF00FFA55A /* ActionEngine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 34ED36C018D69ADF00FFA55A /* ActionEngine.cpp */; };
@@ -737,8 +737,6 @@
 		2D0DA1531908F72200881C8D /* tower_2_default.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = tower_2_default.plist; sourceTree = "<group>"; };
 		2D0DA1541908F72200881C8D /* tower_2_default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tower_2_default.png; sourceTree = "<group>"; };
 		2D0DA1551908F72200881C8D /* tower_2.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = tower_2.xml; sourceTree = "<group>"; };
-		2D0DA1561908F72200881C8D /* tower_orb_default.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = tower_orb_default.plist; sourceTree = "<group>"; };
-		2D0DA1571908F72200881C8D /* tower_orb_default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tower_orb_default.png; sourceTree = "<group>"; };
 		2D0DA1601908F7DE00881C8D /* XMLHelper.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = XMLHelper.cpp; sourceTree = "<group>"; };
 		2D0DA1611908F7DE00881C8D /* XMLHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMLHelper.h; sourceTree = "<group>"; };
 		2D0DA1631908F7F200881C8D /* EffectData.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = EffectData.cpp; sourceTree = "<group>"; };
@@ -763,6 +761,8 @@
 		3486802818D95FB2001692BB /* NormalShootingAttack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NormalShootingAttack.h; path = ../Classes/NormalShootingAttack.h; sourceTree = "<group>"; };
 		3486802A18D97940001692BB /* SkillData.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = SkillData.cpp; path = ../Classes/SkillData.cpp; sourceTree = "<group>"; };
 		3486802B18D97940001692BB /* SkillData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SkillData.h; path = ../Classes/SkillData.h; sourceTree = "<group>"; };
+		34A91DD5190A462200DED8A3 /* tower_orb_default.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = tower_orb_default.plist; sourceTree = "<group>"; };
+		34A91DD6190A462200DED8A3 /* tower_orb_default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tower_orb_default.png; sourceTree = "<group>"; };
 		34B1273118EF9619005DAF04 /* NormalShootingSkillData.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = NormalShootingSkillData.cpp; sourceTree = "<group>"; };
 		34B1273218EF9619005DAF04 /* NormalShootingSkillData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NormalShootingSkillData.h; sourceTree = "<group>"; };
 		34B1273518EF9619005DAF04 /* SkillType1Parser.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SkillType1Parser.cpp; sourceTree = "<group>"; };
@@ -1760,11 +1760,11 @@
 				2D0DA1501908F72200881C8D /* tower_1_default.plist */,
 				2D0DA1511908F72200881C8D /* tower_1_default.png */,
 				2D0DA1521908F72200881C8D /* tower_1.xml */,
+				34A91DD5190A462200DED8A3 /* tower_orb_default.plist */,
+				34A91DD6190A462200DED8A3 /* tower_orb_default.png */,
 				2D0DA1531908F72200881C8D /* tower_2_default.plist */,
 				2D0DA1541908F72200881C8D /* tower_2_default.png */,
 				2D0DA1551908F72200881C8D /* tower_2.xml */,
-				2D0DA1561908F72200881C8D /* tower_orb_default.plist */,
-				2D0DA1571908F72200881C8D /* tower_orb_default.png */,
 			);
 			name = Towers;
 			sourceTree = "<group>";
@@ -2631,12 +2631,12 @@
 				2D0DA14E1908F6C800881C8D /* test_sheet.png in Resources */,
 				51136AE81908E91000317D3A /* character_cat.xml in Resources */,
 				F52678F318EEAEA500CE1E3B /* arial.ttf in Resources */,
-				2D0DA15F1908F72200881C8D /* tower_orb_default.png in Resources */,
 				F50BF82418F2513800CD518D /* cat_body.plist in Resources */,
 				F52678FA18EEAEA500CE1E3B /* map1_spritesheet_4.png in Resources */,
 				F52678FC18EEAEA500CE1E3B /* map1_background_spritesheet_2.plist in Resources */,
 				F5779C6F18E56CF10044D5CD /* healthbar_background.png in Resources */,
 				F5779C6D18E56CF10044D5CD /* healthbar_foreground_blue.png in Resources */,
+				34A91DD8190A462200DED8A3 /* tower_orb_default.png in Resources */,
 				F5C89DFF18D2FCE9006E909D /* monkey_spritesheet.png in Resources */,
 				D4EF949E15BD2D9600D803EB /* Icon-72.png in Resources */,
 				F5C89E1018D2FF9A006E909D /* 2.png in Resources */,
@@ -2667,12 +2667,12 @@
 				F52678F718EEAEA500CE1E3B /* map1_spritesheet_1.png in Resources */,
 				51136AE21908E69F00317D3A /* map1_body.plist in Resources */,
 				51136AE51908E8C300317D3A /* cat_animation.xml in Resources */,
-				2D0DA15E1908F72200881C8D /* tower_orb_default.plist in Resources */,
 				F5779C6E18E56CF10044D5CD /* healthbar_foreground_red.png in Resources */,
 				F52678FB18EEAEA500CE1E3B /* map1_background_spritesheet_1.plist in Resources */,
 				1AFAF8BC16D35E4900DB1158 /* CloseNormal.png in Resources */,
 				1AFAF8BC16D35E4900DB1158 /* CloseNormal.png in Resources */,
 				2D0DA15D1908F72200881C8D /* tower_2.xml in Resources */,
+				34A91DD7190A462200DED8A3 /* tower_orb_default.plist in Resources */,
 				2D0DA15B1908F72200881C8D /* tower_2_default.plist in Resources */,
 				F5C89DFB18D2FCB5006E909D /* monkey_animation.xml in Resources */,
 				F52678F918EEAEA500CE1E3B /* map1_spritesheet_3.png in Resources */,
