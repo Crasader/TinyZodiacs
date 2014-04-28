@@ -267,7 +267,7 @@ void Character::checkCollisionDataInBeginContact(PhysicData* data, b2Contact *co
                             if(!Util::bodiesArePassingThrough(mapObject->getBody(), this->body))
                             {
                                 this->landing ++;
-                                CCLOG("landing first");
+                     
                                 this->currentJumpCount =0;
                             }
                         }
@@ -297,7 +297,7 @@ void Character::checkCollisionDataInBeginContact(PhysicData* data, b2Contact *co
                             if(landing == 0 && !Util::bodiesArePassingThrough(this->body, mapObject->getBody()) && Util::bodiesAreTouching(this->footSensor, mapObject->getBody()))
                             {
                                 landing++;
-                                CCLOG("landing second");
+            
                                 this->currentJumpCount =0;
                             }
 
@@ -453,7 +453,7 @@ void Character::EndContact(b2Contact *contact)
     }
 }
 
-void Character::setGroup(uint16 group)
+void Character::setPhysicGroup(uint16 group)
 {
     for (b2Fixture* f = this->footSensor->GetFixtureList(); f; f = f->GetNext())
     {
@@ -465,17 +465,17 @@ void Character::setGroup(uint16 group)
     
     if(this->normalAttack != NULL)
     {
-        this->normalAttack->setGroup(GROUP_SKILL_DEFAULT);
+        this->normalAttack->setPhysicGroup(GROUP_SKILL_DEFAULT);
     }
     
     if(this->skill1 != NULL)
     {
-        this->skill1->setGroup(GROUP_SKILL_DEFAULT);
+        this->skill1->setPhysicGroup(GROUP_SKILL_DEFAULT);
     }
     
     if(this->skill2 != NULL)
     {
-        this->skill2->setGroup(GROUP_SKILL_DEFAULT);
+        this->skill2->setPhysicGroup(GROUP_SKILL_DEFAULT);
     }
     
     

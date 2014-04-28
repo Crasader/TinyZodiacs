@@ -18,6 +18,8 @@ class Tower: public Character
 {
 private:
     CCArray* listTarget;
+    
+    b2Vec2 getStartPoint(b2Body* body, JointDef jointDef);
 protected:
     CC_SYNTHESIZE(b2Body*, sensor, Sensor);
     
@@ -29,6 +31,10 @@ protected:
     
     bool shouldAttack(uint16 enemyGroup);
     void aimTarget();
+    
+    virtual uint16  getCorrectGroup(Group group);
+    virtual void setPhysicGroup(uint16 group);
+
 public:
     Tower();
     ~Tower();
@@ -38,7 +44,6 @@ public:
     void update(float dt);
     
     virtual void setSkin(b2Body* body,cocos2d::CCSprite* sprite);
-    virtual void setGroup(uint16 group);
 
 };
 #endif /* defined(__TinyZodiacs__Tower__) */

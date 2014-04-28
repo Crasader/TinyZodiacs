@@ -10,7 +10,7 @@
 #include "Util.h"
 #include "CharacterIdleState.h"
 #include "NormalShootingAttack.h"
-
+#include "Util.h"
 Tower::Tower()
 {
     init();
@@ -79,9 +79,9 @@ void Tower::setSkin(b2Body *body, CCSprite *sprite)
     this->createSensor();
 }
 
-void Tower::setGroup(uint16 group)
+void Tower::setPhysicGroup(uint16 group)
 {
-    Character::setGroup(group);
+    Character::setPhysicGroup(group);
     this->setSensorGroup(group);
 }
 
@@ -96,11 +96,13 @@ void Tower::setSensorGroup(uint16 group)
             switch (group) {
                 case GROUP_A:
                 case GROUP_HERO_A:
+                case GROUP_TOWER_A:
                     filter.maskBits = GROUP_B|GROUP_HERO_B|GROUP_NEUTRUAL;
                     break;
                     
                 case GROUP_B:
                 case GROUP_HERO_B:
+                case GROUP_TOWER_B:
                     filter.maskBits = GROUP_A|GROUP_HERO_A|GROUP_NEUTRUAL;
                     break;
                     
@@ -169,7 +171,6 @@ void Tower::checkCollisionDataInBeginContact(PhysicData* data, b2Contact *contac
                 if(physicData->Id == CHARACTER_BODY)
                 {
                     this->listTarget->addObject((CCObject*)physicData->Data);
-                    //                    this->attack();
                 }
             }
         }
@@ -207,10 +208,9 @@ void Tower::aimTarget()
     if(attack != NULL)
     {
         b2Vec2 targetPoint = ((Character*)listTarget->objectAtIndex(0))->getPositionInPhysicWorld();
-        b2Vec2 towerPoint = this->getPositionInPhysicWorld();
+        b2Vec2 towerPoint = getStartPoint(this->body, attack->getData().getJointDefA());
         
         b2Vec2 sp = targetPoint -  towerPoint;
-        //        float32 length= sp.Normalize();
         sp*=TOWER_VELOCITY;
         
 //        if(sp.x <0)
@@ -235,6 +235,46 @@ void Tower::aimTarget()
     this->attack();
 }
 
+b2Vec2 Tower::getStartPoint(b2Body* body, JointDef jointDef)
+{
+    b2AABB boundingBox = Util::getBodyBoundingBoxDynamic(body);
+    
+    b2Vec2 jointAAnchor(0,0);
+    
+    switch (jointDef.x) {
+        case JOINT_CENTER:
+            jointAAnchor.x = (boundingBox.lowerBound.x+boundingBox.upperBound.x)/2+jointDef.offsetX;
+            break;
+        case JOINT_REAR:
+        case JOINT_BOTTOM_OR_LEFT:
+            jointAAnchor.x = boundingBox.lowerBound.x - jointDef.offsetX;
+            break;
+        case JOINT_TOP_OR_RIGHT:
+            jointAAnchor.x = boundingBox.upperBound.x + jointDef.offsetX;
+            break;
+        default:
+            break;
+    }
+    
+    switch (jointDef.y) {
+        case JOINT_CENTER:
+            jointAAnchor.y = (boundingBox.lowerBound.y+boundingBox.upperBound.y)/2+jointDef.offsetY;
+            break;
+        case JOINT_REAR:
+        case JOINT_BOTTOM_OR_LEFT:
+            jointAAnchor.y = boundingBox.lowerBound.y - jointDef.offsetY;
+            break;
+        case JOINT_TOP_OR_RIGHT:
+            jointAAnchor.y = boundingBox.upperBound.y + jointDef.offsetY;
+            break;
+        default:
+            break;
+    }
+//    jointAAnchor += this->getPositionInPhysicWorld();
+    CCLOG("%f, %f", jointAAnchor.x,jointAAnchor.y);
+    return jointAAnchor;
+}
+
 void Tower::update(float dt)
 {
     Character::update(dt);
@@ -248,5 +288,23 @@ void Tower::update(float dt)
         {
             this->aimTarget();
         }
+    }
+    else
+    {
+        this->body->SetActive(false);
+        this->sensor->SetActive(false);
+    }
+}
+
+uint16  Tower::getCorrectGroup(Group group)
+{
+    switch (group)
+    {
+        case A:
+            return GROUP_TOWER_A;
+        case B:
+            return GROUP_TOWER_B;
+        default:
+            return GROUP_NEUTRUAL;
     }
 }

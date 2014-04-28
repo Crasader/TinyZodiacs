@@ -18,6 +18,8 @@ private:
 protected:
     Hero();
     ~Hero();
+    
+    uint16  getCorrectGroup(Group group);
 public:
     CC_SYNTHESIZE_RETAIN(CCAnimation*, ghostAnimation, GhostAnimation);
     

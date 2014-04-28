@@ -29,7 +29,7 @@
 		<body>monkey_aura</body>
 		<damage>200</damage>
         <delay>0.1</delay>
-        <life_time>1</life_time>
+        <life_time>2</life_time>
 		<cool_down>3</cool_down>
         <critical_chance>0.01</critical_chance>
         <joints>
@@ -118,11 +118,11 @@
 		<body>tower_orb_1_2</body>
 		<damage>50</damage>
         <delay>0.1</delay>
-        <life_time>6</life_time>
+        <life_time>2</life_time>
 		<cool_down>0.5</cool_down>
         <critical_chance>0.01</critical_chance>
         <joints>
-            <holder x="0" y="0" offsetX="0" offsetY="100"></holder>
+            <holder x="0" y="0" offsetX="1" offsetY="0.8"></holder>
             <this x="0" y="0" offsetX="0" offsetY="0"></this>
         </joints>
         <animation>skill-tower_orb_1</animation>
@@ -152,7 +152,7 @@
 		<body>tower_orb_1_2</body>
 		<damage>50</damage>
         <delay>0.1</delay>
-        <life_time>6</life_time>
+        <life_time>1</life_time>
 		<cool_down>0.5</cool_down>
         <critical_chance>0.01</critical_chance>
         <joints>

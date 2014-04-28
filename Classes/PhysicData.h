@@ -10,6 +10,8 @@
 #define __Headball__PhysicData__
 
 #include <iostream>
+#include "PhysicConstants.h"
+
 class PhysicData
 {
 private:
@@ -17,7 +19,7 @@ protected:
 public:
     PhysicData();
     
-    int Id;
+    ObjectID Id;
     void* Data;
 };
 #endif /* defined(__Headball__PhysicData__) */

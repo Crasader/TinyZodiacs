@@ -37,12 +37,11 @@ GameObject::~GameObject()
    
     if(this->body != NULL)
     {
-        CCLOG("des body");
-        this->body->GetWorld()->DestroyBody(this->body);
+              this->body->GetWorld()->DestroyBody(this->body);
     }
     else
     {
-        CCLOG("body null");
+
     }
     CC_SAFE_RELEASE(this->listEffect);
 }
@@ -253,7 +252,7 @@ b2AABB GameObject::getBodyBoundingBox()
     //    return Util::getBodyBoundingBox(this->getBody());
 }
 
-void GameObject::setGroup(uint16 group)
+void GameObject::setPhysicGroup(uint16 group)
 {
     if(this->body != NULL)
     {
@@ -268,7 +267,29 @@ void GameObject::setGroup(uint16 group)
     }
 }
 
-uint16 GameObject::getGroup()
+void  GameObject::setGroup(Group group)
+{
+    this->setPhysicGroup(getCorrectGroup(group));
+    this->group = group;
+}
+
+uint16  GameObject::getCorrectGroup(Group group)
+{
+    switch (group)
+    {
+        case A:
+            return GROUP_A;
+            break;
+        case B:
+            return GROUP_B;
+        case NEUTRAL:
+            return GROUP_NEUTRUAL;
+        case TERRAIN:
+            return GROUP_TERRAIN;
+    }
+}
+
+uint16 GameObject::getPhysicGroup()
 {
     return this->body->GetFixtureList()->GetFilterData().categoryBits;
 }

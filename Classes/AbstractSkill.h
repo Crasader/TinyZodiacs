@@ -43,7 +43,7 @@ public:
     virtual void excuteImmediately();
     virtual void stopImmediately();
     
-    virtual void setGroup(int group)=0;
+    virtual void setPhysicGroup(uint16 group)=0;
     
     CC_SYNTHESIZE(GameObject* , holder, Holder);
     CC_SYNTHESIZE(GameplayButton* , holderButton, holderButton);

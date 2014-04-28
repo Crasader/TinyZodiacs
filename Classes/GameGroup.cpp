@@ -61,7 +61,7 @@ void GameGroup::joinGame(b2World* world, Map* map)
     //CHARACTER
     this->character = ObjectFactory::getSharedManager()->createCharacter("character_cat.xml", world, true);
     this->character->setPositionInPixel(ccp(1500,1200));
-    this->character->setGroup(GROUP_B);
+    this->character->setGroup(A);
     
     this->character->retain();
     

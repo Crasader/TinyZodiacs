@@ -93,7 +93,7 @@ void NormalShootingAttack::EndContact(b2Contact *contact)
     AbstractSkill::EndContact(contact);
 }
 
-void NormalShootingAttack::setGroup(int group)
+void NormalShootingAttack::setPhysicGroup(uint16 group)
 {
     this->group = group;
 }

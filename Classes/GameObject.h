@@ -27,7 +27,9 @@ protected:
     virtual void checkCollisionDataInBeginContact(PhysicData* data, b2Contact *contact, bool isSideA);
     virtual void checkCollisionDataInEndContact(PhysicData* data, b2Contact *contact, bool isSideA);
     virtual void updateAllEffect(float dt);
-
+    
+    virtual uint16 getCorrectGroup(Group group);
+    virtual void setPhysicGroup(uint16 group);
 public:
     GameObject();
     ~GameObject();
@@ -35,6 +37,7 @@ public:
     CC_SYNTHESIZE(cocos2d::CCSprite*, sprite, Sprite);
     CC_SYNTHESIZE(b2Body*, body, Body);
     CC_SYNTHESIZE(cocos2d::CCPoint, spriteAnchorPoint, SpriteAnchorPoint);
+    CC_SYNTHESIZE_READONLY(Group, group, Group);
     
     Direction getDirection();
     b2AABB getBodyBoundingBox();
@@ -57,8 +60,8 @@ public:
     virtual void PostSolve(b2Contact* contact, const b2ContactImpulse* impulse);
   
     virtual void excuteScheduledFunction(CCObject* pSender, void *body);
-    virtual void setGroup(uint16 group);
-    virtual uint16 getGroup();
+    virtual void setGroup(Group group);
+    virtual uint16 getPhysicGroup();
     
     virtual void applyEffect(CCObject* effect);
     virtual void removeEffect(CCObject* object);

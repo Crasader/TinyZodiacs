@@ -16,13 +16,13 @@
 #define FOOT_SENSOR_WIDTH 10/32
 #define FOOT_SENSOR_HEIGHT 5/32
 
-#define MAP_BASE 0
-#define CHARACTER_BODY -1
-#define CHARACTER_FOOT_SENSOR -2
-#define PROJECTILE 1
-#define SKILL_SENSOR 2
-#define TOWER_SENSOR 4
-#define MAP_SENSOR 3
+//#define MAP_BASE 0
+//#define CHARACTER_BODY -1
+//#define CHARACTER_FOOT_SENSOR -2
+//#define PROJECTILE 1
+//#define SKILL_SENSOR 2
+//#define TOWER_SENSOR 4
+//#define MAP_SENSOR 3
 
 
 #define JOINT_CENTER 0
@@ -38,6 +38,8 @@
 #define GROUP_HERO_B 0x0040
 #define GROUP_SKILL_DEFAULT 0x0080
 #define GROUP_SENSOR 0x0100
+#define GROUP_TOWER_A 0x0200
+#define GROUP_TOWER_B 0x0400
 
 //#define GROUP_TOWER 0x0200
 
@@ -51,6 +53,25 @@ struct JointDef
     int y;
     float offsetX;
     float offsetY;
+};
+
+enum ObjectID
+{
+ MAP_BASE ,
+ CHARACTER_BODY ,
+ CHARACTER_FOOT_SENSOR ,
+ PROJECTILE ,
+ SKILL_SENSOR ,
+ TOWER_SENSOR ,
+ MAP_SENSOR
+};
+
+enum Group
+{
+    A,
+    B,
+    NEUTRAL,
+    TERRAIN
 };
 
 #endif

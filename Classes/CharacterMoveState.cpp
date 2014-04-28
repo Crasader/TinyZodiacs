@@ -21,7 +21,7 @@ CharacterMoveState::CharacterMoveState(Character* character): CharacterState(cha
 
 bool CharacterMoveState::onEnterState()
 {
-    CCLOG("enter move state");
+  //  CCLOG("enter move state");
     this->character->runAnimation->getAnimation()->setLoops(INFINITY);
     this->action = CCAnimate::create(this->character->runAnimation->getAnimation());
     this->character->getSprite()->runAction(this->action);

@@ -72,7 +72,7 @@ Monster* MonsterFactory::createMonster(CharacterDTO monsterDTO, CCPoint position
     //
     monster->setPositionInPixel(position);
     
-    monster->setGroup(GROUP_A);
+    monster->GameObject::setGroup(A);
     monster->flipDirection(LEFT);
     monster->setLaneID(2);
     

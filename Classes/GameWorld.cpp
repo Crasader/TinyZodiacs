@@ -65,6 +65,7 @@ bool GameWorld::init()
     
     delete mapCreator;
     
+
     createWorldBox();
     //
     // this->listInfoView->addObject(InfoViewCreator::createHeroInfoView(this->character, NULL));
@@ -84,10 +85,8 @@ bool GameWorld::init()
     
     
     CCArray* arr = CCArray::create();
-    arr->addObject(CCDelayTime::create(5));
+    arr->addObject(CCDelayTime::create(1));
     arr->addObject(CCCallFunc::create(this, callfunc_selector (GameWorld::foo)));
-    arr->addObject(CCDelayTime::create(5));
-    arr->addObject(CCCallFunc::create(this, callfunc_selector (GameWorld::foo1)));
     
     CCSequence* seq = CCSequence::create(arr);
     this->runAction(CCRepeatForever::create(seq));
