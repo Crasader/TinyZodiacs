@@ -115,28 +115,34 @@ void Util::setFixtureGroup(b2Fixture* fixture, uint16 group)
         filter.categoryBits = group;
         switch (group) {
             case GROUP_A:
-                filter.maskBits = GROUP_B | GROUP_NEUTRUAL | GROUP_TERRAIN | GROUP_SKILL_DEFAULT;
+                filter.maskBits = GROUP_TOWER_B | GROUP_TERRAIN | GROUP_SKILL_DEFAULT;
                 break;
             case GROUP_B:
-                filter.maskBits = GROUP_A | GROUP_NEUTRUAL | GROUP_TERRAIN| GROUP_SKILL_DEFAULT;
+                filter.maskBits = GROUP_TOWER_A | GROUP_TERRAIN| GROUP_SKILL_DEFAULT;
                 break;
             case GROUP_NEUTRUAL:
-                filter.maskBits = GROUP_A | GROUP_B | GROUP_NEUTRUAL | GROUP_TERRAIN | GROUP_SKILL_DEFAULT;
+                filter.maskBits = GROUP_TOWER_A | GROUP_TOWER_B | GROUP_TERRAIN | GROUP_SKILL_DEFAULT;
                 break;
             case GROUP_TERRAIN:
                 filter.maskBits = 0xFFFFFF;
                 break;
             case GROUP_HERO_A:
-                filter.maskBits = GROUP_NEUTRUAL | GROUP_TERRAIN | GROUP_SKILL_DEFAULT;
+                filter.maskBits = GROUP_TOWER_B| GROUP_TERRAIN | GROUP_SKILL_DEFAULT;
                 break;
             case GROUP_HERO_B:
-                filter.maskBits = GROUP_NEUTRUAL | GROUP_TERRAIN | GROUP_SKILL_DEFAULT;
+                filter.maskBits = GROUP_TOWER_A | GROUP_TERRAIN | GROUP_SKILL_DEFAULT;
                 break;
             case GROUP_SKILL_DEFAULT:
-            filter.maskBits = GROUP_A | GROUP_B | GROUP_HERO_A | GROUP_HERO_B | GROUP_NEUTRUAL;
+            filter.maskBits = 0xFFFFFF ^ GROUP_TERRAIN ^ GROUP_SENSOR ^ GROUP_SKILL_DEFAULT;
                 break;
             case GROUP_SENSOR:
                 filter.maskBits = GROUP_TERRAIN;
+                break;
+            case GROUP_TOWER_A:
+                filter.maskBits = GROUP_HERO_B | GROUP_B | GROUP_NEUTRUAL | GROUP_TERRAIN | GROUP_SKILL_DEFAULT;;
+                break;
+            case GROUP_TOWER_B:
+                filter.maskBits = GROUP_HERO_A | GROUP_A | GROUP_NEUTRUAL | GROUP_TERRAIN | GROUP_SKILL_DEFAULT;;
                 break;
             default:
                 break;

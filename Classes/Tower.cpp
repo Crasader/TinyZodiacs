@@ -79,9 +79,9 @@ void Tower::setSkin(b2Body *body, CCSprite *sprite)
     this->createSensor();
 }
 
-void Tower::setGroup(uint16 group)
+void Tower::setPhysicGroup(uint16 group)
 {
-    Character::setGroup(group);
+    Character::setPhysicGroup(group);
     this->setSensorGroup(group);
 }
 
@@ -96,11 +96,13 @@ void Tower::setSensorGroup(uint16 group)
             switch (group) {
                 case GROUP_A:
                 case GROUP_HERO_A:
+                case GROUP_TOWER_A:
                     filter.maskBits = GROUP_B|GROUP_HERO_B|GROUP_NEUTRUAL;
                     break;
                     
                 case GROUP_B:
                 case GROUP_HERO_B:
+                case GROUP_TOWER_B:
                     filter.maskBits = GROUP_A|GROUP_HERO_A|GROUP_NEUTRUAL;
                     break;
                     
@@ -291,5 +293,18 @@ void Tower::update(float dt)
     {
         this->body->SetActive(false);
         this->sensor->SetActive(false);
+    }
+}
+
+uint16  Tower::getCorrectGroup(Group group)
+{
+    switch (group)
+    {
+        case A:
+            return GROUP_TOWER_A;
+        case B:
+            return GROUP_TOWER_B;
+        default:
+            return GROUP_NEUTRUAL;
     }
 }

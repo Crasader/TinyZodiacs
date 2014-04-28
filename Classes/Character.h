@@ -25,7 +25,6 @@ class CharacterState;
 class Character: public GameObject
 {
 private:
-    
     CharacterState* state;
     HealthBar* bar;
 
@@ -37,6 +36,8 @@ protected:
     
     void checkCollisionDataInBeginContact(PhysicData* data, b2Contact *contact, bool isSideA);
     void checkCollisionDataInEndContact(PhysicData* data, b2Contact *contact, bool isSideA);
+    
+    virtual void setPhysicGroup(uint16 group);
 public:
     Character();
     ~Character();
@@ -49,7 +50,6 @@ public:
     CC_SYNTHESIZE(AbstractSkill*, normalAttack, NormalAttack);
     CC_SYNTHESIZE(AbstractSkill*, skill1, Skill1);
     CC_SYNTHESIZE(AbstractSkill*, skill2, Skill2);
-
     
     AnimationObject* runAnimation;
     AnimationObject* jumpAnimation;
@@ -78,9 +78,6 @@ public:
     virtual void setSkin(b2Body* body,cocos2d::CCSprite* sprite);
     virtual void BeginContact(b2Contact *contact);
     virtual void EndContact(b2Contact *contact);
-    
-    virtual void setGroup(uint16 group);
-    
     virtual void notifyByEffect(CCObject* effect);
 };
 

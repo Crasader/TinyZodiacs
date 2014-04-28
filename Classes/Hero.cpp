@@ -39,3 +39,16 @@ Hero::~Hero()
         this->ghostAnimation->release();
     }
 }
+
+uint16  Hero::getCorrectGroup(Group group)
+{
+    switch (group)
+    {
+        case A:
+            return GROUP_HERO_A;
+        case B:
+            return GROUP_HERO_B;
+        default:
+            return GROUP_NEUTRUAL;
+    }
+}

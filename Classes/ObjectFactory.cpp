@@ -164,7 +164,7 @@ MapObject* ObjectFactory::createMapObject(MapObjectDTO* mapObjectDTO, b2World *w
         mapObject->setSkin(body, sprite);
         mapObject->setCanPass(mapObjectDTO->canPass);
         
-        mapObject->setGroup(GROUP_TERRAIN);
+        mapObject->setGroup(TERRAIN);
     }
     else
     {
@@ -172,7 +172,7 @@ MapObject* ObjectFactory::createMapObject(MapObjectDTO* mapObjectDTO, b2World *w
         sprite->setAnchorPoint(ccp(0,0));
         mapObject->setSkin(NULL, sprite);
         
-        mapObject->setGroup(GROUP_TERRAIN);
+        mapObject->setGroup(TERRAIN);
     }
     
     mapObject->setPositionInPixel(ccp(mapObjectDTO->x,mapObjectDTO->y));
@@ -220,7 +220,7 @@ SensorObject* ObjectFactory::createSensorObject(b2Vec2 dumb,b2World *world, CCPo
     sensorObject->setSkin(body, NULL);
     
     sensorObject->setPositionInPixel(position);
-    sensorObject->setGroup(GROUP_TERRAIN);
+    sensorObject->setGroup(TERRAIN);
     
     return sensorObject;
 }
@@ -264,7 +264,7 @@ SensorObject* ObjectFactory::createSensorObject(SensorObjectDTO* sensorObjectDTO
     
     sensorObject->setSkin(body, NULL);
     sensorObject->setPositionInPixel(ccp(sensorObjectDTO->x,sensorObjectDTO->y));
-    sensorObject->setGroup(GROUP_TERRAIN);
+    sensorObject->setGroup(TERRAIN);
     
     return sensorObject;
 }

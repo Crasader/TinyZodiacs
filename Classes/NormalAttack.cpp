@@ -314,7 +314,7 @@ void NormalAttack::initJointType()
     }
 }
 
-void NormalAttack::setGroup(int group)
+void NormalAttack::setPhysicGroup(uint16 group)
 {
     for (b2Fixture* f = this->data.getSkillSensor()->GetFixtureList(); f; f = f->GetNext())
     {

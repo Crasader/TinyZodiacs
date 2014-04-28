@@ -21,7 +21,7 @@ class NormalShootingAttack: public AbstractSkill
 private:
     CCArray* projectTileList;
 protected:
-    CC_SYNTHESIZE_READONLY(int, group, Group);
+    CC_SYNTHESIZE_READONLY(uint16, group, Group);
     CC_SYNTHESIZE(NormalShootingSkillData, data, Data);
 
     virtual void checkCollisionDataInBeginContact(PhysicData* data, b2Contact *contact, bool isSideA);
@@ -41,6 +41,6 @@ public:
     virtual void excuteImmediately();
     virtual void stopImmediately();
     
-    virtual void setGroup(int group);
+    virtual void setPhysicGroup(uint16 group);
 };
 #endif /* defined(__TinyZodiacs__NormalShootingAttack__) */

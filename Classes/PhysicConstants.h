@@ -38,6 +38,8 @@
 #define GROUP_HERO_B 0x0040
 #define GROUP_SKILL_DEFAULT 0x0080
 #define GROUP_SENSOR 0x0100
+#define GROUP_TOWER_A 0x0200
+#define GROUP_TOWER_B 0x0400
 
 //#define GROUP_TOWER 0x0200
 
@@ -51,6 +53,14 @@ struct JointDef
     int y;
     float offsetX;
     float offsetY;
+};
+
+enum Group
+{
+    A,
+    B,
+    NEUTRAL,
+    TERRAIN
 };
 
 #endif

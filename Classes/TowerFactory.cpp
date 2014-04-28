@@ -86,11 +86,11 @@ Tower* TowerFactory::createTower(TowerDTO* towerDTO ,b2World* world)
     tower->setPositionInPixel(ccp(towerDTO->x,towerDTO->y));
     if(strcasecmp(towerDTO->group.c_str(),"A") == 0)
     {
-        tower->setGroup(GROUP_A);
+        tower->GameObject::setGroup(A);
     }
     else
     {
-        tower->setGroup(GROUP_B);
+        tower->GameObject::setGroup(B);
     }
    
     return tower;
