@@ -71,7 +71,7 @@ bool GameWorld::init()
     this->character->setPositionInPixel(ccp(1500,1200));
     this->setFollowCharacter(true);
     this->map->scheduleUpdate();
-    this->character->setGroup(GROUP_B);
+    this->character->setGroup(GROUP_A);
     //
     createWorldBox();
     //

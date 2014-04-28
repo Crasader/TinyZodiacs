@@ -19,7 +19,7 @@ CharacterIdleState::CharacterIdleState(Character* character): CharacterState(cha
 
 bool CharacterIdleState::onEnterState()
 {
-    CCLOG("enter idle state");
+   // CCLOG("enter idle state");
     this->character->idleAnimation->getAnimation()->setLoops(INFINITY);
     action = CCAnimate::create(this->character->idleAnimation->getAnimation());
     this->character->getSprite()->runAction(action);

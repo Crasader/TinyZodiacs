@@ -10,7 +10,7 @@
 #include "Util.h"
 #include "CharacterIdleState.h"
 #include "NormalShootingAttack.h"
-
+#include "Util.h"
 Tower::Tower()
 {
     init();
@@ -169,7 +169,6 @@ void Tower::checkCollisionDataInBeginContact(PhysicData* data, b2Contact *contac
                 if(physicData->Id == CHARACTER_BODY)
                 {
                     this->listTarget->addObject((CCObject*)physicData->Data);
-                    //                    this->attack();
                 }
             }
         }
@@ -207,10 +206,9 @@ void Tower::aimTarget()
     if(attack != NULL)
     {
         b2Vec2 targetPoint = ((Character*)listTarget->objectAtIndex(0))->getPositionInPhysicWorld();
-        b2Vec2 towerPoint = this->getPositionInPhysicWorld();
+        b2Vec2 towerPoint = getStartPoint(this->body, attack->getData().getJointDefA());
         
         b2Vec2 sp = targetPoint -  towerPoint;
-        //        float32 length= sp.Normalize();
         sp*=TOWER_VELOCITY;
         
 //        if(sp.x <0)
@@ -235,6 +233,46 @@ void Tower::aimTarget()
     this->attack();
 }
 
+b2Vec2 Tower::getStartPoint(b2Body* body, JointDef jointDef)
+{
+    b2AABB boundingBox = Util::getBodyBoundingBoxDynamic(body);
+    
+    b2Vec2 jointAAnchor(0,0);
+    
+    switch (jointDef.x) {
+        case JOINT_CENTER:
+            jointAAnchor.x = (boundingBox.lowerBound.x+boundingBox.upperBound.x)/2+jointDef.offsetX;
+            break;
+        case JOINT_REAR:
+        case JOINT_BOTTOM_OR_LEFT:
+            jointAAnchor.x = boundingBox.lowerBound.x - jointDef.offsetX;
+            break;
+        case JOINT_TOP_OR_RIGHT:
+            jointAAnchor.x = boundingBox.upperBound.x + jointDef.offsetX;
+            break;
+        default:
+            break;
+    }
+    
+    switch (jointDef.y) {
+        case JOINT_CENTER:
+            jointAAnchor.y = (boundingBox.lowerBound.y+boundingBox.upperBound.y)/2+jointDef.offsetY;
+            break;
+        case JOINT_REAR:
+        case JOINT_BOTTOM_OR_LEFT:
+            jointAAnchor.y = boundingBox.lowerBound.y - jointDef.offsetY;
+            break;
+        case JOINT_TOP_OR_RIGHT:
+            jointAAnchor.y = boundingBox.upperBound.y + jointDef.offsetY;
+            break;
+        default:
+            break;
+    }
+//    jointAAnchor += this->getPositionInPhysicWorld();
+    CCLOG("%f, %f", jointAAnchor.x,jointAAnchor.y);
+    return jointAAnchor;
+}
+
 void Tower::update(float dt)
 {
     Character::update(dt);
@@ -248,5 +286,10 @@ void Tower::update(float dt)
         {
             this->aimTarget();
         }
+    }
+    else
+    {
+        this->body->SetActive(false);
+        this->sensor->SetActive(false);
     }
 }

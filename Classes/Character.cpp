@@ -267,7 +267,7 @@ void Character::checkCollisionDataInBeginContact(PhysicData* data, b2Contact *co
                             if(!Util::bodiesArePassingThrough(mapObject->getBody(), this->body))
                             {
                                 this->landing ++;
-                                CCLOG("landing first");
+                     
                                 this->currentJumpCount =0;
                             }
                         }
@@ -297,7 +297,7 @@ void Character::checkCollisionDataInBeginContact(PhysicData* data, b2Contact *co
                             if(landing == 0 && !Util::bodiesArePassingThrough(this->body, mapObject->getBody()) && Util::bodiesAreTouching(this->footSensor, mapObject->getBody()))
                             {
                                 landing++;
-                                CCLOG("landing second");
+            
                                 this->currentJumpCount =0;
                             }
 

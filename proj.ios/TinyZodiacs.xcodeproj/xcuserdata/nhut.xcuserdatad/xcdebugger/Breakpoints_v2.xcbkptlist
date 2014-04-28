@@ -136,11 +136,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../classes/Tower.cpp"
-            timestampString = "420177807.077592"
+            timestampString = "420346670.332279"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "209"
-            endingLineNumber = "209"
+            startingLineNumber = "207"
+            endingLineNumber = "207"
             landmarkName = "Tower::aimTarget()"
             landmarkType = "5">
          </BreakpointContent>
@@ -168,28 +168,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../classes/Tower.cpp"
-            timestampString = "420181313.899586"
+            timestampString = "420346670.332279"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "197"
-            endingLineNumber = "197"
+            startingLineNumber = "195"
+            endingLineNumber = "195"
             landmarkName = "Tower::checkCollisionDataInEndContact(PhysicData* data, b2Contact *contact, bool isSideA)"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "../classes/Tower.cpp"
-            timestampString = "420181417.199084"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "171"
-            endingLineNumber = "171"
-            landmarkName = "Tower::checkCollisionDataInBeginContact(PhysicData* data, b2Contact *contact, bool isSideA)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

@@ -18,6 +18,8 @@ class Tower: public Character
 {
 private:
     CCArray* listTarget;
+    
+    b2Vec2 getStartPoint(b2Body* body, JointDef jointDef);
 protected:
     CC_SYNTHESIZE(b2Body*, sensor, Sensor);
     

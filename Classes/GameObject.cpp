@@ -37,12 +37,11 @@ GameObject::~GameObject()
    
     if(this->body != NULL)
     {
-        CCLOG("des body");
-        this->body->GetWorld()->DestroyBody(this->body);
+              this->body->GetWorld()->DestroyBody(this->body);
     }
     else
     {
-        CCLOG("body null");
+
     }
     CC_SAFE_RELEASE(this->listEffect);
 }

@@ -2145,6 +2145,14 @@
 		78C7DDAA14EBA5050085D0C2 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				F5C89DF618D2FC7F006E909D /* Animation */,
+				F5C89DF718D2FC8A006E909D /* Character */,
+				F5C89DF818D2FC92006E909D /* Map */,
+				F5C89DF918D2FC9B006E909D /* Background */,
+				F5C89E0018D2FCF2006E909D /* Body */,
+				F5C89E0D18D2FF87006E909D /* UI */,
+				34F7F92A18E15AA50084E87C /* Skills */,
+				F5779C6918E56CBD0044D5CD /* HealthBar */,
 				2D0DA14F1908F6D000881C8D /* Towers */,
 				F52678E418EEAEA500CE1E3B /* fonts */,
 				F52678E718EEAEA500CE1E3B /* map1_background_spritesheet_1.png */,
@@ -2159,14 +2167,6 @@
 				F52678F018EEAEA500CE1E3B /* map1_spritesheet_2.plist */,
 				F52678F118EEAEA500CE1E3B /* map1_spritesheet_3.plist */,
 				F52678F218EEAEA500CE1E3B /* map1_spritesheet_4.plist */,
-				F5779C6918E56CBD0044D5CD /* HealthBar */,
-				34F7F92A18E15AA50084E87C /* Skills */,
-				F5C89E0D18D2FF87006E909D /* UI */,
-				F5C89E0018D2FCF2006E909D /* Body */,
-				F5C89DF918D2FC9B006E909D /* Background */,
-				F5C89DF818D2FC92006E909D /* Map */,
-				F5C89DF718D2FC8A006E909D /* Character */,
-				F5C89DF618D2FC7F006E909D /* Animation */,
 				1AFAF8B916D35E4900DB1158 /* CloseNormal.png */,
 				1AFAF8BA16D35E4900DB1158 /* CloseSelected.png */,
 				1AFAF8BB16D35E4900DB1158 /* HelloWorld.png */,
@@ -2204,6 +2204,10 @@
 		F54AE96D18D2F01B00194E66 /* Objects */ = {
 			isa = PBXGroup;
 			children = (
+				F59E0BD918D85E62001048BD /* Skills */,
+				3486802D18D97E88001692BB /* Projectiles */,
+				F5A46B201905071A00A8FF55 /* Monster AI Detection */,
+				F54AE97118D2F08D00194E66 /* States */,
 				2D0DA16F1908F86300881C8D /* Effect.cpp */,
 				2D0DA1701908F86300881C8D /* Effect.h */,
 				2D0DA1711908F86300881C8D /* Tower.cpp */,
@@ -2228,16 +2232,12 @@
 				F54AE9DA18D2F30D00194E66 /* MapObject.h */,
 				F544FB9A18D950C500A818DF /* MapParallaxBackground.cpp */,
 				F544FB9B18D950C500A818DF /* MapParallaxBackground.h */,
-				F5A46B201905071A00A8FF55 /* Monster AI Detection */,
 				F54AE9DF18D2F33E00194E66 /* Monster.cpp */,
 				F54AE9DE18D2F33E00194E66 /* Monster.h */,
 				F50702BE18E958220025B666 /* MoveableMapObject.cpp */,
 				F50702BF18E958220025B666 /* MoveableMapObject.h */,
 				F5E2929618E6779500B9B152 /* Player.cpp */,
 				F5E2929718E6779500B9B152 /* Player.h */,
-				3486802D18D97E88001692BB /* Projectiles */,
-				F59E0BD918D85E62001048BD /* Skills */,
-				F54AE97118D2F08D00194E66 /* States */,
 			);
 			name = Objects;
 			sourceTree = "<group>";

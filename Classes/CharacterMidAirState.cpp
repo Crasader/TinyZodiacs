@@ -39,7 +39,7 @@ void CharacterMidAirState::update(float dt)
         this->character->fallAnimation->getAnimation()->setLoops(INFINITY);
         this->action = CCAnimate::create(this->character->fallAnimation->getAnimation());
         this->character->getSprite()->runAction(this->action);
-         CCLOG("1");
+       
         return;
     }
     else if(this->character->getBody()->GetLinearVelocity().y > 3 && isFlying == false)
@@ -51,20 +51,19 @@ void CharacterMidAirState::update(float dt)
         this->character->flyAnimation->getAnimation()->setLoops(INFINITY);
         this->action = CCAnimate::create(this->character->flyAnimation->getAnimation());
         this->character->getSprite()->runAction(this->action);
-         CCLOG("2");
+       
         return;
         
     }
     else if(this->character->getLanding())
     {
         this->character->changeState(new CharacterIdleState(this->character));
-         CCLOG("3");
+  
         return;
     }
     else
     {
-        assert(1);
-        CCLOG("4");
+
     }
 }
 

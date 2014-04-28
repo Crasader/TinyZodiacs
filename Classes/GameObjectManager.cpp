@@ -66,7 +66,6 @@ void GameObjectManager::addObject(GameObject *body)
 //        }
 //    }
     GameObjectManager::getInstance()->listBody->addObject(body);
-    CCLOG("%d", GameObjectManager::getInstance()->listBody->count());
 }
 
 void GameObjectManager::update(float dt)
