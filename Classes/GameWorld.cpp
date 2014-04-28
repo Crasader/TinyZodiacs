@@ -276,6 +276,9 @@ void GameWorld::draw()
 void GameWorld::BeginContact(b2Contact *contact)
 {
     this->map->BeginContact(contact);
+    
+    this->character->BeginContact(contact);
+    
     CCObject* object = NULL;
     CCARRAY_FOREACH(this->listTower, object)
     {
