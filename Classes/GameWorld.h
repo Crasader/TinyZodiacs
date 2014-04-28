@@ -45,7 +45,6 @@ public:
     CC_SYNTHESIZE(Character*, character, Character);
     CC_SYNTHESIZE(Map*, map, map);
 
-    CC_SYNTHESIZE(CCArray*, listTower, ListTower);
     
     GameWorld();
     virtual ~GameWorld();

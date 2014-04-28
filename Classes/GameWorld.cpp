@@ -45,10 +45,10 @@ bool GameWorld::init()
     //DEBUG WORLD
     b2Draw* _debugDraw = new GLESDebugDraw(PTM_RATIO);
     uint32 flags = 0;
-//    flags += b2Draw::e_shapeBit;
+    //    flags += b2Draw::e_shapeBit;
     //   flags += b2Draw::e_jointBit;
-//    flags += b2Draw::e_aabbBit;
-//    flags += b2Draw::e_pairBit;
+    //    flags += b2Draw::e_aabbBit;
+    //    flags += b2Draw::e_pairBit;
     //    flags += b2Draw::e_centerOfMassBit;
     _debugDraw->SetFlags(flags);
     this->world->SetDebugDraw(_debugDraw);
@@ -89,42 +89,10 @@ bool GameWorld::init()
     
     MonsterFactory::getSharedFactory()->setHolder(this->map);
     MonsterFactory::getSharedFactory()->createMonsters(dto,ccp(2000,400),50,1, this->world);
-
+    
     CharacterDTO dto2 = CharacterFactory::loadXMLFile("character_cat.xml");
     MonsterFactory::getSharedFactory()->createMonsters(dto2,ccp(3000,400),50,2, this->world);
-
     
-    //TOWER
-    this->listTower= CCArray::create();
-    this->listTower->retain();
-    
-    //
-    vector<CCPoint> listPoint;
-    listPoint.push_back(ccp(753,920));
-    listPoint.push_back(ccp(2823,510));
-    listPoint.push_back(ccp(2823,1179));
-    listPoint.push_back(ccp(5623,1180));
-    listPoint.push_back(ccp(5623,503));
-    listPoint.push_back(ccp(7402,903));
-
-    for(int i=0 ; i<6 ; i++)
-    {
-        Tower* tower = NULL;
-        if(i<3)
-        {
-            tower = TowerFactory::createTower("tower_1.xml", world);
-            tower->setGroup(GROUP_A);
-        }
-        else
-        {
-            tower = TowerFactory::createTower("tower_2.xml", world);
-            tower->setGroup(GROUP_A);
-        }
-        tower->setPositionInPixel(listPoint[i]);
-        this->map->addChild(tower->getSprite(),UNDER_CHARACTER_LAYER);
-        
-        this->listTower->addObject(tower);
-    }
     
     return true;
 }
@@ -133,11 +101,11 @@ bool GameWorld::init()
 void GameWorld::addManager()
 {
     count++;
-     CCAssert(count<=1, "sfafsasf");
+    CCAssert(count<=1, "sfafsasf");
     manager = GameObjectManager::getInstance();
     manager->setWorld(this->world);
     
-   
+    
     this->addChild(manager);
     
     this->addChild(ScheduleManager::getInstance());
@@ -239,13 +207,6 @@ void GameWorld::update(float dt)
         gameObjectInfoView->update(dt);
     }
     
-    object = NULL;
-    CCARRAY_FOREACH(this->listTower, object)
-    {
-        Tower* tower = dynamic_cast<Tower*>(object);
-        tower->update(dt);
-    }
-    
     ///factory monster
     MonsterFactory::getSharedFactory()->update(dt);
 }
@@ -279,13 +240,6 @@ void GameWorld::BeginContact(b2Contact *contact)
     
     this->character->BeginContact(contact);
     
-    CCObject* object = NULL;
-    CCARRAY_FOREACH(this->listTower, object)
-    {
-        Tower* tower = dynamic_cast<Tower*>(object);
-        tower->BeginContact(contact);
-    }
-    
     CCObject* object2 = NULL;
     
     CCARRAY_FOREACH(MonsterFactory::getSharedFactory()->listMonster, object2)
@@ -299,13 +253,8 @@ void GameWorld::BeginContact(b2Contact *contact)
 void GameWorld::EndContact(b2Contact *contact)
 {
     this->map->EndContact(contact);
-     this->character->EndContact(contact);
-    CCObject* object = NULL;
-    CCARRAY_FOREACH(this->listTower, object)
-    {
-        Tower* tower = dynamic_cast<Tower*>(object);
-        tower->EndContact(contact);
-    }
+    this->character->EndContact(contact);
+    
     
     CCObject* object2 = NULL;
     
