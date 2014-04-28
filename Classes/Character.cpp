@@ -12,6 +12,7 @@
 #include "CharacterMidAirState.h"
 #include "CharacterJumpState.h"
 #include "CharacterIdleState.h"
+#include "CharacterAttackState.h"
 #include "Util.h"
 #include "Effect.h"
 
@@ -32,9 +33,9 @@ Character::Character()
 
 Character::~Character()
 {
-//    delete normalAttack;
-//    delete skill1;
-//    delete skill2;
+    //    delete normalAttack;
+    //    delete skill1;
+    //    delete skill2;
     normalAttack->release();
     skill1->release();
     skill2->release();
@@ -144,6 +145,8 @@ void Character::jump(float force)
     {
         if(this->state->jump())
         {
+            changeState(new CharacterJumpState(this));
+            
             b2Vec2 vel = this->body->GetLinearVelocity();
             vel.y = force;
             this->body->SetLinearVelocity( vel );
@@ -151,31 +154,32 @@ void Character::jump(float force)
             this->currentJumpCount++;
         }
     }
-
+    
 }
 
 void Character::attack()
 {
-    if(this->normalAttack->getIsExcutable())
+    if(this->normalAttack->getIsExcutable() && this->state->attack())
     {
-        this->state->attack();
+        changeState(new CharacterAttackState(this,this->normalAttack,this->attackAnimation));
     }
 }
 
 void Character::useSkill1()
 {
-    if(this->normalAttack->getIsExcutable())
+    if(this->skill1->getIsExcutable() && this->state->attack())
     {
-        this->state->attack();
+        changeState(new CharacterAttackState(this,this->skill1,this->skill1Animation));
     }
 }
 
 void Character::useSkill2()
 {
-    if(this->normalAttack->getIsExcutable())
-    {
-        this->state->attack();
-    }
+    //    if(this->skill2->getIsExcutable() && this->state->attack())
+    //    {
+    //        changeState(new CharacterAttackState(this,this->skill2,this->skill2Animation));
+    //    }
+    
 }
 
 void Character::createFootSensor()
@@ -263,6 +267,7 @@ void Character::checkCollisionDataInBeginContact(PhysicData* data, b2Contact *co
                             if(!Util::bodiesArePassingThrough(mapObject->getBody(), this->body))
                             {
                                 this->landing ++;
+                                CCLOG("landing first");
                                 this->currentJumpCount =0;
                             }
                         }
@@ -280,13 +285,22 @@ void Character::checkCollisionDataInBeginContact(PhysicData* data, b2Contact *co
                 
                 if(physicData!=NULL)
                 {
-
+                    
                     switch (physicData->Id) {
                         case MAP_BASE:
                         {
                             MapObject* mapObject = (MapObject*)physicData->Data;
-        
-                            
+                            if (!Util::bodiesArePassingThrough(this->body, mapObject->getBody())) {
+                                this->isLanding = true;
+                            }
+                           
+                            if(landing == 0 && !Util::bodiesArePassingThrough(this->body, mapObject->getBody()) && Util::bodiesAreTouching(this->footSensor, mapObject->getBody()))
+                            {
+                                landing++;
+                                CCLOG("landing second");
+                                this->currentJumpCount =0;
+                            }
+
                             if(isCharacterCanPassThoughMapObject(mapObject) && mapObject->getCanPass() == true)
                             {
                                 contact->SetEnabled(false);
@@ -298,7 +312,7 @@ void Character::checkCollisionDataInBeginContact(PhysicData* data, b2Contact *co
                             
                             break;
                     }
-
+                    
                 }
                 
             }
@@ -326,7 +340,7 @@ void Character::checkCollisionDataInEndContact(PhysicData* data, b2Contact *cont
         {
             physicData = (PhysicData*)contact->GetFixtureA()->GetBody()->GetUserData();
         }
-
+        
         switch (data->Id) {
             case CHARACTER_FOOT_SENSOR:
             {
@@ -335,6 +349,13 @@ void Character::checkCollisionDataInEndContact(PhysicData* data, b2Contact *cont
                     switch (physicData->Id) {
                         case MAP_BASE:
                         {
+                            //                            GameObject* mapObject = (GameObject*)physicData->Data;
+                            //                            if(!Util::bodiesArePassingThrough(mapObject->getBody(), this->body))
+                            //                            {
+                            //                                this->landing ++;
+                            //                                this->currentJumpCount =0;
+                            //                            }
+                            
                             this -> landing --;
                             if(this->landing <0)
                             {
@@ -347,7 +368,7 @@ void Character::checkCollisionDataInEndContact(PhysicData* data, b2Contact *cont
                             break;
                     }
                 }
-
+                
             }
                 
                 break;
@@ -367,8 +388,13 @@ void Character::checkCollisionDataInEndContact(PhysicData* data, b2Contact *cont
                 if(physicData != NULL)
                 {
                     switch (physicData->Id) {
-                        case MAP_BASE:
                             
+                        case MAP_BASE:
+                        {
+                                                   //                            if (!Util::bodiesArePassingThrough(this->body, mapObject->getBody())) {
+                            //                                this->isLanding = true;
+                            //                            }
+                        }
                             break;
                             
                         default:
@@ -451,8 +477,8 @@ void Character::setGroup(uint16 group)
     {
         this->skill2->setGroup(GROUP_SKILL_DEFAULT);
     }
-
-
+    
+    
     for (b2Fixture* f = this->body->GetFixtureList(); f; f = f->GetNext())
     {
         if(f != NULL)

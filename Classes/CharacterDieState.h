@@ -11,4 +11,23 @@
 
 #include <iostream>
 
+#include "CharacterState.h"
+
+class CharacterDieState: public CharacterState
+{
+private:
+protected:
+public:
+    CharacterDieState(Character* character);
+    virtual void update(float dt);
+    
+    virtual bool onEnterState();
+    virtual bool onExitState();
+    
+    virtual bool attack();
+    virtual bool jump();
+    virtual bool useSkill();
+    virtual bool move();
+    
+};
 #endif /* defined(__TinyZodiacs__CharacterDieState__) */

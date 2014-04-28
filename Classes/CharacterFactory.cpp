@@ -192,26 +192,29 @@ Hero* CharacterFactory::createHero(CharacterDTO heroDTOData, b2World* world, boo
     string fall = heroDTOData.animation;
     string fly = heroDTOData.animation;
     string jump = heroDTOData.animation;
+    string skill = heroDTOData.animation;
 
-    hero->runAnimation = AnimationFactory::getSharedFactory()->getAnimationObjectByName(run.append(RUN).c_str());
+    hero->runAnimation = AnimationFactory::getSharedFactory()->getAnimationObjectByName(string(std::string(run) + std::string(RUN)).c_str());
     hero->attackAnimation = AnimationFactory::getSharedFactory()->getAnimationObjectByName(attack.append(ATTACK).c_str());
     hero->jumpAnimation = AnimationFactory::getSharedFactory()->getAnimationObjectByName(jump.append(JUMP).c_str());
     hero->idleAnimation = AnimationFactory::getSharedFactory()->getAnimationObjectByName(idle.append(IDLE).c_str());
     hero->fallAnimation = AnimationFactory::getSharedFactory()->getAnimationObjectByName(fall.append(FALL).c_str());
     hero->flyAnimation = AnimationFactory::getSharedFactory()->getAnimationObjectByName(fly.append(FLY).c_str());
-//    
+    hero->skill1Animation = AnimationFactory::getSharedFactory()->getAnimationObjectByName(skill.append(SKILL).c_str());
+
+    //
     hero->attackAnimation->getAnimation()->setDelayPerUnit(hero->getOriginCharacterData().getAttackSpeed());
     
     loadBody(heroDTOData, hero, world);
-//    hero->getSprite()->setScale(0);
-    //
+//    hero->getSprite()->setVisible(false);
+
     
     hero->setNormalAttack(SkillFactory::createSkill(heroDTOData.data.getSkill0().c_str(), world, hero, isLocal, SKILL_0_BUTTON));
     hero->setSkill1(SkillFactory::createSkill(heroDTOData.data.getSkill1().c_str(), world, hero, isLocal, SKILL_1_BUTTON));
     hero->setSkill2(SkillFactory::createSkill(heroDTOData.data.getSkill2().c_str(), world, hero, isLocal, SKILL_2_BUTTON));
     //
     hero->retain();
-    //
+       //
     
     return hero;
 }

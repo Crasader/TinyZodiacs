@@ -16,6 +16,7 @@
 #include "Character.h"
 #include "HealthBar.h"
 #include "SensorObject.h"
+#include "Tower.h"
 
 
 class Map: public cocos2d::CCNode
@@ -24,7 +25,8 @@ private:
 
     cocos2d::CCArray* listMapObject;
     cocos2d::CCArray* listSensorObject;
-    
+    cocos2d::CCArray* listTower;
+
     HealthBar* bar;
     
 protected:
@@ -42,6 +44,7 @@ public:
     
     void addMapObject(MapObject* mapObject);
     void addSensorObject(SensorObject* sensorObject);
+    void addTower(Tower* tower);
 
     void attachAllMapObject();
     void addParallaxBackground(CCParallaxNode* parallaxBackground);

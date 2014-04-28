@@ -11,12 +11,12 @@
 
 CharacterState::CharacterState()
 {
-
 }
 
 CharacterState::CharacterState(Character* character)
 {
     this->character = character;
+    this->action = NULL;
 }
 
 CharacterState::~CharacterState()
@@ -24,12 +24,10 @@ CharacterState::~CharacterState()
     this->character = NULL;
 }
 
-bool CharacterState::onEnterState()
+void CharacterState::stopAction()
 {
-    return false;
-}
-
-bool CharacterState::onExitState()
-{
-    return false;
+    if(this->action != NULL && this->character != NULL)
+    {
+        this->character->getSprite()->stopAction(this->action);
+    }
 }

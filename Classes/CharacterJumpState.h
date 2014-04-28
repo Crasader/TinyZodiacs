@@ -17,7 +17,7 @@ class CharacterJumpState: public CharacterState
 {
     
 private:
-    void finishJumpAction(cocos2d::CCObject* pSender, void* object);
+    void finishJumpAction();
     
 protected:
 public:

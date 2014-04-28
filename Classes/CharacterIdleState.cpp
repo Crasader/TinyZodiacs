@@ -21,34 +21,33 @@ bool CharacterIdleState::onEnterState()
 {
     CCLOG("enter idle state");
     this->character->idleAnimation->getAnimation()->setLoops(INFINITY);
-//   this->character->setAnchorPointForAnimation(this->character->idleAnimation->getOrigin());
-    this->character->getSprite()->runAction(CCAnimate::create(this->character->idleAnimation->getAnimation()));
+    action = CCAnimate::create(this->character->idleAnimation->getAnimation());
+    this->character->getSprite()->runAction(action);
     return true;
 }
 
 bool CharacterIdleState::onExitState()
 {
-    this->character->getSprite()->stopAllActions();
+    this->stopAction();
     return true;
 }
 
 void CharacterIdleState::update(float dt)
 {
-    if((this->character->getBody()->GetLinearVelocity().x > 2 || this->character->getBody()->GetLinearVelocity().x <-2))
+    if((this->character->getBody()->GetLinearVelocity().x > 3 || this->character->getBody()->GetLinearVelocity().x < -3))
     {
         this->character->changeState(new CharacterMoveState(this->character));
         return;
     }
-    if(this->character->getBody()->GetLinearVelocity().y > 5|| this->character->getBody()->GetLinearVelocity().y < -5)
+    if(this->character->getBody()->GetLinearVelocity().y > 5 || this->character->getBody()->GetLinearVelocity().y < -5)
     {
         this->character->changeState(new CharacterMidAirState(this->character));
-        return;
+         return;
     }
 }
 
 bool CharacterIdleState::attack()
 {
-    this->character->changeState(new CharacterAttackState(this->character));
     return true;
 }
 
@@ -59,7 +58,6 @@ bool CharacterIdleState::move()
 
 bool CharacterIdleState::jump()
 {
-     this->character->changeState(new CharacterJumpState(this->character));
     return true ;
 }
 

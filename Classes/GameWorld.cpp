@@ -77,19 +77,19 @@ bool GameWorld::init()
     this->map->scheduleUpdate();
 
     //CHARACTER
-    this->c1 = TowerFactory::createTower("tower_1.xml", world);
-    this->map->addChild(c1->getSprite(), CHARACTER_LAYER);
-    this->c1->setPositionInPixel(ccp(4220,1300));
-    
-    //CHARACTER
-    this->c2 = TowerFactory::createTower("tower_2.xml", world);
-    this->map->addChild(c2->getSprite(), CHARACTER_LAYER);
-    this->c2->setPositionInPixel(ccp(3400,1595));
-    
-    this->character->setGroup(GROUP_A);
-
-    this->c1->setGroup(GROUP_B);
-    this->c2->setGroup(GROUP_B);
+//    this->c1 = TowerFactory::createTower("tower_1.xml", world);
+//    this->map->addChild(c1->getSprite(), CHARACTER_LAYER);
+//    this->c1->setPositionInPixel(ccp(4220,1300));
+//    
+//    //CHARACTER
+//    this->c2 = TowerFactory::createTower("tower_2.xml", world);
+//    this->map->addChild(c2->getSprite(), CHARACTER_LAYER);
+//    this->c2->setPositionInPixel(ccp(3400,1595));
+//    
+//    this->character->setGroup(GROUP_A);
+//
+//    this->c1->setGroup(GROUP_B);
+//    this->c2->setGroup(GROUP_B);
     
     CCObject* object1 = NULL;
     //
@@ -129,7 +129,7 @@ bool GameWorld::init()
     CharacterDTO dto = CharacterFactory::loadXMLFile("character_monkey.xml");
     
     MonsterFactory::getSharedFactory()->setHolder(this->map);
-    MonsterFactory::getSharedFactory()->createMonsters(dto,ccp(2000,400),300,1, this->world);
+  //  MonsterFactory::getSharedFactory()->createMonsters(dto,ccp(2000,400),300,1, this->world);
 
     
     return true;
@@ -237,9 +237,9 @@ void GameWorld::update(float dt)
     //
     this->map->update(dt);
     this->character->update(dt);
-    this->c1->update(dt);
-    this->c2->update(dt);
-    
+//    this->c1->update(dt);
+//    this->c2->update(dt);
+//    
     // update infoview
     CCObject* object = NULL;
     CCARRAY_FOREACH(this->listInfoView, object)
@@ -288,8 +288,8 @@ void GameWorld::BeginContact(b2Contact *contact)
 {
     this->map->BeginContact(contact);
     this->character->BeginContact(contact);
-    this->c1->BeginContact(contact);
-    this->c2->BeginContact(contact);
+//    this->c1->BeginContact(contact);
+//    this->c2->BeginContact(contact);
     
     CCObject* object1 = NULL;
     
@@ -313,8 +313,8 @@ void GameWorld::EndContact(b2Contact *contact)
 {
     this->map->EndContact(contact);
      this->character->EndContact(contact);
-    this->c1->EndContact(contact);
-    this->c2->EndContact(contact);
+//    this->c1->EndContact(contact);
+//    this->c2->EndContact(contact);
 
     CCObject* object1 = NULL;
     

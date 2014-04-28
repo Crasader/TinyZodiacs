@@ -8,6 +8,7 @@
 
 #include "MapCreator.h"
 #include "MoveableMapObject.h"
+#include "TowerFactory.h"
 
 
 MapCreator::MapCreator()
@@ -52,6 +53,16 @@ Map* MapCreator::createMap(const char *id, GameWorld* gameWorld)
         SensorObject* sensorObject = ObjectFactory::getSharedManager()->createSensorObject(sensorObjectDTO, gameWorld->getWorld());
    
         map->addSensorObject(sensorObject);
+    }
+
+    object = NULL;
+    CCARRAY_FOREACH(mapDTO->listTowerDTO, object)
+    {
+        TowerDTO* towerDTO = dynamic_cast<TowerDTO*>(object);
+        
+        Tower* tower = TowerFactory::createTower(towerDTO, gameWorld->getWorld());
+        
+        map->addTower(tower);
     }
 
     

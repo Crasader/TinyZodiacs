@@ -14,7 +14,8 @@
         </framelist>
     </animation>
     <animation name="jump" delay="0.05">
-       <origin x="0.5" y="0.5" />        <framelist>
+       <origin x="0.5" y="0.5" />
+       <framelist>
             <frame name="cat_jump_1.png" />
         </framelist>
     </animation>

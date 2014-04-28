@@ -22,7 +22,7 @@ public:
 
     virtual void update(float dt) = 0;
     
-    virtual bool onEnterState();
-    virtual bool onExitState();
+    virtual bool onEnterState() = 0;
+    virtual bool onExitState() = 0;
 };
 #endif /* defined(__Headball__ObjectState__) */

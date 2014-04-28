@@ -175,6 +175,10 @@ bool Util::bodiesArePassingThrough( b2Body* body1, b2Body* body2 )
     return false;
 }
 
+bool Util::bodiesAreTouchingWith(b2Body* body, int type)
+{
+    return false;
+}
 
 
 

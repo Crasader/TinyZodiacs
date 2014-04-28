@@ -37,7 +37,7 @@
     <map_object_list>
         <map_object id="23" image_name="map1_2.png" body_name="map1_2" layer_index="1">
             <position x="979" y="276"/>
-            <can_pass>true</can_pass>
+            <can_pass>false</can_pass>
         </map_object>
         <map_object id="23" image_name="map1_1.png" body_name="map1_1" layer_index="2">
             <position x="0" y="380"/>
@@ -207,5 +207,13 @@
          <edge x="0" y="100"/>
          </sensor_object> -->
     </sensor_object_list>
+    <tower_list>
+        <tower id="tower_1.xml" group="A" >
+            <position x="1000" y="1000"/>
+        </tower>
+        <tower id="tower_2.xml" group="B" >
+            <position x="800" y="1000"/>
+        </tower>
+    </tower_list>
     
 </map>

@@ -20,16 +20,15 @@ private:
     
 protected:
     Character* character;
+    CCAction* action;
 public:
     CharacterState();
     CharacterState(Character* character);
     virtual ~CharacterState();
     
     virtual void update(float dt) = 0;
-
-    virtual bool onEnterState();
-    virtual bool onExitState();
     
+    virtual void stopAction();
     virtual bool attack() = 0;
     virtual bool jump() = 0;
     virtual bool useSkill() = 0;

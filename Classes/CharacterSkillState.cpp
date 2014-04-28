@@ -10,7 +10,7 @@
 
 CharacterSkillState::CharacterSkillState(Character* character): CharacterState(character)
 {
-    
+   
 }
 
 bool CharacterSkillState::onEnterState()

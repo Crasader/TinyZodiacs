@@ -25,6 +25,9 @@ Map::Map()
     
     this->listSensorObject = CCArray::create();
     this->listSensorObject->retain();
+    
+    this->listTower = CCArray::create();
+    this->listTower->retain();
 }
 
 Map::~Map()
@@ -63,6 +66,17 @@ void Map::update(float dt)
             sensorObject->update(dt);
         }
     }
+    if(this->listTower != NULL)
+    {
+        CCObject* object = NULL;
+        
+        CCARRAY_FOREACH(listTower,object)
+        {
+            Tower* tower = (Tower*)object;
+            tower->update(dt);
+        }
+    }
+
 }
 
 void Map::addMapObject(MapObject *mapObject)
@@ -81,9 +95,17 @@ void Map::addSensorObject(SensorObject* sensorObject)
     }
 }
 
+void Map::addTower(Tower* tower)
+{
+    if(tower != NULL)
+    {
+        this->listTower->addObject(tower);
+    }
+}
+
 void Map::attachAllMapObject()
 {
-    CCObject* object;
+    CCObject* object = NULL;
     CCARRAY_FOREACH(listMapObject,object)
     {
         MapObject* mapObject = (MapObject*)object;
@@ -95,6 +117,16 @@ void Map::attachAllMapObject()
         
         
     }
+    
+    object = NULL;
+    CCARRAY_FOREACH(listTower,object)
+    {
+        Tower* tower = (Tower*)object;
+        
+        this->addChild(tower->getSprite(),CHARACTER_LAYER);
+    }
+    
+    
    
 
 }
@@ -131,7 +163,18 @@ void  Map::BeginContact(b2Contact *contact)
             sensorObject->BeginContact(contact);
         }
     }
+    if(this->listTower != NULL)
+    {
+        CCObject* object = NULL;
+        
+        CCARRAY_FOREACH(listTower,object)
+        {
+            Tower* sensorObject = (Tower*)object;
+            sensorObject->BeginContact(contact);
+        }
+    }
 
+    
 }
 
 void  Map::EndContact(b2Contact *contact)
@@ -156,5 +199,17 @@ void  Map::EndContact(b2Contact *contact)
             sensorObject->EndContact(contact);
         }
     }
+    
+    if(this->listTower != NULL)
+    {
+        CCObject* object = NULL;
+        
+        CCARRAY_FOREACH(listTower,object)
+        {
+            Tower* sensorObject = (Tower*)object;
+            sensorObject->EndContact(contact);
+        }
+    }
+
 
 }
