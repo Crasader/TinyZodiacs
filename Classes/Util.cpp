@@ -115,10 +115,10 @@ void Util::setFixtureGroup(b2Fixture* fixture, uint16 group)
         filter.categoryBits = group;
         switch (group) {
             case GROUP_A:
-                filter.maskBits = GROUP_B | GROUP_NEUTRUAL | GROUP_TERRAIN | GROUP_SKILL_DEFAULT;
+                filter.maskBits = GROUP_TERRAIN | GROUP_SKILL_DEFAULT;
                 break;
             case GROUP_B:
-                filter.maskBits = GROUP_A | GROUP_NEUTRUAL | GROUP_TERRAIN| GROUP_SKILL_DEFAULT;
+                filter.maskBits = GROUP_TERRAIN| GROUP_SKILL_DEFAULT;
                 break;
             case GROUP_NEUTRUAL:
                 filter.maskBits = GROUP_A | GROUP_B | GROUP_NEUTRUAL | GROUP_TERRAIN | GROUP_SKILL_DEFAULT;

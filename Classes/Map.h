@@ -17,16 +17,17 @@
 #include "HealthBar.h"
 #include "SensorObject.h"
 #include "Tower.h"
+#include "TowerDTO.h"
 
+USING_NS_CC;
 
 class Map: public cocos2d::CCNode
 {
 private:
 
-    cocos2d::CCArray* listMapObject;
-    cocos2d::CCArray* listSensorObject;
-    cocos2d::CCArray* listTower;
-
+    CCArray* listMapObject;
+    CCArray* listSensorObject;
+ 
     HealthBar* bar;
     
 protected:
@@ -34,6 +35,7 @@ public:
     CC_SYNTHESIZE(float, width, Width);
     CC_SYNTHESIZE(float, height, Height);
     CC_SYNTHESIZE(CCParallaxNode*, parallaxBackground, ParallaxBackground);
+    CC_SYNTHESIZE(CCArray*, listTowerDTO, ListTowerDTO);
     
     Map();
     virtual ~Map();
@@ -44,7 +46,7 @@ public:
     
     void addMapObject(MapObject* mapObject);
     void addSensorObject(SensorObject* sensorObject);
-    void addTower(Tower* tower);
+    void addTowerDTO(TowerDTO* towerDTO);
 
     void attachAllMapObject();
     void addParallaxBackground(CCParallaxNode* parallaxBackground);

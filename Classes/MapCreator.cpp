@@ -51,26 +51,26 @@ Map* MapCreator::createMap(const char *id, GameWorld* gameWorld)
         SensorObjectDTO* sensorObjectDTO = dynamic_cast<SensorObjectDTO*>(object);
         
         SensorObject* sensorObject = ObjectFactory::getSharedManager()->createSensorObject(sensorObjectDTO, gameWorld->getWorld());
-   
+        
         map->addSensorObject(sensorObject);
     }
-
+    
     object = NULL;
     CCARRAY_FOREACH(mapDTO->listTowerDTO, object)
     {
         TowerDTO* towerDTO = dynamic_cast<TowerDTO*>(object);
         
-        Tower* tower = TowerFactory::createTower(towerDTO, gameWorld->getWorld());
+//        Tower* tower = TowerFactory::createTower(towerDTO, gameWorld->getWorld());
         
-        map->addTower(tower);
+        map->addTowerDTO(towerDTO);
     }
-
+    
     
     
     //    //create background
-        map->addParallaxBackground(createParallaxBackground(mapDTO->listBackgroundDTO,mapDTO->width,mapDTO->height));
+    //    map->addParallaxBackground(createParallaxBackground(mapDTO->listBackgroundDTO,mapDTO->width,mapDTO->height));
     //    //create foreground
-        map->addParallaxForeground(createParallaxForeground(mapDTO->listForegroundDTO,mapDTO->width,mapDTO->height));
+    //  map->addParallaxForeground(createParallaxForeground(mapDTO->listForegroundDTO,mapDTO->width,mapDTO->height));
     
     return map;
 }

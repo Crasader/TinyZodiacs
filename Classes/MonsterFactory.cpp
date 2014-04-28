@@ -12,10 +12,6 @@
 #include "GameObjectManager.h"
 #include "LayerIndexConstants.h"
 
-static MonsterFactory* sharedFactory = NULL;
-
-
-
 MonsterFactory::MonsterFactory()
 {
     this->listMonster = CCArray::create();
@@ -24,17 +20,12 @@ MonsterFactory::MonsterFactory()
 
 MonsterFactory::~MonsterFactory()
 {
-    delete sharedFactory;
     CC_SAFE_RELEASE_NULL(this->listMonster);
 }
 
-MonsterFactory* MonsterFactory::getSharedFactory()
+bool MonsterFactory::init()
 {
-    if (!sharedFactory)
-    {
-        sharedFactory = new MonsterFactory();
-    }
-    return sharedFactory;
+    return true;
 }
 
 Monster* MonsterFactory::createMonster(CharacterDTO monsterDTO, CCPoint position, b2World* world)
