@@ -312,7 +312,7 @@ Tower* ObjectFactory::createTower(TowerDTO* towerDTO, b2World* world)
     tower->setSkill1(SkillFactory::createSkill(heroDTOData.data.getSkill1().c_str(), world, tower, false, SKILL_1_BUTTON));
     tower->setSkill2(SkillFactory::createSkill(heroDTOData.data.getSkill2().c_str(), world, tower, false, SKILL_2_BUTTON));
     
-    tower->setPositionInPixel(ccp(towerDTO->x,towerDTO->y));
+    tower->setPositionInPixel(ccp(towerDTO->positionX,towerDTO->positionY));
     if(strcasecmp(towerDTO->group.c_str(),"A") == 0)
     {
         tower->setGroup(A);
