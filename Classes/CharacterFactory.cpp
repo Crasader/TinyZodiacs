@@ -225,7 +225,7 @@ void CharacterFactory::loadBody(CharacterDTO heroDTOData, Character* character, 
     b2BodyDef bodyDef;
     bodyDef.type = b2_dynamicBody;
     bodyDef.angle = ccpToAngle(ccp(0,0));
-    bodyDef.fixedRotation=true;
+    bodyDef.fixedRotation = true;
     bodyDef.userData = character;
     
     b2Body *body = world->CreateBody(&bodyDef);

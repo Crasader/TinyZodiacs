@@ -38,9 +38,10 @@ void GameGroup::update(float dt)
     CCARRAY_FOREACH(this->monsterFactory->getListMonster(), object)
     {
         Monster* monster = static_cast<Monster*>(object);
-        if(monster != NULL)
+        monster->update(dt);
+        if(monster->isDead())
         {
-            monster->update(dt);
+            this->monsterFactory->getListMonsterRemoved()->addObject(monster);
         }
     }
     
@@ -53,6 +54,8 @@ void GameGroup::update(float dt)
             tower->update(dt);
         }
     }
+    
+    this->monsterFactory->update(dt);
     
 }
 
@@ -119,7 +122,7 @@ void GameGroup::joinGame(Group group, b2World* world, Map* map)
     
     this->monsterFactory->startCreateMonster();
     
-
+    
     createTowers(arrTower, world);
     
     attachSpriteToMap(map);

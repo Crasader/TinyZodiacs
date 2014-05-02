@@ -19,6 +19,8 @@ MonsterFactory::MonsterFactory()
     this->listMonster->retain();
     this->listMonsterCreator = CCArray::create();
     this->listMonsterCreator->retain();
+    this->listMonsterRemoved = CCArray::create();
+    this->listMonsterRemoved->retain();
     this->group = A;
 }
 
@@ -26,6 +28,7 @@ MonsterFactory::~MonsterFactory()
 {
     stopCreateMonster();
     CC_SAFE_RELEASE_NULL(this->listMonster);
+    CC_SAFE_RELEASE_NULL(this->listMonsterRemoved);
     CC_SAFE_RELEASE_NULL(this->listMonsterCreator);
 }
 
@@ -222,4 +225,15 @@ void MonsterFactory::startCreateMonster()
         MonsterCreator* monsterCreator = static_cast<MonsterCreator*>(object);
         monsterCreator->start();
     }
+}
+
+void MonsterFactory::update(float dt)
+{
+    CCObject* object = NULL;
+    CCARRAY_FOREACH(this->listMonsterRemoved, object)
+    {
+        Monster* monster = static_cast<Monster*>(object);
+        this->getListMonster()->removeObject(monster);
+    }
+    this->listMonsterRemoved->removeAllObjects();
 }

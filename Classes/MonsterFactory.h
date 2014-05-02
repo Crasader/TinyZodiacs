@@ -26,6 +26,7 @@ private:
     CC_SYNTHESIZE(Group, group, Group);
     CC_SYNTHESIZE(CCNode*, holder, Holder);
     CC_SYNTHESIZE(CCArray*, listMonster, ListMonster);
+     CC_SYNTHESIZE(CCArray*, listMonsterRemoved, ListMonsterRemoved);
     CC_SYNTHESIZE(b2World*, world, World);
     CC_SYNTHESIZE(CCArray*, listMonsterCreator, ListMonsterCreator);
 protected:
@@ -34,6 +35,7 @@ public:
     virtual ~MonsterFactory();
 
     virtual bool init();
+    virtual void update(float dt);
     
     Monster* createMonster(CharacterDTO characterDTO, CCPoint position, b2World* world);
     void createMonsters(CharacterDTO monsterDTO, CCPoint position, int quantity, float timeDelayPerMonster);
@@ -47,6 +49,7 @@ public:
     void registerMonsterCreator(MonsterCreatorDTO* monsterCreatorDTO, b2World* world);
     void stopCreateMonster();
     void startCreateMonster();
+
  
     
     CREATE_FUNC(MonsterFactory);

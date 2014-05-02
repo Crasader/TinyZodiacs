@@ -223,18 +223,15 @@
     </tower_list>
     <monster_factory_list>
         <monster_factory group="A">
-            <monster_creator delay_per_unit="0.5" delay="10">
+            <monster_creator delay_per_unit="0.5" delay="15">
                 <position x="2000" y="400"/>
                 <monster>character_cat.xml,character_monkey.xml</monster>
             </monster_creator>
             
-            <monster_creator delay_per_unit="0.5" delay="10">
+            <monster_creator delay_per_unit="0.5" delay="15">
                 <position x="1500" y="500"/>
                 <monster>character_cat.xml,character_cat.xml</monster>
             </monster_creator>
         </monster_factory>
-        
     </monster_factory_list>
-    
-    
 </map>

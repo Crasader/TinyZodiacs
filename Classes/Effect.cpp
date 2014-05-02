@@ -71,10 +71,10 @@ Effect::~Effect()
         this->sprite->getParent()->removeChild(this->sprite);
     }
 //    this->sprite->release();
-    if(this->animation != NULL)
-    {
-        this->animation->release();
-    }
+//    if(this->animation != NULL)
+//    {
+//        this->animation->release();
+//    }
 }
 
 CCPoint Effect::calculatePosition(JointDef jointDefA, JointDef jointDefB)

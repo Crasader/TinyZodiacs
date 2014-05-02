@@ -24,7 +24,6 @@ protected:
     ~GameObjectManager();
 public:
     CC_SYNTHESIZE(CCArray*, listBody, ListBody);
-//    CC_SYNTHESIZE(std::vector<GameObject*>, listqueue, ListQueue);
 
     CC_SYNTHESIZE(b2World*, world, World)
     

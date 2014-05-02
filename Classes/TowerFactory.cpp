@@ -83,7 +83,7 @@ Tower* TowerFactory::createTower(TowerDTO* towerDTO ,b2World* world)
     CharacterDTO dtoData = loadXMLFile(towerDTO->id.c_str());
     
     Tower*  tower = createTower(dtoData, world, false);
-    tower->setPositionInPixel(ccp(towerDTO->x,towerDTO->y));
+    tower->setPositionInPixel(ccp(towerDTO->positionX,towerDTO->positionY));
     if(strcasecmp(towerDTO->group.c_str(),"A") == 0)
     {
         tower->GameObject::setGroup(A);

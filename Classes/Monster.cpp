@@ -16,6 +16,7 @@ Monster::Monster()
 {
     isStopMove = false;
     this->landing = 0;
+    
 }
 
 Monster::~Monster()
