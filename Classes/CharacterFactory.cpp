@@ -206,7 +206,7 @@ Hero* CharacterFactory::createHero(CharacterDTO heroDTOData, b2World* world, boo
     hero->attackAnimation->getAnimation()->setDelayPerUnit(hero->getOriginCharacterData().getAttackSpeed());
     
     loadBody(heroDTOData, hero, world);
-//    hero->getSprite()->setVisible(false);
+    hero->getSprite()->setVisible(false);
 
     
     hero->setNormalAttack(SkillFactory::createSkill(heroDTOData.data.getSkill0().c_str(), world, hero, isLocal, SKILL_0_BUTTON));

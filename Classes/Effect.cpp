@@ -56,14 +56,15 @@ Effect::Effect(EffectData data, GameObject* holder)
     
     //schedule life time
     CCCallFunc *callFuncSelector = CCCallFunc::create(this, callfunc_selector(Effect::destroy));
-    ScheduleManager::getInstance()->scheduleFuction(callFuncSelector, this->lifeTime);
+    this->lifeTimeAction = ScheduleManager::getInstance()->scheduleFuction(callFuncSelector, this->lifeTime);
     //
     this->autorelease();
 }
 
 Effect::~Effect()
 {
-    ScheduleManager::getInstance()->stopScheduledObjectAction(this->timeTickRepeatAction);
+//    if(this->timeTickRepeatAction!=NULL)
+//    ScheduleManager::getInstance()->stopScheduledObjectAction(this->timeTickRepeatAction);
     
     if(this->sprite != NULL)
     {
@@ -135,6 +136,19 @@ void Effect::update(float dt)
     if(this->sprite != NULL)
     {
         this->sprite->setPosition(this->holder->getPositionInPixel()+positionOffset);
+    }
+}
+
+void Effect::stopAllSchedule()
+{
+    if(this->timeTickRepeatAction)
+    {
+        ScheduleManager::getInstance()->stopScheduledObjectAction(this->timeTickRepeatAction);
+    }
+    
+    if(this->lifeTimeAction)
+    {
+        ScheduleManager::getInstance()->stopScheduledObjectAction(this->lifeTimeAction);
     }
 }
 

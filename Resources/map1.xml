@@ -202,9 +202,10 @@
          </sensor_object> -->
     </sensor_object_list>
     <tower_list>
-        <tower id="tower_1.xml" group="A" >
+      <tower id="tower_1.xml" group="A" >
             <position x="753" y="920"/>
         </tower>
+       <!--
         <tower id="tower_1.xml" group="A" >
             <position x="2823" y="510"/>
         </tower>
@@ -217,20 +218,21 @@
         <tower id="tower_2.xml" group="B" >
             <position x="5623" y="503"/>
         </tower>
+     -->
         <tower id="tower_2.xml" group="B" >
             <position x="7402" y="903"/>
         </tower>
     </tower_list>
     <monster_factory_list>
-        <monster_factory group="A">
-            <monster_creator delay_per_unit="0.5" delay="15">
+        <monster_factory group="B">
+            <monster_creator delay_per_unit="0.5" delay="0.1">
                 <position x="2000" y="400"/>
-                <monster>character_cat.xml,character_monkey.xml</monster>
+                <monster>character_cat.xml</monster>
             </monster_creator>
             
-            <monster_creator delay_per_unit="0.5" delay="15">
+            <monster_creator delay_per_unit="0.5" delay="0.1">
                 <position x="1500" y="500"/>
-                <monster>character_cat.xml,character_cat.xml</monster>
+                <monster>character_cat.xml</monster>
             </monster_creator>
         </monster_factory>
     </monster_factory_list>

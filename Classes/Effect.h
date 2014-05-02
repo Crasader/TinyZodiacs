@@ -22,7 +22,8 @@ class Effect: public CCObject
 {
 private:
 protected:
-    CCRepeat* timeTickRepeatAction;
+    CCAction* timeTickRepeatAction;
+    CCAction* lifeTimeAction;
     CCSize positionOffset;
     
     CC_SYNTHESIZE_READONLY(GameObject*, holder, Holder);
@@ -57,6 +58,8 @@ public:
     
     Effect(EffectData data, GameObject* holder);
     ~Effect();
+    
+    void stopAllSchedule();
     
     void update(float dt);
     

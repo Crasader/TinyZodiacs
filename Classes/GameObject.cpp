@@ -40,6 +40,12 @@ GameObject::~GameObject()
         this->body->SetUserData(NULL);
         this->body->GetWorld()->DestroyBody(this->body);
     }
+    
+    CCObject* object;
+    CCARRAY_FOREACH(this->listEffect, object)
+    {
+        ((Effect*)object)->stopAllSchedule();
+    }
     this->listEffect->removeAllObjects();
 //    CC_SAFE_RELEASE(this->listEffect);
 }

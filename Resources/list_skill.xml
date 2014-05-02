@@ -117,7 +117,7 @@
     <skill id="tower_shooting_1" type="1">
 		<body>tower_orb_1_2</body>
 		<damage>50</damage>
-        <delay>0.1</delay>
+        <delay>-1</delay>
         <life_time>2</life_time>
 		<cool_down>0.5</cool_down>
         <critical_chance>0.01</critical_chance>
@@ -151,7 +151,7 @@
     <skill id="tower_shooting_2" type="1">
 		<body>tower_orb_1_2</body>
 		<damage>50</damage>
-        <delay>0.1</delay>
+        <delay>-1</delay>
         <life_time>1</life_time>
 		<cool_down>0.5</cool_down>
         <critical_chance>0.01</critical_chance>

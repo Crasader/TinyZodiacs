@@ -74,7 +74,10 @@ void ScheduleManager::release()
 
 void ScheduleManager::stopScheduledObjectAction(CCAction* target)
 {
-    this->stopAction(target);
+    if(target!=NULL)
+    {
+        this->stopAction(target);
+    }
     CCLog("");
 }
 

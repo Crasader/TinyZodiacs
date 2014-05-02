@@ -25,20 +25,23 @@ bool Tower::init()
     this->sprite = CCSprite::createWithSpriteFrameName("cat_idle_1.png");
     this->listTarget = CCArray::create();
     this->listTarget->retain();
+
+    
+    
     
     return true;
 }
 
 Tower::~Tower()
 {
-//    if(this->skill1Animation != NULL)
-//    {
-//        this->skill1Animation->release();
-//    }
-//    if(this->skill2Animation != NULL)
-//    {
-//        this->skill2Animation->release();
-//    }
+    //    if(this->skill1Animation != NULL)
+    //    {
+    //        this->skill1Animation->release();
+    //    }
+    //    if(this->skill2Animation != NULL)
+    //    {
+    //        this->skill2Animation->release();
+    //    }
     this->listTarget->release();
 }
 
@@ -211,17 +214,17 @@ void Tower::aimTarget()
         b2Vec2 sp = targetPoint -  towerPoint;
         sp*=TOWER_VELOCITY;
         
-//        if(sp.x <0)
-//        {
-//            flipDirection(LEFT);
-//            sp.x = -sp.x;
-            //            CCLOG("%lf - %lf",sp.x,sp.y);
-//        }
-//        else
-//        {
-//            flipDirection(RIGHT);
-            //            CCLOG("%lf - %lf",sp.x,sp.y);
-//        }
+        //        if(sp.x <0)
+        //        {
+        //            flipDirection(LEFT);
+        //            sp.x = -sp.x;
+        //            CCLOG("%lf - %lf",sp.x,sp.y);
+        //        }
+        //        else
+        //        {
+        //            flipDirection(RIGHT);
+        //            CCLOG("%lf - %lf",sp.x,sp.y);
+        //        }
         
         NormalShootingSkillData data = attack->getData();
         data.setSpeedX(-sp.x);
@@ -268,8 +271,8 @@ b2Vec2 Tower::getStartPoint(b2Body* body, JointDef jointDef)
         default:
             break;
     }
-//    jointAAnchor += this->getPositionInPhysicWorld();
-//    CCLOG("%f, %f", jointAAnchor.x,jointAAnchor.y);
+    //    jointAAnchor += this->getPositionInPhysicWorld();
+    //    CCLOG("%f, %f", jointAAnchor.x,jointAAnchor.y);
     return jointAAnchor;
 }
 
@@ -294,15 +297,23 @@ void Tower::update(float dt)
     }
     
     //
+    CCArray* listTargetRemoved = CCArray::create();
     CCObject* object;
     CCARRAY_FOREACH(this->listTarget, object)
     {
         Character* character = (Character*)object;
+        
         if(character->isDead())
         {
-            this->listTarget->removeObject(object);
+            listTargetRemoved->addObject(character);
         }
     }
+    object = NULL;
+    CCARRAY_FOREACH(listTargetRemoved, object)
+    {
+        this->listTarget->removeObject(object);
+    }
+    listTargetRemoved->removeAllObjects();
 }
 
 uint16  Tower::getCorrectGroup(Group group)
