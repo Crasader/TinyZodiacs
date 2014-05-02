@@ -66,7 +66,7 @@ bool CharacterMoveState::move()
 
 bool CharacterMoveState::jump()
 {
-    return false;
+    return true;
 }
 
 bool CharacterMoveState::useSkill()

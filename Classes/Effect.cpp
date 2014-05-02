@@ -65,10 +65,16 @@ Effect::~Effect()
 {
     ScheduleManager::getInstance()->stopScheduledObjectAction(this->timeTickRepeatAction);
     
-    this->sprite->stopAllActions();
-    this->sprite->getParent()->removeChild(this->sprite);
-    this->sprite->release();
-    //    this->animation->release();
+    if(this->sprite != NULL)
+    {
+        this->sprite->stopAllActions();
+        this->sprite->getParent()->removeChild(this->sprite);
+    }
+//    this->sprite->release();
+    if(this->animation != NULL)
+    {
+        this->animation->release();
+    }
 }
 
 CCPoint Effect::calculatePosition(JointDef jointDefA, JointDef jointDefB)

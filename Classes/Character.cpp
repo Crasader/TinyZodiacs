@@ -33,13 +33,9 @@ Character::Character()
 
 Character::~Character()
 {
-    //    delete normalAttack;
-    //    delete skill1;
-    //    delete skill2;
-    normalAttack->release();
-    skill1->release();
-    skill2->release();
-    
+    CC_SAFE_RELEASE_NULL(normalAttack);
+    CC_SAFE_RELEASE_NULL(skill1);
+    CC_SAFE_RELEASE_NULL(skill2);
     
     this->footSensor->GetWorld()->DestroyBody(this->footSensor);
 }
@@ -502,4 +498,13 @@ void Character::notifyByEffect(CCObject* effect)
     //    {
     //        PhysicBodyManager::getInstance()->addBody(this);
     //    }
+}
+
+bool Character::isDead()
+{
+    if(this->characterData.getHealth()<=0)
+    {
+        return true;
+    }
+    return false;
 }

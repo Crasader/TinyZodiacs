@@ -31,14 +31,14 @@ bool Tower::init()
 
 Tower::~Tower()
 {
-    if(this->skill1Animation != NULL)
-    {
-        this->skill1Animation->release();
-    }
-    if(this->skill2Animation != NULL)
-    {
-        this->skill2Animation->release();
-    }
+//    if(this->skill1Animation != NULL)
+//    {
+//        this->skill1Animation->release();
+//    }
+//    if(this->skill2Animation != NULL)
+//    {
+//        this->skill2Animation->release();
+//    }
     this->listTarget->release();
 }
 
@@ -121,24 +121,22 @@ void Tower::setSensorGroup(uint16 group)
 bool Tower::shouldAttack(uint16 enemyGroup)
 {
     switch (this->getGroup()) {
-        case GROUP_A:
-        case GROUP_HERO_A:
-            if(this->getGroup() == GROUP_HERO_B || this-> getGroup() == GROUP_B || this->getGroup() == GROUP_NEUTRUAL)
+        case A:
+            if(this->getGroup() == B || this->getGroup() == NEUTRAL)
             {
                 return true;
             }
             break;
             
-        case GROUP_B:
-        case GROUP_HERO_B:
-            if(this->getGroup() == GROUP_HERO_A || this-> getGroup() == GROUP_A || this->getGroup() == GROUP_NEUTRUAL)
+        case B:
+            if(this->getGroup() == A || this->getGroup() == NEUTRAL)
             {
                 return true;
             }
             break;
             
-        case GROUP_NEUTRUAL:
-            if(this->getGroup() == GROUP_HERO_B || this-> getGroup() == GROUP_B || this->getGroup() == GROUP_HERO_A|| this->getGroup() == GROUP_A)
+        case NEUTRAL:
+            if(this->getGroup() == B || this-> getGroup() == A)
             {
                 return true;
             }
@@ -271,7 +269,7 @@ b2Vec2 Tower::getStartPoint(b2Body* body, JointDef jointDef)
             break;
     }
 //    jointAAnchor += this->getPositionInPhysicWorld();
-    CCLOG("%f, %f", jointAAnchor.x,jointAAnchor.y);
+//    CCLOG("%f, %f", jointAAnchor.x,jointAAnchor.y);
     return jointAAnchor;
 }
 
@@ -293,6 +291,17 @@ void Tower::update(float dt)
     {
         this->body->SetActive(false);
         this->sensor->SetActive(false);
+    }
+    
+    //
+    CCObject* object;
+    CCARRAY_FOREACH(this->listTarget, object)
+    {
+        Character* character = (Character*)object;
+        if(character->isDead())
+        {
+            this->listTarget->removeObject(object);
+        }
     }
 }
 

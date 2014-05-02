@@ -68,7 +68,7 @@ bool GameWorld::init()
     //CHARACTER
     this->character = ObjectFactory::getSharedManager()->createCharacter("character_cat.xml", world, true);
     this->map->addChild(character->getSprite(), CHARACTER_LAYER);
-    this->character->setPositionInPixel(ccp(1500,1200));
+    this->character->setPositionInPixel(ccp(3000,400));
     this->setFollowCharacter(true);
     this->map->scheduleUpdate();
     this->character->GameObject::setGroup(B);
@@ -88,10 +88,10 @@ bool GameWorld::init()
     CharacterDTO dto = CharacterFactory::loadXMLFile("character_monkey.xml");
     
     MonsterFactory::getSharedFactory()->setHolder(this->map);
-    MonsterFactory::getSharedFactory()->createMonsters(dto,ccp(2000,400),50,1, this->world);
+    MonsterFactory::getSharedFactory()->createMonsters(dto,ccp(2000,400),1,1, this->world);
     
     CharacterDTO dto2 = CharacterFactory::loadXMLFile("character_cat.xml");
-    MonsterFactory::getSharedFactory()->createMonsters(dto2,ccp(3000,400),50,2, this->world);
+    MonsterFactory::getSharedFactory()->createMonsters(dto2,ccp(3000,400),1,2, this->world);
     
     
     return true;

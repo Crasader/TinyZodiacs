@@ -79,6 +79,8 @@ public:
     virtual void BeginContact(b2Contact *contact);
     virtual void EndContact(b2Contact *contact);
     virtual void notifyByEffect(CCObject* effect);
+    
+    virtual bool isDead();
 };
 
 #endif /* defined(__SampleCocosProject__Character__) */

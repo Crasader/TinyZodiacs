@@ -81,7 +81,7 @@ Monster* MonsterFactory::createMonster(CharacterDTO monsterDTO, CCPoint position
     //
     monster->setPositionInPixel(position);
     
-    monster->GameObject::setGroup(A);
+    monster->GameObject::setGroup(B);
     monster->flipDirection(LEFT);
     monster->setLaneID(2);
     
@@ -119,7 +119,7 @@ void MonsterFactory::createMonsterFromSchedule(CCNode* sender, void* data)
 
 void MonsterFactory::finishCreateMonsterFromSchedule(CCNode* sender, void* data)
 {
-    CCLOG("des");
+//    CCLOG("des");
     std::vector<void*>* params =  static_cast< std::vector<void*>*>(data);
     
     CharacterDTO* dto = static_cast<CharacterDTO*>(params->at(0));

@@ -40,7 +40,6 @@ public:
     CREATE_FUNC(NormalProjectile);
     
     CC_SYNTHESIZE(NormalShootingSkillData, data, Data);
-//    CC_SYNTHESIZE_READONLY(b2Body*, body, Body);
     CC_SYNTHESIZE_READONLY(GameObject*, holder, Holder);
     
 //    virtual void BeginContact(b2Contact *contact);

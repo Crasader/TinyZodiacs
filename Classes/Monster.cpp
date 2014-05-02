@@ -10,6 +10,7 @@
 #include "SensorObject.h"
 #include "Util.h"
 #include "MonsterFactory.h"
+#include "GameObjectManager.h"
 
 Monster::Monster()
 {
@@ -156,9 +157,10 @@ void Monster::doAction(SensorObject* sensorObject)
 void Monster::notifyByEffect(CCObject* effect)
 {
     Character::notifyByEffect(effect);
-//    if(this->getcharacterData().getHealth() <= 0)
-//    {
-//        MonsterFactory::getSharedFactory()->removeMonster(this);
-//    }
+    if(this->getcharacterData().getHealth() <= 0)
+    {
+        GameObjectManager::getInstance()->addObject(this);
+        MonsterFactory::getSharedFactory()->removeMonster(this);
+    }
 }
 

@@ -37,13 +37,11 @@ GameObject::~GameObject()
    
     if(this->body != NULL)
     {
-              this->body->GetWorld()->DestroyBody(this->body);
+        this->body->SetUserData(NULL);
+        this->body->GetWorld()->DestroyBody(this->body);
     }
-    else
-    {
-
-    }
-    CC_SAFE_RELEASE(this->listEffect);
+    this->listEffect->removeAllObjects();
+//    CC_SAFE_RELEASE(this->listEffect);
 }
 
 bool GameObject::init()
