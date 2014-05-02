@@ -9,6 +9,7 @@
 #include "MapCreator.h"
 #include "MoveableMapObject.h"
 #include "TowerFactory.h"
+#include "MonsterFactoryDTO.h"
 
 
 MapCreator::MapCreator()
@@ -59,14 +60,16 @@ Map* MapCreator::createMap(const char *id, GameWorld* gameWorld)
     CCARRAY_FOREACH(mapDTO->listTowerDTO, object)
     {
         TowerDTO* towerDTO = dynamic_cast<TowerDTO*>(object);
-        
-//        Tower* tower = TowerFactory::createTower(towerDTO, gameWorld->getWorld());
-        
         map->addTowerDTO(towerDTO);
     }
     
-    
-    
+    object = NULL;
+    CCARRAY_FOREACH(mapDTO->listMonsterFactoryDTO, object)
+    {
+        MonsterFactoryDTO* monsterFactoryDTO = dynamic_cast<MonsterFactoryDTO*>(object);
+        map->addMonsterFactoryDTO(monsterFactoryDTO);
+    }
+
     //    //create background
     //    map->addParallaxBackground(createParallaxBackground(mapDTO->listBackgroundDTO,mapDTO->width,mapDTO->height));
     //    //create foreground

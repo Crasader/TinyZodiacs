@@ -12,6 +12,7 @@
 #include <iostream>
 #include "Box2D/Box2D.h"
 #include "PhysicConstants.h"
+#include <vector>
 
 class Util
 {
@@ -27,6 +28,8 @@ public:
     
     static b2Vec2 getb2VecAnchor(b2Body* body, JointDef jointDef);
     static void setFixtureGroup(b2Fixture* fixture, uint16 group);
+    static std::vector<string> getStrTok(const char* string);
+
 };
 
 #endif /* defined(__TinyZodiacs__Util__) */

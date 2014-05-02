@@ -17,3 +17,13 @@ CharacterDTO::~CharacterDTO()
 {
     
 }
+
+bool CharacterDTO::init()
+{
+    return true;
+}
+
+int CharacterDTO::getRefenceCount()
+{
+    return this->m_uReference;
+}

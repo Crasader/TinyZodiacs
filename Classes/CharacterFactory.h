@@ -71,6 +71,7 @@ protected:
 
 public:
     static CharacterDTO loadXMLFile(const char* xmlFileName);
+     static CharacterDTO* loadXMLFile1(const char* xmlFileName);
     
     static Hero* createMonkeyHero(b2World* world, bool isLocal);
     static Hero* createHero(string ID,b2World* world, bool isLocal);

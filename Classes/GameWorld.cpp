@@ -65,6 +65,7 @@ bool GameWorld::init()
     
     delete mapCreator;
     
+    
     createWorldBox();
     //
     // this->listInfoView->addObject(InfoViewCreator::createHeroInfoView(this->character, NULL));
@@ -80,16 +81,21 @@ bool GameWorld::init()
     
     this->group1 = GameGroup::create();
     this->group1->retain();
-    this->group1->joinGame(this->world, this->map);
+    this->group1->joinGame(A, this->world, this->map);
+    
+    this->group2 = GameGroup::create();
+    this->group2->retain();
+    this->group2->joinGame(B, this->world, this->map);
     
     
     CCArray* arr = CCArray::create();
-    arr->addObject(CCDelayTime::create(1));
+    arr->addObject(CCDelayTime::create(20));
     arr->addObject(CCCallFunc::create(this, callfunc_selector (GameWorld::foo)));
     
     CCSequence* seq = CCSequence::create(arr);
-    this->runAction(CCRepeatForever::create(seq));
+    this->runAction(CCRepeat::create(seq,1));
     
+    this->setCameraFollowGroup(this->group1);
     return true;
 }
 
@@ -200,6 +206,7 @@ void GameWorld::update(float dt)
     }
     
     this->group1->update(dt);
+    this->group2->update(dt);
     
 }
 
@@ -218,6 +225,7 @@ void GameWorld::BeginContact(b2Contact *contact)
     this->map->BeginContact(contact);
     
     this->group1->BeginContact(contact);
+    this->group2->BeginContact(contact);
     
 }
 
@@ -227,7 +235,7 @@ void GameWorld::setCameraFollowGroup(GameGroup* group)
     {
         if(this->cameraFollowAction != NULL)
         {
-
+            
             this->stopAction(this->cameraFollowAction);
             
         }
@@ -240,16 +248,17 @@ void GameWorld::setCameraFollowGroup(GameGroup* group)
     }
     
     this->cameraFollowAction = CCFollow::create(group->getFollowingCharacter()->getSprite(),CCRect(0, 0, this->width, this->height));
-  
+    
     
     this->runAction(this->cameraFollowAction);
-  }
+}
 
 
 void GameWorld::EndContact(b2Contact *contact)
 {
     this->map->EndContact(contact);
     this->group1->EndContact(contact);
+    this->group2->EndContact(contact);
 }
 
 void GameWorld::PreSolve(b2Contact* contact, const b2Manifold* oldManifold)
@@ -263,12 +272,7 @@ void GameWorld::PostSolve(b2Contact* contact, const b2ContactImpulse* impulse)
 
 void GameWorld::foo()
 {
-    this->setCameraFollowGroup(this->group1);
-}
-
-void GameWorld::foo1()
-{
-    this->setCameraFollowGroup(NULL);
+    this->group1->test();
 }
 
 Character* GameWorld::getCharacter()

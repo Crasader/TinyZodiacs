@@ -52,10 +52,7 @@ public:
     Character* getCharacter();
     
     void foo();
-    void foo1();
-    
 
-    
     GameWorld();
     virtual ~GameWorld();
     

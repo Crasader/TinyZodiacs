@@ -22,12 +22,12 @@ Map::Map()
     
     this->listMapObject = CCArray::create();
     this->listMapObject->retain();
-    
     this->listSensorObject = CCArray::create();
     this->listSensorObject->retain();
-    
     this->listTowerDTO = CCArray::create();
     this->listTowerDTO->retain();
+    this->listMonsterFactoryDTO = CCArray::create();
+    this->listMonsterFactoryDTO->retain();
 }
 
 Map::~Map()
@@ -35,6 +35,7 @@ Map::~Map()
     CC_SAFE_RELEASE_NULL(listMapObject);
     CC_SAFE_RELEASE_NULL(listSensorObject);
     CC_SAFE_RELEASE_NULL(listTowerDTO);
+    CC_SAFE_RELEASE_NULL(listMonsterFactoryDTO);
 }
 
 bool Map::init()
@@ -93,6 +94,15 @@ void Map::addTowerDTO(TowerDTO* towerDTO)
         this->listTowerDTO->addObject(towerDTO);
     }
 }
+
+void Map::addMonsterFactoryDTO(MonsterFactoryDTO* monsterFactoryDTO)
+{
+    if(monsterFactoryDTO != NULL)
+    {
+        this->listMonsterFactoryDTO->addObject(monsterFactoryDTO);
+    }
+}
+
 
 void Map::attachAllMapObject()
 {

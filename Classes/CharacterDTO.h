@@ -14,7 +14,9 @@
 #include "CharacterData.h"
 #include "cocos2d.h"
 
-class CharacterDTO
+USING_NS_CC;
+
+class CharacterDTO: public CCObject
 {
 private:
 protected:
@@ -22,9 +24,15 @@ public:
     CharacterDTO();
     ~CharacterDTO();
     
+    virtual bool init();
+    
     string body;
     string animation;
     CharacterData data;
+    
+    int getRefenceCount();
+    
+    CREATE_FUNC(CharacterDTO);
 };
 
 #endif /* defined(__TinyZodiacs__CharacterDTO__) */

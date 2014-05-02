@@ -81,7 +81,7 @@ MapDTO* XMLMapParser::getMapDTOFromXMLNode(XMLElement *mapXMLElement)
     {
         mapDTO->listSensorObjectDTO->addObject(XMLMapParser::getSensorObjectDTOFromXMLNode(element));
     }
-
+    
     //list tower
     XMLElement* towerListXMLNode = mapXMLElement->FirstChildElement(TAG_TOWER_LIST);
     
@@ -89,7 +89,15 @@ MapDTO* XMLMapParser::getMapDTOFromXMLNode(XMLElement *mapXMLElement)
     {
         mapDTO->listTowerDTO->addObject(XMLMapParser::getTowerDTOFromXMLNode(element));
     }
-
+    
+    //list monster factory
+    XMLElement* monsterFactoryListXMLNode = mapXMLElement->FirstChildElement(TAG_MONSTER_FACTORY_LIST);
+    
+    for (XMLElement* element = monsterFactoryListXMLNode->FirstChildElement(TAG_MONSTER_FACTORY); element; element = element->NextSiblingElement())
+    {
+        mapDTO->listMonsterFactoryDTO->addObject(XMLMapParser::getMonsterFactoryDTOFromXMLNode(element));
+    }
+    
     return mapDTO;
 }
 
@@ -169,58 +177,86 @@ SensorObjectDTO* XMLMapParser::getSensorObjectDTOFromXMLNode(XMLElement* sensorO
     if(sensorObjectXMLElement->FirstChildElement(TAG_LANE) != NULL)
     {
         XMLElement* laneXMLElement = sensorObjectXMLElement->FirstChildElement(TAG_LANE);
-        //
-        char* laneString = (char*)laneXMLElement->GetText();
         
-        if(laneString!=NULL)
+        vector<string> listLaneString  = Util::getStrTok(laneXMLElement->GetText());
+        for(int i = 0; i < listLaneString.size(); i++)
         {
-            char buffer[128] = {0};
-            int count = 0;
-            for(int i=0;i<strlen(laneString);i++)
-            {
-                if(laneString[i] != ' ')
-                {
-                    buffer[count] = laneString[i];
-                    count++;
-                }
-            }
-            
-            const char s[2] = ",";
-            
-            char *token;
-            
-            /* get the first token */
-            token = std::strtok(buffer, s);
-            
-            /* walk through other tokens */
-            while( token != NULL )
-            {
-                sensorObjectDTO->listLaneID.push_back(atoi(token));
-                token = strtok(NULL, s);
-            }
+            sensorObjectDTO->listLaneID.push_back(atoi(listLaneString[i].c_str()));
         }
+        
     }
     return sensorObjectDTO;
 }
 
 TowerDTO* XMLMapParser::getTowerDTOFromXMLNode(XMLElement* towerXMLElement)
 {
-    TowerDTO *towerDTO = TowerDTO::create();
+    TowerDTO* towerDTO = TowerDTO::create();
     
     towerDTO->id = towerXMLElement->Attribute(ATTRIBUTE_TOWER_ID);
     towerDTO->group = towerXMLElement->Attribute(ATTRIBUTE_TOWER_GROUP);
-
+    
     //position
     if(towerXMLElement->FirstChildElement(TAG_POSITION) != NULL)
     {
         XMLElement* positionXMLElement = towerXMLElement->FirstChildElement(TAG_POSITION);
         
-        towerDTO->x = atof(positionXMLElement->Attribute(ATTRIBUTE_POSITION_X));
-        towerDTO->y = atof(positionXMLElement->Attribute(ATTRIBUTE_POSITION_Y));
+        towerDTO->positionX = atof(positionXMLElement->Attribute(ATTRIBUTE_POSITION_X));
+        towerDTO->positionY = atof(positionXMLElement->Attribute(ATTRIBUTE_POSITION_Y));
     }
     
     return towerDTO;
 }
 
+MonsterCreatorDTO* XMLMapParser::getMonsterCreatorDTOFromXMLNode(XMLElement* monsterCreatorXMLElement)
+{
+    MonsterCreatorDTO* monsterCreatorDTO = MonsterCreatorDTO::create();
+    
+    monsterCreatorDTO->delay = atof(monsterCreatorXMLElement->Attribute(ATTRIBUTE_MONSTER_CREATOR_DELAY));
+    monsterCreatorDTO->delayPerUnit = atof(monsterCreatorXMLElement->Attribute(ATTRIBUTE_MONSTER_CREATOR_DELAY_PER_UNIT));
+    
+    //position
+    if(monsterCreatorXMLElement->FirstChildElement(TAG_POSITION) != NULL)
+    {
+        XMLElement* positionXMLElement = monsterCreatorXMLElement->FirstChildElement(TAG_POSITION);
+        
+        monsterCreatorDTO->positionX = atof(positionXMLElement->Attribute(ATTRIBUTE_POSITION_X));
+        monsterCreatorDTO->positionY = atof(positionXMLElement->Attribute(ATTRIBUTE_POSITION_Y));
+    }
+    
+    if(monsterCreatorXMLElement->FirstChildElement(TAG_MONSTER) != NULL)
+    {
+        XMLElement* monsterXMLElement = monsterCreatorXMLElement->FirstChildElement(TAG_MONSTER);
+        
+        std::vector<string> listMonsterIDString = Util::getStrTok(monsterXMLElement->GetText());
+        for(int i = 0; i < listMonsterIDString.size(); i++)
+        {
+            monsterCreatorDTO->listMonsterID.push_back(listMonsterIDString[i]);
+        }
+    }
+    
+    return monsterCreatorDTO;
+}
 
+MonsterFactoryDTO* XMLMapParser::getMonsterFactoryDTOFromXMLNode(XMLElement* monsterFactoryXMLElement)
+{
+    MonsterFactoryDTO* monsterFactoryDTO = MonsterFactoryDTO::create();
+    
+    std::string group = std::string(monsterFactoryXMLElement->Attribute(ATTRIBUTE_MONSTER_FACTORY_GROUP));
+    
+    if (strcasecmp(group.c_str(), "A") == 0) {
+        monsterFactoryDTO->group = A;
+    }
+    else if(strcasecmp(group.c_str(), "B") == 0)
+    {
+        monsterFactoryDTO->group = B;
+    }
+    
+    //monster creator
+    for (XMLElement* element = monsterFactoryXMLElement->FirstChildElement(TAG_MONSTER_CREATOR); element; element = element->NextSiblingElement())
+    {
+        monsterFactoryDTO->listMonsterCreatorDTO->addObject(XMLMapParser::getMonsterCreatorDTOFromXMLNode(element));
+    }
+    
+    return monsterFactoryDTO;
+}
 

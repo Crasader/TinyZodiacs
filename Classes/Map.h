@@ -18,6 +18,7 @@
 #include "SensorObject.h"
 #include "Tower.h"
 #include "TowerDTO.h"
+#include "MonsterFactoryDTO.h"
 
 USING_NS_CC;
 
@@ -36,6 +37,7 @@ public:
     CC_SYNTHESIZE(float, height, Height);
     CC_SYNTHESIZE(CCParallaxNode*, parallaxBackground, ParallaxBackground);
     CC_SYNTHESIZE(CCArray*, listTowerDTO, ListTowerDTO);
+    CC_SYNTHESIZE(CCArray*, listMonsterFactoryDTO, ListMonsterFactoryDTO);
     
     Map();
     virtual ~Map();
@@ -47,6 +49,7 @@ public:
     void addMapObject(MapObject* mapObject);
     void addSensorObject(SensorObject* sensorObject);
     void addTowerDTO(TowerDTO* towerDTO);
+    void addMonsterFactoryDTO(MonsterFactoryDTO* monsterFactoryDTO);
 
     void attachAllMapObject();
     void addParallaxBackground(CCParallaxNode* parallaxBackground);

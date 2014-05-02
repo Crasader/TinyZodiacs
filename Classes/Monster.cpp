@@ -160,7 +160,7 @@ void Monster::notifyByEffect(CCObject* effect)
     if(this->getcharacterData().getHealth() <= 0)
     {
         GameObjectManager::getInstance()->addObject(this);
-        MonsterFactory::getSharedFactory()->removeMonster(this);
+//        MonsterFactory::removeMonster(this);
     }
 }
 

@@ -12,8 +12,8 @@ TowerDTO::TowerDTO()
 {
     this->group = "";
     this->id = "";
-    this->x = 0;
-    this->y = 0;
+    this->positionX = 0;
+    this->positionY = 0;
 }
 
 TowerDTO::~TowerDTO()

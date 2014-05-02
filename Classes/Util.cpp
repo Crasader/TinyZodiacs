@@ -187,5 +187,31 @@ bool Util::bodiesAreTouchingWith(b2Body* body, int type)
     return false;
 }
 
+std::vector<string> Util::getStrTok(const char* text)
+{
+    std::vector<string> result;
+    
+    char* string = (char*)text;
+    
+    if(string != NULL)
+    {
+        const char s[3] = ", ";
+        
+        char *token;
+        
+        /* get the first token */
+        token = std::strtok(string, s);
+        
+        /* walk through other tokens */
+        while( token != NULL )
+        {
+            result.push_back(std::string(token));
+            
+            token = strtok(NULL, s);
+        }
+    }
+    
+    return result;
+}
 
 

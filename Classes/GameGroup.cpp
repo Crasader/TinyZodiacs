@@ -16,6 +16,7 @@ GameGroup::GameGroup()
     this->monsterFactory->retain();
     this->listTower = CCArray::create();
     this->listTower->retain();
+    this->group = A;
 }
 
 GameGroup::~GameGroup()
@@ -53,11 +54,12 @@ void GameGroup::update(float dt)
         }
     }
     
-    
 }
 
-void GameGroup::joinGame(b2World* world, Map* map)
+void GameGroup::joinGame(Group group, b2World* world, Map* map)
 {
+    this->group = group;
+    this->monsterFactory->setGroup(this->group);
     //CHARACTER
     this->character = ObjectFactory::getSharedManager()->createCharacter("character_cat.xml", world, true);
     this->character->setPositionInPixel(ccp(1500,1200));
@@ -65,17 +67,9 @@ void GameGroup::joinGame(b2World* world, Map* map)
     
     this->character->retain();
     
-    map->addChild(character->getSprite(), CHARACTER_LAYER);
-    
-    
     //MONSTER
     this->monsterFactory->setHolder(map);
-    
-    CharacterDTO dto2 = CharacterFactory::loadXMLFile("character_cat.xml");
-    
-    this->monsterFactory->createMonsters(dto2,ccp(3000,400),50,2, world);
-    
-    CharacterDTO dto = CharacterFactory::loadXMLFile("character_monkey.xml");
+    this->monsterFactory->setWorld(world);
     
     //towers
     
@@ -85,18 +79,50 @@ void GameGroup::joinGame(b2World* world, Map* map)
     
     CCARRAY_FOREACH(map->getListTowerDTO(), object)
     {
-        
-        Tower* tower = dynamic_cast<Tower*>(object);
-        if(tower != NULL)
+        TowerDTO* towerDTO = dynamic_cast<TowerDTO*>(object);
+        if(towerDTO != NULL)
         {
-            arrTower->addObject(tower);
+            if(strcasecmp(towerDTO->group.c_str(), "A") == 0 && this->group == A)
+            {
+                arrTower->addObject(towerDTO);
+            }
+            else if(strcasecmp(towerDTO->group.c_str(), "B") == 0 && this->group == B)
+            {
+                arrTower->addObject(towerDTO);
+            }
+            else
+            {
+                
+            }
         }
-        
     }
     
     
-   // createTowers(<#cocos2d::CCArray *towerDTO#>, <#b2World *world#>)
+    //monster factory
+    object = NULL;
+    CCARRAY_FOREACH(map->getListMonsterFactoryDTO(), object)
+    {
+        MonsterFactoryDTO* monsterFactoryDTO = dynamic_cast<MonsterFactoryDTO*>(object);
+        if(monsterFactoryDTO != NULL)
+        {
+            if(monsterFactoryDTO->group == this->group)
+            {
+                CCObject* object1 = NULL;
+                CCARRAY_FOREACH(monsterFactoryDTO->listMonsterCreatorDTO, object1)
+                {
+                    MonsterCreatorDTO* monsterCreatorDTO = dynamic_cast<MonsterCreatorDTO*>(object1);
+                    this->monsterFactory->registerMonsterCreator(monsterCreatorDTO, world);
+                }
+            }
+        }
+    }
     
+    this->monsterFactory->startCreateMonster();
+    
+
+    createTowers(arrTower, world);
+    
+    attachSpriteToMap(map);
     
 }
 
@@ -178,5 +204,23 @@ void GameGroup::createTowers(CCArray* towerDTO, b2World* world)
         TowerDTO* towerDTO = static_cast<TowerDTO*>(object);
         this->listTower->addObject(ObjectFactory::getSharedManager()->createTower(towerDTO, world));
     }
+}
+
+void GameGroup::attachSpriteToMap(Map* map)
+{
+    map->addChild(character->getSprite(), CHARACTER_LAYER);
+    
+    //towers
+    CCObject* object = NULL;
+    CCARRAY_FOREACH(this->listTower, object)
+    {
+        Tower* tower = static_cast<Tower*>(object);
+        map->addChild(tower->getSprite(), UNDER_CHARACTER_LAYER);
+    }
+    
+}
+
+void GameGroup::test()
+{
 }
 

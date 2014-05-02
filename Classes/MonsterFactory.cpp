@@ -11,16 +11,22 @@
 #include "ParameterObject.h"
 #include "GameObjectManager.h"
 #include "LayerIndexConstants.h"
+#include <queue>
 
 MonsterFactory::MonsterFactory()
 {
     this->listMonster = CCArray::create();
     this->listMonster->retain();
+    this->listMonsterCreator = CCArray::create();
+    this->listMonsterCreator->retain();
+    this->group = A;
 }
 
 MonsterFactory::~MonsterFactory()
 {
+    stopCreateMonster();
     CC_SAFE_RELEASE_NULL(this->listMonster);
+    CC_SAFE_RELEASE_NULL(this->listMonsterCreator);
 }
 
 bool MonsterFactory::init()
@@ -67,19 +73,18 @@ Monster* MonsterFactory::createMonster(CharacterDTO monsterDTO, CCPoint position
     monster->getSprite()->setAnchorPoint(sc->anchorPointForShape(monsterDTO.body.c_str()));
     
     monster->setSkin(body, monster->getSprite());
-  //  monster->getSprite()->setVisible(false);
+    //  monster->getSprite()->setVisible(false);
     
     //
     monster->setPositionInPixel(position);
-    
-    monster->GameObject::setGroup(B);
+    monster->setGroup(this->group);
     monster->flipDirection(LEFT);
-    monster->setLaneID(2);
+    monster->setLaneID(3);
     
     return monster;
 }
 
-void MonsterFactory::createMonsters(CharacterDTO monsterDTO, CCPoint position, int quantity, float timeDelayPerMonster, b2World* world)
+void MonsterFactory::createMonsters(CharacterDTO monsterDTO, CCPoint position, int quantity, float timeDelayPerMonster)
 {
     vector<void*> *prms = new vector<void*>();
     
@@ -94,6 +99,23 @@ void MonsterFactory::createMonsters(CharacterDTO monsterDTO, CCPoint position, i
     
 }
 
+void MonsterFactory::createMonsterList(CCArray* listMonsterDTO, CCPoint position, int quantity, float timeDelayPerMonster)
+{
+    vector<void*> *prms = new vector<void*>();
+    
+    CCPoint* pos = new CCPoint(position);
+    
+    CCArray* listDTO = CCArray::createWithCapacity(listMonsterDTO->count());
+    listDTO->addObjectsFromArray(listMonsterDTO);
+    listDTO->retain();
+    
+    prms->push_back(listDTO);
+    prms->push_back(pos);
+    prms->push_back(this->world);
+    
+    ScheduleManager::getInstance()->scheduleFunction(CCCallFuncND::create((CCObject*)this, callfuncND_selector(MonsterFactory::createMonsterListFromSchedule),prms),CCCallFuncND::create((CCObject*)this, callfuncND_selector(MonsterFactory::finishCreateMonsterListFromSchedule),prms), timeDelayPerMonster, quantity);
+}
+
 void MonsterFactory::createMonsterFromSchedule(CCNode* sender, void* data)
 {
     
@@ -103,14 +125,14 @@ void MonsterFactory::createMonsterFromSchedule(CCNode* sender, void* data)
     CCPoint *pos = static_cast<CCPoint*>(params->at(1));
     b2World *world = static_cast<b2World*>(params->at(2));
     
-    
     addNewMonster(createMonster(*dto,*pos,world));
     
 }
 
+
 void MonsterFactory::finishCreateMonsterFromSchedule(CCNode* sender, void* data)
 {
-//    CCLOG("des");
+    CCLOG("des");
     std::vector<void*>* params =  static_cast< std::vector<void*>*>(data);
     
     CharacterDTO* dto = static_cast<CharacterDTO*>(params->at(0));
@@ -126,6 +148,40 @@ void MonsterFactory::finishCreateMonsterFromSchedule(CCNode* sender, void* data)
     delete params;
 }
 
+void MonsterFactory::createMonsterListFromSchedule(CCNode* sender, void* data)
+{
+    std::vector<void*>* params =  static_cast< std::vector<void*>*>(data);
+    
+    CCArray* listMonster  = static_cast<CCArray*>(params->at(0));
+    
+    if(listMonster->count() > 0)
+    {
+        CharacterDTO* dto = (CharacterDTO*)(listMonster->objectAtIndex(0));
+        CCPoint *pos = static_cast<CCPoint*>(params->at(1));
+        b2World *world = static_cast<b2World*>(params->at(2));
+        addNewMonster(createMonster(*dto,*pos,world));
+        listMonster->removeObjectAtIndex(0);
+    }
+}
+
+void MonsterFactory::finishCreateMonsterListFromSchedule(CCNode* sender, void* data)
+{
+    CCLOG("des list");
+    std::vector<void*>* params =  static_cast< std::vector<void*>*>(data);
+    
+    CCArray* listMonster  = static_cast<CCArray*>(params->at(0));
+    CCPoint *pos = static_cast<CCPoint*>(params->at(1));
+    
+    //world do not delete
+    //b2World *world = static_cast<b2World*>(params->at(2));
+    
+    listMonster->release();
+    delete pos;
+    
+    delete params;
+}
+
+
 void MonsterFactory::addNewMonster(Monster* monster)
 {
     this->listMonster->addObject(monster);
@@ -136,17 +192,34 @@ void MonsterFactory::removeMonster(Monster* monster)
     this->listMonster->removeObject(monster);
 }
 
-void MonsterFactory::update(float dt)
+void MonsterFactory::registerMonsterCreator(MonsterCreatorDTO* monsterCreatorDTO, b2World* world)
+{
+    MonsterCreator* monsterCreator = MonsterCreator::create();
+    monsterCreator->setDelay(monsterCreatorDTO->delay);
+    monsterCreator->setDelayPerUnit(monsterCreatorDTO->delayPerUnit);
+    monsterCreator->setListMonsterID(monsterCreatorDTO->listMonsterID);
+    monsterCreator->setPosition(ccp(monsterCreatorDTO->positionX,monsterCreatorDTO->positionY));
+    monsterCreator->setMonsterFactory(this);
+    
+    this->listMonsterCreator->addObject(monsterCreator);
+}
+
+void MonsterFactory::stopCreateMonster()
 {
     CCObject* object = NULL;
-    CCARRAY_FOREACH(this->listMonster, object)
+    CCARRAY_FOREACH(this->listMonsterCreator, object)
     {
-        
-        Monster* monster = static_cast<Monster*>(object);
-        if(monster!=NULL)
-        {
-            monster->update(dt);
-        
-        }
+        MonsterCreator* monsterCreator = static_cast<MonsterCreator*>(object);
+        monsterCreator->stop();
+    }
+}
+
+void MonsterFactory::startCreateMonster()
+{
+    CCObject* object = NULL;
+    CCARRAY_FOREACH(this->listMonsterCreator, object)
+    {
+        MonsterCreator* monsterCreator = static_cast<MonsterCreator*>(object);
+        monsterCreator->start();
     }
 }

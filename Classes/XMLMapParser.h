@@ -16,6 +16,9 @@
 #include "ForegroundDTO.h"
 #include "SensorObjectDTO.h"
 #include "TowerDTO.h"
+#include "MonsterCreatorDTO.h"
+#include "MonsterFactoryDTO.h"
+#include "Util.h"
 #include <string.h>
 
 #define TAG_BACKGROUND_LIST "background_list"
@@ -67,6 +70,15 @@
 #define ATTRIBUTE_TOWER_ID "id"
 #define ATTRIBUTE_TOWER_GROUP "group"
 
+//monster factory
+#define TAG_MONSTER_FACTORY_LIST "monster_factory_list"
+#define TAG_MONSTER_FACTORY "monster_factory"
+#define ATTRIBUTE_MONSTER_FACTORY_GROUP "group"
+#define TAG_MONSTER_CREATOR "monster_creator"
+#define ATTRIBUTE_MONSTER_CREATOR_DELAY_PER_UNIT "delay_per_unit"
+#define ATTRIBUTE_MONSTER_CREATOR_DELAY "delay"
+#define TAG_MONSTER "monster"
+
 
 
 USING_NS_CC;
@@ -81,6 +93,8 @@ public:
     static ForegroundDTO* getForegroundDTOFromXMLNode(XMLElement* foregroundXMLElement);
     static SensorObjectDTO* getSensorObjectDTOFromXMLNode(XMLElement* sensorObjectXMLElement);
     static TowerDTO* getTowerDTOFromXMLNode(XMLElement* towerXMLElement);
+    static MonsterCreatorDTO* getMonsterCreatorDTOFromXMLNode(XMLElement* monsterCreatorXMLElement);
+    static MonsterFactoryDTO* getMonsterFactoryDTOFromXMLNode(XMLElement* monsterFactoryXMLElement);
 };
 
 #endif /* defined(__TinyZodiacs__XMLMapParser__) */

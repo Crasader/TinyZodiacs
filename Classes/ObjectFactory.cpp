@@ -295,7 +295,7 @@ Tower* ObjectFactory::createTower(TowerDTO* towerDTO, b2World* world)
     
     //body
     b2BodyDef bodyDef;
-    bodyDef.type = b2_dynamicBody;
+    bodyDef.type = b2_staticBody;
     bodyDef.angle = ccpToAngle(ccp(0,0));
     bodyDef.fixedRotation=true;
     bodyDef.userData = tower;

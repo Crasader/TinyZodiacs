@@ -31,8 +31,10 @@ public:
        static ScheduleManager* getInstance();
     void finishScheduleFunction(CCNode* sender, void* data);
     static void release();
+     CCAction* scheduleFunctionForever(CCCallFunc* callFunction, CCCallFunc* endFunction, float duration);
 
     CCSequence* scheduleFuction(CCCallFunc* funcion, float duration);
     CCRepeat* scheduleFuctionRepeatly(CCCallFunc* funcion, float duration, int times);
 };
+
 #endif /* defined(__TinyZodiacs__ScheduleManager__) */

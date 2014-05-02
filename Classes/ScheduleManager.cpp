@@ -129,4 +129,19 @@ CCRepeat* ScheduleManager::scheduleFuctionRepeatly(CCCallFunc* funcion, float du
 }
 
 
+CCAction* ScheduleManager::scheduleFunctionForever(CCCallFunc* callFunction, CCCallFunc* endFunction, float duration)
+{
+    CCArray* arr1 = CCArray::create();
+    arr1->addObject(CCDelayTime::create(duration));
+    arr1->addObject(callFunction);
+    
+    CCArray* arr2 = CCArray::create();
+    arr2->addObject(CCRepeatForever::create(CCSequence::create(arr1)));
+    if(endFunction != NULL)
+        arr2->addObject(endFunction);
+    
+    CCRepeatForever* repeatForever = CCRepeatForever::create(CCSequence::create(arr1));
+    this->runAction(repeatForever);
+    return repeatForever;
+}
 

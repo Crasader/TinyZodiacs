@@ -13,6 +13,8 @@
 #include "cocos2d.h"
 #include "Monster.h"
 #include "CharacterFactory.h"
+#include "MonsterCreatorDTO.h"
+#include "MonsterCreator.h"
 
 #define MONSTER_CREATION_DELAY 1;
 
@@ -20,27 +22,31 @@ USING_NS_CC;
 
 class MonsterFactory: public CCObject {
     
-    
 private:
-protected:
-public:
-    
+    CC_SYNTHESIZE(Group, group, Group);
     CC_SYNTHESIZE(CCNode*, holder, Holder);
     CC_SYNTHESIZE(CCArray*, listMonster, ListMonster);
-    
+    CC_SYNTHESIZE(b2World*, world, World);
+    CC_SYNTHESIZE(CCArray*, listMonsterCreator, ListMonsterCreator);
+protected:
+public:
     MonsterFactory();
     virtual ~MonsterFactory();
 
     virtual bool init();
-    void update(float dt);
     
     Monster* createMonster(CharacterDTO characterDTO, CCPoint position, b2World* world);
-    void createMonsters(CharacterDTO monsterDTO, CCPoint position, int quantity, float timeDelayPerMonster, b2World* world);
+    void createMonsters(CharacterDTO monsterDTO, CCPoint position, int quantity, float timeDelayPerMonster);
+    void createMonsterList(CCArray* listMonsterDTO, CCPoint position, int quantity, float timeDelayPerMonster);
     void createMonsterFromSchedule(CCNode* sender, void* data);
     void finishCreateMonsterFromSchedule(CCNode* sender, void* data);
+    void createMonsterListFromSchedule(CCNode* sender, void* data);
+    void finishCreateMonsterListFromSchedule(CCNode* sender, void* data);
     void addNewMonster(Monster* monster);
     void removeMonster(Monster* monster);
-    
+    void registerMonsterCreator(MonsterCreatorDTO* monsterCreatorDTO, b2World* world);
+    void stopCreateMonster();
+    void startCreateMonster();
  
     
     CREATE_FUNC(MonsterFactory);

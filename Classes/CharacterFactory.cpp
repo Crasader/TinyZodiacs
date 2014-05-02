@@ -258,3 +258,51 @@ Hero* CharacterFactory::createHero(string ID,b2World* world, bool isLocal)
     return createHero(dtoData, world, isLocal);
 }
 
+CharacterDTO* CharacterFactory::loadXMLFile1(const char* xmlFileName)
+{
+    //
+    CharacterDTO* data = CharacterDTO::create();
+    
+    std::string fullPath = CCFileUtils::sharedFileUtils()->fullPathForFilename(xmlFileName);
+    
+    unsigned long dataSize = 0;
+    unsigned char* pFileData = NULL;
+    
+    pFileData = (unsigned char*) CCFileUtils::sharedFileUtils()->getFileData(fullPath.c_str(), "r", &dataSize);
+    //    CCLOG("Empty file: %s", fullPath.c_str());
+    
+    if (!pFileData)
+    {
+        //        CCLOG("Empty file: %s", fullPath.c_str());
+        return data;
+    }
+    std::string fileContent;
+    fileContent.assign(reinterpret_cast<const char*>( pFileData), dataSize);
+    
+    XMLDocument document;
+    if( document.Parse(fileContent.c_str()) != XML_NO_ERROR)
+    {
+        CCLOG("Cannot parse file: %s", fullPath.c_str());
+        return data;
+    }
+    
+    //Parse data
+    XMLElement* docElement = document.FirstChildElement();
+    data->body = readBodyData(docElement->FirstChildElement(TAG_BODY));
+    data->animation = readAnimationData(docElement->FirstChildElement(TAG_ANIMATION));
+    data->data.setAttack(readAttackData(docElement->FirstChildElement(TAG_ATTACK)));
+    data->data.setHealth(readHealthData(docElement->FirstChildElement(TAG_HP)));
+    data->data.setDefense(readDefenseData(docElement->FirstChildElement(TAG_DEFENSE)));
+    data->data.setSpeed(readSpeedData(docElement->FirstChildElement(TAG_SPEED)));
+    data->data.setAttackSpeed(readAttackSpeedData(docElement->FirstChildElement(TAG_ATTACK_SPEED)));
+    data->data.setMaxJumpTimes(readMaxJumpData(docElement->FirstChildElement(TAG_MAX_JUMP)));
+    data->data.setJumpHeight(readJumpHeightData(docElement->FirstChildElement(TAG_JUMP_HEIGHT)));
+    data->data.setSkill0(readSkill(docElement->FirstChildElement(TAG_SKILL_0)));
+    data->data.setSkill1(readSkill(docElement->FirstChildElement(TAG_SKILL_1)));
+    data->data.setSkill2(readSkill(docElement->FirstChildElement(TAG_SKILL_2)));
+    
+    delete []pFileData;
+    return data;
+}
+
+

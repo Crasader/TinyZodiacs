@@ -26,12 +26,12 @@ public:
     float width;
     float height;
     
-    
     CCArray* listMapObjectDTO;
     CCArray* listBackgroundDTO;
     CCArray* listForegroundDTO;
     CCArray* listSensorObjectDTO;
     CCArray* listTowerDTO;
+    CCArray* listMonsterFactoryDTO;
 
     
     CREATE_FUNC(MapDTO);

@@ -23,7 +23,7 @@ class GameGroup: public CCObject
 private:
 protected:
 public:
-    CC_SYNTHESIZE(int, groupID, GroupID);
+    CC_SYNTHESIZE(Group, group, Group);
     CC_SYNTHESIZE(MonsterFactory*, monsterFactory, MonsterFactory);
     CC_SYNTHESIZE(Character*, character, Character);
     CC_SYNTHESIZE(CCArray*, listTower, ListTower);
@@ -34,13 +34,16 @@ public:
     virtual bool init();
     virtual void update(float dt);
     
-    void joinGame(b2World* world, Map* map);
+    void joinGame(Group group, b2World* world, Map* map);
     void BeginContact(b2Contact* contact);
     void EndContact(b2Contact* contact);
     void setFollowCharacter(Character* character);
     Character* getCharacterOfPlayer();
     Character* getFollowingCharacter();
     void createTowers(CCArray* towerDTO, b2World* world);
+    void attachSpriteToMap(Map* map);
+    
+    void test();
     
     
     CREATE_FUNC(GameGroup);

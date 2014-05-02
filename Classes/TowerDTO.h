@@ -27,8 +27,8 @@ public:
     
     string id;
     string group;
-    float x;
-    float y;
+    float positionX;
+    float positionY;
     
     CREATE_FUNC(TowerDTO);
 };
