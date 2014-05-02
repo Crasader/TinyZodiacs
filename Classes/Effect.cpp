@@ -36,10 +36,13 @@ Effect::Effect(EffectData data, GameObject* holder)
         this->sprite = CCSprite::create();
         this->sprite->retain();
         this->animation = AnimationFactory::getSharedFactory()->getAnimationObjectByName(data.getAnimationId().c_str());
-        if(this-> animation != NULL && this->animation->getAnimation() != NULL)
+        if(this->animation != NULL)
         {
-            this->animation->getAnimation()->setLoops(INFINITY);
-            this->sprite->runAction(CCAnimate::create(this->animation->getAnimation()));
+            if(this->animation->getAnimation() != NULL)
+            {
+                this->animation->getAnimation()->setLoops(INFINITY);
+                this->sprite->runAction(CCAnimate::create(this->animation->getAnimation()));
+            }
         }
         this->positionOffset = calculatePosition(data.getJointDefA(), data.getJointDefB());
         this->holder->getSprite()->getParent()->addChild(this->sprite,data.getAnimationLayerIndex());

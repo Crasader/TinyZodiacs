@@ -189,12 +189,12 @@
 		2D0DA1651908F7F200881C8D /* EffectData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2D0DA1631908F7F200881C8D /* EffectData.cpp */; };
 		2D0DA16D1908F83900881C8D /* EffectFactory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2D0DA1691908F83900881C8D /* EffectFactory.cpp */; };
 		2D0DA16E1908F83900881C8D /* TowerFactory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2D0DA16B1908F83900881C8D /* TowerFactory.cpp */; };
-		2D0DA1731908F86300881C8D /* Effect.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2D0DA16F1908F86300881C8D /* Effect.cpp */; };
 		2D0DA1741908F86300881C8D /* Tower.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2D0DA1711908F86300881C8D /* Tower.cpp */; };
 		3412551318DAA44900D9FBA6 /* NormalProjectile.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3412551118DAA44900D9FBA6 /* NormalProjectile.cpp */; };
 		3414166218DC23A0007B8C2B /* GameObjectManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3414166018DC23A0007B8C2B /* GameObjectManager.cpp */; };
 		343D9A4C19134163003F5DE4 /* GameWorld.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 343D9A4B19134163003F5DE4 /* GameWorld.cpp */; };
 		343D9A4F19134350003F5DE4 /* TowerDTO.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 343D9A4E19134350003F5DE4 /* TowerDTO.cpp */; };
+		343D9A5219134A52003F5DE4 /* Effect.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 343D9A5119134A52003F5DE4 /* Effect.cpp */; };
 		345F6B5318E2C71F00985A7A /* ScheduleManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 345F6B5118E2C71F00985A7A /* ScheduleManager.cpp */; };
 		3486802618D93B82001692BB /* AbstractSkill.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3486802418D93B82001692BB /* AbstractSkill.cpp */; };
 		3486802918D95FB2001692BB /* NormalShootingAttack.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3486802718D95FB2001692BB /* NormalShootingAttack.cpp */; };
@@ -750,8 +750,6 @@
 		2D0DA16A1908F83900881C8D /* EffectFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EffectFactory.h; sourceTree = "<group>"; };
 		2D0DA16B1908F83900881C8D /* TowerFactory.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TowerFactory.cpp; sourceTree = "<group>"; };
 		2D0DA16C1908F83900881C8D /* TowerFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TowerFactory.h; sourceTree = "<group>"; };
-		2D0DA16F1908F86300881C8D /* Effect.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Effect.cpp; sourceTree = "<group>"; };
-		2D0DA1701908F86300881C8D /* Effect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Effect.h; sourceTree = "<group>"; };
 		2D0DA1711908F86300881C8D /* Tower.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Tower.cpp; sourceTree = "<group>"; };
 		2D0DA1721908F86300881C8D /* Tower.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tower.h; sourceTree = "<group>"; };
 		3412551118DAA44900D9FBA6 /* NormalProjectile.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = NormalProjectile.cpp; path = ../Classes/NormalProjectile.cpp; sourceTree = "<group>"; };
@@ -762,6 +760,8 @@
 		343D9A4B19134163003F5DE4 /* GameWorld.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameWorld.cpp; sourceTree = "<group>"; };
 		343D9A4D19134350003F5DE4 /* TowerDTO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TowerDTO.h; sourceTree = "<group>"; };
 		343D9A4E19134350003F5DE4 /* TowerDTO.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TowerDTO.cpp; sourceTree = "<group>"; };
+		343D9A5019134A52003F5DE4 /* Effect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Effect.h; sourceTree = "<group>"; };
+		343D9A5119134A52003F5DE4 /* Effect.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Effect.cpp; sourceTree = "<group>"; };
 		345F6B5118E2C71F00985A7A /* ScheduleManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ScheduleManager.cpp; sourceTree = "<group>"; };
 		345F6B5218E2C71F00985A7A /* ScheduleManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScheduleManager.h; sourceTree = "<group>"; };
 		3486802418D93B82001692BB /* AbstractSkill.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = AbstractSkill.cpp; path = ../Classes/AbstractSkill.cpp; sourceTree = "<group>"; };
@@ -2219,6 +2219,8 @@
 		F54AE96D18D2F01B00194E66 /* Objects */ = {
 			isa = PBXGroup;
 			children = (
+				343D9A5019134A52003F5DE4 /* Effect.h */,
+				343D9A5119134A52003F5DE4 /* Effect.cpp */,
 				343D9A4A19134163003F5DE4 /* GameWorld.h */,
 				343D9A4B19134163003F5DE4 /* GameWorld.cpp */,
 				34E614E719133AF2006D933E /* Map.h */,
@@ -2229,8 +2231,6 @@
 				3486802D18D97E88001692BB /* Projectiles */,
 				F5A46B201905071A00A8FF55 /* Monster AI Detection */,
 				F54AE97118D2F08D00194E66 /* States */,
-				2D0DA16F1908F86300881C8D /* Effect.cpp */,
-				2D0DA1701908F86300881C8D /* Effect.h */,
 				2D0DA1711908F86300881C8D /* Tower.cpp */,
 				2D0DA1721908F86300881C8D /* Tower.h */,
 				51136ADA1908E62F00317D3A /* NoBodyMapObject.cpp */,
@@ -2241,8 +2241,6 @@
 				F54AE9C318D2F1FC00194E66 /* AnimationObject.h */,
 				F54AE9C618D2F22800194E66 /* Character.cpp */,
 				F54AE9C718D2F22800194E66 /* Character.h */,
-				2D0DA16F1908F86300881C8D /* Effect.cpp */,
-				2D0DA1701908F86300881C8D /* Effect.h */,
 				F54AE9C018D2F1FC00194E66 /* GameObject.cpp */,
 				F54AE9C118D2F1FC00194E66 /* GameObject.h */,
 				F54AE9E218D2F34700194E66 /* Hero.cpp */,
@@ -2990,7 +2988,6 @@
 				34E614F819134009006D933E /* XMLMapParser.cpp in Sources */,
 				379BB9BF17F03F3700829B88 /* UIScrollView.cpp in Sources */,
 				379BB9C017F03F3700829B88 /* UIButton.cpp in Sources */,
-				2D0DA1731908F86300881C8D /* Effect.cpp in Sources */,
 				34E614E319133A2B006D933E /* MonsterCreator.cpp in Sources */,
 				375BD50E1868454E0024609E /* CCActionEaseEx.cpp in Sources */,
 				F54AE9B718D2F1AA00194E66 /* CharacterAttackState.cpp in Sources */,
@@ -3008,6 +3005,7 @@
 				3486802C18D97940001692BB /* SkillData.cpp in Sources */,
 				379BB9C717F03F3700829B88 /* UISlider.cpp in Sources */,
 				379BB9C917F03F3700829B88 /* UITextField.cpp in Sources */,
+				343D9A5219134A52003F5DE4 /* Effect.cpp in Sources */,
 				379BB9CB17F03F3700829B88 /* DictionaryHelper.cpp in Sources */,
 				379BB9D317F03F3700829B88 /* GUIReader.cpp in Sources */,
 				345F6B5318E2C71F00985A7A /* ScheduleManager.cpp in Sources */,
