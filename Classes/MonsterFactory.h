@@ -18,33 +18,32 @@
 
 USING_NS_CC;
 
-class MonsterFactory {
+class MonsterFactory: public CCObject {
     
     
 private:
-    MonsterFactory();
-    
-    
 protected:
 public:
-    CC_SYNTHESIZE(CCNode*, holder, Holder)
     
-   virtual ~MonsterFactory();
-    CCArray* listMonster;
+    CC_SYNTHESIZE(CCNode*, holder, Holder);
+    CC_SYNTHESIZE(CCArray*, listMonster, ListMonster);
+    
+    MonsterFactory();
+    virtual ~MonsterFactory();
 
-   static MonsterFactory* getSharedFactory();
-    
+    virtual bool init();
+    void update(float dt);
     
     Monster* createMonster(CharacterDTO characterDTO, CCPoint position, b2World* world);
     void createMonsters(CharacterDTO monsterDTO, CCPoint position, int quantity, float timeDelayPerMonster, b2World* world);
-    
     void createMonsterFromSchedule(CCNode* sender, void* data);
     void finishCreateMonsterFromSchedule(CCNode* sender, void* data);
-    
     void addNewMonster(Monster* monster);
     void removeMonster(Monster* monster);
     
-    void update(float dt);
+ 
+    
+    CREATE_FUNC(MonsterFactory);
     
 };
 

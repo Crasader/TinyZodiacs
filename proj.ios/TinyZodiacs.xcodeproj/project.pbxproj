@@ -288,6 +288,7 @@
 		D4EF949C15BD2D8E00D803EB /* Icon-114.png in Resources */ = {isa = PBXBuildFile; fileRef = D4EF949B15BD2D8E00D803EB /* Icon-114.png */; };
 		D4EF949E15BD2D9600D803EB /* Icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = D4EF949D15BD2D9600D803EB /* Icon-72.png */; };
 		D4EF94A015BD2D9800D803EB /* Icon-144.png in Resources */ = {isa = PBXBuildFile; fileRef = D4EF949F15BD2D9800D803EB /* Icon-144.png */; };
+		F50426AE190E0A6F001352B0 /* ActionZoomFollow.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F50426AC190E0A6F001352B0 /* ActionZoomFollow.cpp */; };
 		F50702C018E958220025B666 /* MoveableMapObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F50702BE18E958220025B666 /* MoveableMapObject.cpp */; };
 		F50BF81B18F2426D00CD518D /* cat_spritesheet.png in Resources */ = {isa = PBXBuildFile; fileRef = F50BF81918F2426D00CD518D /* cat_spritesheet.png */; };
 		F50BF81C18F2426D00CD518D /* cat_spritesheet.plist in Resources */ = {isa = PBXBuildFile; fileRef = F50BF81A18F2426D00CD518D /* cat_spritesheet.plist */; };
@@ -355,6 +356,7 @@
 		F5779C6E18E56CF10044D5CD /* healthbar_foreground_red.png in Resources */ = {isa = PBXBuildFile; fileRef = F5779C6B18E56CF10044D5CD /* healthbar_foreground_red.png */; };
 		F5779C6F18E56CF10044D5CD /* healthbar_background.png in Resources */ = {isa = PBXBuildFile; fileRef = F5779C6C18E56CF10044D5CD /* healthbar_background.png */; };
 		F59E0BDC18D85E90001048BD /* NormalAttack.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F59E0BDA18D85E8F001048BD /* NormalAttack.cpp */; };
+		F5A2AC3A190DF40A009C3225 /* GameGroup.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F5A2AC38190DF40A009C3225 /* GameGroup.cpp */; };
 		F5A46B26190508A900A8FF55 /* SensorObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F5A46B24190508A900A8FF55 /* SensorObject.cpp */; };
 		F5AE36A91906799900FB7519 /* SensorObjectDTO.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F5AE36A71906799900FB7519 /* SensorObjectDTO.cpp */; };
 		F5B4B79418E66E8700E4C2AA /* GameObjectInfoView.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F5B4B79218E66E8700E4C2AA /* GameObjectInfoView.cpp */; };
@@ -938,6 +940,8 @@
 		D4EF949D15BD2D9600D803EB /* Icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-72.png"; path = "../proj.ios/Icon-72.png"; sourceTree = "<group>"; };
 		D4EF949F15BD2D9800D803EB /* Icon-144.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-144.png"; path = "../proj.ios/Icon-144.png"; sourceTree = "<group>"; };
 		D4F9F37B12E54555005CA6D2 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = SOURCE_ROOT; };
+		F50426AC190E0A6F001352B0 /* ActionZoomFollow.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ActionZoomFollow.cpp; sourceTree = "<group>"; };
+		F50426AD190E0A6F001352B0 /* ActionZoomFollow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActionZoomFollow.h; sourceTree = "<group>"; };
 		F50702BE18E958220025B666 /* MoveableMapObject.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MoveableMapObject.cpp; sourceTree = "<group>"; };
 		F50702BF18E958220025B666 /* MoveableMapObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoveableMapObject.h; sourceTree = "<group>"; };
 		F50BF81918F2426D00CD518D /* cat_spritesheet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cat_spritesheet.png; sourceTree = "<group>"; };
@@ -1051,6 +1055,8 @@
 		F5779C6C18E56CF10044D5CD /* healthbar_background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = healthbar_background.png; sourceTree = "<group>"; };
 		F59E0BDA18D85E8F001048BD /* NormalAttack.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = NormalAttack.cpp; sourceTree = "<group>"; };
 		F59E0BDB18D85E90001048BD /* NormalAttack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NormalAttack.h; sourceTree = "<group>"; };
+		F5A2AC38190DF40A009C3225 /* GameGroup.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameGroup.cpp; sourceTree = "<group>"; };
+		F5A2AC39190DF40A009C3225 /* GameGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameGroup.h; sourceTree = "<group>"; };
 		F5A46B24190508A900A8FF55 /* SensorObject.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SensorObject.cpp; sourceTree = "<group>"; };
 		F5A46B25190508A900A8FF55 /* SensorObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SensorObject.h; sourceTree = "<group>"; };
 		F5AE36A71906799900FB7519 /* SensorObjectDTO.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SensorObjectDTO.cpp; sourceTree = "<group>"; };
@@ -2220,6 +2226,10 @@
 				F54AE9C318D2F1FC00194E66 /* AnimationObject.h */,
 				F54AE9C618D2F22800194E66 /* Character.cpp */,
 				F54AE9C718D2F22800194E66 /* Character.h */,
+				2D0DA16F1908F86300881C8D /* Effect.cpp */,
+				2D0DA1701908F86300881C8D /* Effect.h */,
+				F5A2AC38190DF40A009C3225 /* GameGroup.cpp */,
+				F5A2AC39190DF40A009C3225 /* GameGroup.h */,
 				F54AE9C018D2F1FC00194E66 /* GameObject.cpp */,
 				F54AE9C118D2F1FC00194E66 /* GameObject.h */,
 				F54AE9DC18D2F33E00194E66 /* GameWorld.cpp */,
@@ -2236,6 +2246,8 @@
 				F54AE9DE18D2F33E00194E66 /* Monster.h */,
 				F50702BE18E958220025B666 /* MoveableMapObject.cpp */,
 				F50702BF18E958220025B666 /* MoveableMapObject.h */,
+				51136ADA1908E62F00317D3A /* NoBodyMapObject.cpp */,
+				51136ADB1908E62F00317D3A /* NoBodyMapObject.h */,
 				F5E2929618E6779500B9B152 /* Player.cpp */,
 				F5E2929718E6779500B9B152 /* Player.h */,
 			);
@@ -2377,6 +2389,8 @@
 				34B1273618EF9619005DAF04 /* SkillType1Parser.h */,
 				F5FA5B5C1900E78300B80EF0 /* ParameterObject.cpp */,
 				F5FA5B5D1900E78300B80EF0 /* ParameterObject.h */,
+				F50426AC190E0A6F001352B0 /* ActionZoomFollow.cpp */,
+				F50426AD190E0A6F001352B0 /* ActionZoomFollow.h */,
 			);
 			name = Helper;
 			sourceTree = "<group>";
@@ -2779,6 +2793,7 @@
 				15A3D9A01682F7F9002FB0C5 /* cpSimpleMotor.c in Sources */,
 				15A3D9A11682F7F9002FB0C5 /* cpSlideJoint.c in Sources */,
 				15A3D9A21682F7F9002FB0C5 /* cpArbiter.c in Sources */,
+				F5A2AC3A190DF40A009C3225 /* GameGroup.cpp in Sources */,
 				15A3D9A31682F7F9002FB0C5 /* cpArray.c in Sources */,
 				15A3D9A41682F7F9002FB0C5 /* cpBB.c in Sources */,
 				15A3D9A51682F7F9002FB0C5 /* cpBBTree.c in Sources */,
@@ -2951,6 +2966,7 @@
 				379BB9B417F03F3700829B88 /* UILayout.cpp in Sources */,
 				379BB9B617F03F3700829B88 /* UILayoutParameter.cpp in Sources */,
 				379BB9B717F03F3700829B88 /* UILayoutDefine.cpp in Sources */,
+				F50426AE190E0A6F001352B0 /* ActionZoomFollow.cpp in Sources */,
 				F54AE9BE18D2F1AA00194E66 /* CharacterState.cpp in Sources */,
 				379BB9B817F03F3700829B88 /* CocosGUI.cpp in Sources */,
 				379BB9B917F03F3700829B88 /* UIHelper.cpp in Sources */,

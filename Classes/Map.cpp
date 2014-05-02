@@ -26,13 +26,15 @@ Map::Map()
     this->listSensorObject = CCArray::create();
     this->listSensorObject->retain();
     
-    this->listTower = CCArray::create();
-    this->listTower->retain();
+    this->listTowerDTO = CCArray::create();
+    this->listTowerDTO->retain();
 }
 
 Map::~Map()
 {
     CC_SAFE_RELEASE_NULL(listMapObject);
+    CC_SAFE_RELEASE_NULL(listSensorObject);
+    CC_SAFE_RELEASE_NULL(listTowerDTO);
 }
 
 bool Map::init()
@@ -66,17 +68,6 @@ void Map::update(float dt)
             sensorObject->update(dt);
         }
     }
-    if(this->listTower != NULL)
-    {
-        CCObject* object = NULL;
-        
-        CCARRAY_FOREACH(listTower,object)
-        {
-            Tower* tower = (Tower*)object;
-            tower->update(dt);
-        }
-    }
-
 }
 
 void Map::addMapObject(MapObject *mapObject)
@@ -95,11 +86,11 @@ void Map::addSensorObject(SensorObject* sensorObject)
     }
 }
 
-void Map::addTower(Tower* tower)
+void Map::addTowerDTO(TowerDTO* towerDTO)
 {
-    if(tower != NULL)
+    if(towerDTO != NULL)
     {
-        this->listTower->addObject(tower);
+        this->listTowerDTO->addObject(towerDTO);
     }
 }
 
@@ -109,15 +100,8 @@ void Map::attachAllMapObject()
     CCARRAY_FOREACH(listMapObject,object)
     {
         MapObject* mapObject = (MapObject*)object;
-//        mapObject->getSprite()->setVisible(false);
+        //  mapObject->getSprite()->setVisible(false);
         this->addChild(mapObject->getSprite(),MAPOBJECT_LAYER);
-    }
-    object = NULL;
-    CCARRAY_FOREACH(listTower,object)
-    {
-        Tower* tower = (Tower*)object;
-        
-        this->addChild(tower->getSprite(),CHARACTER_LAYER);
     }
 }
 
@@ -153,18 +137,6 @@ void  Map::BeginContact(b2Contact *contact)
             sensorObject->BeginContact(contact);
         }
     }
-    if(this->listTower != NULL)
-    {
-        CCObject* object = NULL;
-        
-        CCARRAY_FOREACH(listTower,object)
-        {
-            Tower* sensorObject = (Tower*)object;
-            sensorObject->BeginContact(contact);
-        }
-    }
-
-    
 }
 
 void  Map::EndContact(b2Contact *contact)
@@ -189,17 +161,4 @@ void  Map::EndContact(b2Contact *contact)
             sensorObject->EndContact(contact);
         }
     }
-    
-    if(this->listTower != NULL)
-    {
-        CCObject* object = NULL;
-        
-        CCARRAY_FOREACH(listTower,object)
-        {
-            Tower* sensorObject = (Tower*)object;
-            sensorObject->EndContact(contact);
-        }
-    }
-
-
 }

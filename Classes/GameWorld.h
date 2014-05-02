@@ -21,6 +21,7 @@
 #include "ScheduleManager.h"
 #include "Monster.h"
 #include "Tower.h"
+#include "GameGroup.h"
 
 USING_NS_CC;
 class GameWorld: public CCNode, public b2ContactListener
@@ -29,6 +30,7 @@ private:
     GameObjectManager* manager;
     CCArray* listInfoView;
     int count;
+    CCAction* cameraFollowAction;
 protected:
     bool init();
     void createWorldBox();
@@ -42,8 +44,16 @@ public:
     CC_SYNTHESIZE_READONLY(b2Body*, leftLine, LeftLine);
     CC_SYNTHESIZE_READONLY(b2Body*, rightLine, RightLine);
     CC_SYNTHESIZE_READONLY(b2Body*, bottomLine, BottomLine);
-    CC_SYNTHESIZE(Character*, character, Character);
+  
     CC_SYNTHESIZE(Map*, map, map);
+    CC_SYNTHESIZE(GameGroup*, group1, Group1);
+    CC_SYNTHESIZE(GameGroup*, group2, Group2);
+
+    Character* getCharacter();
+    
+    void foo();
+    void foo1();
+    
 
     
     GameWorld();
@@ -53,7 +63,7 @@ public:
     virtual void update(float dt);
     virtual void draw();
     
-    void setFollowCharacter(bool follow);
+    void setCameraFollowGroup(GameGroup* group);
 
     virtual void BeginContact(b2Contact *contact);
     virtual void EndContact(b2Contact *contact);

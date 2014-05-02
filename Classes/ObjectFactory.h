@@ -16,6 +16,8 @@
 #include "NoBodyMapObject.h"
 #include "SensorObject.h"
 #include "SensorObjectDTO.h"
+#include "Tower.h"
+#include "TowerDTO.h"
 
 class ObjectFactory
 {
@@ -30,7 +32,7 @@ public:
     MapObject* createMapObject(MapObjectDTO* mapObjectDTO, b2World *world);
     SensorObject* createSensorObject(b2Vec2 dumb, b2World *world, CCPoint position);
     SensorObject* createSensorObject(SensorObjectDTO* sensorObjectDTO, b2World* world);
-   // SensorObject* createSensorObject(SensorObjectDTO* sensorObjectDTO, b2World* world);
+    Tower* createTower(TowerDTO* towerDTO, b2World* world);
     
 
 };

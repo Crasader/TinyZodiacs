@@ -20,6 +20,7 @@
 #include "Util.h"
 #include "MonsterFactory.h"
 #include "TowerFactory.h"
+#include "ActionZoomFollow.h"
 
 GameWorld::GameWorld()
 {
@@ -45,11 +46,11 @@ bool GameWorld::init()
     //DEBUG WORLD
     b2Draw* _debugDraw = new GLESDebugDraw(PTM_RATIO);
     uint32 flags = 0;
-    //    flags += b2Draw::e_shapeBit;
+    flags += b2Draw::e_shapeBit;
     //   flags += b2Draw::e_jointBit;
     //    flags += b2Draw::e_aabbBit;
     //    flags += b2Draw::e_pairBit;
-    //    flags += b2Draw::e_centerOfMassBit;
+    flags += b2Draw::e_centerOfMassBit;
     _debugDraw->SetFlags(flags);
     this->world->SetDebugDraw(_debugDraw);
     //Set contact listener
@@ -57,7 +58,6 @@ bool GameWorld::init()
     
     //MAP
     MapCreator* mapCreator = new MapCreator();
-    
     map = mapCreator->createMap("map1",this);
     map->attachAllMapObject();
     
@@ -65,17 +65,9 @@ bool GameWorld::init()
     
     delete mapCreator;
     
-    //CHARACTER
-    this->character = ObjectFactory::getSharedManager()->createCharacter("character_cat.xml", world, true);
-    this->map->addChild(character->getSprite(), CHARACTER_LAYER);
-    this->character->setPositionInPixel(ccp(3000,400));
-    this->setFollowCharacter(true);
-    this->map->scheduleUpdate();
-    this->character->GameObject::setGroup(B);
-    //
     createWorldBox();
     //
-    this->listInfoView->addObject(InfoViewCreator::createHeroInfoView(this->character, NULL));
+    // this->listInfoView->addObject(InfoViewCreator::createHeroInfoView(this->character, NULL));
     
     CCObject* object = NULL;
     CCARRAY_FOREACH(this->listInfoView, object)
@@ -85,14 +77,18 @@ bool GameWorld::init()
     }
     //MONSTER
     addManager();
-    CharacterDTO dto = CharacterFactory::loadXMLFile("character_monkey.xml");
     
-    MonsterFactory::getSharedFactory()->setHolder(this->map);
-    MonsterFactory::getSharedFactory()->createMonsters(dto,ccp(2000,400),1,1, this->world);
+    this->group1 = GameGroup::create();
+    this->group1->retain();
+    this->group1->joinGame(this->world, this->map);
     
-    CharacterDTO dto2 = CharacterFactory::loadXMLFile("character_cat.xml");
-    MonsterFactory::getSharedFactory()->createMonsters(dto2,ccp(3000,400),1,2, this->world);
     
+    CCArray* arr = CCArray::create();
+    arr->addObject(CCDelayTime::create(1));
+    arr->addObject(CCCallFunc::create(this, callfunc_selector (GameWorld::foo)));
+    
+    CCSequence* seq = CCSequence::create(arr);
+    this->runAction(CCRepeatForever::create(seq));
     
     return true;
 }
@@ -100,8 +96,6 @@ bool GameWorld::init()
 
 void GameWorld::addManager()
 {
-    count++;
-    CCAssert(count<=1, "sfafsasf");
     manager = GameObjectManager::getInstance();
     manager->setWorld(this->world);
     
@@ -196,9 +190,7 @@ void GameWorld::update(float dt)
         manager->update(dt);
         world->Step(1/40.000f,8, 1);
     }
-    //
     this->map->update(dt);
-    this->character->update(dt);
     // update infoview
     CCObject* object = NULL;
     CCARRAY_FOREACH(this->listInfoView, object)
@@ -207,30 +199,17 @@ void GameWorld::update(float dt)
         gameObjectInfoView->update(dt);
     }
     
-    ///factory monster
-    MonsterFactory::getSharedFactory()->update(dt);
-}
-
-void GameWorld::setFollowCharacter(bool follow)
-{
-    if(follow)
-    {
-        CCFollow *follow = CCFollow::create(this->character->getSprite(),CCRect(0, 0, this->width, this->height));
-        this->runAction(follow);
-    }
-    else
-    {
-        this->stopAllActions();
-    }
+    this->group1->update(dt);
     
 }
 
+
 void GameWorld::draw()
 {
-    ccGLEnableVertexAttribs( kCCVertexAttribFlag_Position );
-    kmGLPushMatrix();
-    world->DrawDebugData();
-    kmGLPopMatrix();
+    //    ccGLEnableVertexAttribs( kCCVertexAttribFlag_Position );
+    //    kmGLPushMatrix();
+    //    world->DrawDebugData();
+    //    kmGLPopMatrix();
 }
 
 //PHYSICS CONTACT
@@ -238,41 +217,61 @@ void GameWorld::BeginContact(b2Contact *contact)
 {
     this->map->BeginContact(contact);
     
-    this->character->BeginContact(contact);
-    
-    CCObject* object2 = NULL;
-    
-    CCARRAY_FOREACH(MonsterFactory::getSharedFactory()->listMonster, object2)
-    {
-        Monster* hero = dynamic_cast<Monster*>(object2);
-        hero->BeginContact(contact);
-    }
-    
+    this->group1->BeginContact(contact);
     
 }
+
+void GameWorld::setCameraFollowGroup(GameGroup* group)
+{
+    if(group == NULL)
+    {
+        if(this->cameraFollowAction != NULL)
+        {
+
+            this->stopAction(this->cameraFollowAction);
+            
+        }
+        return;
+    }
+    
+    if(group->getFollowingCharacter() == NULL)
+    {
+        return;
+    }
+    
+    this->cameraFollowAction = CCFollow::create(group->getFollowingCharacter()->getSprite(),CCRect(0, 0, this->width, this->height));
+  
+    
+    this->runAction(this->cameraFollowAction);
+  }
+
+
 void GameWorld::EndContact(b2Contact *contact)
 {
     this->map->EndContact(contact);
-    this->character->EndContact(contact);
-    
-    
-    CCObject* object2 = NULL;
-    
-    CCARRAY_FOREACH(MonsterFactory::getSharedFactory()->listMonster, object2)
-    {
-        Monster* hero = dynamic_cast<Monster*>(object2);
-        if(hero != NULL)
-            hero->EndContact(contact);
-    }
-    
+    this->group1->EndContact(contact);
 }
 
 void GameWorld::PreSolve(b2Contact* contact, const b2Manifold* oldManifold)
 {
-    //character->PreSolve(contact,oldManifold);
     
 }
 void GameWorld::PostSolve(b2Contact* contact, const b2ContactImpulse* impulse)
 {
-    //character->PostSolve(contact,impulse);
+    
+}
+
+void GameWorld::foo()
+{
+    this->setCameraFollowGroup(this->group1);
+}
+
+void GameWorld::foo1()
+{
+    this->setCameraFollowGroup(NULL);
+}
+
+Character* GameWorld::getCharacter()
+{
+    return this->group1->getCharacterOfPlayer();
 }
