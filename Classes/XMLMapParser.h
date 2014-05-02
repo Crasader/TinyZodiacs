@@ -77,6 +77,7 @@
 #define TAG_MONSTER_CREATOR "monster_creator"
 #define ATTRIBUTE_MONSTER_CREATOR_DELAY_PER_UNIT "delay_per_unit"
 #define ATTRIBUTE_MONSTER_CREATOR_DELAY "delay"
+#define ATTRIBUTE_MONSTER_CREATOR_LANE "lane"
 #define TAG_MONSTER "monster"
 
 

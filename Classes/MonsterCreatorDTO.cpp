@@ -14,6 +14,7 @@ MonsterCreatorDTO::MonsterCreatorDTO()
     this->delay = 0;
     this->positionX = 0;
     this->positionY = 0;
+    this->laneID = 0;
 }
 
 MonsterCreatorDTO::~MonsterCreatorDTO()

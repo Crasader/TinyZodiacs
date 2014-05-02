@@ -34,7 +34,7 @@ void MonsterCreator::createMonster()
     {
         temp->addObject(CharacterFactory::loadXMLFile1(this->listMonsterID[i].c_str()));
     }
-    this->monsterFactory->createMonsterList(temp, ccp(this->position.x, this->position.y), temp->count(), this->delayPerUnit);
+    this->monsterFactory->createMonsterList(temp, ccp(this->position.x, this->position.y), this->laneID, temp->count(), this->delayPerUnit);
 }
 
 void MonsterCreator::start()

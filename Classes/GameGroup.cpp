@@ -34,6 +34,7 @@ void GameGroup::update(float dt)
 {
     this->character->update(dt);
     
+    CCArray* listMonsterRemoved = CCArray::create();
     CCObject* object = NULL;
     CCARRAY_FOREACH(this->monsterFactory->getListMonster(), object)
     {
@@ -41,10 +42,19 @@ void GameGroup::update(float dt)
         monster->update(dt);
         if(monster->isDead())
         {
-            this->monsterFactory->getListMonsterRemoved()->addObject(monster);
+            listMonsterRemoved->addObject(monster);
         }
     }
+    //remove monster
+    object = NULL;
+    CCARRAY_FOREACH(listMonsterRemoved, object)
+    {
+        Monster* monster = static_cast<Monster*>(object);
+        this->monsterFactory->getListMonster()->removeObject(monster);
+    }
+    listMonsterRemoved->removeAllObjects();
     
+    //
     object = NULL;
     CCARRAY_FOREACH(this->listTower, object)
     {

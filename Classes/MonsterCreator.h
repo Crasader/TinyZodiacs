@@ -26,6 +26,7 @@ private:
     CC_SYNTHESIZE(float, delayPerUnit, DelayPerUnit);
     CC_SYNTHESIZE(std::vector<std::string>, listMonsterID, ListMonsterID);
     CC_SYNTHESIZE(CCPoint, position, Position);
+    CC_SYNTHESIZE(int, laneID, LaneID);
 protected:
 public:
     MonsterCreator();

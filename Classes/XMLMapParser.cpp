@@ -213,6 +213,7 @@ MonsterCreatorDTO* XMLMapParser::getMonsterCreatorDTOFromXMLNode(XMLElement* mon
     
     monsterCreatorDTO->delay = atof(monsterCreatorXMLElement->Attribute(ATTRIBUTE_MONSTER_CREATOR_DELAY));
     monsterCreatorDTO->delayPerUnit = atof(monsterCreatorXMLElement->Attribute(ATTRIBUTE_MONSTER_CREATOR_DELAY_PER_UNIT));
+    monsterCreatorDTO->laneID = atoi(monsterCreatorXMLElement->Attribute(ATTRIBUTE_MONSTER_CREATOR_LANE));
     
     //position
     if(monsterCreatorXMLElement->FirstChildElement(TAG_POSITION) != NULL)

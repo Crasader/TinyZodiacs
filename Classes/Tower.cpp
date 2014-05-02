@@ -171,7 +171,12 @@ void Tower::checkCollisionDataInBeginContact(PhysicData* data, b2Contact *contac
             {
                 if(physicData->Id == CHARACTER_BODY)
                 {
-                    this->listTarget->addObject((CCObject*)physicData->Data);
+                    CCObject* obj = (CCObject*)physicData->Data;
+                    if(this->listTarget->indexOfObject(obj) == CC_INVALID_INDEX)
+                    {
+                         this->listTarget->addObject(obj);
+                    }
+                   
                 }
             }
         }

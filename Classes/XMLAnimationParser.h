@@ -14,27 +14,27 @@
 #include "AnimationObject.h"
 #include "MapObjectDTO.h"
 #include "MapDTO.h"
+#include <string.h>
 
 USING_NS_CC;
 
-#define OBJECT_ANIMATION_TAG "object_animation"
-#define OBJECT_ANIMATION_PLIST_NAME_TAG "plist_name"
-#define OBJECT_ANIMATION_IMAGE_NAME_TAG "plist_name"
+#define TAG_OBJECT_ANIMATION_TAG "object_animation"
+#define ATTRIBUTE_OBJECT_ANIMATION_PLIST_NAME "plist_name"
+#define ATTRIBUTE_OBJECT_ANIMATION_IMAGE_NAME "image_name"
 
-#define ANIMATION_TAG "animation"
-#define NAME_TAG "name"
-#define FRAME_TAG "frame"
-#define FRAME_LIST_TAG "framelist"
-#define DELAY_TAG "delay"
-
-
+#define TAG_ANIMATION "animation"
+#define ATTRIBUTE_NAME "name"
+#define ATTRIBUTE_DELAY "delay"
+#define ATTRIBUTE_IS_LOOP "loop"
+#define TAG_FRAME "frame"
+#define TAG_FRAME_LIST "framelist"
 
 using namespace tinyxml2;
 
 class XMLAnimationParser
 {
 public:
-    static CCAnimation* getAnimationFromXMLNode(XMLElement* xmlElement);
+ //   static CCAnimation* getAnimationFromXMLNode(XMLElement* xmlElement);
     static AnimationObject* getAnimationObjectFromXMLNode(XMLElement* xmlElement);
 
 };

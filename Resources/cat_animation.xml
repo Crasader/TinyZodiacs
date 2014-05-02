@@ -1,5 +1,5 @@
 <object_animation name="cat" plist_name="cat_spritesheet.plist" image_name="cat_spritesheet.png">
-    <animation name="run" delay="0.06">
+    <animation name="run" delay="0.06" loop="1">
         <origin x="0.5" y="0.5" />
         <framelist>
             <frame name="cat_run_1.png" />
@@ -13,14 +13,14 @@
             <frame name="cat_run_9.png" />
         </framelist>
     </animation>
-    <animation name="jump" delay="0.05">
+    <animation name="jump" delay="0.05" loop="1">
        <origin x="0.5" y="0.5" />
        <framelist>
             <frame name="cat_jump_1.png" />
         </framelist>
     </animation>
     
-    <animation name="attack" delay="0.1">
+    <animation name="attack" delay="0.1" loop="1">
         <origin x="0.5" y="0.5" />
         <framelist>
             <frame name="cat_attack_1.png" />
@@ -32,7 +32,7 @@
     </animation>
     
     
-    <animation name="fall" delay="0.1">
+    <animation name="fall" delay="0.1" loop="1">
        <origin x="0.5" y="0.5" />
         <framelist>
             <frame name="cat_fall_1.png" />
@@ -46,7 +46,7 @@
         </framelist>
     </animation>
 
-    <animation name="fly" delay="0.1">
+    <animation name="fly" delay="0.1" loop="1">
         <origin x="0.5" y="0.5" />
         <framelist>
             <frame name="cat_fly_1.png" />
@@ -61,7 +61,7 @@
         </framelist>
     </animation>
 
-    <animation name="skill" delay="0.1">
+    <animation name="skill" delay="0.1" loop="1">
         <origin x="0.5" y="0.5" />
         <framelist>
             <frame name="monkey_skill_1.png" />
@@ -79,7 +79,7 @@
 
     </animation>
 
-    <animation name="idle" delay="0.1">
+    <animation name="idle" delay="0.1" loop="1">
         <origin x="0.5" y="0.5" />
         <framelist>
             <frame name="cat_idle_1.png" />

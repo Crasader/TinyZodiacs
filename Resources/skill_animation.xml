@@ -1,30 +1,29 @@
 <character_animation name="skill" plist_name="test_sheet.plist" image_name="test_sheet.png">
-    <animation name="aura" delay="0.1">
+    <animation name="aura" delay="0.1" loop="infinity">
         <origin x="0.5" y="0.5" />
         <framelist>
             <frame name="aura_1.png" />
             <frame name="aura_2.png" />
             <frame name="aura_3.png" />
             <frame name="aura_4.png" />
-
         </framelist>
     </animation>
     
-    <animation name="arrow" delay="0.1">
+    <animation name="arrow" delay="0.1" loop="infinity">
         <origin x="0.5" y="0.5" />
         <framelist>
             <frame name="arrow.png" />
         </framelist>
     </animation>
     
-    <animation name="pig" delay="0.1">
+    <animation name="pig" delay="0.1" loop="infinity">
         <origin x="0.5" y="0.5" />
         <framelist>
             <frame name="big.png" />
         </framelist>
     </animation>
     
-    <animation name="tower_orb_1" delay="0.1">
+    <animation name="tower_orb_1" delay="0.1" loop="infinity">
         <origin x="0.5" y="0.5" />
         <framelist>
             <frame name="tower_orb_1_1.png" />
@@ -36,7 +35,7 @@
         </framelist>
     </animation>
     
-    <animation name="tower_orb_2" delay="0.1">
+    <animation name="tower_orb_2" delay="0.1" >
         <origin x="0.5" y="0.5" />
         <framelist>
             <frame name="tower_orb_2_1.png" />

@@ -28,6 +28,7 @@ public:
     float delay;
     float positionX;
     float positionY;
+    int laneID;
     std::vector<std::string> listMonsterID;
     
     CREATE_FUNC(MonsterCreatorDTO);

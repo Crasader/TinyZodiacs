@@ -23,8 +23,6 @@ public:
     CC_SYNTHESIZE_RETAIN(CCAnimation*, animation, Animation);
     CC_SYNTHESIZE(CCPoint, origin, Origin);
     
-
-    
     AnimationObject(CCAnimation* animation, CCPoint origin);
     AnimationObject();
     ~AnimationObject();

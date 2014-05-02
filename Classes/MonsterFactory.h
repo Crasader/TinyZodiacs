@@ -26,7 +26,6 @@ private:
     CC_SYNTHESIZE(Group, group, Group);
     CC_SYNTHESIZE(CCNode*, holder, Holder);
     CC_SYNTHESIZE(CCArray*, listMonster, ListMonster);
-     CC_SYNTHESIZE(CCArray*, listMonsterRemoved, ListMonsterRemoved);
     CC_SYNTHESIZE(b2World*, world, World);
     CC_SYNTHESIZE(CCArray*, listMonsterCreator, ListMonsterCreator);
 protected:
@@ -37,9 +36,9 @@ public:
     virtual bool init();
     virtual void update(float dt);
     
-    Monster* createMonster(CharacterDTO characterDTO, CCPoint position, b2World* world);
-    void createMonsters(CharacterDTO monsterDTO, CCPoint position, int quantity, float timeDelayPerMonster);
-    void createMonsterList(CCArray* listMonsterDTO, CCPoint position, int quantity, float timeDelayPerMonster);
+    Monster* createMonster(CharacterDTO* monsterDTO, CCPoint position, int laneID, b2World* world);
+//    void createMonsters(CharacterDTO* monsterDTO, CCPoint position, int quantity, float timeDelayPerMonster);
+    void createMonsterList(CCArray* listMonsterDTO, CCPoint position, int laneID, int quantity, float timeDelayPerMonster);
     void createMonsterFromSchedule(CCNode* sender, void* data);
     void finishCreateMonsterFromSchedule(CCNode* sender, void* data);
     void createMonsterListFromSchedule(CCNode* sender, void* data);

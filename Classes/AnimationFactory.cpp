@@ -77,11 +77,11 @@ bool AnimationFactory::loadXMLAnimationByNameFile(const char *xmlFileName)
     // Get plist fi
     XMLElement* docElement = document.FirstChildElement();
     
-    const char* characterName= docElement->Attribute(NAME_TAG);
+    const char* characterName= docElement->Attribute(ATTRIBUTE_NAME);
     
-    for (XMLElement* element = docElement->FirstChildElement(ANIMATION_TAG); element; element = element->NextSiblingElement())
+    for (XMLElement* element = docElement->FirstChildElement(TAG_ANIMATION); element; element = element->NextSiblingElement())
     {
-        CCString* animationName = CCString::create(element->Attribute(NAME_TAG));
+        CCString* animationName = CCString::create(element->Attribute(ATTRIBUTE_NAME));
         if (animationName) {
             
             AnimationObject* animation = XMLAnimationParser::getAnimationObjectFromXMLNode(element);

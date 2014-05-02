@@ -19,8 +19,7 @@ MonsterFactory::MonsterFactory()
     this->listMonster->retain();
     this->listMonsterCreator = CCArray::create();
     this->listMonsterCreator->retain();
-    this->listMonsterRemoved = CCArray::create();
-    this->listMonsterRemoved->retain();
+    
     this->group = A;
 }
 
@@ -28,7 +27,6 @@ MonsterFactory::~MonsterFactory()
 {
     stopCreateMonster();
     CC_SAFE_RELEASE_NULL(this->listMonster);
-    CC_SAFE_RELEASE_NULL(this->listMonsterRemoved);
     CC_SAFE_RELEASE_NULL(this->listMonsterCreator);
 }
 
@@ -37,20 +35,20 @@ bool MonsterFactory::init()
     return true;
 }
 
-Monster* MonsterFactory::createMonster(CharacterDTO monsterDTO, CCPoint position, b2World* world)
+Monster* MonsterFactory::createMonster(CharacterDTO* monsterDTO, CCPoint position, int laneID, b2World* world)
 {
     Monster* monster = Monster::create();
     // monster->retain();
     
-    monster->setOriginCharacterData(monsterDTO.data);
+    monster->setOriginCharacterData(monsterDTO->data);
     
     //Create Animation
-    string run = monsterDTO.animation;
-    string attack = monsterDTO.animation;
-    string idle = monsterDTO.animation;
-    string fall = monsterDTO.animation;
-    string fly = monsterDTO.animation;
-    string jump = monsterDTO.animation;
+    string run = monsterDTO->animation;
+    string attack = monsterDTO->animation;
+    string idle = monsterDTO->animation;
+    string fall = monsterDTO->animation;
+    string fly = monsterDTO->animation;
+    string jump = monsterDTO->animation;
     
     monster->runAnimation = AnimationFactory::getSharedFactory()->getAnimationObjectByName(run.append(RUN).c_str());
     monster->attackAnimation = AnimationFactory::getSharedFactory()->getAnimationObjectByName(attack.append(ATTACK).c_str());
@@ -71,9 +69,9 @@ Monster* MonsterFactory::createMonster(CharacterDTO monsterDTO, CCPoint position
     b2Body *body = world->CreateBody(&bodyDef);
     
     gbox2d::GB2ShapeCache *sc =  gbox2d::GB2ShapeCache::sharedGB2ShapeCache();
-    sc->addFixturesToBody(body, monsterDTO.body.c_str());
-    monster->setSpriteAnchorPoint(sc->anchorPointForShape(monsterDTO.body.c_str()));
-    monster->getSprite()->setAnchorPoint(sc->anchorPointForShape(monsterDTO.body.c_str()));
+    sc->addFixturesToBody(body, monsterDTO->body.c_str());
+    monster->setSpriteAnchorPoint(sc->anchorPointForShape(monsterDTO->body.c_str()));
+    monster->getSprite()->setAnchorPoint(sc->anchorPointForShape(monsterDTO->body.c_str()));
     
     monster->setSkin(body, monster->getSprite());
     //  monster->getSprite()->setVisible(false);
@@ -82,38 +80,41 @@ Monster* MonsterFactory::createMonster(CharacterDTO monsterDTO, CCPoint position
     monster->setPositionInPixel(position);
     monster->setGroup(this->group);
     monster->flipDirection(LEFT);
-    monster->setLaneID(3);
-       
+    monster->setLaneID(laneID);
+    
     return monster;
 }
 
-void MonsterFactory::createMonsters(CharacterDTO monsterDTO, CCPoint position, int quantity, float timeDelayPerMonster)
-{
-    vector<void*> *prms = new vector<void*>();
-    
-    CCPoint* pos = new CCPoint(position);
-    CharacterDTO* dto = new CharacterDTO(monsterDTO);
-    
-    prms->push_back(dto);
-    prms->push_back(pos);
-    prms->push_back(world);
-    
-    ScheduleManager::getInstance()->scheduleFunction(CCCallFuncND::create((CCObject*)this, callfuncND_selector(MonsterFactory::createMonsterFromSchedule),prms),CCCallFuncND::create((CCObject*)this, callfuncND_selector(MonsterFactory::finishCreateMonsterFromSchedule),prms), timeDelayPerMonster, quantity);
-    
-}
+//void MonsterFactory::createMonsters(CharacterDTO* monsterDTO, CCPoint position, int quantity, float timeDelayPerMonster)
+//{
+//    vector<void*> *prms = new vector<void*>();
+//    
+//    CCPoint* pos = new CCPoint(position);
+//    CharacterDTO* dto = monsterDTO;
+//    
+//    prms->push_back(dto);
+//    prms->push_back(pos);
+//    prms->push_back(world);
+//    
+//    ScheduleManager::getInstance()->scheduleFunction(CCCallFuncND::create((CCObject*)this, callfuncND_selector(MonsterFactory::createMonsterFromSchedule),prms),CCCallFuncND::create((CCObject*)this, callfuncND_selector(MonsterFactory::finishCreateMonsterFromSchedule),prms), timeDelayPerMonster, quantity);
+//    
+//}
 
-void MonsterFactory::createMonsterList(CCArray* listMonsterDTO, CCPoint position, int quantity, float timeDelayPerMonster)
+void MonsterFactory::createMonsterList(CCArray* listMonsterDTO, CCPoint position, int laneID, int quantity, float timeDelayPerMonster)
 {
     vector<void*> *prms = new vector<void*>();
-    
-    CCPoint* pos = new CCPoint(position);
-    
+
     CCArray* listDTO = CCArray::createWithCapacity(listMonsterDTO->count());
     listDTO->addObjectsFromArray(listMonsterDTO);
     listDTO->retain();
     
+    CCPoint* pos = new CCPoint(position);
+    
+    int* lID = new int(laneID);
+    
     prms->push_back(listDTO);
     prms->push_back(pos);
+    prms->push_back(lID);
     prms->push_back(this->world);
     
     ScheduleManager::getInstance()->scheduleFunction(CCCallFuncND::create((CCObject*)this, callfuncND_selector(MonsterFactory::createMonsterListFromSchedule),prms),CCCallFuncND::create((CCObject*)this, callfuncND_selector(MonsterFactory::finishCreateMonsterListFromSchedule),prms), timeDelayPerMonster, quantity);
@@ -126,9 +127,10 @@ void MonsterFactory::createMonsterFromSchedule(CCNode* sender, void* data)
     
     CharacterDTO* dto = static_cast<CharacterDTO*>(params->at(0));
     CCPoint *pos = static_cast<CCPoint*>(params->at(1));
-    b2World *world = static_cast<b2World*>(params->at(2));
+    int* laneID = static_cast<int*>(params->at(2));
+    b2World *world = static_cast<b2World*>(params->at(3));
     
-    addNewMonster(createMonster(*dto,*pos,world));
+    addNewMonster(createMonster(dto,*pos,*laneID,world));
     
 }
 
@@ -161,8 +163,9 @@ void MonsterFactory::createMonsterListFromSchedule(CCNode* sender, void* data)
     {
         CharacterDTO* dto = (CharacterDTO*)(listMonster->objectAtIndex(0));
         CCPoint *pos = static_cast<CCPoint*>(params->at(1));
-        b2World *world = static_cast<b2World*>(params->at(2));
-        addNewMonster(createMonster(*dto,*pos,world));
+        int* laneID = static_cast<int*>(params->at(2));
+        b2World *world = static_cast<b2World*>(params->at(3));
+        addNewMonster(createMonster(dto, *pos, *laneID, world));
         listMonster->removeObjectAtIndex(0);
     }
 }
@@ -174,12 +177,14 @@ void MonsterFactory::finishCreateMonsterListFromSchedule(CCNode* sender, void* d
     
     CCArray* listMonster  = static_cast<CCArray*>(params->at(0));
     CCPoint *pos = static_cast<CCPoint*>(params->at(1));
+    int* laneID = static_cast<int*>(params->at(2));
     
     //world do not delete
     //b2World *world = static_cast<b2World*>(params->at(2));
     
     listMonster->release();
     delete pos;
+    delete laneID;
     
     delete params;
 }
@@ -202,6 +207,7 @@ void MonsterFactory::registerMonsterCreator(MonsterCreatorDTO* monsterCreatorDTO
     monsterCreator->setDelayPerUnit(monsterCreatorDTO->delayPerUnit);
     monsterCreator->setListMonsterID(monsterCreatorDTO->listMonsterID);
     monsterCreator->setPosition(ccp(monsterCreatorDTO->positionX,monsterCreatorDTO->positionY));
+    monsterCreator->setLaneID(monsterCreatorDTO->laneID);
     monsterCreator->setMonsterFactory(this);
     
     this->listMonsterCreator->addObject(monsterCreator);
@@ -229,11 +235,5 @@ void MonsterFactory::startCreateMonster()
 
 void MonsterFactory::update(float dt)
 {
-    CCObject* object = NULL;
-    CCARRAY_FOREACH(this->listMonsterRemoved, object)
-    {
-        Monster* monster = static_cast<Monster*>(object);
-        this->getListMonster()->removeObject(monster);
-    }
-    this->listMonsterRemoved->removeAllObjects();
+    
 }
