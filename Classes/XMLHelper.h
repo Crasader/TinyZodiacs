@@ -20,6 +20,8 @@ class XMLHelper
 private:
 protected:
 public:
+    static XMLDocument* getXMLDocument (const char *xmlFileName);
+    
     static std::string readString(const XMLElement* root, std::string defaultValue);
     static int readInt(const XMLElement* root, int defaultValue);
     static float readFloat(const XMLElement* root, float defaultValue);

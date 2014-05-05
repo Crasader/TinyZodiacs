@@ -7,7 +7,7 @@
 //
 
 #include "Character.h"
-#include "AnimationFactory.h"
+#include "AnimationLoader.h"
 #include "Box2D/Box2D.h"
 #include "CharacterMidAirState.h"
 #include "CharacterJumpState.h"
@@ -47,7 +47,7 @@ void Character::changeState(CharacterState *states)
     if(this->state != NULL)
     {
         this->state->onExitState();
-        delete this->state;
+        this->state->release();
         this->state = NULL;
     }
     this->state = states;
@@ -82,8 +82,6 @@ void Character::setOriginCharacterData(CharacterData data)
 bool falling = false;
 void Character::update(float dt)
 {
-    //
-    
     if(this->normalAttack != NULL)
     {
         this->normalAttack->update(dt);

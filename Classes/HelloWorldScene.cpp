@@ -28,7 +28,8 @@ bool HelloWorld::init()
     {
         return false;
     }
-    GameManager::getSharedManager()->loadResource();
+    GameManager::getInstance()->loadResource();
+    GameManager::getInstance()->loadData();
     CCSize visibleSize = CCDirector::sharedDirector()->getVisibleSize();
     CCPoint origin = CCDirector::sharedDirector()->getVisibleOrigin();
     

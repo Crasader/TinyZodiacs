@@ -1,4 +1,4 @@
-<character id="monster">
+<character id="monster_cat">
     <animation>cat</animation>
 	<body>cat</body>
     <hp>100</hp>
@@ -8,5 +8,6 @@
     <atk_speed>0.1</atk_speed>
     <max_jump>5</max_jump>
     <jump_height>10</jump_height>
+    <sensor_width>100</sensor_width>
     <skill_0>monster_normal_attack</skill_0>
 </character>

@@ -83,8 +83,6 @@ void ScheduleManager::stopScheduledObjectAction(CCAction* target)
 
 void ScheduleManager::scheduleFunction(CCCallFunc* callFunction, CCCallFunc* endFunction, float duration, int repeatTime)
 {
-    
-    
     CCArray* arr1 = CCArray::create();
     arr1->addObject(CCDelayTime::create(duration));
     arr1->addObject(callFunction);

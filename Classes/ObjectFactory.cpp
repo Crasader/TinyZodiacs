@@ -15,6 +15,7 @@
 #include "NormalShootingAttack.h"
 #include "CharacterFactory.h"
 #include "MoveableMapObject.h"
+#include "DataCollector.h"
 
 USING_NS_CC;
 enum _entityCategory {
@@ -285,12 +286,12 @@ Tower* ObjectFactory::createTower(TowerDTO* towerDTO, b2World* world)
     string fly = heroDTOData.animation;
     string jump = heroDTOData.animation;
     
-    tower->runAnimation = AnimationFactory::getSharedFactory()->getAnimationObjectByName(run.append(RUN).c_str());
-    tower->attackAnimation = AnimationFactory::getSharedFactory()->getAnimationObjectByName(attack.append(ATTACK).c_str());
-    tower->jumpAnimation = AnimationFactory::getSharedFactory()->getAnimationObjectByName(jump.append(JUMP).c_str());
-    tower->idleAnimation = AnimationFactory::getSharedFactory()->getAnimationObjectByName(idle.append(IDLE).c_str());
-    tower->fallAnimation = AnimationFactory::getSharedFactory()->getAnimationObjectByName(fall.append(FALL).c_str());
-    tower->flyAnimation = AnimationFactory::getSharedFactory()->getAnimationObjectByName(fly.append(FLY).c_str());
+    tower->runAnimation = DataCollector::getInstance()->getAnimationObjectByKey(run.append(RUN).c_str());
+    tower->attackAnimation = DataCollector::getInstance()->getAnimationObjectByKey(attack.append(ATTACK).c_str());
+    tower->jumpAnimation = DataCollector::getInstance()->getAnimationObjectByKey(jump.append(JUMP).c_str());
+    tower->idleAnimation = DataCollector::getInstance()->getAnimationObjectByKey(idle.append(IDLE).c_str());
+    tower->fallAnimation = DataCollector::getInstance()->getAnimationObjectByKey(fall.append(FALL).c_str());
+    tower->flyAnimation = DataCollector::getInstance()->getAnimationObjectByKey(fly.append(FLY).c_str());
     tower->attackAnimation->getAnimation()->setDelayPerUnit(tower->getOriginCharacterData().getAttackSpeed());
     
     //body

@@ -26,6 +26,7 @@ public:
     
     virtual bool init();
     
+    string id;
     string body;
     string animation;
     CharacterData data;

@@ -19,7 +19,7 @@ CharacterAttackState::CharacterAttackState(Character* character, AbstractSkill* 
 
 bool CharacterAttackState::onEnterState()
 {
-  //  CCLOG("enter attack state");
+    //  CCLOG("enter attack state");
     CCAnimate* animation = CCAnimate::create(this->skillAnimation->getAnimation());
     CCCallFunc* callBack = CCCallFunc::create(this, callfunc_selector(CharacterAttackState::onFinishAttackAnimation));
     
@@ -29,7 +29,7 @@ bool CharacterAttackState::onEnterState()
     
     this->action = CCSequence::create(arr);
     this->character->getSprite()->runAction( this->action);
-//
+    
     //Excute attack
     this->skill->excute();
     return true;

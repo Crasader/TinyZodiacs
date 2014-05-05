@@ -9,7 +9,7 @@
 #include "GameManager.h"
 
 USING_NS_CC;
-static GameManager* sharedFactory = NULL;
+static GameManager* instance = NULL;
 
 GameManager::GameManager()
 {
@@ -19,6 +19,15 @@ GameManager::GameManager()
 GameManager::~GameManager()
 {
     
+}
+
+GameManager* GameManager::getInstance()
+{
+    if (instance == NULL)
+    {
+        instance = new GameManager();
+    }
+    return instance;
 }
 
 bool GameManager::loadResource()
@@ -41,25 +50,25 @@ bool GameManager::loadResource()
     
     gbox2d::GB2ShapeCache *sc = gbox2d::GB2ShapeCache::sharedGB2ShapeCache();
     
-
+    
     sc->addShapesWithFile("character_body.plist");
     sc->addShapesWithFile("cat_body.plist");
     sc->addShapesWithFile("skill_body.plist");
     sc->addShapesWithFile("map1_body.plist");
- 
-    AnimationFactory::getSharedFactory()->loadXMLAnimation();
+    
+    
     MapFactory::getSharedFactory()->loadXMLMap();
     
     return false;
 }
 
-GameManager* GameManager::getSharedManager()
+bool GameManager::loadData()
 {
-    if (!sharedFactory)
-    {
-        sharedFactory = new GameManager();
-        //  this->sharedFactory->init();
-    }
-    return sharedFactory;
+    AnimationLoader::loadData();
+    MapLoader::loadData();
+    HeroLoader::loadData();
     
+    return true;
 }
+
+

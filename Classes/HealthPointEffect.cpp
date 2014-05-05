@@ -7,7 +7,7 @@
 //
 
 #include "HealthPointEffect.h"
-#include "AnimationFactory.h"
+#include "AnimationLoader.h"
 
 HealthPointEffect::HealthPointEffect()
 {
@@ -36,7 +36,7 @@ void HealthPointEffect::run()
     CCMoveBy* moveBy  =  CCMoveBy::create(0.5f, ccp(0,200));
     CCJumpBy* jumpBy = CCJumpBy::create(0.5f, ccp(30,10), 100, 1);
     
-    CCAnimate* animate = CCAnimate::create(AnimationFactory::getSharedFactory()->getAnimationObjectByName("skill-aura")->getAnimation());
+    CCAnimate* animate = CCAnimate::create(DataCollector::getInstance()->getAnimationObjectByKey("skill-aura")->getAnimation());
     CCFadeOut* fadeOut = CCFadeOut::create(0.5f);
     CCScaleBy* scaleBy = CCScaleBy::create(0.5f, 0.75f);
     CCCallFunc* func = CCCallFuncND::create(this, callfuncND_selector(HealthPointEffect::stop),NULL);
@@ -60,7 +60,7 @@ void HealthPointEffect::run()
 
 void HealthPointEffect::stop()
 {
- //   this->removeFromParent();
+    this->removeFromParent();
     this->isStopped = true;
 }
 

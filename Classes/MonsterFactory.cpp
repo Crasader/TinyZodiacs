@@ -11,6 +11,7 @@
 #include "ParameterObject.h"
 #include "GameObjectManager.h"
 #include "LayerIndexConstants.h"
+#include "DataCollector.h"
 #include <queue>
 
 MonsterFactory::MonsterFactory()
@@ -50,12 +51,12 @@ Monster* MonsterFactory::createMonster(CharacterDTO* monsterDTO, CCPoint positio
     string fly = monsterDTO->animation;
     string jump = monsterDTO->animation;
     
-    monster->runAnimation = AnimationFactory::getSharedFactory()->getAnimationObjectByName(run.append(RUN).c_str());
-    monster->attackAnimation = AnimationFactory::getSharedFactory()->getAnimationObjectByName(attack.append(ATTACK).c_str());
-    monster->jumpAnimation = AnimationFactory::getSharedFactory()->getAnimationObjectByName(jump.append(JUMP).c_str());
-    monster->idleAnimation = AnimationFactory::getSharedFactory()->getAnimationObjectByName(idle.append(IDLE).c_str());
-    monster->fallAnimation = AnimationFactory::getSharedFactory()->getAnimationObjectByName(fall.append(FALL).c_str());
-    monster->flyAnimation = AnimationFactory::getSharedFactory()->getAnimationObjectByName(fly.append(FLY).c_str());
+    monster->runAnimation = DataCollector::getInstance()->getAnimationObjectByKey(run.append(RUN).c_str());
+    monster->attackAnimation = DataCollector::getInstance()->getAnimationObjectByKey(attack.append(ATTACK).c_str());
+    monster->jumpAnimation = DataCollector::getInstance()->getAnimationObjectByKey(jump.append(JUMP).c_str());
+    monster->idleAnimation = DataCollector::getInstance()->getAnimationObjectByKey(idle.append(IDLE).c_str());
+    monster->fallAnimation = DataCollector::getInstance()->getAnimationObjectByKey(fall.append(FALL).c_str());
+    monster->flyAnimation = DataCollector::getInstance()->getAnimationObjectByKey(fly.append(FLY).c_str());
     //
     monster->attackAnimation->getAnimation()->setDelayPerUnit(monster->getOriginCharacterData().getAttackSpeed());
     

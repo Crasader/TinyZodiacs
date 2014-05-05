@@ -16,3 +16,7 @@ ObjectState::~ObjectState()
 {
 }
 
+bool ObjectState::init()
+{
+    return true;
+}

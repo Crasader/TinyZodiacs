@@ -9,7 +9,6 @@
 #include "NormalProjectile.h"
 #include "NormalShootingSkillData.h"
 #include "GB2ShapeCache-x.h"
-#include "AnimationFactory.h"
 #include "Util.h"
 #include "LayerIndexConstants.h"
 #include "Character.h"

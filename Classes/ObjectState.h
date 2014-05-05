@@ -19,6 +19,8 @@ protected:
 public:
     ObjectState();
     ~ObjectState();
+    
+    virtual bool init();
 
     virtual void update(float dt) = 0;
     

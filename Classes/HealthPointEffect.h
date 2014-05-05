@@ -12,6 +12,7 @@
 #include <iostream>
 #include "cocos2d.h"
 #include "GameEffect.h"
+#include "DataCollector.h"
 
 USING_NS_CC;
 

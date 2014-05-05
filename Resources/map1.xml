@@ -246,14 +246,14 @@
     </tower_list>
     <monster_factory_list>
         <monster_factory group="B">
-            <monster_creator delay_per_unit="2" delay="1" lane = "2">
+            <monster_creator delay_per_unit="2" delay="0.2" lane = "2">
                 <position x="2000" y="400"/>
-                <monster>character_cat.xml</monster>
+                <monster>cat,monkey</monster>
             </monster_creator>
             
             <monster_creator delay_per_unit="0.5" delay="25" lane = "3">
                 <position x="1500" y="500"/>
-                <monster>character_monkey.xml</monster>
+                <monster>monkey</monster>
             </monster_creator>
         </monster_factory>
   

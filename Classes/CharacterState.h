@@ -26,6 +26,7 @@ public:
     CharacterState(Character* character);
     virtual ~CharacterState();
     
+    virtual bool init();
     virtual void update(float dt) = 0;
     
     virtual void stopAction();
@@ -33,6 +34,8 @@ public:
     virtual bool jump() = 0;
     virtual bool useSkill() = 0;
     virtual bool move() = 0;
+    
+
 };
 
 #endif /* defined(__SampleCocosProject__CharacterState__) */

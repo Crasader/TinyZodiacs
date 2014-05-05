@@ -8,6 +8,35 @@
 
 #include "XMLHelper.h"
 
+XMLDocument* XMLHelper::getXMLDocument (const char *xmlFileName)
+{
+    XMLDocument* document = new XMLDocument();
+    
+    std::string fullPath = CCFileUtils::sharedFileUtils()->fullPathForFilename(xmlFileName);
+    
+    unsigned long dataSize = 0;
+    unsigned char* pFileData = NULL;
+    
+    pFileData = (unsigned char*) CCFileUtils::sharedFileUtils()->getFileData(fullPath.c_str(), "r", &dataSize);
+    if (!pFileData)
+    {
+        CCLOG("Empty file: %s", fullPath.c_str());
+        assert(0);
+    }
+    std::string fileContent;
+    fileContent.assign(reinterpret_cast<const char*>( pFileData), dataSize);
+    
+    
+    if( document->Parse(fileContent.c_str()) != XML_NO_ERROR)
+    {
+        CCLOG("Cannot parse file: %s", fullPath.c_str());
+        assert(0);
+    }
+    delete []pFileData;
+    
+    return document;
+}
+
 std::string XMLHelper::readString(const XMLElement* root, std::string defaultValue)
 {
     if(root != NULL)
@@ -108,7 +137,7 @@ bool  XMLHelper::readAttributeBool(const XMLElement* root, const char* attribute
     return defaultValue;
 }
 
-const XMLElement* XMLHelper::loadElementById(const char* tagName,const char* key, const char* attributeName, const XMLElement* root)
+const XMLElement* XMLHelper::loadElementById(const char* tagName, const char* key, const char* attributeName, const XMLElement* root)
 {
     const XMLElement* child = root->FirstChildElement(tagName);
     

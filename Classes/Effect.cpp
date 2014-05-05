@@ -7,10 +7,10 @@
 //
 
 #include "Effect.h"
-#include "AnimationFactory.h"
 #include "PhysicConstants.h"
 #include "ScheduleManager.h"
 #include "Character.h"
+#include "DataCollector.h"
 
 Effect::Effect(EffectData data, GameObject* holder)
 {
@@ -35,7 +35,7 @@ Effect::Effect(EffectData data, GameObject* holder)
     {
         this->sprite = CCSprite::create();
         this->sprite->retain();
-        this->animation = AnimationFactory::getSharedFactory()->getAnimationObjectByName(data.getAnimationId().c_str());
+        this->animation = DataCollector::getInstance()->getAnimationObjectByKey(data.getAnimationId().c_str());
         if(this->animation != NULL)
         {
             if(this->animation->getAnimation() != NULL)

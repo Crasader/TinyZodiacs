@@ -7,10 +7,10 @@
 //
 
 #include "SkillType0Parser.h"
-#include "AnimationFactory.h"
 #include "LayerIndexConstants.h"
 #include "EffectData.h"
 #include "EffectFactory.h"
+#include "DataCollector.h"
 
 //int SkillType0Parser::readDamage(const XMLElement* root)
 //{
@@ -128,7 +128,7 @@ AnimationObject* SkillType0Parser::readAnimation(const XMLElement* root)
         {
             return NULL;
         }
-        AnimationObject* anim = AnimationFactory::getSharedFactory()->getAnimationObjectByName(typeValue.c_str());
+        AnimationObject* anim = DataCollector::getInstance()->getAnimationObjectByKey(typeValue.c_str());
         return anim;
     }
     return NULL;

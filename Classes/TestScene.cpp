@@ -9,7 +9,6 @@
 #include "TestScene.h"
 #include "Cocos2d.h"
 #include "HelloWorldScene.h"
-#include "AnimationFactory.h"
 #include "GameManager.h"
 #include "GameBackgroundLayer.h"
 #include "GameObjectLayer.h"

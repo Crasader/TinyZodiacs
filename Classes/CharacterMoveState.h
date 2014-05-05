@@ -31,6 +31,7 @@ public:
     virtual bool jump();
     virtual bool useSkill();
     virtual bool move();
+
 };
 
 #endif /* defined(__SampleCocosProject__CharacterMoveState__) */

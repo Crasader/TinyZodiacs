@@ -11,17 +11,22 @@
 
 #include <iostream>
 #include "cocos2d.h"
-#include "AnimationFactory.h"
+#include "AnimationLoader.h"
 #include "GB2ShapeCache-x.h"
 #include "MapFactory.h"
+#include "MapLoader.h"
+#include "HeroLoader.h"
+
 
 class GameManager
 {
 public:
     GameManager();
     ~GameManager();
-    static bool loadResource();
-    static GameManager* getSharedManager();
+    bool loadResource();
+    bool loadData();
+    
+    static GameManager* getInstance();
     
 };
 

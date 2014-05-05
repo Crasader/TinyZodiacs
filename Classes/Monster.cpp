@@ -18,7 +18,7 @@ Monster::Monster()
 {
     isStopMove = false;
     this->landing = 0;
-   }
+}
 
 Monster::~Monster()
 {
@@ -40,7 +40,10 @@ void Monster::update(float dt)
     Character::update(dt);
     
     if(!isStopMove)
+    {
         this->move(this->direction);
+    }
+    
 }
 
 

@@ -1,24 +1,18 @@
 //
-//  CharacterFactory.h
+//  XMLCharacterParser.h
 //  TinyZodiacs
 //
-//  Created by Nhut on 3/24/14.
+//  Created by Nguyễn Hòa Phát on 5/5/14.
 //
 //
 
-#ifndef __TinyZodiacs__CharacterFactory__
-#define __TinyZodiacs__CharacterFactory__
+#ifndef __TinyZodiacs__XMLCharacterParser__
+#define __TinyZodiacs__XMLCharacterParser__
 
 #include <iostream>
 #include "cocos2d.h"
-#include "Box2d/Box2D.h"
 #include "CharacterDTO.h"
-#include "Hero.h"
-#include "GB2ShapeCache-x.h"
-#include "AnimationLoader.h"
-#include "SkillFactory.h"
-
-USING_NS_CC;
+#include "XMLHelper.h"
 
 #define TAG_BODY "body"
 #define TAG_ANIMATION "animation"
@@ -32,6 +26,7 @@ USING_NS_CC;
 #define TAG_SKILL_0 "skill_0"
 #define TAG_SKILL_1 "skill_1"
 #define TAG_SKILL_2 "skill_2"
+#define ATTRIBUTE_ID "id"
 
 
 #define RUN "-run"
@@ -47,12 +42,12 @@ USING_NS_CC;
 #define CHARACTER_MONKEY_XML_FILE "character_monkey.xml"
 #define CHARACTER_CAT_XML_FILE "character_cat.xml"
 
+using namespace tinyxml2;
 
-class CharacterFactory
+class XMLCharacterParser
 {
 private:
 protected:
-    
     static string readBodyData(tinyxml2::XMLElement* root);
     static int readHealthData(tinyxml2::XMLElement* root);
     static int readAttackData(tinyxml2::XMLElement* root);
@@ -63,20 +58,9 @@ protected:
     static int readJumpHeightData(tinyxml2::XMLElement* root);
     static string readAnimationData(tinyxml2::XMLElement* root);
     static string readSkill(tinyxml2::XMLElement* root);
-
-    static void loadBody(CharacterDTO heroDTOData, Character* character, b2World* world);
-    
-    static Hero* createHero(CharacterDTO heroDTOData, b2World* world, bool isLocal);
-    
-
 public:
-    
-    static CharacterFactory* getInstance();
-    static CharacterDTO loadXMLFile(const char* xmlFileName);
-     static CharacterDTO* loadXMLFile1(const char* xmlFileName);
-    
-    static Hero* createMonkeyHero(b2World* world, bool isLocal);
-    static Hero* createHero(string ID,b2World* world, bool isLocal);
-
+    static CharacterDTO* getCharacterDTOFromXMLElement(XMLElement* characterElement);
+    static void getCharacterDTOFromXMLElement(CharacterDTO* characterDTO, XMLElement* characterElement);
 };
-#endif /* defined(__TinyZodiacs__CharacterFactory__) */
+
+#endif /* defined(__TinyZodiacs__XMLCharacterParser__) */

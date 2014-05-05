@@ -16,7 +16,7 @@
 #include "CharacterDTO.h"
 #include "Tower.h"
 #include "GB2ShapeCache-x.h"
-#include "AnimationFactory.h"
+#include "DataCollector.h"
 #include "SkillFactory.h"
 #include "TowerDTO.h"
 

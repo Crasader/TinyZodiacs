@@ -31,3 +31,8 @@ void CharacterState::stopAction()
         this->character->getSprite()->stopAction(this->action);
     }
 }
+
+bool CharacterState::init()
+{
+    return true;
+}

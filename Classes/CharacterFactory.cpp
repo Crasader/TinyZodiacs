@@ -8,6 +8,7 @@
 
 #include "CharacterFactory.h"
 #include "XMLHelper.h"
+#include "DataCollector.h"
 
 using namespace tinyxml2;
 
@@ -63,118 +64,51 @@ CharacterDTO CharacterFactory::loadXMLFile(const char *xmlFileName)
 
 string CharacterFactory::readBodyData(tinyxml2::XMLElement* root)
 {
-//    if(root != NULL)
-//    {
-//        string bodyId = root->GetText();
-//        return bodyId;
-//    }
-//    return NULL;
     return XMLHelper::readString(root, "");
 }
 
 string CharacterFactory::readAnimationData(tinyxml2::XMLElement* root)
 {
-//    if(root != NULL)
-//    {
-//        string animationId = root->GetText();
-//        return animationId;
-//    }
-//    return NULL;
     return XMLHelper::readString(root, "");
 }
 
 int CharacterFactory::readHealthData(tinyxml2::XMLElement* root)
 {
-//    if(root != NULL)
-//    {
-//        string healthValue = root->GetText();
-//        int value = atoi(healthValue.c_str());
-//        return value;
-//    }
-//    return 0;
     return XMLHelper::readInt(root, 0);
 }
 
 int CharacterFactory::readAttackData(tinyxml2::XMLElement* root)
 {
-//    if(root != NULL)
-//    {
-//        string attackValue = root->GetText();
-//        int value = atoi(attackValue.c_str());
-//        return value;
-//    }
-//    return 0;
     return XMLHelper::readInt(root, 0);
 }
 
 string CharacterFactory::readSkill(tinyxml2::XMLElement *root)
 {
-//    if(root != NULL)
-//    {
-//        string skillId = root->GetText();
-//        return skillId;
-//    }
-//    return NULL;
     return XMLHelper::readString(root, "");
 }
 
 int CharacterFactory::readDefenseData(tinyxml2::XMLElement* root)
 {
-//    if(root != NULL)
-//    {
-//        string defenseValue = root->GetText();
-//        int value = atoi(defenseValue.c_str());
-//        return value;
-//    }
-//    return 0;
     return XMLHelper::readInt(root, 0);
 }
 
 int CharacterFactory::readSpeedData(tinyxml2::XMLElement* root)
 {
-//    if(root != NULL)
-//    {
-//        string speedValue = root->GetText();
-//        int value = atoi(speedValue.c_str());
-//        return value;
-//    }
-//    return 0;
     return XMLHelper::readInt(root, 0);
 }
 
 float CharacterFactory::readAttackSpeedData(tinyxml2::XMLElement* root)
 {
-//    if(root != NULL)
-//    {
-//        string attackSpeedValue = root->GetText();
-//        float value = atof(attackSpeedValue.c_str());
-//        return value;
-//    }
-//    return 0;
     return XMLHelper::readFloat(root, 0);
 }
 
 int CharacterFactory::readMaxJumpData(tinyxml2::XMLElement* root)
 {
-//    if(root != NULL)
-//    {
-//        string maxJumpValue = root->GetText();
-//        int value = atoi(maxJumpValue.c_str());
-//        return value;
-//    }
-//    return 0;
     return XMLHelper::readInt(root, 0);
 }
 
 int CharacterFactory::readJumpHeightData(tinyxml2::XMLElement* root)
 {
-//    if(root != NULL)
-//    {
-//        string jumpHeightValue = root->GetText();
-//        int value = atoi(jumpHeightValue.c_str());
-//        return value;
-//    }
-//    return 1;
     return XMLHelper::readInt(root, 0);
 }
 
@@ -194,13 +128,13 @@ Hero* CharacterFactory::createHero(CharacterDTO heroDTOData, b2World* world, boo
     string jump = heroDTOData.animation;
     string skill = heroDTOData.animation;
 
-    hero->runAnimation = AnimationFactory::getSharedFactory()->getAnimationObjectByName(string(std::string(run) + std::string(RUN)).c_str());
-    hero->attackAnimation = AnimationFactory::getSharedFactory()->getAnimationObjectByName(attack.append(ATTACK).c_str());
-    hero->jumpAnimation = AnimationFactory::getSharedFactory()->getAnimationObjectByName(jump.append(JUMP).c_str());
-    hero->idleAnimation = AnimationFactory::getSharedFactory()->getAnimationObjectByName(idle.append(IDLE).c_str());
-    hero->fallAnimation = AnimationFactory::getSharedFactory()->getAnimationObjectByName(fall.append(FALL).c_str());
-    hero->flyAnimation = AnimationFactory::getSharedFactory()->getAnimationObjectByName(fly.append(FLY).c_str());
-    hero->skill1Animation = AnimationFactory::getSharedFactory()->getAnimationObjectByName(skill.append(SKILL).c_str());
+    hero->runAnimation = DataCollector::getInstance()->getAnimationObjectByKey(string(std::string(run) + std::string(RUN)).c_str());
+    hero->attackAnimation = DataCollector::getInstance()->getAnimationObjectByKey(attack.append(ATTACK).c_str());
+    hero->jumpAnimation = DataCollector::getInstance()->getAnimationObjectByKey(jump.append(JUMP).c_str());
+    hero->idleAnimation = DataCollector::getInstance()->getAnimationObjectByKey(idle.append(IDLE).c_str());
+    hero->fallAnimation = DataCollector::getInstance()->getAnimationObjectByKey(fall.append(FALL).c_str());
+    hero->flyAnimation = DataCollector::getInstance()->getAnimationObjectByKey(fly.append(FLY).c_str());
+    hero->skill1Animation = DataCollector::getInstance()->getAnimationObjectByKey(skill.append(SKILL).c_str());
 
     //
     hero->attackAnimation->getAnimation()->setDelayPerUnit(hero->getOriginCharacterData().getAttackSpeed());
