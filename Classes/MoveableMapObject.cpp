@@ -11,8 +11,6 @@
 MoveableMapObject::MoveableMapObject()
 {
     
-       
-    
 }
 
 MoveableMapObject::~MoveableMapObject()

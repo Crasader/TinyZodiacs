@@ -172,7 +172,7 @@ void MonsterFactory::createMonsterListFromSchedule(CCNode* sender, void* data)
 
 void MonsterFactory::finishCreateMonsterListFromSchedule(CCNode* sender, void* data)
 {
-    CCLOG("des list");
+ 
     std::vector<void*>* params =  static_cast< std::vector<void*>*>(data);
     
     CCArray* listMonster  = static_cast<CCArray*>(params->at(0));

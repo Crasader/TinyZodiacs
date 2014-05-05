@@ -10,6 +10,8 @@
 #include "GameBackgroundLayer.h"
 #include "GameObjectLayer.h"
 #include "ControllerLayer.h"
+#include "HealthPointEffect.h"
+#include "EffectManager.h"
 
 USING_NS_CC;
 
@@ -104,7 +106,7 @@ void GameMenuLayer::update(float dt)
     if(this->getParent()->getChildByTag(3)!=NULL)
     {
         label->setString(((GameObjectLayer*)this->getParent()->getChildByTag(3))->text->getCString());
-       }
+    }
 
     
     
@@ -171,6 +173,16 @@ void GameMenuLayer::touchBegan(void* sender ,CCSet* pTouches, CCEvent* event)
 }
 void GameMenuLayer::touchHold(void* sender ,CCSet* pTouches, CCEvent* event)
 {
+//      CCPoint pos;
+//    if(this->getParent()->getChildByTag(3)!=NULL)
+//        pos=((GameObjectLayer*)this->getParent()->getChildByTag(3))->getCharacterActionEngine()->getCharacter()->getPositionInPixel();
+//    for(int i=0;i<5;i++)
+//    {
+//    HealthPointEffect* effect = HealthPointEffect::create();
+//    effect->setHealthPoint(100);
+//    EffectManager::getInstance()->runEffect(effect,pos);
+//    }
+//    
     std::string id = ((UIObject *)sender)->getID();
     if(id.compare(LEFT_BTN_ID) == 0)
     {

@@ -22,6 +22,7 @@
 #include "Monster.h"
 #include "Tower.h"
 #include "GameGroup.h"
+#include "EffectManager.h"
 
 USING_NS_CC;
 class GameWorld: public CCNode, public b2ContactListener

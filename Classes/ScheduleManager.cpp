@@ -78,7 +78,7 @@ void ScheduleManager::stopScheduledObjectAction(CCAction* target)
     {
         this->stopAction(target);
     }
-    CCLog("");
+
 }
 
 void ScheduleManager::scheduleFunction(CCCallFunc* callFunction, CCCallFunc* endFunction, float duration, int repeatTime)

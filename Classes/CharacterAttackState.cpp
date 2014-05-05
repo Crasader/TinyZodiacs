@@ -29,7 +29,7 @@ bool CharacterAttackState::onEnterState()
     
     this->action = CCSequence::create(arr);
     this->character->getSprite()->runAction( this->action);
-    
+//
     //Excute attack
     this->skill->excute();
     return true;

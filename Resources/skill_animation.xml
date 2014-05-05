@@ -35,7 +35,7 @@
         </framelist>
     </animation>
     
-    <animation name="tower_orb_2" delay="0.1" >
+    <animation name="tower_orb_2" delay="0.1" loop="infinity">
         <origin x="0.5" y="0.5" />
         <framelist>
             <frame name="tower_orb_2_1.png" />

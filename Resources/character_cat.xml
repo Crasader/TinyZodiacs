@@ -1,7 +1,7 @@
 <character id="cat">
     <animation>cat</animation>
 	<body>cat</body>
-    <hp>1</hp>
+    <hp>15</hp>
     <atk>5</atk>
     <def>2</def>
     <speed>10</speed>

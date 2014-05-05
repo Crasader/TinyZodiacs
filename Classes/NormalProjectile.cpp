@@ -225,11 +225,11 @@ void NormalProjectile::checkCollisionDataInBeginContact(PhysicData* data, b2Cont
             {
                 if(character->getGroup() == this->holder->getGroup())
                 {
-                    CCLOG("Allie begin");
+                   // CCLOG("Allie begin");
                 }
                 else
                 {
-                    CCLOG("Enemy begin");
+                   // CCLOG("Enemy begin");
                     CCObject* effectData;
                     CCARRAY_FOREACH(this->data.getListEnemyEffect(), effectData)
                     {
@@ -275,11 +275,11 @@ void NormalProjectile::checkCollisionDataInEndContact(PhysicData* data, b2Contac
             {
                 if(character->getGroup() == this->holder->getGroup())
                 {
-                    CCLOG("Allie end");
+                   // CCLOG("Allie end");
                 }
                 else
                 {
-                    CCLOG("Enemy end");
+                  //  CCLOG("Enemy end");
                 }
             }
             break;
@@ -302,7 +302,7 @@ void NormalProjectile::remove()
     GameObjectManager::getInstance()->addObject(this);
     this->collector->removeObject(this);
 //     this -> release();
-//    CCLOG("");
+
   }
 
 void NormalProjectile::excuteScheduledFunction(CCObject* pSender, void *object)

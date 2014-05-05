@@ -14,7 +14,8 @@
 #include "GLES-Render.h"
 #include "MapCreator.h"
 #include "MonsterFactory.h"
-
+#include "EffectManager.h"
+#include "HealthPointEffect.h"
 
 USING_NS_CC;
 
@@ -123,5 +124,12 @@ void GameObjectLayer::ccTouchesBegan(cocos2d::CCSet *pTouches, cocos2d::CCEvent 
     CCPoint temp =   this->gameWorld->convertToNodeSpace(touchPoint);
     text = CCString::createWithFormat("%0.2f-%0.2f",temp.x,temp.y);
     text->retain();
+    
+    HealthPointEffect* effect = HealthPointEffect::create();
+    effect->setHealthPoint(100);
+    
+  //  EffectManager::getInstance()->runEffect(effect, temp);
+    
+    
 }
 

@@ -89,11 +89,11 @@ bool GameWorld::init()
     
     
     CCArray* arr = CCArray::create();
-    arr->addObject(CCDelayTime::create(20));
+    arr->addObject(CCDelayTime::create(10));
     arr->addObject(CCCallFunc::create(this, callfunc_selector (GameWorld::foo)));
     
     CCSequence* seq = CCSequence::create(arr);
-    this->runAction(CCRepeat::create(seq,1));
+    this->runAction(CCRepeatForever::create(seq));
     
     this->setCameraFollowGroup(this->group1);
     return true;
@@ -104,6 +104,8 @@ void GameWorld::addManager()
 {
     manager = GameObjectManager::getInstance();
     manager->setWorld(this->world);
+    
+    EffectManager::getInstance()->setHolder(this);
     
     
     this->addChild(manager);
@@ -207,16 +209,16 @@ void GameWorld::update(float dt)
     
     this->group1->update(dt);
     this->group2->update(dt);
-    
+    EffectManager::getInstance()->update(dt);
 }
 
 
 void GameWorld::draw()
 {
-        ccGLEnableVertexAttribs( kCCVertexAttribFlag_Position );
-        kmGLPushMatrix();
-        world->DrawDebugData();
-        kmGLPopMatrix();
+//        ccGLEnableVertexAttribs( kCCVertexAttribFlag_Position );
+//        kmGLPushMatrix();
+//        world->DrawDebugData();
+//        kmGLPopMatrix();
 }
 
 //PHYSICS CONTACT

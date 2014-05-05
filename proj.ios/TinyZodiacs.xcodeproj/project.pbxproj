@@ -368,6 +368,10 @@
 		F5B85FBF1904BABF00CE4604 /* ForegroundDTO.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F5B85FB71904BABF00CE4604 /* ForegroundDTO.cpp */; };
 		F5B85FC01904BABF00CE4604 /* MapObjectDTO.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F5B85FB81904BABF00CE4604 /* MapObjectDTO.cpp */; };
 		F5B85FC21904BABF00CE4604 /* BackgroundDTO.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F5B85FBD1904BABF00CE4604 /* BackgroundDTO.cpp */; };
+		F5BAF288191484700093BA4F /* ContainerItem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F5BAF286191484700093BA4F /* ContainerItem.cpp */; };
+		F5BAF28B1914857A0093BA4F /* GameEffect.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F5BAF2891914857A0093BA4F /* GameEffect.cpp */; };
+		F5BAF28E191487930093BA4F /* EffectManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F5BAF28C191487930093BA4F /* EffectManager.cpp */; };
+		F5BAF29219148B380093BA4F /* HealthPointEffect.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F5BAF29019148B380093BA4F /* HealthPointEffect.cpp */; };
 		F5C89DFB18D2FCB5006E909D /* monkey_animation.xml in Resources */ = {isa = PBXBuildFile; fileRef = F5C89DFA18D2FCB5006E909D /* monkey_animation.xml */; };
 		F5C89DFE18D2FCE9006E909D /* monkey_spritesheet.plist in Resources */ = {isa = PBXBuildFile; fileRef = F5C89DFC18D2FCE9006E909D /* monkey_spritesheet.plist */; };
 		F5C89DFF18D2FCE9006E909D /* monkey_spritesheet.png in Resources */ = {isa = PBXBuildFile; fileRef = F5C89DFD18D2FCE9006E909D /* monkey_spritesheet.png */; };
@@ -1082,6 +1086,14 @@
 		F5B85FBC1904BABF00CE4604 /* ForegroundDTO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ForegroundDTO.h; sourceTree = "<group>"; };
 		F5B85FBD1904BABF00CE4604 /* BackgroundDTO.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BackgroundDTO.cpp; sourceTree = "<group>"; };
 		F5B85FBE1904BABF00CE4604 /* BackgroundDTO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BackgroundDTO.h; sourceTree = "<group>"; };
+		F5BAF286191484700093BA4F /* ContainerItem.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ContainerItem.cpp; sourceTree = "<group>"; };
+		F5BAF287191484700093BA4F /* ContainerItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContainerItem.h; sourceTree = "<group>"; };
+		F5BAF2891914857A0093BA4F /* GameEffect.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameEffect.cpp; sourceTree = "<group>"; };
+		F5BAF28A1914857A0093BA4F /* GameEffect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameEffect.h; sourceTree = "<group>"; };
+		F5BAF28C191487930093BA4F /* EffectManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = EffectManager.cpp; sourceTree = "<group>"; };
+		F5BAF28D191487930093BA4F /* EffectManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EffectManager.h; sourceTree = "<group>"; };
+		F5BAF29019148B380093BA4F /* HealthPointEffect.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = HealthPointEffect.cpp; sourceTree = "<group>"; };
+		F5BAF29119148B380093BA4F /* HealthPointEffect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HealthPointEffect.h; sourceTree = "<group>"; };
 		F5C89DFA18D2FCB5006E909D /* monkey_animation.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = monkey_animation.xml; sourceTree = "<group>"; };
 		F5C89DFC18D2FCE9006E909D /* monkey_spritesheet.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = monkey_spritesheet.plist; sourceTree = "<group>"; };
 		F5C89DFD18D2FCE9006E909D /* monkey_spritesheet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = monkey_spritesheet.png; sourceTree = "<group>"; };
@@ -1793,6 +1805,8 @@
 				3414166118DC23A0007B8C2B /* GameObjectManager.h */,
 				345F6B5118E2C71F00985A7A /* ScheduleManager.cpp */,
 				345F6B5218E2C71F00985A7A /* ScheduleManager.h */,
+				F5BAF28C191487930093BA4F /* EffectManager.cpp */,
+				F5BAF28D191487930093BA4F /* EffectManager.h */,
 			);
 			name = Managers;
 			sourceTree = "<group>";
@@ -2219,6 +2233,7 @@
 		F54AE96D18D2F01B00194E66 /* Objects */ = {
 			isa = PBXGroup;
 			children = (
+				F5BAF28F19148A8C0093BA4F /* Effect */,
 				343D9A5019134A52003F5DE4 /* Effect.h */,
 				343D9A5119134A52003F5DE4 /* Effect.cpp */,
 				343D9A4A19134163003F5DE4 /* GameWorld.h */,
@@ -2257,6 +2272,8 @@
 				51136ADB1908E62F00317D3A /* NoBodyMapObject.h */,
 				F5E2929618E6779500B9B152 /* Player.cpp */,
 				F5E2929718E6779500B9B152 /* Player.h */,
+				F5BAF286191484700093BA4F /* ContainerItem.cpp */,
+				F5BAF287191484700093BA4F /* ContainerItem.h */,
 			);
 			name = Objects;
 			sourceTree = "<group>";
@@ -2506,6 +2523,17 @@
 				F5AE36A81906799900FB7519 /* SensorObjectDTO.h */,
 			);
 			name = MapDTO;
+			sourceTree = "<group>";
+		};
+		F5BAF28F19148A8C0093BA4F /* Effect */ = {
+			isa = PBXGroup;
+			children = (
+				F5BAF2891914857A0093BA4F /* GameEffect.cpp */,
+				F5BAF28A1914857A0093BA4F /* GameEffect.h */,
+				F5BAF29019148B380093BA4F /* HealthPointEffect.cpp */,
+				F5BAF29119148B380093BA4F /* HealthPointEffect.h */,
+			);
+			name = Effect;
 			sourceTree = "<group>";
 		};
 		F5C89DF618D2FC7F006E909D /* Animation */ = {
@@ -2783,6 +2811,7 @@
 				51136ADC1908E62F00317D3A /* NoBodyMapObject.cpp in Sources */,
 				15A3D9271682F7D5002FB0C5 /* b2RevoluteJoint.cpp in Sources */,
 				15A3D9281682F7D5002FB0C5 /* b2RopeJoint.cpp in Sources */,
+				F5BAF29219148B380093BA4F /* HealthPointEffect.cpp in Sources */,
 				15A3D9291682F7D5002FB0C5 /* b2WeldJoint.cpp in Sources */,
 				F54AEA0518D2F4C100194E66 /* GameBackgroundLayer.cpp in Sources */,
 				34ED36C518D69C2C00FFA55A /* CharacterActionEngine.cpp in Sources */,
@@ -2828,6 +2857,7 @@
 				15A3DA321682F826002FB0C5 /* CCBFileLoader.cpp in Sources */,
 				15A3DA331682F826002FB0C5 /* CCBKeyframe.cpp in Sources */,
 				15A3DA341682F826002FB0C5 /* CCBReader.cpp in Sources */,
+				F5BAF28E191487930093BA4F /* EffectManager.cpp in Sources */,
 				15A3DA351682F826002FB0C5 /* CCBSequence.cpp in Sources */,
 				15A3DA361682F826002FB0C5 /* CCBSequenceProperty.cpp in Sources */,
 				F59E0BDC18D85E90001048BD /* NormalAttack.cpp in Sources */,
@@ -2859,6 +2889,7 @@
 				15A3DA491682F826002FB0C5 /* CCControl.cpp in Sources */,
 				15A3DA4A1682F826002FB0C5 /* CCControlButton.cpp in Sources */,
 				F54AE9BA18D2F1AA00194E66 /* CharacterMidAirAttackState.cpp in Sources */,
+				F5BAF28B1914857A0093BA4F /* GameEffect.cpp in Sources */,
 				15A3DA4B1682F826002FB0C5 /* CCControlColourPicker.cpp in Sources */,
 				15A3DA4C1682F826002FB0C5 /* CCControlHuePicker.cpp in Sources */,
 				375BD50F1868454E0024609E /* CCActionFrame.cpp in Sources */,
@@ -2866,6 +2897,7 @@
 				15A3DA4D1682F826002FB0C5 /* CCControlPotentiometer.cpp in Sources */,
 				15A3DA4E1682F826002FB0C5 /* CCControlSaturationBrightnessPicker.cpp in Sources */,
 				15A3DA4F1682F826002FB0C5 /* CCControlSlider.cpp in Sources */,
+				F5BAF288191484700093BA4F /* ContainerItem.cpp in Sources */,
 				15A3DA501682F826002FB0C5 /* CCControlStepper.cpp in Sources */,
 				15A3DA511682F826002FB0C5 /* CCControlSwitch.cpp in Sources */,
 				15A3DA521682F826002FB0C5 /* CCControlUtils.cpp in Sources */,

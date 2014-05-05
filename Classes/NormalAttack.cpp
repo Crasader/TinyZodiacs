@@ -185,11 +185,11 @@ void NormalAttack::checkCollisionDataInBeginContact(PhysicData* data, b2Contact 
                     {
                         if(character->getGroup() == this->holder->getGroup())
                         {
-                            CCLOG("Allie begin");
+                           // CCLOG("Allie begin");
                         }
                         else
                         {
-                            CCLOG("Enemy begin");
+                           // CCLOG("Enemy begin");
                             CCObject* effectData;
                             CCARRAY_FOREACH(this->data.getListEnemyEffect(), effectData)
                             {
@@ -231,11 +231,11 @@ void NormalAttack::checkCollisionDataInEndContact(PhysicData* data, b2Contact *c
                     {
                         if(character->getGroup() == this->holder->getGroup())
                         {
-                            CCLOG("Allie end");
+                           // CCLOG("Allie end");
                         }
                         else
                         {
-                            CCLOG("Enemy end");
+                          //  CCLOG("Enemy end");
                         }
                     }
                 }

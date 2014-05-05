@@ -19,7 +19,7 @@ CharacterMidAirState::CharacterMidAirState(Character* character): CharacterState
 
 bool CharacterMidAirState::onEnterState()
 {
-    return false;
+    return true;
 }
 
 bool CharacterMidAirState::onExitState()
@@ -36,7 +36,6 @@ void CharacterMidAirState::update(float dt)
         
         stopAction();
         //fall Action
-        this->character->fallAnimation->getAnimation()->setLoops(INFINITY);
         this->action = CCAnimate::create(this->character->fallAnimation->getAnimation());
         this->character->getSprite()->runAction(this->action);
        
@@ -48,7 +47,6 @@ void CharacterMidAirState::update(float dt)
         
         stopAction();
         //fly action
-        this->character->flyAnimation->getAnimation()->setLoops(INFINITY);
         this->action = CCAnimate::create(this->character->flyAnimation->getAnimation());
         this->character->getSprite()->runAction(this->action);
        
@@ -63,7 +61,7 @@ void CharacterMidAirState::update(float dt)
     }
     else
     {
-
+       
     }
 }
 

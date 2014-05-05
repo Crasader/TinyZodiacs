@@ -11,6 +11,8 @@
 #include "Util.h"
 #include "MonsterFactory.h"
 #include "GameObjectManager.h"
+#include "HealthPointEffect.h"
+#include "EffectManager.h"
 
 Monster::Monster()
 {
@@ -28,8 +30,7 @@ bool Monster::init()
     if (!Character::init()) {
         return false;
     }
-    this->sprite = CCSprite::create();
-    
+    this->sprite = CCSprite::createWithSpriteFrameName("cat_idle_1.png");
     return true;
 }
 
@@ -156,6 +157,8 @@ void Monster::doAction(SensorObject* sensorObject)
 
 void Monster::notifyByEffect(CCObject* effect)
 {
+     
+
     Character::notifyByEffect(effect);
     if(this->getcharacterData().getHealth() <= 0)
     {

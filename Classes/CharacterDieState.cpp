@@ -21,7 +21,6 @@ CharacterDieState::CharacterDieState(Character* character): CharacterState(chara
 bool CharacterDieState::onEnterState()
 {
     CCLOG("enter idle state");
-    this->character->idleAnimation->getAnimation()->setLoops(INFINITY);
     action = CCAnimate::create(this->character->idleAnimation->getAnimation());
     this->character->getSprite()->runAction(action);
     return true;

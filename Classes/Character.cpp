@@ -15,6 +15,8 @@
 #include "CharacterAttackState.h"
 #include "Util.h"
 #include "Effect.h"
+#include "HealthPointEffect.h"
+#include "EffectManager.h"
 
 
 
@@ -493,8 +495,15 @@ void Character::setPhysicGroup(uint16 group)
 
 void Character::notifyByEffect(CCObject* effect)
 {
+    
     this->characterData.setHealth(this->characterData.getHealth()+((Effect*)effect)->getHealth());
-    //    if(this->characterData.getHealth()<=0)
+    HealthPointEffect* gameEffect = HealthPointEffect::create();
+    gameEffect->setHealthPoint(((Effect*)effect)->getHealth());
+    
+    
+    EffectManager::getInstance()->runEffect(gameEffect, this->getPositionInPixel());
+
+   //     if(this->characterData.getHealth()<=0)
     //    {
     //        PhysicBodyManager::getInstance()->addBody(this);
     //    }

@@ -19,7 +19,7 @@ CharacterJumpState::CharacterJumpState(Character* character): CharacterState(cha
 bool CharacterJumpState::onEnterState()
 {
   //  CCLOG("enter jump state");
-    CCAction* jumpAction = CCAnimate::create(this->character->jumpAnimation->getAnimation());
+    CCAnimate* jumpAction = CCAnimate::create(this->character->jumpAnimation->getAnimation());
     CCCallFunc* callBack = CCCallFunc::create(this, callfunc_selector(CharacterJumpState::finishJumpAction));
     
     CCArray* arr = CCArray::create();

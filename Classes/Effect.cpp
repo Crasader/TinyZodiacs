@@ -163,7 +163,6 @@ void Effect::destroy()
 
 void Effect::onTimeTick()
 {
-    CCLOG("tick");
     Character* character = (Character*)this->holder;
 //    character->getCharacterData().setHealth(character->getCharacterData().getHealth()-this->health);
     character->notifyByEffect(this);

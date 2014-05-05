@@ -9,6 +9,7 @@
 #include "GameGroup.h"
 #include "ObjectFactory.h"
 #include "LayerIndexConstants.h"
+#include "EffectManager.h"
 
 GameGroup::GameGroup()
 {
@@ -235,5 +236,6 @@ void GameGroup::attachSpriteToMap(Map* map)
 
 void GameGroup::test()
 {
+  //  EffectManager::getInstance()->clean();
 }
 

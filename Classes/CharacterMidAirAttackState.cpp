@@ -20,7 +20,7 @@ bool CharacterMidAirAttackState::onEnterState()
 
 bool CharacterMidAirAttackState::onExitState()
 {
-    this->character->getSprite()->stopAllActions();
+   
     return true;
 }
 
