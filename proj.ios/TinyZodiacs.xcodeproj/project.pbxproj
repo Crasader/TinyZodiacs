@@ -380,6 +380,7 @@
 		F5BAF28B1914857A0093BA4F /* GameEffect.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F5BAF2891914857A0093BA4F /* GameEffect.cpp */; };
 		F5BAF28E191487930093BA4F /* EffectManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F5BAF28C191487930093BA4F /* EffectManager.cpp */; };
 		F5BAF29219148B380093BA4F /* HealthPointEffect.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F5BAF29019148B380093BA4F /* HealthPointEffect.cpp */; };
+		F5C769BE1918EEE400CE34AD /* effect_animation.xml in Resources */ = {isa = PBXBuildFile; fileRef = F5C769BD1918EEE400CE34AD /* effect_animation.xml */; };
 		F5C89DFB18D2FCB5006E909D /* monkey_animation.xml in Resources */ = {isa = PBXBuildFile; fileRef = F5C89DFA18D2FCB5006E909D /* monkey_animation.xml */; };
 		F5C89DFE18D2FCE9006E909D /* monkey_spritesheet.plist in Resources */ = {isa = PBXBuildFile; fileRef = F5C89DFC18D2FCE9006E909D /* monkey_spritesheet.plist */; };
 		F5C89DFF18D2FCE9006E909D /* monkey_spritesheet.png in Resources */ = {isa = PBXBuildFile; fileRef = F5C89DFD18D2FCE9006E909D /* monkey_spritesheet.png */; };
@@ -1119,6 +1120,7 @@
 		F5BAF28D191487930093BA4F /* EffectManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EffectManager.h; sourceTree = "<group>"; };
 		F5BAF29019148B380093BA4F /* HealthPointEffect.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = HealthPointEffect.cpp; sourceTree = "<group>"; };
 		F5BAF29119148B380093BA4F /* HealthPointEffect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HealthPointEffect.h; sourceTree = "<group>"; };
+		F5C769BD1918EEE400CE34AD /* effect_animation.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = effect_animation.xml; sourceTree = "<group>"; };
 		F5C89DFA18D2FCB5006E909D /* monkey_animation.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = monkey_animation.xml; sourceTree = "<group>"; };
 		F5C89DFC18D2FCE9006E909D /* monkey_spritesheet.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = monkey_spritesheet.plist; sourceTree = "<group>"; };
 		F5C89DFD18D2FCE9006E909D /* monkey_spritesheet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = monkey_spritesheet.png; sourceTree = "<group>"; };
@@ -2608,6 +2610,7 @@
 		F5C89DF618D2FC7F006E909D /* Animation */ = {
 			isa = PBXGroup;
 			children = (
+				F5C769BD1918EEE400CE34AD /* effect_animation.xml */,
 				2D0DA1411908F67400881C8D /* skill_animation.xml */,
 				2D0DA13D1908F65800881C8D /* tower_1_animation.xml */,
 				2D0DA13E1908F65800881C8D /* tower_2_animation.xml */,
@@ -2772,6 +2775,7 @@
 				F53ACBAF18D831C700F958A8 /* map2.xml in Resources */,
 				2D0DA15C1908F72200881C8D /* tower_2_default.png in Resources */,
 				D41A0AD1160F154A004552AE /* Default-568h@2x.png in Resources */,
+				F5C769BE1918EEE400CE34AD /* effect_animation.xml in Resources */,
 				2D0DA1461908F69C00881C8D /* skill_body.plist in Resources */,
 				F50BF81B18F2426D00CD518D /* cat_spritesheet.png in Resources */,
 				2D0DA14D1908F6C800881C8D /* test_sheet.plist in Resources */,

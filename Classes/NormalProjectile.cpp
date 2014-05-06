@@ -97,7 +97,8 @@ NormalProjectile::~NormalProjectile()
 b2Vec2 NormalProjectile::getStartPosition(GameObject* holder, b2Body* me)
 {
     //
-    char holder_join_type, this_join_type;
+    int holder_join_type = JOINT_CENTER;
+    int this_join_type = JOINT_CENTER;
     if(this->data.getJointDefA().x == JOINT_REAR)
     {
         if(holder->getDirection() == LEFT)
@@ -118,9 +119,6 @@ b2Vec2 NormalProjectile::getStartPosition(GameObject* holder, b2Body* me)
     JointDef tempA = data.getJointDefA();
     tempA.x = holder_join_type;
     b2Vec2 anchorA = getGlobalBodyStartPosition(holder->getBody(), tempA);
-    
-//    CCLOG("%f-%f",anchorA.x,anchorA.y);
-    
     b2AABB thisBoudningBox = Util::getBodyBoundingBoxDynamic(body);
     
 //    CCLOG("%f-%f-%f-%f",thisBoudningBox.lowerBound.x,thisBoudningBox.lowerBound.y,thisBoudningBox.upperBound.x,thisBoudningBox.upperBound.y);
@@ -139,7 +137,6 @@ b2Vec2 NormalProjectile::getStartPosition(GameObject* holder, b2Body* me)
             anchorA.x += abs(thisBoudningBox.lowerBound.x);
         }
     }
-//    CCLOG("%f-%f",anchorA.x,anchorA.y);
     
     return anchorA;
 }
@@ -150,10 +147,12 @@ b2Vec2 NormalProjectile::getGlobalBodyStartPosition(b2Body* body, JointDef joint
     {
         return b2Vec2(0,0);
     }
+   
     //set joint anchor A
     b2AABB boundingBox = Util::getBodyBoundingBoxDynamic(body);
     b2Vec2 jointAAnchor(0,0);
     
+     CCLOG("%d",jointDef.x);
     switch (jointDef.x) {
         case JOINT_CENTER:
             jointAAnchor.x = (boundingBox.lowerBound.x+boundingBox.upperBound.x)/2+jointDef.offsetX;
@@ -166,6 +165,7 @@ b2Vec2 NormalProjectile::getGlobalBodyStartPosition(b2Body* body, JointDef joint
             jointAAnchor.x = boundingBox.upperBound.x + jointDef.offsetX;
             break;
         default:
+            CCLOG("fuck");
             break;
     }
     

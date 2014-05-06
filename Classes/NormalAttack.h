@@ -17,8 +17,8 @@ USING_NS_CC;
 class NormalAttack: public AbstractSkill
 {
 private:
-    char holder_join_type;
-    char this_join_type;
+    int holder_join_type;
+    int this_join_type;
     
     b2Joint* skillJoint;
 protected:

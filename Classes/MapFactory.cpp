@@ -49,7 +49,6 @@ bool MapFactory::loadXMLMapByNameFile(const char *xmlFileName)
     unsigned char* pFileData = NULL;
     
     pFileData = (unsigned char*) CCFileUtils::sharedFileUtils()->getFileData(fullPath.c_str(), "r", &dataSize);
-    CCLOG("Empty file: %s", fullPath.c_str());
     
     if (!pFileData)
     {

@@ -30,7 +30,6 @@ Effect::Effect(EffectData data, GameObject* holder)
     this->lifeTime = data.getLifeTime();
     this->timeTick = data.gettimeTick();
     
-    //    this->sprite = CCSprite::createWithSpriteFrameName("arrow.png");
     if(data.getAnimationId() != "")
     {
         this->sprite = CCSprite::create();

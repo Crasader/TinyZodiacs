@@ -1,0 +1,19 @@
+<character_animation name="effect" plist_name="test_sheet.plist" image_name="test_sheet.png">
+    <animation name="aura" delay="0.1">
+        <origin x="0.5" y="0.5" />
+        <framelist>
+            <frame name="aura_1.png" />
+            <frame name="aura_2.png" />
+            <frame name="aura_3.png" />
+            <frame name="aura_4.png" />
+
+        </framelist>
+    </animation>
+    
+    <animation name="arrow" delay="0.1">
+        <origin x="0.5" y="0.5" />
+        <framelist>
+            <frame name="arrow.png" />
+        </framelist>
+    </animation>
+</character_animation>

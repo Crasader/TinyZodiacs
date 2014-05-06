@@ -96,6 +96,54 @@ Character* ObjectFactory::createCharacter(const std::string &name, b2World *worl
     
 }
 
+Hero* ObjectFactory::createHero(HeroDTO* heroDTO, b2World* world, bool isLocal)
+{
+    Hero* hero = Hero::create();
+    hero->setOriginCharacterData(heroDTO->data);
+    
+    //Create Animation
+    string run = heroDTO->animation;
+    string attack = heroDTO->animation;
+    string idle = heroDTO->animation;
+    string fall = heroDTO->animation;
+    string fly = heroDTO->animation;
+    string jump = heroDTO->animation;
+    string skill = heroDTO->animation;
+    
+    hero->runAnimation = DataCollector::getInstance()->getAnimationObjectByKey(string(std::string(run) + std::string(RUN)).c_str());
+    hero->attackAnimation = DataCollector::getInstance()->getAnimationObjectByKey(attack.append(ATTACK).c_str());
+    hero->jumpAnimation = DataCollector::getInstance()->getAnimationObjectByKey(jump.append(JUMP).c_str());
+    hero->idleAnimation = DataCollector::getInstance()->getAnimationObjectByKey(idle.append(IDLE).c_str());
+    hero->fallAnimation = DataCollector::getInstance()->getAnimationObjectByKey(fall.append(FALL).c_str());
+    hero->flyAnimation = DataCollector::getInstance()->getAnimationObjectByKey(fly.append(FLY).c_str());
+    hero->skill1Animation = DataCollector::getInstance()->getAnimationObjectByKey(skill.append(SKILL).c_str());
+   
+    hero->attackAnimation->getAnimation()->setDelayPerUnit(hero->getOriginCharacterData().getAttackSpeed());
+    
+    
+    //Create body
+    b2BodyDef bodyDef;
+    bodyDef.type = b2_dynamicBody;
+    bodyDef.angle = ccpToAngle(ccp(0,0));
+    bodyDef.fixedRotation = true;
+    bodyDef.userData = hero;
+    
+    b2Body *body = world->CreateBody(&bodyDef);
+    
+    gbox2d::GB2ShapeCache *sc =  gbox2d::GB2ShapeCache::sharedGB2ShapeCache();
+    sc->addFixturesToBody(body, heroDTO->body.c_str());
+    hero->setSpriteAnchorPoint(sc->anchorPointForShape(heroDTO->body.c_str()));
+    hero->getSprite()->setAnchorPoint(sc->anchorPointForShape(heroDTO->body.c_str()));
+    hero->setSkin(body, hero->getSprite());
+
+    hero->setNormalAttack(SkillFactory::createSkill(heroDTO->data.getSkill0().c_str(), world, hero, isLocal, SKILL_0_BUTTON));
+    hero->setSkill1(SkillFactory::createSkill(heroDTO->data.getSkill1().c_str(), world, hero, isLocal, SKILL_1_BUTTON));
+    hero->setSkill2(SkillFactory::createSkill(heroDTO->data.getSkill2().c_str(), world, hero, isLocal, SKILL_2_BUTTON));
+ 
+    return hero;
+}
+
+
 MapObject* ObjectFactory::createMapObject(const char *idMapObject, b2World *world)
 {
     MapObject* mapObject = NULL;

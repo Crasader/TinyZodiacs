@@ -235,7 +235,7 @@
             <position x="7402" y="903"/>
         </tower>
        
-        <tower id="tower_2.xml" group="A" >
+        <tower id="tower_2.xml" group="B" >
             <position x="4228" y="1378"/>
         </tower>
         <tower id="tower_2.xml" group="A" >
@@ -246,7 +246,7 @@
     </tower_list>
     <monster_factory_list>
         <monster_factory group="B">
-            <monster_creator delay_per_unit="1" delay="0.001" lane = "2">
+            <monster_creator delay_per_unit="1" delay="0.5" lane = "2">
                 <position x="2000" y="400"/>
                 <monster>cat</monster>
             </monster_creator>

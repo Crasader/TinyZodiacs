@@ -214,7 +214,9 @@ void Tower::aimTarget()
     if(attack != NULL)
     {
         b2Vec2 targetPoint = ((Character*)listTarget->objectAtIndex(0))->getPositionInPhysicWorld();
-        b2Vec2 towerPoint = getStartPoint(this->body, attack->getData().getJointDefA());
+        b2Vec2 towerPoint = this->body->GetPosition() ;//getStartPoint(this->body, attack->getData().getJointDefA());
+        
+      //  CCLOG("%0.4f - %0.4f",towerPoint.x,towerPoint.y);
         
         b2Vec2 sp = targetPoint -  towerPoint;
         sp*=TOWER_VELOCITY;

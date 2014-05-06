@@ -30,18 +30,16 @@ NormalAttack::NormalAttack(GameObject* holder, NormalMeleeSkillData data)
         this->data.getSkillSensor()->SetBullet(true);
         
         this->isExcutable = true;
-        
         //
         PhysicData* sensorData = new PhysicData();
         sensorData->Id = SKILL_SENSOR;
         sensorData->Data = this;
         this->data.getSkillSensor()->SetUserData(sensorData);
-        
         //
         this->skillSprite = NULL;
         if(this->data.getSkillAnimation() != NULL && this->data.getSkillAnimation()->getAnimation() != NULL)
         {
-            this->skillSprite = CCSprite::create("Default.png");
+            this->skillSprite = CCSprite::create();
             this->skillSprite->retain();
             this->data.getSkillAnimation()->getAnimation()->setLoops(INFINITY);
         }

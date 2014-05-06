@@ -15,6 +15,7 @@
 #include "Map.h"
 #include "TowerDTO.h"
 #include "Tower.h"
+#include "DataCollector.h"
 
 USING_NS_CC;
 

@@ -75,7 +75,8 @@ void GameGroup::joinGame(Group group, b2World* world, Map* map)
     this->group = group;
     this->monsterFactory->setGroup(this->group);
     //CHARACTER
-    this->character = ObjectFactory::getSharedManager()->createCharacter("character_cat.xml", world, true);
+    
+    this->character = ObjectFactory::getSharedManager()->createHero(DataCollector::getInstance()->getHeroDTOByKey("cat"), world, true);
     this->character->setPositionInPixel(ccp(1500,1200));
     this->character->setGroup(this->group);
     

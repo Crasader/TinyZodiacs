@@ -9,6 +9,7 @@
 #include "CharacterFactory.h"
 #include "XMLHelper.h"
 #include "DataCollector.h"
+#include "DataCollector.h"
 
 using namespace tinyxml2;
 
@@ -115,8 +116,7 @@ int CharacterFactory::readJumpHeightData(tinyxml2::XMLElement* root)
 Hero* CharacterFactory::createHero(CharacterDTO heroDTOData, b2World* world, bool isLocal)
 {
     Hero* hero = Hero::create();
-//    hero->getSprite()->setScale(0);
-    //
+
     hero->setOriginCharacterData(heroDTOData.data);
     
     //Create Animation
@@ -187,9 +187,9 @@ Hero* CharacterFactory::createHero(string ID,b2World* world, bool isLocal)
     if (world == NULL) {
         return  NULL;
     }
-    CharacterDTO dtoData = loadXMLFile(ID.c_str());
+    HeroDTO* dtoData = DataCollector::getInstance()->getHeroDTOByKey("monkey");// loadXMLFile(ID.c_str());
     
-    return createHero(dtoData, world, isLocal);
+    return createHero(*dtoData, world, isLocal);
 }
 
 CharacterDTO* CharacterFactory::loadXMLFile1(const char* xmlFileName)

@@ -18,6 +18,8 @@
 #include "SensorObjectDTO.h"
 #include "Tower.h"
 #include "TowerDTO.h"
+#include "Hero.h"
+#include "HeroDTO.h"
 
 class ObjectFactory
 {
@@ -26,7 +28,7 @@ public:
     ~ObjectFactory();
 
     static ObjectFactory* getSharedManager();
-    
+    Hero* createHero(HeroDTO* heroDTO, b2World* world, bool isLocal);
     Character* createCharacter(const std::string &name, b2World *world, bool isLocal);
     MapObject* createMapObject(const char *idMapObject, b2World *world);
     MapObject* createMapObject(MapObjectDTO* mapObjectDTO, b2World *world);
