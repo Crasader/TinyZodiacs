@@ -28,7 +28,6 @@ USING_NS_CC;
 class GameWorld: public CCNode, public b2ContactListener
 {
 private:
-    GameObjectManager* manager;
     CCArray* listInfoView;
     int count;
     CCAction* cameraFollowAction;

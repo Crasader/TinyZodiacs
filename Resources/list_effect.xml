@@ -12,8 +12,8 @@
         <max_jump>0</max_jump>
         <jump_height>0</jump_height>
             
-        <life_time>-1</life_time>
-        <time_tick>-1</time_tick>
+        <life_time>0</life_time>
+        <time_tick>0</time_tick>
     </effect>
         
     <effect id="cat_stun">
@@ -37,7 +37,7 @@
         <jump_height>0</jump_height>
         
         <life_time>5</life_time>
-        <time_tick>-1</time_tick>
+        <time_tick>0</time_tick>
     </effect>
             
     <effect id="cat_bleeding">
@@ -84,8 +84,8 @@
         <max_jump>0</max_jump>
         <jump_height>0</jump_height>
         
-        <life_time>-1</life_time>
-        <time_tick>-1</time_tick>
+        <life_time>5</life_time>
+        <time_tick>1</time_tick>
     </effect>
                     
 </list_effect>

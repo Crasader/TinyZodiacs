@@ -8,25 +8,17 @@
 
 #include "GameObjectManager.h"
 
-static GameObjectManager* instance;
+static GameObjectManager* instance = NULL;
 
 GameObjectManager::GameObjectManager()
 {
-    this->listBody = CCArray::create();
-    this->listBody->retain();
+    this->listObjectRemoved = CCArray::create();
+    this->listObjectRemoved->retain();
 }
 
 GameObjectManager::~GameObjectManager()
 {
-//    for(int i=0 ; i< listBody.size() ; i++)
-//    {
-//        if(listBody[i] != NULL)
-//        {
-//            delete listBody[i];
-//        }
-//    }
-    listBody->removeAllObjects();
-    listBody->release();
+   CC_SAFE_RELEASE(this->listObjectRemoved);
 }
 
 bool GameObjectManager::init()
@@ -35,6 +27,7 @@ bool GameObjectManager::init()
     {
         return false;
     }
+    this->scheduleUpdate();
     return true;
 }
 
@@ -50,28 +43,18 @@ GameObjectManager* GameObjectManager::getInstance()
 {
     if(instance == NULL)
     {
-        instance = new GameObjectManager();
+        instance = GameObjectManager::create();
     }
     
     return instance;
 }
 
-void GameObjectManager::addObject(GameObject *body)
+void GameObjectManager::addObjectRemoved(GameObject *body)
 {
-//    for(int i=0 ; i<this->listBody->count() ; i++)
-//    {
-//        if(body == listBody->objectAtIndex(i))
-//        {
-//            return;
-//        }
-//    }
-    GameObjectManager::getInstance()->listBody->addObject(body);
+    this->listObjectRemoved->addObject(body);
 }
 
 void GameObjectManager::update(float dt)
 {
-    if(this->world != NULL && this->world->IsLocked() == false)
-    {
-        this->listBody->removeAllObjects();
-    }
+    this->listObjectRemoved->removeAllObjects();
 }

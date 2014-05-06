@@ -20,7 +20,6 @@ GameObject::GameObject()
     this->body = NULL;
     this->sprite = NULL;
     direction = LEFT;
-    init();
     
     this->listEffect = CCArray::create();
     this->listEffect->retain();

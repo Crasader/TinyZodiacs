@@ -24,7 +24,7 @@ EffectManager* EffectManager::getInstance()
 {
     if (instance == NULL)
     {
-        instance = new EffectManager();
+        instance = EffectManager::create();
     }
     return instance;
 }

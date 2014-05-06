@@ -55,7 +55,7 @@ EffectData* EffectFactory::loadXMLFile(const char* key, const char *xmlFileName)
     {
         data = new EffectData();
         data->setAnimationId(readAnimationId(result->FirstChildElement(TAG_ANIMATION_ID)));
-        data->setAnimationLayerIndex(readAnimationLayerIndex(result->FirstChildElement(TAG_ANIMATION_ID)));
+        data->setAnimationLayerIndex(readAnimationLayerIndex(result->FirstChildElement(TAG_ANIMATION_LAYER)));
         if(result->FirstChildElement(TAG_JOINTS) != NULL)
         {
             data->setJointDefA(readJoinDef(result->FirstChildElement(TAG_JOINTS)->FirstChildElement(TAG_HOLDER)));

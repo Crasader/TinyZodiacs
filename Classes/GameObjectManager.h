@@ -18,24 +18,20 @@ USING_NS_CC;
 class GameObjectManager: public CCNode
 {
 private:
-//    static PhysicBodyManager* instance;
+    CC_SYNTHESIZE(CCArray*, listObjectRemoved, ListObjectRemoved);
 protected:
     GameObjectManager();
     ~GameObjectManager();
 public:
-    CC_SYNTHESIZE(CCArray*, listBody, ListBody);
-
-    CC_SYNTHESIZE(b2World*, world, World)
+    static GameObjectManager* getInstance();
     
     virtual bool init();
-    CREATE_FUNC(GameObjectManager);
+    virtual void update(float dt);
     
-    void addObject(GameObject* body);
-    
-    void update(float dt);
-    
+    void addObjectRemoved(GameObject* object);
+
     static void release();
-    
-    static GameObjectManager* getInstance();
+   
+    CREATE_FUNC(GameObjectManager);
 };
 #endif /* defined(__TinyZodiacs__PhysicBodyManager__) */

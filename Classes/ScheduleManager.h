@@ -27,7 +27,7 @@ public:
     void scheduleForSkill(AbstractSkill* object, float duration, int fuctionCall);
     void stopScheduledObjectAction(CCAction* target);
     
-    void scheduleFunction(CCCallFunc* callFunction, CCCallFunc* endFunction, float duration, int repeatTime);
+    CCAction* scheduleFunction(CCCallFunc* callFunction, CCCallFunc* endFunction, float duration, int repeatTime);
        static ScheduleManager* getInstance();
     void finishScheduleFunction(CCNode* sender, void* data);
     static void release();

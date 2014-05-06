@@ -48,14 +48,14 @@ bool GameWorld::init()
     uint32 flags = 0;
     flags += b2Draw::e_shapeBit;
     //   flags += b2Draw::e_jointBit;
-        flags += b2Draw::e_aabbBit;
+    flags += b2Draw::e_aabbBit;
     //    flags += b2Draw::e_pairBit;
     flags += b2Draw::e_centerOfMassBit;
     _debugDraw->SetFlags(flags);
     this->world->SetDebugDraw(_debugDraw);
     //Set contact listener
     this->setContactListener(this);
-    
+    addManager();
     //MAP
     MapCreator* mapCreator = new MapCreator();
     map = mapCreator->createMap("map1",this);
@@ -77,7 +77,7 @@ bool GameWorld::init()
         this->addChild(gameObjectInfoView,100);
     }
     //MONSTER
-    addManager();
+    
     
     this->group1 = GameGroup::create();
     this->group1->retain();
@@ -102,15 +102,10 @@ bool GameWorld::init()
 
 void GameWorld::addManager()
 {
-    manager = GameObjectManager::getInstance();
-    manager->setWorld(this->world);
-    
-    EffectManager::getInstance()->setHolder(this);
-    
-    
-    this->addChild(manager);
-    
+    this->addChild(GameObjectManager::getInstance());
     this->addChild(ScheduleManager::getInstance());
+    this->addChild(EffectManager::getInstance());
+    EffectManager::getInstance()->setHolder(this);
 }
 
 
@@ -195,7 +190,6 @@ void GameWorld::update(float dt)
 {
     if(this->world != NULL)
     {
-        manager->update(dt);
         world->Step(1/40.000f,8, 1);
     }
     this->map->update(dt);
@@ -209,16 +203,15 @@ void GameWorld::update(float dt)
     
     this->group1->update(dt);
     this->group2->update(dt);
-    EffectManager::getInstance()->update(dt);
 }
 
 
 void GameWorld::draw()
 {
-//        ccGLEnableVertexAttribs( kCCVertexAttribFlag_Position );
-//        kmGLPushMatrix();
-//        world->DrawDebugData();
-//        kmGLPopMatrix();
+//    ccGLEnableVertexAttribs( kCCVertexAttribFlag_Position );
+//    kmGLPushMatrix();
+//    world->DrawDebugData();
+//    kmGLPopMatrix();
 }
 
 //PHYSICS CONTACT

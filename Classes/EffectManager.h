@@ -15,7 +15,8 @@
 
 USING_NS_CC;
 
-class EffectManager {
+class EffectManager: public CCNode
+{
 private:
     CC_SYNTHESIZE(CCNode*, holder, Holder);
     CCArray* listEffect;
@@ -24,7 +25,7 @@ protected:
 public:
     virtual ~EffectManager();
     
-    void update(float dt);
+    virtual void update(float dt);
     
     static EffectManager* getInstance();
     
@@ -33,5 +34,7 @@ public:
     void stopEffect(GameEffect* effect);
     
     void clean();
+    
+    CREATE_FUNC(EffectManager);
 };
 #endif /* defined(__TinyZodiacs__EffectManager__) */

@@ -165,7 +165,7 @@ void Monster::notifyByEffect(CCObject* effect)
     Character::notifyByEffect(effect);
     if(this->getcharacterData().getHealth() <= 0)
     {
-        GameObjectManager::getInstance()->addObject(this);
+        GameObjectManager::getInstance()->addObjectRemoved(this);
 //        MonsterFactory::removeMonster(this);
     }
 }

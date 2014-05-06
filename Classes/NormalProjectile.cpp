@@ -298,7 +298,7 @@ void NormalProjectile::remove()
 //    }
 //    this->release();
   //  CC_SAFE_RELEASE_NULL(this->lifeTimeScheduled);
-    GameObjectManager::getInstance()->addObject(this);
+    GameObjectManager::getInstance()->addObjectRemoved(this);
     this->collector->removeObject(this);
 //     this -> release();
 
@@ -312,7 +312,7 @@ void NormalProjectile::excuteScheduledFunction(CCObject* pSender, void *object)
 //        ((GameObject*)object)->getSprite()->getParent()->removeChild(((GameObject*)object)->getSprite());
 //    }
 //    this -> release();
-    GameObjectManager::getInstance()->addObject(this);
+    GameObjectManager::getInstance()->addObjectRemoved(this);
     this->collector->removeObject(this);
 //     this -> release();
 
