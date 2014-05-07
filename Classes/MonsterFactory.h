@@ -15,6 +15,7 @@
 #include "CharacterFactory.h"
 #include "MonsterCreatorDTO.h"
 #include "MonsterCreator.h"
+#include "MonsterDTO.h"
 
 #define MONSTER_CREATION_DELAY 1;
 
@@ -36,7 +37,7 @@ public:
     virtual bool init();
     virtual void update(float dt);
     
-    Monster* createMonster(CharacterDTO* monsterDTO, CCPoint position, int laneID, b2World* world);
+    Monster* createMonster(MonsterDTO* monsterDTO, CCPoint position, int laneID, b2World* world);
 //    void createMonsters(CharacterDTO* monsterDTO, CCPoint position, int quantity, float timeDelayPerMonster);
     void createMonsterList(CCArray* listMonsterDTO, CCPoint position, int laneID, int quantity, float timeDelayPerMonster);
     void createMonsterFromSchedule(CCNode* sender, void* data);

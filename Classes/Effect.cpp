@@ -54,28 +54,30 @@ Effect::Effect(EffectData data, GameObject* holder)
     
     //schedule repeat
     CCCallFunc *repeatFuncSelector = CCCallFunc::create(this, callfunc_selector(Effect::onTimeTick));
-//    this->timeTickRepeatAction = ScheduleManager::getInstance()->scheduleFuctionRepeatly(repeatFuncSelector,this->timeTick,max(1,(int)(this->lifeTime/this->timeTick)));
+    // this->timeTickRepeatAction = ScheduleManager::getInstance()->scheduleFuctionRepeatly(repeatFuncSelector,this->timeTick,1);
     
     this->timeTickRepeatAction = ScheduleManager::getInstance()->scheduleFunctionForever(repeatFuncSelector, NULL, this->timeTick);
+    //  this->timeTickRepeatAction->retain();
     
     //schedule life time
     CCCallFunc *callFuncSelector = CCCallFunc::create(this, callfunc_selector(Effect::destroy));
-     // this->lifeTimeAction = ScheduleManager::getInstance()->scheduleFuction(callFuncSelector,0);
+    // this->lifeTimeAction = ScheduleManager::getInstance()->scheduleFuction(callFuncSelector,0);
     //
     
     this->lifeTimeAction = ScheduleManager::getInstance()->scheduleFunction(callFuncSelector, NULL,this->lifeTime, 1);
+    // this->timeTickRepeatAction->retain();
     this->autorelease();
 }
 
 Effect::~Effect()
 {
-
+    
     if(this->sprite != NULL)
     {
         this->sprite->stopAllActions();
         this->sprite->removeFromParent();
     }
-
+    
 }
 
 CCPoint Effect::calculatePosition(JointDef jointDefA, JointDef jointDefB)
@@ -154,19 +156,25 @@ void Effect::stopAllSchedule()
 
 void Effect::destroy()
 {
-
-        if(this->timeTickRepeatAction)
+    CCLOG("destroy");
+    if(this->timeTickRepeatAction != NULL)
+    {
+        if(!this->timeTickRepeatAction->isDone())
         {
             ScheduleManager::getInstance()->stopAction(this->timeTickRepeatAction);
+            //   CC_SAFE_RELEASE_NULL(this->timeTickRepeatAction);
         }
-
-        this->holder->removeEffect(this);
-
-      //    delete this;
+        
+    }
+    
+    this->holder->removeEffect(this);
+    
+    //    delete this;
 }
 
 void Effect::onTimeTick()
 {
+    CCLOG("timetick");
     Character* character = (Character*)this->holder;
     //    character->getCharacterData().setHealth(character->getCharacterData().getHealth()-this->health);
     character->notifyByEffect(this);

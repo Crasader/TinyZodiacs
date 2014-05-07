@@ -10,23 +10,20 @@
 
 bool MonsterLoader::loadData()
 {
-//    HeroLoader::loadDataByFileName("monster_cat.xml");
-//    HeroLoader::loadDataByFileName("character_monkey.xml");
+    loadDataByFileName("monster_cat.xml");
     
     return true;
 }
 
 bool MonsterLoader::loadDataByFileName(const char *xmlFileName)
 {
-    HeroDTO* data = HeroDTO::create();
-    
     XMLDocument* document = XMLHelper::getXMLDocument(xmlFileName);
   
     XMLElement* docElement = document->FirstChildElement();
     
-    HeroDTO* heroDTO = XMLHeroParser::getHeroDTOFromXMLElement(docElement);
-    DataCollector::getInstance()->setHeroDTO(heroDTO->id.c_str(), heroDTO);
+    MonsterDTO* monsterDTO = XMLMonsterParser::getMonsterDTOFromXMLElement(docElement);
+    DataCollector::getInstance()->setMonsterDTO(monsterDTO->id.c_str(), monsterDTO);
     
     delete document;
-    return data;
+    return true;
 }

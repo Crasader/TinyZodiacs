@@ -140,11 +140,11 @@ CCAction* ScheduleManager::scheduleFunctionForever(CCCallFunc* callFunction, CCC
     arr1->addObject(callFunction);
     
     CCArray* arr2 = CCArray::create();
-    arr2->addObject(CCRepeatForever::create(CCSequence::create(arr1)));
+    arr2->addObject(CCSequence::create(arr1));
     if(endFunction != NULL)
         arr2->addObject(endFunction);
     
-    CCRepeatForever* repeatForever = CCRepeatForever::create(CCSequence::create(arr1));
+    CCRepeatForever* repeatForever = CCRepeatForever::create(CCSequence::create(arr2));
     this->runAction(repeatForever);
     return repeatForever;
 }

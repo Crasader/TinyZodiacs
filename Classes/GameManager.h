@@ -16,6 +16,8 @@
 #include "MapFactory.h"
 #include "MapLoader.h"
 #include "HeroLoader.h"
+#include "MonsterLoader.h"
+#include "XMLMonsterParser.h"
 
 
 class GameManager

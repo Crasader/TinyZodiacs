@@ -25,7 +25,7 @@ MapCreator::~MapCreator()
 Map* MapCreator::createMap(const char *id, GameWorld* gameWorld)
 {
     
-    MapDTO* mapDTO = MapFactory::getSharedFactory()->getMapByName(id);
+    MapDTO* mapDTO = DataCollector::getInstance()->getMapDTOByKey(id);
     
     Map* map =  Map::create();
     map->retain();

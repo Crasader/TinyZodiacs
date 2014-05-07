@@ -20,6 +20,7 @@
 #include "MapParallaxBackground.h"
 #include "BackgroundDTO.h"
 #include "MapParallaxForeground.h"
+#include "DataCollector.h"
 
 
 

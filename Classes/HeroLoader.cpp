@@ -18,8 +18,6 @@ bool HeroLoader::loadData()
 
 bool HeroLoader::loadDataByFileName(const char *xmlFileName)
 {
-    HeroDTO* data = HeroDTO::create();
-    
     XMLDocument* document = XMLHelper::getXMLDocument(xmlFileName);
   
     XMLElement* docElement = document->FirstChildElement();
@@ -28,5 +26,5 @@ bool HeroLoader::loadDataByFileName(const char *xmlFileName)
     DataCollector::getInstance()->setHeroDTO(heroDTO->id.c_str(), heroDTO);
    
     delete document;
-    return data;
+    return true;
 }

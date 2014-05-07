@@ -33,8 +33,7 @@ void MonsterCreator::createMonster()
     CCArray* temp = CCArray::create();
     for(int i = 0; i < this->listMonsterID.size(); i++)
     {
-        //temp->addObject(CharacterFactory::loadXMLFile1(this->listMonsterID[i].c_str()));
-        temp->addObject(DataCollector::getInstance()->getHeroDTOByKey(this->listMonsterID[i].c_str()));
+        temp->addObject(DataCollector::getInstance()->getMonsterDTOByKey(this->listMonsterID[i].c_str()));
     }
     this->monsterFactory->createMonsterList(temp, ccp(this->position.x, this->position.y), this->laneID, temp->count(), this->delayPerUnit);
 }

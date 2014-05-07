@@ -355,7 +355,6 @@
 		F54AEA0D18D2F50300194E66 /* PhysicData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F54AEA0A18D2F50300194E66 /* PhysicData.cpp */; };
 		F54AEA0E18D2F50300194E66 /* ObjectData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F54AEA0B18D2F50300194E66 /* ObjectData.cpp */; };
 		F558161319176AD800A1CCB2 /* XMLMonsterParser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F558161119176AD800A1CCB2 /* XMLMonsterParser.cpp */; };
-		F561F28618D8028600DD4598 /* MapFactory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F561F28318D8028600DD4598 /* MapFactory.cpp */; };
 		F561F29118D805BE00DD4598 /* map1.xml in Resources */ = {isa = PBXBuildFile; fileRef = F561F29018D805BE00DD4598 /* map1.xml */; };
 		F57519C41905016200F6A519 /* MonsterAIActionEngine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F57519C21905016200F6A519 /* MonsterAIActionEngine.cpp */; };
 		F5779C6818E5693C0044D5CD /* HealthBar.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F5779C6618E5693C0044D5CD /* HealthBar.cpp */; };
@@ -1074,8 +1073,6 @@
 		F54AEA0B18D2F50300194E66 /* ObjectData.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ObjectData.cpp; path = ../Classes/ObjectData.cpp; sourceTree = "<group>"; };
 		F558161119176AD800A1CCB2 /* XMLMonsterParser.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = XMLMonsterParser.cpp; sourceTree = "<group>"; };
 		F558161219176AD800A1CCB2 /* XMLMonsterParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMLMonsterParser.h; sourceTree = "<group>"; };
-		F561F28218D8028600DD4598 /* MapFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapFactory.h; sourceTree = "<group>"; };
-		F561F28318D8028600DD4598 /* MapFactory.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MapFactory.cpp; sourceTree = "<group>"; };
 		F561F29018D805BE00DD4598 /* map1.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = map1.xml; sourceTree = "<group>"; };
 		F57519C21905016200F6A519 /* MonsterAIActionEngine.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MonsterAIActionEngine.cpp; sourceTree = "<group>"; };
 		F57519C31905016200F6A519 /* MonsterAIActionEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MonsterAIActionEngine.h; sourceTree = "<group>"; };
@@ -2335,8 +2332,6 @@
 				2D0DA16A1908F83900881C8D /* EffectFactory.h */,
 				2D0DA16B1908F83900881C8D /* TowerFactory.cpp */,
 				2D0DA16C1908F83900881C8D /* TowerFactory.h */,
-				F561F28218D8028600DD4598 /* MapFactory.h */,
-				F561F28318D8028600DD4598 /* MapFactory.cpp */,
 				F54AE9D018D2F2B400194E66 /* ObjectFactory.cpp */,
 				F54AE9D218D2F2B400194E66 /* ObjectFactory.h */,
 				34FD844F18DFCC7300373627 /* CharacterFactory.cpp */,
@@ -2910,7 +2905,6 @@
 				15A3D99E1682F7F9002FB0C5 /* cpRatchetJoint.c in Sources */,
 				15A3D99F1682F7F9002FB0C5 /* cpRotaryLimitJoint.c in Sources */,
 				34B1273718EF9619005DAF04 /* SkillType1Parser.cpp in Sources */,
-				F561F28618D8028600DD4598 /* MapFactory.cpp in Sources */,
 				34E614E919133AF2006D933E /* Map.cpp in Sources */,
 				15A3D9A01682F7F9002FB0C5 /* cpSimpleMotor.c in Sources */,
 				15A3D9A11682F7F9002FB0C5 /* cpSlideJoint.c in Sources */,

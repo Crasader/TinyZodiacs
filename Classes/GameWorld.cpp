@@ -67,8 +67,6 @@ bool GameWorld::init()
     
     
     createWorldBox();
-    //
-    // this->listInfoView->addObject(InfoViewCreator::createHeroInfoView(this->character, NULL));
     
     CCObject* object = NULL;
     CCARRAY_FOREACH(this->listInfoView, object)

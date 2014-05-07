@@ -17,7 +17,6 @@
         <list_effect>
             <enemy>
                     <effect>cat_normal_attack_affect</effect>
-                    <effect>cat_bleeding</effect>
             </enemy>
         </list_effect>
 	</skill>

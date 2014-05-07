@@ -12,7 +12,7 @@
 #include <iostream>
 #include "cocos2d.h"
 #include "HeroDTO.h"
-#include "XMLHeroParser.h"
+#include "XMLMonsterParser.h"
 #include "DataCollector.h"
 #include "XMLHelper.h"
 
