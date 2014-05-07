@@ -76,7 +76,10 @@ Monster* MonsterFactory::createMonster(CharacterDTO* monsterDTO, CCPoint positio
     
     monster->setSkin(body, monster->getSprite());
       //monster->getSprite()->setVisible(false);
-    
+    //load sensor body
+    b2Body *sensorBody = world->CreateBody(&bodyDef);
+    sc->addFixturesToBody(sensorBody, ((MonsterDTO*)monsterDTO)->sensorBody.c_str());
+    monster->setSensor(sensorBody);
     //
     monster->setPositionInPixel(position);
     monster->setGroup(this->group);

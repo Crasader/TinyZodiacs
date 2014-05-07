@@ -50,13 +50,13 @@ bool GameManager::loadResource()
     
     gbox2d::GB2ShapeCache *sc = gbox2d::GB2ShapeCache::sharedGB2ShapeCache();
     
-    
     sc->addShapesWithFile("character_body.plist");
     sc->addShapesWithFile("cat_body.plist");
     sc->addShapesWithFile("skill_body.plist");
     sc->addShapesWithFile("map1_body.plist");
-    
-    
+    sc->addShapesWithFile("map1_body.plist");
+    sc->addShapesWithFile("monster_sensor.plist");
+
     MapFactory::getSharedFactory()->loadXMLMap();
     
     return false;

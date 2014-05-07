@@ -1,11 +1,9 @@
 <skill_list>
 	<skill id="monkey_normal_attack" type="0">
 		<body>monkey_normal_attack</body>
-		<damage>100</damage>
         <delay>0.05</delay>
         <life_time>-1</life_time>
 		<cool_down>-1</cool_down>
-        <critical_chance>0.01</critical_chance>
         <joints>
             <holder x="2" y="0" offsetX="0" offsetY="0"></holder>
             <this x="2" y="0" offsetX="0" offsetY="0"></this>
@@ -26,11 +24,9 @@
     
     <skill id="monkey_aura" type="0">
 		<body>monkey_aura</body>
-		<damage>200</damage>
         <delay>0.1</delay>
         <life_time>2</life_time>
 		<cool_down>3</cool_down>
-        <critical_chance>0.01</critical_chance>
         <joints>
             <holder x="0" y="0" offsetX="0" offsetY="0"></holder>
             <this x="0" y="0" offsetX="0" offsetY="0"></this>
@@ -53,11 +49,9 @@
     
     <skill id="monkey_ultimate" type="0">
 		<body>monkey_aura</body>
-		<damage>200</damage>
         <delay>0.1</delay>
         <life_time>10</life_time>
 		<cool_down>11</cool_down>
-        <critical_chance>0.01</critical_chance>
         <joints>
             <holder x="0" y="0" offsetX="0" offsetY="0"></holder>
             <this x="0" y="0" offsetX="0" offsetY="0"></this>
@@ -79,11 +73,9 @@
     
     <skill id="monkey_shooting" type="1">
 		<body>arrow</body>
-		<damage>50</damage>
         <delay>0.1</delay>
         <life_time>1</life_time>
 		<cool_down>-1</cool_down>
-        <critical_chance>0.01</critical_chance>
         <joints>
             <holder x="2" y="0" offsetX="0" offsetY="0"></holder>
             <this x="2" y="0" offsetX="0" offsetY="0"></this>
@@ -98,7 +90,7 @@
 
 <speed>
     <x>20</x>
-    <y>0</y>
+    <y>0</y> 
 </speed>
 
         <gravity_scale>0</gravity_scale>
@@ -115,11 +107,9 @@
     
     <skill id="tower_shooting_1" type="1">
 		<body>tower_orb_1_2</body>
-		<damage>50</damage>
         <delay>-1</delay>
         <life_time>2</life_time>
 		<cool_down>0.5</cool_down>
-        <critical_chance>0.01</critical_chance>
         <joints>
             <holder x="0" y="0" offsetX="1" offsetY="0.8"></holder>
             <this x="0" y="0" offsetX="0" offsetY="0"></this>
@@ -149,11 +139,9 @@
     
     <skill id="tower_shooting_2" type="1">
 		<body>tower_orb_1_2</body>
-		<damage>50</damage>
         <delay>-1</delay>
         <life_time>1</life_time>
 		<cool_down>0.5</cool_down>
-        <critical_chance>0.01</critical_chance>
         <joints>
             <holder x="0" y="0" offsetX="-1" offsetY="4.8"></holder>
             <this x="0" y="0" offsetX="0" offsetY="0"></this>
@@ -183,11 +171,9 @@
     
     <skill id="monster_normal_attack" type="0">
 		<body>monkey_normal_attack</body>
-		<damage>100</damage>
         <delay>0.05</delay>
         <life_time>-1</life_time>
 		<cool_down>-1</cool_down>
-        <critical_chance>0.01</critical_chance>
         <joints>
             <holder x="2" y="0" offsetX="0" offsetY="0"></holder>
             <this x="2" y="0" offsetX="0" offsetY="0"></this>

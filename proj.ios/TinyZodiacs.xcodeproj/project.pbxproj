@@ -173,7 +173,6 @@
 		2D0DA13F1908F65800881C8D /* tower_1_animation.xml in Resources */ = {isa = PBXBuildFile; fileRef = 2D0DA13D1908F65800881C8D /* tower_1_animation.xml */; };
 		2D0DA1401908F65800881C8D /* tower_2_animation.xml in Resources */ = {isa = PBXBuildFile; fileRef = 2D0DA13E1908F65800881C8D /* tower_2_animation.xml */; };
 		2D0DA1421908F67400881C8D /* skill_animation.xml in Resources */ = {isa = PBXBuildFile; fileRef = 2D0DA1411908F67400881C8D /* skill_animation.xml */; };
-		2D0DA1451908F69C00881C8D /* character_body.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2D0DA1431908F69C00881C8D /* character_body.plist */; };
 		2D0DA1461908F69C00881C8D /* skill_body.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2D0DA1441908F69C00881C8D /* skill_body.plist */; };
 		2D0DA14B1908F6C800881C8D /* list_effect.xml in Resources */ = {isa = PBXBuildFile; fileRef = 2D0DA1471908F6C800881C8D /* list_effect.xml */; };
 		2D0DA14C1908F6C800881C8D /* list_skill.xml in Resources */ = {isa = PBXBuildFile; fileRef = 2D0DA1481908F6C800881C8D /* list_skill.xml */; };
@@ -190,6 +189,8 @@
 		2D0DA16D1908F83900881C8D /* EffectFactory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2D0DA1691908F83900881C8D /* EffectFactory.cpp */; };
 		2D0DA16E1908F83900881C8D /* TowerFactory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2D0DA16B1908F83900881C8D /* TowerFactory.cpp */; };
 		2D0DA1741908F86300881C8D /* Tower.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2D0DA1711908F86300881C8D /* Tower.cpp */; };
+		2DC48A741919DCE200B34724 /* monster_sensor.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2DC48A731919DCE200B34724 /* monster_sensor.plist */; };
+		2DC48A761919E35F00B34724 /* character_body.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2DC48A751919E35F00B34724 /* character_body.plist */; };
 		3412551318DAA44900D9FBA6 /* NormalProjectile.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3412551118DAA44900D9FBA6 /* NormalProjectile.cpp */; };
 		3414166218DC23A0007B8C2B /* GameObjectManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3414166018DC23A0007B8C2B /* GameObjectManager.cpp */; };
 		343D9A4C19134163003F5DE4 /* GameWorld.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 343D9A4B19134163003F5DE4 /* GameWorld.cpp */; };
@@ -744,7 +745,6 @@
 		2D0DA13D1908F65800881C8D /* tower_1_animation.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = tower_1_animation.xml; sourceTree = "<group>"; };
 		2D0DA13E1908F65800881C8D /* tower_2_animation.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = tower_2_animation.xml; sourceTree = "<group>"; };
 		2D0DA1411908F67400881C8D /* skill_animation.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = skill_animation.xml; sourceTree = "<group>"; };
-		2D0DA1431908F69C00881C8D /* character_body.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = character_body.plist; sourceTree = "<group>"; };
 		2D0DA1441908F69C00881C8D /* skill_body.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = skill_body.plist; sourceTree = "<group>"; };
 		2D0DA1471908F6C800881C8D /* list_effect.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = list_effect.xml; sourceTree = "<group>"; };
 		2D0DA1481908F6C800881C8D /* list_skill.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = list_skill.xml; sourceTree = "<group>"; };
@@ -766,6 +766,8 @@
 		2D0DA16C1908F83900881C8D /* TowerFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TowerFactory.h; sourceTree = "<group>"; };
 		2D0DA1711908F86300881C8D /* Tower.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Tower.cpp; sourceTree = "<group>"; };
 		2D0DA1721908F86300881C8D /* Tower.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tower.h; sourceTree = "<group>"; };
+		2DC48A731919DCE200B34724 /* monster_sensor.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = monster_sensor.plist; sourceTree = "<group>"; };
+		2DC48A751919E35F00B34724 /* character_body.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = character_body.plist; sourceTree = "<group>"; };
 		3412551118DAA44900D9FBA6 /* NormalProjectile.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = NormalProjectile.cpp; path = ../Classes/NormalProjectile.cpp; sourceTree = "<group>"; };
 		3412551218DAA44900D9FBA6 /* NormalProjectile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NormalProjectile.h; path = ../Classes/NormalProjectile.h; sourceTree = "<group>"; };
 		3414166018DC23A0007B8C2B /* GameObjectManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameObjectManager.cpp; sourceTree = "<group>"; };
@@ -2648,7 +2650,8 @@
 		F5C89E0018D2FCF2006E909D /* Body */ = {
 			isa = PBXGroup;
 			children = (
-				2D0DA1431908F69C00881C8D /* character_body.plist */,
+				2DC48A751919E35F00B34724 /* character_body.plist */,
+				2DC48A731919DCE200B34724 /* monster_sensor.plist */,
 				2D0DA1441908F69C00881C8D /* skill_body.plist */,
 				51136AE11908E69F00317D3A /* map1_body.plist */,
 				F50BF82318F2513800CD518D /* cat_body.plist */,
@@ -2745,6 +2748,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7855E0E1153FEF240059DD9A /* Default.png in Resources */,
+				2DC48A741919DCE200B34724 /* monster_sensor.plist in Resources */,
 				D4EF949A15BD2D8B00D803EB /* Icon-57.png in Resources */,
 				51136AEA1908F60300317D3A /* monster_cat.xml in Resources */,
 				F52678F618EEAEA500CE1E3B /* map1_background_spritesheet_2.png in Resources */,
@@ -2775,6 +2779,7 @@
 				F53ACBAF18D831C700F958A8 /* map2.xml in Resources */,
 				2D0DA15C1908F72200881C8D /* tower_2_default.png in Resources */,
 				D41A0AD1160F154A004552AE /* Default-568h@2x.png in Resources */,
+				2DC48A761919E35F00B34724 /* character_body.plist in Resources */,
 				F5C769BE1918EEE400CE34AD /* effect_animation.xml in Resources */,
 				2D0DA1461908F69C00881C8D /* skill_body.plist in Resources */,
 				F50BF81B18F2426D00CD518D /* cat_spritesheet.png in Resources */,
@@ -2784,7 +2789,6 @@
 				F561F29118D805BE00DD4598 /* map1.xml in Resources */,
 				F5C89DFE18D2FCE9006E909D /* monkey_spritesheet.plist in Resources */,
 				F52678FF18EEAEA500CE1E3B /* map1_spritesheet_3.plist in Resources */,
-				2D0DA1451908F69C00881C8D /* character_body.plist in Resources */,
 				2D0DA13F1908F65800881C8D /* tower_1_animation.xml in Resources */,
 				15A3D9961682F7F9002FB0C5 /* CMakeLists.txt in Resources */,
 				2D0DA14B1908F6C800881C8D /* list_effect.xml in Resources */,

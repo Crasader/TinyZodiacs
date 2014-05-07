@@ -8,6 +8,6 @@
     <atk_speed>0.1</atk_speed>
     <max_jump>5</max_jump>
     <jump_height>10</jump_height>
-    <sensor_width>100</sensor_width>
+    <sensor_body>creep_1</sensor_body>
     <skill_0>monster_normal_attack</skill_0>
 </character>

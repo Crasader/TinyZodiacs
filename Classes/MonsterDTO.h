@@ -23,7 +23,7 @@ public:
     MonsterDTO();
     ~MonsterDTO();
     
-    float sensor_width;
+    string sensorBody;
     
     CREATE_FUNC(MonsterDTO);
 };

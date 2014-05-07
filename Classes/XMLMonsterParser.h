@@ -16,6 +16,8 @@
 
 using namespace tinyxml2;
 
+#define TAG_SENSOR_BODY "sensor_body"
+
 class XMLMonsterParser
 {
 private:

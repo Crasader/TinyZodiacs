@@ -13,7 +13,7 @@ MonsterDTO* XMLMonsterParser::getMonsterDTOFromXMLElement(XMLElement* heroXMLEle
     MonsterDTO* monsterDTO = MonsterDTO::create();
     XMLCharacterParser::getCharacterDTOFromXMLElement(monsterDTO, heroXMLElement);
     
-    monsterDTO->sensor_width = XMLHelper::readFloat(heroXMLElement->FirstChildElement("sensor_width"), 0);
+    monsterDTO->sensorBody = XMLHelper::readString(heroXMLElement->FirstChildElement(TAG_SENSOR_BODY), "");
     
     return monsterDTO;
 }

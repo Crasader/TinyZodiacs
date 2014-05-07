@@ -20,10 +20,14 @@ class Monster: public Character
 {
 private:
     CC_SYNTHESIZE(int, laneID, LaneID);
-    CC_SYNTHESIZE_READONLY(b2Body*, sensor, Sensor);
+    CC_SYNTHESIZE(b2Body*, sensor, Sensor);
 protected:
     void checkCollisionDataInBeginContact(PhysicData* data, b2Contact *contact, bool isSideA);
     void checkCollisionDataInEndContact(PhysicData* data, b2Contact *contact, bool isSideA);
+    
+    virtual void setPhysicGroup(uint16 group);
+    void setSensorGroup(uint16 group);
+
 public:
     bool isStopMove;
     Monster();

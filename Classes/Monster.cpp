@@ -170,3 +170,41 @@ void Monster::notifyByEffect(CCObject* effect)
     }
 }
 
+void Monster::setPhysicGroup(uint16 group)
+{
+    Character::setPhysicGroup(group);
+    this->setSensorGroup(group);
+}
+
+void Monster::setSensorGroup(uint16 group)
+{
+    for (b2Fixture* f = this->sensor->GetFixtureList(); f; f = f->GetNext())
+    {
+        if(f != NULL)
+        {
+            b2Filter filter = f->GetFilterData();
+            filter.categoryBits = group;
+            switch (group) {
+                case GROUP_A:
+                case GROUP_HERO_A:
+                case GROUP_TOWER_A:
+                    filter.maskBits = GROUP_TOWER_B|GROUP_B|GROUP_HERO_B|GROUP_NEUTRUAL;
+                    break;
+                    
+                case GROUP_B:
+                case GROUP_HERO_B:
+                case GROUP_TOWER_B:
+                    filter.maskBits = GROUP_TOWER_A|GROUP_A|GROUP_HERO_A|GROUP_NEUTRUAL;
+                    break;
+                    
+                case GROUP_NEUTRUAL:
+                    filter.maskBits = GROUP_A | GROUP_B | GROUP_HERO_A | GROUP_HERO_B;
+                    break;
+                    
+                default:
+                    break;
+            }
+            f->SetFilterData(filter);
+        }
+    }
+}

@@ -269,6 +269,7 @@ void NormalProjectile::checkCollisionDataInEndContact(PhysicData* data, b2Contac
     switch (otherData->Id)
     {
         case CHARACTER_BODY:
+        {
             Character* character = (Character*)otherData->Data;
             if(character != holder)
             {
@@ -281,6 +282,9 @@ void NormalProjectile::checkCollisionDataInEndContact(PhysicData* data, b2Contac
                   //  CCLOG("Enemy end");
                 }
             }
+            break;
+        }
+        default:
             break;
     }
     
