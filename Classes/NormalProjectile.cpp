@@ -151,8 +151,6 @@ b2Vec2 NormalProjectile::getGlobalBodyStartPosition(b2Body* body, JointDef joint
     //set joint anchor A
     b2AABB boundingBox = Util::getBodyBoundingBoxDynamic(body);
     b2Vec2 jointAAnchor(0,0);
-    
-     CCLOG("%d",jointDef.x);
     switch (jointDef.x) {
         case JOINT_CENTER:
             jointAAnchor.x = (boundingBox.lowerBound.x+boundingBox.upperBound.x)/2+jointDef.offsetX;
@@ -165,7 +163,6 @@ b2Vec2 NormalProjectile::getGlobalBodyStartPosition(b2Body* body, JointDef joint
             jointAAnchor.x = boundingBox.upperBound.x + jointDef.offsetX;
             break;
         default:
-            CCLOG("fuck");
             break;
     }
     

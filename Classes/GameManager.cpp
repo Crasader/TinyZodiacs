@@ -55,10 +55,7 @@ bool GameManager::loadResource()
     sc->addShapesWithFile("cat_body.plist");
     sc->addShapesWithFile("skill_body.plist");
     sc->addShapesWithFile("map1_body.plist");
-    
-    
-    MapFactory::getSharedFactory()->loadXMLMap();
-    
+
     return false;
 }
 
@@ -67,6 +64,7 @@ bool GameManager::loadData()
     AnimationLoader::loadData();
     MapLoader::loadData();
     HeroLoader::loadData();
+    MonsterLoader::loadData();
     
     return true;
 }

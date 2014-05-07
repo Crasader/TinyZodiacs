@@ -36,7 +36,7 @@ bool MonsterFactory::init()
     return true;
 }
 
-Monster* MonsterFactory::createMonster(CharacterDTO* monsterDTO, CCPoint position, int laneID, b2World* world)
+Monster* MonsterFactory::createMonster(MonsterDTO* monsterDTO, CCPoint position, int laneID, b2World* world)
 {
     Monster* monster = Monster::create();
     // monster->retain();
@@ -126,7 +126,7 @@ void MonsterFactory::createMonsterFromSchedule(CCNode* sender, void* data)
     
     std::vector<void*>* params =  static_cast< std::vector<void*>*>(data);
     
-    CharacterDTO* dto = static_cast<CharacterDTO*>(params->at(0));
+    MonsterDTO* dto = static_cast<MonsterDTO*>(params->at(0));
     CCPoint *pos = static_cast<CCPoint*>(params->at(1));
     int* laneID = static_cast<int*>(params->at(2));
     b2World *world = static_cast<b2World*>(params->at(3));
@@ -141,7 +141,7 @@ void MonsterFactory::finishCreateMonsterFromSchedule(CCNode* sender, void* data)
     CCLOG("des");
     std::vector<void*>* params =  static_cast< std::vector<void*>*>(data);
     
-    CharacterDTO* dto = static_cast<CharacterDTO*>(params->at(0));
+    MonsterDTO* dto = static_cast<MonsterDTO*>(params->at(0));
     CCPoint *pos = static_cast<CCPoint*>(params->at(1));
     
     //world do not delete
@@ -162,7 +162,7 @@ void MonsterFactory::createMonsterListFromSchedule(CCNode* sender, void* data)
     
     if(listMonster->count() > 0)
     {
-        CharacterDTO* dto = (CharacterDTO*)(listMonster->objectAtIndex(0));
+        MonsterDTO* dto = (MonsterDTO*)(listMonster->objectAtIndex(0));
         CCPoint *pos = static_cast<CCPoint*>(params->at(1));
         int* laneID = static_cast<int*>(params->at(2));
         b2World *world = static_cast<b2World*>(params->at(3));

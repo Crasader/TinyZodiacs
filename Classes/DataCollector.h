@@ -43,7 +43,7 @@ public:
     void setAnimationObject(const char* key, AnimationObject* object);
     void setMapDTO(const char* key, MapDTO* object);
     void setHeroDTO(const char* key, HeroDTO* object);
-    void setMonsterDTO(const char* key, HeroDTO* object);
+    void setMonsterDTO(const char* key, MonsterDTO* object);
     
     //get
     AnimationObject* getAnimationObjectByKey(const char* key);

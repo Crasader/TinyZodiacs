@@ -51,7 +51,7 @@ void DataCollector::setHeroDTO(const char* key, HeroDTO* object)
     this->dictHeroDTO->setObject(object, key);
 }
 
-void DataCollector::setMonsterDTO(const char* key, HeroDTO* object)
+void DataCollector::setMonsterDTO(const char* key, MonsterDTO* object)
 {
     this->dictMonsterDTO->setObject(object, key);
 }
