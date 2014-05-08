@@ -2,8 +2,8 @@
 	<skill id="monkey_normal_attack" type="0">
 		<body>monkey_normal_attack</body>
         <delay>0.05</delay>
-        <life_time>-1</life_time>
-		<cool_down>-1</cool_down>
+        <life_time>0</life_time>
+		<cool_down>0</cool_down>
         <joints>
             <holder x="2" y="0" offsetX="0" offsetY="0"></holder>
             <this x="2" y="0" offsetX="0" offsetY="0"></this>
@@ -16,8 +16,8 @@
         
         <list_effect>
             <enemy>
-                    <effect>cat_normal_attack_affect</effect>
-            </enemy>
+                <effect>cat_normal_attack_affect</effect>
+                          </enemy>
         </list_effect>
 	</skill>
     
@@ -171,8 +171,8 @@
     <skill id="monster_normal_attack" type="0">
 		<body>monkey_normal_attack</body>
         <delay>0.05</delay>
-        <life_time>-1</life_time>
-		<cool_down>-1</cool_down>
+        <life_time>0</life_time>
+		<cool_down>0</cool_down>
         <joints>
             <holder x="2" y="0" offsetX="0" offsetY="0"></holder>
             <this x="2" y="0" offsetX="0" offsetY="0"></this>

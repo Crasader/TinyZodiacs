@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>frames</key>
+	<dict>
+		
+		<key>smoke_1.png</key>
+		<dict>
+			<key>aliases</key>
+			<array>
+			
+			</array>
+			<key>spriteColorRect</key>
+			<string>{{44, 41}, {272, 227}}</string>
+			<key>spriteOffset</key>
+			<string>{22, -8}</string>
+			<key>spriteSize</key>
+			<string>{272, 227}</string>
+			<key>spriteSourceSize</key>
+			<string>{316, 293}</string>
+			<key>spriteTrimmed</key>
+			<true/>
+			<key>textureRect</key>
+			<string>{{628, 0}, {272, 227}}</string>
+			<key>textureRotated</key>
+			<false/>
+		</dict>
+		
+		<key>smoke_2.png</key>
+		<dict>
+			<key>aliases</key>
+			<array>
+			
+			</array>
+			<key>spriteColorRect</key>
+			<string>{{0, 0}, {310, 285}}</string>
+			<key>spriteOffset</key>
+			<string>{-3, 4}</string>
+			<key>spriteSize</key>
+			<string>{310, 285}</string>
+			<key>spriteSourceSize</key>
+			<string>{316, 293}</string>
+			<key>spriteTrimmed</key>
+			<true/>
+			<key>textureRect</key>
+			<string>{{0, 283}, {310, 285}}</string>
+			<key>textureRotated</key>
+			<false/>
+		</dict>
+		
+		<key>smoke_3.png</key>
+		<dict>
+			<key>aliases</key>
+			<array>
+			
+			</array>
+			<key>spriteColorRect</key>
+			<string>{{17, 40}, {290, 245}}</string>
+			<key>spriteOffset</key>
+			<string>{4, -16}</string>
+			<key>spriteSize</key>
+			<string>{290, 245}</string>
+			<key>spriteSourceSize</key>
+			<string>{316, 293}</string>
+			<key>spriteTrimmed</key>
+			<true/>
+			<key>textureRect</key>
+			<string>{{606, 552}, {290, 245}}</string>
+			<key>textureRotated</key>
+			<false/>
+		</dict>
+		
+		<key>smoke_4.png</key>
+		<dict>
+			<key>aliases</key>
+			<array>
+			
+			</array>
+			<key>spriteColorRect</key>
+			<string>{{2, 35}, {294, 253}}</string>
+			<key>spriteOffset</key>
+			<string>{-9, -15}</string>
+			<key>spriteSize</key>
+			<string>{294, 253}</string>
+			<key>spriteSourceSize</key>
+			<string>{316, 293}</string>
+			<key>spriteTrimmed</key>
+			<true/>
+			<key>textureRect</key>
+			<string>{{0, 570}, {294, 253}}</string>
+			<key>textureRotated</key>
+			<false/>
+		</dict>
+		
+		<key>smoke_5.png</key>
+		<dict>
+			<key>aliases</key>
+			<array>
+			
+			</array>
+			<key>spriteColorRect</key>
+			<string>{{0, 25}, {308, 267}}</string>
+			<key>spriteOffset</key>
+			<string>{-4, -12}</string>
+			<key>spriteSize</key>
+			<string>{308, 267}</string>
+			<key>spriteSourceSize</key>
+			<string>{316, 293}</string>
+			<key>spriteTrimmed</key>
+			<true/>
+			<key>textureRect</key>
+			<string>{{312, 283}, {308, 267}}</string>
+			<key>textureRotated</key>
+			<false/>
+		</dict>
+		
+		<key>smoke_6.png</key>
+		<dict>
+			<key>aliases</key>
+			<array>
+			
+			</array>
+			<key>spriteColorRect</key>
+			<string>{{0, 12}, {316, 281}}</string>
+			<key>spriteOffset</key>
+			<string>{0, -6}</string>
+			<key>spriteSize</key>
+			<string>{316, 281}</string>
+			<key>spriteSourceSize</key>
+			<string>{316, 293}</string>
+			<key>spriteTrimmed</key>
+			<true/>
+			<key>textureRect</key>
+			<string>{{0, 0}, {316, 281}}</string>
+			<key>textureRotated</key>
+			<false/>
+		</dict>
+		
+		<key>smoke_7.png</key>
+		<dict>
+			<key>aliases</key>
+			<array>
+			
+			</array>
+			<key>spriteColorRect</key>
+			<string>{{8, 24}, {308, 265}}</string>
+			<key>spriteOffset</key>
+			<string>{4, -10}</string>
+			<key>spriteSize</key>
+			<string>{308, 265}</string>
+			<key>spriteSourceSize</key>
+			<string>{316, 293}</string>
+			<key>spriteTrimmed</key>
+			<true/>
+			<key>textureRect</key>
+			<string>{{318, 0}, {308, 265}}</string>
+			<key>textureRotated</key>
+			<false/>
+		</dict>
+		
+		<key>smoke_8.png</key>
+		<dict>
+			<key>aliases</key>
+			<array>
+			
+			</array>
+			<key>spriteColorRect</key>
+			<string>{{24, 9}, {292, 259}}</string>
+			<key>spriteOffset</key>
+			<string>{12, 8}</string>
+			<key>spriteSize</key>
+			<string>{292, 259}</string>
+			<key>spriteSourceSize</key>
+			<string>{316, 293}</string>
+			<key>spriteTrimmed</key>
+			<true/>
+			<key>textureRect</key>
+			<string>{{312, 552}, {292, 259}}</string>
+			<key>textureRotated</key>
+			<false/>
+		</dict>
+		
+		<key>smoke_9.png</key>
+		<dict>
+			<key>aliases</key>
+			<array>
+			
+			</array>
+			<key>spriteColorRect</key>
+			<string>{{32, 14}, {284, 245}}</string>
+			<key>spriteOffset</key>
+			<string>{16, 10}</string>
+			<key>spriteSize</key>
+			<string>{284, 245}</string>
+			<key>spriteSourceSize</key>
+			<string>{316, 293}</string>
+			<key>spriteTrimmed</key>
+			<true/>
+			<key>textureRect</key>
+			<string>{{622, 267}, {284, 245}}</string>
+			<key>textureRotated</key>
+			<false/>
+		</dict>
+		
+	</dict>
+	<key>metadata</key>
+	<dict>
+		<key>version</key>
+		<string>1.6.0</string>
+		<key>format</key>
+		<integer>3</integer>
+		<key>size</key>
+		<string>{1024, 1024}</string>
+		<key>name</key>
+		<string>Untitled</string>
+		<key>textureFileName</key>
+		<string>smoke_spritesheet.png</string>
+		<key>premultipliedAlpha</key>
+		<false/>
+	</dict>
+</dict>
+</plist>

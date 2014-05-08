@@ -47,6 +47,8 @@ bool GameManager::loadResource()
     CCSpriteFrameCache::sharedSpriteFrameCache()->addSpriteFramesWithFile("tower_1_default.plist", "tower_1_default.png");
     CCSpriteFrameCache::sharedSpriteFrameCache()->addSpriteFramesWithFile("tower_2_default.plist", "tower_2_default.png");
     CCSpriteFrameCache::sharedSpriteFrameCache()->addSpriteFramesWithFile("tower_orb_default.plist", "tower_orb_default.png");
+     CCSpriteFrameCache::sharedSpriteFrameCache()->addSpriteFramesWithFile("smoke_spritesheet.plist", "smoke_spritesheet.png");
+     CCSpriteFrameCache::sharedSpriteFrameCache()->addSpriteFramesWithFile("item_spritesheet.plist", "item_spritesheet.png");
     
     gbox2d::GB2ShapeCache *sc = gbox2d::GB2ShapeCache::sharedGB2ShapeCache();
     
@@ -55,10 +57,7 @@ bool GameManager::loadResource()
     sc->addShapesWithFile("skill_body.plist");
     sc->addShapesWithFile("map1_body.plist");
     sc->addShapesWithFile("monster_sensor.plist");
-
-//    MapFactory::getSharedFactory()->loadXMLMap();
-    
-
+    sc->addShapesWithFile("item_body.plist");
     return false;
 }
 

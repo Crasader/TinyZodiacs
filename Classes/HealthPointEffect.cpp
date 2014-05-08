@@ -16,8 +16,7 @@ HealthPointEffect::HealthPointEffect()
     label->setColor(ccc3(255,0,0));
     this->addChild(label);
     
-    this->sprite = CCSprite::createWithSpriteFrameName("aura_1.png");
-  //  this->addChild(this->sprite);
+    //  this->addChild(this->sprite);
 }
 
 HealthPointEffect::~HealthPointEffect()
@@ -27,7 +26,6 @@ HealthPointEffect::~HealthPointEffect()
 
 bool HealthPointEffect::init()
 {
-    this->scheduleUpdate();
     return true;
 }
 
@@ -35,8 +33,7 @@ void HealthPointEffect::run()
 {
     CCMoveBy* moveBy  =  CCMoveBy::create(0.5f, ccp(0,200));
     CCJumpBy* jumpBy = CCJumpBy::create(0.5f, ccp(30,10), 100, 1);
-    
-    CCAnimate* animate = CCAnimate::create(DataCollector::getInstance()->getAnimationObjectByKey("skill-aura")->getAnimation());
+
     CCFadeOut* fadeOut = CCFadeOut::create(0.5f);
     CCScaleBy* scaleBy = CCScaleBy::create(0.5f, 0.75f);
     CCCallFunc* func = CCCallFuncND::create(this, callfuncND_selector(HealthPointEffect::stop),NULL);
@@ -52,7 +49,7 @@ void HealthPointEffect::run()
     seq->addObject(CCSpawn::create(arr));
     seq->addObject(func);
     //
-//    this->sprite->runAction(animate);
+    //    this->sprite->runAction(animate);
     this->label->runAction(CCSequence::create(seq));
     
     
@@ -61,7 +58,6 @@ void HealthPointEffect::run()
 void HealthPointEffect::stop()
 {
     this->removeFromParent();
-    this->isStopped = true;
 }
 
 void HealthPointEffect::setHealthPoint(float hp)

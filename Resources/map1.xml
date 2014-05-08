@@ -247,11 +247,11 @@
     <monster_factory_list>
         <monster_factory group="B">
             
-            <monster_creator delay_per_unit="1" delay="0.5" lane = "2">
+                 <monster_creator delay_per_unit="1" delay="0.5" lane = "2">
                 <position x="2000" y="400"/>
                 <monster>monster_cat</monster>
             </monster_creator>
-        <!--
+     <!--
             <monster_creator delay_per_unit="0.5" delay="25" lane = "3">
                 <position x="1500" y="500"/>
                 <monster>monkey</monster>
