@@ -394,9 +394,14 @@
 		F5CCA797191B360B002A7F2A /* item_body.plist in Resources */ = {isa = PBXBuildFile; fileRef = F5CCA796191B360B002A7F2A /* item_body.plist */; };
 		F5CCA79A191B3643002A7F2A /* item_spritesheet.plist in Resources */ = {isa = PBXBuildFile; fileRef = F5CCA798191B3643002A7F2A /* item_spritesheet.plist */; };
 		F5CCA79B191B3643002A7F2A /* item_spritesheet.png in Resources */ = {isa = PBXBuildFile; fileRef = F5CCA799191B3643002A7F2A /* item_spritesheet.png */; };
+		F5CCA79F191B3BC3002A7F2A /* ItemFactory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F5CCA79D191B3BC3002A7F2A /* ItemFactory.cpp */; };
+		F5CCA7A2191B3D18002A7F2A /* ItemDTO.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F5CCA7A0191B3D18002A7F2A /* ItemDTO.cpp */; };
+		F5CCA7A4191B5F95002A7F2A /* item_list.xml in Resources */ = {isa = PBXBuildFile; fileRef = F5CCA7A3191B5F95002A7F2A /* item_list.xml */; };
+		F5CCA7A7191B6276002A7F2A /* XMLItemParser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F5CCA7A5191B6276002A7F2A /* XMLItemParser.cpp */; };
 		F5E2929518E6768F00B9B152 /* InfoViewCreator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F5E2929318E6768F00B9B152 /* InfoViewCreator.cpp */; };
 		F5E2929818E6779500B9B152 /* Player.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F5E2929618E6779500B9B152 /* Player.cpp */; };
 		F5E3B9B81917728E00E8FD95 /* MonsterLoader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F5E3B9B61917728E00E8FD95 /* MonsterLoader.cpp */; };
+		F5EAC341191B652700BE083E /* ItemLoader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F5EAC33F191B652700BE083E /* ItemLoader.cpp */; };
 		F5FA5B5E1900E78300B80EF0 /* ParameterObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F5FA5B5C1900E78300B80EF0 /* ParameterObject.cpp */; };
 		F5FF3FEB190A01490027506A /* CharacterDieState.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F5FF3FE9190A01490027506A /* CharacterDieState.cpp */; };
 /* End PBXBuildFile section */
@@ -1143,12 +1148,21 @@
 		F5CCA796191B360B002A7F2A /* item_body.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = item_body.plist; sourceTree = "<group>"; };
 		F5CCA798191B3643002A7F2A /* item_spritesheet.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = item_spritesheet.plist; sourceTree = "<group>"; };
 		F5CCA799191B3643002A7F2A /* item_spritesheet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = item_spritesheet.png; sourceTree = "<group>"; };
+		F5CCA79D191B3BC3002A7F2A /* ItemFactory.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ItemFactory.cpp; path = ../Classes/ItemFactory.cpp; sourceTree = "<group>"; };
+		F5CCA79E191B3BC3002A7F2A /* ItemFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ItemFactory.h; path = ../Classes/ItemFactory.h; sourceTree = "<group>"; };
+		F5CCA7A0191B3D18002A7F2A /* ItemDTO.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ItemDTO.cpp; path = ../Classes/ItemDTO.cpp; sourceTree = "<group>"; };
+		F5CCA7A1191B3D18002A7F2A /* ItemDTO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ItemDTO.h; path = ../Classes/ItemDTO.h; sourceTree = "<group>"; };
+		F5CCA7A3191B5F95002A7F2A /* item_list.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = item_list.xml; sourceTree = "<group>"; };
+		F5CCA7A5191B6276002A7F2A /* XMLItemParser.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = XMLItemParser.cpp; path = ../Classes/XMLItemParser.cpp; sourceTree = "<group>"; };
+		F5CCA7A6191B6276002A7F2A /* XMLItemParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XMLItemParser.h; path = ../Classes/XMLItemParser.h; sourceTree = "<group>"; };
 		F5E2929318E6768F00B9B152 /* InfoViewCreator.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = InfoViewCreator.cpp; sourceTree = "<group>"; };
 		F5E2929418E6768F00B9B152 /* InfoViewCreator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InfoViewCreator.h; sourceTree = "<group>"; };
 		F5E2929618E6779500B9B152 /* Player.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Player.cpp; sourceTree = "<group>"; };
 		F5E2929718E6779500B9B152 /* Player.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Player.h; sourceTree = "<group>"; };
 		F5E3B9B61917728E00E8FD95 /* MonsterLoader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MonsterLoader.cpp; sourceTree = "<group>"; };
 		F5E3B9B71917728E00E8FD95 /* MonsterLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MonsterLoader.h; sourceTree = "<group>"; };
+		F5EAC33F191B652700BE083E /* ItemLoader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ItemLoader.cpp; path = ../Classes/ItemLoader.cpp; sourceTree = "<group>"; };
+		F5EAC340191B652700BE083E /* ItemLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ItemLoader.h; path = ../Classes/ItemLoader.h; sourceTree = "<group>"; };
 		F5FA5B5C1900E78300B80EF0 /* ParameterObject.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ParameterObject.cpp; sourceTree = "<group>"; };
 		F5FA5B5D1900E78300B80EF0 /* ParameterObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParameterObject.h; sourceTree = "<group>"; };
 		F5FF3FE9190A01490027506A /* CharacterDieState.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CharacterDieState.cpp; sourceTree = "<group>"; };
@@ -2361,6 +2375,8 @@
 				F5E2929418E6768F00B9B152 /* InfoViewCreator.h */,
 				F5B428651917323D002DC13B /* DataCollector.cpp */,
 				F5B428661917323D002DC13B /* DataCollector.h */,
+				F5CCA79D191B3BC3002A7F2A /* ItemFactory.cpp */,
+				F5CCA79E191B3BC3002A7F2A /* ItemFactory.h */,
 			);
 			name = Factories;
 			sourceTree = "<group>";
@@ -2490,6 +2506,8 @@
 				F5B4286919173597002DC13B /* HeroDTO.h */,
 				F5B4286B191735AC002DC13B /* MonsterDTO.cpp */,
 				F5B4286C191735AC002DC13B /* MonsterDTO.h */,
+				F5CCA7A0191B3D18002A7F2A /* ItemDTO.cpp */,
+				F5CCA7A1191B3D18002A7F2A /* ItemDTO.h */,
 			);
 			name = DTO;
 			sourceTree = "<group>";
@@ -2559,6 +2577,8 @@
 				F5B42874191744CA002DC13B /* HeroLoader.h */,
 				F5E3B9B61917728E00E8FD95 /* MonsterLoader.cpp */,
 				F5E3B9B71917728E00E8FD95 /* MonsterLoader.h */,
+				F5EAC33F191B652700BE083E /* ItemLoader.cpp */,
+				F5EAC340191B652700BE083E /* ItemLoader.h */,
 			);
 			name = "Data loader";
 			sourceTree = "<group>";
@@ -2587,6 +2607,8 @@
 				F5B4287E19174F15002DC13B /* XMLHeroParser.h */,
 				F558161119176AD800A1CCB2 /* XMLMonsterParser.cpp */,
 				F558161219176AD800A1CCB2 /* XMLMonsterParser.h */,
+				F5CCA7A5191B6276002A7F2A /* XMLItemParser.cpp */,
+				F5CCA7A6191B6276002A7F2A /* XMLItemParser.h */,
 			);
 			name = "XML Parser";
 			sourceTree = "<group>";
@@ -2708,6 +2730,7 @@
 		F5CCA79C191B3647002A7F2A /* Item */ = {
 			isa = PBXGroup;
 			children = (
+				F5CCA7A3191B5F95002A7F2A /* item_list.xml */,
 				F5CCA798191B3643002A7F2A /* item_spritesheet.plist */,
 				F5CCA799191B3643002A7F2A /* item_spritesheet.png */,
 			);
@@ -2858,6 +2881,7 @@
 				F5C89DFB18D2FCB5006E909D /* monkey_animation.xml in Resources */,
 				F52678F918EEAEA500CE1E3B /* map1_spritesheet_3.png in Resources */,
 				1AFAF8BD16D35E4900DB1158 /* CloseSelected.png in Resources */,
+				F5CCA7A4191B5F95002A7F2A /* item_list.xml in Resources */,
 				1AFAF8BE16D35E4900DB1158 /* HelloWorld.png in Resources */,
 				2D0DA15A1908F72200881C8D /* tower_1.xml in Resources */,
 				F52678F518EEAEA500CE1E3B /* map1_background_spritesheet_1.png in Resources */,
@@ -2894,6 +2918,7 @@
 				15A3D90C1682F7D5002FB0C5 /* b2Draw.cpp in Sources */,
 				375BD4C61868411B0024609E /* TriggerObj.cpp in Sources */,
 				F5B42875191744CA002DC13B /* HeroLoader.cpp in Sources */,
+				F5EAC341191B652700BE083E /* ItemLoader.cpp in Sources */,
 				375BD4C31868411B0024609E /* ObjectFactory.cpp in Sources */,
 				15A3D90D1682F7D5002FB0C5 /* b2Math.cpp in Sources */,
 				15A3D90E1682F7D5002FB0C5 /* b2Settings.cpp in Sources */,
@@ -2912,6 +2937,7 @@
 				15A3D9181682F7D5002FB0C5 /* b2ChainAndPolygonContact.cpp in Sources */,
 				F54AE9B618D2F1AA00194E66 /* CharacterMidAirState.cpp in Sources */,
 				375BD5111868454E0024609E /* CCActionManager.cpp in Sources */,
+				F5CCA7A7191B6276002A7F2A /* XMLItemParser.cpp in Sources */,
 				15A3D9191682F7D5002FB0C5 /* b2CircleContact.cpp in Sources */,
 				F54AE9BC18D2F1AA00194E66 /* CharacterHitState.cpp in Sources */,
 				15A3D91A1682F7D5002FB0C5 /* b2Contact.cpp in Sources */,
@@ -3022,6 +3048,7 @@
 				15A3DA4B1682F826002FB0C5 /* CCControlColourPicker.cpp in Sources */,
 				15A3DA4C1682F826002FB0C5 /* CCControlHuePicker.cpp in Sources */,
 				375BD50F1868454E0024609E /* CCActionFrame.cpp in Sources */,
+				F5CCA79F191B3BC3002A7F2A /* ItemFactory.cpp in Sources */,
 				F54AE9BF18D2F1AA00194E66 /* ObjectState.cpp in Sources */,
 				F5CCA78B191B2BDB002A7F2A /* AnimationEffect.cpp in Sources */,
 				15A3DA4D1682F826002FB0C5 /* CCControlPotentiometer.cpp in Sources */,
@@ -3128,6 +3155,7 @@
 				343D9A4C19134163003F5DE4 /* GameWorld.cpp in Sources */,
 				379BB9AA17F03F3700829B88 /* CCTransformHelp.cpp in Sources */,
 				379BB9AB17F03F3700829B88 /* CCTweenFunction.cpp in Sources */,
+				F5CCA7A2191B3D18002A7F2A /* ItemDTO.cpp in Sources */,
 				34E614EF19133BFA006D933E /* CharacterDTO.cpp in Sources */,
 				F54AEA0D18D2F50300194E66 /* PhysicData.cpp in Sources */,
 				379BB9AC17F03F3700829B88 /* CCUtilMath.cpp in Sources */,

@@ -55,7 +55,7 @@ bool GameWorld::init()
     this->world->SetDebugDraw(_debugDraw);
     //Set contact listener
     this->setContactListener(this);
-    addManager();
+  
     //MAP
     MapCreator* mapCreator = new MapCreator();
     map = mapCreator->createMap("map1",this);
@@ -94,6 +94,13 @@ bool GameWorld::init()
     this->runAction(CCRepeatForever::create(seq));
     
     this->setCameraFollowGroup(this->group1);
+    
+    ItemDTO* dto = DataCollector::getInstance()->getItemDTOByKey("bag2");
+    dto->positionX = 2500;
+    dto->positionY = 400;
+
+    
+    addManager();
     return true;
 }
 
@@ -104,6 +111,10 @@ void GameWorld::addManager()
     this->addChild(ScheduleManager::getInstance());
     this->addChild(EffectManager::getInstance());
     EffectManager::getInstance()->setHolder(this);
+    GameHolder* holder = new GameHolder();
+    holder->nodeHolder = this->map;
+    holder->worldHolder = this->world;
+    ItemFactory::getInstance()->setHolder(holder);
 }
 
 
@@ -191,6 +202,7 @@ void GameWorld::update(float dt)
         world->Step(1/40.000f,8, 1);
     }
     this->map->update(dt);
+    ItemFactory::getInstance()->update(dt);
     // update infoview
     CCObject* object = NULL;
     CCARRAY_FOREACH(this->listInfoView, object)
@@ -206,10 +218,10 @@ void GameWorld::update(float dt)
 
 void GameWorld::draw()
 {
-    ccGLEnableVertexAttribs( kCCVertexAttribFlag_Position );
-    kmGLPushMatrix();
-    world->DrawDebugData();
-    kmGLPopMatrix();
+//    ccGLEnableVertexAttribs( kCCVertexAttribFlag_Position );
+//    kmGLPushMatrix();
+//    world->DrawDebugData();
+//    kmGLPopMatrix();
 }
 
 //PHYSICS CONTACT

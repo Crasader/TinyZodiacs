@@ -16,15 +16,6 @@
 #define FOOT_SENSOR_WIDTH 10/32
 #define FOOT_SENSOR_HEIGHT 5/32
 
-//#define MAP_BASE 0
-//#define CHARACTER_BODY -1
-//#define CHARACTER_FOOT_SENSOR -2
-//#define PROJECTILE 1
-//#define SKILL_SENSOR 2
-//#define TOWER_SENSOR 4
-//#define MAP_SENSOR 3
-
-
 #define JOINT_CENTER 0
 #define JOINT_TOP_OR_RIGHT 1
 #define JOINT_BOTTOM_OR_LEFT -1
@@ -40,6 +31,7 @@
 #define GROUP_SENSOR 0x0100
 #define GROUP_TOWER_A 0x0200
 #define GROUP_TOWER_B 0x0400
+#define GROUP_ITEM 0x1000
 
 //#define GROUP_TOWER 0x0200
 
@@ -71,7 +63,8 @@ enum Group
     A,
     B,
     NEUTRAL,
-    TERRAIN
+    TERRAIN,
+    ITEM
 };
 
 #endif

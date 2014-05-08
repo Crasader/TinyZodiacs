@@ -10,7 +10,7 @@
 
 MonsterDTO::MonsterDTO()
 {
-    
+
 }
 
 MonsterDTO::~MonsterDTO()

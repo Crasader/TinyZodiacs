@@ -9,7 +9,6 @@
 #include "Map.h"
 #include "MapObject.h"
 #include "GLES-Render.h"
-#include "ObjectFactory.h"
 #include "GameBackgroundLayer.h"
 #include "LayerIndexConstants.h"
 
@@ -110,7 +109,7 @@ void Map::attachAllMapObject()
     CCARRAY_FOREACH(listMapObject,object)
     {
         MapObject* mapObject = (MapObject*)object;
-        mapObject->getSprite()->setVisible(false);
+       // mapObject->getSprite()->setVisible(false);
         this->addChild(mapObject->getSprite(),MAPOBJECT_LAYER);
     }
 }

@@ -12,6 +12,7 @@
 #include <iostream>
 #include "cocos2d.h"
 #include "CharacterDTO.h"
+#include "Constants.h"
 
 USING_NS_CC;
 
@@ -24,6 +25,8 @@ public:
     ~MonsterDTO();
     
     string sensorBody;
+    
+    vector<ItemStruct> listItem;
     
     CREATE_FUNC(MonsterDTO);
 };

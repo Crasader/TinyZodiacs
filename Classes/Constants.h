@@ -10,8 +10,10 @@
 #define TinyZodiacs_Constants_h
 
 #include "Cocos2d.h"
+#include "Box2D/Box2d.h"
 
 USING_NS_CC;
+using namespace std;
 
 #define SKILL_TYPE_0 "0"
 #define SKILL_TYPE_1 "1"
@@ -33,6 +35,18 @@ struct TextureSelector
     CCSpriteFrame* activeTexture;
     CCSpriteFrame* deactiveTexture;
     CCSpriteFrame* selectedTexture;
+};
+
+struct ItemStruct
+{
+    string itemID;
+    float chance;
+};
+
+struct GameHolder
+{
+    CCNode* nodeHolder;
+    b2World* worldHolder;
 };
 
 #endif

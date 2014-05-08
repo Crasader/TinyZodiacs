@@ -12,17 +12,25 @@
 #include <iostream>
 #include "cocos2d.h"
 #include "GameObject.h"
+#include "ScheduleManager.h"
+#include "ItemFactory.h"
 
 USING_NS_CC;
 
 class Item: public GameObject {
 private:
+    CC_SYNTHESIZE(float, lifeTime, LifeTime);
+    CCAction* lifeTimeAction;
 protected:
 public:
     Item();
     ~Item();
     
     virtual bool init();
+    
+    void destroy();
+    void startSchedule();
+    
     
     CREATE_FUNC(Item);
 };

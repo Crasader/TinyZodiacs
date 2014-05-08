@@ -13,6 +13,8 @@
 #include "cocos2d.h"
 #include "Character.h"
 #include "SensorObject.h"
+#include "Constants.h"
+#include "ItemFactory.h"
 
 USING_NS_CC;
 
@@ -21,6 +23,7 @@ class Monster: public Character
 private:
     CC_SYNTHESIZE(int, laneID, LaneID);
     CC_SYNTHESIZE(b2Body*, sensor, Sensor);
+    CC_SYNTHESIZE(vector<ItemStruct>, listItem, listItem);
 protected:
     void checkCollisionDataInBeginContact(PhysicData* data, b2Contact *contact, bool isSideA);
     void checkCollisionDataInEndContact(PhysicData* data, b2Contact *contact, bool isSideA);

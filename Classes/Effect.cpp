@@ -144,8 +144,14 @@ void Effect::update(float dt)
 
 void Effect::stopAllSchedule()
 {
-    ScheduleManager::getInstance()->stopAction(this->timeTickRepeatAction);
-    ScheduleManager::getInstance()->stopAction(this->lifeTimeAction);
+    if(!this->timeTickRepeatAction->isDone())
+    {
+        ScheduleManager::getInstance()->stopAction(this->timeTickRepeatAction);
+    }
+    if(!this->lifeTimeAction->isDone())
+    {
+        ScheduleManager::getInstance()->stopAction(this->lifeTimeAction);
+    }
     
     this->timeTickRepeatAction->release();
     this->lifeTimeAction->release();
@@ -153,8 +159,14 @@ void Effect::stopAllSchedule()
 
 void Effect::destroy()
 {
-    ScheduleManager::getInstance()->stopAction(this->timeTickRepeatAction);
+    if(!this->timeTickRepeatAction->isDone())
+    {
+        ScheduleManager::getInstance()->stopAction(this->timeTickRepeatAction);
+    }
+    if(!this->lifeTimeAction->isDone())
+    {
     ScheduleManager::getInstance()->stopAction(this->lifeTimeAction);
+    }
     
     this->timeTickRepeatAction->release();
     this->lifeTimeAction->release();

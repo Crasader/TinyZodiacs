@@ -20,6 +20,9 @@ DataCollector::DataCollector()
     this->dictHeroDTO->retain();
     this->dictMonsterDTO = CCDictionary::create();
     this->dictMonsterDTO->retain();
+    this->dictItemDTO = CCDictionary::create();
+    this->dictItemDTO->retain();
+
 }
 
 DataCollector::~DataCollector()
@@ -56,6 +59,11 @@ void DataCollector::setMonsterDTO(const char* key, MonsterDTO* object)
     this->dictMonsterDTO->setObject(object, key);
 }
 
+void DataCollector::setItemDTO(const char* key, ItemDTO* object)
+{
+    this->dictItemDTO->setObject(object, key);
+
+}
 
 //get
 AnimationObject* DataCollector::getAnimationObjectByKey(const char *key)
@@ -78,4 +86,8 @@ MonsterDTO* DataCollector::getMonsterDTOByKey(const char* key)
      return (MonsterDTO*)this->dictMonsterDTO->objectForKey(key);
 }
 
+ItemDTO* DataCollector::getItemDTOByKey(const char* key)
+{
+    return (ItemDTO*)this->dictItemDTO->objectForKey(key);
+}
 

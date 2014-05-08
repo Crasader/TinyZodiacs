@@ -7,6 +7,7 @@
 //
 
 #include "GameManager.h"
+#include "ItemLoader.h"
 
 USING_NS_CC;
 static GameManager* instance = NULL;
@@ -67,6 +68,8 @@ bool GameManager::loadData()
     MapLoader::loadData();
     HeroLoader::loadData();
     MonsterLoader::loadData();
+    ItemLoader::loadData();
+    
     
     return true;
 }

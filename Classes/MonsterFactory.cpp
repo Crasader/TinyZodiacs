@@ -84,6 +84,7 @@ Monster* MonsterFactory::createMonster(MonsterDTO* monsterDTO, CCPoint position,
     monster->setGroup(this->group);
     monster->flipDirection(LEFT);
     monster->setLaneID(laneID);
+    monster->setlistItem(monsterDTO->listItem);
     
     return monster;
 }

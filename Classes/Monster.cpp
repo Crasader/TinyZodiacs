@@ -27,6 +27,8 @@ Monster::~Monster()
     effect->setAnimation("effect-smoke");
     
     EffectManager::getInstance()->runEffect(effect, this->getPositionInPixel());
+    
+    ItemFactory::getInstance()->createItem(this->listItem[0].itemID.c_str(), this->getPositionInPixel());
 }
 
 bool Monster::init()

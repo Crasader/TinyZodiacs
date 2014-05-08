@@ -289,6 +289,8 @@ uint16  GameObject::getCorrectGroup(Group group)
             return GROUP_NEUTRUAL;
         case TERRAIN:
             return GROUP_TERRAIN;
+        case ITEM:
+            return GROUP_ITEM;
     }
 }
 

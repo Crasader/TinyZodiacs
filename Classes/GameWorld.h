@@ -23,6 +23,8 @@
 #include "Tower.h"
 #include "GameGroup.h"
 #include "EffectManager.h"
+#include "Item.h"
+#include "ItemFactory.h"
 
 USING_NS_CC;
 class GameWorld: public CCNode, public b2ContactListener
