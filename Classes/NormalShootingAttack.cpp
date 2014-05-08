@@ -30,6 +30,9 @@ NormalShootingAttack::NormalShootingAttack(GameObject* holder, NormalShootingSki
         projectTileList->retain();
         
         this->autorelease();
+        
+        this->excuteAction = this->stopAction = this->coolDownAction = NULL;
+
     }
 }
 

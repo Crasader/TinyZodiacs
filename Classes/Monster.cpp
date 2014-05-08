@@ -17,12 +17,20 @@
 Monster::Monster()
 {
     isStopMove = false;
+    isAttack = false;
     this->landing = 0;
+    
+    this->listTarget = CCArray::create();
+    this->listTarget->retain();
 }
 
 Monster::~Monster()
 {
+    this->sensor->SetUserData(NULL);
     this->sensor->GetWorld()->DestroyBody(this->sensor);
+    
+    this->listTarget->removeAllObjects();
+    this->listTarget->release();
 }
 
 bool Monster::init()
@@ -39,10 +47,36 @@ void Monster::update(float dt)
     
     Character::update(dt);
     
-    if(!isStopMove)
+    //
+    this->aimTarget();
+    //
+    
+    if(!isAttack)
     {
-        this->move(this->direction);
+        if(!isStopMove)
+        {
+            this->move(this->direction);
+        }
     }
+
+    //
+    CCArray* listTargetRemoved = CCArray::create();
+    CCObject* object;
+    CCARRAY_FOREACH(this->listTarget, object)
+    {
+        Character* character = (Character*)object;
+        
+        if(character->isDead())
+        {
+            listTargetRemoved->addObject(character);
+        }
+    }
+    object = NULL;
+    CCARRAY_FOREACH(listTargetRemoved, object)
+    {
+        this->listTarget->removeObject(object);
+    }
+    listTargetRemoved->removeAllObjects();
 }
 
 
@@ -62,16 +96,20 @@ void Monster::checkCollisionDataInBeginContact(PhysicData* data, b2Contact *cont
             physicData = (PhysicData*)contact->GetFixtureA()->GetBody()->GetUserData();
         }
         
-        //Contact sensor
-        if(data->Id == MONSTER_SENSOR && physicData->Id == CHARACTER_BODY && physicData->Data != this)
-        {
-            this->attack();
-            return;
-        }
-        //
-        
         if(physicData != NULL)
         {
+            //Contact sensor
+            if(data->Id == MONSTER_SENSOR && physicData->Id == CHARACTER_BODY && physicData->Data != this)
+            {
+                //            this->isAttack = true;
+                this->stopMove();
+                //            this->attack();
+                listTarget->addObject((GameObject*)physicData->Data);
+                this->aimTarget();
+                return;
+            }
+            //
+            
             switch (physicData->Id) {
                 case MAP_SENSOR:
                 {
@@ -90,7 +128,7 @@ void Monster::checkCollisionDataInBeginContact(PhysicData* data, b2Contact *cont
                                 doAction(sensorObject);
                             }
                         }
-//                        this->isStopMove =true;
+                        //                        this->isStopMove =true;
                     }
                 }
                     break;
@@ -132,6 +170,22 @@ void Monster::checkCollisionDataInEndContact(PhysicData* data, b2Contact *contac
         
         if(physicData != NULL)
         {
+            //Contact sensor
+            if(data->Id == MONSTER_SENSOR && physicData->Id == CHARACTER_BODY && physicData->Data != this)
+            {
+                //            this->isAttack = true;
+                //            this->attack();
+                listTarget->removeObject((GameObject*)physicData->Data);
+                this->aimTarget();
+                
+                if(listTarget->count()==0)
+                {
+                    flipDirection(this->defaultDirection);
+                }
+                
+                return;
+            }
+            //
             switch (physicData->Id) {
                 case MAP_SENSOR:
                 {
@@ -210,7 +264,7 @@ void Monster::setSensorGroup(uint16 group)
                 default:
                     break;
             }
-//            filter.maskBits = 0xFFFFFF;
+            //            filter.maskBits = 0xFFFFFF;
             f->SetFilterData(filter);
         }
     }
@@ -243,4 +297,42 @@ uint16  Monster::getCorrectGroup(Group group)
         default:
             return GROUP_NEUTRUAL;
     }
+}
+
+void Monster::aimTarget()
+{
+    if(listTarget->count()>0)
+    {
+        this->isAttack = true;
+        
+        CCPoint targetPosition = ((GameObject*)listTarget->objectAtIndex(0))->getPositionInPixel();
+        if(this->getPositionInPixel().x > targetPosition.x)
+        {
+            flipDirection(LEFT);
+        }
+        else
+        {
+            flipDirection(RIGHT);
+        }
+        this->attack();
+    }
+    else
+    {
+        this->isAttack = false;
+    }
+}
+
+void Monster::setGroup(Group group)
+{
+    Character::setGroup(group);
+    switch (group)
+    {
+        case A:
+            defaultDirection = RIGHT;
+        case B:
+            defaultDirection = LEFT;
+        default:
+            defaultDirection = RIGHT;
+    }
+    flipDirection(defaultDirection);
 }

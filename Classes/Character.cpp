@@ -37,10 +37,10 @@ Character::~Character()
 {
     if(normalAttack)
     {
-        CCLOG("*%d",normalAttack->retainCount());
+//        CCLOG("*%d",normalAttack->retainCount());
         normalAttack->stopAllAction();
         normalAttack->release();
-        CCLOG("**%d",normalAttack->retainCount());
+//        CCLOG("**%d",normalAttack->retainCount());
     }
     
     if(skill1)
@@ -171,7 +171,7 @@ void Character::jump(float force)
 
 void Character::attack()
 {
-    if(this->normalAttack->getIsExcutable() && this->state->attack())
+    if(this->normalAttack->getIsExcutable() && this->state->attack() && isDead() == false)
     {
         changeState(new CharacterAttackState(this,this->normalAttack,this->attackAnimation));
     }
@@ -179,7 +179,7 @@ void Character::attack()
 
 void Character::useSkill1()
 {
-    if(this->skill1->getIsExcutable() && this->state->attack())
+    if(this->skill1->getIsExcutable() && this->state->attack() && isDead() == false && isDead() == false)
     {
         changeState(new CharacterAttackState(this,this->skill1,this->skill1Animation));
     }
@@ -187,7 +187,7 @@ void Character::useSkill1()
 
 void Character::useSkill2()
 {
-    //    if(this->skill2->getIsExcutable() && this->state->attack())
+    //    if(this->skill2->getIsExcutable() && this->state->attack() && isDead() == false)
     //    {
     //        changeState(new CharacterAttackState(this,this->skill2,this->skill2Animation));
     //    }

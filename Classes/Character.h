@@ -24,7 +24,7 @@ class CharacterState;
 
 class Character: public GameObject
 {
-private:
+private:    
     CharacterState* state;
     HealthBar* bar;
 

@@ -21,6 +21,8 @@ class Monster: public Character
 private:    
     CC_SYNTHESIZE(int, laneID, LaneID);
     CC_SYNTHESIZE_READONLY(b2Body*, sensor, Sensor);
+    CCArray* listTarget;
+    Direction defaultDirection;
 protected:
     void checkCollisionDataInBeginContact(PhysicData* data, b2Contact *contact, bool isSideA);
     void checkCollisionDataInEndContact(PhysicData* data, b2Contact *contact, bool isSideA);
@@ -28,13 +30,16 @@ protected:
     virtual void setPhysicGroup(uint16 group);
     void setSensorGroup(uint16 group);
     virtual uint16 getCorrectGroup(Group group);
+    virtual void aimTarget();
 public:
     bool isStopMove;
+    bool isAttack;
     Monster();
     ~Monster();
     
     virtual bool init();
     virtual void update(float dt);
+    virtual void setGroup(Group group);
     
     void setSensor(b2Body* sensor);
     

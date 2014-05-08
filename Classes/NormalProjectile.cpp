@@ -35,63 +35,75 @@ bool NormalProjectile::init()
 
 void NormalProjectile::setData(NormalShootingSkillData data, GameObject* holder, CCArray* collector)
 {
-    this->data = data;
-    this->holder = holder;
-    this->collector = collector;
-    
-    //Create body
-    b2BodyDef bodyDef;
-    bodyDef.type = b2_dynamicBody;
-    bodyDef.angle = ccpToAngle(ccp(0,0));
-    bodyDef.fixedRotation=true;
-    bodyDef.bullet = true;
-    
-    this->body = holder->getBody()->GetWorld()->CreateBody(&bodyDef);
-    
-    gbox2d::GB2ShapeCache *sc =  gbox2d::GB2ShapeCache::sharedGB2ShapeCache();
-    sc->addFixturesToBody(body, data.getProjectileBodyId());
-    
-    body->SetGravityScale(this->data.getGravityScale());
-    //set position
-    body->SetTransform(getStartPosition(holder, body), data.getRotateAngle());
-    //
-    PhysicData* pData= new PhysicData();
-    pData->Id = PROJECTILE;
-    pData->Data = this;
-    
-    body->SetUserData(pData);
-    
-    //
-    this->sprite = CCSprite::create();
-    //
-    this->data.getAnimation()->getAnimation()->setLoops(INFINITY);
-    CCAnimate* action = CCAnimate::create(this->data.getAnimation()->getAnimation());
-    this->sprite->runAction(action);
-    //
-    holder->getSprite()->getParent()->addChild(this->sprite, this->data.getAnimationLayerIndex());
-    //
-    if(holder->getDirection() == LEFT)
+    if(holder != NULL && holder->getBody() != NULL)
     {
-        this->flipDirection(RIGHT);
-        this->body->SetLinearVelocity(b2Vec2(-this->data.getSpeedX(), this->data.getSpeedY()));
+        this->data = data;
+        this->holder = holder;
+        this->collector = collector;
+        
+        //Create body
+        b2BodyDef bodyDef;
+        bodyDef.type = b2_dynamicBody;
+        bodyDef.angle = ccpToAngle(ccp(0,0));
+        bodyDef.fixedRotation=true;
+        bodyDef.bullet = true;
+        
+        this->body = holder->getBody()->GetWorld()->CreateBody(&bodyDef);
+        
+        gbox2d::GB2ShapeCache *sc =  gbox2d::GB2ShapeCache::sharedGB2ShapeCache();
+        sc->addFixturesToBody(body, data.getProjectileBodyId());
+        
+        body->SetGravityScale(this->data.getGravityScale());
+        //set position
+        body->SetTransform(getStartPosition(holder, body), data.getRotateAngle());
+        //
+        PhysicData* pData= new PhysicData();
+        pData->Id = PROJECTILE;
+        pData->Data = this;
+        
+        body->SetUserData(pData);
+        
+        //
+        this->sprite = CCSprite::create();
+        //
+        this->data.getAnimation()->getAnimation()->setLoops(INFINITY);
+        CCAnimate* action = CCAnimate::create(this->data.getAnimation()->getAnimation());
+        this->sprite->runAction(action);
+        //
+        holder->getSprite()->getParent()->addChild(this->sprite, this->data.getAnimationLayerIndex());
+        //
+        if(holder->getDirection() == LEFT)
+        {
+            this->flipDirection(RIGHT);
+            this->body->SetLinearVelocity(b2Vec2(-this->data.getSpeedX(), this->data.getSpeedY()));
+        }
+        else if(holder->getDirection() == RIGHT)
+        {
+            this->flipDirection(LEFT);
+            this->body->SetLinearVelocity(b2Vec2(this->data.getSpeedX(), this->data.getSpeedY()));
+        }
+        //schedule life time
+        this->lifeTimeScheduled = ScheduleManager::getInstance()->scheduleForGameObject(this, this->data.getLifeTime());
+        //
     }
-    else if(holder->getDirection() == RIGHT)
+    else
     {
-        this->flipDirection(LEFT);
-        this->body->SetLinearVelocity(b2Vec2(this->data.getSpeedX(), this->data.getSpeedY()));
+//        ScheduleManager::getInstance()->stopScheduledObjectAction(this->lifeTimeScheduled);
+        GameObjectManager::getInstance()->addObjectRemoved(this);
+        collector->removeObject(this);
     }
-    //schedule life time
-    this->lifeTimeScheduled = ScheduleManager::getInstance()->scheduleForGameObject(this, this->data.getLifeTime());
-    //
 }
 
 NormalProjectile::~NormalProjectile()
 {
-//    CC_SAFE_RELEASE_NULL(this->lifeTimeScheduled);
-//    this->collector->removeObject(this);
-//    CC_SAFE_RELEASE_NULL(this->sprite);
-    this->body->SetActive(false);
-   
+    //    CC_SAFE_RELEASE_NULL(this->lifeTimeScheduled);
+    //    this->collector->removeObject(this);
+    //    CC_SAFE_RELEASE_NULL(this->sprite);
+    if(body!=NULL)
+    {
+        this->body->SetActive(false);
+    }
+    
 }
 
 b2Vec2 NormalProjectile::getStartPosition(GameObject* holder, b2Body* me)
@@ -121,7 +133,7 @@ b2Vec2 NormalProjectile::getStartPosition(GameObject* holder, b2Body* me)
     b2Vec2 anchorA = getGlobalBodyStartPosition(holder->getBody(), tempA);
     b2AABB thisBoudningBox = Util::getBodyBoundingBoxDynamic(body);
     
-//    CCLOG("%f-%f-%f-%f",thisBoudningBox.lowerBound.x,thisBoudningBox.lowerBound.y,thisBoudningBox.upperBound.x,thisBoudningBox.upperBound.y);
+    //    CCLOG("%f-%f-%f-%f",thisBoudningBox.lowerBound.x,thisBoudningBox.lowerBound.y,thisBoudningBox.upperBound.x,thisBoudningBox.upperBound.y);
     
     
     if(this->data.getJointDefA().x == JOINT_REAR && this->data.getJointDefB().x == JOINT_REAR)
@@ -147,7 +159,7 @@ b2Vec2 NormalProjectile::getGlobalBodyStartPosition(b2Body* body, JointDef joint
     {
         return b2Vec2(0,0);
     }
-   
+    
     //set joint anchor A
     b2AABB boundingBox = Util::getBodyBoundingBoxDynamic(body);
     b2Vec2 jointAAnchor(0,0);
@@ -190,7 +202,7 @@ void NormalProjectile::update(float dt)
     {
         CCPoint bodyPosition = ccp(this->body->GetPosition().x*PTM_RATIO,this->body->GetPosition().y*PTM_RATIO);
         this->sprite->setPosition(bodyPosition);
-//        this->sprite->setVisible(false);
+        //        this->sprite->setVisible(false);
         this->sprite->setRotation(-1 * CC_RADIANS_TO_DEGREES(this->body->GetAngle()));
     }
 }
@@ -221,11 +233,11 @@ void NormalProjectile::checkCollisionDataInBeginContact(PhysicData* data, b2Cont
             {
                 if(character->getGroup() == this->holder->getGroup())
                 {
-                   // CCLOG("Allie begin");
+                    // CCLOG("Allie begin");
                 }
                 else
                 {
-                   // CCLOG("Enemy begin");
+                    // CCLOG("Enemy begin");
                     CCObject* effectData;
                     CCARRAY_FOREACH(this->data.getListEnemyEffect(), effectData)
                     {
@@ -241,8 +253,8 @@ void NormalProjectile::checkCollisionDataInBeginContact(PhysicData* data, b2Cont
             }
         }
         default:
-           
-        break;
+            
+            break;
     }
 }
 
@@ -272,11 +284,11 @@ void NormalProjectile::checkCollisionDataInEndContact(PhysicData* data, b2Contac
             {
                 if(character->getGroup() == this->holder->getGroup())
                 {
-                   // CCLOG("Allie end");
+                    // CCLOG("Allie end");
                 }
                 else
                 {
-                  //  CCLOG("Enemy end");
+                    //  CCLOG("Enemy end");
                 }
             }
             break;
@@ -290,37 +302,39 @@ void NormalProjectile::checkCollisionDataInEndContact(PhysicData* data, b2Contac
 void NormalProjectile::remove()
 {
     ScheduleManager::getInstance()->stopScheduledObjectAction(this->lifeTimeScheduled);
-//    this->lifeTimeScheduled->stop();
-//    GameObjectManager::getInstance()->addObject((GameObject*)this);
-//    if(this->sprite != NULL)
-//    {
-//        this->sprite->getParent()->removeChild(this->getSprite());
-//        CC_SAFE_RELEASE_NULL(this->sprite);
-//    }
-//    this->release();
-  //  CC_SAFE_RELEASE_NULL(this->lifeTimeScheduled);
+    //    this->lifeTimeScheduled->stop();
+    //    GameObjectManager::getInstance()->addObject((GameObject*)this);
+    //    if(this->sprite != NULL)
+    //    {
+    //        this->sprite->getParent()->removeChild(this->getSprite());
+    //        CC_SAFE_RELEASE_NULL(this->sprite);
+    //    }
+    //    this->release();
+    //  CC_SAFE_RELEASE_NULL(this->lifeTimeScheduled);
     GameObjectManager::getInstance()->addObjectRemoved(this);
     this->collector->removeObject(this);
-//     this -> release();
-
-  }
+    //     this -> release();
+    
+}
 
 void NormalProjectile::excuteScheduledFunction(CCObject* pSender, void *object)
 {
-//    GameObjectManager::getInstance()->addObject((GameObject*)object);
-//    if(this->sprite)
-//    {
-//        ((GameObject*)object)->getSprite()->getParent()->removeChild(((GameObject*)object)->getSprite());
-//    }
-//    this -> release();
+    //    GameObjectManager::getInstance()->addObject((GameObject*)object);
+    //    if(this->sprite)
+    //    {
+    //        ((GameObject*)object)->getSprite()->getParent()->removeChild(((GameObject*)object)->getSprite());
+    //    }
+    //    this -> release();
     GameObjectManager::getInstance()->addObjectRemoved(this);
     this->collector->removeObject(this);
-//     this -> release();
-
+    //     this -> release();
+    
 }
 
 void NormalProjectile::setGroup(uint16 group)
 {
+    if(this->body!=NULL)
+    {
     for (b2Fixture* f = this->body->GetFixtureList(); f; f = f->GetNext())
     {
         if(f != NULL)
@@ -333,6 +347,7 @@ void NormalProjectile::setGroup(uint16 group)
                 f->SetFilterData(filter);
             }
         }
+    }
     }
 }
 
