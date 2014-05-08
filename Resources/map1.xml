@@ -199,10 +199,10 @@
         <!-- <sensor_object is_back = "true" must_stop = "false" direction = "right" move_speed="8" jump_height = "0">
          <position x="5678" y="251"/>
          <edge x="0" y="100"/>
-         </sensor_object> -->
+         </sensor_object>-->
     </sensor_object_list>
     <tower_list>
-        <!--
+<!--
         <tower id="tower_1.xml" group="A" >
             <position x="1150" y="1050"/>
         </tower>
@@ -212,11 +212,11 @@
         </tower>
 
 
-  <tower id="tower_1.xml" group="A" >
-            <position x="753" y="920"/>
+  <tower id="tower_1.xml" group="B" >
+            <position x="294" y="920"/>
         </tower>
        
- 
+
         <tower id="tower_1.xml" group="A" >
             <position x="2823" y="510"/>
         </tower>
@@ -238,18 +238,14 @@
         <tower id="tower_2.xml" group="B" >
             <position x="4228" y="1378"/>
         </tower>
-        <tower id="tower_2.xml" group="A" >
-            <position x="371" y="365"/>
-        </tower>
-        -->
-  
+-->
     </tower_list>
     <monster_factory_list>
         <monster_factory group="B">
             
-            <monster_creator delay_per_unit="1" delay="0.5" lane = "2">
+            <monster_creator delay_per_unit="1" delay="5" lane = "2">
                 <position x="2000" y="400"/>
-                <monster>monster_cat</monster>
+                <monster>monster_onion</monster>
             </monster_creator>
         <!--
             <monster_creator delay_per_unit="0.5" delay="25" lane = "3">

@@ -8,6 +8,8 @@
 
 #include "AbstractSkill.h"
 
+#include "ScheduleManager.h"
+
 AbstractSkill::~AbstractSkill()
 {
     
@@ -58,3 +60,40 @@ void AbstractSkill::setExcuteAble()
 {
     
 }
+
+void AbstractSkill::stopAllAction()
+{
+//    stopImmediately();
+    if(excuteAction != NULL)
+    {
+        CCLOG("a-%d",excuteAction->retainCount());
+//        if(excuteAction->isDone() == false)
+        {
+            ScheduleManager::getInstance()->stopScheduledObjectAction(excuteAction);
+        }
+       excuteAction->release();
+        CCLOG("a-%d",excuteAction->retainCount());
+    }
+    if(stopAction != NULL)
+    {
+        CCLOG("b-%d",stopAction->retainCount());
+//        if(stopAction->isDone() == false)
+        {
+            ScheduleManager::getInstance()->stopScheduledObjectAction(stopAction);
+        }
+        stopAction->release();
+        CCLOG("b-%d",stopAction->retainCount());
+    }
+    if(coolDownAction != NULL)
+    {
+        CCLOG("c-%d",coolDownAction->retainCount());
+//        if(coolDownAction->isDone() == false)
+        {
+            ScheduleManager::getInstance()->stopAction(coolDownAction);
+        }
+            CCLOG("c-%d",coolDownAction->retainCount());
+        coolDownAction->release();
+    
+    }
+}
+

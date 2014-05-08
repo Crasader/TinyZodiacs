@@ -156,7 +156,7 @@ void Effect::stopAllSchedule()
 
 void Effect::destroy()
 {
-    CCLOG("destroy");
+//    CCLOG("destroy");
     if(this->timeTickRepeatAction != NULL)
     {
         if(!this->timeTickRepeatAction->isDone())
@@ -174,7 +174,7 @@ void Effect::destroy()
 
 void Effect::onTimeTick()
 {
-    CCLOG("timetick");
+//    CCLOG("timetick");
     Character* character = (Character*)this->holder;
     //    character->getCharacterData().setHealth(character->getCharacterData().getHealth()-this->health);
     character->notifyByEffect(this);

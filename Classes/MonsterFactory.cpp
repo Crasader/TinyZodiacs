@@ -85,7 +85,9 @@ Monster* MonsterFactory::createMonster(MonsterDTO* monsterDTO, CCPoint position,
     monster->setGroup(this->group);
     monster->flipDirection(LEFT);
     monster->setLaneID(laneID);
-    
+    //load skill
+    monster->setNormalAttack(SkillFactory::createSkill(monsterDTO->data.getSkill0().c_str(), world, monster, false, SKILL_0_BUTTON));
+
     return monster;
 }
 

@@ -119,7 +119,7 @@ const XMLElement* SkillFactory::loadElementById(const char* id, const XMLElement
     
     while(child != NULL)
     {
-        CCLOG("%s - %s",id,child->Attribute(ATTRIBUTE_ID));
+//        CCLOG("%s - %s",id,child->Attribute(ATTRIBUTE_ID));
         if(strcasecmp(id,child->Attribute(ATTRIBUTE_ID)) == 0)
         {
             return  child;

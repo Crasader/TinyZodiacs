@@ -272,8 +272,8 @@ void GameObject::setPhysicGroup(uint16 group)
 
 void  GameObject::setGroup(Group group)
 {
-    this->setPhysicGroup(getCorrectGroup(group));
     this->group = group;
+    this->setPhysicGroup(getCorrectGroup(group));
 }
 
 uint16  GameObject::getCorrectGroup(Group group)

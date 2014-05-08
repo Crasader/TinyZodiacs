@@ -1,0 +1,13 @@
+<character id="monster_onion">
+    <animation>creep_1</animation>
+	<body>creep_1</body>
+    <hp>990</hp>
+    <atk>5</atk>
+    <def>2</def>
+    <speed>8</speed>
+    <atk_speed>0.1</atk_speed>
+    <max_jump>10</max_jump>
+    <jump_height>10</jump_height>
+    <sensor_body>creep_1_sensor</sensor_body>
+    <skill_0>monkey_shooting</skill_0>
+</character>

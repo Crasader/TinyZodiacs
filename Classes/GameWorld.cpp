@@ -47,7 +47,7 @@ bool GameWorld::init()
     b2Draw* _debugDraw = new GLESDebugDraw(PTM_RATIO);
     uint32 flags = 0;
     flags += b2Draw::e_shapeBit;
-    //   flags += b2Draw::e_jointBit;
+    flags += b2Draw::e_jointBit;
     flags += b2Draw::e_aabbBit;
     //    flags += b2Draw::e_pairBit;
     flags += b2Draw::e_centerOfMassBit;
@@ -186,11 +186,9 @@ void GameWorld::setContactListener(b2ContactListener *listener){
 
 void GameWorld::update(float dt)
 {
-    if(this->world != NULL)
-    {
-        world->Step(1/40.000f,8, 1);
-    }
     this->map->update(dt);
+    this->group1->update(dt);
+    this->group2->update(dt);
     // update infoview
     CCObject* object = NULL;
     CCARRAY_FOREACH(this->listInfoView, object)
@@ -198,18 +196,20 @@ void GameWorld::update(float dt)
         GameObjectInfoView* gameObjectInfoView = dynamic_cast<GameObjectInfoView*>(object);
         gameObjectInfoView->update(dt);
     }
-    
-    this->group1->update(dt);
-    this->group2->update(dt);
+    //
+    if(this->world != NULL)
+    {
+        world->Step(1/40.000f,8, 1);
+    }
 }
 
 
 void GameWorld::draw()
 {
-//    ccGLEnableVertexAttribs( kCCVertexAttribFlag_Position );
-//    kmGLPushMatrix();
-//    world->DrawDebugData();
-//    kmGLPopMatrix();
+    ccGLEnableVertexAttribs( kCCVertexAttribFlag_Position );
+    kmGLPushMatrix();
+    world->DrawDebugData();
+    kmGLPopMatrix();
 }
 
 //PHYSICS CONTACT

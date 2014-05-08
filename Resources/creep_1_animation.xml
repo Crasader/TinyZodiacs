@@ -1,0 +1,60 @@
+<object_animation name="creep_1" plist_name="onion_creep_default.plist" image_name="onion_creep_default.png">
+    <animation name="run" delay="0.06" loop="infinity">
+        <origin x="0.55" y="0.5" />
+        <framelist>
+            <frame name="1.png" />
+            <frame name="2.png" />
+            <frame name="3.png" />
+            <frame name="4.png" />
+        </framelist>
+    </animation>
+    <animation name="jump" delay="0.05" loop="1">
+      <origin x="0.65" y="0.4" />
+        <framelist>
+            <frame name="1.png" />
+            <frame name="2.png" />
+            <frame name="3.png" />
+            <frame name="4.png" />
+        </framelist>
+    </animation>
+    
+    <animation name="attack" delay="0.1" loop="1">
+        <origin x="0.55" y="0.5" />
+        <framelist>
+            <frame name="1.png" />
+            <frame name="2.png" />
+            <frame name="3.png" />
+            <frame name="4.png" />
+        </framelist>
+    </animation>
+    
+    
+    <animation name="fall" delay="0.1" loop="infinity">
+        <origin x="0.6" y="0.4" />
+        <framelist>
+            <frame name="1.png" />
+        </framelist>
+    </animation>
+
+    <animation name="fly" delay="0.1" loop="infinity">
+        <origin x="0.65" y="0.4" />
+        <framelist>
+            <frame name="1.png" />
+        </framelist>
+    </animation>
+
+    <animation name="skill" delay="0.1" loop="1">
+        <origin x="0.3" y="0.22" />
+        <framelist>
+            <frame name="1.png" />
+         </framelist>
+
+    </animation>
+
+    <animation name="idle" delay="0.1" loop="infinity">
+        <origin x="0.54" y="0.5" />
+        <framelist>
+            <frame name="1.png" />
+        </framelist>
+    </animation>
+</object_animation>

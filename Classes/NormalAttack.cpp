@@ -44,12 +44,19 @@ NormalAttack::NormalAttack(GameObject* holder, NormalMeleeSkillData data)
             this->data.getSkillAnimation()->getAnimation()->setLoops(INFINITY);
         }
         this->autorelease();
+        
+        //create action
+        
+        this->excuteAction = this->stopAction = this->coolDownAction = NULL;
     }
 }
 
 NormalAttack::~NormalAttack()
 {
-    this->skillSprite->release();
+    stopImmediately();
+    CC_SAFE_RELEASE(this->skillSprite);
+    data.getSkillSensor()->SetActive(false);
+    data.getSkillSensor()->GetWorld()->DestroyBody(data.getSkillSensor());
 }
 
 
@@ -112,10 +119,27 @@ void NormalAttack::excute()
     {
         destroyJoint();
         createJoint();
-        ScheduleManager::getInstance()->scheduleForSkill(this, this->data.getDelay(), FUCTION_EXCUTE);
+        
+        if(this->excuteAction != NULL)
+        {
+            this->excuteAction->stop();
+            this->excuteAction->release();
+        }
+        CCCallFunc* excuteFunc = CCCallFunc::create(this, callfunc_selector(AbstractSkill::excuteImmediately));
+        this->excuteAction =  ScheduleManager::getInstance()->scheduleFuction(excuteFunc, this->data.getDelay());
+        this->excuteAction->retain();
+        
         if(this->data.getCoolDown() > 0)
         {
-            ScheduleManager::getInstance()->scheduleForSkill(this, this->data.getCoolDown(), FUCTION_SET_EXCUTABLE);
+            if(this->coolDownAction != NULL)
+            {
+                this->coolDownAction->stop();
+                this->coolDownAction->release();
+            }
+            CCCallFunc* coolDownFunc = CCCallFunc::create(this, callfunc_selector(AbstractSkill::setExcuteAble));
+            this->coolDownAction = ScheduleManager::getInstance()->scheduleFuction(coolDownFunc, this->data.getCoolDown());
+            this->coolDownAction->retain();
+            
             this->isExcutable = false;
             if(this-> holderButton != NULL)
             {
@@ -127,37 +151,57 @@ void NormalAttack::excute()
 
 void NormalAttack::stop()
 {
-    if(this->data.getLifeTime() >=0)
+//    if(this->data.getLifeTime() >=0)
+//    {
+    if(this->stopAction != NULL)
     {
-        ScheduleManager::getInstance()->scheduleForSkill(this, this->data.getLifeTime(), FUCTION_STOP);
+        this->stopAction->stop();
+        this->stopAction->release();
     }
-    else
-    {
-        this->stopImmediately();
-    }
+        CCCallFunc* stopFunc = CCCallFunc::create(this, callfunc_selector(AbstractSkill::stopImmediately));
+        this->stopAction = ScheduleManager::getInstance()->scheduleFuction(stopFunc, this->data.getLifeTime());
+        this->stopAction->retain();
+//    }
+//    else
+//    {
+//        this->stopImmediately();
+//    }
 }
 
 void NormalAttack::excuteImmediately()
 {
     //    this->destroyJoint();
-    this->data.getSkillSensor()->SetActive(true);
-    if(this->data.getSkillAnimation() != NULL)
-    {
-        this->holder->getSprite()->getParent()->addChild(this->skillSprite, this->data.getAnimationLayerIndex());
-        CCAnimate* action = CCAnimate::create(this->data.getSkillAnimation()->getAnimation());
-        this->skillSprite->runAction(action);
-        this->skillSprite->setPosition(ccp(0,0));
-    }
+//    if(this->holder!= NULL && this->holder->getBody() != NULL && this->holder->getBody()->GetWorld()->IsLocked() == false)
+//    {
+        this->data.getSkillSensor()->SetActive(true);
+        if(this->data.getSkillAnimation() != NULL && this->holder != NULL)
+        {
+            this->holder->getSprite()->getParent()->addChild(this->skillSprite, this->data.getAnimationLayerIndex());
+            CCAnimate* action = CCAnimate::create(this->data.getSkillAnimation()->getAnimation());
+            this->skillSprite->runAction(action);
+            this->skillSprite->setPosition(ccp(0,0));
+        }
+    
+//    this->excuteAction->release();
+//    this->excuteAction = NULL;
+//    }
 }
 
 void NormalAttack::stopImmediately()
 {
-    this->data.getSkillSensor()->SetActive(false);
-    if(this->data.getSkillAnimation() != NULL)
-    {
-        this->skillSprite->stopAllActions();
-        this->holder->getSprite()->getParent()->removeChild(this->skillSprite);
-    }
+//    if(this->holder!= NULL && this->holder->getBody() != NULL && this->holder->getBody()->GetWorld()->IsLocked() == false)
+//    {
+        this->data.getSkillSensor()->SetActive(false);
+        if(this->data.getSkillAnimation() != NULL && this->holder != NULL)
+        {
+            this->skillSprite->stopAllActions();
+            this->skillSprite->removeFromParent();
+//            this->holder->getSprite()->getParent()->removeChild(this->skillSprite);
+        }
+    
+//    this->stopAction->release();
+//    this->stopAction = NULL;
+//    }
 }
 
 void NormalAttack::checkCollisionDataInBeginContact(PhysicData* data, b2Contact *contact, bool isSideA)
@@ -183,11 +227,11 @@ void NormalAttack::checkCollisionDataInBeginContact(PhysicData* data, b2Contact 
                     {
                         if(character->getGroup() == this->holder->getGroup())
                         {
-                           // CCLOG("Allie begin");
+                            // CCLOG("Allie begin");
                         }
                         else
                         {
-                           // CCLOG("Enemy begin");
+                            // CCLOG("Enemy begin");
                             CCObject* effectData;
                             CCARRAY_FOREACH(this->data.getListEnemyEffect(), effectData)
                             {
@@ -229,11 +273,11 @@ void NormalAttack::checkCollisionDataInEndContact(PhysicData* data, b2Contact *c
                     {
                         if(character->getGroup() == this->holder->getGroup())
                         {
-                           // CCLOG("Allie end");
+                            // CCLOG("Allie end");
                         }
                         else
                         {
-                          //  CCLOG("Enemy end");
+                            //  CCLOG("Enemy end");
                         }
                     }
                 }
@@ -246,7 +290,7 @@ void NormalAttack::checkCollisionDataInEndContact(PhysicData* data, b2Contact *c
 
 void NormalAttack::destroyJoint()
 {
-    if(this->skillJoint != NULL)
+    if(this->skillJoint != NULL && this->holder->getBody()->GetWorld()->IsLocked() == false)
     {
         this->holder->getBody()->GetWorld()->DestroyJoint(this->skillJoint);
         this->skillJoint = NULL;
@@ -255,39 +299,42 @@ void NormalAttack::destroyJoint()
 
 void NormalAttack::createJoint()
 {
-    if(this->data.getJointDefA().x == JOINT_REAR)
+    if(this->holder->getBody()->GetWorld()->IsLocked() == false)
     {
-        if(this->holder->getDirection() == LEFT)
+        if(this->data.getJointDefA().x == JOINT_REAR)
         {
-            this->holder_join_type = JOINT_BOTTOM_OR_LEFT;
+            if(this->holder->getDirection() == LEFT)
+            {
+                this->holder_join_type = JOINT_BOTTOM_OR_LEFT;
+            }
+            else
+            {
+                this->holder_join_type = JOINT_TOP_OR_RIGHT;
+            }
+            if(this->data.getJointDefB().x == JOINT_REAR)
+            {
+                this->this_join_type = -this->holder_join_type;
+            }
         }
-        else
-        {
-            this->holder_join_type = JOINT_TOP_OR_RIGHT;
-        }
-        if(this->data.getJointDefB().x == JOINT_REAR)
-        {
-            this->this_join_type = -this->holder_join_type;
-        }
+        
+        //create joint
+        b2RevoluteJointDef skillJointDef;
+        skillJointDef.bodyA = this->holder->getBody();
+        skillJointDef.bodyB = this->data.getSkillSensor();
+        skillJointDef.collideConnected =false;
+        
+        JointDef tempA = data.getJointDefA();
+        tempA.x = holder_join_type;
+        b2Vec2 anchorA = Util::getb2VecAnchor(this->holder->getBody(), tempA);
+        skillJointDef.localAnchorA.Set(anchorA.x,anchorA.y);
+        
+        JointDef tempB = data.getJointDefB();
+        tempB.x = this_join_type;
+        b2Vec2 anchorB = Util::getb2VecAnchor(this->data.getSkillSensor(), tempB);
+        skillJointDef.localAnchorB.Set(anchorB.x, anchorB.y);
+        
+        this->skillJoint=this->holder->getBody()->GetWorld()->CreateJoint(&skillJointDef);
     }
-    
-    //create joint
-    b2RevoluteJointDef skillJointDef;
-    skillJointDef.bodyA = this->holder->getBody();
-    skillJointDef.bodyB = this->data.getSkillSensor();
-    skillJointDef.collideConnected =false;
-    
-    JointDef tempA = data.getJointDefA();
-    tempA.x = holder_join_type;
-    b2Vec2 anchorA = Util::getb2VecAnchor(this->holder->getBody(), tempA);
-    skillJointDef.localAnchorA.Set(anchorA.x,anchorA.y);
-    
-    JointDef tempB = data.getJointDefB();
-    tempB.x = this_join_type;
-    b2Vec2 anchorB = Util::getb2VecAnchor(this->data.getSkillSensor(), tempB);
-    skillJointDef.localAnchorB.Set(anchorB.x, anchorB.y);
-    
-    this->skillJoint=this->holder->getBody()->GetWorld()->CreateJoint(&skillJointDef);
 }
 
 void NormalAttack::initJointType()
@@ -331,4 +378,7 @@ void NormalAttack::setExcuteAble()
     {
         this->holderButton->changeState(ENABLE);
     }
+    
+//    this->coolDownAction->release();
+//    this->coolDownAction = NULL;
 }

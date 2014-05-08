@@ -35,9 +35,25 @@ Character::Character()
 
 Character::~Character()
 {
-    CC_SAFE_RELEASE_NULL(normalAttack);
-    CC_SAFE_RELEASE_NULL(skill1);
-    CC_SAFE_RELEASE_NULL(skill2);
+    if(normalAttack)
+    {
+        CCLOG("*%d",normalAttack->retainCount());
+        normalAttack->stopAllAction();
+        normalAttack->release();
+        CCLOG("**%d",normalAttack->retainCount());
+    }
+    
+    if(skill1)
+    {
+        skill1->stopAllAction();
+        CC_SAFE_RELEASE_NULL(skill1);
+    }
+    
+    if(skill2)
+    {
+        skill2->stopAllAction();
+        CC_SAFE_RELEASE_NULL(skill2);
+    }
     
     this->footSensor->GetWorld()->DestroyBody(this->footSensor);
 }
@@ -484,7 +500,7 @@ void Character::setPhysicGroup(uint16 group)
             if(f->GetNext() != NULL)
             {
                 b2Filter filter = f->GetFilterData();
-                filter.maskBits = filter.maskBits ^ GROUP_SKILL_DEFAULT;
+                filter.maskBits = filter.maskBits ^ GROUP_SKILL_DEFAULT ^ GROUP_MONSTER_SENSOR;
                 f->SetFilterData(filter);
             }
         }

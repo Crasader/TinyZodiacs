@@ -38,20 +38,36 @@ void NormalShootingAttack::excute()
 {
     if(this->getIsExcutable())
     {
-        ScheduleManager::getInstance()->scheduleForSkill(this, this->data.getDelay(), FUCTION_EXCUTE);
+        if(this->excuteAction != NULL)
+        {
+            this->excuteAction->stop();
+            this->excuteAction->release();
+        }
+        CCCallFunc* excuteFunc = CCCallFunc::create(this, callfunc_selector(AbstractSkill::excuteImmediately));
+        this->excuteAction =  ScheduleManager::getInstance()->scheduleFuction(excuteFunc, this->data.getDelay());
+        this->excuteAction->retain();
+        
         if(this->data.getCoolDown() > 0)
         {
-            ScheduleManager::getInstance()->scheduleForSkill(this, this->data.getCoolDown(), FUCTION_SET_EXCUTABLE);
+            if(this->coolDownAction != NULL)
+            {
+                this->coolDownAction->stop();
+                this->coolDownAction->release();
+            }
+            CCCallFunc* coolDownFunc = CCCallFunc::create(this, callfunc_selector(AbstractSkill::setExcuteAble));
+            this->coolDownAction = ScheduleManager::getInstance()->scheduleFuction(coolDownFunc, this->data.getCoolDown());
+            this->coolDownAction->retain();
+            
             this->isExcutable = false;
             if(this-> holderButton != NULL)
             {
                 this->holderButton->changeState(DISABLE);
             }
         }
-        else
-        {
-            this->AbstractSkill::excuteImmediately();
-        }
+//        else
+//        {
+//            this->AbstractSkill::excuteImmediately();
+//        }
     }
 }
 
@@ -137,12 +153,16 @@ void NormalShootingAttack::checkCollisionDataInBeginContact(PhysicData* data, b2
     switch (data->Id)
     {
         case PROJECTILE:
+        {
             void* pData = data->Data;
             NormalProjectile* projectile = static_cast<NormalProjectile*>(pData);
             if(projectile != NULL && projectile->getHolder() == this->holder)
             {
                 projectile->checkCollisionDataInBeginContact(data, contact, isSideA);
             }
+            break;
+        }
+        default:
             break;
     }
 }
@@ -156,12 +176,16 @@ void NormalShootingAttack::checkCollisionDataInEndContact(PhysicData* data, b2Co
     
     switch (data->Id) {
         case PROJECTILE:
+        {
             void* pData = data->Data;
             NormalProjectile* projectile = (NormalProjectile *)pData;
             if(projectile != NULL && projectile->getHolder() == this->holder)
             {
                 projectile->checkCollisionDataInEndContact(data, contact, isSideA);
             }
+            break;
+        }
+        default:
             break;
     }
 }

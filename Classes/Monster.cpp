@@ -22,7 +22,7 @@ Monster::Monster()
 
 Monster::~Monster()
 {
-    
+    this->sensor->GetWorld()->DestroyBody(this->sensor);
 }
 
 bool Monster::init()
@@ -43,7 +43,6 @@ void Monster::update(float dt)
     {
         this->move(this->direction);
     }
-    
 }
 
 
@@ -62,15 +61,22 @@ void Monster::checkCollisionDataInBeginContact(PhysicData* data, b2Contact *cont
         {
             physicData = (PhysicData*)contact->GetFixtureA()->GetBody()->GetUserData();
         }
+        
+        //Contact sensor
+        if(data->Id == MONSTER_SENSOR && physicData->Id == CHARACTER_BODY && physicData->Data != this)
+        {
+            this->attack();
+            return;
+        }
+        //
+        
         if(physicData != NULL)
         {
             switch (physicData->Id) {
                 case MAP_SENSOR:
                 {
-                    
                     if(data->Id == CHARACTER_FOOT_SENSOR)
                     {
-                        
                         SensorObject* sensorObject = static_cast<SensorObject*>(physicData->Data);
                         if(sensorObject->checkValidLaneID(this->laneID))
                         {
@@ -83,8 +89,8 @@ void Monster::checkCollisionDataInBeginContact(PhysicData* data, b2Contact *cont
                             {
                                 doAction(sensorObject);
                             }
-                            
                         }
+//                        this->isStopMove =true;
                     }
                 }
                     break;
@@ -96,7 +102,7 @@ void Monster::checkCollisionDataInBeginContact(PhysicData* data, b2Contact *cont
                         MapObject* mapObject = static_cast<MapObject*>(physicData->Data);
                         if(!Util::bodiesArePassingThrough(this->body, mapObject->getBody()))
                         {
-                             this->isStopMove = false;
+                            this->isStopMove = false;
                         }
                     }
                 }
@@ -160,13 +166,13 @@ void Monster::doAction(SensorObject* sensorObject)
 
 void Monster::notifyByEffect(CCObject* effect)
 {
-     
-
+    
+    
     Character::notifyByEffect(effect);
     if(this->getcharacterData().getHealth() <= 0)
     {
         GameObjectManager::getInstance()->addObjectRemoved(this);
-//        MonsterFactory::removeMonster(this);
+        //        MonsterFactory::removeMonster(this);
     }
 }
 
@@ -183,28 +189,58 @@ void Monster::setSensorGroup(uint16 group)
         if(f != NULL)
         {
             b2Filter filter = f->GetFilterData();
-            filter.categoryBits = group;
+            filter.categoryBits = GROUP_MONSTER_SENSOR;
             switch (group) {
                 case GROUP_A:
                 case GROUP_HERO_A:
                 case GROUP_TOWER_A:
-                    filter.maskBits = GROUP_TOWER_B|GROUP_B|GROUP_HERO_B|GROUP_NEUTRUAL;
+                    filter.maskBits = GROUP_HERO_B|GROUP_TOWER_B|GROUP_B|GROUP_NEUTRUAL;
                     break;
                     
                 case GROUP_B:
                 case GROUP_HERO_B:
                 case GROUP_TOWER_B:
-                    filter.maskBits = GROUP_TOWER_A|GROUP_A|GROUP_HERO_A|GROUP_NEUTRUAL;
+                    filter.maskBits = GROUP_HERO_A|GROUP_TOWER_A|GROUP_A|GROUP_NEUTRUAL;
                     break;
                     
                 case GROUP_NEUTRUAL:
-                    filter.maskBits = GROUP_A | GROUP_B | GROUP_HERO_A | GROUP_HERO_B;
+                    filter.maskBits = GROUP_A|GROUP_B|GROUP_HERO_A|GROUP_HERO_B;
                     break;
                     
                 default:
                     break;
             }
+//            filter.maskBits = 0xFFFFFF;
             f->SetFilterData(filter);
         }
+    }
+}
+
+void Monster::setSensor(b2Body* sensor)
+{
+    this->sensor=sensor;
+    
+    PhysicData* data =  new PhysicData();
+    data->Id = MONSTER_SENSOR;
+    data->Data = this;
+    this->sensor->SetUserData(data);
+    
+    b2RevoluteJointDef revoluteJointDef;
+    revoluteJointDef.bodyA = this->getBody();
+    revoluteJointDef.bodyB = this->sensor;
+    
+    this->getBody()->GetWorld()->CreateJoint(&revoluteJointDef);
+}
+
+uint16  Monster::getCorrectGroup(Group group)
+{
+    switch (group)
+    {
+        case A:
+            return GROUP_A;
+        case B:
+            return GROUP_B;
+        default:
+            return GROUP_NEUTRUAL;
     }
 }

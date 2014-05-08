@@ -32,10 +32,12 @@ protected:
     virtual void checkCollisionDataInEndContact(PhysicData* data, b2Contact *contact, bool isSideA)=0;
     
     virtual void setExcuteAble();
+    
+    CCAction *excuteAction, *stopAction, *coolDownAction;
 public:
     ~AbstractSkill();
     
-    virtual void excute() =0;
+    virtual void excute();
     virtual void stop() =0;
     virtual void BeginContact(b2Contact *contact);
     virtual void EndContact(b2Contact *contact);
@@ -44,6 +46,7 @@ public:
     virtual void stopImmediately();
     
     virtual void setPhysicGroup(uint16 group)=0;
+    virtual void stopAllAction();
     
     CC_SYNTHESIZE(GameObject* , holder, Holder);
     CC_SYNTHESIZE(GameplayButton* , holderButton, holderButton);

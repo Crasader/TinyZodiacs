@@ -159,7 +159,7 @@
 			<key>creep_1</key>
 			<dict>
 				<key>anchorpoint</key>
-                <string>{ 0.5000,0.5000 }</string>
+                <string>{ 0.5663,0.3272 }</string>
 				<key>fixtures</key>
 				<array>
 
@@ -177,7 +177,7 @@
                          <key>circle</key>
                          <dict>
                              <key>radius</key> <real>29.000</real>
-                             <key>position</key> <string>{ 14.333,-38.883 }</string>
+                             <key>position</key> <string>{ 3.333,-10.883 }</string>
                          </dict>
                     </dict>
 					<dict>
@@ -194,10 +194,10 @@
 						<key>polygons</key>
 						<array>
 							<array>	
-								<string>{ -14.000,18.000 }</string>	
-								<string>{ -14.000,-46.000 }</string>	
-								<string>{ 42.000,-46.000 }</string>	
-								<string>{ 42.000,18.000 }</string>
+								<string>{ -25.000,46.000 }</string>	
+								<string>{ -25.000,-18.000 }</string>	
+								<string>{ 31.000,-18.000 }</string>	
+								<string>{ 31.000,46.000 }</string>
 							</array>
 						</array>
                     </dict>

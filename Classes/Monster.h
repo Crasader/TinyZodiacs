@@ -18,16 +18,16 @@ USING_NS_CC;
 
 class Monster: public Character
 {
-private:
+private:    
     CC_SYNTHESIZE(int, laneID, LaneID);
-    CC_SYNTHESIZE(b2Body*, sensor, Sensor);
+    CC_SYNTHESIZE_READONLY(b2Body*, sensor, Sensor);
 protected:
     void checkCollisionDataInBeginContact(PhysicData* data, b2Contact *contact, bool isSideA);
     void checkCollisionDataInEndContact(PhysicData* data, b2Contact *contact, bool isSideA);
     
     virtual void setPhysicGroup(uint16 group);
     void setSensorGroup(uint16 group);
-
+    virtual uint16 getCorrectGroup(Group group);
 public:
     bool isStopMove;
     Monster();
@@ -35,6 +35,8 @@ public:
     
     virtual bool init();
     virtual void update(float dt);
+    
+    void setSensor(b2Body* sensor);
     
     void doAction(SensorObject* sensorObject);
 

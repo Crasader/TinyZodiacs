@@ -10,7 +10,7 @@
 
 bool MonsterLoader::loadData()
 {
-    loadDataByFileName("monster_cat.xml");
+    loadDataByFileName("monster_onion.xml");
     
     return true;
 }

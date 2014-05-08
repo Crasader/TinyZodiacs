@@ -34,6 +34,7 @@ bool GameManager::loadResource()
 {
     CCSpriteFrameCache::sharedSpriteFrameCache()->addSpriteFramesWithFile("monkey_spritesheet.plist", "monkey_spritesheet.png");
     CCSpriteFrameCache::sharedSpriteFrameCache()->addSpriteFramesWithFile("cat_spritesheet.plist", "cat_spritesheet.png");
+    CCSpriteFrameCache::sharedSpriteFrameCache()->addSpriteFramesWithFile("onion_creep_default.plist", "onion_creep_default.png");
     
     CCSpriteFrameCache::sharedSpriteFrameCache()->addSpriteFramesWithFile("map1_spritesheet_1.plist", "map1_spritesheet_1.png");
     CCSpriteFrameCache::sharedSpriteFrameCache()->addSpriteFramesWithFile("map1_spritesheet_2.plist", "map1_spritesheet_2.png");

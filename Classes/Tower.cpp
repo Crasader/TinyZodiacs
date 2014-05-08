@@ -121,40 +121,40 @@ void Tower::setSensorGroup(uint16 group)
     }
 }
 
-bool Tower::shouldAttack(uint16 enemyGroup)
-{
-    switch (this->getGroup()) {
-        case A:
-            if(this->getGroup() == B || this->getGroup() == NEUTRAL)
-            {
-                return true;
-            }
-            break;
-            
-        case B:
-            if(this->getGroup() == A || this->getGroup() == NEUTRAL)
-            {
-                return true;
-            }
-            break;
-            
-        case NEUTRAL:
-            if(this->getGroup() == B || this-> getGroup() == A)
-            {
-                return true;
-            }
-            break;
-            
-        default:
-            break;
-    }
-    return false;
-}
+//bool Tower::shouldAttack(uint16 enemyGroup)
+//{
+//    switch (this->getGroup()) {
+//        case A:
+//            if(this->getGroup() == B || this->getGroup() == NEUTRAL)
+//            {
+//                return true;
+//            }
+//            break;
+//            
+//        case B:
+//            if(this->getGroup() == A || this->getGroup() == NEUTRAL)
+//            {
+//                return true;
+//            }
+//            break;
+//            
+//        case NEUTRAL:
+//            if(this->getGroup() == B || this-> getGroup() == A)
+//            {
+//                return true;
+//            }
+//            break;
+//            
+//        default:
+//            break;
+//    }
+//    return false;
+//}
 
 void Tower::checkCollisionDataInBeginContact(PhysicData* data, b2Contact *contact, bool isSideA)
 {
-    if(data->Data == this)
-    {
+//    if(data->Data == this)
+//    {
         if(data->Data == this)
         {
             PhysicData* physicData = NULL;
@@ -180,7 +180,7 @@ void Tower::checkCollisionDataInBeginContact(PhysicData* data, b2Contact *contac
                 }
             }
         }
-    }
+//    }
 }
 
 void Tower::checkCollisionDataInEndContact(PhysicData* data, b2Contact *contact, bool isSideA)

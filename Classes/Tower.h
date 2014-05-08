@@ -30,7 +30,7 @@ protected:
     void checkCollisionDataInBeginContact(PhysicData* data, b2Contact *contact, bool isSideA);
     void checkCollisionDataInEndContact(PhysicData* data, b2Contact *contact, bool isSideA);
     
-    bool shouldAttack(uint16 enemyGroup);
+//    bool shouldAttack(uint16 enemyGroup);
     void aimTarget();
     
     virtual uint16  getCorrectGroup(Group group);
