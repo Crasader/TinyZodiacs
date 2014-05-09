@@ -93,7 +93,7 @@ CCAction* ScheduleManager::scheduleFunction(CCCallFunc* callFunction, CCCallFunc
     {
         arr2->addObject(endFunction);
     }
-    CCAction* action = CCSequence::create(arr2);
+    CCSequence* action = CCSequence::create(arr2);
     this->runAction(action);
     return action;
 }

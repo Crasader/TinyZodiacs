@@ -18,12 +18,6 @@
 #include "DataCollector.h"
 
 USING_NS_CC;
-enum _entityCategory {
-    CHARACTER =         0x0002,
-    MAPOBJECT =     0x0004,
-    
-};
-
 static ObjectFactory* sharedFactory = NULL;
 
 ObjectFactory::ObjectFactory()
@@ -372,4 +366,38 @@ Tower* ObjectFactory::createTower(TowerDTO* towerDTO, b2World* world)
     }
     
     return tower;
+}
+
+Item* ObjectFactory::createItem(ItemDTO* itemDTO, b2World* world)
+{
+    Item* item = Item::create();
+    
+     //sprite
+    CCSprite* sprite = CCSprite::createWithSpriteFrameName(itemDTO->imageName.c_str());
+    
+    //body
+    b2BodyDef bodyDef;
+    bodyDef.type = b2_dynamicBody;
+    bodyDef.angle = ccpToAngle(ccp(0,0));
+    bodyDef.fixedRotation=true;
+    bodyDef.userData = item;
+    
+    b2Body *body = world->CreateBody(&bodyDef);
+    
+    gbox2d::GB2ShapeCache *sc =  gbox2d::GB2ShapeCache::sharedGB2ShapeCache();
+    sc->addFixturesToBody(body, itemDTO->bodyName.c_str());
+    item->setSkin(body, sprite);
+
+    item->setSpriteAnchorPoint(sc->anchorPointForShape(itemDTO->bodyName.c_str()));
+    item->getSprite()->setAnchorPoint(sc->anchorPointForShape(itemDTO->bodyName.c_str()));
+    
+
+    item->setPositionInPixel(ccp(itemDTO->positionX,itemDTO->positionY));
+    item->setGroup(ITEM);
+   
+    item->setLifeTime(itemDTO->lifeTime);
+    
+    item->startSchedule();
+
+    return item;
 }

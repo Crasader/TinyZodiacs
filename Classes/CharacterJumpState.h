@@ -25,11 +25,9 @@ public:
   
     virtual void update(float dt);
     
-    
     virtual bool onEnterState();
     virtual bool onExitState();
-    
-    
+   
     virtual bool attack();
     virtual bool jump();
     virtual bool useSkill();

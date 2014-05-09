@@ -10,9 +10,7 @@
 
 GameEffect::GameEffect()
 {
-    this->sprite = CCSprite::create();
-    this->animationObject = NULL;
-    this->isStopped = false;
+   
 }
 
 GameEffect::~GameEffect()

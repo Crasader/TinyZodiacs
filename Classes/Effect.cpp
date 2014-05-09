@@ -53,31 +53,32 @@ Effect::Effect(EffectData data, GameObject* holder)
     }
     
     //schedule repeat
-    CCCallFunc *repeatFuncSelector = CCCallFunc::create(this, callfunc_selector(Effect::onTimeTick));
-    // this->timeTickRepeatAction = ScheduleManager::getInstance()->scheduleFuctionRepeatly(repeatFuncSelector,this->timeTick,1);
+    CCCallFunc *timeTickFunction = CCCallFunc::create(this, callfunc_selector(Effect::onTimeTick));
+    CCCallFunc *destroyFunction = CCCallFunc::create(this, callfunc_selector(Effect::destroy));
     
-    this->timeTickRepeatAction = ScheduleManager::getInstance()->scheduleFunctionForever(repeatFuncSelector, NULL, this->timeTick);
-    //  this->timeTickRepeatAction->retain();
+    if(this->timeTick == 0)
+    {
+        this->timeTickRepeatAction = ScheduleManager::getInstance()->scheduleFunction(timeTickFunction, NULL, 0, 1);
+    }
+    else
+    {
+        this->timeTickRepeatAction = ScheduleManager::getInstance()->scheduleFunctionForever(timeTickFunction, NULL, this->timeTick);
+    }
+    this->timeTickRepeatAction->retain();
+ 
+    this->lifeTimeAction = ScheduleManager::getInstance()->scheduleFunction(destroyFunction, NULL,this->lifeTime, 1);
+    this->lifeTimeAction->retain();
     
-    //schedule life time
-    CCCallFunc *callFuncSelector = CCCallFunc::create(this, callfunc_selector(Effect::destroy));
-    // this->lifeTimeAction = ScheduleManager::getInstance()->scheduleFuction(callFuncSelector,0);
-    //
-    
-    this->lifeTimeAction = ScheduleManager::getInstance()->scheduleFunction(callFuncSelector, NULL,this->lifeTime, 1);
-    // this->timeTickRepeatAction->retain();
     this->autorelease();
 }
 
 Effect::~Effect()
 {
-    
     if(this->sprite != NULL)
     {
         this->sprite->stopAllActions();
         this->sprite->removeFromParent();
     }
-    
 }
 
 CCPoint Effect::calculatePosition(JointDef jointDefA, JointDef jointDefB)
@@ -143,41 +144,39 @@ void Effect::update(float dt)
 
 void Effect::stopAllSchedule()
 {
-    if(this->timeTickRepeatAction)
+    if(!this->timeTickRepeatAction->isDone())
     {
         ScheduleManager::getInstance()->stopAction(this->timeTickRepeatAction);
     }
-    
-    if(this->lifeTimeAction)
+    if(!this->lifeTimeAction->isDone())
     {
         ScheduleManager::getInstance()->stopAction(this->lifeTimeAction);
     }
+    
+    this->timeTickRepeatAction->release();
+    this->lifeTimeAction->release();
 }
 
 void Effect::destroy()
 {
-//    CCLOG("destroy");
-    if(this->timeTickRepeatAction != NULL)
+    if(!this->timeTickRepeatAction->isDone())
     {
-        if(!this->timeTickRepeatAction->isDone())
-        {
-            ScheduleManager::getInstance()->stopAction(this->timeTickRepeatAction);
-            //   CC_SAFE_RELEASE_NULL(this->timeTickRepeatAction);
-        }
-        
+        ScheduleManager::getInstance()->stopAction(this->timeTickRepeatAction);
+    }
+    if(!this->lifeTimeAction->isDone())
+    {
+    ScheduleManager::getInstance()->stopAction(this->lifeTimeAction);
     }
     
-    this->holder->removeEffect(this);
+    this->timeTickRepeatAction->release();
+    this->lifeTimeAction->release();
     
-    //    delete this;
+    this->holder->removeEffect(this);
 }
 
 void Effect::onTimeTick()
 {
-//    CCLOG("timetick");
     Character* character = (Character*)this->holder;
-    //    character->getCharacterData().setHealth(character->getCharacterData().getHealth()-this->health);
+
     character->notifyByEffect(this);
-    //    CCLOG("%d - %d",character->getCharacterData().getHealth(),character->getOriginCharacterData().getHealth());
-    
 }

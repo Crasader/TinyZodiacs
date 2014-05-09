@@ -21,11 +21,11 @@ bool CharacterJumpState::onEnterState()
   //  CCLOG("enter jump state");
     CCAnimate* jumpAction = CCAnimate::create(this->character->jumpAnimation->getAnimation());
     CCCallFunc* callBack = CCCallFunc::create(this, callfunc_selector(CharacterJumpState::finishJumpAction));
-    
+
     CCArray* arr = CCArray::create();
     arr->addObject(jumpAction);
     arr->addObject(callBack);
-    
+
     this->action = CCSequence::create(arr);
     this->character->getSprite()->runAction(this->action);
     

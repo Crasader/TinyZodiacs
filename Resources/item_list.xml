@@ -1,0 +1,8 @@
+<item_list>
+    <item id="bag1" image_name="bag_1.png" body_name="bag_1" life_time="3">
+     
+    </item>
+    <item id="bag2" image_name="bag_2.png" body_name="bag_2" life_time="5">
+        
+    </item>
+</item_list>

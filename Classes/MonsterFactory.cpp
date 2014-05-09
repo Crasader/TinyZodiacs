@@ -39,8 +39,7 @@ bool MonsterFactory::init()
 Monster* MonsterFactory::createMonster(MonsterDTO* monsterDTO, CCPoint position, int laneID, b2World* world)
 {
     Monster* monster = Monster::create();
-    // monster->retain();
-    
+
     monster->setOriginCharacterData(monsterDTO->data);
     
     //Create Animation
@@ -87,7 +86,7 @@ Monster* MonsterFactory::createMonster(MonsterDTO* monsterDTO, CCPoint position,
     monster->flipDirection(LEFT);
     monster->setGroup(this->group);
     monster->setLaneID(laneID);
-
+    monster->setlistItem(monsterDTO->listItem);
     return monster;
 }
 

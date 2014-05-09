@@ -1,0 +1,18 @@
+<character id="monster_cat">
+    <animation>cat</animation>
+	<body>cat</body>
+    <hp>15</hp>
+    <atk>5</atk>
+    <def>2</def>
+    <speed>10</speed>
+    <atk_speed>0.1</atk_speed>
+    <max_jump>5</max_jump>
+    <jump_height>10</jump_height>
+    <sensor_body>creep_1</sensor_body>
+    <skill_0>monster_normal_attack</skill_0>
+    
+    <item_list>
+        <item id="bag1" chance="100"/>
+        <item id="bag2" chance="100"/>
+    </item_list>
+</character>

@@ -18,9 +18,6 @@ USING_NS_CC;
 class GameEffect: public CCNode
 {
 private:
-    CC_SYNTHESIZE(CCSprite*, sprite, Sprite);
-    CC_SYNTHESIZE(AnimationObject*, animationObject, AnimationObject);
-     CC_SYNTHESIZE(bool, isStopped, IsStopped);
 protected:
 public:
     GameEffect();

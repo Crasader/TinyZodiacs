@@ -20,7 +20,10 @@
 #include "TowerDTO.h"
 #include "Hero.h"
 #include "HeroDTO.h"
+#include "Item.h"
+#include "ItemDTO.h"
 
+class Item;
 class ObjectFactory
 {
 public:
@@ -35,8 +38,7 @@ public:
     SensorObject* createSensorObject(b2Vec2 dumb, b2World *world, CCPoint position);
     SensorObject* createSensorObject(SensorObjectDTO* sensorObjectDTO, b2World* world);
     Tower* createTower(TowerDTO* towerDTO, b2World* world);
-    
-
+    Item* createItem(ItemDTO* towerDTO, b2World* world);
 };
 
 #endif /* defined(__SampleCocosProject__ObjectFactory__) */

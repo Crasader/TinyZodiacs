@@ -13,6 +13,7 @@
 #include "GameObjectManager.h"
 #include "HealthPointEffect.h"
 #include "EffectManager.h"
+#include "AnimationEffect.h"
 
 Monster::Monster()
 {
@@ -31,6 +32,12 @@ Monster::~Monster()
     
     this->listTarget->removeAllObjects();
     this->listTarget->release();
+    AnimationEffect* effect = AnimationEffect::create();
+    effect->setAnimation("effect-smoke");
+    
+    EffectManager::getInstance()->runEffect(effect, this->getPositionInPixel());
+    
+    ItemFactory::getInstance()->createItem(this->listItem[0].itemID.c_str(), this->getPositionInPixel());
 }
 
 bool Monster::init()
@@ -197,6 +204,7 @@ void Monster::checkCollisionDataInEndContact(PhysicData* data, b2Contact *contac
 
 void Monster::doAction(SensorObject* sensorObject)
 {
+   
     if(sensorObject->getMustStop())
     {
         isStopMove = true;
@@ -214,13 +222,10 @@ void Monster::doAction(SensorObject* sensorObject)
 
 void Monster::notifyByEffect(CCObject* effect)
 {
-    
-    
     Character::notifyByEffect(effect);
     if(this->getcharacterData().getHealth() <= 0)
     {
         GameObjectManager::getInstance()->addObjectRemoved(this);
-        //        MonsterFactory::removeMonster(this);
     }
 }
 

@@ -242,10 +242,11 @@
     </tower_list>
     <monster_factory_list>
         <monster_factory group="A">
-            
+
             <monster_creator delay_per_unit="1" delay="1" lane = "2">
                 <position x="2000" y="400"/>
                 <monster>monster_onion</monster>
+
             </monster_creator>
         </monster_factory>
 

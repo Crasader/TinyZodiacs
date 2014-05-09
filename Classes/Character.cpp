@@ -514,13 +514,7 @@ void Character::notifyByEffect(CCObject* effect)
     HealthPointEffect* gameEffect = HealthPointEffect::create();
     gameEffect->setHealthPoint(((Effect*)effect)->getHealth());
     
-    
     EffectManager::getInstance()->runEffect(gameEffect, this->getPositionInPixel());
-
-   //     if(this->characterData.getHealth()<=0)
-    //    {
-    //        PhysicBodyManager::getInstance()->addBody(this);
-    //    }
 }
 
 bool Character::isDead()

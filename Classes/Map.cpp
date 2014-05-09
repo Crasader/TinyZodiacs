@@ -9,7 +9,6 @@
 #include "Map.h"
 #include "MapObject.h"
 #include "GLES-Render.h"
-#include "ObjectFactory.h"
 #include "GameBackgroundLayer.h"
 #include "LayerIndexConstants.h"
 

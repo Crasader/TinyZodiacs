@@ -16,4 +16,19 @@
             <frame name="arrow.png" />
         </framelist>
     </animation>
+    <animation name="smoke" delay="0.1">
+        <origin x="0.5" y="0.5" />
+        <framelist>
+            <frame name="smoke_1.png" />
+            <frame name="smoke_2.png" />
+            <frame name="smoke_3.png" />
+            <frame name="smoke_4.png" />
+            <frame name="smoke_5.png" />
+            <frame name="smoke_6.png" />
+            <frame name="smoke_7.png" />
+            <frame name="smoke_8.png" />
+            <frame name="smoke_9.png" />
+        </framelist>
+    </animation>
+
 </character_animation>

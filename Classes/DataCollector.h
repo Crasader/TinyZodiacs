@@ -16,6 +16,7 @@
 #include "MapDTO.h"
 #include "HeroDTO.h"
 #include "MonsterDTO.h"
+#include "ItemDTO.h"
 
 USING_NS_CC;
 
@@ -33,6 +34,8 @@ private:
     CCDictionary* dictHeroDTO;
     //Monster Dictionary
     CCDictionary* dictMonsterDTO;
+    //Item Dictionary
+    CCDictionary* dictItemDTO;
     
     
 protected:
@@ -44,12 +47,14 @@ public:
     void setMapDTO(const char* key, MapDTO* object);
     void setHeroDTO(const char* key, HeroDTO* object);
     void setMonsterDTO(const char* key, MonsterDTO* object);
+    void setItemDTO(const char* key, ItemDTO* object);
     
     //get
     AnimationObject* getAnimationObjectByKey(const char* key);
     MapDTO* getMapDTOByKey(const char* key);
     HeroDTO* getHeroDTOByKey(const char* key);
     MonsterDTO* getMonsterDTOByKey(const char* key);
+    ItemDTO* getItemDTOByKey(const char* key);
     
 };
 

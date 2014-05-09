@@ -144,6 +144,9 @@ void Util::setFixtureGroup(b2Fixture* fixture, uint16 group)
             case GROUP_TOWER_B:
                 filter.maskBits = GROUP_HERO_A | GROUP_A | GROUP_NEUTRUAL | GROUP_TERRAIN | GROUP_SKILL_DEFAULT;;
                 break;
+            case GROUP_ITEM:
+                filter.maskBits = GROUP_TERRAIN;
+                break;
             default:
                 break;
         }
