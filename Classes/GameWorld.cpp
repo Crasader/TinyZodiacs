@@ -100,8 +100,8 @@ bool GameWorld::init()
 
 void GameWorld::addManager()
 {
-    this->addChild(GameObjectManager::getInstance());
     this->addChild(ScheduleManager::getInstance());
+    this->addChild(GameObjectManager::getInstance());
     this->addChild(EffectManager::getInstance());
     EffectManager::getInstance()->setHolder(this);
 }

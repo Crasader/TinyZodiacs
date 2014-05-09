@@ -44,13 +44,8 @@ bool Monster::init()
 
 void Monster::update(float dt)
 {
-    
-    Character::update(dt);
-    
-    //
     this->aimTarget();
     //
-    
     if(!isAttack)
     {
         if(!isStopMove)
@@ -58,8 +53,9 @@ void Monster::update(float dt)
             this->move(this->direction);
         }
     }
-
     //
+    Character::update(dt);
+    //remove target
     CCArray* listTargetRemoved = CCArray::create();
     CCObject* object;
     CCARRAY_FOREACH(this->listTarget, object)
@@ -77,6 +73,7 @@ void Monster::update(float dt)
         this->listTarget->removeObject(object);
     }
     listTargetRemoved->removeAllObjects();
+    //
 }
 
 
@@ -101,11 +98,12 @@ void Monster::checkCollisionDataInBeginContact(PhysicData* data, b2Contact *cont
             //Contact sensor
             if(data->Id == MONSTER_SENSOR && physicData->Id == CHARACTER_BODY && physicData->Data != this)
             {
-                //            this->isAttack = true;
-                this->stopMove();
-                //            this->attack();
-                listTarget->addObject((GameObject*)physicData->Data);
-                this->aimTarget();
+                if(listTarget->indexOfObject((GameObject*)physicData->Data) == CC_INVALID_INDEX)
+                {
+                    this->stopMove();
+                    listTarget->addObject((GameObject*)physicData->Data);
+//                    this->aimTarget();
+                }
                 return;
             }
             //
@@ -173,16 +171,12 @@ void Monster::checkCollisionDataInEndContact(PhysicData* data, b2Contact *contac
             //Contact sensor
             if(data->Id == MONSTER_SENSOR && physicData->Id == CHARACTER_BODY && physicData->Data != this)
             {
-                //            this->isAttack = true;
-                //            this->attack();
                 listTarget->removeObject((GameObject*)physicData->Data);
-                this->aimTarget();
-                
+//                this->aimTarget();
                 if(listTarget->count()==0)
                 {
                     flipDirection(this->defaultDirection);
                 }
-                
                 return;
             }
             //
@@ -329,10 +323,13 @@ void Monster::setGroup(Group group)
     {
         case A:
             defaultDirection = RIGHT;
+            break;
         case B:
             defaultDirection = LEFT;
+            break;
         default:
-            defaultDirection = RIGHT;
+            defaultDirection = LEFT;
+            break;
     }
     flipDirection(defaultDirection);
 }

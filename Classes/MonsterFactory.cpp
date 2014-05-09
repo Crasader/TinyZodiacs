@@ -80,13 +80,13 @@ Monster* MonsterFactory::createMonster(MonsterDTO* monsterDTO, CCPoint position,
     b2Body *sensorBody = world->CreateBody(&bodyDef);
     sc->addFixturesToBody(sensorBody, ((MonsterDTO*)monsterDTO)->sensorBody.c_str());
     monster->setSensor(sensorBody);
+    //load skill
+    monster->setNormalAttack(SkillFactory::createSkill(monsterDTO->data.getSkill0().c_str(), world, monster, false, SKILL_0_BUTTON));
     //
     monster->setPositionInPixel(position);
     monster->flipDirection(LEFT);
     monster->setGroup(this->group);
     monster->setLaneID(laneID);
-    //load skill
-    monster->setNormalAttack(SkillFactory::createSkill(monsterDTO->data.getSkill0().c_str(), world, monster, false, SKILL_0_BUTTON));
 
     return monster;
 }

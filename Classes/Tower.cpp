@@ -176,7 +176,6 @@ void Tower::checkCollisionDataInBeginContact(PhysicData* data, b2Contact *contac
                     {
                          this->listTarget->addObject(obj);
                     }
-                   
                 }
             }
         }

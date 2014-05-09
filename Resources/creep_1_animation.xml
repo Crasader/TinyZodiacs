@@ -22,9 +22,6 @@
         <origin x="0.55" y="0.5" />
         <framelist>
             <frame name="1.png" />
-            <frame name="2.png" />
-            <frame name="3.png" />
-            <frame name="4.png" />
         </framelist>
     </animation>
     
@@ -55,6 +52,9 @@
         <origin x="0.54" y="0.5" />
         <framelist>
             <frame name="1.png" />
+            <frame name="2.png" />
+            <frame name="3.png" />
+            <frame name="4.png" />
         </framelist>
     </animation>
 </object_animation>
