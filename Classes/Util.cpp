@@ -132,10 +132,10 @@ void Util::setFixtureGroup(b2Fixture* fixture, uint16 group)
                 filter.maskBits = GROUP_TOWER_A | GROUP_TOWER_B | GROUP_TERRAIN | GROUP_SKILL_DEFAULT | GROUP_MONSTER_SENSOR;
                 break;
             case GROUP_HERO_A:
-                filter.maskBits = GROUP_TOWER_B| GROUP_TERRAIN | GROUP_SKILL_DEFAULT | GROUP_MONSTER_SENSOR;
+                filter.maskBits = GROUP_TOWER_B| GROUP_TERRAIN | GROUP_SKILL_DEFAULT | GROUP_MONSTER_SENSOR |GROUP_ITEM;
                 break;
             case GROUP_HERO_B:
-                filter.maskBits = GROUP_TOWER_A | GROUP_TERRAIN | GROUP_SKILL_DEFAULT | GROUP_MONSTER_SENSOR;
+                filter.maskBits = GROUP_TOWER_A | GROUP_TERRAIN | GROUP_SKILL_DEFAULT | GROUP_MONSTER_SENSOR | GROUP_ITEM;
                 break;
             case GROUP_TERRAIN:
                 filter.maskBits = 0xFFFFFF;
@@ -153,7 +153,7 @@ void Util::setFixtureGroup(b2Fixture* fixture, uint16 group)
                 filter.maskBits = GROUP_HERO_A | GROUP_A | GROUP_NEUTRUAL | GROUP_TERRAIN | GROUP_SKILL_DEFAULT| GROUP_MONSTER_SENSOR;
                 break;
             case GROUP_ITEM:
-                filter.maskBits = GROUP_TERRAIN;
+                filter.maskBits = GROUP_TERRAIN |GROUP_HERO_A | GROUP_HERO_B;
                 break;
             default:
                 break;

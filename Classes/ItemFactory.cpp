@@ -57,6 +57,7 @@ void ItemFactory::update(float dt)
 
 void ItemFactory::destroyItem(Item* item)
 {
+    GameObjectManager::getInstance()->addObjectRemoved(item);
     this->listItem->removeObject(item);
 }
 

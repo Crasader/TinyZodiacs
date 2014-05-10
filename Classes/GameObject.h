@@ -52,6 +52,8 @@ public:
     virtual cocos2d::CCPoint getPositionInPixel();
     virtual b2Vec2 getPositionInPhysicWorld();
 
+    virtual void onCreate();
+
     virtual void updateSpritePositionWithBodyPosition();
     
     virtual void BeginContact(b2Contact *contact);

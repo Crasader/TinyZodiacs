@@ -1,7 +1,7 @@
 <character id="monster_onion">
     <animation>creep_1</animation>
 	<body>creep_1</body>
-    <hp>100</hp>
+    <hp>1</hp>
     <atk>5</atk>
     <def>2</def>
     <speed>8</speed>

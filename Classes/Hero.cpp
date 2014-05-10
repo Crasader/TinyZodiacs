@@ -52,3 +52,63 @@ uint16  Hero::getCorrectGroup(Group group)
             return GROUP_NEUTRUAL;
     }
 }
+
+void Hero::pickUp(Item* item)
+{
+    item->prepareToPickedUpAndDestroy(this->sprite);
+}
+
+void Hero::checkCollisionDataInBeginContact(PhysicData* data, b2Contact *contact, bool isSideA)
+{
+    Character::checkCollisionDataInBeginContact(data, contact, isSideA);
+    
+    if(data->Data == this)
+    {
+        PhysicData* physicData = NULL;
+        if(isSideA)
+        {
+            physicData = (PhysicData*)contact->GetFixtureB()->GetBody()->GetUserData();
+        }
+        else
+        {
+            physicData = (PhysicData*)contact->GetFixtureA()->GetBody()->GetUserData();
+        }
+
+        if( physicData != NULL)
+        {
+            
+        switch (data->Id)
+        {
+            case CHARACTER_FOOT_SENSOR:
+                break;
+            case CHARACTER_BODY:
+            {
+                if(physicData->Id == GAME_ITEM)
+                {
+                    CCLOG("item collide");
+                    contact->SetEnabled(false);
+                    Item* item = static_cast<Item*>(physicData->Data);
+                    if(item->getCanBePickedUp())
+                    {
+                        this->pickUp(item);
+                    }
+                   
+                }
+                
+            }
+                break;
+            default:
+                break;
+        }
+        }
+        ///
+        
+    }
+
+    
+}
+
+void Hero::checkCollisionDataInEndContact(PhysicData* data, b2Contact *contact, bool isSideA)
+{
+    Character::checkCollisionDataInEndContact(data, contact, isSideA);
+}

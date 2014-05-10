@@ -55,6 +55,11 @@ bool GameObject::init()
     return true;
 }
 
+void GameObject::onCreate()
+{
+    //
+}
+
 void GameObject::excuteScheduledFunction(CCObject* pSender, void *body)
 {
     
