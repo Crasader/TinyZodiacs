@@ -12,6 +12,7 @@
 AnimationEffect::AnimationEffect()
 {
     this->sprite = CCSprite::create();
+    this->sprite->setOpacity(170);
     this->addChild(sprite);
     this->animationObject = NULL;
 }

@@ -62,7 +62,16 @@ void GameGroup::update(float dt)
         Tower* tower = dynamic_cast<Tower*>(object);
         if(tower != NULL)
         {
-            tower->update(dt);
+            if(!tower->isDead())
+            {
+                tower->update(dt);
+            }
+            else
+            {
+//                tower->update(dt);
+//                tower->getSprite()->setVisible(false);
+                this->listTower->removeObject(tower);
+            }
         }
     }
     

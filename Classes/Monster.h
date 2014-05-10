@@ -25,7 +25,6 @@ private:
     CC_SYNTHESIZE_READONLY(b2Body*, sensor, Sensor);
     CCArray* listTarget;
     Direction defaultDirection;
-    CC_SYNTHESIZE(b2Body*, sensor, Sensor);
     CC_SYNTHESIZE(vector<ItemStruct>, listItem, listItem);
 protected:
     void checkCollisionDataInBeginContact(PhysicData* data, b2Contact *contact, bool isSideA);

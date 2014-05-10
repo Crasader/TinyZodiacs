@@ -14,6 +14,7 @@
 
 NormalShootingAttack::~NormalShootingAttack()
 {
+    projectTileList->removeAllObjects();
     projectTileList->release();
 }
 

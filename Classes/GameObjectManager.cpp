@@ -18,7 +18,7 @@ GameObjectManager::GameObjectManager()
 
 GameObjectManager::~GameObjectManager()
 {
-   CC_SAFE_RELEASE(this->listObjectRemoved);
+    CC_SAFE_RELEASE(this->listObjectRemoved);
 }
 
 bool GameObjectManager::init()
@@ -51,7 +51,10 @@ GameObjectManager* GameObjectManager::getInstance()
 
 void GameObjectManager::addObjectRemoved(GameObject *body)
 {
-    this->listObjectRemoved->addObject(body);
+//    if(this->listObjectRemoved->indexOfObject(body)!=CC_INVALID_INDEX)
+//    {
+        this->listObjectRemoved->addObject(body);
+//    }
 }
 
 void GameObjectManager::update(float dt)

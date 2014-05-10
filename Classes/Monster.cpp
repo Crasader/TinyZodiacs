@@ -27,7 +27,7 @@ Monster::Monster()
 
 Monster::~Monster()
 {
-    this->sensor->SetUserData(NULL);
+       this->sensor->SetUserData(NULL);
     this->sensor->GetWorld()->DestroyBody(this->sensor);
     
     this->listTarget->removeAllObjects();
@@ -37,7 +37,7 @@ Monster::~Monster()
     
     EffectManager::getInstance()->runEffect(effect, this->getPositionInPixel());
     
-    ItemFactory::getInstance()->createItem(this->listItem[0].itemID.c_str(), this->getPositionInPixel());
+   ItemFactory::getInstance()->createItem(this->listItem[0].itemID.c_str(), this->getPositionInPixel());
 }
 
 bool Monster::init()
@@ -108,8 +108,8 @@ void Monster::checkCollisionDataInBeginContact(PhysicData* data, b2Contact *cont
                 if(listTarget->indexOfObject((GameObject*)physicData->Data) == CC_INVALID_INDEX)
                 {
                     this->stopMove();
+                    this->defaultDirection = this->getDirection();
                     listTarget->addObject((GameObject*)physicData->Data);
-//                    this->aimTarget();
                 }
                 return;
             }
@@ -133,7 +133,6 @@ void Monster::checkCollisionDataInBeginContact(PhysicData* data, b2Contact *cont
                                 doAction(sensorObject);
                             }
                         }
-                        //                        this->isStopMove =true;
                     }
                 }
                     break;
@@ -179,7 +178,6 @@ void Monster::checkCollisionDataInEndContact(PhysicData* data, b2Contact *contac
             if(data->Id == MONSTER_SENSOR && physicData->Id == CHARACTER_BODY && physicData->Data != this)
             {
                 listTarget->removeObject((GameObject*)physicData->Data);
-//                this->aimTarget();
                 if(listTarget->count()==0)
                 {
                     flipDirection(this->defaultDirection);
@@ -257,7 +255,7 @@ void Monster::setSensorGroup(uint16 group)
                     break;
                     
                 case GROUP_NEUTRUAL:
-                    filter.maskBits = GROUP_A|GROUP_B|GROUP_HERO_A|GROUP_HERO_B;
+                    filter.maskBits = GROUP_A|GROUP_B|GROUP_HERO_A|GROUP_HERO_B|GROUP_TOWER_A|GROUP_TOWER_B;
                     break;
                     
                 default:

@@ -192,8 +192,8 @@
 		2DC48A7B1919EE1C00B34724 /* onion_creep_default.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2DC48A791919EE1C00B34724 /* onion_creep_default.plist */; };
 		2DC48A7C1919EE1C00B34724 /* onion_creep_default.png in Resources */ = {isa = PBXBuildFile; fileRef = 2DC48A7A1919EE1C00B34724 /* onion_creep_default.png */; };
 		2DC48A7E1919EEA600B34724 /* creep_1_animation.xml in Resources */ = {isa = PBXBuildFile; fileRef = 2DC48A7D1919EEA600B34724 /* creep_1_animation.xml */; };
-		2DC48A80191A29C800B34724 /* character_body.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2DC48A7F191A29C800B34724 /* character_body.plist */; };
 		2DC48A84191A356600B34724 /* monster_sensor.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2DC48A83191A356600B34724 /* monster_sensor.plist */; };
+		2DE1502E191CCDEC001BD65C /* character_body.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2DE1502D191CCDEC001BD65C /* character_body.plist */; };
 		3412551318DAA44900D9FBA6 /* NormalProjectile.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3412551118DAA44900D9FBA6 /* NormalProjectile.cpp */; };
 		3414166218DC23A0007B8C2B /* GameObjectManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3414166018DC23A0007B8C2B /* GameObjectManager.cpp */; };
 		343D9A4C19134163003F5DE4 /* GameWorld.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 343D9A4B19134163003F5DE4 /* GameWorld.cpp */; };
@@ -783,8 +783,8 @@
 		2DC48A791919EE1C00B34724 /* onion_creep_default.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = onion_creep_default.plist; sourceTree = "<group>"; };
 		2DC48A7A1919EE1C00B34724 /* onion_creep_default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = onion_creep_default.png; sourceTree = "<group>"; };
 		2DC48A7D1919EEA600B34724 /* creep_1_animation.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = creep_1_animation.xml; sourceTree = "<group>"; };
-		2DC48A7F191A29C800B34724 /* character_body.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = character_body.plist; sourceTree = "<group>"; };
 		2DC48A83191A356600B34724 /* monster_sensor.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = monster_sensor.plist; sourceTree = "<group>"; };
+		2DE1502D191CCDEC001BD65C /* character_body.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = character_body.plist; sourceTree = "<group>"; };
 		3412551118DAA44900D9FBA6 /* NormalProjectile.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = NormalProjectile.cpp; path = ../Classes/NormalProjectile.cpp; sourceTree = "<group>"; };
 		3412551218DAA44900D9FBA6 /* NormalProjectile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NormalProjectile.h; path = ../Classes/NormalProjectile.h; sourceTree = "<group>"; };
 		3414166018DC23A0007B8C2B /* GameObjectManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameObjectManager.cpp; sourceTree = "<group>"; };
@@ -2695,9 +2695,8 @@
 		F5C89E0018D2FCF2006E909D /* Body */ = {
 			isa = PBXGroup;
 			children = (
+				2DE1502D191CCDEC001BD65C /* character_body.plist */,
 				F5CCA796191B360B002A7F2A /* item_body.plist */,
-				2DC48A751919E35F00B34724 /* character_body.plist */,
-				2DC48A731919DCE200B34724 /* monster_sensor.plist */,
 				2D0DA1441908F69C00881C8D /* skill_body.plist */,
 				2DC48A83191A356600B34724 /* monster_sensor.plist */,
 				51136AE11908E69F00317D3A /* map1_body.plist */,
@@ -2826,7 +2825,6 @@
 			files = (
 				F5CCA79A191B3643002A7F2A /* item_spritesheet.plist in Resources */,
 				7855E0E1153FEF240059DD9A /* Default.png in Resources */,
-				2DC48A741919DCE200B34724 /* monster_sensor.plist in Resources */,
 				F5CCA79B191B3643002A7F2A /* item_spritesheet.png in Resources */,
 				D4EF949A15BD2D8B00D803EB /* Icon-57.png in Resources */,
 				51136AEA1908F60300317D3A /* monster_onion.xml in Resources */,
@@ -2869,6 +2867,7 @@
 				2DC48A7E1919EEA600B34724 /* creep_1_animation.xml in Resources */,
 				D446FD6E16102124000ADA7B /* Default@2x.png in Resources */,
 				2D0DA1401908F65800881C8D /* tower_2_animation.xml in Resources */,
+				2DE1502E191CCDEC001BD65C /* character_body.plist in Resources */,
 				F561F29118D805BE00DD4598 /* map1.xml in Resources */,
 				F5C89DFE18D2FCE9006E909D /* monkey_spritesheet.plist in Resources */,
 				F52678FF18EEAEA500CE1E3B /* map1_spritesheet_3.plist in Resources */,
@@ -2886,7 +2885,6 @@
 				F5779C6E18E56CF10044D5CD /* healthbar_foreground_red.png in Resources */,
 				F52678FB18EEAEA500CE1E3B /* map1_background_spritesheet_1.plist in Resources */,
 				1AFAF8BC16D35E4900DB1158 /* CloseNormal.png in Resources */,
-				2DC48A80191A29C800B34724 /* character_body.plist in Resources */,
 				1AFAF8BC16D35E4900DB1158 /* CloseNormal.png in Resources */,
 				2DC48A7B1919EE1C00B34724 /* onion_creep_default.plist in Resources */,
 				2D0DA15D1908F72200881C8D /* tower_2.xml in Resources */,

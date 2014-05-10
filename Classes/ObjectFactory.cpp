@@ -398,6 +398,7 @@ Item* ObjectFactory::createItem(ItemDTO* itemDTO, b2World* world)
     item->setLifeTime(itemDTO->lifeTime);
     
     item->startSchedule();
+    //item->getSprite()->setVisible(false);
 
     return item;
 }

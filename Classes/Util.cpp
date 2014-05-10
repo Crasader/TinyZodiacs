@@ -45,6 +45,12 @@ b2AABB Util::getBodyBoundingBoxDynamic(b2Body* body)
 {
     if(body != NULL)
     {
+//        bool bodyState = body->IsActive();
+//        if(bodyState == false)
+//        {
+//            body->SetActive(true);
+//        }
+        
         //Calculate b
         b2AABB aabb;
         aabb.lowerBound = b2Vec2(FLT_MAX,FLT_MAX);
@@ -55,9 +61,11 @@ b2AABB Util::getBodyBoundingBoxDynamic(b2Body* body)
             aabb.Combine(aabb, fixture->GetAABB(0));
             fixture = fixture->GetNext();
         }
+        
+//        body->SetActive(bodyState);
+        
         return aabb;
     }
-    
     
     return b2AABB();
 }
@@ -139,10 +147,10 @@ void Util::setFixtureGroup(b2Fixture* fixture, uint16 group)
                 filter.maskBits = GROUP_TERRAIN;
                 break;
             case GROUP_TOWER_A:
-                filter.maskBits = GROUP_HERO_B | GROUP_B | GROUP_NEUTRUAL | GROUP_TERRAIN | GROUP_SKILL_DEFAULT;;
+                filter.maskBits = GROUP_HERO_B | GROUP_B | GROUP_NEUTRUAL | GROUP_TERRAIN | GROUP_SKILL_DEFAULT| GROUP_MONSTER_SENSOR;
                 break;
             case GROUP_TOWER_B:
-                filter.maskBits = GROUP_HERO_A | GROUP_A | GROUP_NEUTRUAL | GROUP_TERRAIN | GROUP_SKILL_DEFAULT;;
+                filter.maskBits = GROUP_HERO_A | GROUP_A | GROUP_NEUTRUAL | GROUP_TERRAIN | GROUP_SKILL_DEFAULT| GROUP_MONSTER_SENSOR;
                 break;
             case GROUP_ITEM:
                 filter.maskBits = GROUP_TERRAIN;

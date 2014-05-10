@@ -11,6 +11,8 @@
 #include "CharacterIdleState.h"
 #include "NormalShootingAttack.h"
 #include "Util.h"
+#include "GameObjectManager.h"
+
 Tower::Tower()
 {
     init();
@@ -100,13 +102,13 @@ void Tower::setSensorGroup(uint16 group)
                 case GROUP_A:
                 case GROUP_HERO_A:
                 case GROUP_TOWER_A:
-                    filter.maskBits = GROUP_B|GROUP_HERO_B|GROUP_NEUTRUAL;
+                    filter.maskBits = GROUP_TOWER_B|GROUP_B|GROUP_HERO_B|GROUP_NEUTRUAL|GROUP_TOWER_B;
                     break;
                     
                 case GROUP_B:
                 case GROUP_HERO_B:
                 case GROUP_TOWER_B:
-                    filter.maskBits = GROUP_A|GROUP_HERO_A|GROUP_NEUTRUAL;
+                filter.maskBits = GROUP_TOWER_A|GROUP_A|GROUP_HERO_A|GROUP_NEUTRUAL|GROUP_TOWER_A;
                     break;
                     
                 case GROUP_NEUTRUAL:
@@ -120,36 +122,6 @@ void Tower::setSensorGroup(uint16 group)
         }
     }
 }
-
-//bool Tower::shouldAttack(uint16 enemyGroup)
-//{
-//    switch (this->getGroup()) {
-//        case A:
-//            if(this->getGroup() == B || this->getGroup() == NEUTRAL)
-//            {
-//                return true;
-//            }
-//            break;
-//            
-//        case B:
-//            if(this->getGroup() == A || this->getGroup() == NEUTRAL)
-//            {
-//                return true;
-//            }
-//            break;
-//            
-//        case NEUTRAL:
-//            if(this->getGroup() == B || this-> getGroup() == A)
-//            {
-//                return true;
-//            }
-//            break;
-//            
-//        default:
-//            break;
-//    }
-//    return false;
-//}
 
 void Tower::checkCollisionDataInBeginContact(PhysicData* data, b2Contact *contact, bool isSideA)
 {
@@ -213,7 +185,7 @@ void Tower::aimTarget()
     if(attack != NULL)
     {
         b2Vec2 targetPoint = ((Character*)listTarget->objectAtIndex(0))->getPositionInPhysicWorld();
-        b2Vec2 towerPoint = this->body->GetPosition() ;//getStartPoint(this->body, attack->getData().getJointDefA());
+        b2Vec2 towerPoint = getStartPoint(this->body, attack->getData().getJointDefA());
         
       //  CCLOG("%0.4f - %0.4f",towerPoint.x,towerPoint.y);
         
@@ -300,6 +272,7 @@ void Tower::update(float dt)
     {
         this->body->SetActive(false);
         this->sensor->SetActive(false);
+//        GameObjectManager::getInstance()->addObjectRemoved(this);
     }
     
     //

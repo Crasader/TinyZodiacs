@@ -37,7 +37,7 @@ protected:
 public:
     ~AbstractSkill();
     
-    virtual void excute();
+    virtual void excute()=0;
     virtual void stop() =0;
     virtual void BeginContact(b2Contact *contact);
     virtual void EndContact(b2Contact *contact);

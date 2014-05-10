@@ -106,7 +106,7 @@
     
     <skill id="tower_shooting_1" type="1">
 		<body>tower_orb_1_2</body>
-        <delay>-1</delay>
+        <delay>0</delay>
         <life_time>2</life_time>
 		<cool_down>0.5</cool_down>
         <joints>

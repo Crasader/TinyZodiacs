@@ -32,9 +32,9 @@ bool HealthPointEffect::init()
 void HealthPointEffect::run()
 {
     CCMoveBy* moveBy  =  CCMoveBy::create(0.5f, ccp(0,200));
-    CCJumpBy* jumpBy = CCJumpBy::create(0.5f, ccp(30,10), 100, 1);
+    CCJumpBy* jumpBy = CCJumpBy::create(0.5f, ccp(CCRANDOM_MINUS1_1()*30,10), 100, 1);
 
-    CCFadeOut* fadeOut = CCFadeOut::create(0.5f);
+    CCFadeOut* fadeOut = CCFadeOut::create(0.6f);
     CCScaleBy* scaleBy = CCScaleBy::create(0.5f, 0.75f);
     CCCallFunc* func = CCCallFuncND::create(this, callfuncND_selector(HealthPointEffect::stop),NULL);
     
@@ -57,6 +57,7 @@ void HealthPointEffect::run()
 
 void HealthPointEffect::stop()
 {
+   // this->label->stopAllActioons();
     this->removeFromParent();
 }
 

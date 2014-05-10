@@ -500,7 +500,7 @@ void Character::setPhysicGroup(uint16 group)
             if(f->GetNext() != NULL)
             {
                 b2Filter filter = f->GetFilterData();
-                filter.maskBits = filter.maskBits ^ GROUP_SKILL_DEFAULT ^ GROUP_MONSTER_SENSOR;
+                filter.maskBits = filter.maskBits ^ GROUP_SKILL_DEFAULT ^ GROUP_MONSTER_SENSOR ^ GROUP_ITEM;
                 f->SetFilterData(filter);
             }
         }

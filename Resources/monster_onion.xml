@@ -10,4 +10,9 @@
     <jump_height>10</jump_height>
     <sensor_body>creep_1_sensor</sensor_body>
     <skill_0>monster_normal_attack</skill_0>
+    
+    <item_list>
+        <item id="bag1" chance="100"/>
+        <item id="bag2" chance="100"/>
+    </item_list>
 </character>
