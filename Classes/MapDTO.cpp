@@ -18,8 +18,8 @@ MapDTO::MapDTO()
     this->listForegroundDTO->retain();
     this->listSensorObjectDTO = CCArray::create();
     this->listSensorObjectDTO->retain();
-    this->listTowerDTO = CCArray::create();
-    this->listTowerDTO->retain();
+    this->listTowerStructDTO = CCArray::create();
+    this->listTowerStructDTO->retain();
     this->listMonsterFactoryDTO = CCArray::create();
     this->listMonsterFactoryDTO->retain();
     
@@ -34,7 +34,7 @@ MapDTO::~MapDTO()
     CC_SAFE_RELEASE(this->listBackgroundDTO);
     CC_SAFE_RELEASE(this->listForegroundDTO);
     CC_SAFE_RELEASE(this->listSensorObjectDTO);
-    CC_SAFE_RELEASE(this->listTowerDTO);
+    CC_SAFE_RELEASE(this->listTowerStructDTO);
     CC_SAFE_RELEASE(this->listMonsterFactoryDTO);
 }
 

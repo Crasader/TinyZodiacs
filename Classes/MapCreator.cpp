@@ -8,7 +8,6 @@
 
 #include "MapCreator.h"
 #include "MoveableMapObject.h"
-#include "TowerFactory.h"
 #include "MonsterFactoryDTO.h"
 
 
@@ -22,12 +21,10 @@ MapCreator::~MapCreator()
     
 }
 
-Map* MapCreator::createMap(const char *id, GameWorld* gameWorld)
+Map* MapCreator::createMap(MapDTO* mapDTO, GameWorld* gameWorld)
 {
-    
-    MapDTO* mapDTO = DataCollector::getInstance()->getMapDTOByKey(id);
-    
     Map* map =  Map::create();
+    map->setMapDTO(mapDTO);
     map->retain();
     
     map->setWidth(mapDTO->width);
@@ -56,26 +53,18 @@ Map* MapCreator::createMap(const char *id, GameWorld* gameWorld)
         map->addSensorObject(sensorObject);
     }
     
-    object = NULL;
-    CCARRAY_FOREACH(mapDTO->listTowerDTO, object)
-    {
-        TowerDTO* towerDTO = dynamic_cast<TowerDTO*>(object);
-        map->addTowerDTO(towerDTO);
-    }
-    
-    object = NULL;
-    CCARRAY_FOREACH(mapDTO->listMonsterFactoryDTO, object)
-    {
-        MonsterFactoryDTO* monsterFactoryDTO = dynamic_cast<MonsterFactoryDTO*>(object);
-        map->addMonsterFactoryDTO(monsterFactoryDTO);
-    }
-
     //    //create background
-    map->addParallaxBackground(createParallaxBackground(mapDTO->listBackgroundDTO,mapDTO->width,mapDTO->height));
+  //  map->addParallaxBackground(createParallaxBackground(mapDTO->listBackgroundDTO,mapDTO->width,mapDTO->height));
     //    //create foreground
-     map->addParallaxForeground(createParallaxForeground(mapDTO->listForegroundDTO,mapDTO->width,mapDTO->height));
+   // map->addParallaxForeground(createParallaxForeground(mapDTO->listForegroundDTO,mapDTO->width,mapDTO->height));
     
     return map;
+
+}
+
+Map* MapCreator::createMap(const char *id, GameWorld* gameWorld)
+{
+    return createMap(DataCollector::getInstance()->getMapDTOByKey(id), gameWorld);
 }
 
 MapParallaxBackground* MapCreator::createParallaxBackground(CCArray* listBackgroundDTO, float width, float height)

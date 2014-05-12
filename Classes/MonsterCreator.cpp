@@ -7,7 +7,6 @@
 //
 
 #include "MonsterCreator.h"
-#include "CharacterFactory.h"
 #include "DataCollector.h"
 
 MonsterCreator::MonsterCreator()

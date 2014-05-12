@@ -93,7 +93,7 @@ public:
     static BackgroundDTO* getBackgroundDTOFromXMLNode(XMLElement* backgroundXMLElement);
     static ForegroundDTO* getForegroundDTOFromXMLNode(XMLElement* foregroundXMLElement);
     static SensorObjectDTO* getSensorObjectDTOFromXMLNode(XMLElement* sensorObjectXMLElement);
-    static TowerDTO* getTowerDTOFromXMLNode(XMLElement* towerXMLElement);
+    static TowerStructDTO* getTowerStructDTOFromXMLNode(XMLElement* towerXMLElement);
     static MonsterCreatorDTO* getMonsterCreatorDTOFromXMLNode(XMLElement* monsterCreatorXMLElement);
     static MonsterFactoryDTO* getMonsterFactoryDTOFromXMLNode(XMLElement* monsterFactoryXMLElement);
 };

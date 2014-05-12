@@ -18,23 +18,17 @@ Map::Map()
 {
     width = 0;
     height = 0;
-    
+    this->mapDTO = NULL;
     this->listMapObject = CCArray::create();
     this->listMapObject->retain();
     this->listSensorObject = CCArray::create();
     this->listSensorObject->retain();
-    this->listTowerDTO = CCArray::create();
-    this->listTowerDTO->retain();
-    this->listMonsterFactoryDTO = CCArray::create();
-    this->listMonsterFactoryDTO->retain();
 }
 
 Map::~Map()
 {
     CC_SAFE_RELEASE_NULL(listMapObject);
     CC_SAFE_RELEASE_NULL(listSensorObject);
-    CC_SAFE_RELEASE_NULL(listTowerDTO);
-    CC_SAFE_RELEASE_NULL(listMonsterFactoryDTO);
 }
 
 bool Map::init()
@@ -86,30 +80,13 @@ void Map::addSensorObject(SensorObject* sensorObject)
     }
 }
 
-void Map::addTowerDTO(TowerDTO* towerDTO)
-{
-    if(towerDTO != NULL)
-    {
-        this->listTowerDTO->addObject(towerDTO);
-    }
-}
-
-void Map::addMonsterFactoryDTO(MonsterFactoryDTO* monsterFactoryDTO)
-{
-    if(monsterFactoryDTO != NULL)
-    {
-        this->listMonsterFactoryDTO->addObject(monsterFactoryDTO);
-    }
-}
-
-
 void Map::attachAllMapObject()
 {
     CCObject* object = NULL;
     CCARRAY_FOREACH(listMapObject,object)
     {
         MapObject* mapObject = (MapObject*)object;
-    //    mapObject->getSprite()->setVisible(false);
+        // mapObject->getSprite()->setVisible(false);
         this->addChild(mapObject->getSprite(),MAPOBJECT_LAYER);
     }
 }
@@ -126,48 +103,48 @@ void Map::addParallaxForeground(CCParallaxNode* parallaxForeground)
 
 void  Map::BeginContact(b2Contact *contact)
 {
-    if(this->listMapObject != NULL)
-    {
-        CCObject* object = NULL;
-        
-        CCARRAY_FOREACH(listMapObject,object)
-        {
-            MapObject* mapObject = (MapObject*)object;
-            mapObject->BeginContact(contact);
-        }
-    }
-    if(this->listSensorObject != NULL)
-    {
-        CCObject* object = NULL;
-        
-        CCARRAY_FOREACH(listSensorObject,object)
-        {
-            SensorObject* sensorObject = (SensorObject*)object;
-            sensorObject->BeginContact(contact);
-        }
-    }
+//    if(this->listMapObject != NULL)
+//    {
+//        CCObject* object = NULL;
+//        
+//        CCARRAY_FOREACH(listMapObject,object)
+//        {
+//            MapObject* mapObject = (MapObject*)object;
+//            mapObject->BeginContact(contact);
+//        }
+//    }
+//    if(this->listSensorObject != NULL)
+//    {
+//        CCObject* object = NULL;
+//        
+//        CCARRAY_FOREACH(listSensorObject,object)
+//        {
+//            SensorObject* sensorObject = (SensorObject*)object;
+//            sensorObject->BeginContact(contact);
+//        }
+//    }
 }
 
 void  Map::EndContact(b2Contact *contact)
 {
-    if(this->listMapObject != NULL)
-    {
-        CCObject* object = NULL;
-        
-        CCARRAY_FOREACH(listMapObject,object)
-        {
-            MapObject* mapObject = (MapObject*)object;
-            mapObject->EndContact(contact);
-        }
-    }
-    if(this->listSensorObject != NULL)
-    {
-        CCObject* object = NULL;
-        
-        CCARRAY_FOREACH(listSensorObject,object)
-        {
-            SensorObject* sensorObject = (SensorObject*)object;
-            sensorObject->EndContact(contact);
-        }
-    }
+//    if(this->listMapObject != NULL)
+//    {
+//        CCObject* object = NULL;
+//        
+//        CCARRAY_FOREACH(listMapObject,object)
+//        {
+//            MapObject* mapObject = (MapObject*)object;
+//            mapObject->EndContact(contact);
+//        }
+//    }
+//    if(this->listSensorObject != NULL)
+//    {
+//        CCObject* object = NULL;
+//        
+//        CCARRAY_FOREACH(listSensorObject,object)
+//        {
+//            SensorObject* sensorObject = (SensorObject*)object;
+//            sensorObject->EndContact(contact);
+//        }
+//    }
 }

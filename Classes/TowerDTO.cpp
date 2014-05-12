@@ -10,10 +10,7 @@
 
 TowerDTO::TowerDTO()
 {
-    this->group = "";
-    this->id = "";
-    this->positionX = 0;
-    this->positionY = 0;
+
 }
 
 TowerDTO::~TowerDTO()
@@ -21,6 +18,25 @@ TowerDTO::~TowerDTO()
 }
 
 bool TowerDTO::init()
+{
+    return true;
+}
+
+//////////////////////////////// TowerStructDTO ///////////////////////////////
+
+TowerStructDTO::TowerStructDTO()
+{
+    this->group = A;
+    this->id = "";
+    this->positionX = 0;
+    this->positionY = 0;
+}
+
+TowerStructDTO::~TowerStructDTO()
+{
+}
+
+bool TowerStructDTO::init()
 {
     return true;
 }

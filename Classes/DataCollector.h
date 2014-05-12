@@ -17,6 +17,7 @@
 #include "HeroDTO.h"
 #include "MonsterDTO.h"
 #include "ItemDTO.h"
+#include "TowerDTO.h"
 
 USING_NS_CC;
 
@@ -36,7 +37,9 @@ private:
     CCDictionary* dictMonsterDTO;
     //Item Dictionary
     CCDictionary* dictItemDTO;
-    
+    //Tower Dictionary
+    CCDictionary* dictTowerDTO;
+
     
 protected:
 public:
@@ -48,6 +51,7 @@ public:
     void setHeroDTO(const char* key, HeroDTO* object);
     void setMonsterDTO(const char* key, MonsterDTO* object);
     void setItemDTO(const char* key, ItemDTO* object);
+    void setTowerDTO(const char* key, TowerDTO* object);
     
     //get
     AnimationObject* getAnimationObjectByKey(const char* key);
@@ -55,7 +59,7 @@ public:
     HeroDTO* getHeroDTOByKey(const char* key);
     MonsterDTO* getMonsterDTOByKey(const char* key);
     ItemDTO* getItemDTOByKey(const char* key);
-    
+    TowerDTO* getTowerDTOByKey(const char* key);
 };
 
 #endif /* defined(__TinyZodiacs__DataCollector__) */

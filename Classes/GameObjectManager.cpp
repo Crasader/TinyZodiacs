@@ -15,15 +15,15 @@ GameObjectManager::GameObjectManager()
 {
     this->listObjectRemoved = CCArray::create();
     this->listObjectRemoved->retain();
-    
-    this->listUpdateObject = CCArray::create();
-    this->listUpdateObject->retain();
+
+    this->listGameObject = CCArray::create();
+    this->listGameObject->retain();
 }
 
 GameObjectManager::~GameObjectManager()
 {
     CC_SAFE_RELEASE(this->listObjectRemoved);
-    CC_SAFE_RELEASE(this->listUpdateObject);
+    CC_SAFE_RELEASE(this->listGameObject);
 }
 
 bool GameObjectManager::init()
@@ -62,10 +62,15 @@ void GameObjectManager::addObjectRemoved(GameObject *body)
     //    }
 }
 
+void GameObjectManager::addGameObject(GameObject* object)
+{
+    this->listGameObject->addObject(object);
+}
+
 void GameObjectManager::update(float dt)
 {
     CCObject* object;
-    CCARRAY_FOREACH(this->listUpdateObject, object)
+    CCARRAY_FOREACH(this->listGameObject, object)
     {
         ((GameObject*)object)->update(dt);
     }

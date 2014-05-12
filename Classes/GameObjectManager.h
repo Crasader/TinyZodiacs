@@ -19,7 +19,7 @@ class GameObjectManager: public CCNode
 {
 private:
     CC_SYNTHESIZE(CCArray*, listObjectRemoved, ListObjectRemoved);
-    CC_SYNTHESIZE(CCArray*, listUpdateObject, ListUpdateObject)
+    CC_SYNTHESIZE(CCArray*, listGameObject, ListGameObject);
 protected:
     GameObjectManager();
     ~GameObjectManager();

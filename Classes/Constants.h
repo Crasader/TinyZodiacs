@@ -11,6 +11,7 @@
 
 #include "Cocos2d.h"
 #include "Box2D/Box2d.h"
+#include "PhysicConstants.h"
 
 USING_NS_CC;
 using namespace std;
@@ -41,6 +42,14 @@ struct ItemStruct
 {
     string itemID;
     float chance;
+};
+
+struct TowerStruct
+{
+    string id;
+    float positionX;
+    float positionY;
+    Group group;
 };
 
 struct GameHolder

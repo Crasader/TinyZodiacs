@@ -17,6 +17,7 @@
 
 Monster::Monster()
 {
+    this->gameObjectID = MONSTER;
     isStopMove = false;
     isAttack = false;
     this->landing = 0;
@@ -37,8 +38,8 @@ Monster::~Monster()
    
     EffectManager::getInstance()->runEffect(effect, this->getPositionInPixel());
     
-   ItemFactory::getInstance()->createItem(this->listItem[0].itemID.c_str(), this->getPositionInPixel());
-       ItemFactory::getInstance()->createItem(this->listItem[1].itemID.c_str(), this->getPositionInPixel());
+    ItemFactory::getInstance()->createItem(this->listItem[0].itemID.c_str(), this->getPositionInPixel());
+    ItemFactory::getInstance()->createItem(this->listItem[1].itemID.c_str(), this->getPositionInPixel());
 }
 
 bool Monster::init()
@@ -89,7 +90,7 @@ void Monster::checkCollisionDataInBeginContact(PhysicData* data, b2Contact *cont
 {
     Character::checkCollisionDataInBeginContact(data, contact, isSideA);
     
-    if(data->Data == this)
+    if(data->Data != this)
     {
         PhysicData* physicData = NULL;
         if(isSideA)
@@ -336,4 +337,9 @@ void Monster::setGroup(Group group)
             break;
     }
     flipDirection(defaultDirection);
+}
+
+void Monster::onCreate()
+{
+    
 }

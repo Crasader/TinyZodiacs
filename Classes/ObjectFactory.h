@@ -22,6 +22,31 @@
 #include "HeroDTO.h"
 #include "Item.h"
 #include "ItemDTO.h"
+#include "DataCollector.h"
+
+
+#define TAG_BODY "body"
+#define TAG_ANIMATION "animation"
+#define TAG_HP "hp"
+#define TAG_ATTACK "atk"
+#define TAG_DEFENSE "def"
+#define TAG_SPEED "speed"
+#define TAG_ATTACK_SPEED "atk_speed"
+#define TAG_MAX_JUMP "max_jump"
+#define TAG_JUMP_HEIGHT "jump_height"
+#define TAG_SKILL_0 "skill_0"
+#define TAG_SKILL_1 "skill_1"
+#define TAG_SKILL_2 "skill_2"
+
+
+#define RUN "-run"
+#define ATTACK "-attack"
+#define JUMP "-jump"
+#define IDLE "-idle"
+#define FALL "-fall"
+#define FLY "-fly"
+#define SKILL "-skill"
+
 
 class Item;
 class ObjectFactory
@@ -32,12 +57,11 @@ public:
 
     static ObjectFactory* getSharedManager();
     Hero* createHero(HeroDTO* heroDTO, b2World* world, bool isLocal);
-    Character* createCharacter(const std::string &name, b2World *world, bool isLocal);
     MapObject* createMapObject(const char *idMapObject, b2World *world);
     MapObject* createMapObject(MapObjectDTO* mapObjectDTO, b2World *world);
     SensorObject* createSensorObject(b2Vec2 dumb, b2World *world, CCPoint position);
     SensorObject* createSensorObject(SensorObjectDTO* sensorObjectDTO, b2World* world);
-    Tower* createTower(TowerDTO* towerDTO, b2World* world);
+    Tower* createTower(TowerStructDTO* towerStructDTO, b2World* world);
     Item* createItem(ItemDTO* towerDTO, b2World* world);
 };
 

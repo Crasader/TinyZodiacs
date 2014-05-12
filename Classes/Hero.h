@@ -29,6 +29,7 @@ public:
     CC_SYNTHESIZE_RETAIN(CCAnimation*, ghostAnimation, GhostAnimation);
     
     virtual bool init();
+    virtual void onCreate();
     
     virtual void checkCollisionDataInBeginContact(PhysicData* data, b2Contact *contact, bool isSideA);
     virtual void checkCollisionDataInEndContact(PhysicData* data, b2Contact *contact, bool isSideA);

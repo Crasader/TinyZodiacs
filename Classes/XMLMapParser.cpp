@@ -87,7 +87,7 @@ MapDTO* XMLMapParser::getMapDTOFromXMLNode(XMLElement *mapXMLElement)
     
     for (XMLElement* element = towerListXMLNode->FirstChildElement(TAG_TOWER); element; element = element->NextSiblingElement())
     {
-        mapDTO->listTowerDTO->addObject(XMLMapParser::getTowerDTOFromXMLNode(element));
+        mapDTO->listTowerStructDTO->addObject(XMLMapParser::getTowerStructDTOFromXMLNode(element));
     }
     
     //list monster factory
@@ -188,23 +188,32 @@ SensorObjectDTO* XMLMapParser::getSensorObjectDTOFromXMLNode(XMLElement* sensorO
     return sensorObjectDTO;
 }
 
-TowerDTO* XMLMapParser::getTowerDTOFromXMLNode(XMLElement* towerXMLElement)
+TowerStructDTO* XMLMapParser::getTowerStructDTOFromXMLNode(XMLElement* towerXMLElement)
 {
-    TowerDTO* towerDTO = TowerDTO::create();
+    TowerStructDTO* towerStructDTO = TowerStructDTO::create();
     
-    towerDTO->id = towerXMLElement->Attribute(ATTRIBUTE_TOWER_ID);
-    towerDTO->group = towerXMLElement->Attribute(ATTRIBUTE_TOWER_GROUP);
+    towerStructDTO->id = towerXMLElement->Attribute(ATTRIBUTE_TOWER_ID);
+    
+    string groupString = towerXMLElement->Attribute(ATTRIBUTE_TOWER_GROUP);
+    if(strcasecmp(groupString.c_str(), "A") == 0)
+    {
+        towerStructDTO->group = A;
+    }
+    else
+    {
+        towerStructDTO->group = B;
+    }
     
     //position
     if(towerXMLElement->FirstChildElement(TAG_POSITION) != NULL)
     {
         XMLElement* positionXMLElement = towerXMLElement->FirstChildElement(TAG_POSITION);
         
-        towerDTO->positionX = atof(positionXMLElement->Attribute(ATTRIBUTE_POSITION_X));
-        towerDTO->positionY = atof(positionXMLElement->Attribute(ATTRIBUTE_POSITION_Y));
+        towerStructDTO->positionX = atof(positionXMLElement->Attribute(ATTRIBUTE_POSITION_X));
+        towerStructDTO->positionY = atof(positionXMLElement->Attribute(ATTRIBUTE_POSITION_Y));
     }
     
-    return towerDTO;
+    return towerStructDTO;
 }
 
 MonsterCreatorDTO* XMLMapParser::getMonsterCreatorDTOFromXMLNode(XMLElement* monsterCreatorXMLElement)
