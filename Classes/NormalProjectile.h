@@ -23,9 +23,6 @@ class NormalProjectile: public GameObject
 private:
     b2Vec2 getGlobalBodyStartPosition(b2Body* body, JointDef jointDef);
 protected:
-//    int contact_count;
-//    bool scheduled;
-    CCArray* collector;
     CCSequence* lifeTimeScheduled;
     
     virtual b2Vec2 getStartPosition(GameObject* holder, b2Body* me);
@@ -33,17 +30,16 @@ public:
     NormalProjectile();
     ~NormalProjectile();
     
-    void setData(NormalShootingSkillData data, GameObject* holder, CCArray* collector);
+    void setData(NormalShootingSkillData data, GameObject* holder);
     
     virtual bool init();
     CREATE_FUNC(NormalProjectile);
     
     CC_SYNTHESIZE(NormalShootingSkillData, data, Data);
-    CC_SYNTHESIZE_READONLY(GameObject*, holder, Holder);
+    CC_SYNTHESIZE(Group, group, Group);
+//    CC_SYNTHESIZE_READONLY(GameObject*, holder, Holder);
     
     virtual void remove();
-//    virtual void BeginContact(b2Contact *contact);
-//    virtual void EndContact(b2Contact *contact);
     virtual void checkCollisionDataInBeginContact(PhysicData* data, b2Contact *contact, bool isSideA);
     virtual void checkCollisionDataInEndContact(PhysicData* data, b2Contact *contact, bool isSideA);
     virtual void update(float dt);

@@ -10,15 +10,15 @@
 #include "Util.h"
 #include "GB2ShapeCache-x.h"
 #include "ScheduleManager.h"
-
+#include "GameObjectManager.h"
 
 NormalShootingAttack::~NormalShootingAttack()
 {
-    CCObject* obj;
-    CCARRAY_FOREACH(projectTileList, obj)
-    {
-        ((NormalProjectile*)obj)->remove();
-    }
+//    CCObject* obj;
+//    CCARRAY_FOREACH(projectTileList, obj)
+//    {
+//        ((NormalProjectile*)obj)->remove();
+//    }
 //    projectTileList->release();
 }
 
@@ -31,8 +31,8 @@ NormalShootingAttack::NormalShootingAttack(GameObject* holder, NormalShootingSki
         this->isExcutable = true;
         this->holderButton = NULL;
         
-        projectTileList = CCArray::create();
-        projectTileList->retain();
+//        projectTileList = CCArray::create();
+//        projectTileList->retain();
         
         this->autorelease();
         
@@ -86,13 +86,13 @@ void NormalShootingAttack::stop()
 
 void NormalShootingAttack::update(float dt)
 {
-    for(unsigned int i=0; i< projectTileList->count() ; i++)
-    {
-        if(((NormalProjectile*)projectTileList->objectAtIndex(i)) != NULL)
-        {
-            ((NormalProjectile*)projectTileList->objectAtIndex(i))->update(dt);
-        }
-    }
+//    for(unsigned int i=0; i< projectTileList->count() ; i++)
+//    {
+//        if(((NormalProjectile*)projectTileList->objectAtIndex(i)) != NULL)
+//        {
+//            ((NormalProjectile*)projectTileList->objectAtIndex(i))->update(dt);
+//        }
+//    }
     
     if(this->holderButton != NULL)
     {
@@ -126,13 +126,10 @@ void NormalShootingAttack::excuteImmediately()
 {
     if(holder != NULL)
     {
-//        NormalProjectile* proj = new NormalProjectile(this->data, this->holder, this->projectTileList);
         NormalProjectile* proj = NormalProjectile::create();
-        proj->setData(this->data, this->holder, this->projectTileList);
+        proj->setData(this->data, this->holder);
         proj->setGroup(GROUP_SKILL_DEFAULT);
-//        proj->retain();
-        //
-        projectTileList->addObject(proj);
+        GameObjectManager::getInstance()->addObjectUpdate(proj);
     }
 
 }
@@ -158,21 +155,21 @@ void NormalShootingAttack::checkCollisionDataInBeginContact(PhysicData* data, b2
         return;
     }
     
-    switch (data->Id)
-    {
-        case PROJECTILE:
-        {
-            void* pData = data->Data;
-            NormalProjectile* projectile = static_cast<NormalProjectile*>(pData);
-            if(projectile != NULL && projectile->getHolder() == this->holder)
-            {
-                projectile->checkCollisionDataInBeginContact(data, contact, isSideA);
-            }
-            break;
-        }
-        default:
-            break;
-    }
+//    switch (data->Id)
+//    {
+//        case PROJECTILE:
+//        {
+//            void* pData = data->Data;
+//            NormalProjectile* projectile = static_cast<NormalProjectile*>(pData);
+//            if(projectile != NULL && projectile->getHolder() == this->holder)
+//            {
+//                projectile->checkCollisionDataInBeginContact(data, contact, isSideA);
+//            }
+//            break;
+//        }
+//        default:
+//            break;
+//    }
 }
 
 void NormalShootingAttack::checkCollisionDataInEndContact(PhysicData* data, b2Contact *contact, bool isSideA)
@@ -182,18 +179,18 @@ void NormalShootingAttack::checkCollisionDataInEndContact(PhysicData* data, b2Co
         return;
     }
     
-    switch (data->Id) {
-        case PROJECTILE:
-        {
-            void* pData = data->Data;
-            NormalProjectile* projectile = (NormalProjectile *)pData;
-            if(projectile != NULL && projectile->getHolder() == this->holder)
-            {
-                projectile->checkCollisionDataInEndContact(data, contact, isSideA);
-            }
-            break;
-        }
-        default:
-            break;
-    }
+//    switch (data->Id) {
+//        case PROJECTILE:
+//        {
+//            void* pData = data->Data;
+//            NormalProjectile* projectile = (NormalProjectile *)pData;
+//            if(projectile != NULL && projectile->getHolder() == this->holder)
+//            {
+//                projectile->checkCollisionDataInEndContact(data, contact, isSideA);
+//            }
+//            break;
+//        }
+//        default:
+//            break;
+//    }
 }

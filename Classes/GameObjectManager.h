@@ -19,6 +19,7 @@ class GameObjectManager: public CCNode
 {
 private:
     CC_SYNTHESIZE(CCArray*, listObjectRemoved, ListObjectRemoved);
+    CC_SYNTHESIZE(CCArray*, listUpdateObject, ListUpdateObject)
 protected:
     GameObjectManager();
     ~GameObjectManager();
@@ -29,6 +30,15 @@ public:
     virtual void update(float dt);
     
     void addObjectRemoved(GameObject* object);
+    void addObjectUpdate(GameObject* object);
+
+    void removedObjectUpdate(GameObject* object);
+    
+    void BeginContact(b2Contact *contact);
+    void EndContact(b2Contact *contact);
+    
+    void checkCollisionDataInBeginContact(PhysicData* data, b2Contact *contact, bool isSideA);
+    void checkCollisionDataInEndContact(PhysicData* data, b2Contact *contact, bool isSideA);
 
     static void release();
    

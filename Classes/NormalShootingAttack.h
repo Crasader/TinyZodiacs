@@ -19,7 +19,7 @@ USING_NS_CC;
 class NormalShootingAttack: public AbstractSkill
 {
 private:
-    CCArray* projectTileList;
+//    CCArray* projectTileList;
 protected:
     CC_SYNTHESIZE_READONLY(uint16, group, Group);
     CC_SYNTHESIZE(NormalShootingSkillData, data, Data);

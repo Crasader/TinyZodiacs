@@ -213,6 +213,8 @@ void GameWorld::update(float dt)
     {
         world->Step(1/40.000f,8, 1);
     }
+    //
+//    GameObjectManager::getInstance()->update(dt);
 }
 
 
@@ -222,16 +224,6 @@ void GameWorld::draw()
 //    kmGLPushMatrix();
 //    world->DrawDebugData();
 //    kmGLPopMatrix();
-}
-
-//PHYSICS CONTACT
-void GameWorld::BeginContact(b2Contact *contact)
-{
-    this->map->BeginContact(contact);
-    
-    this->group1->BeginContact(contact);
-    this->group2->BeginContact(contact);
-    
 }
 
 void GameWorld::setCameraFollowGroup(GameGroup* group)
@@ -258,12 +250,22 @@ void GameWorld::setCameraFollowGroup(GameGroup* group)
     this->runAction(this->cameraFollowAction);
 }
 
+//PHYSICS CONTACT
+void GameWorld::BeginContact(b2Contact *contact)
+{
+    this->map->BeginContact(contact);
+    this->group1->BeginContact(contact);
+    this->group2->BeginContact(contact);
+    GameObjectManager::getInstance()->BeginContact(contact);
+
+}
 
 void GameWorld::EndContact(b2Contact *contact)
 {
     this->map->EndContact(contact);
     this->group1->EndContact(contact);
     this->group2->EndContact(contact);
+    GameObjectManager::getInstance()->EndContact(contact);
 }
 
 void GameWorld::PreSolve(b2Contact* contact, const b2Manifold* oldManifold)

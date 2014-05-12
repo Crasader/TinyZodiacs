@@ -19,8 +19,9 @@
 
 NormalProjectile::NormalProjectile()
 {
-    this->holder = NULL;
+//    this->holder = NULL;
     this->lifeTimeScheduled = NULL;
+    this->group = NEUTRAL;
 }
 
 bool NormalProjectile::init()
@@ -33,13 +34,13 @@ bool NormalProjectile::init()
 }
 
 
-void NormalProjectile::setData(NormalShootingSkillData data, GameObject* holder, CCArray* collector)
+void NormalProjectile::setData(NormalShootingSkillData data, GameObject* holder)
 {
     if(holder != NULL && holder->getBody() != NULL)
     {
         this->data = data;
-        this->holder = holder;
-        this->collector = collector;
+//        this->holder = holder;
+        this->group = holder->getGroup();
         
         //Create body
         b2BodyDef bodyDef;
@@ -90,7 +91,8 @@ void NormalProjectile::setData(NormalShootingSkillData data, GameObject* holder,
     {
 //        ScheduleManager::getInstance()->stopScheduledObjectAction(this->lifeTimeScheduled);
         GameObjectManager::getInstance()->addObjectRemoved(this);
-        collector->removeObject(this);
+        GameObjectManager::getInstance()->removedObjectUpdate(this);
+//        collector->removeObject(this);
     }
 }
 
@@ -219,7 +221,7 @@ void NormalProjectile::checkCollisionDataInBeginContact(PhysicData* data, b2Cont
     {
         otherData = (PhysicData* )contact->GetFixtureA()->GetBody()->GetUserData();
     }
-    if(otherData == NULL || otherData->Data == this->holder)
+    if(otherData == NULL /*|| otherData->Data == this->holder*/)
     {
         return;
     }
@@ -229,9 +231,9 @@ void NormalProjectile::checkCollisionDataInBeginContact(PhysicData* data, b2Cont
         case CHARACTER_BODY:
         {
             Character* character = (Character*)otherData->Data;
-            if(character != holder)
+            if(character != NULL /*&& character != holder*/)
             {
-                if(character->getGroup() == this->holder->getGroup())
+                if(character->getGroup() == /*this->holder->getGroup()*/this->group)
                 {
                     // CCLOG("Allie begin");
                 }
@@ -260,42 +262,42 @@ void NormalProjectile::checkCollisionDataInBeginContact(PhysicData* data, b2Cont
 
 void NormalProjectile::checkCollisionDataInEndContact(PhysicData* data, b2Contact *contact, bool isSideA)
 {
-    PhysicData* otherData;
-    if(isSideA)
-    {
-        otherData = (PhysicData* )contact->GetFixtureB()->GetBody()->GetUserData();
-    }
-    else
-    {
-        otherData = (PhysicData* )contact->GetFixtureA()->GetBody()->GetUserData();
-    }
-    //
-    if(otherData == NULL)
-    {
-        return;
-    }
-    
-    switch (otherData->Id)
-    {
-        case CHARACTER_BODY:
-        {
-            Character* character = (Character*)otherData->Data;
-            if(character != holder)
-            {
-                if(character->getGroup() == this->holder->getGroup())
-                {
-                    // CCLOG("Allie end");
-                }
-                else
-                {
-                    //  CCLOG("Enemy end");
-                }
-            }
-            break;
-        }
-        default:
-            break;
-    }
+//    PhysicData* otherData;
+//    if(isSideA)
+//    {
+//        otherData = (PhysicData* )contact->GetFixtureB()->GetBody()->GetUserData();
+//    }
+//    else
+//    {
+//        otherData = (PhysicData* )contact->GetFixtureA()->GetBody()->GetUserData();
+//    }
+//    //
+//    if(otherData == NULL)
+//    {
+//        return;
+//    }
+//    
+//    switch (otherData->Id)
+//    {
+//        case CHARACTER_BODY:
+//        {
+//            Character* character = (Character*)otherData->Data;
+//            if(character != holder)
+//            {
+//                if(character->getGroup() == this->holder->getGroup())
+//                {
+//                    // CCLOG("Allie end");
+//                }
+//                else
+//                {
+//                    //  CCLOG("Enemy end");
+//                }
+//            }
+//            break;
+//        }
+//        default:
+//            break;
+//    }
     
 }
 
@@ -312,7 +314,8 @@ void NormalProjectile::remove()
     //    this->release();
     //  CC_SAFE_RELEASE_NULL(this->lifeTimeScheduled);
     GameObjectManager::getInstance()->addObjectRemoved(this);
-    this->collector->removeObject(this);
+    GameObjectManager::getInstance()->removedObjectUpdate(this);
+//    this->collector->removeObject(this);
     //     this -> release();
     
 }
@@ -328,10 +331,11 @@ void NormalProjectile::excuteScheduledFunction(CCObject* pSender, void *object)
     if(object != NULL)
     {
     GameObjectManager::getInstance()->addObjectRemoved((GameObject*)object);
-    if(this->collector != NULL)
-    {
-        this->collector->removeObject((CCObject*)object);
-    }
+    GameObjectManager::getInstance()->removedObjectUpdate(this);
+//    if(this->collector != NULL)
+//    {
+//        this->collector->removeObject((CCObject*)object);
+//    }
     }
     //     this -> release();
     
