@@ -91,7 +91,7 @@ void NormalProjectile::setData(NormalShootingSkillData data, GameObject* holder)
     {
 //        ScheduleManager::getInstance()->stopScheduledObjectAction(this->lifeTimeScheduled);
         GameObjectManager::getInstance()->addObjectRemoved(this);
-        GameObjectManager::getInstance()->removedObjectUpdate(this);
+        GameObjectManager::getInstance()->removeGameObject(this);
 //        collector->removeObject(this);
     }
 }
@@ -314,7 +314,7 @@ void NormalProjectile::remove()
     //    this->release();
     //  CC_SAFE_RELEASE_NULL(this->lifeTimeScheduled);
     GameObjectManager::getInstance()->addObjectRemoved(this);
-    GameObjectManager::getInstance()->removedObjectUpdate(this);
+    GameObjectManager::getInstance()->removeGameObject(this);
 //    this->collector->removeObject(this);
     //     this -> release();
     
@@ -331,7 +331,7 @@ void NormalProjectile::excuteScheduledFunction(CCObject* pSender, void *object)
     if(object != NULL)
     {
     GameObjectManager::getInstance()->addObjectRemoved((GameObject*)object);
-    GameObjectManager::getInstance()->removedObjectUpdate(this);
+    GameObjectManager::getInstance()->removeGameObject(this);
 //    if(this->collector != NULL)
 //    {
 //        this->collector->removeObject((CCObject*)object);

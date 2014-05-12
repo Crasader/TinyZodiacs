@@ -30,9 +30,8 @@ public:
     virtual void update(float dt);
     
     void addObjectRemoved(GameObject* object);
-    void addObjectUpdate(GameObject* object);
-
-    void removedObjectUpdate(GameObject* object);
+    void addGameObject(GameObject* object);
+    void removeGameObject(GameObject* object);
     
     void BeginContact(b2Contact *contact);
     void EndContact(b2Contact *contact);

@@ -62,11 +62,6 @@ void GameObjectManager::addObjectRemoved(GameObject *body)
     //    }
 }
 
-void GameObjectManager::addGameObject(GameObject* object)
-{
-    this->listGameObject->addObject(object);
-}
-
 void GameObjectManager::update(float dt)
 {
     CCObject* object;
@@ -79,14 +74,14 @@ void GameObjectManager::update(float dt)
     //
 }
 
-void GameObjectManager::addObjectUpdate(GameObject* object)
+void GameObjectManager::addGameObject(GameObject* object)
 {
-    this->listUpdateObject->addObject(object);
+    this->listGameObject->addObject(object);
 }
 
-void GameObjectManager::removedObjectUpdate(GameObject* object)
+void GameObjectManager::removeGameObject(GameObject* object)
 {
-    this->listUpdateObject->removeObject(object);
+    this->listGameObject->removeObject(object);
 }
 
 void GameObjectManager::BeginContact(b2Contact *contact)
