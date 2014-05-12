@@ -20,10 +20,11 @@ enum Direction {LEFT, RIGHT};
 class GameObject: public cocos2d::CCObject
 {
 private:
-    
-protected:
+   protected:
     cocos2d::CCArray* listEffect;
     Direction direction;
+    CC_SYNTHESIZE(GameObjectID, gameObjectID, GameObjectID);
+
     virtual void checkCollisionDataInBeginContact(PhysicData* data, b2Contact *contact, bool isSideA);
     virtual void checkCollisionDataInEndContact(PhysicData* data, b2Contact *contact, bool isSideA);
     virtual void updateAllEffect(float dt);

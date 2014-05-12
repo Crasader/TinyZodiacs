@@ -59,12 +59,12 @@ Monster* MonsterFactory::createMonster(MonsterDTO* monsterDTO, CCPoint position,
     //
     monster->attackAnimation->getAnimation()->setDelayPerUnit(monster->getOriginCharacterData().getAttackSpeed());
     
-    //Create body
+    //physic data
+       //Create body
     b2BodyDef bodyDef;
     bodyDef.type = b2_dynamicBody;
     bodyDef.angle = ccpToAngle(ccp(0,0));
     bodyDef.fixedRotation=true;
-    bodyDef.userData = monster;
     
     b2Body *body = world->CreateBody(&bodyDef);
     
@@ -87,6 +87,8 @@ Monster* MonsterFactory::createMonster(MonsterDTO* monsterDTO, CCPoint position,
     monster->setGroup(this->group);
     monster->setLaneID(laneID);
     monster->setlistItem(monsterDTO->listItem);
+    
+    monster->onCreate();
     return monster;
 }
 
@@ -197,6 +199,7 @@ void MonsterFactory::finishCreateMonsterListFromSchedule(CCNode* sender, void* d
 
 void MonsterFactory::addNewMonster(Monster* monster)
 {
+//    GameObjectManager::getInstance()->addGameObject(monster);
     this->listMonster->addObject(monster);
     this->holder->addChild(monster->getSprite(),CHARACTER_LAYER);
 }

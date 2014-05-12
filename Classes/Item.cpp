@@ -43,6 +43,8 @@ void Item::onCreate()
     PhysicData* physicData = new PhysicData();
     physicData->Id = GAME_ITEM;
     physicData->Data = this;
+    
+    
     body->SetUserData(physicData);
 }
 

@@ -68,8 +68,8 @@ void GameGroup::update(float dt)
             }
             else
             {
-//                tower->update(dt);
-//                tower->getSprite()->setVisible(false);
+                //                tower->update(dt);
+                //                tower->getSprite()->setVisible(false);
                 this->listTower->removeObject(tower);
             }
         }
@@ -97,26 +97,18 @@ void GameGroup::joinGame(Group group, b2World* world, Map* map)
     
     //towers
     
-    CCArray* arrTower = CCArray::create();
+    CCArray* arrTowerStruct = CCArray::create();
     
     CCObject* object = NULL;
     
-    CCARRAY_FOREACH(map->getListTowerDTO(), object)
+    CCARRAY_FOREACH(map->getMapDTO()->listTowerStructDTO, object)
     {
-        TowerDTO* towerDTO = dynamic_cast<TowerDTO*>(object);
-        if(towerDTO != NULL)
+        TowerStructDTO* towerStructDTO = dynamic_cast<TowerStructDTO*>(object);
+        if(towerStructDTO != NULL)
         {
-            if(strcasecmp(towerDTO->group.c_str(), "A") == 0 && this->group == A)
+            if(towerStructDTO->group == this->group)
             {
-                arrTower->addObject(towerDTO);
-            }
-            else if(strcasecmp(towerDTO->group.c_str(), "B") == 0 && this->group == B)
-            {
-                arrTower->addObject(towerDTO);
-            }
-            else
-            {
-                
+                arrTowerStruct->addObject(towerStructDTO);
             }
         }
     }
@@ -124,7 +116,7 @@ void GameGroup::joinGame(Group group, b2World* world, Map* map)
     
     //monster factory
     object = NULL;
-    CCARRAY_FOREACH(map->getListMonsterFactoryDTO(), object)
+    CCARRAY_FOREACH(map->getMapDTO()->listMonsterFactoryDTO, object)
     {
         MonsterFactoryDTO* monsterFactoryDTO = dynamic_cast<MonsterFactoryDTO*>(object);
         if(monsterFactoryDTO != NULL)
@@ -144,7 +136,7 @@ void GameGroup::joinGame(Group group, b2World* world, Map* map)
     this->monsterFactory->startCreateMonster();
     
     
-    createTowers(arrTower, world);
+    createTowers(arrTowerStruct, world);
     
     attachSpriteToMap(map);
     
@@ -154,6 +146,33 @@ void GameGroup::BeginContact(b2Contact* contact)
 {
     //character
     this->character->BeginContact(contact);
+//    
+//    if(contact->GetFixtureA()->GetBody()->GetUserData() != NULL)
+//    {
+//        PhysicData* data = static_cast<PhysicData*>(contact->GetFixtureA()->GetBody()->GetUserData());
+//        if(data!=NULL)
+//        {
+//            if(data->GameObjectID == MONSTER)
+//            {
+//                GameObject* gameObject = static_cast<GameObject*>(data->Data);
+//                
+//                gameObject->EndContact(contact);
+//                
+//            }        }
+//    }
+//    if(contact->GetFixtureB()->GetBody()->GetUserData() != NULL)
+//    {
+//        PhysicData* data = (PhysicData*)contact->GetFixtureB()->GetBody()->GetUserData();
+//        if(data!=NULL)
+//        {
+//            if(data->GameObjectID == MONSTER)
+//            {
+//                GameObject* gameObject = static_cast<GameObject*>(data->Data);
+//                
+//                gameObject->EndContact(contact);
+//                
+//            }        }
+//    }
     
     //monster
     CCObject* object = NULL;
@@ -183,7 +202,38 @@ void GameGroup::EndContact(b2Contact* contact)
 {
     //character
     this->character->EndContact(contact);
-    
+//    if(contact->GetFixtureA()->GetBody()->GetUserData() != NULL)
+//    {
+//        PhysicData* data = static_cast<PhysicData*>(contact->GetFixtureA()->GetBody()->GetUserData());
+//        if(data!=NULL)
+//        {
+//            if(data->GameObjectID == MONSTER)
+//            {
+//                CCLOG("collide");
+//                GameObject* gameObject = static_cast<GameObject*>(data->Data);
+//                
+//                gameObject->EndContact(contact);
+//                
+//            }
+//            
+//        }
+//    }
+//    if(contact->GetFixtureB()->GetBody()->GetUserData() != NULL)
+//    {
+//        PhysicData* data = (PhysicData*)contact->GetFixtureB()->GetBody()->GetUserData();
+//        if(data!=NULL)
+//        {
+//            if(data->GameObjectID == MONSTER)
+//            {
+//                GameObject* gameObject = static_cast<GameObject*>(data->Data);
+//                
+//                gameObject->EndContact(contact);
+//                
+//            }
+//
+//        }
+//    }
+
     //monsters
     CCObject* object = NULL;
     CCARRAY_FOREACH(this->monsterFactory->getListMonster(), object)
@@ -220,12 +270,12 @@ Character* GameGroup::getCharacterOfPlayer()
     return this->character;
 }
 
-void GameGroup::createTowers(CCArray* towerDTO, b2World* world)
+void GameGroup::createTowers(CCArray* listTowerStructDTO, b2World* world)
 {
     CCObject* object = NULL;
-    CCARRAY_FOREACH(towerDTO, object)
+    CCARRAY_FOREACH(listTowerStructDTO, object)
     {
-        TowerDTO* towerDTO = static_cast<TowerDTO*>(object);
+        TowerStructDTO* towerDTO = static_cast<TowerStructDTO*>(object);
         this->listTower->addObject(ObjectFactory::getSharedManager()->createTower(towerDTO, world));
     }
 }
@@ -246,6 +296,6 @@ void GameGroup::attachSpriteToMap(Map* map)
 
 void GameGroup::test()
 {
-  //  EffectManager::getInstance()->clean();
+    //  EffectManager::getInstance()->clean();
 }
 

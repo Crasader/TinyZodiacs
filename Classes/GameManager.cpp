@@ -67,6 +67,7 @@ bool GameManager::loadResource()
 bool GameManager::loadData()
 {
     AnimationLoader::loadData();
+    TowerLoader::loadData();
     MapLoader::loadData();
     HeroLoader::loadData();
     MonsterLoader::loadData();

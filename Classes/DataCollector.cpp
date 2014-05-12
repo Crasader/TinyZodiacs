@@ -22,12 +22,19 @@ DataCollector::DataCollector()
     this->dictMonsterDTO->retain();
     this->dictItemDTO = CCDictionary::create();
     this->dictItemDTO->retain();
+    this->dictTowerDTO = CCDictionary::create();
+    this->dictTowerDTO->retain();
 
 }
 
 DataCollector::~DataCollector()
 {
-    
+    this->dictAnimationObject->release();
+    this->dictMapDTO->release();
+    this->dictHeroDTO->release();
+    this->dictMonsterDTO->release();
+    this->dictItemDTO->release();
+    this->dictTowerDTO->release();
 }
 
 DataCollector* DataCollector::getInstance()
@@ -65,6 +72,11 @@ void DataCollector::setItemDTO(const char* key, ItemDTO* object)
 
 }
 
+void DataCollector::setTowerDTO(const char* key, TowerDTO* object)
+{
+    this->dictTowerDTO->setObject(object, key);
+}
+
 //get
 AnimationObject* DataCollector::getAnimationObjectByKey(const char *key)
 {
@@ -91,3 +103,7 @@ ItemDTO* DataCollector::getItemDTOByKey(const char* key)
     return (ItemDTO*)this->dictItemDTO->objectForKey(key);
 }
 
+TowerDTO* DataCollector::getTowerDTOByKey(const char* key)
+{
+    return (TowerDTO*)this->dictTowerDTO->objectForKey(key);
+}

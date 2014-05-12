@@ -30,7 +30,7 @@ public:
     CCArray* listBackgroundDTO;
     CCArray* listForegroundDTO;
     CCArray* listSensorObjectDTO;
-    CCArray* listTowerDTO;
+    CCArray* listTowerStructDTO;
     CCArray* listMonsterFactoryDTO;
 
     

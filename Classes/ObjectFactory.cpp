@@ -13,10 +13,9 @@
 #include "PhysicConstants.h"
 #include "CharacterData.h"
 #include "NormalShootingAttack.h"
-#include "CharacterFactory.h"
 #include "MoveableMapObject.h"
 #include "DataCollector.h"
-
+#include "SkillFactory.h"
 USING_NS_CC;
 static ObjectFactory* sharedFactory = NULL;
 
@@ -38,56 +37,6 @@ ObjectFactory* ObjectFactory::getSharedManager()
         //  this->sharedFactory->init();
     }
     return sharedFactory;
-}
-
-Character* ObjectFactory::createCharacter(const std::string &name, b2World *world, bool isLocal)
-{
-    //    Character* character = NULL;
-    //    character = new Character();
-    //
-    //    //sprite
-    //    CCSprite* sprite=CCSprite::createWithSpriteFrameName("monkey_idle_1.png");
-    //    sprite->setScale(0.0f);
-    //
-    //    //body
-    //
-    //    b2BodyDef bodyDef;
-    //    bodyDef.type = b2_dynamicBody;
-    //    bodyDef.angle = ccpToAngle(ccp(0,0));
-    //    bodyDef.userData = sprite;
-    //    bodyDef.fixedRotation=true;
-    //
-    //    b2Body *body = world->CreateBody(&bodyDef);
-    //
-    //    gbox2d::GB2ShapeCache *sc =  gbox2d::GB2ShapeCache::sharedGB2ShapeCache();
-    //
-    //    sc->addFixturesToBody(body, "body");
-    //    sprite->setAnchorPoint(sc->anchorPointForShape("body"));
-    //    b2Filter filter = body->GetFixtureList()->GetFilterData();
-    //    filter.groupIndex = -2;
-    //    body->GetFixtureList()->SetFilterData(filter);
-    //
-    //    character->setSkin(body, sprite);
-    //    //TEMP CREATE SKILL
-    //    character->setNormalAttack(new NormalAttack(character));
-    //
-    //    //set character data
-    //    CharacterData data;
-    //    data.setSpeed(10);
-    //    data.setJumpHeight(50);
-    //    data.setMaxJumpTimes(3);
-    //    data.setAttackSpeed(0.1);
-    //
-    //
-    //
-    //    character->setOriginCharacterData(data);
-    //    character->attackAnimation->getAnimation()->setDelayPerUnit(data.getAttackSpeed());
-    //    return character;
-    
-    Character* character = CharacterFactory::createHero(name,world, isLocal);
-    
-    return character;
-    
 }
 
 Hero* ObjectFactory::createHero(HeroDTO* heroDTO, b2World* world, bool isLocal)
@@ -312,21 +261,20 @@ SensorObject* ObjectFactory::createSensorObject(SensorObjectDTO* sensorObjectDTO
     return sensorObject;
 }
 
-Tower* ObjectFactory::createTower(TowerDTO* towerDTO, b2World* world)
+Tower* ObjectFactory::createTower(TowerStructDTO* towerStructDTO, b2World* world)
 {
-    CharacterDTO heroDTOData = CharacterFactory::loadXMLFile(towerDTO->id.c_str());
-    
+    TowerDTO* towerDTO = DataCollector::getInstance()->getTowerDTOByKey(towerStructDTO->id.c_str());
     Tower* tower = Tower::create();
     
-    tower->setOriginCharacterData(heroDTOData.data);
+    tower->setOriginCharacterData(towerDTO->data);
     
     //Create Animation
-    string run = heroDTOData.animation;
-    string attack = heroDTOData.animation;
-    string idle = heroDTOData.animation;
-    string fall = heroDTOData.animation;
-    string fly = heroDTOData.animation;
-    string jump = heroDTOData.animation;
+    string run = towerDTO->animation;
+    string attack = towerDTO->animation;
+    string idle = towerDTO->animation;
+    string fall = towerDTO->animation;
+    string fly = towerDTO->animation;
+    string jump = towerDTO->animation;
     
     tower->runAnimation = DataCollector::getInstance()->getAnimationObjectByKey(run.append(RUN).c_str());
     tower->attackAnimation = DataCollector::getInstance()->getAnimationObjectByKey(attack.append(ATTACK).c_str());
@@ -346,25 +294,17 @@ Tower* ObjectFactory::createTower(TowerDTO* towerDTO, b2World* world)
     b2Body *body = world->CreateBody(&bodyDef);
     
     gbox2d::GB2ShapeCache *sc =  gbox2d::GB2ShapeCache::sharedGB2ShapeCache();
-    sc->addFixturesToBody(body, heroDTOData.body.c_str());
-    tower->setSpriteAnchorPoint(sc->anchorPointForShape(heroDTOData.body.c_str()));
-    tower->getSprite()->setAnchorPoint(sc->anchorPointForShape(heroDTOData.body.c_str()));
+    sc->addFixturesToBody(body,  towerDTO->body.c_str());
+    tower->setSpriteAnchorPoint(sc->anchorPointForShape(towerDTO->body.c_str()));
+    tower->getSprite()->setAnchorPoint(sc->anchorPointForShape(towerDTO->body.c_str()));
     tower->setSkin(body, tower->getSprite());
     
-    tower->setNormalAttack(SkillFactory::createSkill(heroDTOData.data.getSkill0().c_str(), world, tower, false, SKILL_0_BUTTON));
-    tower->setSkill1(SkillFactory::createSkill(heroDTOData.data.getSkill1().c_str(), world, tower, false, SKILL_1_BUTTON));
-    tower->setSkill2(SkillFactory::createSkill(heroDTOData.data.getSkill2().c_str(), world, tower, false, SKILL_2_BUTTON));
+    tower->setNormalAttack(SkillFactory::createSkill(towerDTO->data.getSkill0().c_str(), world, tower, false, SKILL_0_BUTTON));
+    tower->setSkill1(SkillFactory::createSkill(towerDTO->data.getSkill1().c_str(), world, tower, false, SKILL_1_BUTTON));
+    tower->setSkill2(SkillFactory::createSkill(towerDTO->data.getSkill2().c_str(), world, tower, false, SKILL_2_BUTTON));
     
-    tower->setPositionInPixel(ccp(towerDTO->positionX,towerDTO->positionY));
-    if(strcasecmp(towerDTO->group.c_str(),"A") == 0)
-    {
-        tower->setGroup(A);
-    }
-    else
-    {
-        tower->setGroup(B);
-    }
-    
+    tower->setPositionInPixel(ccp(towerStructDTO->positionX,towerStructDTO->positionY));
+    tower->setGroup(towerStructDTO->group);
     return tower;
 }
 

@@ -16,6 +16,8 @@ USING_NS_CC;
 
 GameObject::GameObject()
 {
+    this->gameObjectID = NONE;
+    
     this->isPassingThroughBody = 0;
     this->body = NULL;
     this->sprite = NULL;

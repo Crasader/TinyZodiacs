@@ -10,6 +10,7 @@
 
 Hero::Hero()
 {
+    this->gameObjectID = HERO;
     init();
 }
 
@@ -23,6 +24,8 @@ bool Hero::init()
     
     return true;
 }
+
+
 
 Hero::~Hero()
 {
@@ -38,6 +41,11 @@ Hero::~Hero()
     {
         this->ghostAnimation->release();
     }
+}
+
+void Hero::onCreate()
+{
+    
 }
 
 uint16  Hero::getCorrectGroup(Group group)

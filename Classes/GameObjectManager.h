@@ -19,6 +19,8 @@ class GameObjectManager: public CCNode
 {
 private:
     CC_SYNTHESIZE(CCArray*, listObjectRemoved, ListObjectRemoved);
+    CC_SYNTHESIZE(CCArray*, listGameObject, ListGameObject);
+    
 protected:
     GameObjectManager();
     ~GameObjectManager();
@@ -29,6 +31,7 @@ public:
     virtual void update(float dt);
     
     void addObjectRemoved(GameObject* object);
+    void addGameObject(GameObject* object);
 
     static void release();
    

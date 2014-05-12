@@ -43,6 +43,7 @@ public:
     virtual bool init();
     virtual void update(float dt);
     virtual void setGroup(Group group);
+    virtual void onCreate();
     
     void setSensor(b2Body* sensor);
     

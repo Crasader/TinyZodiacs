@@ -187,7 +187,6 @@
 		2D0DA1621908F7DE00881C8D /* XMLHelper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2D0DA1601908F7DE00881C8D /* XMLHelper.cpp */; };
 		2D0DA1651908F7F200881C8D /* EffectData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2D0DA1631908F7F200881C8D /* EffectData.cpp */; };
 		2D0DA16D1908F83900881C8D /* EffectFactory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2D0DA1691908F83900881C8D /* EffectFactory.cpp */; };
-		2D0DA16E1908F83900881C8D /* TowerFactory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2D0DA16B1908F83900881C8D /* TowerFactory.cpp */; };
 		2D0DA1741908F86300881C8D /* Tower.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2D0DA1711908F86300881C8D /* Tower.cpp */; };
 		2DC48A7B1919EE1C00B34724 /* onion_creep_default.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2DC48A791919EE1C00B34724 /* onion_creep_default.plist */; };
 		2DC48A7C1919EE1C00B34724 /* onion_creep_default.png in Resources */ = {isa = PBXBuildFile; fileRef = 2DC48A7A1919EE1C00B34724 /* onion_creep_default.png */; };
@@ -197,7 +196,6 @@
 		3412551318DAA44900D9FBA6 /* NormalProjectile.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3412551118DAA44900D9FBA6 /* NormalProjectile.cpp */; };
 		3414166218DC23A0007B8C2B /* GameObjectManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3414166018DC23A0007B8C2B /* GameObjectManager.cpp */; };
 		343D9A4C19134163003F5DE4 /* GameWorld.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 343D9A4B19134163003F5DE4 /* GameWorld.cpp */; };
-		343D9A4F19134350003F5DE4 /* TowerDTO.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 343D9A4E19134350003F5DE4 /* TowerDTO.cpp */; };
 		343D9A5219134A52003F5DE4 /* Effect.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 343D9A5119134A52003F5DE4 /* Effect.cpp */; };
 		345F6B5318E2C71F00985A7A /* ScheduleManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 345F6B5118E2C71F00985A7A /* ScheduleManager.cpp */; };
 		3486802618D93B82001692BB /* AbstractSkill.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3486802418D93B82001692BB /* AbstractSkill.cpp */; };
@@ -211,10 +209,8 @@
 		34E614E0191339A6006D933E /* MonsterFactory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 34E614DE191339A6006D933E /* MonsterFactory.cpp */; };
 		34E614E319133A2B006D933E /* MonsterCreator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 34E614E119133A2B006D933E /* MonsterCreator.cpp */; };
 		34E614E619133A5F006D933E /* MonsterCreatorDTO.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 34E614E519133A5F006D933E /* MonsterCreatorDTO.cpp */; };
-		34E614E919133AF2006D933E /* Map.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 34E614E819133AF2006D933E /* Map.cpp */; };
 		34E614EC19133B2D006D933E /* MonsterFactoryDTO.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 34E614EB19133B2D006D933E /* MonsterFactoryDTO.cpp */; };
 		34E614EF19133BFA006D933E /* CharacterDTO.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 34E614EE19133BFA006D933E /* CharacterDTO.cpp */; };
-		34E614F219133F38006D933E /* MapCreator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 34E614F119133F38006D933E /* MapCreator.cpp */; };
 		34E614F519133F5E006D933E /* MapDTO.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 34E614F419133F5E006D933E /* MapDTO.cpp */; };
 		34E614F819134009006D933E /* XMLMapParser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 34E614F719134009006D933E /* XMLMapParser.cpp */; };
 		34ED36C218D69ADF00FFA55A /* ActionEngine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 34ED36C018D69ADF00FFA55A /* ActionEngine.cpp */; };
@@ -224,7 +220,6 @@
 		34EED02918E5611F001AFFC9 /* Util.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 34EED02718E5611F001AFFC9 /* Util.cpp */; };
 		34F7F92D18E16BB70084E87C /* SkillFactory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 34F7F92B18E16BB70084E87C /* SkillFactory.cpp */; };
 		34F7F93018E194DD0084E87C /* SkillDTO.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 34F7F92E18E194DD0084E87C /* SkillDTO.cpp */; };
-		34FD845118DFCC7300373627 /* CharacterFactory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 34FD844F18DFCC7300373627 /* CharacterFactory.cpp */; };
 		34FD845618DFDCA400373627 /* character_monkey.xml in Resources */ = {isa = PBXBuildFile; fileRef = 34FD845518DFDCA400373627 /* character_monkey.xml */; };
 		375BD4C31868411B0024609E /* ObjectFactory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 375BD4BB1868411B0024609E /* ObjectFactory.cpp */; };
 		375BD4C41868411B0024609E /* TriggerBase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 375BD4BD1868411B0024609E /* TriggerBase.cpp */; };
@@ -373,7 +368,6 @@
 		F59E0BDC18D85E90001048BD /* NormalAttack.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F59E0BDA18D85E8F001048BD /* NormalAttack.cpp */; };
 		F5A46B26190508A900A8FF55 /* SensorObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F5A46B24190508A900A8FF55 /* SensorObject.cpp */; };
 		F5AE36A91906799900FB7519 /* SensorObjectDTO.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F5AE36A71906799900FB7519 /* SensorObjectDTO.cpp */; };
-		F5B428671917323D002DC13B /* DataCollector.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F5B428651917323D002DC13B /* DataCollector.cpp */; };
 		F5B4286A19173597002DC13B /* HeroDTO.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F5B4286819173597002DC13B /* HeroDTO.cpp */; };
 		F5B4286D191735AC002DC13B /* MonsterDTO.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F5B4286B191735AC002DC13B /* MonsterDTO.cpp */; };
 		F5B4287119174057002DC13B /* MapLoader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F5B4286F19174057002DC13B /* MapLoader.cpp */; };
@@ -385,6 +379,12 @@
 		F5B85FBF1904BABF00CE4604 /* ForegroundDTO.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F5B85FB71904BABF00CE4604 /* ForegroundDTO.cpp */; };
 		F5B85FC01904BABF00CE4604 /* MapObjectDTO.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F5B85FB81904BABF00CE4604 /* MapObjectDTO.cpp */; };
 		F5B85FC21904BABF00CE4604 /* BackgroundDTO.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F5B85FBD1904BABF00CE4604 /* BackgroundDTO.cpp */; };
+		F5BA76A2192064670070997B /* TowerLoader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F5BA769E192064670070997B /* TowerLoader.cpp */; };
+		F5BA76A3192064670070997B /* XMLTowerParser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F5BA76A0192064670070997B /* XMLTowerParser.cpp */; };
+		F5BA76A61920657C0070997B /* DataCollector.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F5BA76A41920657C0070997B /* DataCollector.cpp */; };
+		F5BA76A9192066CA0070997B /* TowerDTO.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F5BA76A8192066CA0070997B /* TowerDTO.cpp */; };
+		F5BA76AC1920788A0070997B /* Map.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F5BA76AA1920788A0070997B /* Map.cpp */; };
+		F5BA76AF192079E90070997B /* MapCreator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F5BA76AD192079E90070997B /* MapCreator.cpp */; };
 		F5BAF288191484700093BA4F /* ContainerItem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F5BAF286191484700093BA4F /* ContainerItem.cpp */; };
 		F5BAF28B1914857A0093BA4F /* GameEffect.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F5BAF2891914857A0093BA4F /* GameEffect.cpp */; };
 		F5BAF28E191487930093BA4F /* EffectManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F5BAF28C191487930093BA4F /* EffectManager.cpp */; };
@@ -780,8 +780,6 @@
 		2D0DA1641908F7F200881C8D /* EffectData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EffectData.h; sourceTree = "<group>"; };
 		2D0DA1691908F83900881C8D /* EffectFactory.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = EffectFactory.cpp; sourceTree = "<group>"; };
 		2D0DA16A1908F83900881C8D /* EffectFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EffectFactory.h; sourceTree = "<group>"; };
-		2D0DA16B1908F83900881C8D /* TowerFactory.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TowerFactory.cpp; sourceTree = "<group>"; };
-		2D0DA16C1908F83900881C8D /* TowerFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TowerFactory.h; sourceTree = "<group>"; };
 		2D0DA1711908F86300881C8D /* Tower.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Tower.cpp; sourceTree = "<group>"; };
 		2D0DA1721908F86300881C8D /* Tower.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tower.h; sourceTree = "<group>"; };
 		2DC48A791919EE1C00B34724 /* onion_creep_default.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = onion_creep_default.plist; sourceTree = "<group>"; };
@@ -795,8 +793,6 @@
 		3414166118DC23A0007B8C2B /* GameObjectManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameObjectManager.h; sourceTree = "<group>"; };
 		343D9A4A19134163003F5DE4 /* GameWorld.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameWorld.h; sourceTree = "<group>"; };
 		343D9A4B19134163003F5DE4 /* GameWorld.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameWorld.cpp; sourceTree = "<group>"; };
-		343D9A4D19134350003F5DE4 /* TowerDTO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TowerDTO.h; sourceTree = "<group>"; };
-		343D9A4E19134350003F5DE4 /* TowerDTO.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TowerDTO.cpp; sourceTree = "<group>"; };
 		343D9A5019134A52003F5DE4 /* Effect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Effect.h; sourceTree = "<group>"; };
 		343D9A5119134A52003F5DE4 /* Effect.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Effect.cpp; sourceTree = "<group>"; };
 		345F6B5118E2C71F00985A7A /* ScheduleManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ScheduleManager.cpp; sourceTree = "<group>"; };
@@ -821,14 +817,10 @@
 		34E614E219133A2B006D933E /* MonsterCreator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MonsterCreator.h; sourceTree = "<group>"; };
 		34E614E419133A5F006D933E /* MonsterCreatorDTO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MonsterCreatorDTO.h; sourceTree = "<group>"; };
 		34E614E519133A5F006D933E /* MonsterCreatorDTO.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MonsterCreatorDTO.cpp; sourceTree = "<group>"; };
-		34E614E719133AF2006D933E /* Map.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Map.h; sourceTree = "<group>"; };
-		34E614E819133AF2006D933E /* Map.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Map.cpp; sourceTree = "<group>"; };
 		34E614EA19133B2D006D933E /* MonsterFactoryDTO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MonsterFactoryDTO.h; sourceTree = "<group>"; };
 		34E614EB19133B2D006D933E /* MonsterFactoryDTO.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MonsterFactoryDTO.cpp; sourceTree = "<group>"; };
 		34E614ED19133BFA006D933E /* CharacterDTO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CharacterDTO.h; sourceTree = "<group>"; };
 		34E614EE19133BFA006D933E /* CharacterDTO.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CharacterDTO.cpp; sourceTree = "<group>"; };
-		34E614F019133F38006D933E /* MapCreator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapCreator.h; sourceTree = "<group>"; };
-		34E614F119133F38006D933E /* MapCreator.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MapCreator.cpp; sourceTree = "<group>"; };
 		34E614F319133F5E006D933E /* MapDTO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapDTO.h; sourceTree = "<group>"; };
 		34E614F419133F5E006D933E /* MapDTO.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MapDTO.cpp; sourceTree = "<group>"; };
 		34E614F619134009006D933E /* XMLMapParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMLMapParser.h; sourceTree = "<group>"; };
@@ -848,8 +840,6 @@
 		34F7F92C18E16BB70084E87C /* SkillFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SkillFactory.h; sourceTree = "<group>"; };
 		34F7F92E18E194DD0084E87C /* SkillDTO.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SkillDTO.cpp; sourceTree = "<group>"; };
 		34F7F92F18E194DD0084E87C /* SkillDTO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SkillDTO.h; sourceTree = "<group>"; };
-		34FD844F18DFCC7300373627 /* CharacterFactory.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CharacterFactory.cpp; sourceTree = "<group>"; };
-		34FD845018DFCC7300373627 /* CharacterFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CharacterFactory.h; sourceTree = "<group>"; };
 		34FD845518DFDCA400373627 /* character_monkey.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = character_monkey.xml; sourceTree = "<group>"; };
 		373B911F18788FB000198F86 /* CCComBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCComBase.h; sourceTree = "<group>"; };
 		375BD4BB1868411B0024609E /* ObjectFactory.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ObjectFactory.cpp; sourceTree = "<group>"; };
@@ -1117,8 +1107,6 @@
 		F5A46B25190508A900A8FF55 /* SensorObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SensorObject.h; sourceTree = "<group>"; };
 		F5AE36A71906799900FB7519 /* SensorObjectDTO.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SensorObjectDTO.cpp; sourceTree = "<group>"; };
 		F5AE36A81906799900FB7519 /* SensorObjectDTO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SensorObjectDTO.h; sourceTree = "<group>"; };
-		F5B428651917323D002DC13B /* DataCollector.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DataCollector.cpp; sourceTree = "<group>"; };
-		F5B428661917323D002DC13B /* DataCollector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataCollector.h; sourceTree = "<group>"; };
 		F5B4286819173597002DC13B /* HeroDTO.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = HeroDTO.cpp; sourceTree = "<group>"; };
 		F5B4286919173597002DC13B /* HeroDTO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HeroDTO.h; sourceTree = "<group>"; };
 		F5B4286B191735AC002DC13B /* MonsterDTO.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MonsterDTO.cpp; sourceTree = "<group>"; };
@@ -1141,6 +1129,18 @@
 		F5B85FBC1904BABF00CE4604 /* ForegroundDTO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ForegroundDTO.h; sourceTree = "<group>"; };
 		F5B85FBD1904BABF00CE4604 /* BackgroundDTO.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BackgroundDTO.cpp; sourceTree = "<group>"; };
 		F5B85FBE1904BABF00CE4604 /* BackgroundDTO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BackgroundDTO.h; sourceTree = "<group>"; };
+		F5BA769E192064670070997B /* TowerLoader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TowerLoader.cpp; sourceTree = "<group>"; };
+		F5BA769F192064670070997B /* TowerLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TowerLoader.h; sourceTree = "<group>"; };
+		F5BA76A0192064670070997B /* XMLTowerParser.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = XMLTowerParser.cpp; sourceTree = "<group>"; };
+		F5BA76A1192064670070997B /* XMLTowerParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMLTowerParser.h; sourceTree = "<group>"; };
+		F5BA76A41920657C0070997B /* DataCollector.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DataCollector.cpp; sourceTree = "<group>"; };
+		F5BA76A51920657C0070997B /* DataCollector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataCollector.h; sourceTree = "<group>"; };
+		F5BA76A7192066CA0070997B /* TowerDTO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TowerDTO.h; sourceTree = "<group>"; };
+		F5BA76A8192066CA0070997B /* TowerDTO.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TowerDTO.cpp; sourceTree = "<group>"; };
+		F5BA76AA1920788A0070997B /* Map.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Map.cpp; sourceTree = "<group>"; };
+		F5BA76AB1920788A0070997B /* Map.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Map.h; sourceTree = "<group>"; };
+		F5BA76AD192079E90070997B /* MapCreator.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MapCreator.cpp; sourceTree = "<group>"; };
+		F5BA76AE192079E90070997B /* MapCreator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapCreator.h; sourceTree = "<group>"; };
 		F5BAF286191484700093BA4F /* ContainerItem.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ContainerItem.cpp; sourceTree = "<group>"; };
 		F5BAF287191484700093BA4F /* ContainerItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContainerItem.h; sourceTree = "<group>"; };
 		F5BAF2891914857A0093BA4F /* GameEffect.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameEffect.cpp; sourceTree = "<group>"; };
@@ -2309,6 +2309,8 @@
 		F54AE96D18D2F01B00194E66 /* Objects */ = {
 			isa = PBXGroup;
 			children = (
+				F5BA76AA1920788A0070997B /* Map.cpp */,
+				F5BA76AB1920788A0070997B /* Map.h */,
 				F5579EB8191DDAD900F29241 /* Hero.cpp */,
 				F5579EB9191DDAD900F29241 /* Hero.h */,
 				F5CCA792191B326D002A7F2A /* Item */,
@@ -2317,8 +2319,6 @@
 				343D9A5119134A52003F5DE4 /* Effect.cpp */,
 				343D9A4A19134163003F5DE4 /* GameWorld.h */,
 				343D9A4B19134163003F5DE4 /* GameWorld.cpp */,
-				34E614E719133AF2006D933E /* Map.h */,
-				34E614E819133AF2006D933E /* Map.cpp */,
 				34E614DB191338DC006D933E /* GameGroup.cpp */,
 				34E614DC191338DC006D933E /* GameGroup.h */,
 				F59E0BD918D85E62001048BD /* Skills */,
@@ -2369,28 +2369,24 @@
 		F54AE96F18D2F05200194E66 /* Factories */ = {
 			isa = PBXGroup;
 			children = (
+				F5BA76AD192079E90070997B /* MapCreator.cpp */,
+				F5BA76AE192079E90070997B /* MapCreator.h */,
+				F5BA76A41920657C0070997B /* DataCollector.cpp */,
+				F5BA76A51920657C0070997B /* DataCollector.h */,
 				F5579EBB191DDCBC00F29241 /* ItemFactory.cpp */,
 				F5579EBC191DDCBC00F29241 /* ItemFactory.h */,
-				34E614F019133F38006D933E /* MapCreator.h */,
-				34E614F119133F38006D933E /* MapCreator.cpp */,
 				34E614E119133A2B006D933E /* MonsterCreator.cpp */,
 				34E614E219133A2B006D933E /* MonsterCreator.h */,
 				34E614DE191339A6006D933E /* MonsterFactory.cpp */,
 				34E614DF191339A6006D933E /* MonsterFactory.h */,
 				2D0DA1691908F83900881C8D /* EffectFactory.cpp */,
 				2D0DA16A1908F83900881C8D /* EffectFactory.h */,
-				2D0DA16B1908F83900881C8D /* TowerFactory.cpp */,
-				2D0DA16C1908F83900881C8D /* TowerFactory.h */,
 				F54AE9D018D2F2B400194E66 /* ObjectFactory.cpp */,
 				F54AE9D218D2F2B400194E66 /* ObjectFactory.h */,
-				34FD844F18DFCC7300373627 /* CharacterFactory.cpp */,
-				34FD845018DFCC7300373627 /* CharacterFactory.h */,
 				34F7F92B18E16BB70084E87C /* SkillFactory.cpp */,
 				34F7F92C18E16BB70084E87C /* SkillFactory.h */,
 				F5E2929318E6768F00B9B152 /* InfoViewCreator.cpp */,
 				F5E2929418E6768F00B9B152 /* InfoViewCreator.h */,
-				F5B428651917323D002DC13B /* DataCollector.cpp */,
-				F5B428661917323D002DC13B /* DataCollector.h */,
 			);
 			name = Factories;
 			sourceTree = "<group>";
@@ -2509,8 +2505,8 @@
 		F561F28818D8029000DD4598 /* DTO */ = {
 			isa = PBXGroup;
 			children = (
-				343D9A4D19134350003F5DE4 /* TowerDTO.h */,
-				343D9A4E19134350003F5DE4 /* TowerDTO.cpp */,
+				F5BA76A7192066CA0070997B /* TowerDTO.h */,
+				F5BA76A8192066CA0070997B /* TowerDTO.cpp */,
 				34E614ED19133BFA006D933E /* CharacterDTO.h */,
 				34E614EE19133BFA006D933E /* CharacterDTO.cpp */,
 				F5B85FB61904BAAB00CE4604 /* MapDTO */,
@@ -2583,6 +2579,8 @@
 		F5B4286E19174033002DC13B /* Data loader */ = {
 			isa = PBXGroup;
 			children = (
+				F5BA769E192064670070997B /* TowerLoader.cpp */,
+				F5BA769F192064670070997B /* TowerLoader.h */,
 				F54AE9CF18D2F2B400194E66 /* AnimationLoader.cpp */,
 				F54AE9CE18D2F2B400194E66 /* AnimationLoader.h */,
 				F5B4286F19174057002DC13B /* MapLoader.cpp */,
@@ -2607,6 +2605,8 @@
 		F5B4287919174BAC002DC13B /* XML Parser */ = {
 			isa = PBXGroup;
 			children = (
+				F5BA76A0192064670070997B /* XMLTowerParser.cpp */,
+				F5BA76A1192064670070997B /* XMLTowerParser.h */,
 				34E614F619134009006D933E /* XMLMapParser.h */,
 				34E614F719134009006D933E /* XMLMapParser.cpp */,
 				34EED02318E525DF001AFFC9 /* SkillType0Parser.cpp */,
@@ -2969,7 +2969,6 @@
 				15A3D9191682F7D5002FB0C5 /* b2CircleContact.cpp in Sources */,
 				F54AE9BC18D2F1AA00194E66 /* CharacterHitState.cpp in Sources */,
 				15A3D91A1682F7D5002FB0C5 /* b2Contact.cpp in Sources */,
-				34FD845118DFCC7300373627 /* CharacterFactory.cpp in Sources */,
 				15A3D91B1682F7D5002FB0C5 /* b2ContactSolver.cpp in Sources */,
 				F54AE9D818D2F2B400194E66 /* GameManager.cpp in Sources */,
 				F54AE9D618D2F2B400194E66 /* AnimationLoader.cpp in Sources */,
@@ -2990,7 +2989,6 @@
 				F54AE9DB18D2F30D00194E66 /* MapObject.cpp in Sources */,
 				15A3D9241682F7D5002FB0C5 /* b2MouseJoint.cpp in Sources */,
 				15A3D9251682F7D5002FB0C5 /* b2PrismaticJoint.cpp in Sources */,
-				34E614F219133F38006D933E /* MapCreator.cpp in Sources */,
 				15A3D9261682F7D5002FB0C5 /* b2PulleyJoint.cpp in Sources */,
 				51136ADC1908E62F00317D3A /* NoBodyMapObject.cpp in Sources */,
 				15A3D9271682F7D5002FB0C5 /* b2RevoluteJoint.cpp in Sources */,
@@ -3004,6 +3002,7 @@
 				15A3D9951682F7F9002FB0C5 /* chipmunk.c in Sources */,
 				F558161319176AD800A1CCB2 /* XMLMonsterParser.cpp in Sources */,
 				15A3D9971682F7F9002FB0C5 /* cpConstraint.c in Sources */,
+				F5BA76A9192066CA0070997B /* TowerDTO.cpp in Sources */,
 				15A3D9981682F7F9002FB0C5 /* cpDampedRotarySpring.c in Sources */,
 				15A3D9991682F7F9002FB0C5 /* cpDampedSpring.c in Sources */,
 				15A3D99A1682F7F9002FB0C5 /* cpGearJoint.c in Sources */,
@@ -3014,7 +3013,6 @@
 				15A3D99E1682F7F9002FB0C5 /* cpRatchetJoint.c in Sources */,
 				15A3D99F1682F7F9002FB0C5 /* cpRotaryLimitJoint.c in Sources */,
 				34B1273718EF9619005DAF04 /* SkillType1Parser.cpp in Sources */,
-				34E614E919133AF2006D933E /* Map.cpp in Sources */,
 				15A3D9A01682F7F9002FB0C5 /* cpSimpleMotor.c in Sources */,
 				15A3D9A11682F7F9002FB0C5 /* cpSlideJoint.c in Sources */,
 				15A3D9A21682F7F9002FB0C5 /* cpArbiter.c in Sources */,
@@ -3024,6 +3022,7 @@
 				15A3D9A61682F7F9002FB0C5 /* cpBody.c in Sources */,
 				34ED36C218D69ADF00FFA55A /* ActionEngine.cpp in Sources */,
 				15A3D9A71682F7F9002FB0C5 /* cpCollision.c in Sources */,
+				F5BA76A2192064670070997B /* TowerLoader.cpp in Sources */,
 				34B1273318EF9619005DAF04 /* NormalShootingSkillData.cpp in Sources */,
 				15A3D9A81682F7F9002FB0C5 /* cpHashSet.c in Sources */,
 				15A3D9A91682F7F9002FB0C5 /* cpPolyShape.c in Sources */,
@@ -3064,6 +3063,7 @@
 				15A3DA411682F826002FB0C5 /* CCMenuItemLoader.cpp in Sources */,
 				3412551318DAA44900D9FBA6 /* NormalProjectile.cpp in Sources */,
 				15A3DA421682F826002FB0C5 /* CCNode+CCBRelativePositioning.cpp in Sources */,
+				F5BA76AF192079E90070997B /* MapCreator.cpp in Sources */,
 				15A3DA431682F826002FB0C5 /* CCNodeLoader.cpp in Sources */,
 				15A3DA441682F826002FB0C5 /* CCNodeLoaderLibrary.cpp in Sources */,
 				15A3DA451682F826002FB0C5 /* CCParticleSystemQuadLoader.cpp in Sources */,
@@ -3105,6 +3105,7 @@
 				15A3DA5E1682F826002FB0C5 /* CCPhysicsDebugNode.cpp in Sources */,
 				375BD5131868454E0024609E /* CCActionObject.cpp in Sources */,
 				15A3DA5F1682F826002FB0C5 /* CCPhysicsSprite.cpp in Sources */,
+				F5BA76A61920657C0070997B /* DataCollector.cpp in Sources */,
 				34E614EC19133B2D006D933E /* MonsterFactoryDTO.cpp in Sources */,
 				15A3DAEB1682F8A6002FB0C5 /* CDAudioManager.m in Sources */,
 				15A3DAEC1682F8A6002FB0C5 /* CDOpenALSupport.m in Sources */,
@@ -3152,6 +3153,7 @@
 				1A8F3B80175E05DA00049216 /* Slot.cpp in Sources */,
 				1A8F3B81175E05DA00049216 /* SlotData.cpp in Sources */,
 				2D0DA1621908F7DE00881C8D /* XMLHelper.cpp in Sources */,
+				F5BA76A3192064670070997B /* XMLTowerParser.cpp in Sources */,
 				1A8F3B82175E05DA00049216 /* spine-cocos2dx.cpp in Sources */,
 				1AB87035175E0A84005D39BF /* WebSocket.cpp in Sources */,
 				375BD4C51868411B0024609E /* TriggerMng.cpp in Sources */,
@@ -3169,9 +3171,7 @@
 				F5FA5B5E1900E78300B80EF0 /* ParameterObject.cpp in Sources */,
 				379BB9A217F03F3700829B88 /* CCDisplayFactory.cpp in Sources */,
 				F54AE9B918D2F1AA00194E66 /* CharacterMoveState.cpp in Sources */,
-				F5B428671917323D002DC13B /* DataCollector.cpp in Sources */,
 				379BB9A317F03F3700829B88 /* CCDisplayManager.cpp in Sources */,
-				2D0DA16E1908F83900881C8D /* TowerFactory.cpp in Sources */,
 				379BB9A417F03F3700829B88 /* CCSkin.cpp in Sources */,
 				379BB9A517F03F3700829B88 /* CCColliderDetector.cpp in Sources */,
 				F54AE9FC18D2F4A100194E66 /* TestScene.cpp in Sources */,
@@ -3195,6 +3195,7 @@
 				379BB9AF17F03F3700829B88 /* CCComController.cpp in Sources */,
 				379BB9B017F03F3700829B88 /* CCComRender.cpp in Sources */,
 				379BB9B117F03F3700829B88 /* CCInputDelegate.cpp in Sources */,
+				F5BA76AC1920788A0070997B /* Map.cpp in Sources */,
 				F54AE9F118D2F38100194E66 /* UIObject.cpp in Sources */,
 				2D0DA16D1908F83900881C8D /* EffectFactory.cpp in Sources */,
 				379BB9B317F03F3700829B88 /* UIWidget.cpp in Sources */,
@@ -3234,7 +3235,6 @@
 				379BB9D317F03F3700829B88 /* GUIReader.cpp in Sources */,
 				345F6B5318E2C71F00985A7A /* ScheduleManager.cpp in Sources */,
 				379BB9D417F03F3700829B88 /* SceneReader.cpp in Sources */,
-				343D9A4F19134350003F5DE4 /* TowerDTO.cpp in Sources */,
 				F54AE9B518D2F1AA00194E66 /* CharacterIdleState.cpp in Sources */,
 				F54AE9EF18D2F38100194E66 /* ControllerLayer.cpp in Sources */,
 			);

@@ -18,8 +18,8 @@ private:
 protected:
 public:
     PhysicData();
-    
     ObjectID Id;
+    GameObjectID GameObjectID;
     void* Data;
 };
 #endif /* defined(__Headball__PhysicData__) */

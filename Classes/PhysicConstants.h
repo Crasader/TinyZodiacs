@@ -58,7 +58,14 @@ enum ObjectID
  TOWER_SENSOR ,
  MAP_SENSOR ,
  MONSTER_SENSOR,
-    GAME_ITEM
+    GAME_ITEM,
+};
+
+enum GameObjectID
+{
+    NONE,
+    HERO,
+    MONSTER,
 };
 
 enum Group

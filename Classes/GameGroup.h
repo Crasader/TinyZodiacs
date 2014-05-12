@@ -41,7 +41,7 @@ public:
     void setFollowCharacter(Character* character);
     Character* getCharacterOfPlayer();
     Character* getFollowingCharacter();
-    void createTowers(CCArray* towerDTO, b2World* world);
+    void createTowers(CCArray* listTowerStructDTO, b2World* world);
     void attachSpriteToMap(Map* map);
     
     void test();

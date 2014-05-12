@@ -18,6 +18,7 @@
 #include "HeroLoader.h"
 #include "MonsterLoader.h"
 #include "XMLMonsterParser.h"
+#include "TowerLoader.h"
 
 
 class GameManager

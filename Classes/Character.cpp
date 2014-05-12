@@ -85,6 +85,7 @@ void Character::setSkin(b2Body *body, CCSprite *sprite)
     PhysicData* scharacterData = new PhysicData();
     scharacterData->Id = CHARACTER_BODY;
     scharacterData->Data = this;
+    scharacterData->GameObjectID = this->gameObjectID;
     this->getBody()->SetUserData(scharacterData);
 }
 
@@ -227,6 +228,8 @@ void Character::createFootSensor()
     PhysicData* sensorData = new PhysicData();
     sensorData->Id = CHARACTER_FOOT_SENSOR;
     sensorData->Data = this;
+    sensorData->GameObjectID = this->gameObjectID;
+   
     footSensor->SetUserData(sensorData);
     
     this->body->GetWorld()->CreateJoint(&footBodyJoint);

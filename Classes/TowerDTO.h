@@ -13,24 +13,37 @@
 
 #include "cocos2d.h"
 #include "GameObject.h"
+#include "CharacterDTO.h"
 
 using namespace std;
 USING_NS_CC;
 
-class TowerDTO: public CCObject
+class TowerDTO: public CharacterDTO
 {
 public:
     TowerDTO();
     virtual ~TowerDTO();
     
     virtual bool init();
+    CREATE_FUNC(TowerDTO);
+};
+
+class TowerStructDTO: public CCObject
+{
+private:
+protected:
+public:
+    TowerStructDTO();
+    virtual ~TowerStructDTO();
     
+    virtual bool init();
+
     string id;
-    string group;
+    Group group;
     float positionX;
     float positionY;
     
-    CREATE_FUNC(TowerDTO);
+    CREATE_FUNC(TowerStructDTO);
 };
 
 

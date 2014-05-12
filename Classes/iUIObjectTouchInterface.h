@@ -13,7 +13,7 @@
 #include "cocos2d.h"
 
 USING_NS_CC;
-enum ButtonType {LEFT_BUTTON, RIGHT_BUTTON, JUMP_BUTTON, NONE};
+enum ButtonType {LEFT_BUTTON, RIGHT_BUTTON, JUMP_BUTTON};
 
 class iUIObjectTouchEventInterface
 {

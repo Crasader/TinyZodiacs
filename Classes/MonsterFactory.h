@@ -12,10 +12,11 @@
 #include <iostream>
 #include "cocos2d.h"
 #include "Monster.h"
-#include "CharacterFactory.h"
 #include "MonsterCreatorDTO.h"
 #include "MonsterCreator.h"
 #include "MonsterDTO.h"
+#include "GB2ShapeCache-x.h"
+#include "SkillFactory.h"
 
 #define MONSTER_CREATION_DELAY 1;
 

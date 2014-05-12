@@ -14,12 +14,10 @@
 #include "MapFactory.h"
 #include "GameBackgroundLayer.h"
 #include "LayerIndexConstants.h"
-#include "CharacterFactory.h"
 #include "GameObjectInfoView.h"
 #include "InfoViewCreator.h"
 #include "Util.h"
 #include "MonsterFactory.h"
-#include "TowerFactory.h"
 #include "ActionZoomFollow.h"
 
 GameWorld::GameWorld()
@@ -66,7 +64,7 @@ bool GameWorld::init()
     delete mapCreator;
     
     
-    createWorldBox();
+  //  createWorldBox();
     
     CCObject* object = NULL;
     CCARRAY_FOREACH(this->listInfoView, object)
@@ -227,6 +225,8 @@ void GameWorld::draw()
 //PHYSICS CONTACT
 void GameWorld::BeginContact(b2Contact *contact)
 {
+ 
+
     this->map->BeginContact(contact);
     
     this->group1->BeginContact(contact);
