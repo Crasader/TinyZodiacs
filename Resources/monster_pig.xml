@@ -1,15 +1,15 @@
-<character id="monster_onion">
-    <animation>creep_1</animation>
-	<body>creep_1</body>
-    <hp>100</hp>
+<character id="monster_pig">
+    <animation>pig</animation>
+	<body>pig</body>
+    <hp>50</hp>
     <atk>5</atk>
     <def>2</def>
     <speed>8</speed>
     <atk_speed>0.1</atk_speed>
     <max_jump>10</max_jump>
     <jump_height>10</jump_height>
-    <sensor_body>creep_1_sensor</sensor_body>
-    <skill_0>monster_normal_attack</skill_0>
+    <sensor_body>creep_2_sensor</sensor_body>
+    <skill_0>tower_shooting_1</skill_0>
     
     <item_list>
         <item id="bag1" chance="100"/>

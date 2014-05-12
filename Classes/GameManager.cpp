@@ -51,7 +51,8 @@ bool GameManager::loadResource()
     CCSpriteFrameCache::sharedSpriteFrameCache()->addSpriteFramesWithFile("tower_orb_default.plist", "tower_orb_default.png");
      CCSpriteFrameCache::sharedSpriteFrameCache()->addSpriteFramesWithFile("smoke_spritesheet.plist", "smoke_spritesheet.png");
      CCSpriteFrameCache::sharedSpriteFrameCache()->addSpriteFramesWithFile("item_spritesheet.plist", "item_spritesheet.png");
-    
+    CCSpriteFrameCache::sharedSpriteFrameCache()->addSpriteFramesWithFile("pig_spritesheet.plist", "pig_spritesheet.png");
+ 
     gbox2d::GB2ShapeCache *sc = gbox2d::GB2ShapeCache::sharedGB2ShapeCache();
     
     sc->addShapesWithFile("character_body.plist");

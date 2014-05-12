@@ -20,6 +20,7 @@ bool AnimationLoader::loadData()
     AnimationLoader::loadDataByFileName("tower_1_animation.xml");
     AnimationLoader::loadDataByFileName("tower_2_animation.xml");
     AnimationLoader::loadDataByFileName("creep_1_animation.xml");
+    AnimationLoader::loadDataByFileName("pig_animation.xml");
 
     return true;
 }

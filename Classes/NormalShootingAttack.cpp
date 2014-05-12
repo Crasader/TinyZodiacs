@@ -14,8 +14,12 @@
 
 NormalShootingAttack::~NormalShootingAttack()
 {
-    projectTileList->removeAllObjects();
-    projectTileList->release();
+    CCObject* obj;
+    CCARRAY_FOREACH(projectTileList, obj)
+    {
+        ((NormalProjectile*)obj)->remove();
+    }
+//    projectTileList->release();
 }
 
 NormalShootingAttack::NormalShootingAttack(GameObject* holder, NormalShootingSkillData data)

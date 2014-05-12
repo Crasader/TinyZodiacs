@@ -27,17 +27,18 @@ Monster::Monster()
 
 Monster::~Monster()
 {
-       this->sensor->SetUserData(NULL);
+    this->sensor->SetUserData(NULL);
     this->sensor->GetWorld()->DestroyBody(this->sensor);
     
     this->listTarget->removeAllObjects();
     this->listTarget->release();
     AnimationEffect* effect = AnimationEffect::create();
     effect->setAnimation("effect-smoke");
-    
+   
     EffectManager::getInstance()->runEffect(effect, this->getPositionInPixel());
     
    ItemFactory::getInstance()->createItem(this->listItem[0].itemID.c_str(), this->getPositionInPixel());
+       ItemFactory::getInstance()->createItem(this->listItem[1].itemID.c_str(), this->getPositionInPixel());
 }
 
 bool Monster::init()

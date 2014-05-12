@@ -11,6 +11,7 @@
 bool MonsterLoader::loadData()
 {
     loadDataByFileName("monster_onion.xml");
+     loadDataByFileName("monster_pig.xml");
     
     return true;
 }

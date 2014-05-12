@@ -325,8 +325,14 @@ void NormalProjectile::excuteScheduledFunction(CCObject* pSender, void *object)
     //        ((GameObject*)object)->getSprite()->getParent()->removeChild(((GameObject*)object)->getSprite());
     //    }
     //    this -> release();
-    GameObjectManager::getInstance()->addObjectRemoved(this);
-    this->collector->removeObject(this);
+    if(object != NULL)
+    {
+    GameObjectManager::getInstance()->addObjectRemoved((GameObject*)object);
+    if(this->collector != NULL)
+    {
+        this->collector->removeObject((CCObject*)object);
+    }
+    }
     //     this -> release();
     
 }

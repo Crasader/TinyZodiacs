@@ -28,7 +28,6 @@ protected:
     CCArray* collector;
     CCSequence* lifeTimeScheduled;
     
-    virtual void remove();
     virtual b2Vec2 getStartPosition(GameObject* holder, b2Body* me);
 public:
     NormalProjectile();
@@ -42,6 +41,7 @@ public:
     CC_SYNTHESIZE(NormalShootingSkillData, data, Data);
     CC_SYNTHESIZE_READONLY(GameObject*, holder, Holder);
     
+    virtual void remove();
 //    virtual void BeginContact(b2Contact *contact);
 //    virtual void EndContact(b2Contact *contact);
     virtual void checkCollisionDataInBeginContact(PhysicData* data, b2Contact *contact, bool isSideA);

@@ -55,7 +55,7 @@ bool CharacterAttackState::attack()
 
 bool CharacterAttackState::move()
 {
-    return false;
+    return true;
 }
 
 bool CharacterAttackState::jump()
