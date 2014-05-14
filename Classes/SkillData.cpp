@@ -17,3 +17,12 @@ SkillData::~SkillData()
 {
     
 }
+
+void SkillData::releaseEffectLists()
+{
+}
+
+void SkillData::clone()
+{
+    
+}

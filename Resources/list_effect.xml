@@ -15,7 +15,41 @@
         <life_time>0</life_time>
         <time_tick>0</time_tick>
     </effect>
+    
+    <effect id="monster_normal_attack_affect">
+		<chance>100</chance>
+        <crit_chance>1</crit_chance>
+        <crit>1.5</crit>
         
+        <hp>-9</hp>
+        <atk>0</atk>
+        <def>0</def>
+        <speed>0</speed>
+        <atk_speed>0</atk_speed>
+        <max_jump>0</max_jump>
+        <jump_height>0</jump_height>
+        
+        <life_time>0</life_time>
+        <time_tick>0</time_tick>
+    </effect>
+    
+    <effect id="tower_normal_attack_affect">
+		<chance>100</chance>
+        <crit_chance>1</crit_chance>
+        <crit>1.5</crit>
+        
+        <hp>-9</hp>
+        <atk>0</atk>
+        <def>0</def>
+        <speed>0</speed>
+        <atk_speed>0</atk_speed>
+        <max_jump>0</max_jump>
+        <jump_height>0</jump_height>
+        
+        <life_time>0</life_time>
+        <time_tick>0</time_tick>
+    </effect>
+    
     <effect id="cat_stun">
         <animation>effect-arrow</animation>
         <animation_layer>4</animation_layer>

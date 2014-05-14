@@ -16,7 +16,7 @@ Effect::Effect(EffectData data, GameObject* holder)
 {
     this->holder = holder;
     
-    this->chance = data.getchance();
+    this->chance = data.getChance();
     this->critChance = data.getCritChance();
     this->critRatio = data.getCritRatio();
     this->health = data.getHealth();
@@ -70,6 +70,13 @@ Effect::Effect(EffectData data, GameObject* holder)
     this->lifeTimeAction->retain();
     
     this->autorelease();
+    //Calculate
+    calculateActualInformation(holder);
+}
+
+void Effect::calculateActualInformation(GameObject* holder)
+{
+    //this->health+= ((Character*)holder)->getcharacterData().getAttack();
 }
 
 Effect::~Effect()
@@ -179,4 +186,16 @@ void Effect::onTimeTick()
     Character* character = (Character*)this->holder;
 
     character->notifyByEffect(this);
+    
+    setDataAfterFirstTick();
+}
+
+void Effect::setDataAfterFirstTick()
+{
+    this->attack = 0;
+    this->attackSpeed = 0;
+    this->speed = 0;
+    this->defense = 0;
+    this->maxJump = 0;
+    this->jumpHeight = 0;
 }

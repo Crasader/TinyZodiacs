@@ -13,6 +13,7 @@
 #include "cocos2d.h"
 #include "PhysicConstants.h"
 #include "Constants.h"
+#include "Effect.h"
 
 USING_NS_CC;
 
@@ -30,8 +31,10 @@ public:
     CC_SYNTHESIZE(JointDef, jointDefA, JointDefA);
     CC_SYNTHESIZE(JointDef, jointDefB, JointDefB);
     CC_SYNTHESIZE(SkillTarget, target, Target)
-    CC_SYNTHESIZE(CCArray*, listEnemyEffect, ListEnemyEffect);
-    CC_SYNTHESIZE(CCArray*, listAlliesEffect, ListAlliesEffect);
-
+    CC_SYNTHESIZE(vector<EffectData>, listEnemyEffect, ListEnemyEffect);
+    CC_SYNTHESIZE(vector<EffectData>, listAlliesEffect, ListAlliesEffect);
+    
+    void releaseEffectLists();
+    virtual void clone();
 };
 #endif /* defined(__TinyZodiacs__SkillData__) */

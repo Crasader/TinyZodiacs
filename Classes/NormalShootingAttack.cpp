@@ -14,6 +14,7 @@
 
 NormalShootingAttack::~NormalShootingAttack()
 {
+    this->data.releaseEffectLists();
 //    CCObject* obj;
 //    CCARRAY_FOREACH(projectTileList, obj)
 //    {
@@ -126,8 +127,11 @@ void NormalShootingAttack::excuteImmediately()
 {
     if(holder != NULL)
     {
+        NormalShootingSkillData calculatedSkillData = this->data;
+        calculateSkillData(&calculatedSkillData, this->holder);
+
         NormalProjectile* proj = NormalProjectile::create();
-        proj->setData(this->data, this->holder);
+        proj->setData(calculatedSkillData, this->holder);
         proj->setGroup(GROUP_SKILL_DEFAULT);
         GameObjectManager::getInstance()->addGameObject(proj);
     }

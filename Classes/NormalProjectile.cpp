@@ -75,12 +75,12 @@ void NormalProjectile::setData(NormalShootingSkillData data, GameObject* holder)
         //
         if(holder->getDirection() == LEFT)
         {
-            this->flipDirection(RIGHT);
+            this->flipDirection(LEFT);
             this->body->SetLinearVelocity(b2Vec2(-this->data.getSpeedX(), this->data.getSpeedY()));
         }
         else if(holder->getDirection() == RIGHT)
         {
-            this->flipDirection(LEFT);
+            this->flipDirection(RIGHT);
             this->body->SetLinearVelocity(b2Vec2(this->data.getSpeedX(), this->data.getSpeedY()));
         }
         //schedule life time
@@ -240,10 +240,9 @@ void NormalProjectile::checkCollisionDataInBeginContact(PhysicData* data, b2Cont
                 else
                 {
                     // CCLOG("Enemy begin");
-                    CCObject* effectData;
-                    CCARRAY_FOREACH(this->data.getListEnemyEffect(), effectData)
+                    for(int i=0 ; i<this->data.getListEnemyEffect().size() ; i++)
                     {
-                        Effect* effect = new Effect(*((EffectData*)effectData), character);
+                        Effect* effect = new Effect(this->data.getListEnemyEffect()[i], character);
                         character->applyEffect(effect);
                     }
                     

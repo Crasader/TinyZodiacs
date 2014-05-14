@@ -159,18 +159,16 @@ SkillTarget SkillType0Parser::readTarget(const XMLElement* root)
 //    return ENEMY;
 }
 
-CCArray* SkillType0Parser::readEffectList(const XMLElement* root)
+vector<EffectData> SkillType0Parser::readEffectList(const XMLElement* root)
 {
+    vector<EffectData> effectList;
     if(root != NULL)
     {
         const XMLElement* effectNode = root->FirstChildElement(TAG_EFFECT);
         if(effectNode == NULL)
         {
-            return NULL;
+            return effectList;
         }
-        
-        CCArray* effectList = CCArray::create();
-        effectList->retain();
         while (effectNode != NULL)
         {
             std::string effectId= XMLHelper::readString(effectNode, "");
@@ -179,14 +177,15 @@ CCArray* SkillType0Parser::readEffectList(const XMLElement* root)
             {
 //                CCLOG("\t \t %s",effectId.c_str());
                 EffectData* effect = EffectFactory::createEffectData(effectId.c_str());
-                effectList->addObject(effect);
+                effectList.push_back(effect->clone());
+                effect->release();
             }
             
             effectNode = effectNode->NextSiblingElement();
         }
         return effectList;
     }
-    return NULL;
+    return effectList;
 }
 
 NormalMeleeSkillData SkillType0Parser::parse(const XMLElement* root, b2World* world)

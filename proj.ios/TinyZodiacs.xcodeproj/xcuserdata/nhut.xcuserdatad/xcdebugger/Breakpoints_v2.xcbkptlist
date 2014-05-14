@@ -65,51 +65,5 @@
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "../Classes/NormalProjectile.cpp"
-            timestampString = "421575127.993891"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "243"
-            endingLineNumber = "243"
-            landmarkName = "NormalProjectile::checkCollisionDataInBeginContact(PhysicData* data, b2Contact *contact, bool isSideA)"
-            landmarkType = "5">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "NormalProjectile::checkCollisionDataInBeginContact(PhysicData*, b2Contact*, bool)"
-                  moduleName = "TinyZodiacs"
-                  urlString = "file://localhost/Volumes/Data/Programes/cocos2d-x-2.2.2/projects/TinyZodiacs/Classes/NormalProjectile.cpp"
-                  timestampString = "421562187.24769"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "242"
-                  endingLineNumber = "242"
-                  offsetFromSymbolStart = "143">
-               </Location>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "NormalProjectile::checkCollisionDataInBeginContact(PhysicData*, b2Contact*, bool)"
-                  moduleName = "TinyZodiacs"
-                  urlString = "file://localhost/Volumes/Data/Programes/cocos2d-x-2.2.2/projects/TinyZodiacs/Classes/NormalProjectile.cpp"
-                  timestampString = "421562187.248039"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "242"
-                  endingLineNumber = "242"
-                  offsetFromSymbolStart = "183">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
    </Breakpoints>
 </Bucket>

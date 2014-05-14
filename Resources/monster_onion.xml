@@ -2,11 +2,11 @@
     <animation>creep_1</animation>
 	<body>creep_1</body>
     <hp>1</hp>
-    <atk>5</atk>
-    <def>2</def>
+    <atk>0</atk>
+    <def>0</def>
     <speed>8</speed>
     <atk_speed>0.1</atk_speed>
-    <max_jump>10</max_jump>
+    <max_jump>3</max_jump>
     <jump_height>10</jump_height>
     <sensor_body>creep_1_sensor</sensor_body>
     <skill_0>monster_normal_attack</skill_0>

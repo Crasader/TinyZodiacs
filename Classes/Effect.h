@@ -35,6 +35,10 @@ protected:
     void destroy();
 
     void onTimeTick();
+    
+    void calculateActualInformation(GameObject* holder);
+    
+    void setDataAfterFirstTick();
 public:
     CC_SYNTHESIZE_READONLY(AnimationObject*, animation, Animation);
     CC_SYNTHESIZE_READONLY(int, animationLayerIndex, AnimationLayerIndex);

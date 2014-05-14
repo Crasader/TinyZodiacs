@@ -62,7 +62,7 @@ EffectData* EffectFactory::loadXMLFile(const char* key, const char *xmlFileName)
             data->setJointDefB(readJoinDef(result->FirstChildElement(TAG_JOINTS)->FirstChildElement(TAG_THIS)));
         }
 
-        data->setchance(readChance(result->FirstChildElement(TAG_CHANCE)));
+        data->setChance(readChance(result->FirstChildElement(TAG_CHANCE)));
         data->setCritChance(readCritChance(result->FirstChildElement(TAG_CRIT_CHANCE)));
         data->setCritRatio(readCritRatio(result->FirstChildElement(TAG_CRIT_RATIO)));
 

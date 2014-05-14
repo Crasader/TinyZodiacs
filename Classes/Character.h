@@ -77,6 +77,7 @@ public:
     
     virtual void setSkin(b2Body* body,cocos2d::CCSprite* sprite);
     virtual void notifyByEffect(CCObject* effect);
+    virtual void removeEffect(CCObject* object);
     
     virtual bool isDead();
     

@@ -32,5 +32,7 @@ public:
     CC_SYNTHESIZE(float, speedY, SpeedY);
 
     CC_SYNTHESIZE(int, animationLayerIndex, AnimationLayerIndex);
+    
+    virtual void clone();
 };
 #endif /* defined(__TinyZodiacs__NormalShootingSkillData__) */

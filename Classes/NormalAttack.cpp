@@ -50,6 +50,15 @@ NormalAttack::NormalAttack(GameObject* holder, NormalMeleeSkillData data)
         this->autorelease();
  
         this->excuteAction = this->stopAction = this->coolDownAction = NULL;
+        //
+//        if(this->data.getLifeTime() >0)
+//        {
+//            this->listTarget = CCArray::create();
+//        }
+//        else
+//        {
+//            this->listTarget = NULL;
+//        }
     }
 }
 
@@ -59,6 +68,13 @@ NormalAttack::~NormalAttack()
     CC_SAFE_RELEASE(this->skillSprite);
     data.getSkillSensor()->SetActive(false);
     data.getSkillSensor()->GetWorld()->DestroyBody(data.getSkillSensor());
+    
+//    if(listTarget != NULL)
+//    {
+//        listTarget->removeAllObjects();
+//        listTarget->release();
+//    }
+    this->data.releaseEffectLists();
 }
 
 
@@ -155,6 +171,7 @@ void NormalAttack::stop()
 {
     if(this->stopAction != NULL)
     {
+
         ScheduleManager::getInstance()->stopAction(stopAction);
         this->stopAction->release();
     }
@@ -186,11 +203,10 @@ void NormalAttack::stopImmediately()
         this->skillSprite->removeFromParent();
     }
 }
-int count1 = 0;
+
 void NormalAttack::checkCollisionDataInBeginContact(PhysicData* data, b2Contact *contact, bool isSideA)
 {
-    count1++;
-    CCLOG("CONTACT %d", count1);
+ 
     if(data->Id == SKILL_SENSOR && data->Data == this )
     {
         PhysicData* otherData;
@@ -211,23 +227,27 @@ void NormalAttack::checkCollisionDataInBeginContact(PhysicData* data, b2Contact 
                     //                    if(character != holder)
                     //                    {
                     
-                    if(character->getGroup() == this->holder->getGroup())
-                    {
+
+                        NormalMeleeSkillData calculatedSkillData = this->data;
+                        calculateSkillData(&calculatedSkillData, this->holder);
                         
-                    }
-                    else
-                    {
-                        
-                        CCObject* effectData;
-                        CCARRAY_FOREACH(this->data.getListEnemyEffect(), effectData)
+                        if(character->getGroup() == this->holder->getGroup())
                         {
-                            Effect* effect = new Effect(*((EffectData*)effectData), character);
-                            character->applyEffect(effect);
+                            // CCLOG("Allie begin");
                         }
-                    }
-                    //                    }
-                    break;
+                        else
+                        {
+                            // CCLOG("Enemy begin");
+                            for(int i=0 ; i<calculatedSkillData.getListEnemyEffect().size() ; i++)
+                            {
+                                Effect* effect = new Effect(calculatedSkillData.getListEnemyEffect()[i], character);
+                                character->applyEffect(effect);
+                            }
+                        }
+                    
                 }
+                    break;
+                
                 default:
                     break;
             }
