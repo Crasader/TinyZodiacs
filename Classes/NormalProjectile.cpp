@@ -75,12 +75,12 @@ void NormalProjectile::setData(NormalShootingSkillData data, GameObject* holder)
         //
         if(holder->getDirection() == LEFT)
         {
-            this->flipDirection(RIGHT);
+            this->flipDirection(LEFT);
             this->body->SetLinearVelocity(b2Vec2(-this->data.getSpeedX(), this->data.getSpeedY()));
         }
         else if(holder->getDirection() == RIGHT)
         {
-            this->flipDirection(LEFT);
+            this->flipDirection(RIGHT);
             this->body->SetLinearVelocity(b2Vec2(this->data.getSpeedX(), this->data.getSpeedY()));
         }
         //schedule life time

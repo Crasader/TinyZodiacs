@@ -513,6 +513,7 @@ void Character::setPhysicGroup(uint16 group)
 
 void Character::notifyByEffect(CCObject* effect)
 {
+    
     this->characterData.applyEffect((Effect*)effect, this);
     
     HealthPointEffect* gameEffect = HealthPointEffect::create();

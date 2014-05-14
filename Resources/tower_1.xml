@@ -2,8 +2,8 @@
     <animation>tower1</animation>
 	<body>tower_1</body>
     <hp>100</hp>
-    <atk>10</atk>
-    <def>2</def>
+    <atk>0</atk>
+    <def>0</def>
     <speed>10</speed>
     <atk_speed>0.1</atk_speed>
     <max_jump>5</max_jump>
