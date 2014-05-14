@@ -12,6 +12,8 @@
 #include <iostream>
 #include "ObjectData.h"
 #include "cocos2d.h"
+#include "Effect.h"
+#include "GameObject.h"
 
 USING_NS_CC;
 class CharacterData: public ObjectData
@@ -35,6 +37,9 @@ public:
     CC_SYNTHESIZE(std::string, skill1, Skill1);
     CC_SYNTHESIZE(std::string, skill2, Skill2);
 
+    void setData(CharacterData data);
+    void applyData(CharacterData data);
+    void applyEffect(Effect* effect, GameObject* holder);
 };
 
 #endif /* defined(__Headball__CharacterData__) */

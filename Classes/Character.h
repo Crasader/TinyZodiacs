@@ -79,6 +79,7 @@ public:
     virtual void BeginContact(b2Contact *contact);
     virtual void EndContact(b2Contact *contact);
     virtual void notifyByEffect(CCObject* effect);
+    virtual void removeEffect(CCObject* object);
     
     virtual bool isDead();
 };

@@ -20,12 +20,15 @@ class EffectData: public CCObject
 private:
 protected:
 public:
+    EffectData();
+    ~EffectData();
+    
     CC_SYNTHESIZE(std::string, animationId, AnimationId);
     CC_SYNTHESIZE(int, animationLayerIndex, AnimationLayerIndex);
     CC_SYNTHESIZE(JointDef, jointDefA, JointDefA);
     CC_SYNTHESIZE(JointDef, jointDefB, JointDefB);
 
-    CC_SYNTHESIZE(float, chance, chance);
+    CC_SYNTHESIZE(float, chance, Chance);
     CC_SYNTHESIZE(float, critChance, CritChance);
     CC_SYNTHESIZE(float, critRatio, CritRatio);
     
@@ -40,5 +43,8 @@ public:
     CC_SYNTHESIZE(float, lifeTime, LifeTime);
     CC_SYNTHESIZE(float, timeTick, timeTick);
     
+    EffectData* clonePointer();
+    EffectData clone();
+
 };
 #endif /* defined(__TinyZodiacs__EffectData__) */

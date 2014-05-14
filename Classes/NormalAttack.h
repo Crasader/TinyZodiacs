@@ -22,6 +22,8 @@ private:
     
     b2Joint* skillJoint;
 protected:
+    //CCArray* listTarget;
+    
     virtual void checkCollisionDataInBeginContact(PhysicData* data, b2Contact *contact, bool isSideA);
     virtual void checkCollisionDataInEndContact(PhysicData* data, b2Contact *contact, bool isSideA);
     

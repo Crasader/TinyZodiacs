@@ -91,6 +91,7 @@ void Character::setSkin(b2Body *body, CCSprite *sprite)
 
 void Character::setOriginCharacterData(CharacterData data)
 {
+//    data.setAttack(0);
     this->originCharacterData = data;
     this->characterData = this->originCharacterData;
 }
@@ -512,12 +513,20 @@ void Character::setPhysicGroup(uint16 group)
 
 void Character::notifyByEffect(CCObject* effect)
 {
+    this->characterData.applyEffect((Effect*)effect, this);
     
-    this->characterData.setHealth(this->characterData.getHealth()+((Effect*)effect)->getHealth());
     HealthPointEffect* gameEffect = HealthPointEffect::create();
     gameEffect->setHealthPoint(((Effect*)effect)->getHealth());
-    
     EffectManager::getInstance()->runEffect(gameEffect, this->getPositionInPixel());
+}
+
+void Character::removeEffect(CCObject* object)
+{
+    GameObject::removeEffect(object);
+    if(this->listEffect->count() ==0)
+    {
+        this->characterData.setData(this->originCharacterData);
+    }
 }
 
 bool Character::isDead()

@@ -17,3 +17,8 @@ NormalMeleeSkillData::~NormalMeleeSkillData()
 {
     
 }
+
+void NormalMeleeSkillData::clone()
+{
+    
+}

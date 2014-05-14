@@ -240,10 +240,9 @@ void NormalProjectile::checkCollisionDataInBeginContact(PhysicData* data, b2Cont
                 else
                 {
                     // CCLOG("Enemy begin");
-                    CCObject* effectData;
-                    CCARRAY_FOREACH(this->data.getListEnemyEffect(), effectData)
+                    for(int i=0 ; i<this->data.getListEnemyEffect().size() ; i++)
                     {
-                        Effect* effect = new Effect(*((EffectData*)effectData), character);
+                        Effect* effect = new Effect(this->data.getListEnemyEffect()[i], character);
                         character->applyEffect(effect);
                     }
                     

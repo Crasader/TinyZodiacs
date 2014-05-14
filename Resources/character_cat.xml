@@ -2,8 +2,8 @@
     <animation>cat</animation>
 	<body>cat</body>
     <hp>9999999999999999</hp>
-    <atk>5</atk>
-    <def>2</def>
+    <atk>0</atk>
+    <def>10</def>
     <speed>10</speed>
     <atk_speed>0.1</atk_speed>
     <max_jump>5</max_jump>

@@ -17,7 +17,7 @@
         <list_effect>
             <enemy>
                 <effect>cat_normal_attack_affect</effect>
-                          </enemy>
+            </enemy>
         </list_effect>
 	</skill>
     
@@ -131,7 +131,7 @@
         
         <list_effect>
             <enemy>
-                <effect>cat_normal_attack_affect</effect>
+                <effect>tower_normal_attack_affect</effect>
             </enemy>
         </list_effect>
 	</skill>
@@ -163,7 +163,7 @@
         
         <list_effect>
             <enemy>
-                <effect>cat_normal_attack_affect</effect>
+                <effect>tower_normal_attack_affect</effect>
             </enemy>
         </list_effect>
 	</skill>

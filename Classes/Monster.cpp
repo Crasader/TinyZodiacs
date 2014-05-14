@@ -90,7 +90,7 @@ void Monster::checkCollisionDataInBeginContact(PhysicData* data, b2Contact *cont
 {
     Character::checkCollisionDataInBeginContact(data, contact, isSideA);
     
-    if(data->Data != this)
+    if(data->Data == this)
     {
         PhysicData* physicData = NULL;
         if(isSideA)

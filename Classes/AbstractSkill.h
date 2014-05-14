@@ -34,6 +34,8 @@ protected:
     virtual void setExcuteAble();
     
     CCAction *excuteAction, *stopAction, *coolDownAction;
+    
+    virtual void calculateSkillData(SkillData* data, GameObject* character);
 public:
     ~AbstractSkill();
     

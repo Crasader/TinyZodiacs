@@ -25,6 +25,8 @@ public:
     CC_SYNTHESIZE(b2Body*, skillSensor, SkillSensor);
     CC_SYNTHESIZE(AnimationObject*, skillAnimation, SkillAnimation)
     CC_SYNTHESIZE(int, animationLayerIndex, AnimationLayerIndex);
+    
+    virtual void clone();
 };
 
 #endif /* defined(__TinyZodiacs__NormalMeleeSkillData__) */

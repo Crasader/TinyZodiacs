@@ -17,6 +17,7 @@
 #include "GB2ShapeCache-x.h"
 #include "Constants.h"
 #include "XMLHelper.h"
+#include "Effect.h"
 
 
 
@@ -65,7 +66,7 @@ protected:
     static AnimationObject* readAnimation(const XMLElement* root);
     static int readAnimationLayerIndex(const XMLElement* root);
     static SkillTarget readTarget(const XMLElement* root);
-    static CCArray* readEffectList(const XMLElement* root);
+    static vector<EffectData> readEffectList(const XMLElement* root);
 public:
     static NormalMeleeSkillData parse(const XMLElement* root, b2World* world);
 };
