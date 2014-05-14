@@ -15,7 +15,7 @@
 
 Tower::Tower()
 {
-    init();
+    this->gameObjectID = TOWER;
 }
 
 bool Tower::init()
@@ -28,9 +28,6 @@ bool Tower::init()
     this->listTarget = CCArray::create();
     this->listTarget->retain();
 
-    
-    
-    
     return true;
 }
 
@@ -44,6 +41,7 @@ Tower::~Tower()
     //    {
     //        this->skill2Animation->release();
     //    }
+    this->body->GetWorld()->DestroyBody(this->sensor);
     this->listTarget->release();
 }
 
@@ -64,6 +62,7 @@ void Tower::createSensor()
     
     PhysicData* data =  new PhysicData();
     data->Id = TOWER_SENSOR;
+    data->GameObjectID = TOWER;
     data->Data = this;
     bodyDef.userData = data;
     
@@ -256,8 +255,7 @@ b2Vec2 Tower::getStartPoint(b2Body* body, JointDef jointDef)
 
 void Tower::update(float dt)
 {
-    Character::update(dt);
-    if(this->characterData.getHealth()>0)
+       if(this->characterData.getHealth()>0)
     {
         if(this->listTarget->count() <=0)
         {
@@ -293,6 +291,8 @@ void Tower::update(float dt)
         this->listTarget->removeObject(object);
     }
     listTargetRemoved->removeAllObjects();
+    Character::update(dt);
+
 }
 
 uint16  Tower::getCorrectGroup(Group group)
@@ -305,5 +305,40 @@ uint16  Tower::getCorrectGroup(Group group)
             return GROUP_TOWER_B;
         default:
             return GROUP_NEUTRUAL;
+    }
+}
+
+void Tower::onCreate()
+{
+    PhysicData* data = new PhysicData();
+    data->Id = CHARACTER_BODY;
+    data->Data = this;
+    data->GameObjectID = this->gameObjectID;
+    this->getBody()->SetUserData(data);
+}
+
+void Tower::destroy()
+{
+      GameObjectManager::getInstance()->addObjectRemoved(this);
+    Character::destroy();
+    notifyToDestroy();
+  
+}
+
+void Tower::attach(Observer* observer)
+{
+    this->listObserver.push_back(observer);
+}
+
+void Tower::detach(Observer* observer)
+{
+    
+}
+
+void Tower::notifyToDestroy()
+{
+    for(int i = 0 ; i < this->listObserver.size() ; i++)
+    {
+        this->listObserver[i]->notifyToDestroy(this);
     }
 }

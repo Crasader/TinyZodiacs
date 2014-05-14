@@ -28,7 +28,11 @@ void CharacterState::stopAction()
 {
     if(this->action != NULL && this->character != NULL)
     {
-        this->character->getSprite()->stopAction(this->action);
+        if(this->action->isDone() == false)
+        {
+            this->character->getSprite()->stopAction(this->action);
+            this->action->release();
+        }
     }
 }
 

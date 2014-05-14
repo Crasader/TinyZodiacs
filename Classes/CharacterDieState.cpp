@@ -22,6 +22,7 @@ bool CharacterDieState::onEnterState()
 {
     CCLOG("enter idle state");
     action = CCAnimate::create(this->character->idleAnimation->getAnimation());
+    action->retain();
     this->character->getSprite()->runAction(action);
     return true;
 }

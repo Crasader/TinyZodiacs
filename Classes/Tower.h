@@ -13,8 +13,9 @@
 #include "Character.h"
 #include "Box2D/Box2D.h"
 #include "PhysicConstants.h"
+#include "Observable.h"
 
-class Tower: public Character
+class Tower: public Character, public Observable
 {
 private:
     CCArray* listTarget;
@@ -40,10 +41,16 @@ public:
     ~Tower();
     
     virtual bool init();
-    CREATE_FUNC(Tower);
     void update(float dt);
     
     virtual void setSkin(b2Body* body,cocos2d::CCSprite* sprite);
+    virtual void onCreate();
+    virtual void destroy();
+    
+    virtual void attach(Observer* observer);
+    virtual void detach(Observer* observer);
+    virtual void notifyToDestroy();
 
+    CREATE_FUNC(Tower);
 };
 #endif /* defined(__TinyZodiacs__Tower__) */

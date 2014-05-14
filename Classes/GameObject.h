@@ -25,13 +25,14 @@ private:
     Direction direction;
     CC_SYNTHESIZE(GameObjectID, gameObjectID, GameObjectID);
 
-    virtual void checkCollisionDataInBeginContact(PhysicData* data, b2Contact *contact, bool isSideA);
-    virtual void checkCollisionDataInEndContact(PhysicData* data, b2Contact *contact, bool isSideA);
+
     virtual void updateAllEffect(float dt);
     
     virtual uint16 getCorrectGroup(Group group);
     virtual void setPhysicGroup(uint16 group);
 public:
+    virtual void checkCollisionDataInBeginContact(PhysicData* data, b2Contact *contact, bool isSideA);
+    virtual void checkCollisionDataInEndContact(PhysicData* data, b2Contact *contact, bool isSideA);
     GameObject();
     ~GameObject();
     float32 isPassingThroughBody;
@@ -69,6 +70,7 @@ public:
     virtual void applyEffect(CCObject* effect);
     virtual void removeEffect(CCObject* object);
     virtual void notifyByEffect(CCObject* effect);
+    virtual void destroy();
 };
 
 #endif /* defined(__SampleCocosProject__GameObject__) */

@@ -19,6 +19,7 @@ USING_NS_CC;
 class CharacterAttackState: public CharacterState
 {
 private:
+    bool isfinishedAnimation;
     AbstractSkill* skill;
     AnimationObject* skillAnimation;
 protected:

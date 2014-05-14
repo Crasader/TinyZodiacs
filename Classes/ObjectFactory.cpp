@@ -94,19 +94,14 @@ MapObject* ObjectFactory::createMapObject(const char *idMapObject, b2World *worl
     mapObject = new MapObject();
     
     //sprite
-    
     const char* nameSprite = (std::string( idMapObject) + std::string(".png")).c_str();
     
     CCSprite* sprite=CCSprite::createWithSpriteFrameName(nameSprite);
-    
-    
-    
+
     //body
-    
     b2BodyDef bodyDef;
     bodyDef.type = b2_staticBody;
     bodyDef.angle = ccpToAngle(ccp(0,0));
-    bodyDef.userData = sprite;
     
     b2Body *body = world->CreateBody(&bodyDef);
     
@@ -115,7 +110,7 @@ MapObject* ObjectFactory::createMapObject(const char *idMapObject, b2World *worl
     sprite->setAnchorPoint(sc->anchorPointForShape(idMapObject));
     
     mapObject->setSkin(body, sprite);
-    
+    mapObject->onCreate();
     
     return mapObject;
     
@@ -144,26 +139,18 @@ MapObject* ObjectFactory::createMapObject(MapObjectDTO* mapObjectDTO, b2World *w
         sc->addFixturesToBody(body, mapObjectDTO->bodyName.c_str());
         
         sprite->setAnchorPoint(sc->anchorPointForShape(mapObjectDTO->bodyName.c_str()));
+        
         mapObject = MapObject::create();
-        
-        //set data id
-        PhysicData* data = new PhysicData();
-        data->Id = MAP_BASE;
-        data->Data = mapObject;
-        body->SetUserData(data);
-        
-        
         mapObject->setSkin(body, sprite);
         mapObject->setCanPass(mapObjectDTO->canPass);
-        
-        mapObject->setGroup(TERRAIN);
+        mapObject->onCreate();
+       
     }
     else
     {
         mapObject = NoBodyMapObject::create();
         sprite->setAnchorPoint(ccp(0,0));
         mapObject->setSkin(NULL, sprite);
-        
         mapObject->setGroup(TERRAIN);
     }
     
@@ -289,7 +276,6 @@ Tower* ObjectFactory::createTower(TowerStructDTO* towerStructDTO, b2World* world
     bodyDef.type = b2_staticBody;
     bodyDef.angle = ccpToAngle(ccp(0,0));
     bodyDef.fixedRotation=true;
-    bodyDef.userData = tower;
     
     b2Body *body = world->CreateBody(&bodyDef);
     
@@ -300,11 +286,12 @@ Tower* ObjectFactory::createTower(TowerStructDTO* towerStructDTO, b2World* world
     tower->setSkin(body, tower->getSprite());
     
     tower->setNormalAttack(SkillFactory::createSkill(towerDTO->data.getSkill0().c_str(), world, tower, false, SKILL_0_BUTTON));
-    tower->setSkill1(SkillFactory::createSkill(towerDTO->data.getSkill1().c_str(), world, tower, false, SKILL_1_BUTTON));
-    tower->setSkill2(SkillFactory::createSkill(towerDTO->data.getSkill2().c_str(), world, tower, false, SKILL_2_BUTTON));
+//    tower->setSkill1(SkillFactory::createSkill(towerDTO->data.getSkill1().c_str(), world, tower, false, SKILL_1_BUTTON));
+//    tower->setSkill2(SkillFactory::createSkill(towerDTO->data.getSkill2().c_str(), world, tower, false, SKILL_2_BUTTON));
     
     tower->setPositionInPixel(ccp(towerStructDTO->positionX,towerStructDTO->positionY));
     tower->setGroup(towerStructDTO->group);
+    tower->onCreate();
     return tower;
 }
 

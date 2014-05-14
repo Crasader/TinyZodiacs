@@ -21,6 +21,7 @@ private:
     int this_join_type;
     
     b2Joint* skillJoint;
+    CC_SYNTHESIZE(Group, group, Group);
 protected:
     virtual void checkCollisionDataInBeginContact(PhysicData* data, b2Contact *contact, bool isSideA);
     virtual void checkCollisionDataInEndContact(PhysicData* data, b2Contact *contact, bool isSideA);

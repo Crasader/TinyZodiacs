@@ -36,7 +36,7 @@
 
 //#define GROUP_TOWER 0x0200
 
-#define RADIUS_TOWER_SENSOR 500/32
+#define RADIUS_TOWER_SENSOR 200/32
 #define TOWER_VELOCITY 10
 
 
@@ -66,6 +66,9 @@ enum GameObjectID
     NONE,
     HERO,
     MONSTER,
+    MAP_OBJECT,
+    SKILL_OBJECT,
+    TOWER
 };
 
 enum Group

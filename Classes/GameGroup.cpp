@@ -34,49 +34,7 @@ bool GameGroup::init()
 void GameGroup::update(float dt)
 {
     this->character->update(dt);
-    
-    CCArray* listMonsterRemoved = CCArray::create();
-    CCObject* object = NULL;
-    CCARRAY_FOREACH(this->monsterFactory->getListMonster(), object)
-    {
-        Monster* monster = static_cast<Monster*>(object);
-        monster->update(dt);
-        if(monster->isDead())
-        {
-            listMonsterRemoved->addObject(monster);
-        }
-    }
-    //remove monster
-    object = NULL;
-    CCARRAY_FOREACH(listMonsterRemoved, object)
-    {
-        Monster* monster = static_cast<Monster*>(object);
-        this->monsterFactory->getListMonster()->removeObject(monster);
-    }
-    listMonsterRemoved->removeAllObjects();
-    
-    //
-    object = NULL;
-    CCARRAY_FOREACH(this->listTower, object)
-    {
-        Tower* tower = dynamic_cast<Tower*>(object);
-        if(tower != NULL)
-        {
-            if(!tower->isDead())
-            {
-                tower->update(dt);
-            }
-            else
-            {
-                //                tower->update(dt);
-                //                tower->getSprite()->setVisible(false);
-                this->listTower->removeObject(tower);
-            }
-        }
-    }
-    
     this->monsterFactory->update(dt);
-    
 }
 
 void GameGroup::joinGame(Group group, b2World* world, Map* map)
@@ -87,7 +45,7 @@ void GameGroup::joinGame(Group group, b2World* world, Map* map)
     
     this->character = ObjectFactory::getSharedManager()->createHero(DataCollector::getInstance()->getHeroDTOByKey("cat"), world, true);
     this->character->setPositionInPixel(ccp(2500,500));
-    this->character->setGroup(this->group);
+    this->character->setGroup(A);
     
     this->character->retain();
     
@@ -146,116 +104,12 @@ void GameGroup::BeginContact(b2Contact* contact)
 {
     //character
     this->character->BeginContact(contact);
-//    
-//    if(contact->GetFixtureA()->GetBody()->GetUserData() != NULL)
-//    {
-//        PhysicData* data = static_cast<PhysicData*>(contact->GetFixtureA()->GetBody()->GetUserData());
-//        if(data!=NULL)
-//        {
-//            if(data->GameObjectID == MONSTER)
-//            {
-//                GameObject* gameObject = static_cast<GameObject*>(data->Data);
-//                
-//                gameObject->EndContact(contact);
-//                
-//            }        }
-//    }
-//    if(contact->GetFixtureB()->GetBody()->GetUserData() != NULL)
-//    {
-//        PhysicData* data = (PhysicData*)contact->GetFixtureB()->GetBody()->GetUserData();
-//        if(data!=NULL)
-//        {
-//            if(data->GameObjectID == MONSTER)
-//            {
-//                GameObject* gameObject = static_cast<GameObject*>(data->Data);
-//                
-//                gameObject->EndContact(contact);
-//                
-//            }        }
-//    }
-    
-    //monster
-    CCObject* object = NULL;
-    CCARRAY_FOREACH(this->monsterFactory->getListMonster(), object)
-    {
-        Monster* monster = static_cast<Monster*>(object);
-        if(monster != NULL)
-        {
-            monster->BeginContact(contact);
-        }
-    }
-    
-    //towers
-    object = NULL;
-    CCARRAY_FOREACH(this->listTower, object)
-    {
-        Tower* tower = dynamic_cast<Tower*>(object);
-        if(tower != NULL)
-        {
-            tower->BeginContact(contact);
-        }
-    }
-    
 }
 
 void GameGroup::EndContact(b2Contact* contact)
 {
     //character
     this->character->EndContact(contact);
-//    if(contact->GetFixtureA()->GetBody()->GetUserData() != NULL)
-//    {
-//        PhysicData* data = static_cast<PhysicData*>(contact->GetFixtureA()->GetBody()->GetUserData());
-//        if(data!=NULL)
-//        {
-//            if(data->GameObjectID == MONSTER)
-//            {
-//                CCLOG("collide");
-//                GameObject* gameObject = static_cast<GameObject*>(data->Data);
-//                
-//                gameObject->EndContact(contact);
-//                
-//            }
-//            
-//        }
-//    }
-//    if(contact->GetFixtureB()->GetBody()->GetUserData() != NULL)
-//    {
-//        PhysicData* data = (PhysicData*)contact->GetFixtureB()->GetBody()->GetUserData();
-//        if(data!=NULL)
-//        {
-//            if(data->GameObjectID == MONSTER)
-//            {
-//                GameObject* gameObject = static_cast<GameObject*>(data->Data);
-//                
-//                gameObject->EndContact(contact);
-//                
-//            }
-//
-//        }
-//    }
-
-    //monsters
-    CCObject* object = NULL;
-    CCARRAY_FOREACH(this->monsterFactory->getListMonster(), object)
-    {
-        Monster* monster = static_cast<Monster*>(object);
-        if(monster != NULL)
-        {
-            monster->EndContact(contact);
-        }
-    }
-    
-    //towers
-    object = NULL;
-    CCARRAY_FOREACH(this->listTower, object)
-    {
-        Tower* tower = dynamic_cast<Tower*>(object);
-        if(tower != NULL)
-        {
-            tower->EndContact(contact);
-        }
-    }
-    
 }
 
 Character* GameGroup::getFollowingCharacter()
@@ -276,7 +130,10 @@ void GameGroup::createTowers(CCArray* listTowerStructDTO, b2World* world)
     CCARRAY_FOREACH(listTowerStructDTO, object)
     {
         TowerStructDTO* towerDTO = static_cast<TowerStructDTO*>(object);
-        this->listTower->addObject(ObjectFactory::getSharedManager()->createTower(towerDTO, world));
+        Tower* tower = ObjectFactory::getSharedManager()->createTower(towerDTO, world);
+        this->listTower->addObject(tower);
+        tower->attach(this);
+        GameObjectManager::getInstance()->addGameObject(tower);
     }
 }
 
@@ -291,7 +148,6 @@ void GameGroup::attachSpriteToMap(Map* map)
         Tower* tower = static_cast<Tower*>(object);
         map->addChild(tower->getSprite(), UNDER_CHARACTER_LAYER);
     }
-    
 }
 
 void GameGroup::test()
@@ -299,3 +155,10 @@ void GameGroup::test()
     //  EffectManager::getInstance()->clean();
 }
 
+void GameGroup::notifyToDestroy(GameObject* object)
+{
+    if(this->listTower->indexOfObject(object) != CC_INVALID_INDEX)
+    {
+        this->listTower->removeObject(object);
+    }
+}

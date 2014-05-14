@@ -17,12 +17,13 @@
 #include "MonsterDTO.h"
 #include "GB2ShapeCache-x.h"
 #include "SkillFactory.h"
+#include "GameObject.h"
 
 #define MONSTER_CREATION_DELAY 1;
 
 USING_NS_CC;
 
-class MonsterFactory: public CCObject {
+class MonsterFactory: public CCObject, public Observer {
     
 private:
     CC_SYNTHESIZE(Group, group, Group);
@@ -50,6 +51,8 @@ public:
     void registerMonsterCreator(MonsterCreatorDTO* monsterCreatorDTO, b2World* world);
     void stopCreateMonster();
     void startCreateMonster();
+    
+    virtual void notifyToDestroy(GameObject* object);
 
     CREATE_FUNC(MonsterFactory);
 };

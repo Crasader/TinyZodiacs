@@ -16,10 +16,11 @@
 #include "TowerDTO.h"
 #include "Tower.h"
 #include "DataCollector.h"
+#include "Observer.h"
 
 USING_NS_CC;
 
-class GameGroup: public CCObject
+class GameGroup: public CCObject, public Observer
 {
 private:
 protected:
@@ -46,6 +47,7 @@ public:
     
     void test();
     
+    virtual void notifyToDestroy(GameObject* object);
     
     CREATE_FUNC(GameGroup);
 };

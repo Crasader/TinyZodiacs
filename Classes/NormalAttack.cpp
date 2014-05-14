@@ -16,9 +16,12 @@
 
 NormalAttack::NormalAttack(GameObject* holder, NormalMeleeSkillData data)
 {
+    
     if(holder != NULL)
     {
         this->holder = holder;
+        this->holder->retain();
+        this->group = holder->getGroup();
         this->data = data;
         this->holderButton = NULL;
         
@@ -33,6 +36,7 @@ NormalAttack::NormalAttack(GameObject* holder, NormalMeleeSkillData data)
         //
         PhysicData* sensorData = new PhysicData();
         sensorData->Id = SKILL_SENSOR;
+        sensorData->GameObjectID = SKILL_OBJECT;
         sensorData->Data = this;
         this->data.getSkillSensor()->SetUserData(sensorData);
         //
@@ -44,9 +48,7 @@ NormalAttack::NormalAttack(GameObject* holder, NormalMeleeSkillData data)
             this->data.getSkillAnimation()->getAnimation()->setLoops(INFINITY);
         }
         this->autorelease();
-        
-        //create action
-        
+ 
         this->excuteAction = this->stopAction = this->coolDownAction = NULL;
     }
 }
@@ -125,7 +127,7 @@ void NormalAttack::excute()
             this->excuteAction->stop();
             this->excuteAction->release();
         }
-        CCCallFunc* excuteFunc = CCCallFunc::create(this, callfunc_selector(AbstractSkill::excuteImmediately));
+        CCCallFunc* excuteFunc = CCCallFunc::create(this, callfunc_selector(NormalAttack::excuteImmediately));
         this->excuteAction =  ScheduleManager::getInstance()->scheduleFuction(excuteFunc, this->data.getDelay());
         this->excuteAction->retain();
         
@@ -136,7 +138,7 @@ void NormalAttack::excute()
                 this->coolDownAction->stop();
                 this->coolDownAction->release();
             }
-            CCCallFunc* coolDownFunc = CCCallFunc::create(this, callfunc_selector(AbstractSkill::setExcuteAble));
+            CCCallFunc* coolDownFunc = CCCallFunc::create(this, callfunc_selector(NormalAttack::setExcuteAble));
             this->coolDownAction = ScheduleManager::getInstance()->scheduleFuction(coolDownFunc, this->data.getCoolDown());
             this->coolDownAction->retain();
             
@@ -151,61 +153,44 @@ void NormalAttack::excute()
 
 void NormalAttack::stop()
 {
-//    if(this->data.getLifeTime() >=0)
-//    {
     if(this->stopAction != NULL)
     {
-        this->stopAction->stop();
+        ScheduleManager::getInstance()->stopAction(stopAction);
         this->stopAction->release();
     }
-        CCCallFunc* stopFunc = CCCallFunc::create(this, callfunc_selector(AbstractSkill::stopImmediately));
-        this->stopAction = ScheduleManager::getInstance()->scheduleFuction(stopFunc, this->data.getLifeTime());
-        this->stopAction->retain();
-//    }
-//    else
-//    {
-//        this->stopImmediately();
-//    }
+    CCCallFunc* stopFunc = CCCallFunc::create(this, callfunc_selector(NormalAttack::stopImmediately));
+    
+    this->stopAction = ScheduleManager::getInstance()->scheduleFunction(stopFunc, NULL, this->data.getLifeTime(), 1);
+    this->stopAction->retain();
 }
 
 void NormalAttack::excuteImmediately()
 {
-    //    this->destroyJoint();
-//    if(this->holder!= NULL && this->holder->getBody() != NULL && this->holder->getBody()->GetWorld()->IsLocked() == false)
-//    {
-        this->data.getSkillSensor()->SetActive(true);
-        if(this->data.getSkillAnimation() != NULL && this->holder != NULL)
-        {
-            this->holder->getSprite()->getParent()->addChild(this->skillSprite, this->data.getAnimationLayerIndex());
-            CCAnimate* action = CCAnimate::create(this->data.getSkillAnimation()->getAnimation());
-            this->skillSprite->runAction(action);
-            this->skillSprite->setPosition(ccp(0,0));
-        }
-    
-//    this->excuteAction->release();
-//    this->excuteAction = NULL;
-//    }
+    this->data.getSkillSensor()->SetActive(true);
+    if(this->data.getSkillAnimation() != NULL && this->holder != NULL)
+    {
+        this->skillSprite->removeFromParent();
+        this->holder->getSprite()->getParent()->addChild(this->skillSprite, this->data.getAnimationLayerIndex());
+        CCAnimate* action = CCAnimate::create(this->data.getSkillAnimation()->getAnimation());
+        this->skillSprite->runAction(action);
+        this->skillSprite->setPosition(ccp(0,0));
+    }
 }
 
 void NormalAttack::stopImmediately()
 {
-//    if(this->holder!= NULL && this->holder->getBody() != NULL && this->holder->getBody()->GetWorld()->IsLocked() == false)
-//    {
-        this->data.getSkillSensor()->SetActive(false);
-        if(this->data.getSkillAnimation() != NULL && this->holder != NULL)
-        {
-            this->skillSprite->stopAllActions();
-            this->skillSprite->removeFromParent();
-//            this->holder->getSprite()->getParent()->removeChild(this->skillSprite);
-        }
-    
-//    this->stopAction->release();
-//    this->stopAction = NULL;
-//    }
+    this->data.getSkillSensor()->SetActive(false);
+    if(this->data.getSkillAnimation() != NULL && this->holder != NULL)
+    {
+        this->skillSprite->stopAllActions();
+        this->skillSprite->removeFromParent();
+    }
 }
-
+int count1 = 0;
 void NormalAttack::checkCollisionDataInBeginContact(PhysicData* data, b2Contact *contact, bool isSideA)
 {
+    count1++;
+    CCLOG("CONTACT %d", count1);
     if(data->Id == SKILL_SENSOR && data->Data == this )
     {
         PhysicData* otherData;
@@ -223,23 +208,24 @@ void NormalAttack::checkCollisionDataInBeginContact(PhysicData* data, b2Contact 
                 case CHARACTER_BODY:
                 {
                     Character* character = (Character*)otherData->Data;
-                    if(character != holder)
+                    //                    if(character != holder)
+                    //                    {
+                    
+                    if(character->getGroup() == this->holder->getGroup())
                     {
-                        if(character->getGroup() == this->holder->getGroup())
+                        
+                    }
+                    else
+                    {
+                        
+                        CCObject* effectData;
+                        CCARRAY_FOREACH(this->data.getListEnemyEffect(), effectData)
                         {
-                            // CCLOG("Allie begin");
-                        }
-                        else
-                        {
-                            // CCLOG("Enemy begin");
-                            CCObject* effectData;
-                            CCARRAY_FOREACH(this->data.getListEnemyEffect(), effectData)
-                            {
-                                Effect* effect = new Effect(*((EffectData*)effectData), character);
-                                character->applyEffect(effect);
-                            }
+                            Effect* effect = new Effect(*((EffectData*)effectData), character);
+                            character->applyEffect(effect);
                         }
                     }
+                    //                    }
                     break;
                 }
                 default:
@@ -271,14 +257,15 @@ void NormalAttack::checkCollisionDataInEndContact(PhysicData* data, b2Contact *c
                     Character* character = (Character*)otherData->Data;
                     if(character != holder)
                     {
-                        if(character->getGroup() == this->holder->getGroup())
-                        {
-                            // CCLOG("Allie end");
-                        }
-                        else
-                        {
-                            //  CCLOG("Enemy end");
-                        }
+                 
+                        //                        if(character->getGroup() == this->holder->getGroup())
+                        //                        {
+                        //                            // CCLOG("Allie end");
+                        //                        }
+                        //                        else
+                        //                        {
+                        //                            //  CCLOG("Enemy end");
+                        //                        }
                     }
                 }
                 default:
@@ -379,6 +366,6 @@ void NormalAttack::setExcuteAble()
         this->holderButton->changeState(ENABLE);
     }
     
-//    this->coolDownAction->release();
-//    this->coolDownAction = NULL;
+    //    this->coolDownAction->release();
+    //    this->coolDownAction = NULL;
 }

@@ -37,6 +37,7 @@ void CharacterMidAirState::update(float dt)
         stopAction();
         //fall Action
         this->action = CCAnimate::create(this->character->fallAnimation->getAnimation());
+           this->action->retain();
         this->character->getSprite()->runAction(this->action);
        
         return;
@@ -48,6 +49,7 @@ void CharacterMidAirState::update(float dt)
         stopAction();
         //fly action
         this->action = CCAnimate::create(this->character->flyAnimation->getAnimation());
+           this->action->retain();
         this->character->getSprite()->runAction(this->action);
        
         return;

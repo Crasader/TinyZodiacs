@@ -35,26 +35,6 @@ Character::Character()
 
 Character::~Character()
 {
-    if(normalAttack)
-    {
-//        CCLOG("*%d",normalAttack->retainCount());
-        normalAttack->stopAllAction();
-        normalAttack->release();
-//        CCLOG("**%d",normalAttack->retainCount());
-    }
-    
-    if(skill1)
-    {
-        skill1->stopAllAction();
-        CC_SAFE_RELEASE_NULL(skill1);
-    }
-    
-    if(skill2)
-    {
-        skill2->stopAllAction();
-        CC_SAFE_RELEASE_NULL(skill2);
-    }
-    
     this->footSensor->GetWorld()->DestroyBody(this->footSensor);
 }
 
@@ -95,8 +75,6 @@ void Character::setOriginCharacterData(CharacterData data)
     this->characterData = this->originCharacterData;
 }
 
-
-bool falling = false;
 void Character::update(float dt)
 {
     if(this->normalAttack != NULL)
@@ -122,6 +100,10 @@ void Character::update(float dt)
     else if(this->body->GetLinearVelocity().x <=-2)
     {
         flipDirection(LEFT);
+    }
+    if(isDead() == true)
+    {
+        destroy();
     }
 }
 
@@ -229,7 +211,7 @@ void Character::createFootSensor()
     sensorData->Id = CHARACTER_FOOT_SENSOR;
     sensorData->Data = this;
     sensorData->GameObjectID = this->gameObjectID;
-   
+    
     footSensor->SetUserData(sensorData);
     
     this->body->GetWorld()->CreateJoint(&footBodyJoint);
@@ -282,7 +264,7 @@ void Character::checkCollisionDataInBeginContact(PhysicData* data, b2Contact *co
                             if(!Util::bodiesArePassingThrough(mapObject->getBody(), this->body))
                             {
                                 this->landing ++;
-                     
+                                
                                 this->currentJumpCount =0;
                             }
                         }
@@ -308,14 +290,14 @@ void Character::checkCollisionDataInBeginContact(PhysicData* data, b2Contact *co
                             if (!Util::bodiesArePassingThrough(this->body, mapObject->getBody())) {
                                 this->isLanding = true;
                             }
-                           
+                            
                             if(landing == 0 && !Util::bodiesArePassingThrough(this->body, mapObject->getBody()) && Util::bodiesAreTouching(this->footSensor, mapObject->getBody()))
                             {
                                 landing++;
-            
+                                
                                 this->currentJumpCount =0;
                             }
-
+                            
                             if(isCharacterCanPassThoughMapObject(mapObject) && mapObject->getCanPass() == true)
                             {
                                 contact->SetEnabled(false);
@@ -406,7 +388,7 @@ void Character::checkCollisionDataInEndContact(PhysicData* data, b2Contact *cont
                             
                         case MAP_BASE:
                         {
-                                                   //                            if (!Util::bodiesArePassingThrough(this->body, mapObject->getBody())) {
+                            //                            if (!Util::bodiesArePassingThrough(this->body, mapObject->getBody())) {
                             //                                this->isLanding = true;
                             //                            }
                         }
@@ -425,46 +407,6 @@ void Character::checkCollisionDataInEndContact(PhysicData* data, b2Contact *cont
         }
         ///
         contact->SetEnabled(true);
-    }
-}
-
-void Character::BeginContact(b2Contact *contact)
-{
-    GameObject::BeginContact(contact);
-    
-    if(normalAttack != NULL)
-    {
-        normalAttack->BeginContact(contact);
-    }
-    
-    if(skill2 != NULL)
-    {
-        skill2->BeginContact(contact);
-    }
-    
-    if(skill1 != NULL)
-    {
-        skill1->BeginContact(contact);
-    }
-}
-
-void Character::EndContact(b2Contact *contact)
-{
-    GameObject::EndContact(contact);
-    
-    if(normalAttack != NULL)
-    {
-        normalAttack->EndContact(contact);
-    }
-    
-    if(skill1 != NULL)
-    {
-        skill1->EndContact(contact);
-    }
-    
-    if(skill2 != NULL)
-    {
-        skill2->EndContact(contact);
     }
 }
 
@@ -527,4 +469,28 @@ bool Character::isDead()
         return true;
     }
     return false;
+}
+
+void Character::destroy()
+{
+    this->state->onExitState();
+   
+    if(normalAttack)
+    {
+        normalAttack->stopAllAction();
+        normalAttack->release();
+        //        CCLOG("**%d",normalAttack->retainCount());
+    }
+    
+    if(skill1)
+    {
+        skill1->stopAllAction();
+        skill1->release();
+    }
+    
+    if(skill2)
+    {
+        skill2->stopAllAction();
+        skill2->release();
+    }
 }

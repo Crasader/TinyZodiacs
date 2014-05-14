@@ -23,7 +23,8 @@ public:
     ~MapObject();
     
     virtual void update(float dt);
-
+    virtual void onCreate();
+    
     CREATE_FUNC(MapObject);
 };
 

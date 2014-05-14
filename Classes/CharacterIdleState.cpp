@@ -21,13 +21,15 @@ bool CharacterIdleState::onEnterState()
 {
    // CCLOG("enter idle state");
     this->action = CCAnimate::create(this->character->idleAnimation->getAnimation());
+       this->action->retain();
     this->character->getSprite()->runAction(action);
+  
     return true;
 }
 
 bool CharacterIdleState::onExitState()
 {
-    this->stopAction();
+    stopAction();
     return true;
 }
 

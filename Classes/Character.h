@@ -76,11 +76,11 @@ public:
 
     
     virtual void setSkin(b2Body* body,cocos2d::CCSprite* sprite);
-    virtual void BeginContact(b2Contact *contact);
-    virtual void EndContact(b2Contact *contact);
     virtual void notifyByEffect(CCObject* effect);
     
     virtual bool isDead();
+    
+    virtual void destroy();
 };
 
 #endif /* defined(__SampleCocosProject__Character__) */

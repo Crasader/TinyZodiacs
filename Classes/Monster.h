@@ -15,10 +15,11 @@
 #include "SensorObject.h"
 #include "Constants.h"
 #include "ItemFactory.h"
+#include "Observable.h"
 
 USING_NS_CC;
 
-class Monster: public Character
+class Monster: public Character, public Observable
 {
 private:    
     CC_SYNTHESIZE(int, laneID, LaneID);
@@ -27,14 +28,16 @@ private:
     Direction defaultDirection;
     CC_SYNTHESIZE(vector<ItemStruct>, listItem, listItem);
 protected:
-    void checkCollisionDataInBeginContact(PhysicData* data, b2Contact *contact, bool isSideA);
-    void checkCollisionDataInEndContact(PhysicData* data, b2Contact *contact, bool isSideA);
+  
     
     virtual void setPhysicGroup(uint16 group);
     void setSensorGroup(uint16 group);
     virtual uint16 getCorrectGroup(Group group);
     virtual void aimTarget();
 public:
+    void checkCollisionDataInBeginContact(PhysicData* data, b2Contact *contact, bool isSideA);
+    void checkCollisionDataInEndContact(PhysicData* data, b2Contact *contact, bool isSideA);
+    
     bool isStopMove;
     bool isAttack;
     Monster();
@@ -44,12 +47,17 @@ public:
     virtual void update(float dt);
     virtual void setGroup(Group group);
     virtual void onCreate();
+    virtual void destroy();
     
     void setSensor(b2Body* sensor);
     
     void doAction(SensorObject* sensorObject);
 
     void notifyByEffect(CCObject* effect);
+    
+    virtual void attach(Observer* observer);
+    virtual void detach(Observer* observer);
+    virtual void notifyToDestroy();
     
     CREATE_FUNC(Monster);
     

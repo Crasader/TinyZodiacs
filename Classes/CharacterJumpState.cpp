@@ -27,6 +27,7 @@ bool CharacterJumpState::onEnterState()
     arr->addObject(callBack);
 
     this->action = CCSequence::create(arr);
+       this->action->retain();
     this->character->getSprite()->runAction(this->action);
     
     return true;

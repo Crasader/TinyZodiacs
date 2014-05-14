@@ -320,3 +320,8 @@ void GameObject::notifyByEffect(CCObject* effect)
 {
     
 }
+
+void GameObject::destroy()
+{
+    
+}

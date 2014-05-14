@@ -28,6 +28,7 @@ Monster::Monster()
 
 Monster::~Monster()
 {
+    CCLog("des monster");
     this->sensor->SetUserData(NULL);
     this->sensor->GetWorld()->DestroyBody(this->sensor);
     
@@ -35,7 +36,7 @@ Monster::~Monster()
     this->listTarget->release();
     AnimationEffect* effect = AnimationEffect::create();
     effect->setAnimation("effect-smoke");
-   
+    
     EffectManager::getInstance()->runEffect(effect, this->getPositionInPixel());
     
     ItemFactory::getInstance()->createItem(this->listItem[0].itemID.c_str(), this->getPositionInPixel());
@@ -53,8 +54,11 @@ bool Monster::init()
 
 void Monster::update(float dt)
 {
-    this->aimTarget();
-    //
+    if(!isDead())
+    {
+         this->aimTarget();
+    }
+  
     if(!isAttack)
     {
         if(!isStopMove)
@@ -63,7 +67,6 @@ void Monster::update(float dt)
         }
     }
     //
-    Character::update(dt);
     //remove target
     CCArray* listTargetRemoved = CCArray::create();
     CCObject* object;
@@ -82,15 +85,21 @@ void Monster::update(float dt)
         this->listTarget->removeObject(object);
     }
     listTargetRemoved->removeAllObjects();
-    //
+    Character::update(dt);
 }
 
+void Monster::destroy()
+{
+    Character::destroy();
+    notifyToDestroy();
+    GameObjectManager::getInstance()->addObjectRemoved(this);
+}
 
 void Monster::checkCollisionDataInBeginContact(PhysicData* data, b2Contact *contact, bool isSideA)
 {
     Character::checkCollisionDataInBeginContact(data, contact, isSideA);
     
-    if(data->Data != this)
+    if(data->Data == this)
     {
         PhysicData* physicData = NULL;
         if(isSideA)
@@ -204,7 +213,7 @@ void Monster::checkCollisionDataInEndContact(PhysicData* data, b2Contact *contac
 
 void Monster::doAction(SensorObject* sensorObject)
 {
-   
+    
     if(sensorObject->getMustStop())
     {
         isStopMove = true;
@@ -223,10 +232,6 @@ void Monster::doAction(SensorObject* sensorObject)
 void Monster::notifyByEffect(CCObject* effect)
 {
     Character::notifyByEffect(effect);
-    if(this->getcharacterData().getHealth() <= 0)
-    {
-        GameObjectManager::getInstance()->addObjectRemoved(this);
-    }
 }
 
 void Monster::setPhysicGroup(uint16 group)
@@ -276,6 +281,7 @@ void Monster::setSensor(b2Body* sensor)
     PhysicData* data =  new PhysicData();
     data->Id = MONSTER_SENSOR;
     data->Data = this;
+    data->GameObjectID = MONSTER;
     this->sensor->SetUserData(data);
     
     b2RevoluteJointDef revoluteJointDef;
@@ -343,3 +349,29 @@ void Monster::onCreate()
 {
     
 }
+
+void Monster::attach(Observer* observer)
+{
+    this->listObserver.push_back(observer);
+}
+
+void Monster::detach(Observer* observer)
+{
+    //    for(int i = 0 ; i < this->listObserver.size() ; i++)
+    //    {
+    //        if(this->listObserver[i] == observer)
+    //        {
+    //            this->listObserver.erase(listObserver.begin()+i);
+    //            return;
+    //        }
+    //    }
+}
+
+void Monster::notifyToDestroy()
+{
+    for(int i = 0 ; i < this->listObserver.size() ; i++)
+    {
+        this->listObserver[i]->notifyToDestroy(this);
+    }
+}
+

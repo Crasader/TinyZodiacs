@@ -199,8 +199,9 @@ void MonsterFactory::finishCreateMonsterListFromSchedule(CCNode* sender, void* d
 
 void MonsterFactory::addNewMonster(Monster* monster)
 {
-//    GameObjectManager::getInstance()->addGameObject(monster);
+    GameObjectManager::getInstance()->addGameObject(monster);
     this->listMonster->addObject(monster);
+    monster->attach(this);
     this->holder->addChild(monster->getSprite(),CHARACTER_LAYER);
 }
 void MonsterFactory::removeMonster(Monster* monster)
@@ -243,5 +244,14 @@ void MonsterFactory::startCreateMonster()
 
 void MonsterFactory::update(float dt)
 {
+
+}
+
+void MonsterFactory::notifyToDestroy(GameObject* object)
+{
+    if(this->listMonster->indexOfObject(object) != CC_INVALID_INDEX)
+    {
+        this->listMonster->removeObject(object);
+    }
     
 }

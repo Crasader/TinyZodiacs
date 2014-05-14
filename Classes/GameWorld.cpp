@@ -195,6 +195,7 @@ void GameWorld::setContactListener(b2ContactListener *listener){
 
 void GameWorld::update(float dt)
 {
+
     this->map->update(dt);
     this->group1->update(dt);
     this->group2->update(dt);
@@ -218,10 +219,10 @@ void GameWorld::update(float dt)
 
 void GameWorld::draw()
 {
-//    ccGLEnableVertexAttribs( kCCVertexAttribFlag_Position );
-//    kmGLPushMatrix();
-//    world->DrawDebugData();
-//    kmGLPopMatrix();
+    ccGLEnableVertexAttribs( kCCVertexAttribFlag_Position );
+    kmGLPushMatrix();
+    world->DrawDebugData();
+    kmGLPopMatrix();
 }
 
 void GameWorld::setCameraFollowGroup(GameGroup* group)

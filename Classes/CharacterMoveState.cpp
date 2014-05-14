@@ -23,6 +23,7 @@ bool CharacterMoveState::onEnterState()
 {
     //CCLOG("enter move state");
     this->action = CCAnimate::create(this->character->runAnimation->getAnimation());
+    this->action->retain();
     this->character->getSprite()->runAction(this->action);
     return true;
 }

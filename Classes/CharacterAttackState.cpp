@@ -13,6 +13,7 @@
 
 CharacterAttackState::CharacterAttackState(Character* character, AbstractSkill* skill, AnimationObject* skillAnimation): CharacterState(character)
 {
+    this->isfinishedAnimation = false;
     this->skillAnimation = skillAnimation;
     this->skill = skill;
 }
@@ -28,6 +29,7 @@ bool CharacterAttackState::onEnterState()
     arr->addObject(callBack);
     
     this->action = CCSequence::create(arr);
+    this->action->retain();
     this->character->getSprite()->runAction( this->action);
     
     //Excute attack
@@ -37,9 +39,8 @@ bool CharacterAttackState::onEnterState()
 
 bool CharacterAttackState::onExitState()
 {
+      this->skill->stop();
     stopAction();
-    //stop attack
-    this->skill->stop();
     return true;
 }
 
@@ -70,5 +71,6 @@ bool CharacterAttackState::useSkill()
 
 void CharacterAttackState::onFinishAttackAnimation()
 {
+    this->isfinishedAnimation = true;
     this->character->changeState(new CharacterIdleState(this->character));
 }

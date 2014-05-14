@@ -300,6 +300,8 @@
 		D4EF94A015BD2D9800D803EB /* Icon-144.png in Resources */ = {isa = PBXBuildFile; fileRef = D4EF949F15BD2D9800D803EB /* Icon-144.png */; };
 		F50426AE190E0A6F001352B0 /* ActionZoomFollow.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F50426AC190E0A6F001352B0 /* ActionZoomFollow.cpp */; };
 		F50702C018E958220025B666 /* MoveableMapObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F50702BE18E958220025B666 /* MoveableMapObject.cpp */; };
+		F507B41E1921DC5B00D23B99 /* Observer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F507B41C1921DC5B00D23B99 /* Observer.cpp */; };
+		F507B41F1921DC5B00D23B99 /* Observable.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F507B41D1921DC5B00D23B99 /* Observable.cpp */; };
 		F50BF81B18F2426D00CD518D /* cat_spritesheet.png in Resources */ = {isa = PBXBuildFile; fileRef = F50BF81918F2426D00CD518D /* cat_spritesheet.png */; };
 		F50BF81C18F2426D00CD518D /* cat_spritesheet.plist in Resources */ = {isa = PBXBuildFile; fileRef = F50BF81A18F2426D00CD518D /* cat_spritesheet.plist */; };
 		F50BF82418F2513800CD518D /* cat_body.plist in Resources */ = {isa = PBXBuildFile; fileRef = F50BF82318F2513800CD518D /* cat_body.plist */; };
@@ -996,6 +998,10 @@
 		F50426AD190E0A6F001352B0 /* ActionZoomFollow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActionZoomFollow.h; sourceTree = "<group>"; };
 		F50702BE18E958220025B666 /* MoveableMapObject.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MoveableMapObject.cpp; sourceTree = "<group>"; };
 		F50702BF18E958220025B666 /* MoveableMapObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoveableMapObject.h; sourceTree = "<group>"; };
+		F507B41A1921DC5B00D23B99 /* Observer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Observer.h; sourceTree = "<group>"; };
+		F507B41B1921DC5B00D23B99 /* Observable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Observable.h; sourceTree = "<group>"; };
+		F507B41C1921DC5B00D23B99 /* Observer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Observer.cpp; sourceTree = "<group>"; };
+		F507B41D1921DC5B00D23B99 /* Observable.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Observable.cpp; sourceTree = "<group>"; };
 		F50BF81918F2426D00CD518D /* cat_spritesheet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cat_spritesheet.png; sourceTree = "<group>"; };
 		F50BF81A18F2426D00CD518D /* cat_spritesheet.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = cat_spritesheet.plist; sourceTree = "<group>"; };
 		F50BF82318F2513800CD518D /* cat_body.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = cat_body.plist; sourceTree = "<group>"; };
@@ -1699,6 +1705,7 @@
 		15AA9C4015B7EC450033D6C2 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				F507B4181921DB6F00D23B99 /* Observer */,
 				F54AE96D18D2F01B00194E66 /* Objects */,
 				F5B4286E19174033002DC13B /* Data loader */,
 				3414165F18DC2286007B8C2B /* Managers */,
@@ -2287,6 +2294,24 @@
 			path = ../Resources;
 			sourceTree = "<group>";
 		};
+		F507B4181921DB6F00D23B99 /* Observer */ = {
+			isa = PBXGroup;
+			children = (
+				F507B41D1921DC5B00D23B99 /* Observable.cpp */,
+				F507B41B1921DC5B00D23B99 /* Observable.h */,
+				F507B41C1921DC5B00D23B99 /* Observer.cpp */,
+				F507B41A1921DC5B00D23B99 /* Observer.h */,
+			);
+			name = Observer;
+			sourceTree = "<group>";
+		};
+		F507B4191921DC3500D23B99 /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "New Group";
+			sourceTree = "<group>";
+		};
 		F50BF81818F2425200CD518D /* Cat */ = {
 			isa = PBXGroup;
 			children = (
@@ -2309,6 +2334,7 @@
 		F54AE96D18D2F01B00194E66 /* Objects */ = {
 			isa = PBXGroup;
 			children = (
+				F507B4191921DC3500D23B99 /* New Group */,
 				F5BA76AA1920788A0070997B /* Map.cpp */,
 				F5BA76AB1920788A0070997B /* Map.h */,
 				F5579EB8191DDAD900F29241 /* Hero.cpp */,
@@ -3215,6 +3241,7 @@
 				379BB9C017F03F3700829B88 /* UIButton.cpp in Sources */,
 				34E614E319133A2B006D933E /* MonsterCreator.cpp in Sources */,
 				375BD50E1868454E0024609E /* CCActionEaseEx.cpp in Sources */,
+				F507B41E1921DC5B00D23B99 /* Observer.cpp in Sources */,
 				F5579EB7191DDA7500F29241 /* Item.cpp in Sources */,
 				F54AE9B718D2F1AA00194E66 /* CharacterAttackState.cpp in Sources */,
 				34E614E0191339A6006D933E /* MonsterFactory.cpp in Sources */,
@@ -3230,6 +3257,7 @@
 				3486802C18D97940001692BB /* SkillData.cpp in Sources */,
 				379BB9C717F03F3700829B88 /* UISlider.cpp in Sources */,
 				379BB9C917F03F3700829B88 /* UITextField.cpp in Sources */,
+				F507B41F1921DC5B00D23B99 /* Observable.cpp in Sources */,
 				343D9A5219134A52003F5DE4 /* Effect.cpp in Sources */,
 				379BB9CB17F03F3700829B88 /* DictionaryHelper.cpp in Sources */,
 				379BB9D317F03F3700829B88 /* GUIReader.cpp in Sources */,

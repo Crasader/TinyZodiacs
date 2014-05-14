@@ -11,7 +11,6 @@
 Hero::Hero()
 {
     this->gameObjectID = HERO;
-    init();
 }
 
 bool Hero::init()
@@ -93,7 +92,6 @@ void Hero::checkCollisionDataInBeginContact(PhysicData* data, b2Contact *contact
             {
                 if(physicData->Id == GAME_ITEM)
                 {
-                    CCLOG("item collide");
                     contact->SetEnabled(false);
                     Item* item = static_cast<Item*>(physicData->Data);
                     if(item->getCanBePickedUp())

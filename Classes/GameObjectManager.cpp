@@ -15,7 +15,7 @@ GameObjectManager::GameObjectManager()
 {
     this->listObjectRemoved = CCArray::create();
     this->listObjectRemoved->retain();
-
+    
     this->listGameObject = CCArray::create();
     this->listGameObject->retain();
 }
@@ -56,10 +56,8 @@ GameObjectManager* GameObjectManager::getInstance()
 
 void GameObjectManager::addObjectRemoved(GameObject *body)
 {
-    //    if(this->listObjectRemoved->indexOfObject(body)!=CC_INVALID_INDEX)
-    //    {
     this->listObjectRemoved->addObject(body);
-    //    }
+    removeGameObject(body);
 }
 
 void GameObjectManager::update(float dt)
@@ -69,9 +67,8 @@ void GameObjectManager::update(float dt)
     {
         ((GameObject*)object)->update(dt);
     }
-    //
+
     this->listObjectRemoved->removeAllObjects();
-    //
 }
 
 void GameObjectManager::addGameObject(GameObject* object)
@@ -81,11 +78,15 @@ void GameObjectManager::addGameObject(GameObject* object)
 
 void GameObjectManager::removeGameObject(GameObject* object)
 {
-    this->listGameObject->removeObject(object);
+  //  if(this->listGameObject->indexOfObject(object) != CC_INVALID_INDEX)
+    {
+        this->listGameObject->removeObject(object);
+    }
 }
 
 void GameObjectManager::BeginContact(b2Contact *contact)
 {
+    
     if(contact->GetFixtureA()->GetBody()->GetUserData() != NULL)
     {
         PhysicData* data = (PhysicData*)contact->GetFixtureA()->GetBody()->GetUserData();
@@ -97,7 +98,6 @@ void GameObjectManager::BeginContact(b2Contact *contact)
         PhysicData* data = (PhysicData*)contact->GetFixtureB()->GetBody()->GetUserData();
         checkCollisionDataInBeginContact(data, contact, false);
     }
-    
 }
 
 void GameObjectManager::EndContact(b2Contact *contact)
@@ -118,7 +118,7 @@ void GameObjectManager::EndContact(b2Contact *contact)
 
 void GameObjectManager::checkCollisionDataInBeginContact(PhysicData* data, b2Contact *contact, bool isSideA)
 {
-    if(data ==NULL || data->Data == NULL)
+    if(data == NULL || data->Data == NULL)
     {
         return;
     }
@@ -136,8 +136,29 @@ void GameObjectManager::checkCollisionDataInBeginContact(PhysicData* data, b2Con
             break;
         }
         default:
+       
             break;
     }
+    
+    ///
+    switch (data->GameObjectID) {
+        case MONSTER:
+            ((Monster*)data->Data)->checkCollisionDataInBeginContact(data,contact,isSideA);
+            break;
+        case MAP_OBJECT:
+            ((MapObject*)data->Data)->checkCollisionDataInBeginContact(data,contact,isSideA);
+            break;
+        case SKILL_OBJECT:
+            ((AbstractSkill*)data->Data)->checkCollisionDataInBeginContact(data,contact,isSideA);
+            break;
+        case TOWER:
+            ((Tower*)data->Data)->checkCollisionDataInBeginContact(data,contact,isSideA);
+            break;
+        default:
+            break;
+    }
+
+    
 }
 
 void GameObjectManager::checkCollisionDataInEndContact(PhysicData* data, b2Contact *contact, bool isSideA)
@@ -161,4 +182,23 @@ void GameObjectManager::checkCollisionDataInEndContact(PhysicData* data, b2Conta
         default:
             break;
     }
+ 
+    ///
+    switch (data->GameObjectID) {
+        case MONSTER:
+            ((Monster*)data->Data)->checkCollisionDataInEndContact(data,contact,isSideA);
+            break;
+        case MAP_OBJECT:
+            ((MapObject*)data->Data)->checkCollisionDataInEndContact(data,contact,isSideA);
+            break;
+        case SKILL_OBJECT:
+            ((AbstractSkill*)data->Data)->checkCollisionDataInEndContact(data,contact,isSideA);
+            break;
+        case TOWER:
+            ((Tower*)data->Data)->checkCollisionDataInBeginContact(data,contact,isSideA);
+            break;
+        default:
+            break;
+    }
+
 }
