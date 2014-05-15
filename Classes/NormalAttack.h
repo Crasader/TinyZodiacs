@@ -21,7 +21,6 @@ private:
     int this_join_type;
     
     b2Joint* skillJoint;
-    CC_SYNTHESIZE(Group, group, Group);
 protected:
     //CCArray* listTarget;
     

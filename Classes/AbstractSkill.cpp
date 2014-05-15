@@ -12,6 +12,22 @@
 #include "EffectData.h"
 #include "Character.h"
 
+AbstractSkill::AbstractSkill(GameObject* holder, SkillData data)
+{
+    this->excuteAction = this->stopAction = this->coolDownAction = NULL;
+    this->isExcutable = true;
+    if(holder != NULL)
+    {
+        this->holder = holder;
+        this->holder->retain();
+    }
+}
+
+AbstractSkill::AbstractSkill()
+{
+    
+}
+
 AbstractSkill::~AbstractSkill()
 {
     if(this->holder != NULL)

@@ -21,7 +21,7 @@ class NormalShootingAttack: public AbstractSkill
 private:
 //    CCArray* projectTileList;
 protected:
-    CC_SYNTHESIZE_READONLY(uint16, group, Group);
+
     CC_SYNTHESIZE(NormalShootingSkillData, data, Data);
 
     virtual void checkCollisionDataInBeginContact(PhysicData* data, b2Contact *contact, bool isSideA);
@@ -29,8 +29,9 @@ protected:
     
     virtual void setExcuteAble();
 public:
-    ~NormalShootingAttack();
     NormalShootingAttack(GameObject* holder, NormalShootingSkillData data);
+    ~NormalShootingAttack();
+ 
     
     virtual void excute();
     virtual void stop();

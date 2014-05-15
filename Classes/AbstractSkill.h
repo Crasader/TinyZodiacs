@@ -37,6 +37,8 @@ protected:
     
     virtual void calculateSkillData(SkillData* data, GameObject* character);
 public:
+    AbstractSkill(GameObject* holder, SkillData data);
+    AbstractSkill();
     ~AbstractSkill();
     
     virtual void excute()=0;

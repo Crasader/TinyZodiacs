@@ -14,25 +14,20 @@
 #include "Character.h"
 #include "Effect.h"
 
-NormalAttack::NormalAttack(GameObject* holder, NormalMeleeSkillData data)
+NormalAttack::NormalAttack(GameObject* holder, NormalMeleeSkillData data): AbstractSkill(holder,data)
 {
-    
+
     if(holder != NULL)
     {
-        this->holder = holder;
-        this->holder->retain();
-        this->group = holder->getGroup();
         this->data = data;
         this->holderButton = NULL;
-        
         this->initJointType();
         
         this->createJoint();
         this->data.getSkillSensor()->SetActive(false);
-        
         this->data.getSkillSensor()->SetBullet(true);
         
-        this->isExcutable = true;
+    
         //
         PhysicData* sensorData = new PhysicData();
         sensorData->Id = SKILL_SENSOR;
@@ -47,19 +42,12 @@ NormalAttack::NormalAttack(GameObject* holder, NormalMeleeSkillData data)
             this->skillSprite->retain();
             this->data.getSkillAnimation()->getAnimation()->setLoops(INFINITY);
         }
-        this->autorelease();
+    
  
         this->excuteAction = this->stopAction = this->coolDownAction = NULL;
-        //
-//        if(this->data.getLifeTime() >0)
-//        {
-//            this->listTarget = CCArray::create();
-//        }
-//        else
-//        {
-//            this->listTarget = NULL;
-//        }
+      
     }
+      this->autorelease();
 }
 
 NormalAttack::~NormalAttack()

@@ -23,23 +23,17 @@ NormalShootingAttack::~NormalShootingAttack()
 //    projectTileList->release();
 }
 
-NormalShootingAttack::NormalShootingAttack(GameObject* holder, NormalShootingSkillData data)
+NormalShootingAttack::NormalShootingAttack(GameObject* holder, NormalShootingSkillData data): AbstractSkill(holder,data)
 {
     if(holder != NULL)
     {
-        this->holder = holder;
         this->data = data;
         this->isExcutable = true;
         this->holderButton = NULL;
-        
-//        projectTileList = CCArray::create();
-//        projectTileList->retain();
-        
-        this->autorelease();
-        
-        this->excuteAction = this->stopAction = this->coolDownAction = NULL;
+       
 
     }
+    this->autorelease();
 }
 
 
@@ -120,7 +114,7 @@ void NormalShootingAttack::EndContact(b2Contact *contact)
 
 void NormalShootingAttack::setPhysicGroup(uint16 group)
 {
-    this->group = group;
+   
 }
 
 void NormalShootingAttack::excuteImmediately()

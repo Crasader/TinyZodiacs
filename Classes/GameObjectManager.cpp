@@ -195,7 +195,7 @@ void GameObjectManager::checkCollisionDataInEndContact(PhysicData* data, b2Conta
             ((AbstractSkill*)data->Data)->checkCollisionDataInEndContact(data,contact,isSideA);
             break;
         case TOWER:
-            ((Tower*)data->Data)->checkCollisionDataInBeginContact(data,contact,isSideA);
+            ((Tower*)data->Data)->checkCollisionDataInEndContact(data,contact,isSideA);
             break;
         default:
             break;
