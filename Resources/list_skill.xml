@@ -13,7 +13,6 @@
             <deactive>normal_meelee_deactive.png</deactive>
             <selected>normal_meelee_selected.png</selected>
         </texture>
-        
         <list_effect>
             <enemy>
                 <effect>cat_normal_attack_affect</effect>
@@ -32,7 +31,6 @@
         </joints>
         <animation>skill-aura</animation>
         <animation_layer>2</animation_layer>
-
         <texture>
             <active>skill_1_normal.png</active>
             <deactive>skill_1_deactive.png</deactive>
@@ -43,7 +41,12 @@
             <enemy>
                 <effect>cat_normal_attack_affect</effect>
             </enemy>
+            <allies>
+                <effect>cat_healing</effect>
+            </allies>
         </list_effect>
+        
+        <time_tick>1</time_tick>
 	</skill>
     
     <skill id="monkey_ultimate" type="0">
@@ -62,7 +65,25 @@
             <deactive>skill_2_deactive.png</deactive>
             <selected>skill_2_selected.png</selected>
         </texture>
+        <list_effect>
+            <enemy>
+                <effect>cat_normal_attack_affect</effect>
+            </enemy>
+        </list_effect>
         
+        <time_tick>1</time_tick>
+	</skill>
+    
+    <skill id="monster_normal_attack" type="0">
+		<body>monkey_normal_attack</body>
+        <delay>0.05</delay>
+        <life_time>0</life_time>
+		<cool_down>0.5</cool_down>
+        
+        <joints>
+            <holder x="2" y="0" offsetX="0" offsetY="0"></holder>
+            <this x="2" y="0" offsetX="0" offsetY="0"></this>
+        </joints>
         <list_effect>
             <enemy>
                 <effect>cat_normal_attack_affect</effect>
@@ -164,23 +185,6 @@
         <list_effect>
             <enemy>
                 <effect>tower_normal_attack_affect</effect>
-            </enemy>
-        </list_effect>
-	</skill>
-    
-    <skill id="monster_normal_attack" type="0">
-		<body>monkey_normal_attack</body>
-        <delay>0.05</delay>
-        <life_time>0</life_time>
-		<cool_down>0.5</cool_down>
-
-        <joints>
-            <holder x="2" y="0" offsetX="0" offsetY="0"></holder>
-            <this x="2" y="0" offsetX="0" offsetY="0"></this>
-        </joints>
-        <list_effect>
-            <enemy>
-                <effect>cat_normal_attack_affect</effect>
             </enemy>
         </list_effect>
 	</skill>

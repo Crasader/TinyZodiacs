@@ -7,6 +7,9 @@
 //
 
 #include "Util.h"
+#include "Character.h"
+#include "Effect.h"
+
 b2AABB Util::getBodyBoundingBox(b2Body* body)
 {
     if(body != NULL)
@@ -224,4 +227,12 @@ std::vector<string> Util::getStrTok(const char* text)
     return result;
 }
 
+void Util::applyEffectFromList(vector<EffectData> listEffect, GameObject* object)
+{
+    for(int i=0 ; i<listEffect.size() ; i++)
+    {
+        Effect* effect = new Effect(listEffect[i], (Character*)object);
+        ((Character*)object)->applyEffect(effect);
+    }
+}
 

@@ -21,6 +21,8 @@ private:
     int this_join_type;
     
     b2Joint* skillJoint;
+    CCAction* timeTickAction;
+    CCArray* listTarget;
 protected:
     //CCArray* listTarget;
     
@@ -34,6 +36,7 @@ protected:
     
     virtual void setExcuteAble();
     
+    virtual void applyEffectOnTimeTick();
 public:
     NormalAttack(GameObject* holder, NormalMeleeSkillData data);
     ~NormalAttack();
@@ -51,5 +54,6 @@ public:
     virtual void stopImmediately();
 
     virtual void setPhysicGroup(uint16 group);
+    virtual void stopAllAction();
 };
 #endif /* defined(__TinyZodiacs__NormalAttack__) */
