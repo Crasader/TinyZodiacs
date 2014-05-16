@@ -84,13 +84,13 @@ void Hero::checkCollisionDataInBeginContact(PhysicData* data, b2Contact *contact
         if( physicData != NULL)
         {
             
-        switch (data->Id)
+        switch (data->BodyId)
         {
             case CHARACTER_FOOT_SENSOR:
                 break;
             case CHARACTER_BODY:
             {
-                if(physicData->Id == GAME_ITEM)
+                if(physicData->BodyId == GAME_ITEM)
                 {
                     contact->SetEnabled(false);
                     Item* item = static_cast<Item*>(physicData->Data);

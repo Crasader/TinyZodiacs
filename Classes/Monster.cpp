@@ -115,7 +115,7 @@ void Monster::checkCollisionDataInBeginContact(PhysicData* data, b2Contact *cont
         if(physicData != NULL)
         {
             //Contact sensor
-            if(data->Id == MONSTER_SENSOR && physicData->Id == CHARACTER_BODY && physicData->Data != this)
+            if(data->BodyId == MONSTER_SENSOR && physicData->BodyId == CHARACTER_BODY && physicData->Data != this)
             {
                 if(listTarget->indexOfObject((GameObject*)physicData->Data) == CC_INVALID_INDEX)
                 {
@@ -127,10 +127,10 @@ void Monster::checkCollisionDataInBeginContact(PhysicData* data, b2Contact *cont
             }
             //
             
-            switch (physicData->Id) {
+            switch (physicData->BodyId) {
                 case MAP_SENSOR:
                 {
-                    if(data->Id == CHARACTER_FOOT_SENSOR)
+                    if(data->BodyId == CHARACTER_FOOT_SENSOR)
                     {
                         SensorObject* sensorObject = static_cast<SensorObject*>(physicData->Data);
                         if(sensorObject->checkValidLaneID(this->laneID))
@@ -151,7 +151,7 @@ void Monster::checkCollisionDataInBeginContact(PhysicData* data, b2Contact *cont
                     
                 case MAP_BASE:
                 {
-                    if(data->Id == CHARACTER_FOOT_SENSOR)
+                    if(data->BodyId == CHARACTER_FOOT_SENSOR)
                     {
                         MapObject* mapObject = static_cast<MapObject*>(physicData->Data);
                         if(!Util::bodiesArePassingThrough(this->body, mapObject->getBody()))
@@ -187,7 +187,7 @@ void Monster::checkCollisionDataInEndContact(PhysicData* data, b2Contact *contac
         if(physicData != NULL)
         {
             //Contact sensor
-            if(data->Id == MONSTER_SENSOR && physicData->Id == CHARACTER_BODY && physicData->Data != this)
+            if(data->BodyId == MONSTER_SENSOR && physicData->BodyId == CHARACTER_BODY && physicData->Data != this)
             {
                 listTarget->removeObject((GameObject*)physicData->Data);
                 if(listTarget->count()==0)
@@ -197,7 +197,7 @@ void Monster::checkCollisionDataInEndContact(PhysicData* data, b2Contact *contac
                 return;
             }
             //
-            switch (physicData->Id) {
+            switch (physicData->BodyId) {
                 case MAP_SENSOR:
                 {
                     //this->isStopMove = false;
@@ -280,7 +280,7 @@ void Monster::setSensor(b2Body* sensor)
     this->sensor=sensor;
     
     PhysicData* data =  new PhysicData();
-    data->Id = MONSTER_SENSOR;
+    data->BodyId = MONSTER_SENSOR;
     data->Data = this;
     data->GameObjectID = MONSTER;
     this->sensor->SetUserData(data);

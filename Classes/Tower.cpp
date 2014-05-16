@@ -61,7 +61,7 @@ void Tower::createSensor()
     bodyDef.fixedRotation=true;
     
     PhysicData* data =  new PhysicData();
-    data->Id = TOWER_SENSOR;
+    data->BodyId = TOWER_SENSOR;
     data->GameObjectID = TOWER;
     data->Data = this;
     bodyDef.userData = data;
@@ -140,7 +140,7 @@ void Tower::checkCollisionDataInBeginContact(PhysicData* data, b2Contact *contac
             
             if(physicData != NULL)
             {
-                if(physicData->Id == CHARACTER_BODY)
+                if(physicData->BodyId == CHARACTER_BODY)
                 {
                     CCObject* obj = (CCObject*)physicData->Data;
                     if(this->listTarget->indexOfObject(obj) == CC_INVALID_INDEX)
@@ -169,7 +169,7 @@ void Tower::checkCollisionDataInEndContact(PhysicData* data, b2Contact *contact,
         
         if(physicData != NULL)
         {
-            if(physicData->Id == CHARACTER_BODY)
+            if(physicData->BodyId == CHARACTER_BODY)
             {
                 this->listTarget->removeObject((CCObject*)physicData->Data);
             }
@@ -311,7 +311,7 @@ uint16  Tower::getCorrectGroup(Group group)
 void Tower::onCreate()
 {
     PhysicData* data = new PhysicData();
-    data->Id = CHARACTER_BODY;
+    data->BodyId = CHARACTER_BODY;
     data->Data = this;
     data->GameObjectID = this->gameObjectID;
     this->getBody()->SetUserData(data);

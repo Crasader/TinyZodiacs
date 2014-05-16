@@ -123,7 +123,7 @@ void GameObjectManager::checkCollisionDataInBeginContact(PhysicData* data, b2Con
         return;
     }
     
-    switch (data->Id)
+    switch (data->BodyId)
     {
         case PROJECTILE:
         {
@@ -168,7 +168,7 @@ void GameObjectManager::checkCollisionDataInEndContact(PhysicData* data, b2Conta
         return;
     }
     
-    switch (data->Id) {
+    switch (data->BodyId) {
         case PROJECTILE:
         {
             void* pData = data->Data;

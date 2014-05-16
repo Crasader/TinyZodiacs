@@ -18,7 +18,8 @@ private:
 protected:
 public:
     PhysicData();
-    ObjectID Id;
+    BodyId BodyId;
+    FixtureID FixtureId;
     GameObjectID GameObjectID;
     void* Data;
 };

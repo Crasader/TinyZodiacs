@@ -30,7 +30,7 @@ NormalAttack::NormalAttack(GameObject* holder, NormalMeleeSkillData data): Abstr
         
         //
         PhysicData* sensorData = new PhysicData();
-        sensorData->Id = SKILL_SENSOR;
+        sensorData->BodyId = SKILL_SENSOR;
         sensorData->GameObjectID = SKILL_OBJECT;
         sensorData->Data = this;
         this->data.getSkillSensor()->SetUserData(sensorData);
@@ -263,7 +263,7 @@ void NormalAttack::stopImmediately()
 void NormalAttack::checkCollisionDataInBeginContact(PhysicData* data, b2Contact *contact, bool isSideA)
 {
     
-    if(data->Id == SKILL_SENSOR && data->Data == this )
+    if(data->BodyId == SKILL_SENSOR && data->Data == this )
     {
         PhysicData* otherData;
         if(isSideA)
@@ -276,7 +276,7 @@ void NormalAttack::checkCollisionDataInBeginContact(PhysicData* data, b2Contact 
         }
         if(otherData != NULL)
         {
-            switch (otherData->Id) {
+            switch (otherData->BodyId) {
                 case CHARACTER_BODY:
                 {
                  //   if(otherData->GameObjectID == HERO)
@@ -317,7 +317,7 @@ void NormalAttack::checkCollisionDataInBeginContact(PhysicData* data, b2Contact 
 
 void NormalAttack::checkCollisionDataInEndContact(PhysicData* data, b2Contact *contact, bool isSideA)
 {
-    if(data->Id == SKILL_SENSOR && data->Data == this)
+    if(data->BodyId == SKILL_SENSOR && data->Data == this)
     {
         PhysicData* otherData;
         if(isSideA)
@@ -331,7 +331,7 @@ void NormalAttack::checkCollisionDataInEndContact(PhysicData* data, b2Contact *c
         
         if(otherData != NULL)
         {
-            switch (otherData->Id) {
+            switch (otherData->BodyId) {
                 case CHARACTER_BODY:
                 {
                     Character* character = (Character*)otherData->Data;
