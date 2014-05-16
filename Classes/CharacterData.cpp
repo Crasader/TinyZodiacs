@@ -57,8 +57,16 @@ void CharacterData::applyData(CharacterData data)
 
 void CharacterData::applyEffect(Effect* effect, GameObject* holder)
 {
-    this->health+=(effect->getHealth()+((Character*)holder)->getcharacterData().getDefense());
-    this->health = MAX(this->health,0);
+    if(effect->getHealth() <0)
+    {
+        this->health+=(effect->getHealth()+((Character*)holder)->getcharacterData().getDefense());
+        this->health = MAX(this->health,0);
+    }
+    else
+    {
+        this->health+=(effect->getHealth());
+        this->health = MIN(this->health,((Character*)holder)->getOriginCharacterData().getHealth());
+    }
     
     this->attack+=effect->getAttack();
     this->attack = MAX(this->attack,0);

@@ -327,12 +327,12 @@ void Tower::destroy()
 
 void Tower::attach(Observer* observer)
 {
-    this->listObserver.push_back(observer);
+    GameObject::attach(observer);
 }
 
 void Tower::detach(Observer* observer)
 {
-    
+    GameObject::detach(observer);
 }
 
 void Tower::notifyToDestroy()

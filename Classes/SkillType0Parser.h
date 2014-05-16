@@ -45,7 +45,7 @@
 #define TAG_LIST_EFFECT_ENEMY "enemy"
 #define TAG_LIST_EFFECT_ALLIES "allies"
 #define TAG_EFFECT "effect"
-
+#define TAG_TIME_TICK "time_tick"
 
 
 using namespace tinyxml2;
@@ -67,6 +67,7 @@ protected:
     static int readAnimationLayerIndex(const XMLElement* root);
     static SkillTarget readTarget(const XMLElement* root);
     static vector<EffectData> readEffectList(const XMLElement* root);
+    static float readTimeTick(const XMLElement* root);
 public:
     static NormalMeleeSkillData parse(const XMLElement* root, b2World* world);
 };

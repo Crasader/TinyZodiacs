@@ -32,6 +32,7 @@ void CharacterState::stopAction()
         {
             this->character->getSprite()->stopAction(this->action);
             this->action->release();
+            this->action = NULL;
         }
     }
 }

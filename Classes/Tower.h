@@ -13,9 +13,8 @@
 #include "Character.h"
 #include "Box2D/Box2D.h"
 #include "PhysicConstants.h"
-#include "Observable.h"
 
-class Tower: public Character, public Observable
+class Tower: public Character
 {
 private:
     CCArray* listTarget;

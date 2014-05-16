@@ -16,25 +16,23 @@
 
 NormalAttack::NormalAttack(GameObject* holder, NormalMeleeSkillData data): AbstractSkill(holder,data)
 {
+    this->timeTickAction = NULL;
     this->skillSprite = NULL;
+    this->listTarget = NULL;
     if(holder != NULL)
     {
         this->data = data;
     }
+    
 }
 
 NormalAttack::~NormalAttack()
 {
-    stopImmediately();
+ 
     CC_SAFE_RELEASE(this->skillSprite);
     data.getSkillSensor()->SetActive(false);
     data.getSkillSensor()->GetWorld()->DestroyBody(data.getSkillSensor());
     
-//    if(listTarget != NULL)
-//    {
-//        listTarget->removeAllObjects();
-//        listTarget->release();
-//    }
     this->data.releaseEffectLists();
 }
 
@@ -45,24 +43,35 @@ void NormalAttack::onCreate()
     this->createJoint();
     this->data.getSkillSensor()->SetActive(false);
     this->data.getSkillSensor()->SetBullet(true);
-
+    
     PhysicData* sensorData = new PhysicData();
     sensorData->Id = SKILL_SENSOR;
     sensorData->GameObjectID = SKILL_OBJECT;
     sensorData->Data = this;
     this->data.getSkillSensor()->SetUserData(sensorData);
-
+    
     if(this->data.getSkillAnimation() != NULL && this->data.getSkillAnimation()->getAnimation() != NULL)
     {
         this->skillSprite = CCSprite::create();
         this->skillSprite->retain();
         this->data.getSkillAnimation()->getAnimation()->setLoops(INFINITY);
     }
-
+    
+    if(data.getLifeTime() > 0 && data.getTimeTick() > 0)
+    {
+        this->listTarget = CCArray::create();
+        this->listTarget->retain();
+    }
+    else
+    {
+        this->listTarget = NULL;
+    }
+    
 }
 
 void NormalAttack::destroy()
 {
+       stopImmediately();
     AbstractSkill::destroy();
 }
 
@@ -128,7 +137,7 @@ void NormalAttack::stop()
 {
     if(this->stopAction != NULL)
     {
-
+        
         ScheduleManager::getInstance()->stopAction(stopAction);
         this->stopAction->release();
     }
@@ -149,24 +158,58 @@ void NormalAttack::excuteImmediately()
         this->skillSprite->runAction(action);
         this->skillSprite->setPosition(ccp(0,0));
     }
+    //start time tick action
+    if(data.getLifeTime() >0 && data.getTimeTick() >0)
+    {
+        CCCallFunc* timeTick = CCCallFunc::create(this, callfunc_selector(NormalAttack::applyEffectOnTimeTick));
+        this->timeTickAction = ScheduleManager::getInstance()->scheduleFunctionForever(timeTick, NULL, this->data.getTimeTick());
+        this->timeTickAction->retain();
+    }
 }
 
 void NormalAttack::stopImmediately()
 {
+    //deactive sensor
     this->data.getSkillSensor()->SetActive(false);
     if(this->data.getSkillAnimation() != NULL && this->holder != NULL)
     {
         this->skillSprite->stopAllActions();
         this->skillSprite->removeFromParent();
     }
+    //stop time tick
+    if(this->timeTickAction != NULL)
+    {
+        //            this->timeTickAction->stop();
+        if(this->timeTickAction->isDone() == false)
+        {
+            ScheduleManager::getInstance()->stopAction(this->timeTickAction);
+        }
+        this->timeTickAction->release();
+        this->timeTickAction = NULL;
+    }
+    //remove target
+    if(this->listTarget != NULL)
+    {
+        CCObject* object = NULL;
+        CCARRAY_FOREACH(this->listTarget, object)
+        {
+   
+            Character* gameObject = static_cast<Character*>(object);
+            gameObject->detach(this);
+            
+        }
+        this->listTarget->removeAllObjects();
+    }
 }
 
 void NormalAttack::checkCollisionDataInBeginContact(PhysicData* data, b2Contact *contact, bool isSideA)
 {
+    
     if(this->isDisable)
     {
-     return;
+        return;
     }
+    
     if(data->Id == SKILL_SENSOR && data->Data == this )
     {
         PhysicData* otherData;
@@ -183,31 +226,35 @@ void NormalAttack::checkCollisionDataInBeginContact(PhysicData* data, b2Contact 
             switch (otherData->Id) {
                 case CHARACTER_BODY:
                 {
-                    Character* character = (Character*)otherData->Data;
-                    //                    if(character != holder)
-                    //                    {
-                    
-
-                        NormalMeleeSkillData calculatedSkillData = this->data;
-                        calculateSkillData(&calculatedSkillData, this->holder);
-                        
-                        if(character->getGroup() == this->holder->getGroup())
+                    //   if(otherData->GameObjectID == HERO)
+                    {
+                        Character* character = (Character*)otherData->Data;
+                        if(character != holder)
                         {
-                            // CCLOG("Allie begin");
-                        }
-                        else
-                        {
-                            // CCLOG("Enemy begin");
-                            for(int i=0 ; i<calculatedSkillData.getListEnemyEffect().size() ; i++)
+                            if(listTarget != NULL)
                             {
-                                Effect* effect = new Effect(calculatedSkillData.getListEnemyEffect()[i], character);
-                                character->applyEffect(effect);
+                                listTarget->addObject(character);
+                                character->attach(this);
+                            }
+                            
+                            NormalMeleeSkillData calculatedSkillData = this->data;
+                            calculateSkillData(&calculatedSkillData, this->holder);
+                            
+                            if(character->getGroup() == this->holder->getGroup())
+                            {
+                                Util::applyEffectFromList(calculatedSkillData.getListAlliesEffect(), character);
+                            }
+                            else
+                            {
+                                Util::applyEffectFromList(calculatedSkillData.getListEnemyEffect(), character);
                             }
                         }
+                        
+                    }
                     
                 }
                     break;
-                
+                    
                 default:
                     break;
             }
@@ -239,17 +286,14 @@ void NormalAttack::checkCollisionDataInEndContact(PhysicData* data, b2Contact *c
                 case CHARACTER_BODY:
                 {
                     Character* character = (Character*)otherData->Data;
-                    if(character != holder)
+                    
+                    if(listTarget != NULL)
                     {
-                 
-                        //                        if(character->getGroup() == this->holder->getGroup())
-                        //                        {
-                        //                            // CCLOG("Allie end");
-                        //                        }
-                        //                        else
-                        //                        {
-                        //                            //  CCLOG("Enemy end");
-                        //                        }
+                        if(this->listTarget->indexOfObject(character) != CC_INVALID_INDEX )
+                        {
+                            character->detach(this);
+                            listTarget->removeObject(character);
+                        }
                     }
                 }
                 default:
@@ -349,7 +393,52 @@ void NormalAttack::setExcuteAble()
     {
         this->holderButton->changeState(ENABLE);
     }
+}
+
+void NormalAttack::stopAllAction()
+{
+    AbstractSkill::stopAllAction();
     
-    //    this->coolDownAction->release();
-    //    this->coolDownAction = NULL;
+    if(timeTickAction != NULL)
+    {
+        if(timeTickAction->isDone() == false)
+        {
+            ScheduleManager::getInstance()->stopAction(timeTickAction);
+        }
+        timeTickAction->release();
+        timeTickAction = NULL;
+    }
+    
+}
+
+void NormalAttack::applyEffectOnTimeTick()
+{
+    CCObject* obj = NULL;
+    CCARRAY_FOREACH(listTarget, obj)
+    {
+        Character* character = (Character*)obj;
+        
+        NormalMeleeSkillData calculatedSkillData = this->data;
+        calculateSkillData(&calculatedSkillData, this->holder);
+        
+        if(character->getGroup() == this->holder->getGroup())
+        {
+            Util::applyEffectFromList(calculatedSkillData.getListAlliesEffect(), character);
+        }
+        else
+        {
+            Util::applyEffectFromList(calculatedSkillData.getListEnemyEffect(), character);
+        }
+    }
+}
+
+void NormalAttack::notifyToDestroy(GameObject* object)
+{
+    if(this->listTarget != NULL)
+    {
+        if(this->listTarget->indexOfObject(object) != CC_INVALID_INDEX)
+        {
+            this->listTarget->removeObject(object);
+        }
+    }
 }

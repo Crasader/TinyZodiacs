@@ -16,6 +16,7 @@
 using namespace std;
 USING_NS_CC;
 
+class Observer;
 class Observable
 {
 private:

@@ -36,24 +36,25 @@ Character::Character()
 Character::~Character()
 {
     this->footSensor->GetWorld()->DestroyBody(this->footSensor);
+    
+    
     if(normalAttack)
     {
-        normalAttack->destroy();
         normalAttack->release();
+        normalAttack = NULL;
     }
     
     if(skill1)
     {
-        skill1->destroy();
         skill1->release();
+        skill1 = NULL;
     }
     
     if(skill2)
     {
-        skill2->destroy();
         skill2->release();
+        skill2 = NULL;
     }
-
 }
 
 void Character::changeState(CharacterState *states)
@@ -89,15 +90,15 @@ void Character::setSkin(b2Body *body, CCSprite *sprite)
 
 void Character::setOriginCharacterData(CharacterData data)
 {
-//    data.setAttack(0);
+    //    data.setAttack(0);
     this->originCharacterData = data;
     this->characterData = this->originCharacterData;
 }
 
 void Character::update(float dt)
 {
-     GameObject::update(dt);
-     this->state->update(dt);
+    GameObject::update(dt);
+    this->state->update(dt);
     if(this->normalAttack != NULL)
     {
         this->normalAttack->update(dt);
@@ -110,10 +111,7 @@ void Character::update(float dt)
     {
         this->skill2->update(dt);
     }
-    //
-   
-   
-    //
+
     if(this->body->GetLinearVelocity().x >=2)
     {
         flipDirection(RIGHT);
@@ -508,6 +506,45 @@ bool Character::isDead()
 
 void Character::destroy()
 {
+    CCLOG("des monster");
     this->state->onExitState();
+    
+    if(normalAttack)
+    {
+        normalAttack->destroy();
    
     }
+    
+    if(skill1)
+    {
+        skill1->destroy();
+    
+    }
+    
+    if(skill2)
+    {
+        skill2->destroy();
+
+    }
+    
+}
+
+void Character::attach(Observer* observer)
+{
+//    CCLOG("character attach %d",this->listObserver.size());
+    GameObject::attach(observer);
+}
+
+void Character::detach(Observer* observer)
+{
+//    CCLOG("character detach %d",this->listObserver.size());
+//    CCLOG("detach - %d", this->listObserver.size());
+    GameObject::detach(observer);
+    
+}
+void Character::notifyToDestroy()
+{
+    CCLOG("character notify destroy");
+    GameObject::notifyToDestroy();
+}
+

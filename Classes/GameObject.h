@@ -15,13 +15,18 @@
 #include "PhysicConstants.h"
 #include "PhysicData.h"
 #include "GameObjectView.h"
+#include "Observable.h"
+#include "Observer.h"
 
 USING_NS_CC;
 
 class GameObjectView;
 enum Direction {LEFT, RIGHT};
 
-class GameObject: public CCObject
+
+class Observer;
+class GameObject: public cocos2d::CCObject, public Observable
+
 {
 private:
 protected:
@@ -79,6 +84,11 @@ public:
     virtual void removeEffect(CCObject* object);
     virtual void notifyByEffect(CCObject* effect);
     virtual void destroy();
+    
+    virtual void attach(Observer* observer);
+    virtual void detach(Observer* observer);
+    virtual void notifyToDestroy();
+
 };
 
 #endif /* defined(__SampleCocosProject__GameObject__) */

@@ -12,15 +12,18 @@
 #include <iostream>
 #include "AbstractSkill.h"
 #include "NormalMeleeSkillData.h"
+#include "Observer.h"
 
 USING_NS_CC;
-class NormalAttack: public AbstractSkill
+class NormalAttack: public AbstractSkill, public Observer
 {
 private:
     int holder_join_type;
     int this_join_type;
     
     b2Joint* skillJoint;
+    CCAction* timeTickAction;
+    CCArray* listTarget;
 protected:
     //CCArray* listTarget;
     
@@ -34,6 +37,7 @@ protected:
     
     virtual void setExcuteAble();
     
+    virtual void applyEffectOnTimeTick();
 public:
     NormalAttack(GameObject* holder, NormalMeleeSkillData data);
     ~NormalAttack();
@@ -50,5 +54,9 @@ public:
     virtual void destroy();
 
     virtual void setPhysicGroup(uint16 group);
+    virtual void stopAllAction();
+    
+    
+    virtual void notifyToDestroy(GameObject* object);
 };
 #endif /* defined(__TinyZodiacs__NormalAttack__) */

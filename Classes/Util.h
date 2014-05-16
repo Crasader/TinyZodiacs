@@ -12,6 +12,8 @@
 #include <iostream>
 #include "Box2D/Box2D.h"
 #include "PhysicConstants.h"
+#include "GameObject.h"
+#include "EffectData.h"
 #include <vector>
 
 class Util
@@ -30,6 +32,7 @@ public:
     static void setFixtureGroup(b2Fixture* fixture, uint16 group);
     static std::vector<string> getStrTok(const char* string);
 
+    static void applyEffectFromList(vector<EffectData> listEffect, GameObject* object);
 };
 
 #endif /* defined(__TinyZodiacs__Util__) */

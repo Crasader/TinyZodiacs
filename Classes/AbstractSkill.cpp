@@ -20,12 +20,12 @@ AbstractSkill::AbstractSkill(GameObject* holder, SkillData data)
     this->coolDownAction = NULL;
     this->holderButton = NULL;
     this->isExcutable = true;
-
-
+    
+    
     if(holder != NULL)
     {
         this->holder = holder;
-    //    this->holder->retain();
+       //     this->holder->retain();
     }
     this->autorelease();
 }
@@ -34,7 +34,7 @@ AbstractSkill::~AbstractSkill()
 {
     if(this->holder != NULL)
     {
-     //   this->holder->release();
+         //  this->holder->release();
     }
 }
 
@@ -55,17 +55,19 @@ void AbstractSkill::stopAllAction()
     {
         if(excuteAction->isDone() == false)
         {
-            ScheduleManager::getInstance()->stopScheduledObjectAction(excuteAction);
+            ScheduleManager::getInstance()->stopAction(excuteAction);
         }
         excuteAction->release();
+        excuteAction = NULL;
     }
     if(stopAction != NULL)
     {
         if(stopAction->isDone() == false)
         {
-            ScheduleManager::getInstance()->stopScheduledObjectAction(stopAction);
+            ScheduleManager::getInstance()->stopAction(stopAction);
         }
         stopAction->release();
+        stopAction = NULL;
     }
     if(coolDownAction != NULL)
     {
@@ -73,7 +75,9 @@ void AbstractSkill::stopAllAction()
         {
             ScheduleManager::getInstance()->stopAction(coolDownAction);
         }
+        
         coolDownAction->release();
+        coolDownAction = NULL;
     }
 }
 
@@ -86,7 +90,7 @@ void AbstractSkill::calculateSkillData(SkillData* data, GameObject* character)
         EffectData effectData = data->getListEnemyEffect()[i];
         effectData.setHealth(effectData.getHealth()-((Character*)character)->getcharacterData().getAttack());
         listEffect[i] = effectData;
-//        CCLOG("%d",data->getListEnemyEffect()[i].getHealth());
+        //        CCLOG("%d",data->getListEnemyEffect()[i].getHealth());
     }
     data->setListEnemyEffect(listEffect);
 }

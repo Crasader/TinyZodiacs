@@ -188,6 +188,11 @@ vector<EffectData> SkillType0Parser::readEffectList(const XMLElement* root)
     return effectList;
 }
 
+float SkillType0Parser::readTimeTick(const XMLElement* root)
+{
+    return XMLHelper::readFloat(root, 0);
+}
+
 NormalMeleeSkillData SkillType0Parser::parse(const XMLElement* root, b2World* world)
 {
     NormalMeleeSkillData data;
@@ -201,6 +206,7 @@ NormalMeleeSkillData SkillType0Parser::parse(const XMLElement* root, b2World* wo
 //    data.setCritical(readCriticalChance(root->FirstChildElement(TAG_CRITICAL_CHANCE)));
     data.setAnimationLayerIndex(readAnimationLayerIndex(root->FirstChildElement(TAG_ANIMATION_LAYER)));
     data.setTarget(readTarget(root->FirstChildElement(TAG_TARGET)));
+    data.setTimeTick(readTimeTick(root->FirstChildElement(TAG_TIME_TICK)));
 
     if(root->FirstChildElement(TAG_ANIMATION) != NULL)
     {
