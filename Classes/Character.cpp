@@ -82,7 +82,7 @@ void Character::setSkin(b2Body *body, CCSprite *sprite)
     
     //set body data
     PhysicData* scharacterData = new PhysicData();
-    scharacterData->Id = CHARACTER_BODY;
+    scharacterData->BodyId = CHARACTER_BODY;
     scharacterData->Data = this;
     scharacterData->GameObjectID = this->gameObjectID;
     this->getBody()->SetUserData(scharacterData);
@@ -227,7 +227,7 @@ void Character::createFootSensor()
     
     //
     PhysicData* sensorData = new PhysicData();
-    sensorData->Id = CHARACTER_FOOT_SENSOR;
+    sensorData->BodyId = CHARACTER_FOOT_SENSOR;
     sensorData->Data = this;
     sensorData->GameObjectID = this->gameObjectID;
     
@@ -270,13 +270,13 @@ void Character::checkCollisionDataInBeginContact(PhysicData* data, b2Contact *co
             physicData = (PhysicData*)contact->GetFixtureA()->GetBody()->GetUserData();
         }
         
-        switch (data->Id)
+        switch (data->BodyId)
         {
             case CHARACTER_FOOT_SENSOR:
             {
                 if(physicData!=NULL)
                 {
-                    switch (physicData->Id) {
+                    switch (physicData->BodyId) {
                         case MAP_BASE:
                         {
                             GameObject* mapObject = (GameObject*)physicData->Data;
@@ -302,7 +302,7 @@ void Character::checkCollisionDataInBeginContact(PhysicData* data, b2Contact *co
                 if(physicData!=NULL)
                 {
                     
-                    switch (physicData->Id) {
+                    switch (physicData->BodyId) {
                         case MAP_BASE:
                         {
                             MapObject* mapObject = (MapObject*)physicData->Data;
@@ -357,12 +357,12 @@ void Character::checkCollisionDataInEndContact(PhysicData* data, b2Contact *cont
             physicData = (PhysicData*)contact->GetFixtureA()->GetBody()->GetUserData();
         }
         
-        switch (data->Id) {
+        switch (data->BodyId) {
             case CHARACTER_FOOT_SENSOR:
             {
                 if(physicData!=NULL)
                 {
-                    switch (physicData->Id) {
+                    switch (physicData->BodyId) {
                         case MAP_BASE:
                         {
                             //                            GameObject* mapObject = (GameObject*)physicData->Data;
@@ -403,7 +403,7 @@ void Character::checkCollisionDataInEndContact(PhysicData* data, b2Contact *cont
                 
                 if(physicData != NULL)
                 {
-                    switch (physicData->Id) {
+                    switch (physicData->BodyId) {
                             
                         case MAP_BASE:
                         {

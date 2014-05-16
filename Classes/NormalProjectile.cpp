@@ -59,7 +59,7 @@ void NormalProjectile::setData(NormalShootingSkillData data, GameObject* holder)
         body->SetTransform(getStartPosition(holder, body), data.getRotateAngle());
         //
         PhysicData* pData= new PhysicData();
-        pData->Id = PROJECTILE;
+        pData->BodyId = PROJECTILE;
         pData->Data = this;
         
         body->SetUserData(pData);
@@ -226,7 +226,7 @@ void NormalProjectile::checkCollisionDataInBeginContact(PhysicData* data, b2Cont
         return;
     }
     //
-    switch (otherData->Id)
+    switch (otherData->BodyId)
     {
         case CHARACTER_BODY:
         {

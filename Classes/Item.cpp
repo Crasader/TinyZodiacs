@@ -41,7 +41,7 @@ void Item::onCreate()
     startSchedule();
     
     PhysicData* physicData = new PhysicData();
-    physicData->Id = GAME_ITEM;
+    physicData->BodyId = GAME_ITEM;
     physicData->Data = this;
     
     

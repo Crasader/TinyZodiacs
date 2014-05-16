@@ -48,7 +48,7 @@ struct JointDef
     float offsetY;
 };
 
-enum ObjectID
+enum BodyId
 {
  MAP_BASE ,
  CHARACTER_BODY ,
@@ -69,6 +69,14 @@ enum GameObjectID
     MAP_OBJECT,
     SKILL_OBJECT,
     TOWER
+};
+
+enum FixtureID
+{
+    FOOT_SENSOR,
+    BODY_MAIN_FIXTURE,
+    BODY_SUB_FIXTURE,
+    SKILL_FIXTURE
 };
 
 enum Group

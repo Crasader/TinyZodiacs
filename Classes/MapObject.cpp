@@ -29,7 +29,7 @@ void MapObject::update(float dt)
 void MapObject::onCreate()
 {
     PhysicData* data = new PhysicData();//= new PhysicData();
-    data->Id = MAP_BASE;
+    data->BodyId = MAP_BASE;
     data->GameObjectID = MAP_OBJECT;
     data->Data = this;
     this->body->SetUserData(data);
