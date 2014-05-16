@@ -15,11 +15,10 @@
 #include "SensorObject.h"
 #include "Constants.h"
 #include "ItemFactory.h"
-#include "Observable.h"
 
 USING_NS_CC;
 
-class Monster: public Character, public Observable
+class Monster: public Character
 {
 private:    
     CC_SYNTHESIZE(int, laneID, LaneID);
@@ -60,7 +59,6 @@ public:
     virtual void notifyToDestroy();
     
     CREATE_FUNC(Monster);
-    
 };
 
 #endif /* defined(__Headball__Monster__) */

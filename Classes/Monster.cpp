@@ -28,8 +28,9 @@ Monster::Monster()
 
 Monster::~Monster()
 {
-    CCLog("des monster");
+//    CCLog("des monster");
     this->sensor->SetUserData(NULL);
+    this->sensor->SetActive(false);
     this->sensor->GetWorld()->DestroyBody(this->sensor);
     
     this->listTarget->removeAllObjects();
@@ -352,26 +353,20 @@ void Monster::onCreate()
 
 void Monster::attach(Observer* observer)
 {
-    this->listObserver.push_back(observer);
+    CCLOG("monster attach");
+    GameObject::attach(observer);
 }
 
 void Monster::detach(Observer* observer)
 {
-    //    for(int i = 0 ; i < this->listObserver.size() ; i++)
-    //    {
-    //        if(this->listObserver[i] == observer)
-    //        {
-    //            this->listObserver.erase(listObserver.begin()+i);
-    //            return;
-    //        }
-    //    }
+    CCLOG("monster detach");
+    GameObject::detach(observer);
 }
 
 void Monster::notifyToDestroy()
 {
-    for(int i = 0 ; i < this->listObserver.size() ; i++)
-    {
-        this->listObserver[i]->notifyToDestroy(this);
-    }
+    CCLOG("monster destory notify");
+
+    GameObject::notifyToDestroy();
 }
 

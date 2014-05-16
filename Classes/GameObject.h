@@ -14,10 +14,13 @@
 #include <Box2D/Box2D.h>
 #include "PhysicConstants.h"
 #include "PhysicData.h"
+#include "Observable.h"
+#include "Observer.h"
 
 enum Direction {LEFT, RIGHT};
 
-class GameObject: public cocos2d::CCObject
+class Observer;
+class GameObject: public cocos2d::CCObject, public Observable
 {
 private:
    protected:
@@ -71,6 +74,11 @@ public:
     virtual void removeEffect(CCObject* object);
     virtual void notifyByEffect(CCObject* effect);
     virtual void destroy();
+    
+    virtual void attach(Observer* observer);
+    virtual void detach(Observer* observer);
+    virtual void notifyToDestroy();
+
 };
 
 #endif /* defined(__SampleCocosProject__GameObject__) */

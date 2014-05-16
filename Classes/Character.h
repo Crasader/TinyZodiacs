@@ -19,6 +19,7 @@
 #include "PhysicData.h"
 #include "HealthBar.h"
 #include "MapObject.h"
+#include "Observable.h"
 
 class CharacterState;
 
@@ -82,6 +83,10 @@ public:
     virtual bool isDead();
     
     virtual void destroy();
+    
+    virtual void attach(Observer* observer);
+    virtual void detach(Observer* observer);
+    virtual void notifyToDestroy();
 };
 
 #endif /* defined(__SampleCocosProject__Character__) */

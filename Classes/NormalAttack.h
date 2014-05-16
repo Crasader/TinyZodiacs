@@ -12,9 +12,10 @@
 #include <iostream>
 #include "AbstractSkill.h"
 #include "NormalMeleeSkillData.h"
+#include "Observer.h"
 
 USING_NS_CC;
-class NormalAttack: public AbstractSkill
+class NormalAttack: public AbstractSkill, public Observer
 {
 private:
     int holder_join_type;
@@ -55,5 +56,8 @@ public:
 
     virtual void setPhysicGroup(uint16 group);
     virtual void stopAllAction();
+    
+    
+    virtual void notifyToDestroy(GameObject* object);
 };
 #endif /* defined(__TinyZodiacs__NormalAttack__) */

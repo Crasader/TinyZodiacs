@@ -504,3 +504,22 @@ void Character::destroy()
         skill2->release();
     }
 }
+
+ void Character::attach(Observer* observer)
+{
+    CCLOG("character attach");
+    GameObject::attach(observer);
+}
+
+void Character::detach(Observer* observer)
+{
+    CCLOG("character detach");
+    CCLOG("detach - %d", this->listObserver.size());
+    GameObject::detach(observer);
+
+}
+ void Character::notifyToDestroy()
+{
+    CCLOG("character notify destroy");
+    GameObject::notifyToDestroy();
+}

@@ -277,6 +277,7 @@ void GameObject::setPhysicGroup(uint16 group)
     }
 }
 
+
 void  GameObject::setGroup(Group group)
 {
     this->group = group;
@@ -324,4 +325,29 @@ void GameObject::notifyByEffect(CCObject* effect)
 void GameObject::destroy()
 {
     
+}
+
+void GameObject::attach(Observer* observer)
+{
+    this->listObserver.push_back(observer);
+}
+
+void GameObject::detach(Observer* observer)
+{
+    for( std::vector<Observer*>::iterator iter = this->listObserver.begin(); iter != this->listObserver.end(); ++iter )
+    {
+        if( *iter == observer )
+        {
+            this->listObserver.erase( iter );
+            break;
+        }
+    }
+}
+
+void GameObject::notifyToDestroy()
+{
+    for(int i = 0 ; i < this->listObserver.size() ; i++)
+    {
+        this->listObserver[i]->notifyToDestroy(this);
+    }
 }
