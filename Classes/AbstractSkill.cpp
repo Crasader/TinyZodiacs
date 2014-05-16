@@ -14,72 +14,39 @@
 
 AbstractSkill::AbstractSkill(GameObject* holder, SkillData data)
 {
-    this->excuteAction = this->stopAction = this->coolDownAction = NULL;
+    this->isDisable = false;
+    this->excuteAction = NULL;
+    this->stopAction = NULL;
+    this->coolDownAction = NULL;
+    this->holderButton = NULL;
     this->isExcutable = true;
+
+
     if(holder != NULL)
     {
         this->holder = holder;
-        this->holder->retain();
+    //    this->holder->retain();
     }
-}
-
-AbstractSkill::AbstractSkill()
-{
-    
+    this->autorelease();
 }
 
 AbstractSkill::~AbstractSkill()
 {
     if(this->holder != NULL)
     {
-        this->holder->release();
+     //   this->holder->release();
     }
 }
 
-
-void AbstractSkill::BeginContact(b2Contact *contact)
-{
-    if(contact->GetFixtureA()->GetBody()->GetUserData() != NULL)
-    {
-        PhysicData* data = (PhysicData*)contact->GetFixtureA()->GetBody()->GetUserData();
-        checkCollisionDataInBeginContact(data, contact, true);
-    }
-    
-    if(contact->GetFixtureB()->GetBody()->GetUserData() != NULL)
-    {
-        PhysicData* data = (PhysicData*)contact->GetFixtureB()->GetBody()->GetUserData();
-        checkCollisionDataInBeginContact(data, contact, false);
-    }
-}
-
-void AbstractSkill::EndContact(b2Contact *contact)
-{
-    if(contact->GetFixtureA()->GetBody()->GetUserData() != NULL)
-    {
-        PhysicData* data = (PhysicData*)contact->GetFixtureA()->GetBody()->GetUserData();
-        checkCollisionDataInEndContact(data, contact, true);
-    }
-    
-    if(contact->GetFixtureB()->GetBody()->GetUserData() != NULL)
-    {
-        PhysicData* data = (PhysicData*)contact->GetFixtureB()->GetBody()->GetUserData();
-        checkCollisionDataInEndContact(data, contact, false);
-    }
-}
-
-void AbstractSkill::excuteImmediately()
+void AbstractSkill::onCreate()
 {
     
 }
 
-void AbstractSkill::stopImmediately()
+void AbstractSkill::destroy()
 {
-    
-}
-
-void AbstractSkill::setExcuteAble()
-{
-    
+    this->isDisable = true;
+    stopAllAction();
 }
 
 void AbstractSkill::stopAllAction()

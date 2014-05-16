@@ -7,26 +7,47 @@
 //
 
 #include "InfoViewCreator.h"
-#include "HeroInfoView.h"
+#include "CharacterView.h"
 #include "HealthBar.h"
 
-GameObjectInfoView* InfoViewCreator::createHeroInfoView(Character *character, Player *player)
+GameObjectView* InfoViewCreator::createHeroView(Hero* hero, Player* player)
 {
-    HealthBar* healthBar = HealthBar::create();
-    healthBar->retain();
+    GameObjectViewContainer* view = GameObjectViewContainer::create();
+    view->retain();
     
-    GameObjectInfoView* heroInfoView = HeroInfoView::create();
-    heroInfoView->attach(character);
-    
-    
-    //Label;
-    
-    CCLabelTTF* textName = CCLabelTTF::create("Hoa Phat", "Arial", 15);
-    textName->retain();
-    heroInfoView->setHealthBar(healthBar);
+    CharacterView* heroView = CharacterView::create();
 
-    heroInfoView->setTextName(textName);
+    
+    HealthBar* healthBar = HealthBar::create();
+    
+    CCLabelTTF* label = CCLabelTTF::create("Hoa Phat", "Arial", 25);
+    
+    heroView->setHealthBar(healthBar);
+    heroView->setTextNameLabel(label);
+
+    view->attach(hero);
+    view->addGameObjectView(heroView);
+    
+    return view;
+}
+
+GameObjectView* InfoViewCreator::createMonsterView(Monster* monster, Player* player)
+{
+    GameObjectViewContainer* view = GameObjectViewContainer::create();
+    view->retain();
+    
+    CharacterView* heroView = CharacterView::create();
     
     
-    return heroInfoView;
+    HealthBar* healthBar = HealthBar::create();
+    
+    CCLabelTTF* label = CCLabelTTF::create("monster", "Arial", 25);
+    
+    heroView->setHealthBar(healthBar);
+    heroView->setTextNameLabel(label);
+    
+    view->attach(monster);
+    view->addGameObjectView(heroView);
+    
+    return view;
 }

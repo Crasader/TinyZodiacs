@@ -19,7 +19,6 @@ USING_NS_CC;
 class NormalShootingAttack: public AbstractSkill
 {
 private:
-//    CCArray* projectTileList;
 protected:
 
     CC_SYNTHESIZE(NormalShootingSkillData, data, Data);
@@ -32,16 +31,14 @@ public:
     NormalShootingAttack(GameObject* holder, NormalShootingSkillData data);
     ~NormalShootingAttack();
  
-    
     virtual void excute();
-    virtual void stop();
-    virtual void update(float dt);
-    virtual void BeginContact(b2Contact *contact);
-    virtual void EndContact(b2Contact *contact);
-
     virtual void excuteImmediately();
+    virtual void stop();
     virtual void stopImmediately();
-    
+    virtual void update(float dt);
+    virtual void onCreate();
+    virtual void destroy();
+
     virtual void setPhysicGroup(uint16 group);
 };
 #endif /* defined(__TinyZodiacs__NormalShootingAttack__) */

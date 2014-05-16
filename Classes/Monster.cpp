@@ -95,6 +95,12 @@ void Monster::destroy()
     GameObjectManager::getInstance()->addObjectRemoved(this);
 }
 
+void Monster::attachSpriteTo(CCNode* node)
+{
+    GameObject::attachSpriteTo(node);
+    node->addChild(this->sprite, CHARACTER_LAYER);
+}
+
 void Monster::checkCollisionDataInBeginContact(PhysicData* data, b2Contact *contact, bool isSideA)
 {
     Character::checkCollisionDataInBeginContact(data, contact, isSideA);

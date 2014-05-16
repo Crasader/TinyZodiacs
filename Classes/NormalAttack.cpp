@@ -16,38 +16,11 @@
 
 NormalAttack::NormalAttack(GameObject* holder, NormalMeleeSkillData data): AbstractSkill(holder,data)
 {
-
+    this->skillSprite = NULL;
     if(holder != NULL)
     {
         this->data = data;
-        this->holderButton = NULL;
-        this->initJointType();
-        
-        this->createJoint();
-        this->data.getSkillSensor()->SetActive(false);
-        this->data.getSkillSensor()->SetBullet(true);
-        
-    
-        //
-        PhysicData* sensorData = new PhysicData();
-        sensorData->Id = SKILL_SENSOR;
-        sensorData->GameObjectID = SKILL_OBJECT;
-        sensorData->Data = this;
-        this->data.getSkillSensor()->SetUserData(sensorData);
-        //
-        this->skillSprite = NULL;
-        if(this->data.getSkillAnimation() != NULL && this->data.getSkillAnimation()->getAnimation() != NULL)
-        {
-            this->skillSprite = CCSprite::create();
-            this->skillSprite->retain();
-            this->data.getSkillAnimation()->getAnimation()->setLoops(INFINITY);
-        }
-    
- 
-        this->excuteAction = this->stopAction = this->coolDownAction = NULL;
-      
     }
-      this->autorelease();
 }
 
 NormalAttack::~NormalAttack()
@@ -65,36 +38,32 @@ NormalAttack::~NormalAttack()
     this->data.releaseEffectLists();
 }
 
-
-void NormalAttack::BeginContact(b2Contact *contact)
+void NormalAttack::onCreate()
 {
-    if(contact->GetFixtureA()->GetBody()->GetUserData() != NULL)
-    {
-        PhysicData* data = (PhysicData*)contact->GetFixtureA()->GetBody()->GetUserData();
-        checkCollisionDataInBeginContact(data, contact, true);
-    }
+    this->initJointType();
     
-    if(contact->GetFixtureB()->GetBody()->GetUserData() != NULL)
+    this->createJoint();
+    this->data.getSkillSensor()->SetActive(false);
+    this->data.getSkillSensor()->SetBullet(true);
+
+    PhysicData* sensorData = new PhysicData();
+    sensorData->Id = SKILL_SENSOR;
+    sensorData->GameObjectID = SKILL_OBJECT;
+    sensorData->Data = this;
+    this->data.getSkillSensor()->SetUserData(sensorData);
+
+    if(this->data.getSkillAnimation() != NULL && this->data.getSkillAnimation()->getAnimation() != NULL)
     {
-        PhysicData* data = (PhysicData*)contact->GetFixtureB()->GetBody()->GetUserData();
-        checkCollisionDataInBeginContact(data, contact, false);
+        this->skillSprite = CCSprite::create();
+        this->skillSprite->retain();
+        this->data.getSkillAnimation()->getAnimation()->setLoops(INFINITY);
     }
-    
+
 }
 
-void NormalAttack::EndContact(b2Contact *contact)
+void NormalAttack::destroy()
 {
-    if(contact->GetFixtureA()->GetBody()->GetUserData() != NULL)
-    {
-        PhysicData* data = (PhysicData*)contact->GetFixtureA()->GetBody()->GetUserData();
-        checkCollisionDataInEndContact(data, contact, true);
-    }
-    
-    if(contact->GetFixtureB()->GetBody()->GetUserData() != NULL)
-    {
-        PhysicData* data = (PhysicData*)contact->GetFixtureB()->GetBody()->GetUserData();
-        checkCollisionDataInEndContact(data, contact, false);
-    }
+    AbstractSkill::destroy();
 }
 
 void NormalAttack::update(float dt)
@@ -194,7 +163,10 @@ void NormalAttack::stopImmediately()
 
 void NormalAttack::checkCollisionDataInBeginContact(PhysicData* data, b2Contact *contact, bool isSideA)
 {
- 
+    if(this->isDisable)
+    {
+     return;
+    }
     if(data->Id == SKILL_SENSOR && data->Data == this )
     {
         PhysicData* otherData;
@@ -245,6 +217,10 @@ void NormalAttack::checkCollisionDataInBeginContact(PhysicData* data, b2Contact 
 
 void NormalAttack::checkCollisionDataInEndContact(PhysicData* data, b2Contact *contact, bool isSideA)
 {
+    if(this->isDisable)
+    {
+        return;
+    }
     if(data->Id == SKILL_SENSOR && data->Data == this)
     {
         PhysicData* otherData;

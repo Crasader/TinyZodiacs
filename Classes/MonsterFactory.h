@@ -18,6 +18,7 @@
 #include "GB2ShapeCache-x.h"
 #include "SkillFactory.h"
 #include "GameObject.h"
+#include "InfoViewCreator.h"
 
 #define MONSTER_CREATION_DELAY 1;
 

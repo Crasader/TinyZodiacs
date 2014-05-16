@@ -12,16 +12,6 @@
 #include "ScheduleManager.h"
 #include "GameObjectManager.h"
 
-NormalShootingAttack::~NormalShootingAttack()
-{
-    this->data.releaseEffectLists();
-//    CCObject* obj;
-//    CCARRAY_FOREACH(projectTileList, obj)
-//    {
-//        ((NormalProjectile*)obj)->remove();
-//    }
-//    projectTileList->release();
-}
 
 NormalShootingAttack::NormalShootingAttack(GameObject* holder, NormalShootingSkillData data): AbstractSkill(holder,data)
 {
@@ -30,12 +20,19 @@ NormalShootingAttack::NormalShootingAttack(GameObject* holder, NormalShootingSki
         this->data = data;
         this->isExcutable = true;
         this->holderButton = NULL;
-       
-
     }
-    this->autorelease();
 }
 
+NormalShootingAttack::~NormalShootingAttack()
+{
+    this->data.releaseEffectLists();
+    //    CCObject* obj;
+    //    CCARRAY_FOREACH(projectTileList, obj)
+    //    {
+    //        ((NormalProjectile*)obj)->remove();
+    //    }
+    //    projectTileList->release();
+}
 
 void NormalShootingAttack::excute()
 {
@@ -102,14 +99,14 @@ void NormalShootingAttack::update(float dt)
     }
 }
 
-void NormalShootingAttack::BeginContact(b2Contact *contact)
+void NormalShootingAttack::onCreate()
 {
-    AbstractSkill::BeginContact(contact);
+    
 }
 
-void NormalShootingAttack::EndContact(b2Contact *contact)
+void NormalShootingAttack::destroy()
 {
-    AbstractSkill::EndContact(contact);
+    AbstractSkill::destroy();
 }
 
 void NormalShootingAttack::setPhysicGroup(uint16 group)
@@ -148,47 +145,25 @@ void NormalShootingAttack::setExcuteAble()
 
 void NormalShootingAttack::checkCollisionDataInBeginContact(PhysicData* data, b2Contact *contact, bool isSideA)
 {
+    if(this->isDisable)
+    {
+        return;
+    }
     if(data ==NULL || data->Data == NULL)
     {
         return;
     }
-    
-//    switch (data->Id)
-//    {
-//        case PROJECTILE:
-//        {
-//            void* pData = data->Data;
-//            NormalProjectile* projectile = static_cast<NormalProjectile*>(pData);
-//            if(projectile != NULL && projectile->getHolder() == this->holder)
-//            {
-//                projectile->checkCollisionDataInBeginContact(data, contact, isSideA);
-//            }
-//            break;
-//        }
-//        default:
-//            break;
-//    }
+
 }
 
 void NormalShootingAttack::checkCollisionDataInEndContact(PhysicData* data, b2Contact *contact, bool isSideA)
 {
+    if(this->isDisable)
+    {
+        return;
+    }
     if(data == NULL || data->Data == NULL)
     {
         return;
     }
-    
-//    switch (data->Id) {
-//        case PROJECTILE:
-//        {
-//            void* pData = data->Data;
-//            NormalProjectile* projectile = (NormalProjectile *)pData;
-//            if(projectile != NULL && projectile->getHolder() == this->holder)
-//            {
-//                projectile->checkCollisionDataInEndContact(data, contact, isSideA);
-//            }
-//            break;
-//        }
-//        default:
-//            break;
-//    }
 }

@@ -14,18 +14,26 @@
 #include <Box2D/Box2D.h>
 #include "PhysicConstants.h"
 #include "PhysicData.h"
+#include "GameObjectView.h"
 
+USING_NS_CC;
+
+class GameObjectView;
 enum Direction {LEFT, RIGHT};
 
-class GameObject: public cocos2d::CCObject
+class GameObject: public CCObject
 {
 private:
-   protected:
+protected:
     cocos2d::CCArray* listEffect;
     Direction direction;
     CC_SYNTHESIZE(GameObjectID, gameObjectID, GameObjectID);
-
-
+    CC_SYNTHESIZE(CCSprite*, sprite, Sprite);
+    CC_SYNTHESIZE(b2Body*, body, Body);
+    CC_SYNTHESIZE(CCPoint, spriteAnchorPoint, SpriteAnchorPoint);
+    CC_SYNTHESIZE_READONLY(Group, group, Group);
+    GameObjectView* gameObjectView;
+    
     virtual void updateAllEffect(float dt);
     
     virtual uint16 getCorrectGroup(Group group);
@@ -36,33 +44,33 @@ public:
     GameObject();
     ~GameObject();
     float32 isPassingThroughBody;
-    CC_SYNTHESIZE(cocos2d::CCSprite*, sprite, Sprite);
-    CC_SYNTHESIZE(b2Body*, body, Body);
-    CC_SYNTHESIZE(cocos2d::CCPoint, spriteAnchorPoint, SpriteAnchorPoint);
-    CC_SYNTHESIZE_READONLY(Group, group, Group);
+    
     
     Direction getDirection();
     b2AABB getBodyBoundingBox();
     
-    void setAnchorPointForAnimation1(const cocos2d::CCPoint &anchorPoint);
+    void setAnchorPointForAnimation1(const CCPoint &anchorPoint);
     void flipDirection(Direction direction);
     
-    virtual void setSkin(b2Body* body,cocos2d::CCSprite* sprite);
+    virtual void setSkin(b2Body* body, CCSprite* sprite);
     virtual bool init();
     virtual void update(float dt);
-    virtual void setPositionInPixel(const cocos2d::CCPoint& pos);
+    virtual void updateGameObjectView(float dt);
+    virtual void setPositionInPixel(const CCPoint& pos);
     virtual cocos2d::CCPoint getPositionInPixel();
     virtual b2Vec2 getPositionInPhysicWorld();
-
+    virtual void setGameObjectView(GameObjectView* gameObjectView);
     virtual void onCreate();
-
+    
+    virtual void attachSpriteTo(CCNode* node);
+    
     virtual void updateSpritePositionWithBodyPosition();
     
     virtual void BeginContact(b2Contact *contact);
     virtual void EndContact(b2Contact *contact);
     virtual void PreSolve(b2Contact* contact, const b2Manifold* oldManifold);
     virtual void PostSolve(b2Contact* contact, const b2ContactImpulse* impulse);
-  
+    
     virtual void excuteScheduledFunction(CCObject* pSender, void *body);
     virtual void setGroup(Group group);
     virtual uint16 getPhysicGroup();

@@ -44,11 +44,10 @@ public:
     virtual void excute();
     virtual void stop();
     virtual void update(float dt);
-    virtual void BeginContact(b2Contact *contact);
-    virtual void EndContact(b2Contact *contact);
-    
     virtual void excuteImmediately();
     virtual void stopImmediately();
+    virtual void onCreate();
+    virtual void destroy();
 
     virtual void setPhysicGroup(uint16 group);
 };

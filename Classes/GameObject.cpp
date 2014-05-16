@@ -17,10 +17,10 @@ USING_NS_CC;
 GameObject::GameObject()
 {
     this->gameObjectID = NONE;
-    
     this->isPassingThroughBody = 0;
     this->body = NULL;
     this->sprite = NULL;
+    this->gameObjectView = NULL;
     direction = LEFT;
     
     this->listEffect = CCArray::create();
@@ -35,7 +35,7 @@ GameObject::~GameObject()
     {
         this->sprite->removeFromParent();
     }
-   
+    
     if(this->body != NULL)
     {
         this->body->SetUserData(NULL);
@@ -48,7 +48,17 @@ GameObject::~GameObject()
         ((Effect*)object)->stopAllSchedule();
     }
     this->listEffect->removeAllObjects();
-//    CC_SAFE_RELEASE(this->listEffect);
+    
+    //game object view
+    if(this->gameObjectView != NULL)
+        
+    {
+        this->gameObjectView->removeFromParent();
+        this->gameObjectView->release();
+    }
+    
+    
+    //    CC_SAFE_RELEASE(this->listEffect);
 }
 
 bool GameObject::init()
@@ -72,16 +82,33 @@ void GameObject::update(float dt)
 {
     updateSpritePositionWithBodyPosition();
     updateAllEffect(dt);
+    updateGameObjectView(dt);
+}
+
+void GameObject::updateGameObjectView(float dt)
+{
+    if(this->gameObjectView != NULL)
+    {
+        this->gameObjectView->update(dt);
+    }
+}
+
+void GameObject::setGameObjectView(GameObjectView* gameObjectView)
+{
+    this->gameObjectView = gameObjectView;
 }
 
 void GameObject::setPositionInPixel(const cocos2d::CCPoint &pos)
 {
-    
     b2Vec2 bodyPosition = b2Vec2(pos.x/PTM_RATIO, pos.y/PTM_RATIO) ;
     this->body->SetTransform(bodyPosition, this->body->GetAngle());
     
     updateSpritePositionWithBodyPosition();
-    
+}
+
+void GameObject::attachSpriteTo(CCNode* node)
+{
+    node->addChild(this->gameObjectView,GAME_OBJECT_VIEW);
 }
 
 CCPoint GameObject::getPositionInPixel()

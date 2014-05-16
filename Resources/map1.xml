@@ -240,9 +240,9 @@
         </monster_factory>-->
 
   <monster_factory group="B">
-      <monster_creator delay_per_unit="1" delay="2" lane = "2" max="">
+      <monster_creator delay_per_unit="1" delay="5" lane = "2" max="">
           <position x="4000" y="500"/>
-          <monster>monster_pig</monster>
+          <monster>monster_onion</monster>
       </monster_creator>
   </monster_factory>
   

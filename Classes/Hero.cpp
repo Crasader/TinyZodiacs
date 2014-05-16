@@ -118,3 +118,9 @@ void Hero::checkCollisionDataInEndContact(PhysicData* data, b2Contact *contact, 
 {
     Character::checkCollisionDataInEndContact(data, contact, isSideA);
 }
+
+void Hero::attachSpriteTo(CCNode* node)
+{
+    GameObject::attachSpriteTo(node);
+    node->addChild(this->sprite,CHARACTER_LAYER);
+}

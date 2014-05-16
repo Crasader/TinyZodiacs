@@ -11,9 +11,10 @@
 
 #include <iostream>
 #include "cocos2d.h"
-#include "GameObjectInfoView.h"
+#include "GameObjectView.h"
 #include "Player.h"
-#include "Character.h"
+#include "Hero.h"
+#include "GameObjectViewContainer.h"
 
 USING_NS_CC;
 
@@ -23,7 +24,8 @@ class InfoViewCreator
 private:
 protected:
 public:
-    static GameObjectInfoView* createHeroInfoView(Character* character, Player* player);
+    static GameObjectView* createHeroView(Hero* hero, Player* player);
+    static GameObjectView* createMonsterView(Monster* monster, Player* player);
 };
 
 #endif /* defined(__TinyZodiacs__InfoViewCreator__) */

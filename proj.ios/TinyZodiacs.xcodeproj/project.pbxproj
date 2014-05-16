@@ -367,6 +367,7 @@
 		F5779C6D18E56CF10044D5CD /* healthbar_foreground_blue.png in Resources */ = {isa = PBXBuildFile; fileRef = F5779C6A18E56CF10044D5CD /* healthbar_foreground_blue.png */; };
 		F5779C6E18E56CF10044D5CD /* healthbar_foreground_red.png in Resources */ = {isa = PBXBuildFile; fileRef = F5779C6B18E56CF10044D5CD /* healthbar_foreground_red.png */; };
 		F5779C6F18E56CF10044D5CD /* healthbar_background.png in Resources */ = {isa = PBXBuildFile; fileRef = F5779C6C18E56CF10044D5CD /* healthbar_background.png */; };
+		F58E78CE1924770E00091875 /* GameObjectViewContainer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F58E78CC1924770E00091875 /* GameObjectViewContainer.cpp */; };
 		F59E0BDC18D85E90001048BD /* NormalAttack.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F59E0BDA18D85E8F001048BD /* NormalAttack.cpp */; };
 		F5A46B26190508A900A8FF55 /* SensorObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F5A46B24190508A900A8FF55 /* SensorObject.cpp */; };
 		F5AE36A91906799900FB7519 /* SensorObjectDTO.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F5AE36A71906799900FB7519 /* SensorObjectDTO.cpp */; };
@@ -376,8 +377,8 @@
 		F5B42875191744CA002DC13B /* HeroLoader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F5B42873191744CA002DC13B /* HeroLoader.cpp */; };
 		F5B4287C19174C1F002DC13B /* XMLCharacterParser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F5B4287A19174C1F002DC13B /* XMLCharacterParser.cpp */; };
 		F5B4287F19174F15002DC13B /* XMLHeroParser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F5B4287D19174F15002DC13B /* XMLHeroParser.cpp */; };
-		F5B4B79418E66E8700E4C2AA /* GameObjectInfoView.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F5B4B79218E66E8700E4C2AA /* GameObjectInfoView.cpp */; };
-		F5B4B79718E671FC00E4C2AA /* HeroInfoView.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F5B4B79518E671FC00E4C2AA /* HeroInfoView.cpp */; };
+		F5B4B79418E66E8700E4C2AA /* GameObjectView.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F5B4B79218E66E8700E4C2AA /* GameObjectView.cpp */; };
+		F5B4B79718E671FC00E4C2AA /* CharacterView.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F5B4B79518E671FC00E4C2AA /* CharacterView.cpp */; };
 		F5B85FBF1904BABF00CE4604 /* ForegroundDTO.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F5B85FB71904BABF00CE4604 /* ForegroundDTO.cpp */; };
 		F5B85FC01904BABF00CE4604 /* MapObjectDTO.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F5B85FB81904BABF00CE4604 /* MapObjectDTO.cpp */; };
 		F5B85FC21904BABF00CE4604 /* BackgroundDTO.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F5B85FBD1904BABF00CE4604 /* BackgroundDTO.cpp */; };
@@ -409,6 +410,8 @@
 		F5CCA7A7191B6276002A7F2A /* XMLItemParser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F5CCA7A5191B6276002A7F2A /* XMLItemParser.cpp */; };
 		F5E2929518E6768F00B9B152 /* InfoViewCreator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F5E2929318E6768F00B9B152 /* InfoViewCreator.cpp */; };
 		F5E2929818E6779500B9B152 /* Player.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F5E2929618E6779500B9B152 /* Player.cpp */; };
+		F5E34CA61924B83C0041833E /* healthbar_spritesheet.plist in Resources */ = {isa = PBXBuildFile; fileRef = F5E34CA41924B83C0041833E /* healthbar_spritesheet.plist */; };
+		F5E34CA71924B83C0041833E /* healthbar_spritesheet.png in Resources */ = {isa = PBXBuildFile; fileRef = F5E34CA51924B83C0041833E /* healthbar_spritesheet.png */; };
 		F5E3B9B81917728E00E8FD95 /* MonsterLoader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F5E3B9B61917728E00E8FD95 /* MonsterLoader.cpp */; };
 		F5EAC341191B652700BE083E /* ItemLoader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F5EAC33F191B652700BE083E /* ItemLoader.cpp */; };
 		F5FA5B5E1900E78300B80EF0 /* ParameterObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F5FA5B5C1900E78300B80EF0 /* ParameterObject.cpp */; };
@@ -1107,6 +1110,8 @@
 		F5779C6A18E56CF10044D5CD /* healthbar_foreground_blue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = healthbar_foreground_blue.png; sourceTree = "<group>"; };
 		F5779C6B18E56CF10044D5CD /* healthbar_foreground_red.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = healthbar_foreground_red.png; sourceTree = "<group>"; };
 		F5779C6C18E56CF10044D5CD /* healthbar_background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = healthbar_background.png; sourceTree = "<group>"; };
+		F58E78CC1924770E00091875 /* GameObjectViewContainer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameObjectViewContainer.cpp; sourceTree = "<group>"; };
+		F58E78CD1924770E00091875 /* GameObjectViewContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameObjectViewContainer.h; sourceTree = "<group>"; };
 		F59E0BDA18D85E8F001048BD /* NormalAttack.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = NormalAttack.cpp; sourceTree = "<group>"; };
 		F59E0BDB18D85E90001048BD /* NormalAttack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NormalAttack.h; sourceTree = "<group>"; };
 		F5A46B24190508A900A8FF55 /* SensorObject.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SensorObject.cpp; sourceTree = "<group>"; };
@@ -1125,10 +1130,10 @@
 		F5B4287B19174C1F002DC13B /* XMLCharacterParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMLCharacterParser.h; sourceTree = "<group>"; };
 		F5B4287D19174F15002DC13B /* XMLHeroParser.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = XMLHeroParser.cpp; sourceTree = "<group>"; };
 		F5B4287E19174F15002DC13B /* XMLHeroParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMLHeroParser.h; sourceTree = "<group>"; };
-		F5B4B79218E66E8700E4C2AA /* GameObjectInfoView.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameObjectInfoView.cpp; sourceTree = "<group>"; };
-		F5B4B79318E66E8700E4C2AA /* GameObjectInfoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameObjectInfoView.h; sourceTree = "<group>"; };
-		F5B4B79518E671FC00E4C2AA /* HeroInfoView.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = HeroInfoView.cpp; sourceTree = "<group>"; };
-		F5B4B79618E671FC00E4C2AA /* HeroInfoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HeroInfoView.h; sourceTree = "<group>"; };
+		F5B4B79218E66E8700E4C2AA /* GameObjectView.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameObjectView.cpp; sourceTree = "<group>"; };
+		F5B4B79318E66E8700E4C2AA /* GameObjectView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameObjectView.h; sourceTree = "<group>"; };
+		F5B4B79518E671FC00E4C2AA /* CharacterView.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CharacterView.cpp; sourceTree = "<group>"; };
+		F5B4B79618E671FC00E4C2AA /* CharacterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CharacterView.h; sourceTree = "<group>"; };
 		F5B85FB71904BABF00CE4604 /* ForegroundDTO.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ForegroundDTO.cpp; sourceTree = "<group>"; };
 		F5B85FB81904BABF00CE4604 /* MapObjectDTO.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MapObjectDTO.cpp; sourceTree = "<group>"; };
 		F5B85FB91904BABF00CE4604 /* MapObjectDTO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapObjectDTO.h; sourceTree = "<group>"; };
@@ -1179,6 +1184,8 @@
 		F5E2929418E6768F00B9B152 /* InfoViewCreator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InfoViewCreator.h; sourceTree = "<group>"; };
 		F5E2929618E6779500B9B152 /* Player.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Player.cpp; sourceTree = "<group>"; };
 		F5E2929718E6779500B9B152 /* Player.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Player.h; sourceTree = "<group>"; };
+		F5E34CA41924B83C0041833E /* healthbar_spritesheet.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = healthbar_spritesheet.plist; sourceTree = "<group>"; };
+		F5E34CA51924B83C0041833E /* healthbar_spritesheet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = healthbar_spritesheet.png; sourceTree = "<group>"; };
 		F5E3B9B61917728E00E8FD95 /* MonsterLoader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MonsterLoader.cpp; sourceTree = "<group>"; };
 		F5E3B9B71917728E00E8FD95 /* MonsterLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MonsterLoader.h; sourceTree = "<group>"; };
 		F5EAC33F191B652700BE083E /* ItemLoader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ItemLoader.cpp; path = ../Classes/ItemLoader.cpp; sourceTree = "<group>"; };
@@ -2562,10 +2569,12 @@
 			children = (
 				F5779C6618E5693C0044D5CD /* HealthBar.cpp */,
 				F5779C6718E5693C0044D5CD /* HealthBar.h */,
-				F5B4B79218E66E8700E4C2AA /* GameObjectInfoView.cpp */,
-				F5B4B79318E66E8700E4C2AA /* GameObjectInfoView.h */,
-				F5B4B79518E671FC00E4C2AA /* HeroInfoView.cpp */,
-				F5B4B79618E671FC00E4C2AA /* HeroInfoView.h */,
+				F5B4B79218E66E8700E4C2AA /* GameObjectView.cpp */,
+				F5B4B79318E66E8700E4C2AA /* GameObjectView.h */,
+				F5B4B79518E671FC00E4C2AA /* CharacterView.cpp */,
+				F5B4B79618E671FC00E4C2AA /* CharacterView.h */,
+				F58E78CC1924770E00091875 /* GameObjectViewContainer.cpp */,
+				F58E78CD1924770E00091875 /* GameObjectViewContainer.h */,
 			);
 			name = "GamePlay UI";
 			sourceTree = "<group>";
@@ -2573,6 +2582,8 @@
 		F5779C6918E56CBD0044D5CD /* HealthBar */ = {
 			isa = PBXGroup;
 			children = (
+				F5E34CA41924B83C0041833E /* healthbar_spritesheet.plist */,
+				F5E34CA51924B83C0041833E /* healthbar_spritesheet.png */,
 				F5779C6A18E56CF10044D5CD /* healthbar_foreground_blue.png */,
 				F5779C6B18E56CF10044D5CD /* healthbar_foreground_red.png */,
 				F5779C6C18E56CF10044D5CD /* healthbar_background.png */,
@@ -2931,7 +2942,9 @@
 				2DC48A7B1919EE1C00B34724 /* onion_creep_default.plist in Resources */,
 				2D0DA15D1908F72200881C8D /* tower_2.xml in Resources */,
 				34A91DD7190A462200DED8A3 /* tower_orb_default.plist in Resources */,
+				F5E34CA71924B83C0041833E /* healthbar_spritesheet.png in Resources */,
 				2D0DA15B1908F72200881C8D /* tower_2_default.plist in Resources */,
+				F5E34CA61924B83C0041833E /* healthbar_spritesheet.plist in Resources */,
 				F5C89DFB18D2FCB5006E909D /* monkey_animation.xml in Resources */,
 				F52678F918EEAEA500CE1E3B /* map1_spritesheet_3.png in Resources */,
 				1AFAF8BD16D35E4900DB1158 /* CloseSelected.png in Resources */,
@@ -3096,7 +3109,7 @@
 				15A3DA461682F826002FB0C5 /* CCScale9SpriteLoader.cpp in Sources */,
 				15A3DA471682F826002FB0C5 /* CCScrollViewLoader.cpp in Sources */,
 				15A3DA481682F826002FB0C5 /* CCSpriteLoader.cpp in Sources */,
-				F5B4B79718E671FC00E4C2AA /* HeroInfoView.cpp in Sources */,
+				F5B4B79718E671FC00E4C2AA /* CharacterView.cpp in Sources */,
 				15A3DA491682F826002FB0C5 /* CCControl.cpp in Sources */,
 				15A3DA4A1682F826002FB0C5 /* CCControlButton.cpp in Sources */,
 				F54AE9BA18D2F1AA00194E66 /* CharacterMidAirAttackState.cpp in Sources */,
@@ -3113,6 +3126,7 @@
 				15A3DA501682F826002FB0C5 /* CCControlStepper.cpp in Sources */,
 				15A3DA511682F826002FB0C5 /* CCControlSwitch.cpp in Sources */,
 				15A3DA521682F826002FB0C5 /* CCControlUtils.cpp in Sources */,
+				F58E78CE1924770E00091875 /* GameObjectViewContainer.cpp in Sources */,
 				375BD4C41868411B0024609E /* TriggerBase.cpp in Sources */,
 				F544FB9C18D950C500A818DF /* MapParallaxBackground.cpp in Sources */,
 				15A3DA531682F826002FB0C5 /* CCInvocation.cpp in Sources */,
@@ -3157,7 +3171,7 @@
 				1A8F3B71175E05DA00049216 /* Atlas.cpp in Sources */,
 				1A8F3B72175E05DA00049216 /* AtlasAttachmentLoader.cpp in Sources */,
 				1A8F3B73175E05DA00049216 /* Attachment.cpp in Sources */,
-				F5B4B79418E66E8700E4C2AA /* GameObjectInfoView.cpp in Sources */,
+				F5B4B79418E66E8700E4C2AA /* GameObjectView.cpp in Sources */,
 				34EED02218E50E5D001AFFC9 /* NormalMeleeSkillData.cpp in Sources */,
 				1A8F3B74175E05DA00049216 /* AttachmentLoader.cpp in Sources */,
 				F54AE9C518D2F1FC00194E66 /* AnimationObject.cpp in Sources */,

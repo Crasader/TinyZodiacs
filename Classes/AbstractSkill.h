@@ -26,30 +26,31 @@ class AbstractSkill: public CCObject
 {
 private:
 protected:
+    bool isDisable;
     CC_SYNTHESIZE_READONLY(bool, isExcutable, IsExcutable);
     
-    virtual void checkCollisionDataInBeginContact(PhysicData* data, b2Contact *contact, bool isSideA)=0;
-    virtual void checkCollisionDataInEndContact(PhysicData* data, b2Contact *contact, bool isSideA)=0;
+    virtual void checkCollisionDataInBeginContact(PhysicData* data, b2Contact *contact, bool isSideA) = 0;
+    virtual void checkCollisionDataInEndContact(PhysicData* data, b2Contact *contact, bool isSideA) = 0;
     
-    virtual void setExcuteAble();
+    virtual void setExcuteAble() = 0;
     
     CCAction *excuteAction, *stopAction, *coolDownAction;
     
     virtual void calculateSkillData(SkillData* data, GameObject* character);
 public:
     AbstractSkill(GameObject* holder, SkillData data);
-    AbstractSkill();
+
     ~AbstractSkill();
     
-    virtual void excute()=0;
-    virtual void stop() =0;
-    virtual void BeginContact(b2Contact *contact);
-    virtual void EndContact(b2Contact *contact);
-    virtual void update(float dt)=0;
-    virtual void excuteImmediately();
-    virtual void stopImmediately();
+    virtual void excute() = 0;
+    virtual void stop() = 0;
+    virtual void update(float dt) = 0;
+    virtual void excuteImmediately() = 0;
+    virtual void stopImmediately() = 0;
+    virtual void onCreate() = 0;
+    virtual void destroy() = 0;
     
-    virtual void setPhysicGroup(uint16 group)=0;
+    virtual void setPhysicGroup(uint16 group) = 0;
     virtual void stopAllAction();
     
     CC_SYNTHESIZE(GameObject* , holder, Holder);

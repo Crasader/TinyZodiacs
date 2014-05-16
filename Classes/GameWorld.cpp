@@ -14,7 +14,7 @@
 #include "MapFactory.h"
 #include "GameBackgroundLayer.h"
 #include "LayerIndexConstants.h"
-#include "GameObjectInfoView.h"
+#include "GameObjectView.h"
 #include "InfoViewCreator.h"
 #include "Util.h"
 #include "MonsterFactory.h"
@@ -69,7 +69,7 @@ bool GameWorld::init()
     CCObject* object = NULL;
     CCARRAY_FOREACH(this->listInfoView, object)
     {
-        GameObjectInfoView* gameObjectInfoView = dynamic_cast<GameObjectInfoView*>(object);
+        GameObjectView* gameObjectInfoView = dynamic_cast<GameObjectView*>(object);
         this->addChild(gameObjectInfoView,100);
     }
     //MONSTER
@@ -204,7 +204,7 @@ void GameWorld::update(float dt)
     CCObject* object = NULL;
     CCARRAY_FOREACH(this->listInfoView, object)
     {
-        GameObjectInfoView* gameObjectInfoView = dynamic_cast<GameObjectInfoView*>(object);
+        GameObjectView* gameObjectInfoView = dynamic_cast<GameObjectView*>(object);
         gameObjectInfoView->update(dt);
     }
     //

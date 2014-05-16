@@ -1,7 +1,7 @@
 <character id="monster_onion">
     <animation>creep_1</animation>
 	<body>creep_1</body>
-    <hp>1</hp>
+    <hp>20</hp>
     <atk>0</atk>
     <def>0</def>
     <speed>8</speed>
@@ -9,7 +9,7 @@
     <max_jump>3</max_jump>
     <jump_height>10</jump_height>
     <sensor_body>creep_1_sensor</sensor_body>
-    <skill_0>monster_normal_attack</skill_0>
+    <skill_0>monkey_aura</skill_0>
     
     <item_list>
         <item id="bag1" chance="100"/>

@@ -36,6 +36,24 @@ Character::Character()
 Character::~Character()
 {
     this->footSensor->GetWorld()->DestroyBody(this->footSensor);
+    if(normalAttack)
+    {
+        normalAttack->destroy();
+        normalAttack->release();
+    }
+    
+    if(skill1)
+    {
+        skill1->destroy();
+        skill1->release();
+    }
+    
+    if(skill2)
+    {
+        skill2->destroy();
+        skill2->release();
+    }
+
 }
 
 void Character::changeState(CharacterState *states)
@@ -78,6 +96,8 @@ void Character::setOriginCharacterData(CharacterData data)
 
 void Character::update(float dt)
 {
+     GameObject::update(dt);
+     this->state->update(dt);
     if(this->normalAttack != NULL)
     {
         this->normalAttack->update(dt);
@@ -91,8 +111,8 @@ void Character::update(float dt)
         this->skill2->update(dt);
     }
     //
-    this->state->update(dt);
-    GameObject::update(dt);
+   
+   
     //
     if(this->body->GetLinearVelocity().x >=2)
     {
@@ -461,6 +481,11 @@ void Character::notifyByEffect(CCObject* effect)
     HealthPointEffect* gameEffect = HealthPointEffect::create();
     gameEffect->setHealthPoint(((Effect*)effect)->getHealth());
     EffectManager::getInstance()->runEffect(gameEffect, this->getPositionInPixel());
+    
+    if(this->gameObjectView != NULL)
+    {
+        this->gameObjectView->notifyChange();
+    }
 }
 
 void Character::removeEffect(CCObject* object)
@@ -485,22 +510,4 @@ void Character::destroy()
 {
     this->state->onExitState();
    
-    if(normalAttack)
-    {
-        normalAttack->stopAllAction();
-        normalAttack->release();
-        //        CCLOG("**%d",normalAttack->retainCount());
     }
-    
-    if(skill1)
-    {
-        skill1->stopAllAction();
-        skill1->release();
-    }
-    
-    if(skill2)
-    {
-        skill2->stopAllAction();
-        skill2->release();
-    }
-}

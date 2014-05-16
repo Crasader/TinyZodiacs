@@ -34,6 +34,7 @@ public:
     virtual void checkCollisionDataInBeginContact(PhysicData* data, b2Contact *contact, bool isSideA);
     virtual void checkCollisionDataInEndContact(PhysicData* data, b2Contact *contact, bool isSideA);
     void pickUp(Item* item);
+    virtual void attachSpriteTo(CCNode* node);
     
     CREATE_FUNC(Hero);
 };

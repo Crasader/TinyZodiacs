@@ -52,6 +52,7 @@ bool GameManager::loadResource()
      CCSpriteFrameCache::sharedSpriteFrameCache()->addSpriteFramesWithFile("smoke_spritesheet.plist", "smoke_spritesheet.png");
      CCSpriteFrameCache::sharedSpriteFrameCache()->addSpriteFramesWithFile("item_spritesheet.plist", "item_spritesheet.png");
     CCSpriteFrameCache::sharedSpriteFrameCache()->addSpriteFramesWithFile("pig_spritesheet.plist", "pig_spritesheet.png");
+    CCSpriteFrameCache::sharedSpriteFrameCache()->addSpriteFramesWithFile("healthbar_spritesheet.plist", "healthbar_spritesheet.png");
  
     gbox2d::GB2ShapeCache *sc = gbox2d::GB2ShapeCache::sharedGB2ShapeCache();
     

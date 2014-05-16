@@ -139,7 +139,8 @@ void GameGroup::createTowers(CCArray* listTowerStructDTO, b2World* world)
 
 void GameGroup::attachSpriteToMap(Map* map)
 {
-    map->addChild(character->getSprite(), CHARACTER_LAYER);
+    character->attachSpriteTo(map);
+   
     
     //towers
     CCObject* object = NULL;

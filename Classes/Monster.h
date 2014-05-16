@@ -48,7 +48,7 @@ public:
     virtual void setGroup(Group group);
     virtual void onCreate();
     virtual void destroy();
-    
+    virtual void attachSpriteTo(CCNode* node);
     void setSensor(b2Body* sensor);
     
     void doAction(SensorObject* sensorObject);

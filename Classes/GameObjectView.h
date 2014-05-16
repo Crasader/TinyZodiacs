@@ -16,26 +16,22 @@
 
 USING_NS_CC;
 
-class GameObjectInfoView: public CCNode
+class GameObject;
+class GameObjectView: public CCNode
 {
 private:
 protected:
     GameObject* gameObject;
-    HealthBar* healthBar;
-    CCLabelTTF* textName;
 
 public:
-    GameObjectInfoView();
-    virtual ~GameObjectInfoView();
+    GameObjectView();
+    virtual ~GameObjectView();
     
     virtual bool init();
     virtual void update(float dt);
-    
-    void setHealthBar(HealthBar* healthBar);
-    void setTextName(CCLabelTTF* textName);
+
     void attach(GameObject* gameObject);
-    
-    CREATE_FUNC(GameObjectInfoView);
+    virtual void notifyChange() = 0;
 };
 
 #endif /* defined(__TinyZodiacs__GameObjectInfoView__) */

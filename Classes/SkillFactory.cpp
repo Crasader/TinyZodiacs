@@ -64,6 +64,7 @@ AbstractSkill* SkillFactory::loadXMLFile(const char* id, const char *xmlFileName
             normalAttack = new NormalShootingAttack(holder, SkillType1Parser::parse(result,world));
             
         }
+        normalAttack->onCreate();
         if(isLocal)
         {
             //read texture

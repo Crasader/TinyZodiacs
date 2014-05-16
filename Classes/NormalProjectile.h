@@ -37,7 +37,6 @@ public:
     
     CC_SYNTHESIZE(NormalShootingSkillData, data, Data);
     CC_SYNTHESIZE(Group, group, Group);
-//    CC_SYNTHESIZE_READONLY(GameObject*, holder, Holder);
     
     virtual void remove();
     virtual void checkCollisionDataInBeginContact(PhysicData* data, b2Contact *contact, bool isSideA);

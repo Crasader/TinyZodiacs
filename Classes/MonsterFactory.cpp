@@ -87,8 +87,8 @@ Monster* MonsterFactory::createMonster(MonsterDTO* monsterDTO, CCPoint position,
     monster->setGroup(this->group);
     monster->setLaneID(laneID);
     monster->setlistItem(monsterDTO->listItem);
-    
     monster->onCreate();
+    monster->setGameObjectView(InfoViewCreator::createMonsterView(monster, NULL));
     return monster;
 }
 
@@ -202,7 +202,7 @@ void MonsterFactory::addNewMonster(Monster* monster)
     GameObjectManager::getInstance()->addGameObject(monster);
     this->listMonster->addObject(monster);
     monster->attach(this);
-    this->holder->addChild(monster->getSprite(),CHARACTER_LAYER);
+    monster->attachSpriteTo(this->holder);
 }
 void MonsterFactory::removeMonster(Monster* monster)
 {
