@@ -20,6 +20,7 @@
 #include "TowerDTO.h"
 #include "MonsterFactoryDTO.h"
 #include "MapDTO.h"
+#include "ItemCreator.h"
 
 USING_NS_CC;
 
@@ -29,6 +30,7 @@ private:
 
     CCArray* listMapObject;
     CCArray* listSensorObject;
+    CCArray* listItemCreator;
  
     HealthBar* bar;
     
@@ -48,6 +50,8 @@ public:
     
     void addMapObject(MapObject* mapObject);
     void addSensorObject(SensorObject* sensorObject);
+    void addItemCreator(ItemCreator* itemCreator);
+   
     
     void attachAllMapObject();
     void addParallaxBackground(CCParallaxNode* parallaxBackground);

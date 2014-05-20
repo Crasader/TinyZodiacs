@@ -1,9 +1,9 @@
 <item_list>
     <item id="bag1" image_name="bag_1.png" body_name="bag_1" life_time="1" >
-        <sub_item_list>
+        <item_list>
             <item id="coin1" chance="100" />
             
-        </sub_item_list>
+        </item_list>
            </item>
     <item id="bag2" type="container" image_name="bag_2.png" body_name="bag_2" life_time="1">
         
@@ -18,10 +18,10 @@
 
     </item>
     <item id="container1" type="container" image_name="container_item_1.png" body_name="container1" animation="container1" life_time="11">
-        <sub_item_list>
+        <item_list>
             <item id="coin1" chance="100" />
             <item id="coin2" chance="100" />
 
-        </sub_item_list>
+        </item_list>
     </item>
 </item_list>

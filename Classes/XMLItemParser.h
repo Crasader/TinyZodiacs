@@ -22,7 +22,7 @@
 #define ATTRIBUTE_ITEM_IMAGE_NAME "image_name"
 #define ATTRIBUTE_ITEM_BODY_NAME "body_name"
 #define ATTRIBUTE_ITEM_LIFE_TIME "life_time"
-#define TAG_SUB_ITEM_LIST "sub_item_list"
+#define TAG_SUB_ITEM_LIST "item_list"
 #define TAG_ITEM_AFFECT_LIST "affect_list"
 #define TAG_ITEM_AFFECT "affect"
 #define ATTRIBUTE_ITEM_CHANCE "chance"

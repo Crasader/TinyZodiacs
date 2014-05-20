@@ -21,8 +21,7 @@
 #include "BackgroundDTO.h"
 #include "MapParallaxForeground.h"
 #include "DataCollector.h"
-
-
+#include "ItemCreator.h"
 
 class MapCreator
 {
@@ -37,7 +36,6 @@ public:
     Map* createMap(MapDTO* mapDTO, GameWorld* gameWorld);
     MapParallaxBackground* createParallaxBackground(CCArray* listBackgroundDTO, float width, float height);
     MapParallaxForeground* createParallaxForeground(CCArray* listForegroundDTO, float width, float height);
-
 };
 
 

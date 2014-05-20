@@ -98,6 +98,15 @@ MapDTO* XMLMapParser::getMapDTOFromXMLNode(XMLElement *mapXMLElement)
         mapDTO->listMonsterFactoryDTO->addObject(XMLMapParser::getMonsterFactoryDTOFromXMLNode(element));
     }
     
+    //ITEM CREATOR LIS
+    XMLElement* itemCreatorListXMLNode = mapXMLElement->FirstChildElement(TAG_ITEM_CREATOR_LIST);
+//    
+//    if(itemCreatorListXMLNode!=NULL)
+    for (XMLElement* element = itemCreatorListXMLNode->FirstChildElement(TAG_ITEM_CREATOR); element; element = element->NextSiblingElement())
+    {
+        mapDTO->listItemCreatorDTO->addObject(XMLMapParser::getItemCreatorDTOFromXMLNode(element));
+    }
+//
     return mapDTO;
 }
 
@@ -276,7 +285,34 @@ ItemCreatorDTO* XMLMapParser::getItemCreatorDTOFromXMLNode(XMLElement* itemCreat
     
     int max = XMLHelper::readAttributeInt(itemCreatorXMLElement, ATTRIBUTE_ITEM_CREATOR_MAX, 0);
     float delayMin = XMLHelper::readAttributeFloat(itemCreatorXMLElement, ATTRIBUTE_ITEM_CREATOR_DELAY_MIN, 0);
+    float delayMax = XMLHelper::readAttributeFloat(itemCreatorXMLElement, ATTRIBUTE_ITEM_CREATOR_DELAY_MAX, 0);
+    float beginPositionX;
+    float beginPositionY;
+    float endPositionX;
+    float endPositionY;
     
+    XMLElement* beginPositionXMLElement = itemCreatorXMLElement->FirstChildElement(TAG_ITEM_CREATOR_BEGIN_POSITION);
+    if(beginPositionXMLElement != NULL)
+    {
+        beginPositionX = XMLHelper::readAttributeFloat(beginPositionXMLElement, ATTRIBUTE_POSITION_X, 0);
+        beginPositionY = XMLHelper::readAttributeFloat(beginPositionXMLElement, ATTRIBUTE_POSITION_Y, 0);
+    }
+    
+    XMLElement* endPositionXMLElement = itemCreatorXMLElement->FirstChildElement(TAG_ITEM_CREATOR_END_POSITION);
+    if(endPositionXMLElement != NULL)
+    {
+        endPositionX = XMLHelper::readAttributeFloat(endPositionXMLElement, ATTRIBUTE_POSITION_X, 0);
+        endPositionY = XMLHelper::readAttributeFloat(endPositionXMLElement, ATTRIBUTE_POSITION_Y, 0);
+    }
+    
+    itemCreatorDTO->max = max;
+    itemCreatorDTO->delayMin = delayMin;
+    itemCreatorDTO->delayMax = delayMax;
+    itemCreatorDTO->beginPositionX = beginPositionX;
+    itemCreatorDTO->beginPositionY = beginPositionY;
+    itemCreatorDTO->endPositionX = endPositionX;
+    itemCreatorDTO->endPositionY = endPositionY;
+    itemCreatorDTO->listItem = XMLItemParser::getSubItemStructListFromXMLElement(itemCreatorXMLElement);
     
     return itemCreatorDTO;
 }

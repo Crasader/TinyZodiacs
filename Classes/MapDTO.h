@@ -32,7 +32,7 @@ public:
     CCArray* listSensorObjectDTO;
     CCArray* listTowerStructDTO;
     CCArray* listMonsterFactoryDTO;
-    CCArray* listItemCreateDTO;
+    CCArray* listItemCreatorDTO;
 
     CREATE_FUNC(MapDTO);
 };

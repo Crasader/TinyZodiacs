@@ -418,6 +418,7 @@
 		F5E2929518E6768F00B9B152 /* InfoViewCreator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F5E2929318E6768F00B9B152 /* InfoViewCreator.cpp */; };
 		F5E2929818E6779500B9B152 /* Player.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F5E2929618E6779500B9B152 /* Player.cpp */; };
 		F5E3B9B81917728E00E8FD95 /* MonsterLoader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F5E3B9B61917728E00E8FD95 /* MonsterLoader.cpp */; };
+		F5EA4325192B438000E63C1A /* ItemCreator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F5EA4323192B438000E63C1A /* ItemCreator.cpp */; };
 		F5EAC341191B652700BE083E /* ItemLoader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F5EAC33F191B652700BE083E /* ItemLoader.cpp */; };
 		F5ECC7741929EA4A00328FBE /* coin1_animation.xml in Resources */ = {isa = PBXBuildFile; fileRef = F5ECC7731929EA4A00328FBE /* coin1_animation.xml */; };
 		F5ECC77A192A02CA00328FBE /* BonusItem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F5ECC778192A02CA00328FBE /* BonusItem.cpp */; };
@@ -1203,6 +1204,8 @@
 		F5E2929718E6779500B9B152 /* Player.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Player.h; sourceTree = "<group>"; };
 		F5E3B9B61917728E00E8FD95 /* MonsterLoader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MonsterLoader.cpp; sourceTree = "<group>"; };
 		F5E3B9B71917728E00E8FD95 /* MonsterLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MonsterLoader.h; sourceTree = "<group>"; };
+		F5EA4323192B438000E63C1A /* ItemCreator.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ItemCreator.cpp; sourceTree = "<group>"; };
+		F5EA4324192B438000E63C1A /* ItemCreator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemCreator.h; sourceTree = "<group>"; };
 		F5EAC33F191B652700BE083E /* ItemLoader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ItemLoader.cpp; path = ../Classes/ItemLoader.cpp; sourceTree = "<group>"; };
 		F5EAC340191B652700BE083E /* ItemLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ItemLoader.h; path = ../Classes/ItemLoader.h; sourceTree = "<group>"; };
 		F5ECC7731929EA4A00328FBE /* coin1_animation.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = coin1_animation.xml; sourceTree = "<group>"; };
@@ -2437,6 +2440,8 @@
 				34F7F92C18E16BB70084E87C /* SkillFactory.h */,
 				F5E2929318E6768F00B9B152 /* InfoViewCreator.cpp */,
 				F5E2929418E6768F00B9B152 /* InfoViewCreator.h */,
+				F5EA4323192B438000E63C1A /* ItemCreator.cpp */,
+				F5EA4324192B438000E63C1A /* ItemCreator.h */,
 			);
 			name = Factories;
 			sourceTree = "<group>";
@@ -3027,6 +3032,7 @@
 				15A3D90B1682F7D5002FB0C5 /* b2BlockAllocator.cpp in Sources */,
 				15A3D90C1682F7D5002FB0C5 /* b2Draw.cpp in Sources */,
 				375BD4C61868411B0024609E /* TriggerObj.cpp in Sources */,
+				F5EA4325192B438000E63C1A /* ItemCreator.cpp in Sources */,
 				F5B42875191744CA002DC13B /* HeroLoader.cpp in Sources */,
 				F5EAC341191B652700BE083E /* ItemLoader.cpp in Sources */,
 				375BD4C31868411B0024609E /* ObjectFactory.cpp in Sources */,

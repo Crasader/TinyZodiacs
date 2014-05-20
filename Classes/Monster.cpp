@@ -213,7 +213,6 @@ void Monster::checkCollisionDataInEndContact(PhysicData* holderData, PhysicData*
 
 void Monster::doAction(SensorObject* sensorObject)
 {
-    
     if(sensorObject->getMustStop())
     {
         isStopMove = true;

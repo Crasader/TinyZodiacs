@@ -29,6 +29,8 @@
 #include "GoldItem.h"
 #include "BonusItem.h"
 #include "EffectFactory.h"
+#include "ItemCreator.h"
+#include "ItemCreatorDTO.h"
 
 #define TAG_BODY "body"
 #define TAG_ANIMATION "animation"
@@ -75,6 +77,8 @@ public:
     static Item* createContainerItem(ItemDTO* itemDTO, b2World* world);
     static Item* createGoldItem(ItemDTO* itemDTO, b2World* world);
     static Item* createBonusItem(ItemDTO* itemDTO, b2World* world);
+    static ItemCreator* createItemCreator(ItemCreatorDTO* itemCreatorDTO);
+    
     
 };
 

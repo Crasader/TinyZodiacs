@@ -22,6 +22,7 @@
 #include <string.h>
 #include "ItemCreatorDTO.h"
 #include "XMLHelper.h"
+#include "XMLItemParser.h"
 
 #define TAG_BACKGROUND_LIST "background_list"
 #define TAG_BACKGROUND "background"

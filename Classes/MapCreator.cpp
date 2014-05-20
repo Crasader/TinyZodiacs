@@ -53,6 +53,17 @@ Map* MapCreator::createMap(MapDTO* mapDTO, GameWorld* gameWorld)
         map->addSensorObject(sensorObject);
     }
     
+    object = NULL;
+    CCARRAY_FOREACH(mapDTO->listItemCreatorDTO, object)
+    {
+        ItemCreatorDTO* itemCreatorDTO = dynamic_cast<ItemCreatorDTO*>(object);
+        
+        ItemCreator* itemCreator = ObjectFactory::createItemCreator(itemCreatorDTO);
+        
+        map->addItemCreator(itemCreator);
+    }
+
+    
 //    //    //create background
 //    map->addParallaxBackground(createParallaxBackground(mapDTO->listBackgroundDTO,mapDTO->width,mapDTO->height));
 //    //    //create foreground

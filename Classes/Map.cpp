@@ -23,12 +23,15 @@ Map::Map()
     this->listMapObject->retain();
     this->listSensorObject = CCArray::create();
     this->listSensorObject->retain();
+    this->listItemCreator = CCArray::create();
+    this->listItemCreator->retain();
 }
 
 Map::~Map()
 {
     CC_SAFE_RELEASE_NULL(listMapObject);
     CC_SAFE_RELEASE_NULL(listSensorObject);
+    CC_SAFE_RELEASE_NULL(listItemCreator);
 }
 
 bool Map::init()
@@ -80,6 +83,16 @@ void Map::addSensorObject(SensorObject* sensorObject)
     }
 }
 
+void Map::addItemCreator(ItemCreator* itemCreator)
+{
+    if(itemCreator != NULL)
+    {
+        itemCreator->start();
+        this->listItemCreator->addObject(itemCreator);
+    }
+    
+}
+
 void Map::attachAllMapObject()
 {
     CCObject* object = NULL;
@@ -100,6 +113,7 @@ void Map::addParallaxForeground(CCParallaxNode* parallaxForeground)
 {
     this->addChild(parallaxForeground,FOREGROUND_LAYER );
 }
+
 
 void  Map::BeginContact(b2Contact *contact)
 {

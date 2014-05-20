@@ -424,3 +424,17 @@ Item* ObjectFactory::createBonusItem(ItemDTO* itemDTO, b2World* world)
     return item;
     
 }
+
+ItemCreator* ObjectFactory::createItemCreator(ItemCreatorDTO* itemCreatorDTO)
+{
+    ItemCreator* itemCreator = ItemCreator::create();
+    
+    itemCreator->setMax(itemCreatorDTO->max);
+    itemCreator->setDelayMax(itemCreatorDTO->delayMax);
+    itemCreator->setDelayMin(itemCreatorDTO->delayMin);
+    itemCreator->setBeginPosition(ccp(itemCreatorDTO->beginPositionX, itemCreatorDTO->beginPositionY));
+    itemCreator->setEndPosition(ccp(itemCreatorDTO->endPositionX, itemCreatorDTO->endPositionY));
+    itemCreator->setListItemStructDelayMax(itemCreatorDTO->listItem);
+    
+    return itemCreator;
+}
