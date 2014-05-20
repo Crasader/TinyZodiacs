@@ -45,14 +45,17 @@ public:
 
     virtual void contact(GameObject* contactGameObject);
     virtual void open(GameObject* openGameObject);
-    
+
     void attachSpriteTo(CCNode* node);
-    virtual void checkCollisionDataInBeginContact(PhysicData* data, b2Contact *contact, bool isSideA);
-    virtual void checkCollisionDataInEndContact(PhysicData* data, b2Contact *contact, bool isSideA);
+    virtual void checkCollisionDataInBeginContact(PhysicData* holderData, PhysicData* collisionData, b2Contact *contact);
+    virtual void checkCollisionDataInEndContact(PhysicData* holderData, PhysicData* collisionData, b2Contact *contact);
     
     virtual void attach(Observer* observer);
     virtual void detach(Observer* observer);
     virtual void notifyToDestroy();
+    
+    virtual void BeginContact(b2Contact *contact){};
+    virtual void EndContact(b2Contact *contact){};
     
     CREATE_FUNC(Item);
 };

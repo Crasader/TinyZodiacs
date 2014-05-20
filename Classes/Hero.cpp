@@ -44,7 +44,7 @@ Hero::~Hero()
 
 void Hero::onCreate()
 {
-    
+    Character::onCreate();
 }
 
 uint16  Hero::getCorrectGroup(Group group)
@@ -68,39 +68,27 @@ void Hero::pickUp(Item* item)
     }
 }
 
-void Hero::checkCollisionDataInBeginContact(PhysicData* data, b2Contact *contact, bool isSideA)
+void Hero::checkCollisionDataInBeginContact(PhysicData* holderData, PhysicData* collisionData, b2Contact *contact)
 {
-    Character::checkCollisionDataInBeginContact(data, contact, isSideA);
+    Character::checkCollisionDataInBeginContact(holderData, collisionData, contact);
     
-    if(data->Data == this)
+    if(holderData->Data == this)
     {
-        PhysicData* physicData = NULL;
-        if(isSideA)
-        {
-            physicData = (PhysicData*)contact->GetFixtureB()->GetBody()->GetUserData();
-        }
-        else
-        {
-            physicData = (PhysicData*)contact->GetFixtureA()->GetBody()->GetUserData();
-        }
-        
-        if( physicData != NULL)
+        if( collisionData != NULL)
         {
             
-            switch (data->BodyId)
+            switch (holderData->BodyId)
             {
                 case CHARACTER_FOOT_SENSOR:
                     break;
                 case CHARACTER_BODY:
                 {
-                    if(physicData->BodyId == GAME_ITEM)
+                    
+                    if(collisionData->BodyId == GAME_ITEM)
                     {
                         contact->SetEnabled(false);
-                        Item* item = static_cast<Item*>(physicData->Data);
-                        
+                        Item* item = static_cast<Item*>(collisionData->Data);
                         this->pickUp(item);
-                        
-                        
                     }
                     
                 }
@@ -116,9 +104,9 @@ void Hero::checkCollisionDataInBeginContact(PhysicData* data, b2Contact *contact
     
 }
 
-void Hero::checkCollisionDataInEndContact(PhysicData* data, b2Contact *contact, bool isSideA)
+void Hero::checkCollisionDataInEndContact(PhysicData* holderData, PhysicData* collisionData, b2Contact *contact)
 {
-    Character::checkCollisionDataInEndContact(data, contact, isSideA);
+    Character::checkCollisionDataInEndContact(holderData, collisionData, contact);
 }
 
 void Hero::attachSpriteTo(CCNode* node)

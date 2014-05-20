@@ -14,6 +14,9 @@
 #include "Character.h"
 #include "Effect.h"
 
+#include "AnimationEffect.h"
+#include "EffectManager.h"
+
 NormalAttack::NormalAttack(GameObject* holder, NormalMeleeSkillData data): AbstractSkill(holder,data)
 {
     this->timeTickAction = NULL;
@@ -44,11 +47,17 @@ void NormalAttack::onCreate()
     this->data.getSkillSensor()->SetActive(false);
     this->data.getSkillSensor()->SetBullet(true);
     
-    PhysicData* sensorData = new PhysicData();
-    sensorData->BodyId = SKILL_SENSOR;
-    sensorData->GameObjectID = SKILL_OBJECT;
-    sensorData->Data = this;
-    this->data.getSkillSensor()->SetUserData(sensorData);
+    for (b2Fixture* f = this->data.getSkillSensor()->GetFixtureList(); f; f = f->GetNext())
+    {
+        PhysicData* sensorData = new PhysicData();
+        sensorData->BodyId = SKILL_SENSOR;
+        sensorData->GameObjectID = SKILL_OBJECT;
+        sensorData->FixtureId = SKILL_FIXTURE;
+        sensorData->Data = this;
+        
+        f->SetUserData(sensorData);
+    }
+    //this->data.getSkillSensor()->SetUserData(sensorData);
     
     if(this->data.getSkillAnimation() != NULL && this->data.getSkillAnimation()->getAnimation() != NULL)
     {
@@ -202,7 +211,7 @@ void NormalAttack::stopImmediately()
     }
 }
 
-void NormalAttack::checkCollisionDataInBeginContact(PhysicData* data, b2Contact *contact, bool isSideA)
+void NormalAttack::checkCollisionDataInBeginContact(PhysicData* holderData, PhysicData* collisionData, b2Contact *contact)
 {
 
     if(this->isDisable)
@@ -211,26 +220,26 @@ void NormalAttack::checkCollisionDataInBeginContact(PhysicData* data, b2Contact 
     }
     
 
-    if(data->BodyId == SKILL_SENSOR && data->Data == this )
+    if(holderData->BodyId == SKILL_SENSOR && holderData->Data == this )
 
     {
-        PhysicData* otherData;
-        if(isSideA)
+//        PhysicData* otherData;
+//        if(isSideA)
+//        {
+//            otherData = (PhysicData* )contact->GetFixtureB()->GetBody()->GetUserData();
+//        }
+//        else
+//        {
+//            otherData = (PhysicData* )contact->GetFixtureA()->GetBody()->GetUserData();
+//        }
+        if(collisionData != NULL)
         {
-            otherData = (PhysicData* )contact->GetFixtureB()->GetBody()->GetUserData();
-        }
-        else
-        {
-            otherData = (PhysicData* )contact->GetFixtureA()->GetBody()->GetUserData();
-        }
-        if(otherData != NULL)
-        {
-            switch (otherData->BodyId) {
+            switch (collisionData->BodyId) {
                 case CHARACTER_BODY:
                 {
                     //   if(otherData->GameObjectID == HERO)
                     {
-                        Character* character = (Character*)otherData->Data;
+                        Character* character = (Character*)collisionData->Data;
                         if(character != holder)
                         {
                             if(listTarget != NULL)
@@ -244,10 +253,22 @@ void NormalAttack::checkCollisionDataInBeginContact(PhysicData* data, b2Contact 
                             
                             if(character->getGroup() == this->holder->getGroup())
                             {
+//                                AnimationEffect* effect = AnimationEffect::create();
+//                                effect->setAnimation("effect1-slash");
+//                                effect->sprite->setRotation(CCRANDOM_MINUS1_1()*180);
+//                                effect->sprite->setScale(CCRANDOM_0_1()*2);
+//                                
+//                                EffectManager::getInstance()->runEffect(effect, character->getPositionInPixel());
                                 Util::applyEffectFromList(calculatedSkillData.getListAlliesEffect(), character);
                             }
                             else
                             {
+//                                AnimationEffect* effect = AnimationEffect::create();
+//                                effect->setAnimation("effect1-slash");
+//                                effect->sprite->setRotation(CCRANDOM_MINUS1_1()*180);
+//                                effect->sprite->setScale(CCRANDOM_0_1()*2);
+                                
+//                                EffectManager::getInstance()->runEffect(effect, character->getPositionInPixel());
                                 Util::applyEffectFromList(calculatedSkillData.getListEnemyEffect(), character);
                             }
                         }
@@ -264,7 +285,7 @@ void NormalAttack::checkCollisionDataInBeginContact(PhysicData* data, b2Contact 
     }
 }
 
-void NormalAttack::checkCollisionDataInEndContact(PhysicData* data, b2Contact *contact, bool isSideA)
+void NormalAttack::checkCollisionDataInEndContact(PhysicData* holderData, PhysicData* collisionData, b2Contact *contact)
 {
 
     if(this->isDisable)
@@ -272,24 +293,24 @@ void NormalAttack::checkCollisionDataInEndContact(PhysicData* data, b2Contact *c
         return;
     }
 
-    if(data->BodyId == SKILL_SENSOR && data->Data == this)
+    if(holderData->BodyId == SKILL_SENSOR && holderData->Data == this)
     {
-        PhysicData* otherData;
-        if(isSideA)
-        {
-            otherData = (PhysicData* )contact->GetFixtureB()->GetBody()->GetUserData();
-        }
-        else
-        {
-            otherData = (PhysicData* )contact->GetFixtureA()->GetBody()->GetUserData();
-        }
+//        PhysicData* otherData;
+//        if(isSideA)
+//        {
+//            otherData = (PhysicData* )contact->GetFixtureB()->GetBody()->GetUserData();
+//        }
+//        else
+//        {
+//            otherData = (PhysicData* )contact->GetFixtureA()->GetBody()->GetUserData();
+//        }
         
-        if(otherData != NULL)
+        if(collisionData != NULL)
         {
-            switch (otherData->BodyId) {
+            switch (collisionData->BodyId) {
                 case CHARACTER_BODY:
                 {
-                    Character* character = (Character*)otherData->Data;
+                    Character* character = (Character*)collisionData->Data;
                     
                     if(listTarget != NULL)
                     {

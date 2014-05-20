@@ -87,51 +87,59 @@ void GameObjectManager::removeGameObject(GameObject* object)
 void GameObjectManager::BeginContact(b2Contact *contact)
 {
     
-    if(contact->GetFixtureA()->GetBody()->GetUserData() != NULL)
+    if(contact->GetFixtureA()/*->GetBody()*/->GetUserData() != NULL)
     {
-        PhysicData* data = (PhysicData*)contact->GetFixtureA()->GetBody()->GetUserData();
-        checkCollisionDataInBeginContact(data, contact, true);
+        PhysicData* holderData = (PhysicData*)contact->GetFixtureA()/*->GetBody()*/->GetUserData();
+        PhysicData* collisionData = (PhysicData*)contact->GetFixtureB()/*->GetBody()*/->GetUserData();
+        
+        checkCollisionDataInBeginContact(holderData, collisionData,contact);
     }
     
-    if(contact->GetFixtureB()->GetBody()->GetUserData() != NULL)
+    if(contact->GetFixtureB()/*->GetBody()*/->GetUserData() != NULL)
     {
-        PhysicData* data = (PhysicData*)contact->GetFixtureB()->GetBody()->GetUserData();
-        checkCollisionDataInBeginContact(data, contact, false);
+        PhysicData* holderData = (PhysicData*)contact->GetFixtureB()/*->GetBody()*/->GetUserData();
+        PhysicData* collisionData = (PhysicData*)contact->GetFixtureA()/*->GetBody()*/->GetUserData();
+        
+        checkCollisionDataInBeginContact(holderData, collisionData,contact);
     }
 }
 
 void GameObjectManager::EndContact(b2Contact *contact)
 {
-    if(contact->GetFixtureA()->GetBody()->GetUserData() != NULL)
+    if(contact->GetFixtureA()/*->GetBody()*/->GetUserData() != NULL)
     {
-        PhysicData* data = (PhysicData*)contact->GetFixtureA()->GetBody()->GetUserData();
-        checkCollisionDataInEndContact(data, contact, true);
+        PhysicData* holderData = (PhysicData*)contact->GetFixtureA()/*->GetBody()*/->GetUserData();
+        PhysicData* collisionData = (PhysicData*)contact->GetFixtureB()/*->GetBody()*/->GetUserData();
+
+        checkCollisionDataInEndContact(holderData, collisionData,contact);
     }
     
-    if(contact->GetFixtureB()->GetBody()->GetUserData() != NULL)
+    if(contact->GetFixtureB()/*->GetBody()*/->GetUserData() != NULL)
     {
-        PhysicData* data = (PhysicData*)contact->GetFixtureB()->GetBody()->GetUserData();
-        checkCollisionDataInEndContact(data, contact, false);
+        PhysicData* holderData = (PhysicData*)contact->GetFixtureB()/*->GetBody()*/->GetUserData();
+        PhysicData* collisionData = (PhysicData*)contact->GetFixtureA()/*->GetBody()*/->GetUserData();
+
+        checkCollisionDataInEndContact(holderData, collisionData,contact);
     }
 }
 
 
-void GameObjectManager::checkCollisionDataInBeginContact(PhysicData* data, b2Contact *contact, bool isSideA)
+void GameObjectManager::checkCollisionDataInBeginContact(PhysicData* holderData , PhysicData* collisionData, b2Contact *contact)
 {
-    if(data == NULL || data->Data == NULL)
+    if(holderData == NULL || holderData->Data == NULL)
     {
         return;
     }
     
-    switch (data->BodyId)
+    switch (holderData->BodyId)
     {
         case PROJECTILE:
         {
-            void* pData = data->Data;
+            void* pData = holderData->Data;
             NormalProjectile* projectile = static_cast<NormalProjectile*>(pData);
             if(projectile != NULL)
             {
-                projectile->checkCollisionDataInBeginContact(data, contact, isSideA);
+         //       projectile->checkCollisionDataInBeginContact(holderData, collisionData, contact);
             }
             break;
         }
@@ -141,21 +149,21 @@ void GameObjectManager::checkCollisionDataInBeginContact(PhysicData* data, b2Con
     }
     
     ///
-    switch (data->GameObjectID) {
+    switch (holderData->GameObjectID) {
         case MONSTER:
-            ((Monster*)data->Data)->checkCollisionDataInBeginContact(data,contact,isSideA);
+            ((Monster*)holderData->Data)->checkCollisionDataInBeginContact(holderData, collisionData, contact);
             break;
         case MAP_OBJECT:
-            ((MapObject*)data->Data)->checkCollisionDataInBeginContact(data,contact,isSideA);
+            ((MapObject*)holderData->Data)->checkCollisionDataInBeginContact(holderData, collisionData, contact);
             break;
         case SKILL_OBJECT:
-            ((AbstractSkill*)data->Data)->checkCollisionDataInBeginContact(data,contact,isSideA);
+            ((AbstractSkill*)holderData->Data)->checkCollisionDataInBeginContact(holderData, collisionData, contact);
             break;
         case TOWER:
-            ((Tower*)data->Data)->checkCollisionDataInBeginContact(data,contact,isSideA);
+            ((Tower*)holderData->Data)->checkCollisionDataInBeginContact(holderData, collisionData, contact);
             break;
         case ITEM:
-            ((Item*)data->Data)->checkCollisionDataInBeginContact(data,contact,isSideA);
+            ((Item*)holderData->Data)->checkCollisionDataInBeginContact(holderData, collisionData, contact);
             break;
         default:
             break;
@@ -164,21 +172,21 @@ void GameObjectManager::checkCollisionDataInBeginContact(PhysicData* data, b2Con
     
 }
 
-void GameObjectManager::checkCollisionDataInEndContact(PhysicData* data, b2Contact *contact, bool isSideA)
+void GameObjectManager::checkCollisionDataInEndContact(PhysicData* holderData , PhysicData* collisionData, b2Contact *contact)
 {
-    if(data == NULL || data->Data == NULL)
+    if(holderData == NULL || holderData->Data == NULL)
     {
         return;
     }
     
-    switch (data->BodyId) {
+    switch (holderData->BodyId) {
         case PROJECTILE:
         {
-            void* pData = data->Data;
+            void* pData = holderData->Data;
             NormalProjectile* projectile = (NormalProjectile *)pData;
             if(projectile != NULL)
             {
-                projectile->checkCollisionDataInEndContact(data, contact, isSideA);
+                projectile->checkCollisionDataInEndContact(holderData, collisionData, contact);
             }
             break;
         }
@@ -187,21 +195,21 @@ void GameObjectManager::checkCollisionDataInEndContact(PhysicData* data, b2Conta
     }
  
     ///
-    switch (data->GameObjectID) {
+    switch (holderData->GameObjectID) {
         case MONSTER:
-            ((Monster*)data->Data)->checkCollisionDataInEndContact(data,contact,isSideA);
+            ((Monster*)holderData->Data)->checkCollisionDataInEndContact(holderData, collisionData, contact);
             break;
         case MAP_OBJECT:
-            ((MapObject*)data->Data)->checkCollisionDataInEndContact(data,contact,isSideA);
+            ((MapObject*)holderData->Data)->checkCollisionDataInEndContact(holderData, collisionData, contact);
             break;
         case SKILL_OBJECT:
-            ((AbstractSkill*)data->Data)->checkCollisionDataInEndContact(data,contact,isSideA);
+            ((AbstractSkill*)holderData->Data)->checkCollisionDataInEndContact(holderData, collisionData, contact);
             break;
         case TOWER:
-            ((Tower*)data->Data)->checkCollisionDataInEndContact(data,contact,isSideA);
+            ((Tower*)holderData->Data)->checkCollisionDataInEndContact(holderData, collisionData, contact);
             break;
         case ITEM:
-            ((Item*)data->Data)->checkCollisionDataInEndContact(data,contact,isSideA);
+            ((Item*)holderData->Data)->checkCollisionDataInEndContact(holderData, collisionData, contact);
             break;
 
         default:

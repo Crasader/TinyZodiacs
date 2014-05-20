@@ -73,7 +73,7 @@ void GoldItem::disappear()
 
 void GoldItem::contact(GameObject* contactGameObject)
 {
-    
+    Item::contact(contactGameObject);
 }
 
 void GoldItem::open(GameObject* openGameObject)

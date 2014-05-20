@@ -65,6 +65,7 @@ Hero* ObjectFactory::createHero(HeroDTO* heroDTO, b2World* world, bool isLocal)
     hero->setSkill2(SkillFactory::createSkill(heroDTO->data.getSkill2().c_str(), world, hero, isLocal, SKILL_2_BUTTON));
     
     hero->setGameObjectView(InfoViewCreator::createHeroView(hero, NULL));
+    hero->onCreate();
     return hero;
 }
 
@@ -158,6 +159,12 @@ SensorObject* ObjectFactory::createSensorObject(b2Vec2 dumb,b2World *world, CCPo
     fixDef.shape = &edge;
     fixDef.isSensor = true;
     
+    //set data id
+    PhysicData* data = new PhysicData();
+    data->BodyId = MAP_SENSOR;
+    data->Data = sensorObject;
+    
+    fixDef.userData = data;
     
     b2BodyDef bodyDef;
     bodyDef.type = b2_staticBody;
@@ -170,12 +177,12 @@ SensorObject* ObjectFactory::createSensorObject(b2Vec2 dumb,b2World *world, CCPo
     
     
     
-    //set data id
-    PhysicData* data = new PhysicData();
-    data->BodyId = MAP_SENSOR;
-    data->Data = sensorObject;
-    
-    body->SetUserData(data);
+//    //set data id
+//    PhysicData* data = new PhysicData();
+//    data->BodyId = MAP_SENSOR;
+//    data->Data = sensorObject;
+//    
+//    body->SetUserData(data);
     
     
     sensorObject->setSkin(body, NULL);
@@ -207,6 +214,11 @@ SensorObject* ObjectFactory::createSensorObject(SensorObjectDTO* sensorObjectDTO
     fixDef.shape = &edge;
     fixDef.isSensor = true;
     
+    PhysicData* data = new PhysicData();
+    data->BodyId = MAP_SENSOR;
+    data->Data = sensorObject;
+    fixDef.userData = data;
+    
     
     b2BodyDef bodyDef;
     bodyDef.type = b2_staticBody;
@@ -217,11 +229,11 @@ SensorObject* ObjectFactory::createSensorObject(SensorObjectDTO* sensorObjectDTO
     body->CreateFixture(&fixDef);
     
     //set data id
-    PhysicData* data = new PhysicData();
-    data->BodyId = MAP_SENSOR;
-    data->Data = sensorObject;
+//    PhysicData* data = new PhysicData();
+//    data->BodyId = MAP_SENSOR;
+//    data->Data = sensorObject;
     
-    body->SetUserData(data);
+//    body->SetUserData(data);
     
     sensorObject->setSkin(body, NULL);
     sensorObject->setPositionInPixel(ccp(sensorObjectDTO->x,sensorObjectDTO->y));
@@ -292,7 +304,6 @@ Item* ObjectFactory::createItem(ItemDTO* itemDTO, b2World* world)
             break;
         case GOLD:
             item = createGoldItem(itemDTO, world);
-            
             break;
         default:
             break;

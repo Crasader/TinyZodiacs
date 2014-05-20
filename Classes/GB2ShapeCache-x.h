@@ -94,6 +94,16 @@ namespace gbox2d {
         
         ~GB2ShapeCache() {}
         
+        //NHUTVM
+        /**
+         * Add fixtures for the specified shape to the given body
+         * @param body the body
+         * @param shape the shape name
+         * @param userData the shape userData
+         */
+        bool addFixturesToBody(b2Body *body, const std::string &shape, void* userData);
+
+        
     private:
         std::map<std::string, BodyDef *> shapeObjects; //!< the map of shape objects loaded from the plist
         GB2ShapeCache(void) {}

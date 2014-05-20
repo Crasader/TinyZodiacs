@@ -19,10 +19,11 @@ USING_NS_CC;
 class AnimationEffect: public GameEffect
 {
 private:
-    CCSprite* sprite;
     AnimationObject* animationObject;
 protected:
 public:
+    CCSprite* sprite;
+
     AnimationEffect();
     virtual ~AnimationEffect();
     

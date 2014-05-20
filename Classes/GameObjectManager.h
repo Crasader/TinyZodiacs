@@ -37,8 +37,8 @@ public:
     void BeginContact(b2Contact *contact);
     void EndContact(b2Contact *contact);
     
-    void checkCollisionDataInBeginContact(PhysicData* data, b2Contact *contact, bool isSideA);
-    void checkCollisionDataInEndContact(PhysicData* data, b2Contact *contact, bool isSideA);
+    void checkCollisionDataInBeginContact(PhysicData* holderData , PhysicData* collisionData, b2Contact *contact);
+    void checkCollisionDataInEndContact(PhysicData* holderData , PhysicData* collisionData, b2Contact *contact);
 
     static void release();
    

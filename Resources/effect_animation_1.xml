@@ -1,0 +1,12 @@
+<character_animation name="effect1" plist_name="Slash_default.plist" image_name="Slash_default.png">
+    <animation name="slash" delay="0.05" loop="1">
+        <origin x="0.5" y="0.5" />
+        <framelist>
+            <frame name="slash_1.png" />
+            <frame name="slash_2.png" />
+            <frame name="slash_3.png" />
+            <frame name="slash_4.png" />
+
+        </framelist>
+    </animation>
+</character_animation>

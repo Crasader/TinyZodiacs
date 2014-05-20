@@ -73,6 +73,35 @@ b2AABB Util::getBodyBoundingBoxDynamic(b2Body* body)
     return b2AABB();
 }
 
+b2AABB Util::getFixtureBoundingBoxDynamic(b2Fixture* fixture)
+{
+    if(fixture != NULL)
+    {
+        //        bool bodyState = body->IsActive();
+        //        if(bodyState == false)
+        //        {
+        //            body->SetActive(true);
+        //        }
+        
+        //Calculate b
+        b2AABB aabb;
+        aabb.lowerBound = b2Vec2(FLT_MAX,FLT_MAX);
+        aabb.upperBound = b2Vec2(-FLT_MAX,-FLT_MAX);
+        //        while (fixture != NULL)
+        //        {
+        aabb.Combine(aabb, fixture->GetAABB(0));
+        fixture = fixture->GetNext();
+        //        }
+        
+        //        body->SetActive(bodyState);
+        
+        return aabb;
+    }
+    
+    return b2AABB();
+    
+}
+
 b2Vec2 Util::getb2VecAnchor(b2Body* body, JointDef jointDef)
 {
     if(body == NULL)
@@ -175,6 +204,31 @@ bool Util::bodiesAreTouching( b2Body* body1, b2Body* body2 )
         b2Body* bB = edge->contact->GetFixtureB()->GetBody();
         if ( ( bA == body1 && bB == body2 ) || ( bB == body1 && bA == body2 ) )
             return true;
+    }
+    return false;
+}
+
+bool Util::bodiesAreTouchingFixture( b2Body* body1, b2Fixture* fixture )
+{
+    for (b2ContactEdge* edge = body1->GetContactList(); edge; edge = edge->next)
+    {
+        if ( !edge->contact->IsTouching() )
+            continue;
+        b2Body* mbody = edge->contact->GetFixtureA()->GetBody();
+        b2Fixture* mfixture = edge->contact->GetFixtureB();
+        if (mbody == body1 && mfixture == fixture)
+        {
+            return true;
+        }
+        else
+        {
+            b2Body* mbody = edge->contact->GetFixtureB()->GetBody();
+            b2Fixture* mfixture = edge->contact->GetFixtureA();
+            if (mbody == body1 && mfixture == fixture)
+            {
+                return true;
+            }
+        }
     }
     return false;
 }

@@ -82,6 +82,7 @@ void BonusItem::contact(GameObject* contactGameObject)
             Util::applyEffectFromList(this->listEffectData, gameObject);
         }
     }
+    Item::contact(contactGameObject);
 }
 
 void BonusItem::open(GameObject* openGameObject)

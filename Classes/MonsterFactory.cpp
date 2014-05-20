@@ -76,9 +76,10 @@ Monster* MonsterFactory::createMonster(MonsterDTO* monsterDTO, CCPoint position,
     monster->setSkin(body, monster->getSprite());
       //monster->getSprite()->setVisible(false);
     //load sensor body
-    b2Body *sensorBody = world->CreateBody(&bodyDef);
-    sc->addFixturesToBody(sensorBody, ((MonsterDTO*)monsterDTO)->sensorBody.c_str());
-    monster->setSensor(sensorBody);
+//    b2Body *sensorBody = world->CreateBody(&bodyDef);
+//    sc->addFixturesToBody(sensorBody, ((MonsterDTO*)monsterDTO)->sensorBody.c_str());
+//    monster->setSensor(sensorBody);
+    monster->setSensor(((MonsterDTO*)monsterDTO)->sensorBody.c_str());
     //load skill
     monster->setNormalAttack(SkillFactory::createSkill(monsterDTO->data.getSkill0().c_str(), world, monster, false, SKILL_0_BUTTON));
     //

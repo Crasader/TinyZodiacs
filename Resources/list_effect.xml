@@ -1,5 +1,6 @@
 <list_effect>
     <effect id="cat_normal_attack_affect">
+        
 		<chance>100</chance>
         <crit_chance>1</crit_chance>
         <crit>1.5</crit>
@@ -99,7 +100,7 @@
     </effect>
                 
     <effect id="cat_healing">
-        <animation>effect-aura</animation>
+        <animation>effect1-slash</animation>
         <animation_layer>4</animation_layer>
         <joints>
             <holder x="1" y="1" offsetX="0" offsetY="0"></holder>

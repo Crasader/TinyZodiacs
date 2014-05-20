@@ -40,15 +40,18 @@ bool Item::init()
 void Item::onCreate()
 {
     GameObject::onCreate();
-    
-    PhysicData* physicData = new PhysicData();
-    physicData->BodyId = GAME_ITEM;
-    physicData->GameObjectID = ITEM;
-    physicData->Data = this;
-    this->body->SetUserData(physicData);
+
+    for (b2Fixture* f = this->body->GetFixtureList(); f; f = f->GetNext())
+    {
+        PhysicData* physicData = new PhysicData();
+        physicData->BodyId = GAME_ITEM;
+        physicData->GameObjectID = this->gameObjectID;
+        physicData->Data = this;
+        
+        f->SetUserData(physicData);
+    }
     
     prepareToAppear();
-    
 }
 
 void Item::destroy()
@@ -163,30 +166,21 @@ void Item::open(GameObject* openGameObject)
     
 }
 
-void Item::checkCollisionDataInBeginContact(PhysicData* data, b2Contact *contact, bool isSideA)
+void Item::checkCollisionDataInBeginContact(PhysicData* holderData, PhysicData* collisionData, b2Contact *contact)
 {
+ 
     if(!this->isActive)
     {
         return;
     }
-    if(data->Data == this)
+    if(holderData->Data == this)
     {
-        PhysicData* physicData = NULL;
-        if(isSideA)
+        if(collisionData != NULL)
         {
-            physicData = (PhysicData*)contact->GetFixtureB()->GetBody()->GetUserData();
-        }
-        else
-        {
-            physicData = (PhysicData*)contact->GetFixtureA()->GetBody()->GetUserData();
-        }
-        
-        if(physicData != NULL)
-        {
-            switch (physicData->GameObjectID) {
+            switch (collisionData->GameObjectID) {
                 case SKILL_OBJECT:
                 {
-                    AbstractSkill* skill = static_cast<AbstractSkill*>(physicData->Data);
+                    AbstractSkill* skill = static_cast<AbstractSkill*>(collisionData->Data);
                     if(!skill->getIsDisable())
                     {
                         open(skill->getHolder());
@@ -203,7 +197,7 @@ void Item::checkCollisionDataInBeginContact(PhysicData* data, b2Contact *contact
     
 }
 
-void Item::checkCollisionDataInEndContact(PhysicData* data, b2Contact *contact, bool isSideA)
+void Item::checkCollisionDataInEndContact(PhysicData* holderData, PhysicData* collisionData, b2Contact *contact)
 {
     
 }

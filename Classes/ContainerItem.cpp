@@ -17,7 +17,7 @@ ContainerItem::ContainerItem()
 
 ContainerItem::~ContainerItem()
 {
-    CCLOG("des container");
+
 }
 
 bool ContainerItem::init()

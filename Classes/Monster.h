@@ -22,7 +22,7 @@ class Monster: public Character
 {
 private:    
     CC_SYNTHESIZE(int, laneID, LaneID);
-    CC_SYNTHESIZE_READONLY(b2Body*, sensor, Sensor);
+//    CC_SYNTHESIZE_READONLY(b2Body*, sensor, Sensor);
     CCArray* listTarget;
     Direction defaultDirection;
     CC_SYNTHESIZE(vector<ItemStruct>, listItem, listItem);
@@ -34,8 +34,8 @@ protected:
     virtual uint16 getCorrectGroup(Group group);
     virtual void aimTarget();
 public:
-    void checkCollisionDataInBeginContact(PhysicData* data, b2Contact *contact, bool isSideA);
-    void checkCollisionDataInEndContact(PhysicData* data, b2Contact *contact, bool isSideA);
+    void checkCollisionDataInBeginContact(PhysicData* holderData, PhysicData* collisionData, b2Contact *contact);
+    void checkCollisionDataInEndContact(PhysicData* holderData, PhysicData* collisionData, b2Contact *contact);
     
     bool isStopMove;
     bool isAttack;
@@ -49,6 +49,7 @@ public:
     virtual void destroy();
     virtual void attachSpriteTo(CCNode* node);
     void setSensor(b2Body* sensor);
+    void setSensor(const char* bodyId);
     
     void doAction(SensorObject* sensorObject);
 

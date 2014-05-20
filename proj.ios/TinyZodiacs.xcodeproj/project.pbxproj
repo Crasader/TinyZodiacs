@@ -205,6 +205,9 @@
 		34A91DD8190A462200DED8A3 /* tower_orb_default.png in Resources */ = {isa = PBXBuildFile; fileRef = 34A91DD6190A462200DED8A3 /* tower_orb_default.png */; };
 		34B1273318EF9619005DAF04 /* NormalShootingSkillData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 34B1273118EF9619005DAF04 /* NormalShootingSkillData.cpp */; };
 		34B1273718EF9619005DAF04 /* SkillType1Parser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 34B1273518EF9619005DAF04 /* SkillType1Parser.cpp */; };
+		34D0C9EB19260B0300DDC681 /* effect_animation_1.xml in Resources */ = {isa = PBXBuildFile; fileRef = 34D0C9EA19260B0300DDC681 /* effect_animation_1.xml */; };
+		34D0C9EE19260B1700DDC681 /* Slash_default.plist in Resources */ = {isa = PBXBuildFile; fileRef = 34D0C9EC19260B1700DDC681 /* Slash_default.plist */; };
+		34D0C9EF19260B1700DDC681 /* Slash_default.png in Resources */ = {isa = PBXBuildFile; fileRef = 34D0C9ED19260B1700DDC681 /* Slash_default.png */; };
 		34E614DD191338DC006D933E /* GameGroup.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 34E614DB191338DC006D933E /* GameGroup.cpp */; };
 		34E614E0191339A6006D933E /* MonsterFactory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 34E614DE191339A6006D933E /* MonsterFactory.cpp */; };
 		34E614E319133A2B006D933E /* MonsterCreator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 34E614E119133A2B006D933E /* MonsterCreator.cpp */; };
@@ -819,6 +822,9 @@
 		34B1273218EF9619005DAF04 /* NormalShootingSkillData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NormalShootingSkillData.h; sourceTree = "<group>"; };
 		34B1273518EF9619005DAF04 /* SkillType1Parser.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SkillType1Parser.cpp; sourceTree = "<group>"; };
 		34B1273618EF9619005DAF04 /* SkillType1Parser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SkillType1Parser.h; sourceTree = "<group>"; };
+		34D0C9EA19260B0300DDC681 /* effect_animation_1.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = effect_animation_1.xml; sourceTree = "<group>"; };
+		34D0C9EC19260B1700DDC681 /* Slash_default.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Slash_default.plist; sourceTree = "<group>"; };
+		34D0C9ED19260B1700DDC681 /* Slash_default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Slash_default.png; sourceTree = "<group>"; };
 		34E614DB191338DC006D933E /* GameGroup.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameGroup.cpp; sourceTree = "<group>"; };
 		34E614DC191338DC006D933E /* GameGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameGroup.h; sourceTree = "<group>"; };
 		34E614DE191339A6006D933E /* MonsterFactory.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MonsterFactory.cpp; sourceTree = "<group>"; };
@@ -2715,6 +2721,7 @@
 			isa = PBXGroup;
 			children = (
 				F5ECC7721929EA1500328FBE /* item */,
+				34D0C9EA19260B0300DDC681 /* effect_animation_1.xml */,
 				F5579EC4191DE78600F29241 /* pig_animation.xml */,
 				2DC48A7D1919EEA600B34724 /* creep_1_animation.xml */,
 				F5C769BD1918EEE400CE34AD /* effect_animation.xml */,
@@ -2781,6 +2788,8 @@
 			children = (
 				F5CCA78D191B2E47002A7F2A /* smoke_spritesheet.plist */,
 				F5CCA78E191B2E47002A7F2A /* smoke_spritesheet.png */,
+				34D0C9EC19260B1700DDC681 /* Slash_default.plist */,
+				34D0C9ED19260B1700DDC681 /* Slash_default.png */,
 			);
 			name = Effect;
 			sourceTree = "<group>";
@@ -2929,6 +2938,7 @@
 				34A91DD8190A462200DED8A3 /* tower_orb_default.png in Resources */,
 				F5C89DFF18D2FCE9006E909D /* monkey_spritesheet.png in Resources */,
 				D4EF949E15BD2D9600D803EB /* Icon-72.png in Resources */,
+				34D0C9EE19260B1700DDC681 /* Slash_default.plist in Resources */,
 				F5CCA78F191B2E47002A7F2A /* smoke_spritesheet.plist in Resources */,
 				F5C89E1018D2FF9A006E909D /* 2.png in Resources */,
 				34FD845618DFDCA400373627 /* character_monkey.xml in Resources */,
@@ -2947,6 +2957,7 @@
 				2DC48A7E1919EEA600B34724 /* creep_1_animation.xml in Resources */,
 				D446FD6E16102124000ADA7B /* Default@2x.png in Resources */,
 				2D0DA1401908F65800881C8D /* tower_2_animation.xml in Resources */,
+				34D0C9EF19260B1700DDC681 /* Slash_default.png in Resources */,
 				F5579EC3191DE67900F29241 /* monster_pig.xml in Resources */,
 				2DE1502E191CCDEC001BD65C /* character_body.plist in Resources */,
 				F561F29118D805BE00DD4598 /* map1.xml in Resources */,
@@ -2977,6 +2988,7 @@
 				2D0DA15B1908F72200881C8D /* tower_2_default.plist in Resources */,
 				F50F3DB41925E10C00A2A1B3 /* healthbar_spritesheet.plist in Resources */,
 				F5C89DFB18D2FCB5006E909D /* monkey_animation.xml in Resources */,
+				34D0C9EB19260B0300DDC681 /* effect_animation_1.xml in Resources */,
 				F52678F918EEAEA500CE1E3B /* map1_spritesheet_3.png in Resources */,
 				1AFAF8BD16D35E4900DB1158 /* CloseSelected.png in Resources */,
 				F5CCA7A4191B5F95002A7F2A /* item_list.xml in Resources */,

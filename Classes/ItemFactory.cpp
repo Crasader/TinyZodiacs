@@ -34,11 +34,9 @@ void ItemFactory::setHolder(GameHolder* holder)
 {
     this->holder = holder;
 }
-int ids = 0;
 void ItemFactory::createItem(const char* id, CCPoint position)
 {
-    ids++;
-    CCLOG("creat item");
+
     Item* item = ObjectFactory::createItem(DataCollector::getInstance()->getItemDTOByKey(id), this->holder->worldHolder);
     item->setPositionInPixel(position);
     item->attachSpriteTo(this->holder->nodeHolder);
@@ -48,7 +46,6 @@ void ItemFactory::createItem(const char* id, CCPoint position)
     item->attach(this);
     
     item->getBody()->SetLinearVelocity(b2Vec2(CCRANDOM_MINUS1_1()*3,7));
-    item->id = ids;
 }
 
 void ItemFactory::update(float dt)

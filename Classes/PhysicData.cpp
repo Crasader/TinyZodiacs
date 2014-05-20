@@ -10,5 +10,5 @@
 
 PhysicData::PhysicData()
 {
-    
+    GameObjectID = NONE;
 }

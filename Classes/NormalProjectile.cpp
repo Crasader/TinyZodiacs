@@ -58,11 +58,16 @@ void NormalProjectile::setData(NormalShootingSkillData data, GameObject* holder)
         //set position
         body->SetTransform(getStartPosition(holder, body), data.getRotateAngle());
         //
-        PhysicData* pData= new PhysicData();
-        pData->BodyId = PROJECTILE;
-        pData->Data = this;
-        
-        body->SetUserData(pData);
+        for (b2Fixture* f = this->body->GetFixtureList(); f; f = f->GetNext())
+        {
+            PhysicData* pData= new PhysicData();
+            pData->BodyId = PROJECTILE;
+            pData->GameObjectID = PROJECTILE_OBJECT;
+            pData->FixtureId = PROJECTILE_FIXTURE;
+            pData->Data = this;
+            f->SetUserData(pData);
+        }
+//        body->SetUserData(pData);
         
         //
         this->sprite = CCSprite::create();
@@ -210,27 +215,27 @@ void NormalProjectile::update(float dt)
 }
 
 
-void NormalProjectile::checkCollisionDataInBeginContact(PhysicData* data, b2Contact *contact, bool isSideA)
+void NormalProjectile::checkCollisionDataInBeginContact(PhysicData* holderData, PhysicData* collisionData, b2Contact *contact)
 {
-    PhysicData* otherData;
-    if(isSideA)
-    {
-        otherData = (PhysicData* )contact->GetFixtureB()->GetBody()->GetUserData();
-    }
-    else
-    {
-        otherData = (PhysicData* )contact->GetFixtureA()->GetBody()->GetUserData();
-    }
-    if(otherData == NULL /*|| otherData->Data == this->holder*/)
+//    PhysicData* otherData;
+//    if(isSideA)
+//    {
+//        otherData = (PhysicData* )contact->GetFixtureB()->GetBody()->GetUserData();
+//    }
+//    else
+//    {
+//        otherData = (PhysicData* )contact->GetFixtureA()->GetBody()->GetUserData();
+//    }
+    if(collisionData == NULL /*|| otherData->Data == this->holder*/)
     {
         return;
     }
     //
-    switch (otherData->BodyId)
+    switch (collisionData->BodyId)
     {
         case CHARACTER_BODY:
         {
-            Character* character = (Character*)otherData->Data;
+            Character* character = (Character*)collisionData->Data;
             if(character != NULL /*&& character != holder*/)
             {
                 if(character->getGroup() == /*this->holder->getGroup()*/this->group)
@@ -259,7 +264,7 @@ void NormalProjectile::checkCollisionDataInBeginContact(PhysicData* data, b2Cont
     }
 }
 
-void NormalProjectile::checkCollisionDataInEndContact(PhysicData* data, b2Contact *contact, bool isSideA)
+void NormalProjectile::checkCollisionDataInEndContact(PhysicData* holderData, PhysicData* collisionData, b2Contact *contact)
 {
 //    PhysicData* otherData;
 //    if(isSideA)
