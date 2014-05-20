@@ -73,13 +73,6 @@ b2Joint* joint;
 void Character::setSkin(b2Body *body, CCSprite *sprite)
 {
     GameObject::setSkin(body, sprite);
-    //create foot sensor
-    createFootSensor();
-    
-}
-
-void Character::onCreate()
-{
     //set body data
     for (b2Fixture* f = this->body->GetFixtureList(); f; f = f->GetNext())
     {
@@ -104,7 +97,14 @@ void Character::onCreate()
             f->SetUserData(scharacterData);
         }
     }
- 
+    //create foot sensor
+    createFootSensor();
+    
+}
+
+void Character::onCreate()
+{
+
     this->changeState(new CharacterIdleState(this));
 }
 

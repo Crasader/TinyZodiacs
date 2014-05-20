@@ -219,11 +219,11 @@ void Tower::aimTarget()
         
 //        if(targetPoint.x < towerPoint.x)
 //        {
-//            flipDirection(RIGHT);
+//            flipDirection(LEFT);
 //        }
 //        else
 //        {
-//            flipDirection(LEFT);
+//            flipDirection(RIGHT);
 //        }
       //  CCLOG("%0.4f - %0.4f",towerPoint.x,towerPoint.y);
         
@@ -246,7 +246,7 @@ void Tower::aimTarget()
         NormalShootingSkillData data = attack->getData();
         data.setSpeedX(-sp.x);
         data.setSpeedY(sp.y);
-        data.setRotateAngle(atan2(targetPoint.y - towerPoint.y,targetPoint.x - towerPoint.x));
+        data.setRotateAngle(atan2(targetPoint.y - towerPoint.y,targetPoint.x - towerPoint.x)-3.14);
         attack->setData(data);
     }
     

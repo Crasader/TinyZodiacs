@@ -258,8 +258,6 @@ void GameObject::PreSolve(b2Contact* contact, const b2Manifold* oldManifold)
     //        PhysicData* data = (PhysicData*)contact->GetFixtureB()->GetBody()->GetUserData();
     //        checkCollisionDataInBeginContact(data, contact, false);
     //    }
-    
-    
 }
 void GameObject::PostSolve(b2Contact* contact, const b2ContactImpulse* impulse)
 {

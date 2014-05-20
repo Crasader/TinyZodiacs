@@ -131,22 +131,22 @@ void GameObjectManager::checkCollisionDataInBeginContact(PhysicData* holderData 
         return;
     }
     
-    switch (holderData->BodyId)
-    {
-        case PROJECTILE:
-        {
-            void* pData = holderData->Data;
-            NormalProjectile* projectile = static_cast<NormalProjectile*>(pData);
-            if(projectile != NULL)
-            {
-         //       projectile->checkCollisionDataInBeginContact(holderData, collisionData, contact);
-            }
-            break;
-        }
-        default:
-       
-            break;
-    }
+//    switch (holderData->BodyId)
+//    {
+//        case PROJECTILE:
+//        {
+//            void* pData = holderData->Data;
+//            NormalProjectile* projectile = static_cast<NormalProjectile*>(pData);
+//            if(projectile != NULL)
+//            {
+//                projectile->checkCollisionDataInBeginContact(holderData, collisionData, contact);
+//            }
+//            break;
+//        }
+//        default:
+//       
+//            break;
+//    }
     
     ///
     switch (holderData->GameObjectID) {
@@ -165,6 +165,8 @@ void GameObjectManager::checkCollisionDataInBeginContact(PhysicData* holderData 
         case ITEM:
             ((Item*)holderData->Data)->checkCollisionDataInBeginContact(holderData, collisionData, contact);
             break;
+        case PROJECTILE_OBJECT:
+            ((NormalProjectile*)holderData->Data)->checkCollisionDataInBeginContact(holderData, collisionData, contact);
         default:
             break;
     }
