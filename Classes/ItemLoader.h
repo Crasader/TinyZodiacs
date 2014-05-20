@@ -17,8 +17,6 @@
 
 using namespace tinyxml2;
 
-#define TAG_ITEM "item"
-
 class ItemLoader
 {
 private:

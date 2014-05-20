@@ -7,18 +7,24 @@
 //
 
 #include "Item.h"
+#include "ItemFactory.h"
 
 Item::Item()
 {
-    this->listAffect = CCArray::create();
-    this->listAffect->retain();
+    id = 0;
+    this->gameObjectID = ITEM;
     this->lifeTime = 0;
-    this->canBePickedUp = false;
+    this->isActive = false;
+    this->lifeTimeAction = NULL;
+    
+    this->prepareToAppearAnimation = NULL;
+    this->prepareToDisappearAnimation = NULL;
+    this->appearAnimation = NULL;
 }
 
 Item::~Item()
 {
-    this->listAffect->release();
+    this->sprite->stopAllActions();
 }
 
 bool Item::init()
@@ -34,74 +40,166 @@ bool Item::init()
 void Item::onCreate()
 {
     GameObject::onCreate();
-    this->sprite->setScale(0.2f);
-    CCScaleTo* scaleTo = CCScaleTo::create(0.2f, 1.0f);
-    CCCallFunc* readyToBePickedUp = CCCallFunc::create(this, callfunc_selector(Item::readyToBePickedUp));
-    this->sprite->runAction(CCSequence::create(scaleTo,readyToBePickedUp,NULL));
-    startSchedule();
     
     PhysicData* physicData = new PhysicData();
     physicData->BodyId = GAME_ITEM;
+    physicData->GameObjectID = ITEM;
     physicData->Data = this;
+    this->body->SetUserData(physicData);
     
+    prepareToAppear();
     
-    body->SetUserData(physicData);
 }
 
 void Item::destroy()
 {
-    this->sprite->stopAllActions();
-    if(!this->lifeTimeAction->isDone())
+    
+    if(!this->isDestroyed)
     {
-        ScheduleManager::getInstance()->stopAction(this->lifeTimeAction);
+        this->sprite->stopAllActions();
+        if(this->lifeTimeAction != NULL)
+        {
+            if(!this->lifeTimeAction->isDone())
+            {
+                ScheduleManager::getInstance()->stopAction(this->lifeTimeAction);
+            }
+            this->lifeTimeAction->release();
+        }
     }
-    this->lifeTimeAction->release();
-    
-    ItemFactory::getInstance()->destroyItem(this);
+    GameObject::destroy();
 }
 
-void Item::prepareToDestroy()
+void Item::startSchedule()
 {
-    CCFadeIn* fadeIn = CCFadeIn::create(0.2f);
-    CCFadeOut* fadeOut = CCFadeOut::create(0.2f);
-    
-    CCRepeat* repeat = CCRepeat::create(CCSequence::create(fadeIn,fadeOut,NULL), 5);
-    CCCallFunc* destroyFunction = CCCallFunc::create(this, callfunc_selector(Item::destroy));
-    CCSequence* seq = CCSequence::create(repeat,destroyFunction,NULL);
-
-    this->sprite->runAction(seq);
+    CCCallFunc* disappearFunction = CCCallFunc::create(this, callfunc_selector(Item::prepareToDisappearInTimeOut));
+    this->lifeTimeAction = ScheduleManager::getInstance()->scheduleFunction(disappearFunction, NULL, this->lifeTime, 1);
+    this->lifeTimeAction->retain();
 }
 
-void Item::readyToBePickedUp()
+void Item::prepareToAppear()
 {
+    this->sprite->setScale(0);
+    CCScaleTo* scaleTo = CCScaleTo::create(0.2f, 1.0f);
+    CCCallFunc* appearFunction = CCCallFunc::create(this, callfunc_selector(Item::appear));
+    this->sprite->runAction(CCSequence::create(scaleTo,appearFunction,NULL));
+}
+
+void Item::appear()
+{
+    if(this->appearAnimation != NULL)
+    {
+        CCAnimate* animate = CCAnimate::create(this->appearAnimation->getAnimation());
+        this->sprite->runAction(animate);
+    }
+    
     CCScaleTo* scaleToBig = CCScaleTo::create(0.4f, 1.05f);
     CCScaleTo* scaleToSmall = CCScaleTo::create(0.4f, 1.0f);
     CCRepeatForever* repeateForever = CCRepeatForever::create(CCSequence::create(scaleToBig,scaleToSmall,NULL));
     this->sprite->runAction(repeateForever);
     
-    this->canBePickedUp = true;
+    startSchedule();
+    
+    this->isActive = true;
 }
 
-void Item::prepareToPickedUpAndDestroy(CCNode* node)
+void Item::prepareToDisappearInTimeOut()
 {
-    CCPoint t = node->getPosition() - this->getSprite()->getPosition();
-    this->body->SetLinearVelocity(b2Vec2(t.x/PTM_RATIO,t.y/PTM_RATIO));
+    CCFadeIn* fadeIn = CCFadeIn::create(0.2f);
+    CCFadeOut* fadeOut = CCFadeOut::create(0.2f);
+    
+    CCRepeat* repeat = CCRepeat::create(CCSequence::create(fadeIn,fadeOut,NULL), 5);
+    CCCallFunc* destroyFunction = CCCallFunc::create(this, callfunc_selector(Item::disappear));
+    
+    this->sprite->runAction(CCSequence::create(repeat,destroyFunction,NULL));
+}
+
+void Item::prepareToDisappearInContact(GameObject* contactGameObject)
+{
+    if(contactGameObject != NULL)
+    {
+        CCPoint t = contactGameObject->getPositionInPixel() - this->getSprite()->getPosition();
+        this->body->SetLinearVelocity(b2Vec2(t.x/PTM_RATIO,t.y/PTM_RATIO));
+    }
+    
+    
     this->sprite->setScale(1);
     CCScaleTo* scaleToPickedUp = CCScaleTo::create(0.2f, 0.2);
     CCFadeOut* fadeOut = CCFadeOut::create(0.2f);
-    CCCallFunc* destroyFunction = CCCallFunc::create(this, callfunc_selector(Item::destroy));
+    CCCallFunc* destroyFunction = CCCallFunc::create(this, callfunc_selector(Item::disappear));
+    
     this->sprite->runAction(CCSequence::create(CCSpawn::create(scaleToPickedUp,fadeOut,NULL),destroyFunction,NULL));
 }
 
-void Item::startSchedule()
+void Item::prepareToDisappearInOpen()
 {
-    CCCallFunc* destroyFunction = CCCallFunc::create(this, callfunc_selector(Item::prepareToDestroy));
-    this->lifeTimeAction = ScheduleManager::getInstance()->scheduleFunction(destroyFunction, NULL, this->lifeTime, 1);
-    this->lifeTimeAction->retain();
+    CCArray* arrSeq = CCArray::create();
+    if(this->prepareToDisappearAnimation != NULL)
+    {
+        CCAnimate* animate = CCAnimate::create(this->prepareToDisappearAnimation->getAnimation());
+        arrSeq->addObject(animate);
+    }
+    CCCallFunc* disappearFunction = CCCallFunc::create(this, callfunc_selector(Item::disappear));
+    CCFadeOut* fadeOut = CCFadeOut::create(0.2f);
+    arrSeq->addObject(fadeOut);
+    arrSeq->addObject(disappearFunction);
+    this->sprite->runAction(CCSequence::create(arrSeq));
+}
+
+void Item::disappear()
+{
+    destroy();
+}
+
+void Item::contact(GameObject* contactGameObject)
+{
+    if(!this->isDestroyed)
+    {
+        prepareToDisappearInContact(contactGameObject);
+    }
+}
+
+void Item::open(GameObject* openGameObject)
+{
+    
 }
 
 void Item::checkCollisionDataInBeginContact(PhysicData* data, b2Contact *contact, bool isSideA)
 {
+    if(!this->isActive)
+    {
+        return;
+    }
+    if(data->Data == this)
+    {
+        PhysicData* physicData = NULL;
+        if(isSideA)
+        {
+            physicData = (PhysicData*)contact->GetFixtureB()->GetBody()->GetUserData();
+        }
+        else
+        {
+            physicData = (PhysicData*)contact->GetFixtureA()->GetBody()->GetUserData();
+        }
+        
+        if(physicData != NULL)
+        {
+            switch (physicData->GameObjectID) {
+                case SKILL_OBJECT:
+                {
+                    AbstractSkill* skill = static_cast<AbstractSkill*>(physicData->Data);
+                    if(!skill->getIsDisable())
+                    {
+                        open(skill->getHolder());
+                    }
+                }
+                    break;
+                    
+                    
+                default:
+                    break;
+            }
+        }
+    }
     
 }
 
@@ -109,4 +207,25 @@ void Item::checkCollisionDataInEndContact(PhysicData* data, b2Contact *contact, 
 {
     
 }
+
+void Item::attachSpriteTo(CCNode* node)
+{
+    node->addChild(this->getSprite(),ABOVE_CHARACTER_LAYER);
+}
+
+void Item::attach(Observer* observer)
+{
+    GameObject::attach(observer);
+}
+
+void Item::detach(Observer* observer)
+{
+    GameObject::detach(observer);
+}
+
+void Item::notifyToDestroy()
+{
+    GameObject::notifyToDestroy();
+}
+
 

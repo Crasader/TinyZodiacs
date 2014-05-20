@@ -21,21 +21,16 @@ AbstractSkill::AbstractSkill(GameObject* holder, SkillData data)
     this->holderButton = NULL;
     this->isExcutable = true;
     
-    
     if(holder != NULL)
     {
         this->holder = holder;
-       //     this->holder->retain();
     }
     this->autorelease();
 }
 
 AbstractSkill::~AbstractSkill()
 {
-    if(this->holder != NULL)
-    {
-         //  this->holder->release();
-    }
+    this->holder = NULL;
 }
 
 void AbstractSkill::onCreate()

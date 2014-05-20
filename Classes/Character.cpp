@@ -506,32 +506,28 @@ bool Character::isDead()
 
 void Character::destroy()
 {
-    CCLOG("des monster");
     this->state->onExitState();
     
     if(normalAttack)
     {
         normalAttack->destroy();
-   
     }
     
     if(skill1)
     {
         skill1->destroy();
-    
     }
-    
+
     if(skill2)
     {
         skill2->destroy();
-
     }
-    
+    GameObject::destroy();
 }
 
 void Character::attach(Observer* observer)
 {
-//    CCLOG("character attach %d",this->listObserver.size());
+//    CCLOG("character attach %d",this->listObserver.size());  
     GameObject::attach(observer);
 }
 

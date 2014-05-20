@@ -9,6 +9,7 @@
 #ifndef __TinyZodiacs__Observer__
 #define __TinyZodiacs__Observer__
 
+class Observer;
 #include <iostream>
 #include "GameObject.h"
 #include "cocos2d.h"

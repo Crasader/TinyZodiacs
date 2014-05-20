@@ -76,7 +76,7 @@ bool GameMenuLayer::init()
      label = CCLabelTTF::create("0", "Arial", 30);
     label->setPosition(ccp(500,500));
     label->setAnchorPoint(ccp(0,0));
-    
+   
     this->addChild(label);
     
     this->scheduleUpdate();
@@ -106,6 +106,8 @@ void GameMenuLayer::update(float dt)
     if(this->getParent()->getChildByTag(3)!=NULL)
     {
         label->setString(((GameObjectLayer*)this->getParent()->getChildByTag(3))->text->getCString());
+        
+//        CCSprite* sprite = CCSprite::createWithSpriteFrameName("coin_1_1.png");
     }
 
     

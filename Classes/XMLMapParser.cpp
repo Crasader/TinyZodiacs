@@ -270,3 +270,14 @@ MonsterFactoryDTO* XMLMapParser::getMonsterFactoryDTOFromXMLNode(XMLElement* mon
     return monsterFactoryDTO;
 }
 
+ItemCreatorDTO* XMLMapParser::getItemCreatorDTOFromXMLNode(XMLElement* itemCreatorXMLElement)
+{
+    ItemCreatorDTO* itemCreatorDTO = ItemCreatorDTO::create();
+    
+    int max = XMLHelper::readAttributeInt(itemCreatorXMLElement, ATTRIBUTE_ITEM_CREATOR_MAX, 0);
+    float delayMin = XMLHelper::readAttributeFloat(itemCreatorXMLElement, ATTRIBUTE_ITEM_CREATOR_DELAY_MIN, 0);
+    
+    
+    return itemCreatorDTO;
+}
+

@@ -43,7 +43,7 @@ void GameGroup::joinGame(Group group, b2World* world, Map* map)
     this->monsterFactory->setGroup(this->group);
     //CHARACTER
     
-    this->character = ObjectFactory::getSharedManager()->createHero(DataCollector::getInstance()->getHeroDTOByKey("cat"), world, true);
+    this->character = ObjectFactory::createHero(DataCollector::getInstance()->getHeroDTOByKey("cat"), world, true);
     this->character->setPositionInPixel(ccp(2500,500));
     this->character->setGroup(this->group);
     
@@ -130,7 +130,7 @@ void GameGroup::createTowers(CCArray* listTowerStructDTO, b2World* world)
     CCARRAY_FOREACH(listTowerStructDTO, object)
     {
         TowerStructDTO* towerDTO = static_cast<TowerStructDTO*>(object);
-        Tower* tower = ObjectFactory::getSharedManager()->createTower(towerDTO, world);
+        Tower* tower = ObjectFactory::createTower(towerDTO, world);
         this->listTower->addObject(tower);
         tower->attach(this);
         GameObjectManager::getInstance()->addGameObject(tower);

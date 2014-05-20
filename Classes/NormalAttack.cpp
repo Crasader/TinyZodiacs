@@ -71,7 +71,7 @@ void NormalAttack::onCreate()
 
 void NormalAttack::destroy()
 {
-       stopImmediately();
+    stopImmediately();
     AbstractSkill::destroy();
 }
 

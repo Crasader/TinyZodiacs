@@ -8,7 +8,6 @@
 
 #ifndef __TinyZodiacs__SensorObject__
 #define __TinyZodiacs__SensorObject__
-
 #include <iostream>
 #include "cocos2d.h"
 #include "Box2D/Box2D.h"

@@ -21,11 +21,12 @@ bool ItemLoader::loadDataByFileName(const char *xmlFileName)
     
     XMLElement* docElement = document->FirstChildElement();
     
-    for (XMLElement* element = docElement->FirstChildElement(TAG_ITEM); element;
-         element = element->NextSiblingElement())
+    CCArray* listItemDTO = XMLItemParser::getItemDTOListFromXMLElement(docElement);
+    
+    CCObject* object = NULL;
+    CCARRAY_FOREACH(listItemDTO, object)
     {
-        ItemDTO* itemDTO = XMLItemParser::getItemDTOFromXMLElement(element);
-        
+        ItemDTO* itemDTO = static_cast<ItemDTO*>(object);
         DataCollector::getInstance()->setItemDTO(itemDTO->id.c_str(), itemDTO);
     }
     

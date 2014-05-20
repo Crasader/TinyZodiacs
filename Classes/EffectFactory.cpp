@@ -21,8 +21,7 @@ EffectData* EffectFactory::createEffectData(const char* key)
 
 EffectData* EffectFactory::loadXMLFile(const char* key, const char *xmlFileName)
 {
-    
-    //
+
     EffectData* data = NULL ;
     
     std::string fullPath = CCFileUtils::sharedFileUtils()->fullPathForFilename(xmlFileName);

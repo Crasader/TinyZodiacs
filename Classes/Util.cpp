@@ -48,11 +48,11 @@ b2AABB Util::getBodyBoundingBoxDynamic(b2Body* body)
 {
     if(body != NULL)
     {
-//        bool bodyState = body->IsActive();
-//        if(bodyState == false)
-//        {
-//            body->SetActive(true);
-//        }
+        //        bool bodyState = body->IsActive();
+        //        if(bodyState == false)
+        //        {
+        //            body->SetActive(true);
+        //        }
         
         //Calculate b
         b2AABB aabb;
@@ -65,7 +65,7 @@ b2AABB Util::getBodyBoundingBoxDynamic(b2Body* body)
             fixture = fixture->GetNext();
         }
         
-//        body->SetActive(bodyState);
+        //        body->SetActive(bodyState);
         
         return aabb;
     }
@@ -122,7 +122,7 @@ void Util::setFixtureGroup(b2Fixture* fixture, uint16 group)
     if(fixture != NULL)
     {
         b2Filter filter = fixture->GetFilterData();
-//        filter.groupIndex = group;
+        //        filter.groupIndex = group;
         filter.categoryBits = group;
         switch (group) {
             case GROUP_A:
@@ -144,7 +144,7 @@ void Util::setFixtureGroup(b2Fixture* fixture, uint16 group)
                 filter.maskBits = 0xFFFFFF;
                 break;
             case GROUP_SKILL_DEFAULT:
-            filter.maskBits = 0xFFFFFF ^ GROUP_TERRAIN ^ GROUP_SENSOR ^ GROUP_SKILL_DEFAULT ^ GROUP_MONSTER_SENSOR;
+                filter.maskBits = 0xFFFFFF ^ GROUP_TERRAIN ^ GROUP_SENSOR ^ GROUP_SKILL_DEFAULT ^ GROUP_MONSTER_SENSOR;
                 break;
             case GROUP_SENSOR:
                 filter.maskBits = GROUP_TERRAIN;
@@ -156,7 +156,7 @@ void Util::setFixtureGroup(b2Fixture* fixture, uint16 group)
                 filter.maskBits = GROUP_HERO_A | GROUP_A | GROUP_NEUTRUAL | GROUP_TERRAIN | GROUP_SKILL_DEFAULT| GROUP_MONSTER_SENSOR;
                 break;
             case GROUP_ITEM:
-                filter.maskBits = GROUP_TERRAIN |GROUP_HERO_A | GROUP_HERO_B;
+                filter.maskBits = GROUP_TERRAIN |GROUP_HERO_A | GROUP_HERO_B | GROUP_SKILL_DEFAULT;
                 break;
             default:
                 break;
@@ -184,12 +184,12 @@ bool Util::bodiesArePassingThrough( b2Body* body1, b2Body* body2 )
     for (b2ContactEdge* edge = body1->GetContactList(); edge; edge = edge->next)
     {
         if ( !edge->contact->IsTouching() )
-             continue;
+            continue;
         b2Body* bA = edge->contact->GetFixtureA()->GetBody();
         b2Body* bB = edge->contact->GetFixtureB()->GetBody();
         if ( (( bA == body1 && bB == body2 ) || ( bB == body1 && bA == body2 )) && edge->contact->IsEnabled() == false )
         {
-              return true;
+            return true;
         }
     }
     return false;
@@ -236,3 +236,25 @@ void Util::applyEffectFromList(vector<EffectData> listEffect, GameObject* object
     }
 }
 
+ItemType Util::convertStringToItemType(const char* itemType)
+{
+    ItemType type = BONUS;
+    
+    if(strcasecmp(itemType, "container") == 0)
+    {
+        type = CONTAINER;
+    }
+    else if (strcasecmp(itemType, "bonus") == 0)
+    {
+        type = BONUS;
+    }
+    else if (strcasecmp(itemType, "gold") == 0)
+    {
+        type = GOLD;
+    }
+    else  {
+        //nothing
+    }
+    
+    return type;
+}

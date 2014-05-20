@@ -52,10 +52,10 @@ protected:
     static int readHealthData(tinyxml2::XMLElement* root);
     static int readAttackData(tinyxml2::XMLElement* root);
     static int readDefenseData(tinyxml2::XMLElement* root);
-    static int readSpeedData(tinyxml2::XMLElement* root);
+    static float readSpeedData(tinyxml2::XMLElement* root);
     static float readAttackSpeedData(tinyxml2::XMLElement* root);
     static int readMaxJumpData(tinyxml2::XMLElement* root);
-    static int readJumpHeightData(tinyxml2::XMLElement* root);
+    static float readJumpHeightData(tinyxml2::XMLElement* root);
     static string readAnimationData(tinyxml2::XMLElement* root);
     static string readSkill(tinyxml2::XMLElement* root);
 public:

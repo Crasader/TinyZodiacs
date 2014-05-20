@@ -8,7 +8,7 @@
 
 #ifndef __TinyZodiacs__Observable__
 #define __TinyZodiacs__Observable__
-
+class Observable;
 #include <iostream>
 #include "cocos2d.h"
 #include "Observer.h"
@@ -16,7 +16,6 @@
 using namespace std;
 USING_NS_CC;
 
-class Observer;
 class Observable
 {
 private:

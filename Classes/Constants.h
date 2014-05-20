@@ -31,6 +31,13 @@ enum SkillTarget
     ALLIES
 };
 
+enum ItemType
+{
+    GOLD,
+    BONUS,
+    CONTAINER
+};
+
 struct TextureSelector
 {
     CCSpriteFrame* activeTexture;
@@ -42,6 +49,8 @@ struct ItemStruct
 {
     string itemID;
     float chance;
+    float positionX;
+    float positionY;
 };
 
 struct TowerStruct

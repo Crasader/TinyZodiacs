@@ -213,16 +213,16 @@ void GameWorld::update(float dt)
         world->Step(1/40.000f,8, 1);
     }
     //
-//    GameObjectManager::getInstance()->update(dt);
+    GameObjectManager::getInstance()->update(dt);
 }
 
 
 void GameWorld::draw()
 {
-    ccGLEnableVertexAttribs( kCCVertexAttribFlag_Position );
-    kmGLPushMatrix();
-    world->DrawDebugData();
-    kmGLPopMatrix();
+//    ccGLEnableVertexAttribs( kCCVertexAttribFlag_Position );
+//    kmGLPushMatrix();
+//    world->DrawDebugData();
+//    kmGLPopMatrix();
 }
 
 void GameWorld::setCameraFollowGroup(GameGroup* group)

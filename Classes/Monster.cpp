@@ -28,7 +28,7 @@ Monster::Monster()
 
 Monster::~Monster()
 {
-//    CCLog("des monster");
+    CCLog("des monster");
     this->sensor->SetUserData(NULL);
     this->sensor->SetActive(false);
     this->sensor->GetWorld()->DestroyBody(this->sensor);
@@ -41,7 +41,7 @@ Monster::~Monster()
     EffectManager::getInstance()->runEffect(effect, this->getPositionInPixel());
     
     ItemFactory::getInstance()->createItem(this->listItem[0].itemID.c_str(), this->getPositionInPixel());
-    ItemFactory::getInstance()->createItem(this->listItem[1].itemID.c_str(), this->getPositionInPixel());
+//    ItemFactory::getInstance()->createItem(this->listItem[1].itemID.c_str(), this->getPositionInPixel());
 }
 
 bool Monster::init()
@@ -92,8 +92,6 @@ void Monster::update(float dt)
 void Monster::destroy()
 {
     Character::destroy();
-    notifyToDestroy();
-    GameObjectManager::getInstance()->addObjectRemoved(this);
 }
 
 void Monster::attachSpriteTo(CCNode* node)
@@ -354,25 +352,22 @@ void Monster::setGroup(Group group)
 
 void Monster::onCreate()
 {
-    
+    Character::onCreate();
+  
 }
 
 void Monster::attach(Observer* observer)
 {
-    CCLOG("monster attach");
     GameObject::attach(observer);
 }
 
 void Monster::detach(Observer* observer)
 {
-    CCLOG("monster detach");
     GameObject::detach(observer);
 }
 
 void Monster::notifyToDestroy()
 {
-    CCLOG("monster destory notify");
-
     GameObject::notifyToDestroy();
 }
 

@@ -26,7 +26,7 @@ class AbstractSkill: public CCObject
 {
 private:
 protected:
-    bool isDisable;
+    CC_SYNTHESIZE(bool, isDisable, IsDisable);
     CC_SYNTHESIZE_READONLY(bool, isExcutable, IsExcutable);
     
     virtual void checkCollisionDataInBeginContact(PhysicData* data, b2Contact *contact, bool isSideA) = 0;

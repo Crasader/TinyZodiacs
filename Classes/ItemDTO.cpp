@@ -12,6 +12,7 @@ ItemDTO::ItemDTO()
 {
     this->imageName = "";
     this->bodyName = "";
+    this->animation = "";
     this->positionX = 0;
     this->positionY = 0;
     this->lifeTime = 0;

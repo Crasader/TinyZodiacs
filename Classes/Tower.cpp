@@ -319,10 +319,7 @@ void Tower::onCreate()
 
 void Tower::destroy()
 {
-      GameObjectManager::getInstance()->addObjectRemoved(this);
     Character::destroy();
-    notifyToDestroy();
-  
 }
 
 void Tower::attach(Observer* observer)

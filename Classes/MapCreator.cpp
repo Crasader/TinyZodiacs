@@ -38,7 +38,7 @@ Map* MapCreator::createMap(MapDTO* mapDTO, GameWorld* gameWorld)
     {
         MapObjectDTO* mapObjectDTO = dynamic_cast<MapObjectDTO*>(object);
         
-        MapObject* mapObject = ObjectFactory::getSharedManager()->createMapObject(mapObjectDTO, gameWorld->getWorld());
+        MapObject* mapObject = ObjectFactory::createMapObject(mapObjectDTO, gameWorld->getWorld());
         
         map->addMapObject(mapObject);
     }
@@ -48,15 +48,15 @@ Map* MapCreator::createMap(MapDTO* mapDTO, GameWorld* gameWorld)
     {
         SensorObjectDTO* sensorObjectDTO = dynamic_cast<SensorObjectDTO*>(object);
         
-        SensorObject* sensorObject = ObjectFactory::getSharedManager()->createSensorObject(sensorObjectDTO, gameWorld->getWorld());
+        SensorObject* sensorObject = ObjectFactory::createSensorObject(sensorObjectDTO, gameWorld->getWorld());
         
         map->addSensorObject(sensorObject);
     }
     
-    //    //create background
-  //  map->addParallaxBackground(createParallaxBackground(mapDTO->listBackgroundDTO,mapDTO->width,mapDTO->height));
-    //    //create foreground
-   // map->addParallaxForeground(createParallaxForeground(mapDTO->listForegroundDTO,mapDTO->width,mapDTO->height));
+//    //    //create background
+//    map->addParallaxBackground(createParallaxBackground(mapDTO->listBackgroundDTO,mapDTO->width,mapDTO->height));
+//    //    //create foreground
+//    map->addParallaxForeground(createParallaxForeground(mapDTO->listForegroundDTO,mapDTO->width,mapDTO->height));
     
     return map;
 

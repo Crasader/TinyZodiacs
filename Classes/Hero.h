@@ -21,11 +21,11 @@ class Hero : public Character
 {
 private:
 protected:
-    Hero();
-    ~Hero();
-    
+   
     uint16  getCorrectGroup(Group group);
 public:
+    Hero();
+    ~Hero();
     CC_SYNTHESIZE_RETAIN(CCAnimation*, ghostAnimation, GhostAnimation);
     
     virtual bool init();

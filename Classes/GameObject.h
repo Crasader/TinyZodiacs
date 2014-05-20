@@ -8,7 +8,7 @@
 
 #ifndef __SampleCocosProject__GameObject__
 #define __SampleCocosProject__GameObject__
-
+class GameObject;
 #include <iostream>
 #include <cocos2d.h>
 #include <Box2D/Box2D.h>
@@ -20,16 +20,14 @@
 
 USING_NS_CC;
 
-class GameObjectView;
 enum Direction {LEFT, RIGHT};
 
-
-class Observer;
 class GameObject: public cocos2d::CCObject, public Observable
-
 {
 private:
+    
 protected:
+    bool isDestroyed;
     cocos2d::CCArray* listEffect;
     Direction direction;
     CC_SYNTHESIZE(GameObjectID, gameObjectID, GameObjectID);
@@ -37,6 +35,7 @@ protected:
     CC_SYNTHESIZE(b2Body*, body, Body);
     CC_SYNTHESIZE(CCPoint, spriteAnchorPoint, SpriteAnchorPoint);
     CC_SYNTHESIZE_READONLY(Group, group, Group);
+    
     GameObjectView* gameObjectView;
     
     virtual void updateAllEffect(float dt);

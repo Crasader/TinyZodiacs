@@ -1,13 +1,14 @@
 //
-//  ContainerItem.h
+//  GoldItem.h
 //  TinyZodiacs
 //
-//  Created by Nguyễn Hòa Phát on 5/3/14.
+//  Created by Nguyễn Hòa Phát on 5/20/14.
 //
 //
 
-#ifndef __TinyZodiacs__ContainerItem__
-#define __TinyZodiacs__ContainerItem__
+#ifndef __TinyZodiacs__GoldItem__
+#define __TinyZodiacs__GoldItem__
+
 #include <iostream>
 #include "cocos2d.h"
 #include "Item.h"
@@ -15,15 +16,13 @@
 
 USING_NS_CC;
 using namespace std;
-class ContainerItem: public Item
+class GoldItem: public Item
 {
 private:
-    bool isOpened;
-    CC_SYNTHESIZE(vector<ItemStruct>, listSubItem, listSubItem);
 protected:
 public:
-    ContainerItem();
-    virtual ~ContainerItem();
+    GoldItem();
+    virtual ~GoldItem();
     
     virtual bool init();
     
@@ -41,9 +40,8 @@ public:
     virtual void contact(GameObject* contactGameObject);
     virtual void open(GameObject* openGameObject);
     
-    CREATE_FUNC(ContainerItem);
+    CREATE_FUNC(GoldItem);
     
 };
 
-
-#endif /* defined(__TinyZodiacs__ContainerItem__) */
+#endif /* defined(__TinyZodiacs__GoldItem__) */

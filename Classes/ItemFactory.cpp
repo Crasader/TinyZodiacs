@@ -34,25 +34,35 @@ void ItemFactory::setHolder(GameHolder* holder)
 {
     this->holder = holder;
 }
-
+int ids = 0;
 void ItemFactory::createItem(const char* id, CCPoint position)
 {
-    Item* item = ObjectFactory::getSharedManager()->createItem(DataCollector::getInstance()->getItemDTOByKey(id), this->holder->worldHolder);
+    ids++;
+    CCLOG("creat item");
+    Item* item = ObjectFactory::createItem(DataCollector::getInstance()->getItemDTOByKey(id), this->holder->worldHolder);
     item->setPositionInPixel(position);
-    this->holder->nodeHolder->addChild(item->getSprite(),ABOVE_CHARACTER_LAYER);
+    item->attachSpriteTo(this->holder->nodeHolder);
+    
     this->listItem->addObject(item);
+    GameObjectManager::getInstance()->addGameObject(item);
+    item->attach(this);
     
     item->getBody()->SetLinearVelocity(b2Vec2(CCRANDOM_MINUS1_1()*3,7));
+    item->id = ids;
 }
 
 void ItemFactory::update(float dt)
 {
-    CCObject* object = NULL;
-    CCARRAY_FOREACH(this->listItem, object)
+    for(int i=0; i<this->listItemStructPrepareToCreate.size(); i++)
     {
-        Item* item = static_cast<Item*>(object);
-        item->update(dt);
+        createItem(this->listItemStructPrepareToCreate[i].itemID.c_str(),ccp(this->listItemStructPrepareToCreate[i].positionX, this->listItemStructPrepareToCreate[i].positionY));
     }
+    this->listItemStructPrepareToCreate.clear();
+}
+
+void ItemFactory::addItemPrepareToCreate(ItemStruct itemStruct)
+{
+    this->listItemStructPrepareToCreate.push_back(itemStruct);
 }
 
 void ItemFactory::destroyItem(Item* item)
@@ -61,3 +71,10 @@ void ItemFactory::destroyItem(Item* item)
     this->listItem->removeObject(item);
 }
 
+void ItemFactory::notifyToDestroy(GameObject* gameObject)
+{
+    if(this->listItem->indexOfObject(gameObject) != CC_INVALID_INDEX)
+    {
+        this->listItem->removeObject(gameObject);
+    }
+}

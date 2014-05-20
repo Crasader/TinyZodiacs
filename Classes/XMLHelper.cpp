@@ -91,6 +91,10 @@ std::string  XMLHelper::readAttributeString(const XMLElement* root, const char* 
 {
     if(root != NULL)
     {
+        if(root->Attribute(attributeName) == NULL)
+        {
+            return defaultValue;
+        }
         std::string textValue = root->Attribute(attributeName);
         return textValue;
     }
@@ -101,6 +105,10 @@ int  XMLHelper::readAttributeInt(const XMLElement* root, const char* attributeNa
 {
     if(root != NULL)
     {
+        if(root->Attribute(attributeName) == NULL)
+        {
+            return defaultValue;
+        }
         std::string textValue = root->Attribute(attributeName);
         int value = atoi(textValue.c_str());
         return value;
@@ -112,6 +120,10 @@ float  XMLHelper::readAttributeFloat(const XMLElement* root, const char* attribu
 {
     if(root != NULL)
     {
+        if(root->Attribute(attributeName) == NULL)
+        {
+            return defaultValue;
+        }
         std::string textValue = root->Attribute(attributeName);
         float value = atof(textValue.c_str());
         return value;
@@ -123,6 +135,10 @@ bool  XMLHelper::readAttributeBool(const XMLElement* root, const char* attribute
 {
     if(root != NULL)
     {
+        if(root->Attribute(attributeName) == NULL)
+        {
+            return defaultValue;
+        }
         std::string textValue = root->Attribute(attributeName);
         int value = atoi(textValue.c_str());
         if(value == 0)

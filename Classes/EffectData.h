@@ -45,6 +45,5 @@ public:
     
     EffectData* clonePointer();
     EffectData clone();
-
 };
 #endif /* defined(__TinyZodiacs__EffectData__) */

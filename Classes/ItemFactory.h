@@ -8,7 +8,7 @@
 
 #ifndef __TinyZodiacs__ItemFactory__
 #define __TinyZodiacs__ItemFactory__
-
+class ItemFactory;
 #include <iostream>
 #include "cocos2d.h"
 #include "DataCollector.h"
@@ -18,14 +18,14 @@
 #include "ObjectFactory.h"
 
 USING_NS_CC;
-class Item;
-
-class ItemFactory
+using namespace std;
+class ItemFactory: public Observer
 {
 private:
     ItemFactory();
     GameHolder* holder;
     CCArray* listItem;
+    vector<ItemStruct> listItemStructPrepareToCreate;
 protected:
 
 public:
@@ -37,6 +37,9 @@ public:
     void setHolder(GameHolder* holder);
     void createItem(const char* id, CCPoint position);
     void destroyItem(Item* item);
+    
+    void notifyToDestroy(GameObject* gameObject);
+    void addItemPrepareToCreate(ItemStruct itemStruct);
 };
 
 #endif /* defined(__TinyZodiacs__ItemFactory__) */

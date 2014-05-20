@@ -10,7 +10,7 @@
 
 NormalMeleeSkillData::NormalMeleeSkillData()
 {
-    
+    this->timeTick = 0;
 }
 
 NormalMeleeSkillData::~NormalMeleeSkillData()

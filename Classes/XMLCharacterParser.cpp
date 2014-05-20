@@ -39,9 +39,9 @@ int XMLCharacterParser::readDefenseData(tinyxml2::XMLElement* root)
     return XMLHelper::readInt(root, 0);
 }
 
-int XMLCharacterParser::readSpeedData(tinyxml2::XMLElement* root)
+float XMLCharacterParser::readSpeedData(tinyxml2::XMLElement* root)
 {
-    return XMLHelper::readInt(root, 0);
+    return XMLHelper::readFloat(root, 0);
 }
 
 float XMLCharacterParser::readAttackSpeedData(tinyxml2::XMLElement* root)
@@ -54,9 +54,9 @@ int XMLCharacterParser::readMaxJumpData(tinyxml2::XMLElement* root)
     return XMLHelper::readInt(root, 0);
 }
 
-int XMLCharacterParser::readJumpHeightData(tinyxml2::XMLElement* root)
+float XMLCharacterParser::readJumpHeightData(tinyxml2::XMLElement* root)
 {
-    return XMLHelper::readInt(root, 0);
+    return XMLHelper::readFloat(root, 0);
 }
 
 CharacterDTO* XMLCharacterParser::getCharacterDTOFromXMLElement(XMLElement* characterElement)

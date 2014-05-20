@@ -11,6 +11,7 @@
 
 #include <iostream>
 #include "cocos2d.h"
+#include "Constants.h"
 
 USING_NS_CC;
 using namespace std;
@@ -26,11 +27,17 @@ public:
     virtual bool init();
     
     string id;
+    string type;
     string imageName;
     string bodyName;
+    string animation;
     float positionX;
     float positionY;
     float lifeTime;
+    
+    vector<ItemStruct> listSubItemStruct;
+    vector<string> listAffectID;
+    
     
     CREATE_FUNC(ItemDTO);
 };

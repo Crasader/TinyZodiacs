@@ -14,8 +14,10 @@
 #include "PhysicConstants.h"
 #include "GameObject.h"
 #include "EffectData.h"
+#include "Constants.h"
 #include <vector>
 
+using namespace std;
 class Util
 {
 private:
@@ -30,9 +32,11 @@ public:
     
     static b2Vec2 getb2VecAnchor(b2Body* body, JointDef jointDef);
     static void setFixtureGroup(b2Fixture* fixture, uint16 group);
-    static std::vector<string> getStrTok(const char* string);
+    static vector<string> getStrTok(const char* string);
 
     static void applyEffectFromList(vector<EffectData> listEffect, GameObject* object);
+    
+    static ItemType convertStringToItemType(const char* itemType);
 };
 
 #endif /* defined(__TinyZodiacs__Util__) */

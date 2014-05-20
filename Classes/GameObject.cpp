@@ -17,6 +17,7 @@ USING_NS_CC;
 GameObject::GameObject()
 {
     this->gameObjectID = NONE;
+    this->isDestroyed = false;
     this->isPassingThroughBody = 0;
     this->body = NULL;
     this->sprite = NULL;
@@ -38,6 +39,12 @@ GameObject::~GameObject()
     
     if(this->body != NULL)
     {
+        if(this->body->GetUserData() != NULL)
+        {
+            PhysicData* data = static_cast<PhysicData*>(this->body->GetUserData());
+            delete data;
+        }
+        
         this->body->SetUserData(NULL);
         this->body->GetWorld()->DestroyBody(this->body);
     }
@@ -163,7 +170,6 @@ void GameObject::setAnchorPointForAnimation1(const cocos2d::CCPoint &anchorPoint
     else
     {
         this->sprite->setAnchorPoint(ccp(1-anchorPoint.x,anchorPoint.y));
-        
     }
 }
 
@@ -324,7 +330,7 @@ uint16  GameObject::getCorrectGroup(Group group)
             return GROUP_NEUTRUAL;
         case TERRAIN:
             return GROUP_TERRAIN;
-        case ITEM:
+        case ITEM_GROUP:
             return GROUP_ITEM;
     }
 }
@@ -351,7 +357,12 @@ void GameObject::notifyByEffect(CCObject* effect)
 
 void GameObject::destroy()
 {
-    
+    if(!this->isDestroyed)
+    {
+        this->isDestroyed = true;
+        notifyToDestroy();
+        GameObjectManager::getInstance()->addObjectRemoved(this);
+    }
 }
 
 void GameObject::attach(Observer* observer)

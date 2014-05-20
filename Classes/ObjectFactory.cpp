@@ -20,28 +20,6 @@
 
 USING_NS_CC;
 
-static ObjectFactory* sharedFactory = NULL;
-
-ObjectFactory::ObjectFactory()
-{
-    
-}
-
-ObjectFactory::~ObjectFactory()
-{
-    
-}
-
-ObjectFactory* ObjectFactory::getSharedManager()
-{
-    if (!sharedFactory)
-    {
-        sharedFactory = new ObjectFactory();
-        //  this->sharedFactory->init();
-    }
-    return sharedFactory;
-}
-
 Hero* ObjectFactory::createHero(HeroDTO* heroDTO, b2World* world, bool isLocal)
 {
     Hero* hero = Hero::create();
@@ -63,7 +41,7 @@ Hero* ObjectFactory::createHero(HeroDTO* heroDTO, b2World* world, bool isLocal)
     hero->fallAnimation = DataCollector::getInstance()->getAnimationObjectByKey(fall.append(FALL).c_str());
     hero->flyAnimation = DataCollector::getInstance()->getAnimationObjectByKey(fly.append(FLY).c_str());
     hero->skill1Animation = DataCollector::getInstance()->getAnimationObjectByKey(skill.append(SKILL).c_str());
-   
+    
     hero->attackAnimation->getAnimation()->setDelayPerUnit(hero->getOriginCharacterData().getAttackSpeed());
     
     
@@ -81,11 +59,11 @@ Hero* ObjectFactory::createHero(HeroDTO* heroDTO, b2World* world, bool isLocal)
     hero->setSpriteAnchorPoint(sc->anchorPointForShape(heroDTO->body.c_str()));
     hero->getSprite()->setAnchorPoint(sc->anchorPointForShape(heroDTO->body.c_str()));
     hero->setSkin(body, hero->getSprite());
-
+    
     hero->setNormalAttack(SkillFactory::createSkill(heroDTO->data.getSkill0().c_str(), world, hero, isLocal, SKILL_0_BUTTON));
     hero->setSkill1(SkillFactory::createSkill(heroDTO->data.getSkill1().c_str(), world, hero, isLocal, SKILL_1_BUTTON));
     hero->setSkill2(SkillFactory::createSkill(heroDTO->data.getSkill2().c_str(), world, hero, isLocal, SKILL_2_BUTTON));
- 
+    
     hero->setGameObjectView(InfoViewCreator::createHeroView(hero, NULL));
     return hero;
 }
@@ -101,7 +79,7 @@ MapObject* ObjectFactory::createMapObject(const char *idMapObject, b2World *worl
     const char* nameSprite = (std::string( idMapObject) + std::string(".png")).c_str();
     
     CCSprite* sprite=CCSprite::createWithSpriteFrameName(nameSprite);
-
+    
     //body
     b2BodyDef bodyDef;
     bodyDef.type = b2_staticBody;
@@ -148,7 +126,7 @@ MapObject* ObjectFactory::createMapObject(MapObjectDTO* mapObjectDTO, b2World *w
         mapObject->setSkin(body, sprite);
         mapObject->setCanPass(mapObjectDTO->canPass);
         mapObject->onCreate();
-       
+        
     }
     else
     {
@@ -290,8 +268,8 @@ Tower* ObjectFactory::createTower(TowerStructDTO* towerStructDTO, b2World* world
     tower->setSkin(body, tower->getSprite());
     
     tower->setNormalAttack(SkillFactory::createSkill(towerDTO->data.getSkill0().c_str(), world, tower, false, SKILL_0_BUTTON));
-//    tower->setSkill1(SkillFactory::createSkill(towerDTO->data.getSkill1().c_str(), world, tower, false, SKILL_1_BUTTON));
-//    tower->setSkill2(SkillFactory::createSkill(towerDTO->data.getSkill2().c_str(), world, tower, false, SKILL_2_BUTTON));
+    //    tower->setSkill1(SkillFactory::createSkill(towerDTO->data.getSkill1().c_str(), world, tower, false, SKILL_1_BUTTON));
+    //    tower->setSkill2(SkillFactory::createSkill(towerDTO->data.getSkill2().c_str(), world, tower, false, SKILL_2_BUTTON));
     
     tower->setPositionInPixel(ccp(towerStructDTO->positionX,towerStructDTO->positionY));
     tower->setGroup(towerStructDTO->group);
@@ -301,34 +279,137 @@ Tower* ObjectFactory::createTower(TowerStructDTO* towerStructDTO, b2World* world
 
 Item* ObjectFactory::createItem(ItemDTO* itemDTO, b2World* world)
 {
-    Item* item = Item::create();
+    Item* item = NULL;
     
-     //sprite
+    ItemType itemType = Util::convertStringToItemType(itemDTO->type.c_str());
+    
+    switch (itemType) {
+        case CONTAINER:
+            item = createContainerItem(itemDTO, world);
+            break;
+        case BONUS:
+            item = createBonusItem(itemDTO, world);
+            break;
+        case GOLD:
+            item = createGoldItem(itemDTO, world);
+            
+            break;
+        default:
+            break;
+    }
+    return item;
+}
+
+Item* ObjectFactory::createContainerItem(ItemDTO* itemDTO, b2World* world)
+{
+    ContainerItem* containerItem = ContainerItem::create();
+    containerItem->setlistSubItem(itemDTO->listSubItemStruct);
+    //
+    containerItem->setPrepareToAppearAnimation(DataCollector::getInstance()->getAnimationObjectByKey(string(itemDTO->animation + item_prepareToAppear).c_str()));
+    containerItem->setAppearAnimation(DataCollector::getInstance()->getAnimationObjectByKey(string(itemDTO->animation + item_appear).c_str()));
+    containerItem->setprepareToDisappearAnimation(DataCollector::getInstance()->getAnimationObjectByKey(string(itemDTO->animation + item_prepareToDisappear).c_str()));
+    //sprite
     CCSprite* sprite = CCSprite::createWithSpriteFrameName(itemDTO->imageName.c_str());
+    //body
+    b2BodyDef bodyDef;
+    bodyDef.type = b2_dynamicBody;
+    bodyDef.angle = ccpToAngle(ccp(0,0));
+    bodyDef.fixedRotation = true;
+    
+    b2Body *body = world->CreateBody(&bodyDef);
+    
+    gbox2d::GB2ShapeCache *sc =  gbox2d::GB2ShapeCache::sharedGB2ShapeCache();
+    sc->addFixturesToBody(body, itemDTO->bodyName.c_str());
+    containerItem->setSkin(body, sprite);
+    
+    containerItem->setSpriteAnchorPoint(sc->anchorPointForShape(itemDTO->bodyName.c_str()));
+    containerItem->getSprite()->setAnchorPoint(sc->anchorPointForShape(itemDTO->bodyName.c_str()));
+    
+    containerItem->setPositionInPixel(ccp(itemDTO->positionX,itemDTO->positionY));
+    containerItem->setGroup(ITEM_GROUP);
+    
+    containerItem->setLifeTime(itemDTO->lifeTime);
+    containerItem->onCreate();
+    
+    return containerItem;
+}
+
+Item* ObjectFactory::createGoldItem(ItemDTO* itemDTO, b2World* world)
+{
+    GoldItem* item = GoldItem::create();
+    
+    //sprite
+    CCSprite* sprite = CCSprite::createWithSpriteFrameName(itemDTO->imageName.c_str());
+    
+    item->setPrepareToAppearAnimation(DataCollector::getInstance()->getAnimationObjectByKey(string(itemDTO->animation + item_prepareToAppear).c_str()));
+    item->setAppearAnimation(DataCollector::getInstance()->getAnimationObjectByKey(string(itemDTO->animation + item_appear).c_str()));
+    item->setprepareToDisappearAnimation(DataCollector::getInstance()->getAnimationObjectByKey(string(itemDTO->animation + item_prepareToDisappear).c_str()));
     
     //body
     b2BodyDef bodyDef;
     bodyDef.type = b2_dynamicBody;
     bodyDef.angle = ccpToAngle(ccp(0,0));
-    bodyDef.fixedRotation=true;
-    bodyDef.userData = item;
+    bodyDef.fixedRotation = true;
     
     b2Body *body = world->CreateBody(&bodyDef);
     
     gbox2d::GB2ShapeCache *sc =  gbox2d::GB2ShapeCache::sharedGB2ShapeCache();
     sc->addFixturesToBody(body, itemDTO->bodyName.c_str());
     item->setSkin(body, sprite);
-
+    
     item->setSpriteAnchorPoint(sc->anchorPointForShape(itemDTO->bodyName.c_str()));
     item->getSprite()->setAnchorPoint(sc->anchorPointForShape(itemDTO->bodyName.c_str()));
     
-
     item->setPositionInPixel(ccp(itemDTO->positionX,itemDTO->positionY));
-    item->setGroup(ITEM);
-   
+    item->setGroup(ITEM_GROUP);
+    
     item->setLifeTime(itemDTO->lifeTime);
     item->onCreate();
-    //item->getSprite()->setVisible(false);
-
+    
     return item;
+    
+}
+
+Item* ObjectFactory::createBonusItem(ItemDTO* itemDTO, b2World* world)
+{
+    BonusItem* item = BonusItem::create();
+    
+    vector<EffectData> listEffectData;
+    
+    for(int i = 0; i < itemDTO->listAffectID.size(); i++)
+    {
+        listEffectData.push_back(*EffectFactory::createEffectData(itemDTO->listAffectID[i].c_str()));
+    }
+    
+    item->setListEffectData(listEffectData);
+    //sprite
+    CCSprite* sprite = CCSprite::createWithSpriteFrameName(itemDTO->imageName.c_str());
+    
+    item->setPrepareToAppearAnimation(DataCollector::getInstance()->getAnimationObjectByKey(string(itemDTO->animation + item_prepareToAppear).c_str()));
+    item->setAppearAnimation(DataCollector::getInstance()->getAnimationObjectByKey(string(itemDTO->animation + item_appear).c_str()));
+    item->setprepareToDisappearAnimation(DataCollector::getInstance()->getAnimationObjectByKey(string(itemDTO->animation + item_prepareToDisappear).c_str()));
+    
+    //body
+    b2BodyDef bodyDef;
+    bodyDef.type = b2_dynamicBody;
+    bodyDef.angle = ccpToAngle(ccp(0,0));
+    bodyDef.fixedRotation = true;
+    
+    b2Body *body = world->CreateBody(&bodyDef);
+    
+    gbox2d::GB2ShapeCache *sc =  gbox2d::GB2ShapeCache::sharedGB2ShapeCache();
+    sc->addFixturesToBody(body, itemDTO->bodyName.c_str());
+    item->setSkin(body, sprite);
+    
+    item->setSpriteAnchorPoint(sc->anchorPointForShape(itemDTO->bodyName.c_str()));
+    item->getSprite()->setAnchorPoint(sc->anchorPointForShape(itemDTO->bodyName.c_str()));
+    
+    item->setPositionInPixel(ccp(itemDTO->positionX,itemDTO->positionY));
+    item->setGroup(ITEM_GROUP);
+    
+    item->setLifeTime(itemDTO->lifeTime);
+    item->onCreate();
+    
+    return item;
+    
 }

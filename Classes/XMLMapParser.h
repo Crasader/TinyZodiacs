@@ -20,6 +20,8 @@
 #include "MonsterFactoryDTO.h"
 #include "Util.h"
 #include <string.h>
+#include "ItemCreatorDTO.h"
+#include "XMLHelper.h"
 
 #define TAG_BACKGROUND_LIST "background_list"
 #define TAG_BACKGROUND "background"
@@ -80,6 +82,14 @@
 #define ATTRIBUTE_MONSTER_CREATOR_LANE "lane"
 #define TAG_MONSTER "monster"
 
+//item creator
+#define TAG_ITEM_CREATOR_LIST "item_creator_list"
+#define TAG_ITEM_CREATOR "item_creator"
+#define ATTRIBUTE_ITEM_CREATOR_MAX "max"
+#define ATTRIBUTE_ITEM_CREATOR_DELAY_MIN "delay_min"
+#define ATTRIBUTE_ITEM_CREATOR_DELAY_MAX "delay_max"
+#define TAG_ITEM_CREATOR_BEGIN_POSITION "begin_position"
+#define TAG_ITEM_CREATOR_END_POSITION "end_position"
 
 
 USING_NS_CC;
@@ -96,6 +106,7 @@ public:
     static TowerStructDTO* getTowerStructDTOFromXMLNode(XMLElement* towerXMLElement);
     static MonsterCreatorDTO* getMonsterCreatorDTOFromXMLNode(XMLElement* monsterCreatorXMLElement);
     static MonsterFactoryDTO* getMonsterFactoryDTOFromXMLNode(XMLElement* monsterFactoryXMLElement);
+    static ItemCreatorDTO* getItemCreatorDTOFromXMLNode(XMLElement* itemCreatorXMLElement);
 };
 
 #endif /* defined(__TinyZodiacs__XMLMapParser__) */

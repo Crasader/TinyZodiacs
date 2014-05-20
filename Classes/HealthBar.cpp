@@ -26,17 +26,16 @@ bool HealthBar::init()
     }
 
     
-    this->background = CCSprite::createWithSpriteFrameName("healthbar_type_2.png");
+    this->background = CCSprite::createWithSpriteFrameName("healthbar_type_1.png");
     this->background->setAnchorPoint(ccp(0.5,0.5));
     
-    this->foreground = CCSprite::createWithSpriteFrameName("healthbar_red.png");
+    this->foreground = CCSprite::createWithSpriteFrameName("healthbar_blue.png");
     this->foreground->setAnchorPoint(ccp(0,0.5));
     this->foreground->setPosition(ccp(-this->foreground->getContentSize().width/2,0));
  
     this->addChild(this->foreground);
     this->addChild(this->background);
 
-    
     return true;
 }
 

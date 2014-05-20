@@ -62,7 +62,10 @@ uint16  Hero::getCorrectGroup(Group group)
 
 void Hero::pickUp(Item* item)
 {
-    item->prepareToPickedUpAndDestroy(this->sprite);
+    if(item->getIsActive())
+    {
+        item->contact(this);
+    }
 }
 
 void Hero::checkCollisionDataInBeginContact(PhysicData* data, b2Contact *contact, bool isSideA)
@@ -80,37 +83,36 @@ void Hero::checkCollisionDataInBeginContact(PhysicData* data, b2Contact *contact
         {
             physicData = (PhysicData*)contact->GetFixtureA()->GetBody()->GetUserData();
         }
-
+        
         if( physicData != NULL)
         {
             
-        switch (data->BodyId)
-        {
-            case CHARACTER_FOOT_SENSOR:
-                break;
-            case CHARACTER_BODY:
+            switch (data->BodyId)
             {
-                if(physicData->BodyId == GAME_ITEM)
+                case CHARACTER_FOOT_SENSOR:
+                    break;
+                case CHARACTER_BODY:
                 {
-                    contact->SetEnabled(false);
-                    Item* item = static_cast<Item*>(physicData->Data);
-                    if(item->getCanBePickedUp())
+                    if(physicData->BodyId == GAME_ITEM)
                     {
+                        contact->SetEnabled(false);
+                        Item* item = static_cast<Item*>(physicData->Data);
+                        
                         this->pickUp(item);
+                        
+                        
                     }
-                   
+                    
                 }
-                
+                    break;
+                default:
+                    break;
             }
-                break;
-            default:
-                break;
-        }
         }
         ///
         
     }
-
+    
     
 }
 

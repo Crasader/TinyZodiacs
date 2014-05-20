@@ -58,7 +58,7 @@ enum BodyId
  TOWER_SENSOR ,
  MAP_SENSOR ,
  MONSTER_SENSOR,
-    GAME_ITEM,
+    GAME_ITEM
 };
 
 enum GameObjectID
@@ -68,7 +68,8 @@ enum GameObjectID
     MONSTER,
     MAP_OBJECT,
     SKILL_OBJECT,
-    TOWER
+    TOWER,
+    ITEM
 };
 
 enum FixtureID
@@ -85,7 +86,7 @@ enum Group
     B,
     NEUTRAL,
     TERRAIN,
-    ITEM
+    ITEM_GROUP
 };
 
 #endif

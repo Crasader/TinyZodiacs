@@ -21,14 +21,15 @@ bool AnimationLoader::loadData()
     AnimationLoader::loadDataByFileName("tower_2_animation.xml");
     AnimationLoader::loadDataByFileName("creep_1_animation.xml");
     AnimationLoader::loadDataByFileName("pig_animation.xml");
-
+    AnimationLoader::loadDataByFileName("coin1_animation.xml");
+    AnimationLoader::loadDataByFileName("container_animation.xml");
     return true;
 }
 
 bool AnimationLoader::loadDataByFileName(const char *xmlFileName)
 {
     XMLDocument* document = XMLHelper::getXMLDocument(xmlFileName);
-
+    
     XMLElement* docElement = document->FirstChildElement();
     
     const char* characterName= docElement->Attribute(ATTRIBUTE_NAME);

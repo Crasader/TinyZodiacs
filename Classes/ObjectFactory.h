@@ -23,7 +23,12 @@
 #include "Item.h"
 #include "ItemDTO.h"
 #include "DataCollector.h"
-
+#include "ContainerItem.h"
+#include "Constants.h"
+#include "Util.h"
+#include "GoldItem.h"
+#include "BonusItem.h"
+#include "EffectFactory.h"
 
 #define TAG_BODY "body"
 #define TAG_ANIMATION "animation"
@@ -47,22 +52,30 @@
 #define FLY "-fly"
 #define SKILL "-skill"
 
+//ITEM ANIMATION
+
+#define item_prepareToAppear "-prepareToAppear"
+#define item_appear "-appear"
+#define item_prepareToDisappear "-prepareToDisappear"
+
+
 
 class Item;
 class ObjectFactory
 {
 public:
-    ObjectFactory();
-    ~ObjectFactory();
-
-    static ObjectFactory* getSharedManager();
-    Hero* createHero(HeroDTO* heroDTO, b2World* world, bool isLocal);
-    MapObject* createMapObject(const char *idMapObject, b2World *world);
-    MapObject* createMapObject(MapObjectDTO* mapObjectDTO, b2World *world);
-    SensorObject* createSensorObject(b2Vec2 dumb, b2World *world, CCPoint position);
-    SensorObject* createSensorObject(SensorObjectDTO* sensorObjectDTO, b2World* world);
-    Tower* createTower(TowerStructDTO* towerStructDTO, b2World* world);
-    Item* createItem(ItemDTO* towerDTO, b2World* world);
+    static Hero* createHero(HeroDTO* heroDTO, b2World* world, bool isLocal);
+    static MapObject* createMapObject(const char *idMapObject, b2World *world);
+    static MapObject* createMapObject(MapObjectDTO* mapObjectDTO, b2World *world);
+    static SensorObject* createSensorObject(b2Vec2 dumb, b2World *world, CCPoint position);
+    static SensorObject* createSensorObject(SensorObjectDTO* sensorObjectDTO, b2World* world);
+    static Tower* createTower(TowerStructDTO* towerStructDTO, b2World* world);
+    
+    static Item* createItem(ItemDTO* itemDTO, b2World* world);
+    static Item* createContainerItem(ItemDTO* itemDTO, b2World* world);
+    static Item* createGoldItem(ItemDTO* itemDTO, b2World* world);
+    static Item* createBonusItem(ItemDTO* itemDTO, b2World* world);
+    
 };
 
 #endif /* defined(__SampleCocosProject__ObjectFactory__) */
