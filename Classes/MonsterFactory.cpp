@@ -76,9 +76,10 @@ Monster* MonsterFactory::createMonster(MonsterDTO* monsterDTO, CCPoint position,
     monster->setSkin(body, monster->getSprite());
       //monster->getSprite()->setVisible(false);
     //load sensor body
-    b2Body *sensorBody = world->CreateBody(&bodyDef);
-    sc->addFixturesToBody(sensorBody, ((MonsterDTO*)monsterDTO)->sensorBody.c_str());
-    monster->setSensor(sensorBody);
+//    b2Body *sensorBody = world->CreateBody(&bodyDef);
+//    sc->addFixturesToBody(sensorBody, ((MonsterDTO*)monsterDTO)->sensorBody.c_str());
+//    monster->setSensor(sensorBody);
+    monster->setSensor(((MonsterDTO*)monsterDTO)->sensorBody.c_str());
     //load skill
     monster->setNormalAttack(SkillFactory::createSkill(monsterDTO->data.getSkill0().c_str(), world, monster, false, SKILL_0_BUTTON));
     //
@@ -172,7 +173,7 @@ void MonsterFactory::createMonsterListFromSchedule(CCNode* sender, void* data)
         CCPoint *pos = static_cast<CCPoint*>(params->at(1));
         int* laneID = static_cast<int*>(params->at(2));
         b2World *world = static_cast<b2World*>(params->at(3));
-//        if (this->listMonster->count() <= 1)
+        if (this->listMonster->count() <= 150)
         {
             addNewMonster(createMonster(dto, *pos, *laneID, world));
 

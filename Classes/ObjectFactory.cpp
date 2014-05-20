@@ -180,6 +180,12 @@ SensorObject* ObjectFactory::createSensorObject(b2Vec2 dumb,b2World *world, CCPo
     fixDef.shape = &edge;
     fixDef.isSensor = true;
     
+    //set data id
+    PhysicData* data = new PhysicData();
+    data->BodyId = MAP_SENSOR;
+    data->Data = sensorObject;
+    
+    fixDef.userData = data;
     
     b2BodyDef bodyDef;
     bodyDef.type = b2_staticBody;
@@ -192,12 +198,12 @@ SensorObject* ObjectFactory::createSensorObject(b2Vec2 dumb,b2World *world, CCPo
     
     
     
-    //set data id
-    PhysicData* data = new PhysicData();
-    data->BodyId = MAP_SENSOR;
-    data->Data = sensorObject;
-    
-    body->SetUserData(data);
+//    //set data id
+//    PhysicData* data = new PhysicData();
+//    data->BodyId = MAP_SENSOR;
+//    data->Data = sensorObject;
+//    
+//    body->SetUserData(data);
     
     
     sensorObject->setSkin(body, NULL);
@@ -229,6 +235,11 @@ SensorObject* ObjectFactory::createSensorObject(SensorObjectDTO* sensorObjectDTO
     fixDef.shape = &edge;
     fixDef.isSensor = true;
     
+    PhysicData* data = new PhysicData();
+    data->BodyId = MAP_SENSOR;
+    data->Data = sensorObject;
+    fixDef.userData = data;
+    
     
     b2BodyDef bodyDef;
     bodyDef.type = b2_staticBody;
@@ -239,11 +250,11 @@ SensorObject* ObjectFactory::createSensorObject(SensorObjectDTO* sensorObjectDTO
     body->CreateFixture(&fixDef);
     
     //set data id
-    PhysicData* data = new PhysicData();
-    data->BodyId = MAP_SENSOR;
-    data->Data = sensorObject;
+//    PhysicData* data = new PhysicData();
+//    data->BodyId = MAP_SENSOR;
+//    data->Data = sensorObject;
     
-    body->SetUserData(data);
+//    body->SetUserData(data);
     
     sensorObject->setSkin(body, NULL);
     sensorObject->setPositionInPixel(ccp(sensorObjectDTO->x,sensorObjectDTO->y));

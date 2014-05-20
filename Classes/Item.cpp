@@ -40,12 +40,16 @@ void Item::onCreate()
     this->sprite->runAction(CCSequence::create(scaleTo,readyToBePickedUp,NULL));
     startSchedule();
     
-    PhysicData* physicData = new PhysicData();
-    physicData->BodyId = GAME_ITEM;
-    physicData->Data = this;
+    for (b2Fixture* f = this->body->GetFixtureList(); f; f = f->GetNext())
+    {
+        PhysicData* physicData = new PhysicData();
+        physicData->BodyId = GAME_ITEM;
+        physicData->Data = this;
+        
+        f->SetUserData(physicData);
+    }
     
-    
-    body->SetUserData(physicData);
+    //body->SetUserData(physicData);
 }
 
 void Item::destroy()
@@ -100,12 +104,12 @@ void Item::startSchedule()
     this->lifeTimeAction->retain();
 }
 
-void Item::checkCollisionDataInBeginContact(PhysicData* data, b2Contact *contact, bool isSideA)
+void Item::checkCollisionDataInBeginContact(PhysicData* holderData, PhysicData* collisionData, b2Contact *contact)
 {
     
 }
 
-void Item::checkCollisionDataInEndContact(PhysicData* data, b2Contact *contact, bool isSideA)
+void Item::checkCollisionDataInEndContact(PhysicData* holderData, PhysicData* collisionData, b2Contact *contact)
 {
     
 }

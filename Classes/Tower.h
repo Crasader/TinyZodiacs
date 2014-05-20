@@ -22,13 +22,13 @@ private:
     
     b2Vec2 getStartPoint(b2Body* body, JointDef jointDef);
 protected:
-    CC_SYNTHESIZE(b2Body*, sensor, Sensor);
+    CC_SYNTHESIZE(b2Fixture*, sensor, Sensor);
     
     void createSensor();
     void  setSensorGroup(uint16 group);
     
-    void checkCollisionDataInBeginContact(PhysicData* data, b2Contact *contact, bool isSideA);
-    void checkCollisionDataInEndContact(PhysicData* data, b2Contact *contact, bool isSideA);
+    void checkCollisionDataInBeginContact(PhysicData* holderData, PhysicData* collisionData, b2Contact *contact);
+    void checkCollisionDataInEndContact(PhysicData* holderData, PhysicData* collisionData, b2Contact *contact);
     
     void aimTarget();
     
@@ -50,6 +50,8 @@ public:
     virtual void detach(Observer* observer);
     virtual void notifyToDestroy();
 
+    virtual void flipDirection(Direction direction);
+    
     CREATE_FUNC(Tower);
 };
 #endif /* defined(__TinyZodiacs__Tower__) */

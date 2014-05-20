@@ -28,11 +28,14 @@ void MapObject::update(float dt)
 
 void MapObject::onCreate()
 {
-    PhysicData* data = new PhysicData();//= new PhysicData();
-    data->BodyId = MAP_BASE;
-    data->GameObjectID = MAP_OBJECT;
-    data->Data = this;
-    this->body->SetUserData(data);
-    
+    for (b2Fixture* f = this->body->GetFixtureList(); f; f = f->GetNext())
+    {
+        PhysicData* data = new PhysicData();//= new PhysicData();
+        data->BodyId = MAP_BASE;
+        data->GameObjectID = MAP_OBJECT;
+        data->Data = this;
+//        this->body->SetUserData(data);
+        f->SetUserData(data);
+    }
     this->setGroup(TERRAIN);
 }

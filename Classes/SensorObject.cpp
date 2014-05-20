@@ -38,27 +38,27 @@ void SensorObject::update(float dt)
 void SensorObject::checkCollisionDataInBeginContact(PhysicData* data, b2Contact *contact, bool isSideA)
 {
     
-    if(data->Data == this)
-    {
-        PhysicData* physicData = NULL;
-        if(isSideA)
-        {
-            physicData = (PhysicData*)contact->GetFixtureB()->GetBody()->GetUserData();
-        }
-        else
-        {
-            physicData = (PhysicData*)contact->GetFixtureA()->GetBody()->GetUserData();
-        }
- 
-    }
+//    if(data->Data == this)
+//    {
+//        PhysicData* physicData = NULL;
+//        if(isSideA)
+//        {
+//            physicData = (PhysicData*)contact->GetFixtureB()->GetBody()->GetUserData();
+//        }
+//        else
+//        {
+//            physicData = (PhysicData*)contact->GetFixtureA()->GetBody()->GetUserData();
+//        }
+// 
+//    }
 }
 
 void SensorObject::checkCollisionDataInEndContact(PhysicData* data, b2Contact *contact, bool isSideA)
 {
-    if(data->Data == this)
-    {
-        
-    }
+//    if(data->Data == this)
+//    {
+//        
+//    }
 }
 
 bool SensorObject::checkValidLaneID(int landID)

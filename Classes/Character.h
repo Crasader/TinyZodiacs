@@ -35,8 +35,8 @@ private:
 protected:
     int currentJumpCount;
     
-    void checkCollisionDataInBeginContact(PhysicData* data, b2Contact *contact, bool isSideA);
-    void checkCollisionDataInEndContact(PhysicData* data, b2Contact *contact, bool isSideA);
+    void checkCollisionDataInBeginContact(PhysicData* holderData, PhysicData* collisionData, b2Contact *contact);
+    void checkCollisionDataInEndContact(PhysicData* holderData, PhysicData* collisionData, b2Contact *contact);
     
     virtual void setPhysicGroup(uint16 group);
 public:
@@ -47,7 +47,7 @@ public:
     CC_SYNTHESIZE(bool, isLanding, IsLanding);
     CC_SYNTHESIZE_READONLY(CharacterData, originCharacterData, OriginCharacterData);
     CC_SYNTHESIZE(CharacterData, characterData, characterData);
-    CC_SYNTHESIZE(b2Body*, footSensor, FootSensor);
+    CC_SYNTHESIZE(b2Fixture*, footSensor, FootSensor);
     CC_SYNTHESIZE(AbstractSkill*, normalAttack, NormalAttack);
     CC_SYNTHESIZE(AbstractSkill*, skill1, Skill1);
     CC_SYNTHESIZE(AbstractSkill*, skill2, Skill2);

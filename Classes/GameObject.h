@@ -44,8 +44,8 @@ protected:
     virtual uint16 getCorrectGroup(Group group);
     virtual void setPhysicGroup(uint16 group);
 public:
-    virtual void checkCollisionDataInBeginContact(PhysicData* data, b2Contact *contact, bool isSideA);
-    virtual void checkCollisionDataInEndContact(PhysicData* data, b2Contact *contact, bool isSideA);
+    virtual void checkCollisionDataInBeginContact(PhysicData* holderData, PhysicData* collisionData, b2Contact *contact);
+    virtual void checkCollisionDataInEndContact(PhysicData* holderData, PhysicData* collisionData, b2Contact *contact);
     GameObject();
     ~GameObject();
     float32 isPassingThroughBody;

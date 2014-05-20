@@ -38,7 +38,10 @@ GameObject::~GameObject()
     
     if(this->body != NULL)
     {
-        this->body->SetUserData(NULL);
+        for (b2Fixture* f = this->body->GetFixtureList(); f; f = f->GetNext())
+        {
+            f->SetUserData(NULL);
+        }
         this->body->GetWorld()->DestroyBody(this->body);
     }
     
@@ -80,6 +83,11 @@ void GameObject::excuteScheduledFunction(CCObject* pSender, void *body)
 
 void GameObject::update(float dt)
 {
+//    if(this->sprite != NULL)
+//    {
+//        this->sprite->setScale(0);
+//    }
+    
     updateSpritePositionWithBodyPosition();
     updateAllEffect(dt);
     updateGameObjectView(dt);
@@ -190,31 +198,39 @@ void GameObject::flipDirection(Direction direction)
 
 void GameObject::BeginContact(b2Contact *contact)
 {
-    if(contact->GetFixtureA()->GetBody()->GetUserData() != NULL)
+    if(contact->GetFixtureA()/*->GetBody()*/->GetUserData() != NULL)
     {
-        PhysicData* data = (PhysicData*)contact->GetFixtureA()->GetBody()->GetUserData();
-        checkCollisionDataInBeginContact(data, contact, true);
+        PhysicData* holderData = (PhysicData*)contact->GetFixtureA()/*->GetBody()*/->GetUserData();
+        PhysicData* collisionData = (PhysicData*)contact->GetFixtureB()/*->GetBody()*/->GetUserData();
+
+        checkCollisionDataInBeginContact(holderData, collisionData,contact);
     }
     
-    if(contact->GetFixtureB()->GetBody()->GetUserData() != NULL)
+    if(contact->GetFixtureB()/*->GetBody()*/->GetUserData() != NULL)
     {
-        PhysicData* data = (PhysicData*)contact->GetFixtureB()->GetBody()->GetUserData();
-        checkCollisionDataInBeginContact(data, contact, false);
+        PhysicData* holderData = (PhysicData*)contact->GetFixtureB()/*->GetBody()*/->GetUserData();
+        PhysicData* collisionData = (PhysicData*)contact->GetFixtureA()/*->GetBody()*/->GetUserData();
+        
+        checkCollisionDataInBeginContact(holderData, collisionData,contact);
     }
     
 }
 void GameObject::EndContact(b2Contact *contact)
 {
-    if(contact->GetFixtureA()->GetBody()->GetUserData() != NULL)
+    if(contact->GetFixtureA()/*->GetBody()*/->GetUserData() != NULL)
     {
-        PhysicData* data = (PhysicData*)contact->GetFixtureA()->GetBody()->GetUserData();
-        checkCollisionDataInEndContact(data, contact, true);
+        PhysicData* holderData = (PhysicData*)contact->GetFixtureA()/*->GetBody()*/->GetUserData();
+        PhysicData* collisionData = (PhysicData*)contact->GetFixtureB()/*->GetBody()*/->GetUserData();
+        
+        checkCollisionDataInEndContact(holderData, collisionData,contact);
     }
     
-    if(contact->GetFixtureB()->GetBody()->GetUserData() != NULL)
+    if(contact->GetFixtureB()/*->GetBody()*/->GetUserData() != NULL)
     {
-        PhysicData* data = (PhysicData*)contact->GetFixtureB()->GetBody()->GetUserData();
-        checkCollisionDataInEndContact(data, contact, false);
+        PhysicData* holderData = (PhysicData*)contact->GetFixtureB()/*->GetBody()*/->GetUserData();
+        PhysicData* collisionData = (PhysicData*)contact->GetFixtureA()/*->GetBody()*/->GetUserData();
+        
+        checkCollisionDataInEndContact(holderData, collisionData,contact);
     }
 }
 
@@ -253,11 +269,11 @@ void GameObject::PostSolve(b2Contact* contact, const b2ContactImpulse* impulse)
     //
 }
 
-void GameObject::checkCollisionDataInBeginContact(PhysicData* data, b2Contact *contact, bool isSideA)
+void GameObject::checkCollisionDataInBeginContact(PhysicData* holderData, PhysicData* collisionData, b2Contact *contact)
 {
     
 }
-void GameObject::checkCollisionDataInEndContact(PhysicData* data, b2Contact *contact, bool isSideA)
+void GameObject::checkCollisionDataInEndContact(PhysicData* holderData, PhysicData* collisionData, b2Contact *contact)
 {
     
 }

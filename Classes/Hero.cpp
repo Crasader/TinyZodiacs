@@ -65,58 +65,58 @@ void Hero::pickUp(Item* item)
     item->prepareToPickedUpAndDestroy(this->sprite);
 }
 
-void Hero::checkCollisionDataInBeginContact(PhysicData* data, b2Contact *contact, bool isSideA)
+void Hero::checkCollisionDataInBeginContact(PhysicData* holderData, PhysicData* collisionData, b2Contact *contact)
 {
-    Character::checkCollisionDataInBeginContact(data, contact, isSideA);
+    Character::checkCollisionDataInBeginContact(holderData, collisionData, contact);
     
-    if(data->Data == this)
+    if(holderData->Data == this)
     {
-        PhysicData* physicData = NULL;
-        if(isSideA)
-        {
-            physicData = (PhysicData*)contact->GetFixtureB()->GetBody()->GetUserData();
-        }
-        else
-        {
-            physicData = (PhysicData*)contact->GetFixtureA()->GetBody()->GetUserData();
-        }
-
-        if( physicData != NULL)
+        //        PhysicData* physicData = NULL;
+        //        if(isSideA)
+        //        {
+        //            physicData = (PhysicData*)contact->GetFixtureB()->GetBody()->GetUserData();
+        //        }
+        //        else
+        //        {
+        //            physicData = (PhysicData*)contact->GetFixtureA()->GetBody()->GetUserData();
+        //        }
+        
+        if( collisionData != NULL)
         {
             
-        switch (data->BodyId)
-        {
-            case CHARACTER_FOOT_SENSOR:
-                break;
-            case CHARACTER_BODY:
+            switch (holderData->BodyId)
             {
-                if(physicData->BodyId == GAME_ITEM)
+                case CHARACTER_FOOT_SENSOR:
+                    break;
+                case CHARACTER_BODY:
                 {
-                    contact->SetEnabled(false);
-                    Item* item = static_cast<Item*>(physicData->Data);
-                    if(item->getCanBePickedUp())
+                    if(collisionData->BodyId == GAME_ITEM)
                     {
-                        this->pickUp(item);
+                        contact->SetEnabled(false);
+                        Item* item = static_cast<Item*>(collisionData->Data);
+                        if(item->getCanBePickedUp())
+                        {
+                            this->pickUp(item);
+                        }
+                        
                     }
-                   
+                    
                 }
-                
+                    break;
+                default:
+                    break;
             }
-                break;
-            default:
-                break;
-        }
         }
         ///
         
     }
-
+    
     
 }
 
-void Hero::checkCollisionDataInEndContact(PhysicData* data, b2Contact *contact, bool isSideA)
+void Hero::checkCollisionDataInEndContact(PhysicData* holderData, PhysicData* collisionData, b2Contact *contact)
 {
-    Character::checkCollisionDataInEndContact(data, contact, isSideA);
+    Character::checkCollisionDataInEndContact(holderData, collisionData, contact);
 }
 
 void Hero::attachSpriteTo(CCNode* node)

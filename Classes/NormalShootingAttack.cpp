@@ -143,27 +143,27 @@ void NormalShootingAttack::setExcuteAble()
     }
 }
 
-void NormalShootingAttack::checkCollisionDataInBeginContact(PhysicData* data, b2Contact *contact, bool isSideA)
+void NormalShootingAttack::checkCollisionDataInBeginContact(PhysicData* holderData, PhysicData* collisionData, b2Contact *contact)
 {
     if(this->isDisable)
     {
         return;
     }
-    if(data ==NULL || data->Data == NULL)
-    {
-        return;
-    }
+//    if(data ==NULL || data->Data == NULL)
+//    {
+//        return;
+//    }
 
 }
 
-void NormalShootingAttack::checkCollisionDataInEndContact(PhysicData* data, b2Contact *contact, bool isSideA)
+void NormalShootingAttack::checkCollisionDataInEndContact(PhysicData* holderData, PhysicData* collisionData, b2Contact *contact)
 {
     if(this->isDisable)
     {
         return;
     }
-    if(data == NULL || data->Data == NULL)
-    {
-        return;
-    }
+//    if(data == NULL || data->Data == NULL)
+//    {
+//        return;
+//    }
 }

@@ -48,11 +48,11 @@ b2AABB Util::getBodyBoundingBoxDynamic(b2Body* body)
 {
     if(body != NULL)
     {
-//        bool bodyState = body->IsActive();
-//        if(bodyState == false)
-//        {
-//            body->SetActive(true);
-//        }
+        //        bool bodyState = body->IsActive();
+        //        if(bodyState == false)
+        //        {
+        //            body->SetActive(true);
+        //        }
         
         //Calculate b
         b2AABB aabb;
@@ -65,12 +65,41 @@ b2AABB Util::getBodyBoundingBoxDynamic(b2Body* body)
             fixture = fixture->GetNext();
         }
         
-//        body->SetActive(bodyState);
+        //        body->SetActive(bodyState);
         
         return aabb;
     }
     
     return b2AABB();
+}
+
+b2AABB Util::getFixtureBoundingBoxDynamic(b2Fixture* fixture)
+{
+    if(fixture != NULL)
+    {
+        //        bool bodyState = body->IsActive();
+        //        if(bodyState == false)
+        //        {
+        //            body->SetActive(true);
+        //        }
+        
+        //Calculate b
+        b2AABB aabb;
+        aabb.lowerBound = b2Vec2(FLT_MAX,FLT_MAX);
+        aabb.upperBound = b2Vec2(-FLT_MAX,-FLT_MAX);
+        //        while (fixture != NULL)
+        //        {
+        aabb.Combine(aabb, fixture->GetAABB(0));
+        fixture = fixture->GetNext();
+        //        }
+        
+        //        body->SetActive(bodyState);
+        
+        return aabb;
+    }
+    
+    return b2AABB();
+    
 }
 
 b2Vec2 Util::getb2VecAnchor(b2Body* body, JointDef jointDef)
@@ -122,7 +151,7 @@ void Util::setFixtureGroup(b2Fixture* fixture, uint16 group)
     if(fixture != NULL)
     {
         b2Filter filter = fixture->GetFilterData();
-//        filter.groupIndex = group;
+        //        filter.groupIndex = group;
         filter.categoryBits = group;
         switch (group) {
             case GROUP_A:
@@ -144,7 +173,7 @@ void Util::setFixtureGroup(b2Fixture* fixture, uint16 group)
                 filter.maskBits = 0xFFFFFF;
                 break;
             case GROUP_SKILL_DEFAULT:
-            filter.maskBits = 0xFFFFFF ^ GROUP_TERRAIN ^ GROUP_SENSOR ^ GROUP_SKILL_DEFAULT ^ GROUP_MONSTER_SENSOR;
+                filter.maskBits = 0xFFFFFF ^ GROUP_TERRAIN ^ GROUP_SENSOR ^ GROUP_SKILL_DEFAULT ^ GROUP_MONSTER_SENSOR;
                 break;
             case GROUP_SENSOR:
                 filter.maskBits = GROUP_TERRAIN;
@@ -179,17 +208,42 @@ bool Util::bodiesAreTouching( b2Body* body1, b2Body* body2 )
     return false;
 }
 
+bool Util::bodiesAreTouchingFixture( b2Body* body1, b2Fixture* fixture )
+{
+    for (b2ContactEdge* edge = body1->GetContactList(); edge; edge = edge->next)
+    {
+        if ( !edge->contact->IsTouching() )
+            continue;
+        b2Body* mbody = edge->contact->GetFixtureA()->GetBody();
+        b2Fixture* mfixture = edge->contact->GetFixtureB();
+        if (mbody == body1 && mfixture == fixture)
+        {
+            return true;
+        }
+        else
+        {
+            b2Body* mbody = edge->contact->GetFixtureB()->GetBody();
+            b2Fixture* mfixture = edge->contact->GetFixtureA();
+            if (mbody == body1 && mfixture == fixture)
+            {
+                return true;
+            }
+        }
+    }
+    return false;
+}
+
 bool Util::bodiesArePassingThrough( b2Body* body1, b2Body* body2 )
 {
     for (b2ContactEdge* edge = body1->GetContactList(); edge; edge = edge->next)
     {
         if ( !edge->contact->IsTouching() )
-             continue;
+            continue;
         b2Body* bA = edge->contact->GetFixtureA()->GetBody();
         b2Body* bB = edge->contact->GetFixtureB()->GetBody();
         if ( (( bA == body1 && bB == body2 ) || ( bB == body1 && bA == body2 )) && edge->contact->IsEnabled() == false )
         {
-              return true;
+            return true;
         }
     }
     return false;

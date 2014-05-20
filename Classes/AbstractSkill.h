@@ -29,8 +29,8 @@ protected:
     bool isDisable;
     CC_SYNTHESIZE_READONLY(bool, isExcutable, IsExcutable);
     
-    virtual void checkCollisionDataInBeginContact(PhysicData* data, b2Contact *contact, bool isSideA) = 0;
-    virtual void checkCollisionDataInEndContact(PhysicData* data, b2Contact *contact, bool isSideA) = 0;
+    virtual void checkCollisionDataInBeginContact(PhysicData* holderData, PhysicData* collisionData, b2Contact *contact) = 0;
+    virtual void checkCollisionDataInEndContact(PhysicData* holderData, PhysicData* collisionData, b2Contact *contact) = 0;
     
     virtual void setExcuteAble() = 0;
     
