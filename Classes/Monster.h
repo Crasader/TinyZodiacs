@@ -9,6 +9,8 @@
 #ifndef __Headball__Monster__
 #define __Headball__Monster__
 
+class Monster;
+
 #include <iostream>
 #include "cocos2d.h"
 #include "Character.h"
@@ -50,6 +52,7 @@ public:
     virtual void attachSpriteTo(CCNode* node);
     void setSensor(b2Body* sensor);
     void setSensor(const char* bodyId);
+    void dropItem();
     
     void doAction(SensorObject* sensorObject);
 

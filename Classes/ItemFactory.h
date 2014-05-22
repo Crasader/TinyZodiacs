@@ -35,7 +35,7 @@ public:
     void update(float dt);
     
     void setHolder(GameHolder* holder);
-    void createItem(const char* id, CCPoint position);
+    Item* createItem(const char* id, CCPoint position);
     void destroyItem(Item* item);
     
     void notifyToDestroy(GameObject* gameObject);

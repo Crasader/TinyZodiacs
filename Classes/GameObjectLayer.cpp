@@ -127,12 +127,7 @@ void GameObjectLayer::ccTouchesBegan(cocos2d::CCSet *pTouches, cocos2d::CCEvent 
     
     text->retain();
    // text->retain();
-    
-    HealthPointEffect* effect = HealthPointEffect::create();
-    effect->setHealthPoint(100);
-    
-  //  EffectManager::getInstance()->runEffect(effect, temp);
-    
+
     
 }
 

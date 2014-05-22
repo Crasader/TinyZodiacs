@@ -24,6 +24,8 @@ MapDTO::MapDTO()
     this->listMonsterFactoryDTO->retain();
     this->listItemCreatorDTO = CCArray::create();
     this->listItemCreatorDTO->retain();
+    this->listWaveDTO = CCArray::create();
+    this->listWaveDTO->retain();
     
     this->height = 0;
     this->width = 0;

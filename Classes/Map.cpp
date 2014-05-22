@@ -25,6 +25,8 @@ Map::Map()
     this->listSensorObject->retain();
     this->listItemCreator = CCArray::create();
     this->listItemCreator->retain();
+    this->listWave = CCArray::create();
+    this->listWave->retain();
 }
 
 Map::~Map()
@@ -32,6 +34,7 @@ Map::~Map()
     CC_SAFE_RELEASE_NULL(listMapObject);
     CC_SAFE_RELEASE_NULL(listSensorObject);
     CC_SAFE_RELEASE_NULL(listItemCreator);
+    CC_SAFE_RELEASE_NULL(listWave);
 }
 
 bool Map::init()
@@ -87,10 +90,18 @@ void Map::addItemCreator(ItemCreator* itemCreator)
 {
     if(itemCreator != NULL)
     {
-        itemCreator->start();
+        
         this->listItemCreator->addObject(itemCreator);
     }
     
+}
+
+void Map::addWave(Wave* wave)
+{
+    if(wave != NULL)
+    {
+        this->listWave->addObject(wave);
+    }
 }
 
 void Map::attachAllMapObject()
@@ -112,53 +123,4 @@ void Map::addParallaxBackground(CCParallaxNode* parallaxBackground)
 void Map::addParallaxForeground(CCParallaxNode* parallaxForeground)
 {
     this->addChild(parallaxForeground,FOREGROUND_LAYER );
-}
-
-
-void  Map::BeginContact(b2Contact *contact)
-{
-//    if(this->listMapObject != NULL)
-//    {
-//        CCObject* object = NULL;
-//        
-//        CCARRAY_FOREACH(listMapObject,object)
-//        {
-//            MapObject* mapObject = (MapObject*)object;
-//            mapObject->BeginContact(contact);
-//        }
-//    }
-//    if(this->listSensorObject != NULL)
-//    {
-//        CCObject* object = NULL;
-//        
-//        CCARRAY_FOREACH(listSensorObject,object)
-//        {
-//            SensorObject* sensorObject = (SensorObject*)object;
-//            sensorObject->BeginContact(contact);
-//        }
-//    }
-}
-
-void  Map::EndContact(b2Contact *contact)
-{
-//    if(this->listMapObject != NULL)
-//    {
-//        CCObject* object = NULL;
-//        
-//        CCARRAY_FOREACH(listMapObject,object)
-//        {
-//            MapObject* mapObject = (MapObject*)object;
-//            mapObject->EndContact(contact);
-//        }
-//    }
-//    if(this->listSensorObject != NULL)
-//    {
-//        CCObject* object = NULL;
-//        
-//        CCARRAY_FOREACH(listSensorObject,object)
-//        {
-//            SensorObject* sensorObject = (SensorObject*)object;
-//            sensorObject->EndContact(contact);
-//        }
-//    }
 }

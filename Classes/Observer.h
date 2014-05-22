@@ -16,7 +16,6 @@ class Observer;
 
 USING_NS_CC;
 
-class GameObject;
 class Observer {
     
 private:

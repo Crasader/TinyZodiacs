@@ -42,7 +42,7 @@ void EffectManager::runEffect(GameEffect* effect, CCPoint position)
 
 void EffectManager::stopEffect(GameEffect* effect)
 {
-    
+    effect->stop();
 }
 
 void EffectManager::update(float dt)

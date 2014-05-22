@@ -20,7 +20,7 @@ MonsterFactory::MonsterFactory()
     this->listMonster->retain();
     this->listMonsterCreator = CCArray::create();
     this->listMonsterCreator->retain();
-    
+    this->isStopped = false;
     this->group = A;
 }
 
@@ -123,7 +123,7 @@ void MonsterFactory::createMonsterList(CCArray* listMonsterDTO, CCPoint position
     prms->push_back(listDTO);
     prms->push_back(pos);
     prms->push_back(lID);
-    prms->push_back(this->world);
+    prms->push_back(this->holder.worldHolder);
     
     ScheduleManager::getInstance()->scheduleFunction(CCCallFuncND::create((CCObject*)this, callfuncND_selector(MonsterFactory::createMonsterListFromSchedule),prms),CCCallFuncND::create((CCObject*)this, callfuncND_selector(MonsterFactory::finishCreateMonsterListFromSchedule),prms), timeDelayPerMonster, quantity);
 }
@@ -145,7 +145,6 @@ void MonsterFactory::createMonsterFromSchedule(CCNode* sender, void* data)
 
 void MonsterFactory::finishCreateMonsterFromSchedule(CCNode* sender, void* data)
 {
-    CCLOG("des");
     std::vector<void*>* params =  static_cast< std::vector<void*>*>(data);
     
     MonsterDTO* dto = static_cast<MonsterDTO*>(params->at(0));
@@ -173,7 +172,7 @@ void MonsterFactory::createMonsterListFromSchedule(CCNode* sender, void* data)
         CCPoint *pos = static_cast<CCPoint*>(params->at(1));
         int* laneID = static_cast<int*>(params->at(2));
         b2World *world = static_cast<b2World*>(params->at(3));
-        if (this->listMonster->count() <= 100)
+        if (isStopped == false)
         {
             addNewMonster(createMonster(dto, *pos, *laneID, world));
 
@@ -207,7 +206,7 @@ void MonsterFactory::addNewMonster(Monster* monster)
     GameObjectManager::getInstance()->addGameObject(monster);
     this->listMonster->addObject(monster);
     monster->attach(this);
-    monster->attachSpriteTo(this->holder);
+    monster->attachSpriteTo(this->holder.nodeHolder);
 }
 void MonsterFactory::removeMonster(Monster* monster)
 {
@@ -235,6 +234,7 @@ void MonsterFactory::stopCreateMonster()
         MonsterCreator* monsterCreator = static_cast<MonsterCreator*>(object);
         monsterCreator->stop();
     }
+    this->isStopped = true;
 }
 
 void MonsterFactory::startCreateMonster()
@@ -245,6 +245,7 @@ void MonsterFactory::startCreateMonster()
         MonsterCreator* monsterCreator = static_cast<MonsterCreator*>(object);
         monsterCreator->start();
     }
+    this->isStopped = false;
 }
 
 void MonsterFactory::update(float dt)

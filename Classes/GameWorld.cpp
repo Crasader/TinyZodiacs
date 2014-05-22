@@ -24,15 +24,11 @@ GameWorld::GameWorld()
 {
     this->width = 0;
     this->height = 0;
-    this->listInfoView = CCArray::create();
-    this->listInfoView->retain();
 }
 
 GameWorld::~GameWorld()
 {
-    //CC_SAFE_RELEASE_NULL(this->map);
-    //    this->world->ClearForces();
-    //   delete this->world;
+    
 }
 
 bool GameWorld::init()
@@ -58,23 +54,20 @@ bool GameWorld::init()
     MapCreator* mapCreator = new MapCreator();
     map = mapCreator->createMap("map1",this);
     map->attachAllMapObject();
-    
+   
     this->addChild(map,MAP_LAYER);
     
     delete mapCreator;
     
+    GameHolder gameplayholder;
+    gameplayholder.nodeHolder = this->map;
+    gameplayholder.worldHolder = this->world;
     
-  //  createWorldBox();
-    
-    CCObject* object = NULL;
-    CCARRAY_FOREACH(this->listInfoView, object)
-    {
-        GameObjectView* gameObjectInfoView = dynamic_cast<GameObjectView*>(object);
-        this->addChild(gameObjectInfoView,100);
-    }
-    //MONSTER
+    GameManager::getInstance()->setGameplayHolder(gameplayholder);
     
     
+    createWorldBox();
+  
     this->group1 = GameGroup::create();
     this->group1->retain();
     this->group1->joinGame(A, this->world, this->map);
@@ -92,11 +85,6 @@ bool GameWorld::init()
     this->runAction(CCRepeatForever::create(seq));
     
     this->setCameraFollowGroup(this->group1);
-    
-    ItemDTO* dto = DataCollector::getInstance()->getItemDTOByKey("bag2");
-    dto->positionX = 2500;
-    dto->positionY = 400;
-
     
     addManager();
     return true;
@@ -187,7 +175,8 @@ void GameWorld::createWorldBox()
     
 }
 
-void GameWorld::setContactListener(b2ContactListener *listener){
+void GameWorld::setContactListener(b2ContactListener *listener)
+{
     if(this->world != NULL){
         this->world->SetContactListener(listener);
     }
@@ -195,25 +184,18 @@ void GameWorld::setContactListener(b2ContactListener *listener){
 
 void GameWorld::update(float dt)
 {
-
     this->map->update(dt);
     this->group1->update(dt);
     this->group2->update(dt);
     ItemFactory::getInstance()->update(dt);
-    // update infoview
-    CCObject* object = NULL;
-    CCARRAY_FOREACH(this->listInfoView, object)
-    {
-        GameObjectView* gameObjectInfoView = dynamic_cast<GameObjectView*>(object);
-        gameObjectInfoView->update(dt);
-    }
-    //
+
     if(this->world != NULL)
     {
         world->Step(1/40.000f,8, 1);
     }
-    //
-    GameObjectManager::getInstance()->update(dt);
+    ///
+    
+    
 }
 
 
@@ -244,36 +226,23 @@ void GameWorld::setCameraFollowGroup(GameGroup* group)
     }
     
     this->cameraFollowAction = CCFollow::create(group->getFollowingCharacter()->getSprite(),CCRect(0, 0, this->width, this->height));
-    
-    
+
     this->runAction(this->cameraFollowAction);
 }
 
 //PHYSICS CONTACT
 void GameWorld::BeginContact(b2Contact *contact)
 {
-    this->map->BeginContact(contact);
     this->group1->BeginContact(contact);
     this->group2->BeginContact(contact);
     GameObjectManager::getInstance()->BeginContact(contact);
-
 }
 
 void GameWorld::EndContact(b2Contact *contact)
 {
-    this->map->EndContact(contact);
     this->group1->EndContact(contact);
     this->group2->EndContact(contact);
     GameObjectManager::getInstance()->EndContact(contact);
-}
-
-void GameWorld::PreSolve(b2Contact* contact, const b2Manifold* oldManifold)
-{
-    
-}
-void GameWorld::PostSolve(b2Contact* contact, const b2ContactImpulse* impulse)
-{
-    
 }
 
 void GameWorld::foo()

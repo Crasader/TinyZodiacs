@@ -32,19 +32,22 @@ Effect::Effect(EffectData data, GameObject* holder)
     
     if(data.getAnimationId() != "")
     {
-        this->sprite = CCSprite::create();
-        this->sprite->retain();
-        this->animation = DataCollector::getInstance()->getAnimationObjectByKey(data.getAnimationId().c_str());
-        if(this->animation != NULL)
-        {
-            if(this->animation->getAnimation() != NULL)
-            {
-                this->animation->getAnimation()->setLoops(INFINITY);
-                this->sprite->runAction(CCAnimate::create(this->animation->getAnimation()));
-            }
-        }
-        this->positionOffset = calculatePosition(data.getJointDefA(), data.getJointDefB());
-        this->holder->getSprite()->getParent()->addChild(this->sprite,data.getAnimationLayerIndex());
+//        this->sprite = CCSprite::create();
+//        this->sprite->retain();
+//        this->animation = DataCollector::getInstance()->getAnimationObjectByKey(data.getAnimationId().c_str());
+//        if(this->animation != NULL)
+//        {
+//            if(this->animation->getAnimation() != NULL)
+//            {
+//                this->animation->getAnimation()->setLoops(INFINITY);
+//                this->sprite->runAction(CCAnimate::create(this->animation->getAnimation()));
+//            }
+//        }
+//        this->positionOffset = calculatePosition(data.getJointDefA(), data.getJointDefB());
+//        this->holder->getSprite()->getParent()->addChild(this->sprite,data.getAnimationLayerIndex());
+        this->sprite = NULL;
+        this->animation = NULL;
+
     }
     else
     {

@@ -114,7 +114,7 @@
         <hp>5</hp>
         <atk>0</atk>
         <def>0</def>
-        <speed>-5</speed>
+        <speed>0</speed>
         <atk_speed>0</atk_speed>
         <max_jump>0</max_jump>
         <jump_height>0</jump_height>

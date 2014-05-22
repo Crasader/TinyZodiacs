@@ -38,10 +38,10 @@ bool GameObjectManager::init()
 
 void GameObjectManager::release()
 {
-    if(getInstance() != NULL)
-    {
-        delete getInstance();
-    }
+//    if(getInstance() != NULL)
+//    {
+//        delete getInstance();
+//    }
 }
 
 GameObjectManager* GameObjectManager::getInstance()
@@ -67,7 +67,7 @@ void GameObjectManager::update(float dt)
     {
         ((GameObject*)object)->update(dt);
     }
-
+    
     this->listObjectRemoved->removeAllObjects();
 }
 
@@ -78,7 +78,7 @@ void GameObjectManager::addGameObject(GameObject* object)
 
 void GameObjectManager::removeGameObject(GameObject* object)
 {
-  //  if(this->listGameObject->indexOfObject(object) != CC_INVALID_INDEX)
+    if(this->listGameObject->indexOfObject(object) != CC_INVALID_INDEX)
     {
         this->listGameObject->removeObject(object);
     }
@@ -110,7 +110,7 @@ void GameObjectManager::EndContact(b2Contact *contact)
     {
         PhysicData* holderData = (PhysicData*)contact->GetFixtureA()/*->GetBody()*/->GetUserData();
         PhysicData* collisionData = (PhysicData*)contact->GetFixtureB()/*->GetBody()*/->GetUserData();
-
+        
         checkCollisionDataInEndContact(holderData, collisionData,contact);
     }
     
@@ -118,7 +118,7 @@ void GameObjectManager::EndContact(b2Contact *contact)
     {
         PhysicData* holderData = (PhysicData*)contact->GetFixtureB()/*->GetBody()*/->GetUserData();
         PhysicData* collisionData = (PhysicData*)contact->GetFixtureA()/*->GetBody()*/->GetUserData();
-
+        
         checkCollisionDataInEndContact(holderData, collisionData,contact);
     }
 }
@@ -130,26 +130,10 @@ void GameObjectManager::checkCollisionDataInBeginContact(PhysicData* holderData 
     {
         return;
     }
-    
-//    switch (holderData->BodyId)
-//    {
-//        case PROJECTILE:
-//        {
-//            void* pData = holderData->Data;
-//            NormalProjectile* projectile = static_cast<NormalProjectile*>(pData);
-//            if(projectile != NULL)
-//            {
-//                projectile->checkCollisionDataInBeginContact(holderData, collisionData, contact);
-//            }
-//            break;
-//        }
-//        default:
-//       
-//            break;
-//    }
-    
-    ///
     switch (holderData->GameObjectID) {
+        case HERO:
+            ((Hero*)holderData->Data)->checkCollisionDataInBeginContact(holderData, collisionData, contact);
+            break;
         case MONSTER:
             ((Monster*)holderData->Data)->checkCollisionDataInBeginContact(holderData, collisionData, contact);
             break;
@@ -170,7 +154,7 @@ void GameObjectManager::checkCollisionDataInBeginContact(PhysicData* holderData 
         default:
             break;
     }
-
+    
     
 }
 
@@ -195,9 +179,12 @@ void GameObjectManager::checkCollisionDataInEndContact(PhysicData* holderData , 
         default:
             break;
     }
- 
+    
     ///
     switch (holderData->GameObjectID) {
+        case HERO:
+            ((Hero*)holderData->Data)->checkCollisionDataInEndContact(holderData, collisionData, contact);
+            break;
         case MONSTER:
             ((Monster*)holderData->Data)->checkCollisionDataInEndContact(holderData, collisionData, contact);
             break;
@@ -213,9 +200,9 @@ void GameObjectManager::checkCollisionDataInEndContact(PhysicData* holderData , 
         case ITEM:
             ((Item*)holderData->Data)->checkCollisionDataInEndContact(holderData, collisionData, contact);
             break;
-
+            
         default:
             break;
     }
-
+    
 }
