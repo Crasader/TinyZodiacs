@@ -494,7 +494,10 @@ void Character::setPhysicGroup(uint16 group)
     }
     
     
-    for (b2Fixture* f = this->body->GetFixtureList(); f; f = f->GetNext())
+    b2Fixture* fixture = this->body->GetFixtureList();
+    Util::setFixtureGroup(fixture, group);
+    
+    for (b2Fixture* f = fixture->GetNext(); f; f = f->GetNext())
     {
         if(f != NULL)
         {
@@ -566,20 +569,15 @@ void Character::destroy()
 
 void Character::attach(Observer* observer)
 {
-//    CCLOG("character attach %d",this->listObserver.size());  
     GameObject::attach(observer);
 }
 
 void Character::detach(Observer* observer)
 {
-//    CCLOG("character detach %d",this->listObserver.size());
-//    CCLOG("detach - %d", this->listObserver.size());
     GameObject::detach(observer);
-    
 }
 void Character::notifyToDestroy()
 {
-    CCLOG("character notify destroy");
     GameObject::notifyToDestroy();
 }
 

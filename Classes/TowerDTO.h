@@ -21,6 +21,8 @@ USING_NS_CC;
 class TowerDTO: public CharacterDTO
 {
 public:
+    std::string towerSensorId;
+    
     TowerDTO();
     virtual ~TowerDTO();
     

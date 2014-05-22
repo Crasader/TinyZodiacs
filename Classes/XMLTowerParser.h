@@ -16,10 +16,13 @@
 
 using namespace tinyxml2;
 
+#define TAG_TOWER_SENSOR "sensor_body"
+
 class XMLTowerParser
 {
 private:
 protected:
+    static std::string readSensorBody(tinyxml2::XMLElement* root);
 public:
     static TowerDTO* getTowerDTOFromXMLElement(XMLElement* towerXMLElement);
 };

@@ -65,6 +65,7 @@ bool GameManager::loadResource()
     sc->addShapesWithFile("map1_body.plist");
     sc->addShapesWithFile("monster_sensor.plist");
     sc->addShapesWithFile("item_body.plist");
+    sc->addShapesWithFile("tower_sensor.plist");
     return false;
 }
 

@@ -15,7 +15,7 @@
         </texture>
         <list_effect>
             <enemy>
-                <effect>cat_normal_attack_affect</effect>
+                <effect>cat_bleeding</effect>
             </enemy>
         </list_effect>
 	</skill>
@@ -152,7 +152,7 @@
         
         <list_effect>
             <enemy>
-                <effect>tower_normal_attack_affect</effect>
+                <effect>cat_bleeding</effect>
             </enemy>
         </list_effect>
 	</skill>
@@ -184,7 +184,7 @@
         
         <list_effect>
             <enemy>
-                <effect>tower_normal_attack_affect</effect>
+                <effect>cat_bleeding</effect>
             </enemy>
         </list_effect>
 	</skill>

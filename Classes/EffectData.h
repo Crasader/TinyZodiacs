@@ -25,6 +25,12 @@ public:
     
     CC_SYNTHESIZE(std::string, animationId, AnimationId);
     CC_SYNTHESIZE(int, animationLayerIndex, AnimationLayerIndex);
+    CC_SYNTHESIZE(float, minRotateAngle, MinRotateAngle);
+    CC_SYNTHESIZE(float, maxRotateAngle, MaxRotateAngle);
+    CC_SYNTHESIZE(float, minScale, MinScale);
+    CC_SYNTHESIZE(float, maxScale, MaxScale);
+    CC_SYNTHESIZE(int, repeatTimes, RepeatTimes);
+    
     CC_SYNTHESIZE(JointDef, jointDefA, JointDefA);
     CC_SYNTHESIZE(JointDef, jointDefB, JointDefB);
 
@@ -43,7 +49,7 @@ public:
     CC_SYNTHESIZE(float, lifeTime, LifeTime);
     CC_SYNTHESIZE(float, timeTick, timeTick);
     
-    EffectData* clonePointer();
+//    EffectData* clonePointer();
     EffectData clone();
 };
 #endif /* defined(__TinyZodiacs__EffectData__) */

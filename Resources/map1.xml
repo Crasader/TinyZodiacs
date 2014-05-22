@@ -202,7 +202,6 @@
          </sensor_object>-->
     </sensor_object_list>
     <tower_list>
-    
         <tower id="tower1" group="B" >
             <position x="600" y="920"/>
         </tower>
@@ -227,8 +226,6 @@
         <tower id="tower2" group="B" >
             <position x="4228" y="1378"/>
         </tower>
-
-
     </tower_list>
     
     <monster_factory_list>
@@ -239,15 +236,16 @@
                 <monster>monster_onion</monster>
 
             </monster_creator>
-        </monster_factory>-->
+        </monster_factory>
 
-
+ -->
             <monster_factory group="B">
                 <monster_creator delay_per_unit="1" delay="0.5" lane = "2" max="200">
                     <position x="4000" y="500"/>
                     <monster>monster_onion</monster>
                 </monster_creator>
             </monster_factory>
+        
     </monster_factory_list>
     <item_creator_list>
         <item_creator max="2" delay_min="0.1" delay_max="0.5">

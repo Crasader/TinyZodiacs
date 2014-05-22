@@ -11,6 +11,8 @@
 #include "ScheduleManager.h"
 #include "Character.h"
 #include "DataCollector.h"
+#include "SkillAnimationEffect.h"
+#include "EffectManager.h"
 
 Effect::Effect(EffectData data, GameObject* holder)
 {
@@ -32,23 +34,37 @@ Effect::Effect(EffectData data, GameObject* holder)
     
     if(data.getAnimationId() != "")
     {
-        this->sprite = CCSprite::create();
-        this->sprite->retain();
-        this->animation = DataCollector::getInstance()->getAnimationObjectByKey(data.getAnimationId().c_str());
-        if(this->animation != NULL)
+//        this->sprite = CCSprite::create();
+//        this->sprite->retain();
+//        this->animation = DataCollector::getInstance()->getAnimationObjectByKey(data.getAnimationId().c_str());
+//        if(this->animation != NULL)
+//        {
+//            if(this->animation->getAnimation() != NULL)
+//            {
+//                this->animation->getAnimation()->setLoops(INFINITY);
+//                this->sprite->runAction(CCAnimate::create(this->animation->getAnimation()));
+//            }
+//        }
+//        this->positionOffset = calculatePosition(data.getJointDefA(), data.getJointDefB());
+//        this->holder->getSprite()->getParent()->addChild(this->sprite,data.getAnimationLayerIndex());
+        
+        this->animation = SkillAnimationEffect::create();
+        this->animation->retain();
+        ((SkillAnimationEffect*)this->animation)->setAnimation(data.getAnimationId().c_str(), data.getMinRotateAngle(), data.getMaxRotateAngle(), data.getMinScale(), data.getMaxScale(), data.getRepeatTimes(), CCPoint(0, 0));
+        
+        if(data.getRepeatTimes() <=0)
         {
-            if(this->animation->getAnimation() != NULL)
-            {
-                this->animation->getAnimation()->setLoops(INFINITY);
-                this->sprite->runAction(CCAnimate::create(this->animation->getAnimation()));
-            }
+            int repeatTime = data.getRepeatTimes();
+            repeatTime = data.getLifeTime() / ((SkillAnimationEffect*)this->animation)->getAnimationDuration();
+            ((SkillAnimationEffect*)this->animation)->setRepeatTimes(repeatTime);
+            ((SkillAnimationEffect*)this->animation)->setIsFiniteAction(false);
         }
-        this->positionOffset = calculatePosition(data.getJointDefA(), data.getJointDefB());
-        this->holder->getSprite()->getParent()->addChild(this->sprite,data.getAnimationLayerIndex());
+        
+        EffectManager::getInstance()->runEffect((SkillAnimationEffect*)this->animation, CCPoint(0, 0), data.getAnimationLayerIndex());
     }
     else
     {
-        this->sprite = NULL;
+//        this->sprite = NULL;
         this->animation = NULL;
     }
     
@@ -81,11 +97,12 @@ void Effect::calculateActualInformation(GameObject* holder)
 
 Effect::~Effect()
 {
-    if(this->sprite != NULL)
-    {
-        this->sprite->stopAllActions();
-        this->sprite->removeFromParent();
-    }
+//    if(this->sprite != NULL)
+//    {
+//        this->sprite->stopAllActions();
+//        this->sprite->removeFromParent();
+//    }
+
 }
 
 CCPoint Effect::calculatePosition(JointDef jointDefA, JointDef jointDefB)
@@ -93,7 +110,7 @@ CCPoint Effect::calculatePosition(JointDef jointDefA, JointDef jointDefB)
     if(this->holder != NULL && this->animation != NULL)
     {
         CCSize holderSize = CCSize(abs(this->holder->getBodyBoundingBox().lowerBound.x - this->holder->getBodyBoundingBox().upperBound.x)*32,abs(this->holder->getBodyBoundingBox().lowerBound.y - this->holder->getBodyBoundingBox().upperBound.y)*32);
-        CCSize thisSize = this->sprite->boundingBox().size;
+        CCSize thisSize = ((SkillAnimationEffect*)this->animation)->sprite->boundingBox().size;
         
         CCPoint p1 = calculate(holderSize, jointDefA.x, jointDefA.y, jointDefA.offsetX, jointDefA.offsetY);
         CCPoint p2 = calculate(thisSize, jointDefB.x, jointDefB.y, jointDefB.offsetX, jointDefB.offsetY);
@@ -143,9 +160,9 @@ CCPoint Effect::calculate(CCSize boundingBox, int typeX, int typeY, float offset
 
 void Effect::update(float dt)
 {
-    if(this->sprite != NULL)
+    if(this->animation != NULL)
     {
-        this->sprite->setPosition(this->holder->getPositionInPixel()+positionOffset);
+        ((SkillAnimationEffect*)this->animation)->setPosition(this->holder->getPositionInPixel()+positionOffset);
     }
 }
 
@@ -166,19 +183,27 @@ void Effect::stopAllSchedule()
 
 void Effect::destroy()
 {
-    if(!this->timeTickRepeatAction->isDone())
-    {
-        ScheduleManager::getInstance()->stopAction(this->timeTickRepeatAction);
-    }
-    if(!this->lifeTimeAction->isDone())
-    {
-    ScheduleManager::getInstance()->stopAction(this->lifeTimeAction);
-    }
+//    if(!this->timeTickRepeatAction->isDone())
+//    {
+//        ScheduleManager::getInstance()->stopAction(this->timeTickRepeatAction);
+//    }
+//    if(!this->lifeTimeAction->isDone())
+//    {
+//    ScheduleManager::getInstance()->stopAction(this->lifeTimeAction);
+//    }
+//    
+//    this->timeTickRepeatAction->release();
+//    this->lifeTimeAction->release();
+    this->stopAllSchedule();
     
-    this->timeTickRepeatAction->release();
-    this->lifeTimeAction->release();
+    if(((SkillAnimationEffect*)this->animation)->getIsFiniteAction() == false)
+    {
+        EffectManager::getInstance()->stopEffect(this->animation);
+    }
+    this->animation->release();
     
     this->holder->removeEffect(this);
+    
 }
 
 void Effect::onTimeTick()

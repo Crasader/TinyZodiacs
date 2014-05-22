@@ -55,11 +55,11 @@ GameObject::~GameObject()
         this->body->GetWorld()->DestroyBody(this->body);
     }
     
-    CCObject* object;
-    CCARRAY_FOREACH(this->listEffect, object)
-    {
-        ((Effect*)object)->stopAllSchedule();
-    }
+//    CCObject* object;
+//    CCARRAY_FOREACH(this->listEffect, object)
+//    {
+//        ((Effect*)object)->destroy();
+//    }
     this->listEffect->removeAllObjects();
     
     //game object view
@@ -379,6 +379,13 @@ void GameObject::destroy()
         this->isDestroyed = true;
         notifyToDestroy();
         GameObjectManager::getInstance()->addObjectRemoved(this);
+        
+        CCObject* object;
+        CCARRAY_FOREACH(this->listEffect, object)
+        {
+            ((Effect*)object)->destroy();
+            this->removeEffect((Effect*)object);
+        }
     }
 }
 

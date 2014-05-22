@@ -52,7 +52,7 @@ void Monster::update(float dt)
 {
     if(!isDead())
     {
-        this->aimTarget();
+    //    this->aimTarget();
     }
     
     if(!isAttack)

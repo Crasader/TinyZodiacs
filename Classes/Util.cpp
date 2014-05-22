@@ -312,3 +312,8 @@ ItemType Util::convertStringToItemType(const char* itemType)
     
     return type;
 }
+
+float Util::randomFloatInRange(float lowerBound, float upperBound)
+{
+    return (lowerBound + (upperBound-lowerBound)*CCRANDOM_0_1());
+}

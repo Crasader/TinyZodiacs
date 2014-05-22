@@ -40,6 +40,8 @@ public:
     static void applyEffectFromList(vector<EffectData> listEffect, GameObject* object);
     
     static ItemType convertStringToItemType(const char* itemType);
+    
+    static float randomFloatInRange(float lowerBound, float upperBound);
 };
 
 #endif /* defined(__TinyZodiacs__Util__) */

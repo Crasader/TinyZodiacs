@@ -31,6 +31,8 @@ public:
     
     
     void runEffect(GameEffect* effect, CCPoint position);
+    void runEffect(GameEffect* effect, CCPoint position, int layerIndex);
+
     void stopEffect(GameEffect* effect);
     
     void clean();

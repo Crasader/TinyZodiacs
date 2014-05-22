@@ -174,7 +174,6 @@
 		2D0DA1401908F65800881C8D /* tower_2_animation.xml in Resources */ = {isa = PBXBuildFile; fileRef = 2D0DA13E1908F65800881C8D /* tower_2_animation.xml */; };
 		2D0DA1421908F67400881C8D /* skill_animation.xml in Resources */ = {isa = PBXBuildFile; fileRef = 2D0DA1411908F67400881C8D /* skill_animation.xml */; };
 		2D0DA1461908F69C00881C8D /* skill_body.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2D0DA1441908F69C00881C8D /* skill_body.plist */; };
-		2D0DA14B1908F6C800881C8D /* list_effect.xml in Resources */ = {isa = PBXBuildFile; fileRef = 2D0DA1471908F6C800881C8D /* list_effect.xml */; };
 		2D0DA14C1908F6C800881C8D /* list_skill.xml in Resources */ = {isa = PBXBuildFile; fileRef = 2D0DA1481908F6C800881C8D /* list_skill.xml */; };
 		2D0DA14D1908F6C800881C8D /* test_sheet.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2D0DA1491908F6C800881C8D /* test_sheet.plist */; };
 		2D0DA14E1908F6C800881C8D /* test_sheet.png in Resources */ = {isa = PBXBuildFile; fileRef = 2D0DA14A1908F6C800881C8D /* test_sheet.png */; };
@@ -185,14 +184,18 @@
 		2D0DA15C1908F72200881C8D /* tower_2_default.png in Resources */ = {isa = PBXBuildFile; fileRef = 2D0DA1541908F72200881C8D /* tower_2_default.png */; };
 		2D0DA15D1908F72200881C8D /* tower_2.xml in Resources */ = {isa = PBXBuildFile; fileRef = 2D0DA1551908F72200881C8D /* tower_2.xml */; };
 		2D0DA1621908F7DE00881C8D /* XMLHelper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2D0DA1601908F7DE00881C8D /* XMLHelper.cpp */; };
-		2D0DA1651908F7F200881C8D /* EffectData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2D0DA1631908F7F200881C8D /* EffectData.cpp */; };
-		2D0DA16D1908F83900881C8D /* EffectFactory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2D0DA1691908F83900881C8D /* EffectFactory.cpp */; };
 		2D0DA1741908F86300881C8D /* Tower.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2D0DA1711908F86300881C8D /* Tower.cpp */; };
 		2DC48A7B1919EE1C00B34724 /* onion_creep_default.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2DC48A791919EE1C00B34724 /* onion_creep_default.plist */; };
 		2DC48A7C1919EE1C00B34724 /* onion_creep_default.png in Resources */ = {isa = PBXBuildFile; fileRef = 2DC48A7A1919EE1C00B34724 /* onion_creep_default.png */; };
 		2DC48A7E1919EEA600B34724 /* creep_1_animation.xml in Resources */ = {isa = PBXBuildFile; fileRef = 2DC48A7D1919EEA600B34724 /* creep_1_animation.xml */; };
 		2DC48A84191A356600B34724 /* monster_sensor.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2DC48A83191A356600B34724 /* monster_sensor.plist */; };
 		2DE1502E191CCDEC001BD65C /* character_body.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2DE1502D191CCDEC001BD65C /* character_body.plist */; };
+		34002585192DB46100059016 /* tower_sensor.plist in Resources */ = {isa = PBXBuildFile; fileRef = 34002584192DB46100059016 /* tower_sensor.plist */; };
+		340DE0A9192C96FA0056D51E /* list_effect.xml in Resources */ = {isa = PBXBuildFile; fileRef = 340DE0A8192C96FA0056D51E /* list_effect.xml */; };
+		340DE0AC192C97320056D51E /* EffectData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 340DE0AA192C97320056D51E /* EffectData.cpp */; };
+		340DE0AF192C977B0056D51E /* EffectFactory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 340DE0AD192C977B0056D51E /* EffectFactory.cpp */; };
+		340DE0B2192C9B010056D51E /* SkillAnimationEffect.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 340DE0B1192C9B010056D51E /* SkillAnimationEffect.cpp */; };
+		340DE0B5192C9EB50056D51E /* EffectManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 340DE0B3192C9EB50056D51E /* EffectManager.cpp */; };
 		3412551318DAA44900D9FBA6 /* NormalProjectile.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3412551118DAA44900D9FBA6 /* NormalProjectile.cpp */; };
 		3414166218DC23A0007B8C2B /* GameObjectManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3414166018DC23A0007B8C2B /* GameObjectManager.cpp */; };
 		343D9A4C19134163003F5DE4 /* GameWorld.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 343D9A4B19134163003F5DE4 /* GameWorld.cpp */; };
@@ -395,7 +398,6 @@
 		F5BA76AF192079E90070997B /* MapCreator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F5BA76AD192079E90070997B /* MapCreator.cpp */; };
 		F5BAF288191484700093BA4F /* ContainerItem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F5BAF286191484700093BA4F /* ContainerItem.cpp */; };
 		F5BAF28B1914857A0093BA4F /* GameEffect.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F5BAF2891914857A0093BA4F /* GameEffect.cpp */; };
-		F5BAF28E191487930093BA4F /* EffectManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F5BAF28C191487930093BA4F /* EffectManager.cpp */; };
 		F5BAF29219148B380093BA4F /* HealthPointEffect.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F5BAF29019148B380093BA4F /* HealthPointEffect.cpp */; };
 		F5C769BE1918EEE400CE34AD /* effect_animation.xml in Resources */ = {isa = PBXBuildFile; fileRef = F5C769BD1918EEE400CE34AD /* effect_animation.xml */; };
 		F5C89DFB18D2FCB5006E909D /* monkey_animation.xml in Resources */ = {isa = PBXBuildFile; fileRef = F5C89DFA18D2FCB5006E909D /* monkey_animation.xml */; };
@@ -778,7 +780,6 @@
 		2D0DA13E1908F65800881C8D /* tower_2_animation.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = tower_2_animation.xml; sourceTree = "<group>"; };
 		2D0DA1411908F67400881C8D /* skill_animation.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = skill_animation.xml; sourceTree = "<group>"; };
 		2D0DA1441908F69C00881C8D /* skill_body.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = skill_body.plist; sourceTree = "<group>"; };
-		2D0DA1471908F6C800881C8D /* list_effect.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = list_effect.xml; sourceTree = "<group>"; };
 		2D0DA1481908F6C800881C8D /* list_skill.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = list_skill.xml; sourceTree = "<group>"; };
 		2D0DA1491908F6C800881C8D /* test_sheet.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = test_sheet.plist; sourceTree = "<group>"; };
 		2D0DA14A1908F6C800881C8D /* test_sheet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = test_sheet.png; sourceTree = "<group>"; };
@@ -790,10 +791,6 @@
 		2D0DA1551908F72200881C8D /* tower_2.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = tower_2.xml; sourceTree = "<group>"; };
 		2D0DA1601908F7DE00881C8D /* XMLHelper.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = XMLHelper.cpp; sourceTree = "<group>"; };
 		2D0DA1611908F7DE00881C8D /* XMLHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMLHelper.h; sourceTree = "<group>"; };
-		2D0DA1631908F7F200881C8D /* EffectData.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = EffectData.cpp; sourceTree = "<group>"; };
-		2D0DA1641908F7F200881C8D /* EffectData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EffectData.h; sourceTree = "<group>"; };
-		2D0DA1691908F83900881C8D /* EffectFactory.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = EffectFactory.cpp; sourceTree = "<group>"; };
-		2D0DA16A1908F83900881C8D /* EffectFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EffectFactory.h; sourceTree = "<group>"; };
 		2D0DA1711908F86300881C8D /* Tower.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Tower.cpp; sourceTree = "<group>"; };
 		2D0DA1721908F86300881C8D /* Tower.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tower.h; sourceTree = "<group>"; };
 		2DC48A791919EE1C00B34724 /* onion_creep_default.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = onion_creep_default.plist; sourceTree = "<group>"; };
@@ -801,6 +798,16 @@
 		2DC48A7D1919EEA600B34724 /* creep_1_animation.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = creep_1_animation.xml; sourceTree = "<group>"; };
 		2DC48A83191A356600B34724 /* monster_sensor.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = monster_sensor.plist; sourceTree = "<group>"; };
 		2DE1502D191CCDEC001BD65C /* character_body.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = character_body.plist; sourceTree = "<group>"; };
+		34002584192DB46100059016 /* tower_sensor.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = tower_sensor.plist; sourceTree = "<group>"; };
+		340DE0A8192C96FA0056D51E /* list_effect.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = list_effect.xml; sourceTree = "<group>"; };
+		340DE0AA192C97320056D51E /* EffectData.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = EffectData.cpp; sourceTree = "<group>"; };
+		340DE0AB192C97320056D51E /* EffectData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EffectData.h; sourceTree = "<group>"; };
+		340DE0AD192C977B0056D51E /* EffectFactory.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = EffectFactory.cpp; sourceTree = "<group>"; };
+		340DE0AE192C977B0056D51E /* EffectFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EffectFactory.h; sourceTree = "<group>"; };
+		340DE0B0192C9B010056D51E /* SkillAnimationEffect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SkillAnimationEffect.h; sourceTree = "<group>"; };
+		340DE0B1192C9B010056D51E /* SkillAnimationEffect.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SkillAnimationEffect.cpp; sourceTree = "<group>"; };
+		340DE0B3192C9EB50056D51E /* EffectManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = EffectManager.cpp; sourceTree = "<group>"; };
+		340DE0B4192C9EB50056D51E /* EffectManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EffectManager.h; sourceTree = "<group>"; };
 		3412551118DAA44900D9FBA6 /* NormalProjectile.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = NormalProjectile.cpp; path = ../Classes/NormalProjectile.cpp; sourceTree = "<group>"; };
 		3412551218DAA44900D9FBA6 /* NormalProjectile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NormalProjectile.h; path = ../Classes/NormalProjectile.h; sourceTree = "<group>"; };
 		3414166018DC23A0007B8C2B /* GameObjectManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameObjectManager.cpp; sourceTree = "<group>"; };
@@ -1170,8 +1177,6 @@
 		F5BAF287191484700093BA4F /* ContainerItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContainerItem.h; sourceTree = "<group>"; };
 		F5BAF2891914857A0093BA4F /* GameEffect.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameEffect.cpp; sourceTree = "<group>"; };
 		F5BAF28A1914857A0093BA4F /* GameEffect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameEffect.h; sourceTree = "<group>"; };
-		F5BAF28C191487930093BA4F /* EffectManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = EffectManager.cpp; sourceTree = "<group>"; };
-		F5BAF28D191487930093BA4F /* EffectManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EffectManager.h; sourceTree = "<group>"; };
 		F5BAF29019148B380093BA4F /* HealthPointEffect.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = HealthPointEffect.cpp; sourceTree = "<group>"; };
 		F5BAF29119148B380093BA4F /* HealthPointEffect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HealthPointEffect.h; sourceTree = "<group>"; };
 		F5C769BD1918EEE400CE34AD /* effect_animation.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = effect_animation.xml; sourceTree = "<group>"; };
@@ -1908,14 +1913,14 @@
 		3414165F18DC2286007B8C2B /* Managers */ = {
 			isa = PBXGroup;
 			children = (
+				340DE0B3192C9EB50056D51E /* EffectManager.cpp */,
+				340DE0B4192C9EB50056D51E /* EffectManager.h */,
 				F54AE9D118D2F2B400194E66 /* GameManager.cpp */,
 				F54AE9D318D2F2B400194E66 /* GameManager.h */,
 				3414166018DC23A0007B8C2B /* GameObjectManager.cpp */,
 				3414166118DC23A0007B8C2B /* GameObjectManager.h */,
 				345F6B5118E2C71F00985A7A /* ScheduleManager.cpp */,
 				345F6B5218E2C71F00985A7A /* ScheduleManager.h */,
-				F5BAF28C191487930093BA4F /* EffectManager.cpp */,
-				F5BAF28D191487930093BA4F /* EffectManager.h */,
 			);
 			name = Managers;
 			sourceTree = "<group>";
@@ -1953,7 +1958,7 @@
 		34F7F92A18E15AA50084E87C /* Skills */ = {
 			isa = PBXGroup;
 			children = (
-				2D0DA1471908F6C800881C8D /* list_effect.xml */,
+				340DE0A8192C96FA0056D51E /* list_effect.xml */,
 				2D0DA1481908F6C800881C8D /* list_skill.xml */,
 				2D0DA1491908F6C800881C8D /* test_sheet.plist */,
 				2D0DA14A1908F6C800881C8D /* test_sheet.png */,
@@ -2422,6 +2427,8 @@
 		F54AE96F18D2F05200194E66 /* Factories */ = {
 			isa = PBXGroup;
 			children = (
+				340DE0AD192C977B0056D51E /* EffectFactory.cpp */,
+				340DE0AE192C977B0056D51E /* EffectFactory.h */,
 				F5BA76AD192079E90070997B /* MapCreator.cpp */,
 				F5BA76AE192079E90070997B /* MapCreator.h */,
 				F5BA76A41920657C0070997B /* DataCollector.cpp */,
@@ -2432,8 +2439,6 @@
 				34E614E219133A2B006D933E /* MonsterCreator.h */,
 				34E614DE191339A6006D933E /* MonsterFactory.cpp */,
 				34E614DF191339A6006D933E /* MonsterFactory.h */,
-				2D0DA1691908F83900881C8D /* EffectFactory.cpp */,
-				2D0DA16A1908F83900881C8D /* EffectFactory.h */,
 				F54AE9D018D2F2B400194E66 /* ObjectFactory.cpp */,
 				F54AE9D218D2F2B400194E66 /* ObjectFactory.h */,
 				34F7F92B18E16BB70084E87C /* SkillFactory.cpp */,
@@ -2504,8 +2509,8 @@
 		F54AE97318D2F0A900194E66 /* Data */ = {
 			isa = PBXGroup;
 			children = (
-				2D0DA1631908F7F200881C8D /* EffectData.cpp */,
-				2D0DA1641908F7F200881C8D /* EffectData.h */,
+				340DE0AA192C97320056D51E /* EffectData.cpp */,
+				340DE0AB192C97320056D51E /* EffectData.h */,
 				F54AEA0618D2F50300194E66 /* CharacterData.h */,
 				F54AEA0718D2F50300194E66 /* ObjectData.h */,
 				F54AEA0818D2F50300194E66 /* PhysicData.h */,
@@ -2712,6 +2717,8 @@
 		F5BAF28F19148A8C0093BA4F /* Effect */ = {
 			isa = PBXGroup;
 			children = (
+				340DE0B0192C9B010056D51E /* SkillAnimationEffect.h */,
+				340DE0B1192C9B010056D51E /* SkillAnimationEffect.cpp */,
 				F5BAF2891914857A0093BA4F /* GameEffect.cpp */,
 				F5BAF28A1914857A0093BA4F /* GameEffect.h */,
 				F5BAF29019148B380093BA4F /* HealthPointEffect.cpp */,
@@ -2767,6 +2774,7 @@
 		F5C89E0018D2FCF2006E909D /* Body */ = {
 			isa = PBXGroup;
 			children = (
+				34002584192DB46100059016 /* tower_sensor.plist */,
 				2DE1502D191CCDEC001BD65C /* character_body.plist */,
 				F5CCA796191B360B002A7F2A /* item_body.plist */,
 				2D0DA1441908F69C00881C8D /* skill_body.plist */,
@@ -2955,6 +2963,7 @@
 				F53ACBAF18D831C700F958A8 /* map2.xml in Resources */,
 				2D0DA15C1908F72200881C8D /* tower_2_default.png in Resources */,
 				D41A0AD1160F154A004552AE /* Default-568h@2x.png in Resources */,
+				34002585192DB46100059016 /* tower_sensor.plist in Resources */,
 				F5C769BE1918EEE400CE34AD /* effect_animation.xml in Resources */,
 				2D0DA1461908F69C00881C8D /* skill_body.plist in Resources */,
 				F50BF81B18F2426D00CD518D /* cat_spritesheet.png in Resources */,
@@ -2967,12 +2976,12 @@
 				2DE1502E191CCDEC001BD65C /* character_body.plist in Resources */,
 				F561F29118D805BE00DD4598 /* map1.xml in Resources */,
 				F5579EC5191DE78600F29241 /* pig_animation.xml in Resources */,
+				340DE0A9192C96FA0056D51E /* list_effect.xml in Resources */,
 				F5C89DFE18D2FCE9006E909D /* monkey_spritesheet.plist in Resources */,
 				F52678FF18EEAEA500CE1E3B /* map1_spritesheet_3.plist in Resources */,
 				2D0DA13F1908F65800881C8D /* tower_1_animation.xml in Resources */,
 				2DC48A84191A356600B34724 /* monster_sensor.plist in Resources */,
 				15A3D9961682F7F9002FB0C5 /* CMakeLists.txt in Resources */,
-				2D0DA14B1908F6C800881C8D /* list_effect.xml in Resources */,
 				F52678F818EEAEA500CE1E3B /* map1_spritesheet_2.png in Resources */,
 				F52678FE18EEAEA500CE1E3B /* map1_spritesheet_2.plist in Resources */,
 				F52678FD18EEAEA500CE1E3B /* map1_spritesheet_1.plist in Resources */,
@@ -3012,7 +3021,6 @@
 			files = (
 				F54AE9B818D2F1AA00194E66 /* CharacterJumpState.cpp in Sources */,
 				15A3D8FF1682F7D5002FB0C5 /* b2BroadPhase.cpp in Sources */,
-				2D0DA1651908F7F200881C8D /* EffectData.cpp in Sources */,
 				F54AE9C418D2F1FC00194E66 /* GameObject.cpp in Sources */,
 				3414166218DC23A0007B8C2B /* GameObjectManager.cpp in Sources */,
 				15A3D9001682F7D5002FB0C5 /* b2CollideCircle.cpp in Sources */,
@@ -3022,6 +3030,7 @@
 				15A3D9031682F7D5002FB0C5 /* b2Collision.cpp in Sources */,
 				15A3D9041682F7D5002FB0C5 /* b2Distance.cpp in Sources */,
 				F54AE9D518D2F2B400194E66 /* XMLAnimationParser.cpp in Sources */,
+				340DE0B2192C9B010056D51E /* SkillAnimationEffect.cpp in Sources */,
 				15A3D9051682F7D5002FB0C5 /* b2DynamicTree.cpp in Sources */,
 				F5E3B9B81917728E00E8FD95 /* MonsterLoader.cpp in Sources */,
 				15A3D9061682F7D5002FB0C5 /* b2TimeOfImpact.cpp in Sources */,
@@ -3070,6 +3079,7 @@
 				F54AE9C818D2F22800194E66 /* Character.cpp in Sources */,
 				F54AE9EE18D2F38100194E66 /* iUIObjectTouchInterface.cpp in Sources */,
 				F54AEA0318D2F4C100194E66 /* GameMenuLayer.cpp in Sources */,
+				340DE0AC192C97320056D51E /* EffectData.cpp in Sources */,
 				15A3D9211682F7D5002FB0C5 /* b2FrictionJoint.cpp in Sources */,
 				15A3D9221682F7D5002FB0C5 /* b2GearJoint.cpp in Sources */,
 				15A3D9231682F7D5002FB0C5 /* b2Joint.cpp in Sources */,
@@ -3129,7 +3139,6 @@
 				15A3DA331682F826002FB0C5 /* CCBKeyframe.cpp in Sources */,
 				15A3DA341682F826002FB0C5 /* CCBReader.cpp in Sources */,
 				F5579EBA191DDAD900F29241 /* Hero.cpp in Sources */,
-				F5BAF28E191487930093BA4F /* EffectManager.cpp in Sources */,
 				15A3DA351682F826002FB0C5 /* CCBSequence.cpp in Sources */,
 				15A3DA361682F826002FB0C5 /* CCBSequenceProperty.cpp in Sources */,
 				F59E0BDC18D85E90001048BD /* NormalAttack.cpp in Sources */,
@@ -3282,13 +3291,13 @@
 				34E614F519133F5E006D933E /* MapDTO.cpp in Sources */,
 				F54AE9F818D2F3F800194E66 /* GLES-Render.cpp in Sources */,
 				379BB9AD17F03F3700829B88 /* CCComAttribute.cpp in Sources */,
+				340DE0B5192C9EB50056D51E /* EffectManager.cpp in Sources */,
 				379BB9AE17F03F3700829B88 /* CCComAudio.cpp in Sources */,
 				379BB9AF17F03F3700829B88 /* CCComController.cpp in Sources */,
 				379BB9B017F03F3700829B88 /* CCComRender.cpp in Sources */,
 				379BB9B117F03F3700829B88 /* CCInputDelegate.cpp in Sources */,
 				F5BA76AC1920788A0070997B /* Map.cpp in Sources */,
 				F54AE9F118D2F38100194E66 /* UIObject.cpp in Sources */,
-				2D0DA16D1908F83900881C8D /* EffectFactory.cpp in Sources */,
 				379BB9B317F03F3700829B88 /* UIWidget.cpp in Sources */,
 				379BB9B417F03F3700829B88 /* UILayout.cpp in Sources */,
 				379BB9B617F03F3700829B88 /* UILayoutParameter.cpp in Sources */,
@@ -3325,6 +3334,7 @@
 				379BB9C917F03F3700829B88 /* UITextField.cpp in Sources */,
 				F507B41F1921DC5B00D23B99 /* Observable.cpp in Sources */,
 				343D9A5219134A52003F5DE4 /* Effect.cpp in Sources */,
+				340DE0AF192C977B0056D51E /* EffectFactory.cpp in Sources */,
 				379BB9CB17F03F3700829B88 /* DictionaryHelper.cpp in Sources */,
 				379BB9D317F03F3700829B88 /* GUIReader.cpp in Sources */,
 				345F6B5318E2C71F00985A7A /* ScheduleManager.cpp in Sources */,

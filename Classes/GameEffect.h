@@ -8,6 +8,7 @@
 
 #ifndef __TinyZodiacs__GameEffect__
 #define __TinyZodiacs__GameEffect__
+class GameEffect;
 
 #include <iostream>
 #include "cocos2d.h"

@@ -12,6 +12,7 @@
 #include "NormalShootingAttack.h"
 #include "Util.h"
 #include "GameObjectManager.h"
+#include "GB2ShapeCache-x.h"
 
 Tower::Tower()
 {
@@ -388,4 +389,16 @@ void Tower::flipDirection(Direction direction)
     {
         this->direction = direction;
     }
+}
+
+void Tower::setSensor(const char* bodyId)
+{
+    gbox2d::GB2ShapeCache *sc =  gbox2d::GB2ShapeCache::sharedGB2ShapeCache();
+    
+    PhysicData* data =  new PhysicData();
+    data->BodyId = TOWER_SENSOR;
+    data->GameObjectID = TOWER;
+    data->FixtureId = TOWER_SENSOR_FIXTURE;
+    data->Data = this;
+    sc->addFixturesToBody(this->body, bodyId, data);
 }

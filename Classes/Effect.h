@@ -9,13 +9,15 @@
 #ifndef __TinyZodiacs__Effect__
 #define __TinyZodiacs__Effect__
 
+class Effect;
+
 #include <iostream>
 #include "cocos2d.h"
 #include "EffectData.h"
-#include "AnimationObject.h"
+//#include "AnimationObject.h"
 #include "GameObject.h"
+#include "GameEffect.h"
 
-//class GameObject;
 
 USING_NS_CC;
 class Effect: public CCObject
@@ -27,7 +29,7 @@ protected:
     CCSize positionOffset;
     
     CC_SYNTHESIZE_READONLY(GameObject*, holder, Holder);
-    CC_SYNTHESIZE_READONLY(CCSprite*, sprite, Sprite);
+//    CC_SYNTHESIZE_READONLY(CCSprite*, sprite, Sprite);
     
     CCPoint calculatePosition(JointDef jointDefA, JointDef jointDefB);
     CCPoint calculate(CCSize boudingBox, int typeX, int typeY, float offsetX, float offsetY);
@@ -40,7 +42,7 @@ protected:
     
     void setDataAfterFirstTick();
 public:
-    CC_SYNTHESIZE_READONLY(AnimationObject*, animation, Animation);
+    CC_SYNTHESIZE_READONLY(GameEffect*, animation, Animation);
     CC_SYNTHESIZE_READONLY(int, animationLayerIndex, AnimationLayerIndex);
     CC_SYNTHESIZE_READONLY(JointDef, jointDefA, JointDefA);
     CC_SYNTHESIZE_READONLY(JointDef, jointDefB, JointDefB);
