@@ -40,9 +40,21 @@ void EffectManager::runEffect(GameEffect* effect, CCPoint position)
     
 }
 
+void EffectManager::runEffect(GameEffect* effect, CCPoint position, int layerIndex)
+{
+    effect->setPosition(position);
+    this->holder->addChild(effect, layerIndex);
+    
+    effect->run();
+    
+}
+
 void EffectManager::stopEffect(GameEffect* effect)
 {
-    effect->stop();
+    if(effect != NULL)
+    {
+        effect->stop();
+    }
 }
 
 void EffectManager::update(float dt)

@@ -32,7 +32,6 @@ bool GameObjectManager::init()
     {
         return false;
     }
-    this->scheduleUpdate();
     return true;
 }
 

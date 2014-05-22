@@ -11,11 +11,13 @@
 #include "ScheduleManager.h"
 #include "Character.h"
 #include "DataCollector.h"
+#include "SkillAnimationEffect.h"
+#include "EffectManager.h"
 
 Effect::Effect(EffectData data, GameObject* holder)
 {
     this->holder = holder;
-    
+    this->isDestroyed = false;
     this->chance = data.getChance();
     this->critChance = data.getCritChance();
     this->critRatio = data.getCritRatio();
@@ -32,32 +34,30 @@ Effect::Effect(EffectData data, GameObject* holder)
     
     if(data.getAnimationId() != "")
     {
-//        this->sprite = CCSprite::create();
-//        this->sprite->retain();
-//        this->animation = DataCollector::getInstance()->getAnimationObjectByKey(data.getAnimationId().c_str());
-//        if(this->animation != NULL)
-//        {
-//            if(this->animation->getAnimation() != NULL)
-//            {
-//                this->animation->getAnimation()->setLoops(INFINITY);
-//                this->sprite->runAction(CCAnimate::create(this->animation->getAnimation()));
-//            }
-//        }
-//        this->positionOffset = calculatePosition(data.getJointDefA(), data.getJointDefB());
-//        this->holder->getSprite()->getParent()->addChild(this->sprite,data.getAnimationLayerIndex());
-        this->sprite = NULL;
-        this->animation = NULL;
-
+        this->animation = SkillAnimationEffect::create();
+        this->animation->retain();
+        ((SkillAnimationEffect*)this->animation)->setAnimation(data.getAnimationId().c_str(), data.getMinRotateAngle(), data.getMaxRotateAngle(), data.getMinScale(), data.getMaxScale(), data.getRepeatTimes(), CCPoint(0, 0));
+        
+        if(data.getRepeatTimes() <=0)
+        {
+            int repeatTime = data.getRepeatTimes();
+            repeatTime = data.getLifeTime() / ((SkillAnimationEffect*)this->animation)->getAnimationDuration();
+            ((SkillAnimationEffect*)this->animation)->setRepeatTimes(repeatTime);
+            ((SkillAnimationEffect*)this->animation)->setIsFiniteAction(false);
+        }
+        
+        EffectManager::getInstance()->runEffect((SkillAnimationEffect*)this->animation, CCPoint(0, 0), data.getAnimationLayerIndex());
+        
     }
     else
     {
-        this->sprite = NULL;
+        //        this->sprite = NULL;
         this->animation = NULL;
     }
     
     //schedule repeat
     CCCallFunc *timeTickFunction = CCCallFunc::create(this, callfunc_selector(Effect::onTimeTick));
-    CCCallFunc *destroyFunction = CCCallFunc::create(this, callfunc_selector(Effect::destroy));
+    CCCallFunc *destroyFunction = CCCallFunc::create(this, callfunc_selector(Effect::destroyOnTimeOut));
     
     if(this->timeTick == 0)
     {
@@ -68,7 +68,7 @@ Effect::Effect(EffectData data, GameObject* holder)
         this->timeTickRepeatAction = ScheduleManager::getInstance()->scheduleFunctionForever(timeTickFunction, NULL, this->timeTick);
     }
     this->timeTickRepeatAction->retain();
- 
+    
     this->lifeTimeAction = ScheduleManager::getInstance()->scheduleFunction(destroyFunction, NULL,this->lifeTime, 1);
     this->lifeTimeAction->retain();
     
@@ -84,11 +84,7 @@ void Effect::calculateActualInformation(GameObject* holder)
 
 Effect::~Effect()
 {
-    if(this->sprite != NULL)
-    {
-        this->sprite->stopAllActions();
-        this->sprite->removeFromParent();
-    }
+
 }
 
 CCPoint Effect::calculatePosition(JointDef jointDefA, JointDef jointDefB)
@@ -96,7 +92,7 @@ CCPoint Effect::calculatePosition(JointDef jointDefA, JointDef jointDefB)
     if(this->holder != NULL && this->animation != NULL)
     {
         CCSize holderSize = CCSize(abs(this->holder->getBodyBoundingBox().lowerBound.x - this->holder->getBodyBoundingBox().upperBound.x)*32,abs(this->holder->getBodyBoundingBox().lowerBound.y - this->holder->getBodyBoundingBox().upperBound.y)*32);
-        CCSize thisSize = this->sprite->boundingBox().size;
+        CCSize thisSize = ((SkillAnimationEffect*)this->animation)->sprite->boundingBox().size;
         
         CCPoint p1 = calculate(holderSize, jointDefA.x, jointDefA.y, jointDefA.offsetX, jointDefA.offsetY);
         CCPoint p2 = calculate(thisSize, jointDefB.x, jointDefB.y, jointDefB.offsetX, jointDefB.offsetY);
@@ -146,51 +142,72 @@ CCPoint Effect::calculate(CCSize boundingBox, int typeX, int typeY, float offset
 
 void Effect::update(float dt)
 {
-    if(this->sprite != NULL)
+    if(this->animation != NULL)
     {
-        this->sprite->setPosition(this->holder->getPositionInPixel()+positionOffset);
+        ((SkillAnimationEffect*)this->animation)->setPosition(this->holder->getPositionInPixel()+positionOffset);
     }
 }
 
 void Effect::stopAllSchedule()
 {
-    if(!this->timeTickRepeatAction->isDone())
+    if(this->timeTickRepeatAction != NULL)
     {
-        ScheduleManager::getInstance()->stopAction(this->timeTickRepeatAction);
-    }
-    if(!this->lifeTimeAction->isDone())
-    {
-        ScheduleManager::getInstance()->stopAction(this->lifeTimeAction);
+        if(!this->timeTickRepeatAction->isDone())
+        {
+            ScheduleManager::getInstance()->stopAction(this->timeTickRepeatAction);
+            
+        }
+        
+        this->timeTickRepeatAction->release();
+        this->timeTickRepeatAction = NULL;
     }
     
-    this->timeTickRepeatAction->release();
-    this->lifeTimeAction->release();
+    if(this->lifeTimeAction != NULL)
+    {
+        if(!this->lifeTimeAction->isDone())
+        {
+            ScheduleManager::getInstance()->stopAction(this->lifeTimeAction);
+            
+        }
+        this->lifeTimeAction->release();
+        this->lifeTimeAction = NULL;
+    }
 }
+
 
 void Effect::destroy()
 {
-    if(!this->timeTickRepeatAction->isDone())
+    if(this->isDestroyed == false)
     {
-        ScheduleManager::getInstance()->stopAction(this->timeTickRepeatAction);
+ 
+        this->isDestroyed = true;
+        this->stopAllSchedule();
+        
+        if(((SkillAnimationEffect*)this->animation)->getIsFiniteAction() == false)
+        {
+            EffectManager::getInstance()->stopEffect(this->animation);
+        }
+        this->animation->release();
     }
-    if(!this->lifeTimeAction->isDone())
-    {
-    ScheduleManager::getInstance()->stopAction(this->lifeTimeAction);
-    }
-    
-    this->timeTickRepeatAction->release();
-    this->lifeTimeAction->release();
-    
+}
+
+void Effect::destroyOnTimeOut()
+{
+    destroy();
     this->holder->removeEffect(this);
 }
 
 void Effect::onTimeTick()
 {
-    Character* character = (Character*)this->holder;
-
-    character->notifyByEffect(this);
-    
-    setDataAfterFirstTick();
+    if(this->isDestroyed == false)
+    {
+        Character* character = dynamic_cast<Character*>(this->holder) ;
+        
+        if(character!=NULL)
+            character->notifyByEffect(this);
+        
+        setDataAfterFirstTick();
+    }
 }
 
 void Effect::setDataAfterFirstTick()

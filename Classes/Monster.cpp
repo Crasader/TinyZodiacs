@@ -28,6 +28,7 @@ Monster::Monster()
 
 Monster::~Monster()
 {
+      CCLOG("ffffffs");
     this->listTarget->removeAllObjects();
     this->listTarget->release();
     AnimationEffect* effect = AnimationEffect::create();
@@ -38,7 +39,7 @@ Monster::~Monster()
     
     EffectManager::getInstance()->stopEffect(effect);
     effect->release();
-    dropItem();
+   // dropItem();
 }
 
 bool Monster::init()
@@ -54,7 +55,7 @@ void Monster::update(float dt)
 {
     if(!isDead())
     {
-        this->aimTarget();
+    //    this->aimTarget();
     }
     
     if(!isAttack)

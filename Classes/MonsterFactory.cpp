@@ -172,7 +172,8 @@ void MonsterFactory::createMonsterListFromSchedule(CCNode* sender, void* data)
         CCPoint *pos = static_cast<CCPoint*>(params->at(1));
         int* laneID = static_cast<int*>(params->at(2));
         b2World *world = static_cast<b2World*>(params->at(3));
-        if (isStopped == false)
+        //if (isStopped == false && this->listMonster->count() <= 0)
+
         {
             addNewMonster(createMonster(dto, *pos, *laneID, world));
 

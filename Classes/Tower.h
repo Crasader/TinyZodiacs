@@ -52,6 +52,8 @@ public:
 
     virtual void flipDirection(Direction direction);
     
+    void setSensor(const char* bodyId);
+    
     CREATE_FUNC(Tower);
 };
 #endif /* defined(__TinyZodiacs__Tower__) */

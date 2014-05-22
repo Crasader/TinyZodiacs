@@ -188,6 +188,7 @@ void GameWorld::update(float dt)
     this->group1->update(dt);
     this->group2->update(dt);
     ItemFactory::getInstance()->update(dt);
+    GameObjectManager::getInstance()->update(dt);
 
     if(this->world != NULL)
     {

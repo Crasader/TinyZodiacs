@@ -19,7 +19,6 @@ AnimationEffect::AnimationEffect()
 
 AnimationEffect::~AnimationEffect()
 {
-    
 }
 
 bool AnimationEffect::init()
@@ -42,6 +41,7 @@ void AnimationEffect::run()
 void AnimationEffect::stop()
 {
     this->sprite->stopAllActions();
+    this->sprite->removeFromParent();
     this->removeFromParent();
 }
 

@@ -278,6 +278,9 @@ Tower* ObjectFactory::createTower(TowerStructDTO* towerStructDTO, b2World* world
     tower->getSprite()->setAnchorPoint(sc->anchorPointForShape(towerDTO->body.c_str()));
     tower->setSkin(body, tower->getSprite());
     
+    //
+    tower->setSensor(towerDTO->towerSensorId.c_str());
+    
     tower->setNormalAttack(SkillFactory::createSkill(towerDTO->data.getSkill0().c_str(), world, tower, false, SKILL_0_BUTTON));
     //    tower->setSkill1(SkillFactory::createSkill(towerDTO->data.getSkill1().c_str(), world, tower, false, SKILL_1_BUTTON));
     //    tower->setSkill2(SkillFactory::createSkill(towerDTO->data.getSkill2().c_str(), world, tower, false, SKILL_2_BUTTON));

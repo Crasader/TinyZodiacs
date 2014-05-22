@@ -8,6 +8,7 @@
     <atk_speed>0.1</atk_speed>
     <max_jump>5</max_jump>
     <jump_height>10</jump_height>
+    <sensor_body>tower_sensor_2</sensor_body>
     <skill_0>tower_shooting_2</skill_0>
 
 </character>

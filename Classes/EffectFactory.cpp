@@ -54,7 +54,15 @@ EffectData* EffectFactory::loadXMLFile(const char* key, const char *xmlFileName)
     {
         data = new EffectData();
         data->setAnimationId(readAnimationId(result->FirstChildElement(TAG_ANIMATION_ID)));
-        data->setAnimationLayerIndex(readAnimationLayerIndex(result->FirstChildElement(TAG_ANIMATION_LAYER)));
+        data->setAnimationLayerIndex(readAnimationLayerIndex(result->FirstChildElement(TAG_ANIMATION_ID)));
+        data->setMinRotateAngle(readMinRotation(result->FirstChildElement(TAG_ANIMATION_ID)));
+        data->setMaxRotateAngle(readMaxRotation(result->FirstChildElement(TAG_ANIMATION_ID)));
+        data->setMinScale(readMinScale(result->FirstChildElement(TAG_ANIMATION_ID)));
+        data->setMaxScale(readMaxScale(result->FirstChildElement(TAG_ANIMATION_ID)));
+        data->setRepeatTimes(readRepeatTimes(result->FirstChildElement(TAG_ANIMATION_ID)));
+
+//        CCLOG("%s - %d - %f - %f- %f - %f - %d",data->getAnimationId().c_str(), data->getAnimationLayerIndex(),data->getMinRotateAngle(), data->getMaxRotateAngle(), data->getMinScale(),data->getMaxScale(),data->getRepeatTimes());
+        
         if(result->FirstChildElement(TAG_JOINTS) != NULL)
         {
             data->setJointDefA(readJoinDef(result->FirstChildElement(TAG_JOINTS)->FirstChildElement(TAG_HOLDER)));
@@ -88,7 +96,32 @@ std::string EffectFactory::readAnimationId(const XMLElement* root)
 
 int EffectFactory::readAnimationLayerIndex(const XMLElement* root)
 {
-    return XMLHelper::readInt(root, ABOVE_CHARACTER_LAYER);
+    return XMLHelper::readAttributeInt(root, ATTRIBUTE_ANIMATION_LAYER, ABOVE_CHARACTER_LAYER);
+}
+
+float EffectFactory::readMinRotation(const XMLElement* root)
+{
+    return XMLHelper::readAttributeFloat(root, ATTRIBUTE_MIN_ROTATE_ANGLE, 0);
+}
+
+float EffectFactory::readMaxRotation(const XMLElement* root)
+{
+    return XMLHelper::readAttributeFloat(root, ATTRIBUTE_MAX_ROTATE_ANGLE, 0);
+}
+
+float EffectFactory::readMinScale(const XMLElement* root)
+{
+    return XMLHelper::readAttributeFloat(root, ATTRIBUTE_MIN_SCALE, 1);
+}
+
+float EffectFactory::readMaxScale(const XMLElement* root)
+{
+    return XMLHelper::readAttributeFloat(root, ATTRIBUTE_MAX_SCALE, 1);
+}
+
+int EffectFactory::readRepeatTimes(const XMLElement* root)
+{
+    return XMLHelper::readAttributeInt(root, ATTRIBUTE_REPEAT_TIMES, 1);
 }
 
 float EffectFactory::readChance(const XMLElement* root)

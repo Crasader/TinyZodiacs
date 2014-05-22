@@ -19,8 +19,8 @@ USING_NS_CC;
 class AnimationEffect: public GameEffect
 {
 private:
-    AnimationObject* animationObject;
 protected:
+    AnimationObject* animationObject;
 public:
     CCSprite* sprite;
 

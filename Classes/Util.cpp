@@ -339,3 +339,9 @@ vector<ItemStruct> Util::randomItemInList(vector<ItemStruct> listItemStruct, int
 
     return listItem;
 }
+
+float Util::randomFloatInRange(float lowerBound, float upperBound)
+{
+    return (lowerBound + (upperBound-lowerBound)*CCRANDOM_0_1());
+}
+
