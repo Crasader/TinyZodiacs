@@ -50,7 +50,6 @@ Hero* ObjectFactory::createHero(HeroDTO* heroDTO, b2World* world, bool isLocal)
     bodyDef.type = b2_dynamicBody;
     bodyDef.angle = ccpToAngle(ccp(0,0));
     bodyDef.fixedRotation = true;
-    bodyDef.userData = hero;
     
     b2Body *body = world->CreateBody(&bodyDef);
     

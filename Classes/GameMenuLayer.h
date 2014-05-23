@@ -19,6 +19,7 @@ class GameMenuLayer: public cocos2d::CCLayer, public iUIObjectTouchEventInterfac
 {
 public:
     CCLabelTTF* label;
+     CCLabelTTF* monsterCount;
     
     virtual bool init();
     virtual void update(float dt);

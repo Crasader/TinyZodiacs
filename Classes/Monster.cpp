@@ -28,15 +28,18 @@ Monster::Monster()
 
 Monster::~Monster()
 {
+      CCLOG("ffffffs");
     this->listTarget->removeAllObjects();
     this->listTarget->release();
     AnimationEffect* effect = AnimationEffect::create();
+    effect->retain();
     effect->setAnimation("effect-smoke");
     
     EffectManager::getInstance()->runEffect(effect, this->getPositionInPixel());
     
-    ItemFactory::getInstance()->createItem(this->listItem[0].itemID.c_str(), this->getPositionInPixel());
-//    ItemFactory::getInstance()->createItem(this->listItem[1].itemID.c_str(), this->getPositionInPixel());
+    EffectManager::getInstance()->stopEffect(effect);
+    effect->release();
+   // dropItem();
 }
 
 bool Monster::init()
@@ -93,6 +96,16 @@ void Monster::attachSpriteTo(CCNode* node)
 {
     GameObject::attachSpriteTo(node);
     node->addChild(this->sprite, CHARACTER_LAYER);
+}
+
+void Monster::dropItem()
+{
+    vector<ItemStruct> listItem = Util::randomItemInList(this->listItem, 1);
+    
+    for (int i = 0; i < listItem.size(); i++)
+    {
+        ItemFactory::getInstance()->createItem(listItem[i].itemID.c_str(), this->getPositionInPixel());
+    }
 }
 
 void Monster::checkCollisionDataInBeginContact(PhysicData* holderData, PhysicData* collisionData, b2Contact *contact)
@@ -347,7 +360,7 @@ void Monster::setGroup(Group group)
 void Monster::onCreate()
 {
     Character::onCreate();
-  
+    
 }
 
 void Monster::setSensor(const char* bodyId)

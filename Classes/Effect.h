@@ -23,6 +23,7 @@ USING_NS_CC;
 class Effect: public CCObject
 {
 private:
+    bool isDestroyed;
 protected:
     CCAction* timeTickRepeatAction;
     CCAction* lifeTimeAction;
@@ -35,6 +36,7 @@ protected:
     CCPoint calculate(CCSize boudingBox, int typeX, int typeY, float offsetX, float offsetY);
     
     void destroy();
+    void destroyOnTimeOut();
 
     void onTimeTick();
     

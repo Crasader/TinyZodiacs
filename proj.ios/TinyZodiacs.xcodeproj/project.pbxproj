@@ -413,6 +413,9 @@
 		F5CCA7A2191B3D18002A7F2A /* ItemDTO.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F5CCA7A0191B3D18002A7F2A /* ItemDTO.cpp */; };
 		F5CCA7A4191B5F95002A7F2A /* item_list.xml in Resources */ = {isa = PBXBuildFile; fileRef = F5CCA7A3191B5F95002A7F2A /* item_list.xml */; };
 		F5CCA7A7191B6276002A7F2A /* XMLItemParser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F5CCA7A5191B6276002A7F2A /* XMLItemParser.cpp */; };
+		F5CCF217192C8E9200E56EE2 /* Wave.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F5CCF215192C8E9200E56EE2 /* Wave.cpp */; };
+		F5CCF21A192C8EBE00E56EE2 /* WaveDTO.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F5CCF218192C8EBE00E56EE2 /* WaveDTO.cpp */; };
+		F5DB5356192D93EC0065C55E /* GameMatch.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F5DB5354192D93EC0065C55E /* GameMatch.cpp */; };
 		F5DC910F1928FD50004851A4 /* item_spritesheet.plist in Resources */ = {isa = PBXBuildFile; fileRef = F5DC910D1928FD50004851A4 /* item_spritesheet.plist */; };
 		F5DC91101928FD50004851A4 /* item_spritesheet.png in Resources */ = {isa = PBXBuildFile; fileRef = F5DC910E1928FD50004851A4 /* item_spritesheet.png */; };
 		F5DF11A5192AED2D00CA5C2F /* GoldItem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F5DF11A3192AED2D00CA5C2F /* GoldItem.cpp */; };
@@ -1197,6 +1200,12 @@
 		F5CCA7A3191B5F95002A7F2A /* item_list.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = item_list.xml; sourceTree = "<group>"; };
 		F5CCA7A5191B6276002A7F2A /* XMLItemParser.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = XMLItemParser.cpp; path = ../Classes/XMLItemParser.cpp; sourceTree = "<group>"; };
 		F5CCA7A6191B6276002A7F2A /* XMLItemParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XMLItemParser.h; path = ../Classes/XMLItemParser.h; sourceTree = "<group>"; };
+		F5CCF215192C8E9200E56EE2 /* Wave.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Wave.cpp; sourceTree = "<group>"; };
+		F5CCF216192C8E9200E56EE2 /* Wave.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Wave.h; sourceTree = "<group>"; };
+		F5CCF218192C8EBE00E56EE2 /* WaveDTO.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = WaveDTO.cpp; sourceTree = "<group>"; };
+		F5CCF219192C8EBE00E56EE2 /* WaveDTO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WaveDTO.h; sourceTree = "<group>"; };
+		F5DB5354192D93EC0065C55E /* GameMatch.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GameMatch.cpp; path = ../Classes/GameMatch.cpp; sourceTree = "<group>"; };
+		F5DB5355192D93EC0065C55E /* GameMatch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GameMatch.h; path = ../Classes/GameMatch.h; sourceTree = "<group>"; };
 		F5DC910D1928FD50004851A4 /* item_spritesheet.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = item_spritesheet.plist; sourceTree = "<group>"; };
 		F5DC910E1928FD50004851A4 /* item_spritesheet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = item_spritesheet.png; sourceTree = "<group>"; };
 		F5DF11A3192AED2D00CA5C2F /* GoldItem.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GoldItem.cpp; sourceTree = "<group>"; };
@@ -2409,6 +2418,10 @@
 				51136ADB1908E62F00317D3A /* NoBodyMapObject.h */,
 				F5E2929618E6779500B9B152 /* Player.cpp */,
 				F5E2929718E6779500B9B152 /* Player.h */,
+				F5CCF215192C8E9200E56EE2 /* Wave.cpp */,
+				F5CCF216192C8E9200E56EE2 /* Wave.h */,
+				F5DB5354192D93EC0065C55E /* GameMatch.cpp */,
+				F5DB5355192D93EC0065C55E /* GameMatch.h */,
 			);
 			name = Objects;
 			sourceTree = "<group>";
@@ -2710,6 +2723,8 @@
 				F5AE36A81906799900FB7519 /* SensorObjectDTO.h */,
 				F5DF11A6192B0B7E00CA5C2F /* ItemCreatorDTO.cpp */,
 				F5DF11A7192B0B7E00CA5C2F /* ItemCreatorDTO.h */,
+				F5CCF218192C8EBE00E56EE2 /* WaveDTO.cpp */,
+				F5CCF219192C8EBE00E56EE2 /* WaveDTO.h */,
 			);
 			name = MapDTO;
 			sourceTree = "<group>";
@@ -3061,6 +3076,7 @@
 				F5B4287119174057002DC13B /* MapLoader.cpp in Sources */,
 				15A3D9181682F7D5002FB0C5 /* b2ChainAndPolygonContact.cpp in Sources */,
 				F54AE9B618D2F1AA00194E66 /* CharacterMidAirState.cpp in Sources */,
+				F5CCF21A192C8EBE00E56EE2 /* WaveDTO.cpp in Sources */,
 				375BD5111868454E0024609E /* CCActionManager.cpp in Sources */,
 				F5CCA7A7191B6276002A7F2A /* XMLItemParser.cpp in Sources */,
 				15A3D9191682F7D5002FB0C5 /* b2CircleContact.cpp in Sources */,
@@ -3092,6 +3108,7 @@
 				15A3D9271682F7D5002FB0C5 /* b2RevoluteJoint.cpp in Sources */,
 				15A3D9281682F7D5002FB0C5 /* b2RopeJoint.cpp in Sources */,
 				F5BAF29219148B380093BA4F /* HealthPointEffect.cpp in Sources */,
+				F5DB5356192D93EC0065C55E /* GameMatch.cpp in Sources */,
 				15A3D9291682F7D5002FB0C5 /* b2WeldJoint.cpp in Sources */,
 				F54AEA0518D2F4C100194E66 /* GameBackgroundLayer.cpp in Sources */,
 				34ED36C518D69C2C00FFA55A /* CharacterActionEngine.cpp in Sources */,
@@ -3114,6 +3131,7 @@
 				15A3D9A01682F7F9002FB0C5 /* cpSimpleMotor.c in Sources */,
 				15A3D9A11682F7F9002FB0C5 /* cpSlideJoint.c in Sources */,
 				15A3D9A21682F7F9002FB0C5 /* cpArbiter.c in Sources */,
+				F5CCF217192C8E9200E56EE2 /* Wave.cpp in Sources */,
 				15A3D9A31682F7F9002FB0C5 /* cpArray.c in Sources */,
 				15A3D9A41682F7F9002FB0C5 /* cpBB.c in Sources */,
 				15A3D9A51682F7F9002FB0C5 /* cpBBTree.c in Sources */,

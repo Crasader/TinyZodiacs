@@ -31,6 +31,7 @@ bool BonusItem::init()
 void BonusItem::onCreate()
 {
     Item::onCreate();
+    
 }
 void BonusItem::destroy()
 {

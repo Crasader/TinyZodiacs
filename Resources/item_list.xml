@@ -8,10 +8,10 @@
     <item id="bag2" type="container" image_name="bag_2.png" body_name="bag_2" life_time="1">
         
     </item>
-    <item id="coin1" type="gold" image_name="coin_1_1.png" body_name="coin_1" animation="coin1" life_time="1">
+    <item id="coin1" type="gold" image_name="coin_1_1.png" body_name="coin_1" animation="coin1" life_time="200">
         
     </item>
-    <item id="coin2" type="bonus" image_name="coin_2.png" body_name="coin_2" life_time="1">
+    <item id="coin2" type="bonus" image_name="coin_2.png" body_name="coin_2" life_time="1000">
         <affect_list>
             <affect id="cat_healing"/>
         </affect_list>

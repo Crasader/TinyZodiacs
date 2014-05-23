@@ -42,8 +42,6 @@ void EffectManager::runEffect(GameEffect* effect, CCPoint position)
 
 void EffectManager::runEffect(GameEffect* effect, CCPoint position, int layerIndex)
 {
-    // this->listEffect->addObject(effect);
-    
     effect->setPosition(position);
     this->holder->addChild(effect, layerIndex);
     

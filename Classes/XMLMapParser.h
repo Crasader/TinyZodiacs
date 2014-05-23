@@ -23,6 +23,7 @@
 #include "ItemCreatorDTO.h"
 #include "XMLHelper.h"
 #include "XMLItemParser.h"
+#include "WaveDTO.h"
 
 #define TAG_BACKGROUND_LIST "background_list"
 #define TAG_BACKGROUND "background"
@@ -81,7 +82,10 @@
 #define ATTRIBUTE_MONSTER_CREATOR_DELAY_PER_UNIT "delay_per_unit"
 #define ATTRIBUTE_MONSTER_CREATOR_DELAY "delay"
 #define ATTRIBUTE_MONSTER_CREATOR_LANE "lane"
+#define TAG_MONSTER_LIST "monster_list"
 #define TAG_MONSTER "monster"
+#define ATTRIBUTE_MONSTER_ID "id"
+#define ATTRIBUTE_MONSTER_QUANTITY "quantity"
 
 //item creator
 #define TAG_ITEM_CREATOR_LIST "item_creator_list"
@@ -91,6 +95,10 @@
 #define ATTRIBUTE_ITEM_CREATOR_DELAY_MAX "delay_max"
 #define TAG_ITEM_CREATOR_BEGIN_POSITION "begin_position"
 #define TAG_ITEM_CREATOR_END_POSITION "end_position"
+
+//wave
+#define TAG_WAVE_LIST "wave_list"
+#define TAG_WAVE "wave"
 
 
 USING_NS_CC;
@@ -108,6 +116,14 @@ public:
     static MonsterCreatorDTO* getMonsterCreatorDTOFromXMLNode(XMLElement* monsterCreatorXMLElement);
     static MonsterFactoryDTO* getMonsterFactoryDTOFromXMLNode(XMLElement* monsterFactoryXMLElement);
     static ItemCreatorDTO* getItemCreatorDTOFromXMLNode(XMLElement* itemCreatorXMLElement);
+    static WaveDTO* getWaveFromXMLNode(XMLElement* waveXMLElement);
+    
+    static CCArray* getMonsterFactoryDTOListFromXMLElement(XMLElement* root);
+    static CCArray* getItemCreatorDTOListFromXMLElement(XMLElement* root);
+    static CCArray* getWaveDTOListFromXMLElement(XMLElement* root);
+    static CCArray* getTowerStructDTOListFromXMLElement(XMLElement* root);
+    static CCArray* getSensorObjectDTOListFromXMLElement(XMLElement* root);
+
 };
 
 #endif /* defined(__TinyZodiacs__XMLMapParser__) */

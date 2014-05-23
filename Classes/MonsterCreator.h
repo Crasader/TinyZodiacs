@@ -9,6 +9,8 @@
 #ifndef __TinyZodiacs__MonsterCreator__
 #define __TinyZodiacs__MonsterCreator__
 
+class MonsterCreator;
+
 #include <iostream>
 #include "cocos2d.h"
 #include "MonsterFactory.h"
@@ -16,8 +18,8 @@
 
 USING_NS_CC;
 
-class MonsterFactory;
-class MonsterCreator: public CCObject {
+class MonsterCreator: public CCObject
+{
     
 private:
     CCAction* actionCreateMonster;

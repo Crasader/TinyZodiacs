@@ -313,7 +313,35 @@ ItemType Util::convertStringToItemType(const char* itemType)
     return type;
 }
 
+vector<ItemStruct> Util::randomItemInList(vector<ItemStruct> listItemStruct, int count)
+{
+    vector<ItemStruct> listItemRandom;
+    for (int i = 0; i < listItemStruct.size(); i++)
+    {
+        int chance = CCRANDOM_0_1()*100;
+        if(chance <= listItemStruct[i].chance)
+        {
+            listItemRandom.push_back(listItemStruct[i]);
+        }
+    }
+    
+    vector<ItemStruct> listItem;
+
+    for(int i = 0; i < count; i++)
+    {
+        int a = round(CCRANDOM_0_1()*(listItemRandom.size()-1));
+        if(a < listItemRandom.size())
+        {
+             listItem.push_back(listItemRandom[a]);
+        }
+       
+    }
+
+    return listItem;
+}
+
 float Util::randomFloatInRange(float lowerBound, float upperBound)
 {
     return (lowerBound + (upperBound-lowerBound)*CCRANDOM_0_1());
 }
+

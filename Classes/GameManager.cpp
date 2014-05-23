@@ -14,12 +14,11 @@ static GameManager* instance = NULL;
 
 GameManager::GameManager()
 {
-    
+    count = 0;
 }
 
 GameManager::~GameManager()
 {
-    
 }
 
 GameManager* GameManager::getInstance()
@@ -77,7 +76,6 @@ bool GameManager::loadData()
     HeroLoader::loadData();
     MonsterLoader::loadData();
     ItemLoader::loadData();
-    
     
     return true;
 }

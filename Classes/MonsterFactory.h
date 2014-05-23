@@ -9,6 +9,8 @@
 #ifndef __TinyZodiacs__MonsterFactory__
 #define __TinyZodiacs__MonsterFactory__
 
+class MonsterFactory;
+
 #include <iostream>
 #include "cocos2d.h"
 #include "Monster.h"
@@ -27,10 +29,10 @@ USING_NS_CC;
 class MonsterFactory: public CCObject, public Observer {
     
 private:
+    bool isStopped;
     CC_SYNTHESIZE(Group, group, Group);
-    CC_SYNTHESIZE(CCNode*, holder, Holder);
+    CC_SYNTHESIZE(GameHolder, holder, Holder);
     CC_SYNTHESIZE(CCArray*, listMonster, ListMonster);
-    CC_SYNTHESIZE(b2World*, world, World);
     CC_SYNTHESIZE(CCArray*, listMonsterCreator, ListMonsterCreator);
 protected:
 public:

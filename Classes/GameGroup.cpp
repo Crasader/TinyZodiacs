@@ -10,6 +10,7 @@
 #include "ObjectFactory.h"
 #include "LayerIndexConstants.h"
 #include "EffectManager.h"
+#include "WaveDTO.h"
 
 GameGroup::GameGroup()
 {
@@ -50,8 +51,13 @@ void GameGroup::joinGame(Group group, b2World* world, Map* map)
     this->character->retain();
     
     //MONSTER
-    this->monsterFactory->setHolder(map);
-    this->monsterFactory->setWorld(world);
+    
+    GameHolder holder;
+    holder.worldHolder = world;
+    holder.nodeHolder = map;
+    
+    
+    this->monsterFactory->setHolder(holder);
     
     //towers
     
@@ -94,6 +100,7 @@ void GameGroup::joinGame(Group group, b2World* world, Map* map)
     this->monsterFactory->startCreateMonster();
     
     
+    
     createTowers(arrTowerStruct, world);
     
     attachSpriteToMap(map);
@@ -102,14 +109,12 @@ void GameGroup::joinGame(Group group, b2World* world, Map* map)
 
 void GameGroup::BeginContact(b2Contact* contact)
 {
-    //character
-    this->character->BeginContact(contact);
+    
 }
 
 void GameGroup::EndContact(b2Contact* contact)
 {
-    //character
-    this->character->EndContact(contact);
+    
 }
 
 Character* GameGroup::getFollowingCharacter()
@@ -140,7 +145,7 @@ void GameGroup::createTowers(CCArray* listTowerStructDTO, b2World* world)
 void GameGroup::attachSpriteToMap(Map* map)
 {
     character->attachSpriteTo(map);
-   
+    
     
     //towers
     CCObject* object = NULL;

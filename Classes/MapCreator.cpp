@@ -62,15 +62,24 @@ Map* MapCreator::createMap(MapDTO* mapDTO, GameWorld* gameWorld)
         
         map->addItemCreator(itemCreator);
     }
-
     
-//    //    //create background
-//    map->addParallaxBackground(createParallaxBackground(mapDTO->listBackgroundDTO,mapDTO->width,mapDTO->height));
-//    //    //create foreground
-//    map->addParallaxForeground(createParallaxForeground(mapDTO->listForegroundDTO,mapDTO->width,mapDTO->height));
+    object = NULL;
+    CCARRAY_FOREACH(mapDTO->listWaveDTO, object)
+    {
+        WaveDTO* waveDTO = static_cast<WaveDTO*>(object);
+        
+        Wave* wave = createWave(waveDTO, gameWorld);
+        
+        map->addWave(wave);
+    }
+    
+    //    //    //create background
+    //    map->addParallaxBackground(createParallaxBackground(mapDTO->listBackgroundDTO,mapDTO->width,mapDTO->height));
+    //    //    //create foreground
+    //    map->addParallaxForeground(createParallaxForeground(mapDTO->listForegroundDTO,mapDTO->width,mapDTO->height));
     
     return map;
-
+    
 }
 
 Map* MapCreator::createMap(const char *id, GameWorld* gameWorld)
@@ -108,4 +117,48 @@ MapParallaxForeground* MapCreator::createParallaxForeground(CCArray* listForegro
     return parallaxForeground;
 }
 
+Wave* MapCreator::createWave(WaveDTO* waveDTO, GameWorld* gameWorld)
+{
+    Wave* wave = Wave::create();
+    
+    CCObject* object = NULL;
+    
+    CCARRAY_FOREACH(waveDTO->listMonsterFactoryDTO, object)
+    {
+        MonsterFactoryDTO* monsterFactoryDTO = static_cast<MonsterFactoryDTO*>(object);
+        if(monsterFactoryDTO != NULL)
+        {
+            if(monsterFactoryDTO->group == B)
+            {
+                
+                MonsterFactory* monsterFactory = MonsterFactory::create();
+                monsterFactory->setHolder(GameManager::getInstance()->getGameplayHolder());
+                monsterFactory->setGroup(B);
+                
+                CCObject* object1 = NULL;
+                CCARRAY_FOREACH(monsterFactoryDTO->listMonsterCreatorDTO, object1)
+                {
+                    MonsterCreatorDTO* monsterCreatorDTO = dynamic_cast<MonsterCreatorDTO*>(object1);
+                    monsterFactory->registerMonsterCreator(monsterCreatorDTO, gameWorld->getWorld());
+                }
+                
+                wave->addMonsterFactory(monsterFactory);
+            }
+        }
+    }
+    
+    object = NULL;
+    
+    CCARRAY_FOREACH(waveDTO->listItemCreatorDTO, object)
+    {
+        ItemCreatorDTO* itemCreatorDTO = static_cast<ItemCreatorDTO*>(object);
+        if(itemCreatorDTO != NULL)
+        {
+            wave->addItemCreator(ObjectFactory::createItemCreator(itemCreatorDTO));
+        }
+    }
+
+    
+    return wave;
+}
 

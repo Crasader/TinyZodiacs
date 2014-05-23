@@ -15,13 +15,18 @@ class ItemCreator;
 #include "cocos2d.h"
 #include "Constants.h"
 #include "ItemFactory.h"
+#include "Observer.h"
+#include "Util.h"
 
 USING_NS_CC;
 using namespace std;
 
-class ItemCreator: public CCObject
+class ItemCreator: public CCObject, public Observer
 {
 private:
+    CCAction* delayAction;
+    bool isStopped;
+    CC_SYNTHESIZE(CCArray*, listItem, ListItem);
 protected:
     CC_SYNTHESIZE(CCPoint, beginPosition, BeginPosition);
     CC_SYNTHESIZE(CCPoint, endPosition, EndPosition);
@@ -37,8 +42,9 @@ public:
     virtual bool init();
     
     void start();
-    void end();
+    void stop();
     void createItem();
+    void notifyToDestroy(GameObject* object);
     
     CREATE_FUNC(ItemCreator);
 };

@@ -40,7 +40,9 @@ public:
     static void applyEffectFromList(vector<EffectData> listEffect, GameObject* object);
     
     static ItemType convertStringToItemType(const char* itemType);
-    
+
+    static vector<ItemStruct> randomItemInList(vector<ItemStruct> listItemStruct, int count);
+
     static float randomFloatInRange(float lowerBound, float upperBound);
 };
 

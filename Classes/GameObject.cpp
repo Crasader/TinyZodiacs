@@ -32,6 +32,7 @@ GameObject::GameObject()
 
 GameObject::~GameObject()
 {
+  
     if(this->sprite != NULL)
     {
         this->sprite->removeFromParent();
@@ -55,12 +56,8 @@ GameObject::~GameObject()
         this->body->GetWorld()->DestroyBody(this->body);
     }
     
-//    CCObject* object;
-//    CCARRAY_FOREACH(this->listEffect, object)
-//    {
-//        ((Effect*)object)->destroy();
-//    }
     this->listEffect->removeAllObjects();
+    this->listEffect->release();
     
     //game object view
     if(this->gameObjectView != NULL)
@@ -70,8 +67,6 @@ GameObject::~GameObject()
         this->gameObjectView->release();
     }
     
-    
-    //    CC_SAFE_RELEASE(this->listEffect);
 }
 
 bool GameObject::init()
@@ -93,10 +88,6 @@ void GameObject::excuteScheduledFunction(CCObject* pSender, void *body)
 
 void GameObject::update(float dt)
 {
-//    if(this->sprite != NULL)
-//    {
-//        this->sprite->setScale(0);
-//    }
     
     updateSpritePositionWithBodyPosition();
     updateAllEffect(dt);
@@ -211,7 +202,7 @@ void GameObject::BeginContact(b2Contact *contact)
     {
         PhysicData* holderData = (PhysicData*)contact->GetFixtureA()/*->GetBody()*/->GetUserData();
         PhysicData* collisionData = (PhysicData*)contact->GetFixtureB()/*->GetBody()*/->GetUserData();
-
+        
         checkCollisionDataInBeginContact(holderData, collisionData,contact);
     }
     
@@ -359,12 +350,16 @@ uint16 GameObject::getPhysicGroup()
 
 void GameObject::applyEffect(CCObject* effect)
 {
+    if(this->isDestroyed == false)
     this->listEffect->addObject(effect);
 }
 
 void GameObject::removeEffect(CCObject* object)
 {
-    this->listEffect->removeObject(object);
+    if(this->listEffect->indexOfObject(object) != CC_INVALID_INDEX)
+    {
+        this->listEffect->removeObject(object);
+    }
 }
 
 void GameObject::notifyByEffect(CCObject* effect)
@@ -380,12 +375,12 @@ void GameObject::destroy()
         notifyToDestroy();
         GameObjectManager::getInstance()->addObjectRemoved(this);
         
-        CCObject* object;
+        CCObject* object = NULL;
         CCARRAY_FOREACH(this->listEffect, object)
         {
             ((Effect*)object)->destroy();
-            this->removeEffect((Effect*)object);
         }
+        this->listEffect->removeAllObjects();
     }
 }
 

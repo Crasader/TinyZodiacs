@@ -1,7 +1,7 @@
 <character id="monster_onion">
     <animation>creep_1</animation>
 	<body>creep_1</body>
-    <hp>1</hp>
+    <hp>20</hp>
     <atk>0</atk>
     <def>0</def>
     <speed>5</speed>
@@ -14,6 +14,9 @@
 
     
     <item_list>
-        <item id="container1" chance="100"/>
-    </item_list>
+           <item id="coin1" chance="4"/>
+        <item id="coin2" chance="4"/>
+
+
+           </item_list>
 </character>

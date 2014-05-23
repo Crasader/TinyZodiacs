@@ -74,39 +74,14 @@ MapDTO* XMLMapParser::getMapDTOFromXMLNode(XMLElement *mapXMLElement)
         mapDTO->listForegroundDTO->addObject(XMLMapParser::getForegroundDTOFromXMLNode(element));
     }
     
-    //list sensor
-    XMLElement* sensorListXMLNode = mapXMLElement->FirstChildElement(TAG_SENSOR_OBJECT_LIST);
+   
+    mapDTO->listSensorObjectDTO->addObjectsFromArray(getSensorObjectDTOListFromXMLElement(mapXMLElement));
+    mapDTO->listTowerStructDTO->addObjectsFromArray(getTowerStructDTOListFromXMLElement(mapXMLElement));
+    mapDTO->listMonsterFactoryDTO->addObjectsFromArray(getMonsterFactoryDTOListFromXMLElement(mapXMLElement));
+    mapDTO->listItemCreatorDTO->addObjectsFromArray(getItemCreatorDTOListFromXMLElement(mapXMLElement));
+    mapDTO->listWaveDTO->addObjectsFromArray(getWaveDTOListFromXMLElement(mapXMLElement));
     
-    for (XMLElement* element = sensorListXMLNode->FirstChildElement(TAG_SENSOR_OBJECT); element; element = element->NextSiblingElement())
-    {
-        mapDTO->listSensorObjectDTO->addObject(XMLMapParser::getSensorObjectDTOFromXMLNode(element));
-    }
     
-    //list tower
-    XMLElement* towerListXMLNode = mapXMLElement->FirstChildElement(TAG_TOWER_LIST);
-    
-    for (XMLElement* element = towerListXMLNode->FirstChildElement(TAG_TOWER); element; element = element->NextSiblingElement())
-    {
-        mapDTO->listTowerStructDTO->addObject(XMLMapParser::getTowerStructDTOFromXMLNode(element));
-    }
-    
-    //list monster factory
-    XMLElement* monsterFactoryListXMLNode = mapXMLElement->FirstChildElement(TAG_MONSTER_FACTORY_LIST);
-    
-    for (XMLElement* element = monsterFactoryListXMLNode->FirstChildElement(TAG_MONSTER_FACTORY); element; element = element->NextSiblingElement())
-    {
-        mapDTO->listMonsterFactoryDTO->addObject(XMLMapParser::getMonsterFactoryDTOFromXMLNode(element));
-    }
-    
-    //ITEM CREATOR LIS
-    XMLElement* itemCreatorListXMLNode = mapXMLElement->FirstChildElement(TAG_ITEM_CREATOR_LIST);
-//    
-//    if(itemCreatorListXMLNode!=NULL)
-    for (XMLElement* element = itemCreatorListXMLNode->FirstChildElement(TAG_ITEM_CREATOR); element; element = element->NextSiblingElement())
-    {
-        mapDTO->listItemCreatorDTO->addObject(XMLMapParser::getItemCreatorDTOFromXMLNode(element));
-    }
-//
     return mapDTO;
 }
 
@@ -242,19 +217,39 @@ MonsterCreatorDTO* XMLMapParser::getMonsterCreatorDTOFromXMLNode(XMLElement* mon
         monsterCreatorDTO->positionY = atof(positionXMLElement->Attribute(ATTRIBUTE_POSITION_Y));
     }
     
-    if(monsterCreatorXMLElement->FirstChildElement(TAG_MONSTER) != NULL)
+    XMLElement* monsterListXMLElement = monsterCreatorXMLElement->FirstChildElement(TAG_MONSTER_LIST);
+    if(monsterListXMLElement != NULL)
     {
-        XMLElement* monsterXMLElement = monsterCreatorXMLElement->FirstChildElement(TAG_MONSTER);
-        
-        std::vector<string> listMonsterIDString = Util::getStrTok(monsterXMLElement->GetText());
-        for(int i = 0; i < listMonsterIDString.size(); i++)
+        for (XMLElement* element = monsterListXMLElement->FirstChildElement(TAG_MONSTER); element; element = element->NextSiblingElement())
         {
-            monsterCreatorDTO->listMonsterID.push_back(listMonsterIDString[i]);
+            string monsterID = XMLHelper::readAttributeString(element, ATTRIBUTE_MONSTER_ID, "");
+            int quantity = XMLHelper::readAttributeInt(element, ATTRIBUTE_MONSTER_QUANTITY, 0);
+            
+            for (int i = 0; i < quantity; i++)
+            {
+                monsterCreatorDTO->listMonsterID.push_back(monsterID);
+            }
         }
     }
     
+    
+    
+    
+    //    if(monsterCreatorXMLElement->FirstChildElement(TAG_MONSTER) != NULL)
+    //    {
+    //        XMLElement* monsterXMLElement = monsterCreatorXMLElement->FirstChildElement(TAG_MONSTER);
+    //
+    //        std::vector<string> listMonsterIDString = Util::getStrTok(monsterXMLElement->GetText());
+    //        for(int i = 0; i < listMonsterIDString.size(); i++)
+    //        {
+    //            monsterCreatorDTO->listMonsterID.push_back(listMonsterIDString[i]);
+    //        }
+    //    }
+    
     return monsterCreatorDTO;
 }
+
+
 
 MonsterFactoryDTO* XMLMapParser::getMonsterFactoryDTOFromXMLNode(XMLElement* monsterFactoryXMLElement)
 {
@@ -317,3 +312,94 @@ ItemCreatorDTO* XMLMapParser::getItemCreatorDTOFromXMLNode(XMLElement* itemCreat
     return itemCreatorDTO;
 }
 
+WaveDTO* XMLMapParser::getWaveFromXMLNode(XMLElement* waveXMLElement)
+{
+    WaveDTO* waveDTO = WaveDTO::create();
+    
+    //list monster factory
+    
+    waveDTO->listMonsterFactoryDTO->addObjectsFromArray(XMLMapParser::getMonsterFactoryDTOListFromXMLElement(waveXMLElement));
+    waveDTO->listItemCreatorDTO->addObjectsFromArray(XMLMapParser::getItemCreatorDTOListFromXMLElement(waveXMLElement));
+    
+    return waveDTO;
+}
+
+CCArray* XMLMapParser::getMonsterFactoryDTOListFromXMLElement(XMLElement* root)
+{
+    CCArray* monsterFactoryList = CCArray::create();
+    
+    XMLElement* monsterFactoryListXMLElement = root->FirstChildElement(TAG_MONSTER_FACTORY_LIST);
+    
+    if(monsterFactoryListXMLElement != NULL)
+    {
+        for (XMLElement* element = monsterFactoryListXMLElement->FirstChildElement(TAG_MONSTER_FACTORY); element; element = element->NextSiblingElement())
+        {
+            monsterFactoryList->addObject(XMLMapParser::getMonsterFactoryDTOFromXMLNode(element));
+        }
+    }
+    
+    return monsterFactoryList;
+}
+
+
+CCArray* XMLMapParser::getItemCreatorDTOListFromXMLElement(XMLElement* root)
+{
+    CCArray* itemCreatorList = CCArray::create();
+    
+    XMLElement* itemCreatorListXMLElement = root->FirstChildElement(TAG_ITEM_CREATOR_LIST);
+    
+    if (itemCreatorListXMLElement != NULL)
+    {
+        for (XMLElement* element = itemCreatorListXMLElement->FirstChildElement(TAG_ITEM_CREATOR); element; element = element->NextSiblingElement())
+        {
+            itemCreatorList->addObject(XMLMapParser::getItemCreatorDTOFromXMLNode(element));
+        }
+    }
+    
+    return itemCreatorList;
+}
+
+CCArray* XMLMapParser::getWaveDTOListFromXMLElement(XMLElement* root)
+{
+    CCArray* waveList = CCArray::create();
+    
+    XMLElement* waveListXMLNode = root->FirstChildElement(TAG_WAVE_LIST);
+    
+    if(waveListXMLNode != NULL)
+    {
+        for (XMLElement* element = waveListXMLNode->FirstChildElement(TAG_WAVE); element; element = element->NextSiblingElement())
+        {
+            waveList->addObject(XMLMapParser::getWaveFromXMLNode(element));
+        }
+    }
+    return waveList;
+}
+
+
+CCArray* XMLMapParser::getTowerStructDTOListFromXMLElement(XMLElement* root)
+{
+    CCArray* towerList = CCArray::create();
+    
+    XMLElement* towerListXMLElement = root->FirstChildElement(TAG_TOWER_LIST);
+    
+    for (XMLElement* element = towerListXMLElement->FirstChildElement(TAG_TOWER); element; element = element->NextSiblingElement())
+    {
+        towerList->addObject(XMLMapParser::getTowerStructDTOFromXMLNode(element));
+    }
+    
+    return towerList;
+}
+
+CCArray* XMLMapParser::getSensorObjectDTOListFromXMLElement(XMLElement* root)
+{
+    CCArray* sensorList = CCArray::create();
+    
+    XMLElement* sensorListXMLElement = root->FirstChildElement(TAG_SENSOR_OBJECT_LIST);
+    
+    for (XMLElement* element = sensorListXMLElement->FirstChildElement(TAG_SENSOR_OBJECT); element; element = element->NextSiblingElement())
+    {
+        sensorList->addObject(XMLMapParser::getSensorObjectDTOFromXMLNode(element));
+    }
+
+    return sensorList;
+}

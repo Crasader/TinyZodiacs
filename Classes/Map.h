@@ -21,17 +21,20 @@
 #include "MonsterFactoryDTO.h"
 #include "MapDTO.h"
 #include "ItemCreator.h"
+#include "Wave.h"
+#include "GameManager.h"
 
 USING_NS_CC;
 
 class Map: public cocos2d::CCNode
 {
 private:
-
     CCArray* listMapObject;
     CCArray* listSensorObject;
     CCArray* listItemCreator;
- 
+    
+    CC_SYNTHESIZE(CCArray*, listWave, ListWave);
+
     HealthBar* bar;
     
 protected:
@@ -40,27 +43,23 @@ public:
     CC_SYNTHESIZE(float, height, Height);
     CC_SYNTHESIZE(CCParallaxNode*, parallaxBackground, ParallaxBackground);
     CC_SYNTHESIZE(MapDTO*, mapDTO, MapDTO);
-    
+  
     Map();
     virtual ~Map();
     virtual bool init();
     virtual void update(float dt);
     
-    CREATE_FUNC(Map);
-    
     void addMapObject(MapObject* mapObject);
     void addSensorObject(SensorObject* sensorObject);
     void addItemCreator(ItemCreator* itemCreator);
-   
+    void addWave(Wave* wave);
     
     void attachAllMapObject();
     void addParallaxBackground(CCParallaxNode* parallaxBackground);
     void addParallaxForeground(CCParallaxNode* parallaxForeground);
 
-    void BeginContact(b2Contact *contact);
-    void EndContact(b2Contact *contact);
-
     
+    CREATE_FUNC(Map);
 };
 
 #endif /* defined(__SampleCocosProject__Map__) */

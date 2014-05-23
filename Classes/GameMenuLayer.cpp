@@ -76,8 +76,14 @@ bool GameMenuLayer::init()
      label = CCLabelTTF::create("0", "Arial", 30);
     label->setPosition(ccp(500,500));
     label->setAnchorPoint(ccp(0,0));
+    
+    monsterCount = CCLabelTTF::create("0", "Arial", 30);
+    monsterCount->setPosition(ccp(800,500));
+    monsterCount->setAnchorPoint(ccp(0,0));
+    
    
     this->addChild(label);
+    this->addChild(monsterCount);
     
     this->scheduleUpdate();
 
@@ -106,7 +112,7 @@ void GameMenuLayer::update(float dt)
     if(this->getParent()->getChildByTag(3)!=NULL)
     {
         label->setString(((GameObjectLayer*)this->getParent()->getChildByTag(3))->text->getCString());
-        
+        monsterCount->setString(CCString::createWithFormat("%d", GameManager::getInstance()->count)->getCString());
 //        CCSprite* sprite = CCSprite::createWithSpriteFrameName("coin_1_1.png");
     }
 

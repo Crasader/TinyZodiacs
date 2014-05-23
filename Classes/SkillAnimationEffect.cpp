@@ -49,7 +49,6 @@ void SkillAnimationEffect::run()
     CCArray* arrSeq = CCArray::create();
     
     CCCallFunc* stopFunction = CCCallFunc::create(this, callfunc_selector(AnimationEffect::stop));
-    CCLOG("run-%d", this->retainCount());
     CCAnimate* animateAction = CCAnimate::create(this->animationObject->getAnimation());
     if(this->repeatTimes > 0)
     {
@@ -70,7 +69,6 @@ void SkillAnimationEffect::run()
 void SkillAnimationEffect::stop()
 {
     AnimationEffect::stop();
-      CCLOG("stop - %d",this->retainCount());
   
 //    if(this->action != NULL && this->action->isDone() == false)
 //    {
