@@ -34,20 +34,6 @@ Effect::Effect(EffectData data, GameObject* holder)
     
     if(data.getAnimationId() != "")
     {
-//        this->sprite = CCSprite::create();
-//        this->sprite->retain();
-//        this->animation = DataCollector::getInstance()->getAnimationObjectByKey(data.getAnimationId().c_str());
-//        if(this->animation != NULL)
-//        {
-//            if(this->animation->getAnimation() != NULL)
-//            {
-//                this->animation->getAnimation()->setLoops(INFINITY);
-//                this->sprite->runAction(CCAnimate::create(this->animation->getAnimation()));
-//            }
-//        }
-//        this->positionOffset = calculatePosition(data.getJointDefA(), data.getJointDefB());
-//        this->holder->getSprite()->getParent()->addChild(this->sprite,data.getAnimationLayerIndex());
-        
         this->animation = SkillAnimationEffect::create();
         this->animation->retain();
         ((SkillAnimationEffect*)this->animation)->setAnimation(data.getAnimationId().c_str(), data.getMinRotateAngle(), data.getMaxRotateAngle(), data.getMinScale(), data.getMaxScale(), data.getRepeatTimes(), CCPoint(0, 0));
@@ -64,7 +50,6 @@ Effect::Effect(EffectData data, GameObject* holder)
     }
     else
     {
-//        this->sprite = NULL;
         this->animation = NULL;
     }
     
@@ -81,7 +66,7 @@ Effect::Effect(EffectData data, GameObject* holder)
         this->timeTickRepeatAction = ScheduleManager::getInstance()->scheduleFunctionForever(timeTickFunction, NULL, this->timeTick);
     }
     this->timeTickRepeatAction->retain();
- 
+    
     this->lifeTimeAction = ScheduleManager::getInstance()->scheduleFunction(destroyFunction, NULL,this->lifeTime, 1);
     this->lifeTimeAction->retain();
     
@@ -97,12 +82,12 @@ void Effect::calculateActualInformation(GameObject* holder)
 
 Effect::~Effect()
 {
-//    if(this->sprite != NULL)
-//    {
-//        this->sprite->stopAllActions();
-//        this->sprite->removeFromParent();
-//    }
-
+    //    if(this->sprite != NULL)
+    //    {
+    //        this->sprite->stopAllActions();
+    //        this->sprite->removeFromParent();
+    //    }
+    CCLOG("Effect::~Effect()");
 }
 
 CCPoint Effect::calculatePosition(JointDef jointDefA, JointDef jointDefB)
@@ -162,38 +147,36 @@ void Effect::update(float dt)
 {
     if(this->animation != NULL)
     {
+        ((SkillAnimationEffect*)this->animation)->update(dt);
         ((SkillAnimationEffect*)this->animation)->setPosition(this->holder->getPositionInPixel()+positionOffset);
     }
 }
 
 void Effect::stopAllSchedule()
 {
-    if(!this->timeTickRepeatAction->isDone())
+    if(this->timeTickRepeatAction == NULL)
     {
-        ScheduleManager::getInstance()->stopAction(this->timeTickRepeatAction);
-    }
-    if(!this->lifeTimeAction->isDone())
-    {
-        ScheduleManager::getInstance()->stopAction(this->lifeTimeAction);
+        if(!this->timeTickRepeatAction->isDone())
+        {
+            ScheduleManager::getInstance()->stopAction(this->timeTickRepeatAction);
+        }
+        this->timeTickRepeatAction->release();
+//        this->timeTickRepeatAction = NULL;
     }
     
-    this->timeTickRepeatAction->release();
-    this->lifeTimeAction->release();
+    if(this->lifeTimeAction == NULL)
+    {
+        if(!this->lifeTimeAction->isDone())
+        {
+            ScheduleManager::getInstance()->stopAction(this->lifeTimeAction);
+        }
+        this->lifeTimeAction->release();
+//        this->lifeTimeAction = NULL;
+    }
 }
 
 void Effect::destroy()
 {
-//    if(!this->timeTickRepeatAction->isDone())
-//    {
-//        ScheduleManager::getInstance()->stopAction(this->timeTickRepeatAction);
-//    }
-//    if(!this->lifeTimeAction->isDone())
-//    {
-//    ScheduleManager::getInstance()->stopAction(this->lifeTimeAction);
-//    }
-//    
-//    this->timeTickRepeatAction->release();
-//    this->lifeTimeAction->release();
     this->stopAllSchedule();
     
     if(((SkillAnimationEffect*)this->animation)->getIsFiniteAction() == false)
@@ -209,7 +192,7 @@ void Effect::destroy()
 void Effect::onTimeTick()
 {
     Character* character = (Character*)this->holder;
-
+    
     character->notifyByEffect(this);
     
     setDataAfterFirstTick();
