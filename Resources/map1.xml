@@ -243,11 +243,7 @@
 
  -->
             <monster_factory group="B">
-<<<<<<< HEAD
-                <monster_creator delay_per_unit="1" delay="0.1" lane = "2" max="200">
-=======
                 <monster_creator delay_per_unit="0.1" delay="0.1" lane = "2" max="200">
->>>>>>> FETCH_HEAD
                     <position x="4000" y="500"/>
                     <monster_list>
                         <monster id="monster_onion" quantity="1"/>

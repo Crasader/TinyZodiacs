@@ -39,7 +39,7 @@ Monster::~Monster()
     
     EffectManager::getInstance()->stopEffect(effect);
     effect->release();
-   // dropItem();
+    dropItem();
 }
 
 bool Monster::init()
@@ -55,7 +55,7 @@ void Monster::update(float dt)
 {
     if(!isDead())
     {
-//        this->aimTarget();
+        this->aimTarget();
     }
     
     if(!isAttack)
