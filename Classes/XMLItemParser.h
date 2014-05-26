@@ -14,7 +14,7 @@
 #include "ItemDTO.h"
 #include "Constants.h"
 #include "XMLHelper.h"
-#include "Effect.h"
+#include "Affect.h"
 
 #define TAG_ITEM "item"
 #define ATTRIBUTE_ITEM_ID "id"

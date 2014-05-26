@@ -14,7 +14,7 @@
 #include "CharacterIdleState.h"
 #include "CharacterAttackState.h"
 #include "Util.h"
-#include "Effect.h"
+#include "Affect.h"
 #include "HealthPointEffect.h"
 #include "EffectManager.h"
 
@@ -513,25 +513,29 @@ void Character::setPhysicGroup(uint16 group)
     }
 }
 
-void Character::notifyByEffect(CCObject* effect)
+void Character::notifyByAffect(Affect* effect)
 {
-    
-    this->characterData.applyEffect((Effect*)effect, this);
-    
-    HealthPointEffect* gameEffect = HealthPointEffect::create();
-    gameEffect->setHealthPoint(((Effect*)effect)->getHealth());
-    EffectManager::getInstance()->runEffect(gameEffect, this->getPositionInPixel());
-    
+    if(this->isDestroyed == false)
+    {
+        
+    this->characterData.applyAffect((Affect*)effect, this);
+
     if(this->gameObjectView != NULL)
     {
         this->gameObjectView->notifyChange();
     }
+    
+    HealthPointEffect* effect = HealthPointEffect::create();
+    effect->setHealthPoint(((Affect*)effect)->getHealth());
+    EffectManager::getInstance()->runEffect(effect, this->getPositionInPixel());
+        
+    }
 }
 
-void Character::removeEffect(CCObject* object)
+void Character::removeAffect(Affect* affect)
 {
-    GameObject::removeEffect(object);
-    if(this->listEffect->count() ==0)
+    GameObject::removeAffect(affect);
+    if(this->listAffect->count() ==0)
     {
         this->characterData.setData(this->originCharacterData);
     }

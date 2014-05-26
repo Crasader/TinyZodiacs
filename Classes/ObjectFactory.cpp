@@ -63,8 +63,7 @@ Hero* ObjectFactory::createHero(HeroDTO* heroDTO, b2World* world, bool isLocal)
     hero->setSkill1(SkillFactory::createSkill(heroDTO->data.getSkill1().c_str(), world, hero, isLocal, SKILL_1_BUTTON));
     hero->setSkill2(SkillFactory::createSkill(heroDTO->data.getSkill2().c_str(), world, hero, isLocal, SKILL_2_BUTTON));
     
-    hero->setGameObjectView(InfoViewCreator::createHeroView(hero, NULL));
-    hero->onCreate();
+       hero->onCreate();
     return hero;
 }
 

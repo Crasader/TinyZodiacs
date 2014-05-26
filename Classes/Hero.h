@@ -16,8 +16,10 @@ class Hero;
 #include "cocos2d.h"
 #include "Item.h"
 #include "GameObjectManager.h"
+#include "Controller.h"
+#include "ControllerManager.h"
 
-class Hero : public Character
+class Hero : public Character, public Controller
 {
 private:
 protected:
@@ -35,6 +37,9 @@ public:
     virtual void checkCollisionDataInEndContact(PhysicData* holderData, PhysicData* collisionData, b2Contact *contact);
     void pickUp(Item* item);
     virtual void attachSpriteTo(CCNode* node);
+    virtual void destroy();
+    
+    bool receiveCommand(CommandID commandID, void* data);
     
     CREATE_FUNC(Hero);
 };

@@ -9,6 +9,8 @@
 #ifndef __Headball__CharacterGhostState__
 #define __Headball__CharacterGhostState__
 
+class CharacterGhostState;
+
 #include <iostream>
 #include "CharacterState.h"
 

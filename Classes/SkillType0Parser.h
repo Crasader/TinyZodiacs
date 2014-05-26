@@ -17,7 +17,7 @@
 #include "GB2ShapeCache-x.h"
 #include "Constants.h"
 #include "XMLHelper.h"
-#include "Effect.h"
+#include "Affect.h"
 
 
 

@@ -55,34 +55,34 @@ void CharacterData::applyData(CharacterData data)
     this->maxJumpTimes = MAX(this->maxJumpTimes,0);
 }
 
-void CharacterData::applyEffect(Effect* effect, GameObject* holder)
+void CharacterData::applyAffect(Affect* affect, GameObject* holder)
 {
-    if(effect->getHealth() <0)
+    if(affect->getHealth() <0)
     {
-        this->health+=(effect->getHealth()+((Character*)holder)->getcharacterData().getDefense());
+        this->health+=(affect->getHealth()+((Character*)holder)->getcharacterData().getDefense());
         this->health = MAX(this->health,0);
     }
     else
     {
-        this->health+=(effect->getHealth());
+        this->health+=(affect->getHealth());
         this->health = MIN(this->health,((Character*)holder)->getOriginCharacterData().getHealth());
     }
     
-    this->attack+=effect->getAttack();
+    this->attack+=affect->getAttack();
     this->attack = MAX(this->attack,0);
     
-    this->defense+=effect->getDefense();
+    this->defense+=affect->getDefense();
     this->defense = MAX(this->defense,0);
     
-    this->speed+=effect->getSpeed();
+    this->speed+=affect->getSpeed();
     this->speed = MAX(this->speed,0);
     
-    this->jumpHeight+=effect->getJumpHeight();
+    this->jumpHeight+=affect->getJumpHeight();
     this->jumpHeight = MAX(this->jumpHeight,0);
     
-    this->attackSpeed-=effect->getAttackSpeed();
+    this->attackSpeed-=affect->getAttackSpeed();
     this->attackSpeed = MAX(this->attackSpeed,0);
     
-    this->maxJumpTimes+=effect->getMaxJump();
+    this->maxJumpTimes+=affect->getMaxJump();
     this->maxJumpTimes = MAX(this->maxJumpTimes,0);
 }

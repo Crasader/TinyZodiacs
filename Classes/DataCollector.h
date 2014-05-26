@@ -9,6 +9,8 @@
 #ifndef __TinyZodiacs__DataCollector__
 #define __TinyZodiacs__DataCollector__
 
+class DataCollector;
+
 #include <iostream>
 #include "cocos2d.h"
 #include "AnimationObject.h"

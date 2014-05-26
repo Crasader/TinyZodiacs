@@ -8,7 +8,7 @@
 
 #include "Util.h"
 #include "Character.h"
-#include "Effect.h"
+#include "Affect.h"
 
 b2AABB Util::getBodyBoundingBox(b2Body* body)
 {
@@ -285,8 +285,12 @@ void Util::applyEffectFromList(vector<EffectData> listEffect, GameObject* object
 {
     for(int i=0 ; i<listEffect.size() ; i++)
     {
-        Effect* effect = new Effect(listEffect[i], (Character*)object);
-        ((Character*)object)->applyEffect(effect);
+        Affect* affect = Affect::create();
+        affect->setHolder(object);
+        affect->setData(listEffect[i]);
+       
+        ((Character*)object)->applyAffect(affect);
+       // effect->isapplyed = true;
     }
 }
 

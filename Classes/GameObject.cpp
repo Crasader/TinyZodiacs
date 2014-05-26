@@ -10,8 +10,6 @@
 #include "Box2D/Box2d.h"
 #include "Util.h"
 #include "GameObjectManager.h"
-#include "Effect.h"
-
 USING_NS_CC;
 
 GameObject::GameObject()
@@ -24,18 +22,19 @@ GameObject::GameObject()
     this->gameObjectView = NULL;
     direction = LEFT;
     
-    this->listEffect = CCArray::create();
-    this->listEffect->retain();
+    this->listAffect = CCArray::create();
+    this->listAffect->retain();
     
     init();
 }
 
 GameObject::~GameObject()
 {
-  
+    
     if(this->sprite != NULL)
     {
         this->sprite->removeFromParent();
+        this->sprite = NULL;
     }
     
     if(this->body != NULL)
@@ -54,10 +53,11 @@ GameObject::~GameObject()
         
         this->body->SetUserData(NULL);
         this->body->GetWorld()->DestroyBody(this->body);
+        this->body = NULL;
     }
     
-    this->listEffect->removeAllObjects();
-    this->listEffect->release();
+    this->listAffect->removeAllObjects();
+    this->listAffect->release();
     
     //game object view
     if(this->gameObjectView != NULL)
@@ -88,9 +88,8 @@ void GameObject::excuteScheduledFunction(CCObject* pSender, void *body)
 
 void GameObject::update(float dt)
 {
-    
     updateSpritePositionWithBodyPosition();
-    updateAllEffect(dt);
+    updateAllAffect(dt);
     updateGameObjectView(dt);
 }
 
@@ -154,12 +153,12 @@ void GameObject::updateSpritePositionWithBodyPosition()
     
 }
 
-void GameObject::updateAllEffect(float dt)
+void GameObject::updateAllAffect(float dt)
 {
-    CCObject* effect;
-    CCARRAY_FOREACH(this->listEffect, effect)
+    CCObject* affect = NULL;
+    CCARRAY_FOREACH(this->listAffect, affect)
     {
-        ((Effect*)effect)->update(dt);
+        ((Affect*)affect)->update(dt);
     }
 }
 
@@ -348,39 +347,43 @@ uint16 GameObject::getPhysicGroup()
     return this->body->GetFixtureList()->GetFilterData().categoryBits;
 }
 
-void GameObject::applyEffect(CCObject* effect)
+void GameObject::applyAffect(Affect* affect)
 {
     if(this->isDestroyed == false)
-    this->listEffect->addObject(effect);
-}
-
-void GameObject::removeEffect(CCObject* object)
-{
-    if(this->listEffect->indexOfObject(object) != CC_INVALID_INDEX)
     {
-        this->listEffect->removeObject(object);
+        this->listAffect->addObject(affect);
+        affect->start();
     }
 }
 
-void GameObject::notifyByEffect(CCObject* effect)
+void GameObject::removeAffect(Affect* affect)
+{
+    if(this->listAffect->indexOfObject(affect) != CC_INVALID_INDEX)
+    {
+        this->listAffect->removeObject(affect);
+    }
+}
+
+void GameObject::notifyByAffect(Affect* affect)
 {
     
 }
 
 void GameObject::destroy()
 {
-    if(!this->isDestroyed)
+    if(this->isDestroyed == false)
     {
         this->isDestroyed = true;
         notifyToDestroy();
         GameObjectManager::getInstance()->addObjectRemoved(this);
         
         CCObject* object = NULL;
-        CCARRAY_FOREACH(this->listEffect, object)
+        CCARRAY_FOREACH(this->listAffect, object)
         {
-            ((Effect*)object)->destroy();
+            Affect* affect = static_cast<Affect*>(object);
+            affect->destroy();
         }
-        this->listEffect->removeAllObjects();
+        this->listAffect->removeAllObjects();
     }
 }
 

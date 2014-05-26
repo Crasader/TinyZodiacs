@@ -25,7 +25,7 @@ SkillAnimationEffect::SkillAnimationEffect()
 
 SkillAnimationEffect::~SkillAnimationEffect()
 {
-    CCLOG("Destroy effect");
+
 }
 
 bool SkillAnimationEffect::init()
@@ -48,7 +48,7 @@ void SkillAnimationEffect::run()
 {
     CCArray* arrSeq = CCArray::create();
     
-    CCCallFunc* stopFunction = CCCallFunc::create(this, callfunc_selector(AnimationEffect::stop));
+    CCCallFunc* stopFunction = CCCallFunc::create(this, callfunc_selector(SkillAnimationEffect::stop));
     CCAnimate* animateAction = CCAnimate::create(this->animationObject->getAnimation());
     if(this->repeatTimes > 0)
     {
@@ -70,11 +70,12 @@ void SkillAnimationEffect::stop()
 {
     AnimationEffect::stop();
   
-//    if(this->action != NULL && this->action->isDone() == false)
-//    {
-//        this->sprite->stopAction(this->action);
-//        this->action->release();
-//    }
+    if(this->action != NULL && this->action->isDone() == false)
+    {
+        this->sprite->stopAction(this->action);
+    }
+    this->action->release();
+    this->action = NULL;
 }
 
 //void SkillAnimationEffect::setAnimation(const char* id)

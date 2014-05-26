@@ -2,7 +2,7 @@
 //  GameMenuLayer.cpp
 //  SampleCocosProject
 //
-//  Created by Nguyễn Hòa Phát on 1/9/14.
+//  Created by ; Hòa Phát on 1/9/14.
 //
 //
 
@@ -21,59 +21,21 @@ bool GameMenuLayer::init()
     {
         return false;
     }
-    
-//    CCMenuItemImage* pLeftControl = CCMenuItemImage::create("CloseNormal.png",
-//                                                            "CloseSelected.png",
-//                                                            this, menu_selector(GameMenuLayer::LeftCallBack));
-//    
-//    CCMenuItemImage* pRightControl = CCMenuItemImage::create("CloseNormal.png",
-//                                                             "CloseSelected.png",
-//                                                             this, menu_selector(GameMenuLayer::RightCallBack));
-//    CCMenuItemImage* pUpControl = CCMenuItemImage::create("CloseNormal.png",
-//                                                          "CloseSelected.png",
-//                                                          this, menu_selector(GameMenuLayer::UpCallBack));
-//    
-//    CCMenuItemImage* pDownControl = CCMenuItemImage::create("CloseNormal.png",
-//                                                            "CloseSelected.png",
-//                                                            this, menu_selector(GameMenuLayer::DownCallBack));
-//    pLeftControl->setPosition(ccp(20 ,60));
-//    pRightControl->setPosition(ccp(70 ,60));
-//    pUpControl->setPosition(ccp(400 ,95));
-//    pDownControl->setPosition(ccp(450, 95));
-//    
-//    CCArray* menuArray = CCArray::create();
-//    
-//    menuArray->addObject(pLeftControl);
-//    menuArray->addObject(pRightControl);
-//    menuArray->addObject(pUpControl);
-//    menuArray->addObject(pDownControl);
-//    
-//    
-//    
-//    CCMenu* menu = CCMenu::createWithArray(menuArray);
-//    menu -> setPosition(CCPointZero);
-//    
-//    this->addChild(menu, 1);
-//    
-//    joyStick = HSJoystick::create();    
-//    joyStick->setPosition(ccp(0,0));
-//    this->addChild(joyStick,2);
-    
-    ControllerLayer * mlayer = ControllerLayer::create(this);
+    mlayer = ControllerLayer::create(this);
     mlayer->setLeftButtonEventHadler(this);
     mlayer->setRightButtonEventHadler(this);
     mlayer->setJumpButtonEventHadler(this);
     mlayer->setAtkButtonEventHadler(this);
     mlayer->setSkill1ButtonEventHadler(this);
     mlayer->setSkill2ButtonEventHadler(this);
-
+    
     
     this->addChild(mlayer, 1);
     
     this->setTouchEnabled(true);
     
     
-     label = CCLabelTTF::create("0", "Arial", 30);
+    label = CCLabelTTF::create("0", "Arial", 30);
     label->setPosition(ccp(500,500));
     label->setAnchorPoint(ccp(0,0));
     
@@ -81,20 +43,23 @@ bool GameMenuLayer::init()
     monsterCount->setPosition(ccp(800,500));
     monsterCount->setAnchorPoint(ccp(0,0));
     
-   
+    
     this->addChild(label);
     this->addChild(monsterCount);
     
     this->scheduleUpdate();
-
+    
     
     //CONTROLLER
-   
+    
     
     //this->addChild(mlayer, 1);
-
+    
     
     this->setTouchEnabled(true);
+    
+    ControllerManager::getInstance()->registerController(HERO_CONTROLLER, this);
+    
     return true;
     
     
@@ -104,46 +69,16 @@ bool GameMenuLayer::init()
 
 void GameMenuLayer::update(float dt)
 {
-//    float vx = joyStick->getVelocity().x;
-//    float vy = joyStick->getVelocity().y;
-//    
-//    if(this->getParent()->getChildByTag(3)!=NULL)
-//        ((GameObjectLayer*)this->getParent()->getChildByTag(3))->MoveSprite(vx*5,vy*5);
     if(this->getParent()->getChildByTag(3)!=NULL)
     {
         label->setString(((GameObjectLayer*)this->getParent()->getChildByTag(3))->text->getCString());
-        monsterCount->setString(CCString::createWithFormat("%d", GameManager::getInstance()->count)->getCString());
-//        CCSprite* sprite = CCSprite::createWithSpriteFrameName("coin_1_1.png");
+        
     }
-
     
     
+    
 }
 
-
-void GameMenuLayer::LeftCallBack(cocos2d::CCObject *sender)
-{
-    if(this->getParent()->getChildByTag(3)!=NULL)
-        ((GameObjectLayer*)this->getParent()->getChildByTag(3))->MoveSpriteLeft();
-}
-
-void GameMenuLayer::RightCallBack(cocos2d::CCObject *sender)
-{
-    if(this->getParent()->getChildByTag(3)!=NULL)
-        ((GameObjectLayer*)this->getParent()->getChildByTag(3))->MoveSpriteRight();
-}
-
-void GameMenuLayer::UpCallBack(cocos2d::CCObject *sender)
-{
-    if(this->getParent()->getChildByTag(3)!=NULL)
-        ((GameObjectLayer*)this->getParent()->getChildByTag(3))->MoveSpriteUp();
-}
-
-void GameMenuLayer::DownCallBack(cocos2d::CCObject *sender)
-{
-    if(this->getParent()->getChildByTag(3)!=NULL)
-        ((GameObjectLayer*)this->getParent()->getChildByTag(3))->MoveSpriteDown();
-}
 
 void GameMenuLayer::touchBegan(void* sender ,CCSet* pTouches, CCEvent* event)
 {
@@ -156,64 +91,42 @@ void GameMenuLayer::touchBegan(void* sender ,CCSet* pTouches, CCEvent* event)
     }
     else if(id.compare(JUMP_BTN_ID) == 0)
     {
-        if(this->getParent()->getChildByTag(3)!=NULL)
-            ((GameObjectLayer*)this->getParent()->getChildByTag(3))->MoveSpriteUp();
-
+        ControllerManager::getInstance()->sendCommand(HERO_CONTROLLER,  HERO_MOVE_JUMP);
+        
     }
     else if(id.compare(ATK_BTN_ID) == 0)
     {
-        if(this->getParent()->getChildByTag(3)!=NULL)
-            ((GameObjectLayer*)this->getParent()->getChildByTag(3))->Attack();
-
+        ControllerManager::getInstance()->sendCommand(HERO_CONTROLLER,  HERO_ATTACK_1);
     }
     else if(id.compare(SKILL_1_BTN_ID) == 0)
     {
-        if(this->getParent()->getChildByTag(3)!=NULL)
-            ((GameObjectLayer*)this->getParent()->getChildByTag(3))->Skill1();
-        
+        ControllerManager::getInstance()->sendCommand(HERO_CONTROLLER,  HERO_ATTACK_2);
     }
     else if(id.compare(SKILL_2_BTN_ID) == 0)
     {
-        if(this->getParent()->getChildByTag(3)!=NULL)
-            ((GameObjectLayer*)this->getParent()->getChildByTag(3))->Skill2();
         
     }
 }
 void GameMenuLayer::touchHold(void* sender ,CCSet* pTouches, CCEvent* event)
 {
-//      CCPoint pos;
-//    if(this->getParent()->getChildByTag(3)!=NULL)
-//        pos=((GameObjectLayer*)this->getParent()->getChildByTag(3))->getCharacterActionEngine()->getCharacter()->getPositionInPixel();
-//    for(int i=0;i<5;i++)
-//    {
-//    HealthPointEffect* effect = HealthPointEffect::create();
-//    effect->setHealthPoint(100);
-//    EffectManager::getInstance()->runEffect(effect,pos);
-//    }
-//    
     std::string id = ((UIObject *)sender)->getID();
     if(id.compare(LEFT_BTN_ID) == 0)
     {
-        if(this->getParent()->getChildByTag(3)!=NULL)
-            ((GameObjectLayer*)this->getParent()->getChildByTag(3))->MoveSpriteLeft();
+        ControllerManager::getInstance()->sendCommand(HERO_CONTROLLER,  HERO_MOVE_LEFT);
     }
     else if(id.compare(RIGHT_BTN_ID) == 0)
     {
-        if(this->getParent()->getChildByTag(3)!=NULL)
-            ((GameObjectLayer*)this->getParent()->getChildByTag(3))->MoveSpriteRight();
+        ControllerManager::getInstance()->sendCommand(HERO_CONTROLLER,  HERO_MOVE_RIGHT);
     }
     else if(id.compare(JUMP_BTN_ID) == 0)
     {
         
-
+        
     }
     else if(id.compare(ATK_BTN_ID) == 0)
     {
-//        if(this->getParent()->getChildByTag(3)!=NULL)
-//            ((GameObjectLayer*)this->getParent()->getChildByTag(3))->Attack();
-//        if(this->getParent()->getChildByTag(3)!=NULL)
-//            ((GameObjectLayer*)this->getParent()->getChildByTag(3))->MoveSpriteRight();
-
+        
+        
     }
 }
 void GameMenuLayer::touchEnded(void* sender ,CCSet* pTouches, CCEvent* event)
@@ -222,17 +135,15 @@ void GameMenuLayer::touchEnded(void* sender ,CCSet* pTouches, CCEvent* event)
     std::string id = ((UIObject *)sender)->getID();
     if(id.compare(LEFT_BTN_ID) == 0)
     {
-        if(this->getParent()->getChildByTag(3)!=NULL)
-            ((GameObjectLayer*)this->getParent()->getChildByTag(3))->MoveSpriteDown();
         
-       
+        ControllerManager::getInstance()->sendCommand(HERO_CONTROLLER,  HERO_MOVE_STOP);
+        
     }
     else if(id.compare(RIGHT_BTN_ID) == 0)
     {
-        if(this->getParent()->getChildByTag(3)!=NULL)
-           ((GameObjectLayer*)this->getParent()->getChildByTag(3))->MoveSpriteDown();
+        ControllerManager::getInstance()->sendCommand(HERO_CONTROLLER,  HERO_MOVE_STOP);
         
-       
+        
     }
     else if(id.compare(JUMP_BTN_ID) == 0)
     {
@@ -244,10 +155,38 @@ void GameMenuLayer::touchEnded(void* sender ,CCSet* pTouches, CCEvent* event)
 
 void GameMenuLayer::ccTouchesBegan(cocos2d::CCSet *pTouches, cocos2d::CCEvent *event)
 {
-//    CCTouch* touch = (CCTouch*)pTouches->anyObject();
-//    CCPoint touchPoint = CCDirector::sharedDirector()->convertToGL(touch->getLocationInView()) ;
-//    
-//    
-//    label->setString(CCString::createWithFormat("%0.2f-%0.2f",touchPoint.x,touchPoint.y)->getCString());
+    //    CCTouch* touch = (CCTouch*)pTouches->anyObject();
+    //    CCPoint touchPoint = CCDirector::sharedDirector()->convertToGL(touch->getLocationInView()) ;
+    //
+    //
+    //    label->setString(CCString::createWithFormat("%0.2f-%0.2f",touchPoint.x,touchPoint.y)->getCString());
+}
+
+bool GameMenuLayer::receiveCommand(CommandID commandID, void* data)
+{
+    Controller::receiveCommand(commandID, data);
+    switch (commandID)
+    {
+        case DISABLE_BUTTON_ATTACK:
+            mlayer->getAtkButtonSprite()->changeState(DISABLE);
+            break;
+        case DISPLAY_MONSTER_COUNT:
+        {
+            int* count = static_cast<int*>(data);
+            monsterCount->setString(CCString::createWithFormat("%d",*count)->getCString());
+        }
+            break;
+            
+            
+        default:
+            break;
+    }
+    return true;
+}
+
+bool GameMenuLayer::removeSubController(Controller* controller)
+{
+    Controller::removeSubController(controller);
+    return true;
 }
 

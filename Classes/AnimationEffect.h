@@ -9,14 +9,15 @@
 #ifndef __TinyZodiacs__AnimationEffect__
 #define __TinyZodiacs__AnimationEffect__
 
+class AnimationEffect;
+
 #include <iostream>
 #include "cocos2d.h"
-#include "GameEffect.h"
-#include "DataCollector.h"
+#include "Effect.h"
 
 USING_NS_CC;
 
-class AnimationEffect: public GameEffect
+class AnimationEffect: public Effect
 {
 private:
 protected:

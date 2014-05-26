@@ -11,7 +11,7 @@
 
 #include <iostream>
 #include "cocos2d.h"
-#include "GameEffect.h"
+#include "Effect.h"
 
 USING_NS_CC;
 
@@ -30,10 +30,10 @@ public:
     static EffectManager* getInstance();
     
     
-    void runEffect(GameEffect* effect, CCPoint position);
-    void runEffect(GameEffect* effect, CCPoint position, int layerIndex);
+    void runEffect(Effect* effect, CCPoint position);
+    void runEffect(Effect* effect, CCPoint position, int layerIndex);
 
-    void stopEffect(GameEffect* effect);
+    void stopEffect(Effect* effect);
     
     void clean();
     

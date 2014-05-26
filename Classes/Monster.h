@@ -56,7 +56,7 @@ public:
     
     void doAction(SensorObject* sensorObject);
 
-    void notifyByEffect(CCObject* effect);
+    void notifyByAffect(Affect* affect);
     
     virtual void attach(Observer* observer);
     virtual void detach(Observer* observer);

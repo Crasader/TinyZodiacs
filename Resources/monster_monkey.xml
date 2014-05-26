@@ -1,0 +1,18 @@
+<character id="monster_monkey">
+    <animation>monkey</animation>
+	<body>monkey</body>
+    <hp>20</hp>
+    <atk>0</atk>
+    <def>0</def>
+    <speed>4</speed>
+    <atk_speed>0.1</atk_speed>
+    <max_jump>3</max_jump>
+    <jump_height>10</jump_height>
+    <sensor_body>creep_2_sensor</sensor_body>
+    <skill_0>monkey_aura</skill_0>
+    
+    <item_list>
+        <item id="coin1" chance="50"/>
+        <item id="coin1" chance="50"/>
+    </item_list>
+</character>

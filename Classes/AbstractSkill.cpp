@@ -7,7 +7,6 @@
 //
 
 #include "AbstractSkill.h"
-
 #include "ScheduleManager.h"
 #include "EffectData.h"
 #include "Character.h"

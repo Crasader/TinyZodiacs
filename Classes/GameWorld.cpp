@@ -194,9 +194,6 @@ void GameWorld::update(float dt)
     {
         world->Step(1/40.000f,8, 1);
     }
-    ///
-    
-    
 }
 
 

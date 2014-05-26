@@ -25,14 +25,8 @@ public:
     virtual void update(float dt);
     virtual void draw();
     
-    void MoveSpriteLeft();
-    void MoveSpriteRight();
-    void MoveSpriteUp();
-    void MoveSpriteDown();
-    void MoveSprite(float x, float y);
-    void Attack();
-    void Skill1();
-    void Skill2();
+    GameMatch* gameMatch;
+    
     Character* getCharacter();
     
     CC_SYNTHESIZE(CharacterActionEngine*, characterActionEngine, CharacterActionEngine);

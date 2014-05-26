@@ -11,12 +11,12 @@
 
 #include <iostream>
 #include "cocos2d.h"
-#include "GameEffect.h"
+#include "Effect.h"
 #include "DataCollector.h"
 
 USING_NS_CC;
 
-class HealthPointEffect: public GameEffect
+class HealthPointEffect: public Effect
 {
 private:
     float healthPoint;

@@ -9,6 +9,8 @@
 #ifndef __Headball__CharacterHitState__
 #define __Headball__CharacterHitState__
 
+class CharacterHitState;
+
 #include <iostream>
 #include "CharacterState.h"
 

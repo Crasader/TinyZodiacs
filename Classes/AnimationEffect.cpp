@@ -7,7 +7,7 @@
 //
 
 #include "AnimationEffect.h"
-#include "AnimationLoader.h"
+#include "DataCollector.h"
 
 AnimationEffect::AnimationEffect()
 {

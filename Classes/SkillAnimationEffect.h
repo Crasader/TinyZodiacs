@@ -9,8 +9,13 @@
 #ifndef __TinyZodiacs__SkillAnimationEffect__
 #define __TinyZodiacs__SkillAnimationEffect__
 
+class SkillAnimationEffect;
+
 #include <iostream>
+#include "cocos2d.h"
 #include "AnimationEffect.h"
+
+USING_NS_CC;
 
 class SkillAnimationEffect: public AnimationEffect
 {

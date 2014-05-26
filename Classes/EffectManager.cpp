@@ -29,7 +29,7 @@ EffectManager* EffectManager::getInstance()
     return instance;
 }
 
-void EffectManager::runEffect(GameEffect* effect, CCPoint position)
+void EffectManager::runEffect(Effect* effect, CCPoint position)
 {
    // this->listEffect->addObject(effect);
     
@@ -40,7 +40,7 @@ void EffectManager::runEffect(GameEffect* effect, CCPoint position)
     
 }
 
-void EffectManager::runEffect(GameEffect* effect, CCPoint position, int layerIndex)
+void EffectManager::runEffect(Effect* effect, CCPoint position, int layerIndex)
 {
     effect->setPosition(position);
     this->holder->addChild(effect, layerIndex);
@@ -49,7 +49,7 @@ void EffectManager::runEffect(GameEffect* effect, CCPoint position, int layerInd
     
 }
 
-void EffectManager::stopEffect(GameEffect* effect)
+void EffectManager::stopEffect(Effect* effect)
 {
     if(effect != NULL)
     {
@@ -59,34 +59,16 @@ void EffectManager::stopEffect(GameEffect* effect)
 
 void EffectManager::update(float dt)
 {
-//    std::vector<GameEffect*> arrEffectRemoved;
-//    
-//    CCObject* object = NULL;
-//    CCARRAY_FOREACH(this->listEffect, object)
-//    {
-//        GameEffect* effect = static_cast<GameEffect*>(object);
-////        if(effect->getIsStopped())
-////        {
-////            arrEffectRemoved.push_back(effect);
-////        }
-//        effect->update(dt);
-//    }
-//    for(int i = 0; i < arrEffectRemoved.size(); i++)
-//    {
-//        arrEffectRemoved[i]->removeFromParent();
-//        this->listEffect->removeObject(arrEffectRemoved[i]);
-//    }
-//    arrEffectRemoved.clear();
 }
 
 void EffectManager::clean()
 {
-    std::vector<GameEffect*> arrEffectRemoved;
+    std::vector<Effect*> arrEffectRemoved;
     
     CCObject* object = NULL;
     CCARRAY_FOREACH(this->listEffect, object)
     {
-        GameEffect* effect = static_cast<GameEffect*>(object);
+        Effect* effect = static_cast<Effect*>(object);
         
         arrEffectRemoved.push_back(effect);
         

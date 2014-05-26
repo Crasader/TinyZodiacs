@@ -11,10 +11,10 @@
 	</dict>
 	<key>bodies</key>
 	<dict>
-		<key>pig</key>
+		<key>pig2</key>
 		<dict>
 			<key>anchorpoint</key>
-			<string>{ 0.5098,0.4827 }</string>
+			<string>{ 0.5532,0.4195 }</string>
 			<key>fixtures</key>
 			<array>
 				<dict>
@@ -35,20 +35,34 @@
 					<key>id</key>
 					<string></string>
 					<key>fixture_type</key>
-					<string>CIRCLE</string>
-					<key>circle</key>
-					<dict>
-						<key>radius</key>
-						<real>24.021</real>
-						<key>position</key>
-						<string>{ 0.526,-39.750 }</string>
-					</dict>
+					<string>POLYGON</string>
+					<key>polygons</key>
+					<array>
+						<array>
+							<string>{ 37.730,65.490 }</string>
+							<string>{ -38.270,65.490 }</string>
+							<string>{ -38.270,-43.510 }</string>
+							<string>{ -30.270,-57.510 }</string>
+							<string>{ -13.270,-65.510 }</string>
+							<string>{ 7.730,-65.510 }</string>
+							<string>{ 27.730,-56.510 }</string>
+							<string>{ 37.730,-42.510 }</string>
+						</array>
+					</array>
 				</dict>
+			</array>
+		</dict>
+		<key>onion</key>
+		<dict>
+			<key>anchorpoint</key>
+			<string>{ 0.5945,0.3707 }</string>
+			<key>fixtures</key>
+			<array>
 				<dict>
 					<key>density</key>
 					<real>2</real>
 					<key>friction</key>
-					<real>0</real>
+					<real>0.2</real>
 					<key>restitution</key>
 					<real>0</real>
 					<key>filter_categoryBits</key>
@@ -58,7 +72,7 @@
 					<key>filter_maskBits</key>
 					<integer>65535</integer>
 					<key>isSensor</key>
-					<true/>
+					<false/>
 					<key>id</key>
 					<string></string>
 					<key>fixture_type</key>
@@ -66,10 +80,96 @@
 					<key>polygons</key>
 					<array>
 						<array>
-							<string>{ -23.474,49.250 }</string>
-							<string>{ -23.474,-40.750 }</string>
-							<string>{ 24.526,-40.750 }</string>
-							<string>{ 24.526,49.250 }</string>
+							<string>{ -29.680,51.950 }</string>
+							<string>{ -29.680,-24.050 }</string>
+							<string>{ -22.680,-37.050 }</string>
+							<string>{ -10.680,-44.050 }</string>
+							<string>{ 8.320,-44.050 }</string>
+							<string>{ 21.320,-37.050 }</string>
+							<string>{ 28.320,-24.050 }</string>
+							<string>{ 28.320,51.950 }</string>
+						</array>
+					</array>
+				</dict>
+			</array>
+		</dict>
+		<key>bull</key>
+		<dict>
+			<key>anchorpoint</key>
+			<string>{ 0.5624,0.4334 }</string>
+			<key>fixtures</key>
+			<array>
+				<dict>
+					<key>density</key>
+					<real>2</real>
+					<key>friction</key>
+					<real>0.2</real>
+					<key>restitution</key>
+					<real>0</real>
+					<key>filter_categoryBits</key>
+					<integer>1</integer>
+					<key>filter_groupIndex</key>
+					<integer>0</integer>
+					<key>filter_maskBits</key>
+					<integer>65535</integer>
+					<key>isSensor</key>
+					<false/>
+					<key>id</key>
+					<string></string>
+					<key>fixture_type</key>
+					<string>POLYGON</string>
+					<key>polygons</key>
+					<array>
+						<array>
+							<string>{ -57.150,120.540 }</string>
+							<string>{ -57.150,-73.460 }</string>
+							<string>{ -42.150,-99.460 }</string>
+							<string>{ -18.150,-111.460 }</string>
+							<string>{ 9.850,-111.460 }</string>
+							<string>{ 38.850,-100.460 }</string>
+							<string>{ 54.850,-74.460 }</string>
+							<string>{ 54.850,120.540 }</string>
+						</array>
+					</array>
+				</dict>
+			</array>
+		</dict>
+		<key>cat</key>
+		<dict>
+			<key>anchorpoint</key>
+			<string>{ 0.6887,0.5294 }</string>
+			<key>fixtures</key>
+			<array>
+				<dict>
+					<key>density</key>
+					<real>2</real>
+					<key>friction</key>
+					<real>0.2</real>
+					<key>restitution</key>
+					<real>0</real>
+					<key>filter_categoryBits</key>
+					<integer>1</integer>
+					<key>filter_groupIndex</key>
+					<integer>0</integer>
+					<key>filter_maskBits</key>
+					<integer>65535</integer>
+					<key>isSensor</key>
+					<false/>
+					<key>id</key>
+					<string></string>
+					<key>fixture_type</key>
+					<string>POLYGON</string>
+					<key>polygons</key>
+					<array>
+						<array>
+							<string>{ -36.800,88.010 }</string>
+							<string>{ -36.800,-54.990 }</string>
+							<string>{ -31.800,-71.990 }</string>
+							<string>{ -12.800,-81.990 }</string>
+							<string>{ 9.200,-81.990 }</string>
+							<string>{ 28.200,-70.990 }</string>
+							<string>{ 36.200,-54.990 }</string>
+							<string>{ 36.200,88.010 }</string>
 						</array>
 					</array>
 				</dict>
@@ -264,70 +364,6 @@
 						<key>position</key>
 						<string>{ 0.618,48.868 }</string>
 					</dict>
-				</dict>
-			</array>
-		</dict>
-		<key>creep_1</key>
-		<dict>
-			<key>anchorpoint</key>
-			<string>{ 0.5663,0.3272 }</string>
-			<key>fixtures</key>
-			<array>
-				<dict>
-					<key>density</key>
-					<real>2</real>
-					<key>friction</key>
-					<real>0.2</real>
-					<key>restitution</key>
-					<real>0</real>
-					<key>filter_categoryBits</key>
-					<integer>1</integer>
-					<key>filter_groupIndex</key>
-					<integer>0</integer>
-					<key>filter_maskBits</key>
-					<integer>65535</integer>
-					<key>isSensor</key>
-					<false/>
-					<key>id</key>
-					<string></string>
-					<key>fixture_type</key>
-					<string>CIRCLE</string>
-					<key>circle</key>
-					<dict>
-						<key>radius</key>
-						<real>29</real>
-						<key>position</key>
-						<string>{ 3.333,-10.883 }</string>
-					</dict>
-				</dict>
-				<dict>
-					<key>density</key>
-					<real>2</real>
-					<key>friction</key>
-					<real>0</real>
-					<key>restitution</key>
-					<real>0</real>
-					<key>filter_categoryBits</key>
-					<integer>1</integer>
-					<key>filter_groupIndex</key>
-					<integer>0</integer>
-					<key>filter_maskBits</key>
-					<integer>65535</integer>
-					<key>isSensor</key>
-					<false/>
-					<key>id</key>
-					<string></string>
-					<key>fixture_type</key>
-					<string>POLYGON</string>
-					<key>polygons</key>
-					<array>
-						<array>
-							<string>{ -25.000,46.000 }</string>
-							<string>{ -25.000,-18.000 }</string>
-							<string>{ 31.000,-18.000 }</string>
-							<string>{ 31.000,46.000 }</string>
-						</array>
-					</array>
 				</dict>
 			</array>
 		</dict>

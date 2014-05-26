@@ -9,6 +9,8 @@
 #ifndef __SampleCocosProject__MapObject__
 #define __SampleCocosProject__MapObject__
 
+class MapObject;
+
 #include <iostream>
 #include "cocos2d.h"
 #include "GameObject.h"

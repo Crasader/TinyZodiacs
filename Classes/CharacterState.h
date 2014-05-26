@@ -9,8 +9,9 @@
 #ifndef __SampleCocosProject__CharacterState__
 #define __SampleCocosProject__CharacterState__
 
+class CharacterState;
+
 #include <iostream>
-#include "CharacterState.h"
 #include "Character.h"
 #include "ObjectState.h"
 

@@ -1,0 +1,18 @@
+<character id="monster_bull">
+    <animation>bull</animation>
+	<body>bull</body>
+    <hp>300</hp>
+    <atk>20</atk>
+    <def>0</def>
+    <speed>3</speed>
+    <atk_speed>0.5</atk_speed>
+    <max_jump>3</max_jump>
+    <jump_height>10</jump_height>
+    <sensor_body>creep_1_sensor</sensor_body>
+    <skill_0>monster_normal_attack</skill_0>
+    
+    <item_list>
+        <item id="coin1" chance="50"/>
+        <item id="coin2" chance="50"/>
+    </item_list>
+</character>

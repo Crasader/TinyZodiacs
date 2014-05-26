@@ -12,7 +12,7 @@
 #include <iostream>
 #include "ObjectData.h"
 #include "cocos2d.h"
-#include "Effect.h"
+#include "Affect.h"
 #include "GameObject.h"
 
 USING_NS_CC;
@@ -39,7 +39,7 @@ public:
 
     void setData(CharacterData data);
     void applyData(CharacterData data);
-    void applyEffect(Effect* effect, GameObject* holder);
+    void applyAffect(Affect* affect, GameObject* holder);
 };
 
 #endif /* defined(__Headball__CharacterData__) */

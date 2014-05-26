@@ -1,18 +1,18 @@
 <character id="monster_pig">
     <animation>pig</animation>
-	<body>pig</body>
-    <hp>1</hp>
+	<body>pig2</body>
+    <hp>100</hp>
     <atk>0</atk>
     <def>0</def>
     <speed>8</speed>
-    <atk_speed>0.1</atk_speed>
+    <atk_speed>0.5</atk_speed>
     <max_jump>3</max_jump>
     <jump_height>10</jump_height>
     <sensor_body>creep_2_sensor</sensor_body>
     <skill_0>tower_shooting_1</skill_0>
     
     <item_list>
-        <item id="bag1" chance="100"/>
-        <item id="bag2" chance="100"/>
+        <item id="bag1" chance="4"/>
+        <item id="bag2" chance="4"/>
     </item_list>
 </character>

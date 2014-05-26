@@ -202,7 +202,6 @@
          </sensor_object>-->
     </sensor_object_list>
     <tower_list>
-    <!--
         <tower id="tower1" group="B" >
             <position x="600" y="920"/>
         </tower>
@@ -227,27 +226,33 @@
         <tower id="tower2" group="B" >
             <position x="4228" y="1378"/>
         </tower>
-     -->
     </tower_list>
     <monster_factory_list>
 
-        <!--
-         <monster_factory group="B">
 
-            <monster_creator delay_per_unit="1" delay="5" lane = "2">
-                <position x="2000" y="400"/>
-                <monster>monster_onion</monster>
+         <monster_factory group="A">
 
+            <monster_creator delay_per_unit="1" delay="3" lane = "2">
+                <position x="1290" y="540"/>
+                <monster_list>
+                    <monster id="monster_onion" quantity="2"/>
+                    <monster id="monster_pig" quantity="1"/>
+                    <monster id="monster_monkey" quantity="1"/>
+                        <monster id="monster_onion" quantity="1"/>
+                            <monster id="monster_bull" quantity="1"/>
+                </monster_list>
             </monster_creator>
         </monster_factory>
 
- -->
+ -
             <monster_factory group="B">
-                <monster_creator delay_per_unit="0.1" delay="0.1" lane = "2" max="200">
+                <monster_creator delay_per_unit="1" delay="4" lane = "2" max="200">
                     <position x="4000" y="500"/>
                     <monster_list>
-                        <monster id="monster_onion" quantity="1"/>
+                        <monster id="monster_onion" quantity="3"/>
                           <monster id="monster_pig" quantity="1"/>
+                            <monster id="monster_bull" quantity="1"/>
+                          
                     </monster_list>
                 </monster_creator>
             </monster_factory>
@@ -256,16 +261,19 @@
 
     <item_creator_list>
   
-        <item_creator max="1" delay_min="0.01" delay_max="0.02">
-            <begin_position x="3000" y="600"/>
-            <end_position x="3200" y="600"/>
+        <item_creator max="100" delay_min="0.01" delay_max="0.1">
+            <begin_position x="0" y="0"/>
+            <end_position x="8000" y="2000"/>
             <item_list>
                 <item id="coin2" chance="100"/>
+                <item id="coin1" chance="100"/>
+                <item id="bag1" chance="100"/>
+                <item id="bag2" chance="100"/>
                 <item id="container1" chance="100"/>
            
             </item_list>
         </item_creator>
-        <item_creator max="50" delay_min="0.01" delay_max="0.02">
+       <!-- <item_creator max="50" delay_min="0.01" delay_max="0.02">
             <begin_position x="3200" y="600"/>
             <end_position x="3400" y="600"/>
             <item_list>
@@ -274,6 +282,7 @@
                 
             </item_list>
         </item_creator>
+        -->
     </item_creator_list>
    
     <wave_list>

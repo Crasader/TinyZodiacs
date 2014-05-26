@@ -12,23 +12,21 @@
 #include <iostream>
 #include "cocos2d.h"
 #include "iUIObjectTouchInterface.h"
+#include "Controller.h"
+#include "ControllerLayer.h"
 
 
 
-class GameMenuLayer: public cocos2d::CCLayer, public iUIObjectTouchEventInterface
+class GameMenuLayer: public cocos2d::CCLayer, public iUIObjectTouchEventInterface, public Controller
 {
 public:
     CCLabelTTF* label;
      CCLabelTTF* monsterCount;
-    
+    ControllerLayer * mlayer;
     virtual bool init();
     virtual void update(float dt);
     CREATE_FUNC(GameMenuLayer);
-    
-    void LeftCallBack(cocos2d::CCObject* sender);
-    void RightCallBack(cocos2d::CCObject* sender);
-    void UpCallBack(cocos2d::CCObject* sender);
-    void DownCallBack(cocos2d::CCObject* sender);
+
 
     virtual void ccTouchesBegan(CCSet* pTouches, CCEvent* event);
     
@@ -37,6 +35,9 @@ public:
     virtual void touchBegan(void* sender ,CCSet* pTouches, CCEvent* event);
 	virtual void touchHold(void* sender ,CCSet* pTouches, CCEvent* event);
 	virtual void touchEnded(void* sender ,CCSet* pTouches, CCEvent* event);
+    
+    virtual bool receiveCommand(CommandID commandID, void* data);
+    virtual bool removeSubController(Controller* controller);
     
 private:
     

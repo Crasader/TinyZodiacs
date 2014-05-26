@@ -9,6 +9,8 @@
 #ifndef __TinyZodiacs__BonusItem__
 #define __TinyZodiacs__BonusItem__
 
+class BodyItem;
+
 #include <iostream>
 #include "cocos2d.h"
 #include "Item.h"

@@ -8,7 +8,9 @@
 
 #ifndef __TinyZodiacs__GameObjectInfoView__
 #define __TinyZodiacs__GameObjectInfoView__
+
 class GameObjectView;
+
 #include <iostream>
 #include "cocos2d.h"
 #include "HealthBar.h"

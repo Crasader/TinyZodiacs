@@ -38,6 +38,23 @@ enum ItemType
     CONTAINER
 };
 
+enum ControllerID
+{
+    HERO_CONTROLLER
+};
+
+enum CommandID
+{
+    HERO_MOVE_LEFT,
+    HERO_MOVE_RIGHT,
+    HERO_MOVE_STOP,
+    HERO_MOVE_JUMP,
+    HERO_ATTACK_1,
+    HERO_ATTACK_2,
+    DISABLE_BUTTON_ATTACK,
+    DISPLAY_MONSTER_COUNT
+};
+
 struct TextureSelector
 {
     CCSpriteFrame* activeTexture;

@@ -36,10 +36,14 @@ void GameGroup::update(float dt)
 {
     this->character->update(dt);
     this->monsterFactory->update(dt);
+    
+    int *a = new int(this->monsterFactory->getListMonster()->count());
+    ControllerManager::getInstance()->sendCommand(HERO_CONTROLLER, DISPLAY_MONSTER_COUNT, a);
 }
 
 void GameGroup::joinGame(Group group, b2World* world, Map* map)
 {
+    
     this->group = group;
     this->monsterFactory->setGroup(this->group);
     //CHARACTER
@@ -49,6 +53,8 @@ void GameGroup::joinGame(Group group, b2World* world, Map* map)
     this->character->setGroup(this->group);
     
     this->character->retain();
+    this->character->setGameObjectView(InfoViewCreator::createHeroView(this->character, NULL));
+
     
     //MONSTER
     
@@ -104,6 +110,12 @@ void GameGroup::joinGame(Group group, b2World* world, Map* map)
     createTowers(arrTowerStruct, world);
     
     attachSpriteToMap(map);
+    
+    if(group == B)
+    {
+        ControllerManager::getInstance()->unregisterController(HERO_CONTROLLER, this->character);
+    }
+
     
 }
 
@@ -167,4 +179,16 @@ void GameGroup::notifyToDestroy(GameObject* object)
     {
         this->listTower->removeObject(object);
     }
+}
+
+bool GameGroup::receiveCommand(CommandID commandID, void* data)
+{
+    Controller::receiveCommand(commandID, data);
+    return true;
+}
+
+bool GameGroup::removeSubController(Controller* controller)
+{
+    Controller::removeSubController(controller);
+    return true;
 }

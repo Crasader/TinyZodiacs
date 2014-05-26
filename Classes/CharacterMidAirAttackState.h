@@ -9,6 +9,8 @@
 #ifndef __Headball__CharacterMidAirAttack__
 #define __Headball__CharacterMidAirAttack__
 
+class CharacterMidAirAttackState;
+
 #include <iostream>
 #include "CharacterState.h"
 

@@ -12,7 +12,7 @@
 #include "LayerIndexConstants.h"
 #include "EffectData.h"
 #include "Character.h"
-#include "Effect.h"
+#include "Affect.h"
 
 #include "AnimationEffect.h"
 #include "EffectManager.h"

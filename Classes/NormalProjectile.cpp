@@ -14,7 +14,7 @@
 #include "Character.h"
 #include "GameObjectManager.h"
 #include "ScheduleManager.h"
-#include "Effect.h"
+#include "Affect.h"
 #include "EffectData.h"
 
 NormalProjectile::NormalProjectile()
@@ -247,8 +247,10 @@ void NormalProjectile::checkCollisionDataInBeginContact(PhysicData* holderData, 
                     // CCLOG("Enemy begin");
                     for(int i=0 ; i<this->data.getListEnemyEffect().size() ; i++)
                     {
-                        Effect* effect = new Effect(this->data.getListEnemyEffect()[i], character);
-                        character->applyEffect(effect);
+                        Affect* affect = Affect::create();
+                        affect->setData(this->data.getListEnemyEffect()[i]);
+                        affect->setHolder(character);
+                        character->applyAffect(affect);
                     }
                     
                     if(this->data.getPiercing() == false)

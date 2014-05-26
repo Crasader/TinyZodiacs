@@ -9,6 +9,8 @@
 #ifndef __Headball__CharacterIdleState__
 #define __Headball__CharacterIdleState__
 
+class CharacterIdleState;
+
 #include <iostream>
 #include "CharacterState.h"
 

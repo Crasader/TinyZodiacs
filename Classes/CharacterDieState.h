@@ -9,6 +9,8 @@
 #ifndef __TinyZodiacs__CharacterDieState__
 #define __TinyZodiacs__CharacterDieState__
 
+class CharacterDieState;
+
 #include <iostream>
 
 #include "CharacterState.h"

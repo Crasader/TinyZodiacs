@@ -17,17 +17,18 @@
 #include "Tower.h"
 #include "DataCollector.h"
 #include "Observer.h"
+#include "Controller.h"
 
 USING_NS_CC;
 
-class GameGroup: public CCObject, public Observer
+class GameGroup: public CCObject, public Observer, public Controller
 {
 private:
 protected:
 public:
     CC_SYNTHESIZE(Group, group, Group);
     CC_SYNTHESIZE(MonsterFactory*, monsterFactory, MonsterFactory);
-    CC_SYNTHESIZE(Character*, character, Character);
+    CC_SYNTHESIZE(Hero*, character, Character);
     CC_SYNTHESIZE(CCArray*, listTower, ListTower);
     
     GameGroup();
@@ -48,6 +49,9 @@ public:
     void test();
     
     virtual void notifyToDestroy(GameObject* object);
+    
+    virtual bool receiveCommand(CommandID commandID, void* data);
+    virtual bool removeSubController(Controller* controller);
     
     CREATE_FUNC(GameGroup);
 };

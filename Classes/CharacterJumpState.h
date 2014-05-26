@@ -9,6 +9,8 @@
 #ifndef __SampleCocosProject__CharacterJumpState__
 #define __SampleCocosProject__CharacterJumpState__
 
+class CharacterJumpState;
+
 #include <iostream>
 #include "CharacterState.h"
 

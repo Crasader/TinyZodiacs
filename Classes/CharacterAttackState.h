@@ -9,6 +9,8 @@
 #ifndef __Headball__CharacterAttackState__
 #define __Headball__CharacterAttackState__
 
+class CharacterAttackState;
+
 #include <iostream>
 #include "CharacterState.h"
 #include "NormalAttack.h"

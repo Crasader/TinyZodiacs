@@ -89,7 +89,8 @@ Monster* MonsterFactory::createMonster(MonsterDTO* monsterDTO, CCPoint position,
     monster->setLaneID(laneID);
     monster->setlistItem(monsterDTO->listItem);
     monster->onCreate();
-    monster->setGameObjectView(InfoViewCreator::createMonsterView(monster, NULL));
+        monster->setGameObjectView(InfoViewCreator::createMonsterView(monster, NULL));
+
     return monster;
 }
 

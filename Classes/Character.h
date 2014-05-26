@@ -9,25 +9,24 @@
 #ifndef __SampleCocosProject__Character__
 #define __SampleCocosProject__Character__
 
+class Character;
+
 #include <iostream>
-#include "GameObject.h"
 #include "cocos2d.h"
+#include "GameObject.h"
 #include "Box2D/Box2D.h"
 #include "AnimationObject.h"
 #include "CharacterData.h"
 #include "NormalAttack.h"
 #include "PhysicData.h"
-#include "HealthBar.h"
 #include "MapObject.h"
 #include "Observable.h"
-
-class CharacterState;
+#include "CharacterState.h"
 
 class Character: public GameObject
 {
 private:    
     CharacterState* state;
-    HealthBar* bar;
 
     void setupJointSkillAndBody();
     void createFootSensor();
@@ -78,8 +77,8 @@ public:
 
     
     virtual void setSkin(b2Body* body,cocos2d::CCSprite* sprite);
-    virtual void notifyByEffect(CCObject* effect);
-    virtual void removeEffect(CCObject* object);
+    virtual void notifyByAffect(Affect* affect);
+    virtual void removeAffect(Affect* affect);
     
     virtual bool isDead();
     

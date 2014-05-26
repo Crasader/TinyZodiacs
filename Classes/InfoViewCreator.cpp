@@ -20,6 +20,16 @@ GameObjectView* InfoViewCreator::createHeroView(Hero* hero, Player* player)
     
     HealthBar* healthBar = HealthBar::create();
     
+    if(hero->getGroup() == A)
+    {
+        healthBar->setForeground("healthbar_blue.png");
+    }
+    else
+    {
+        healthBar->setForeground("healthbar_red.png");
+
+    }
+    
     CCLabelTTF* label = CCLabelTTF::create("Hoa Phat", "Arial", 25);
     
     heroView->setHealthBar(healthBar);
@@ -40,6 +50,16 @@ GameObjectView* InfoViewCreator::createMonsterView(Monster* monster, Player* pla
     
     
     HealthBar* healthBar = HealthBar::create();
+    
+    if(monster->getGroup() == A)
+    {
+        healthBar->setForeground("healthbar_blue.png");
+    }
+    else
+    {
+        healthBar->setForeground("healthbar_red.png");
+        
+    }
     
     CCLabelTTF* label = CCLabelTTF::create("monster", "Arial", 25);
     

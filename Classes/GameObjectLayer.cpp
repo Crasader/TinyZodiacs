@@ -28,7 +28,6 @@ GameObjectLayer::GameObjectLayer()
 GameObjectLayer::~GameObjectLayer()
 {
     CC_SAFE_RELEASE_NULL(this->gameWorld);
-    delete this->characterActionEngine;
 }
 
 bool GameObjectLayer::init()
@@ -43,8 +42,6 @@ bool GameObjectLayer::init()
     
     this->addChild(gameWorld);
     
-    this->characterActionEngine = new CharacterActionEngine(this->gameWorld->getCharacter());
-    
     this->setTouchEnabled(true);
     this->scheduleUpdate();
     
@@ -58,58 +55,6 @@ void GameObjectLayer::draw()
 void GameObjectLayer::update(float dt)
 {
     this->gameWorld->update(dt);
-}
-
-void GameObjectLayer::MoveSprite(float x, float y)
-{
-   
-}
-
-void GameObjectLayer::MoveSpriteUp()
-{
-   // CC_SAFE_RELEASE(this->gameWorld);
- // this->gameWorld->getCharacter()->jump();
-    this->characterActionEngine->jump();
-    
-//CC_SAFE_RELEASE(this->gameWorld);
-}
-
-void GameObjectLayer::MoveSpriteDown()
-{
-//    this->gameWorld->getCharacter()->stopMove();
-    this->characterActionEngine->stopMoveAction();
-}
-
-void GameObjectLayer::MoveSpriteLeft()
-{
-//   this->gameWorld->getCharacter()->move(LEFT);
-    this->characterActionEngine->moveLeft();
-}
-
-void GameObjectLayer::MoveSpriteRight()
-{
-//    this->gameWorld->getCharacter()->move(RIGHT);
-    this->characterActionEngine->moveRight();
-}
-
-void GameObjectLayer::Attack()
-{
-//    this->gameWorld->getCharacter()->attack();
-    this->characterActionEngine->attack();
-    
-//    MonsterFactory::getSharedFactory()->removeMonster(NULL);
-}
-
-void GameObjectLayer::Skill1()
-{
-    //    this->gameWorld->getCharacter()->attack();
-    this->characterActionEngine->skill1();
-}
-
-void GameObjectLayer::Skill2()
-{
-    //    this->gameWorld->getCharacter()->attack();
-    this->characterActionEngine->skill2();
 }
 
 Character* GameObjectLayer::getCharacter(){

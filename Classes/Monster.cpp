@@ -28,17 +28,12 @@ Monster::Monster()
 
 Monster::~Monster()
 {
-      CCLOG("ffffffs");
     this->listTarget->removeAllObjects();
     this->listTarget->release();
     AnimationEffect* effect = AnimationEffect::create();
-    effect->retain();
     effect->setAnimation("effect-smoke");
     
     EffectManager::getInstance()->runEffect(effect, this->getPositionInPixel());
-    
-    EffectManager::getInstance()->stopEffect(effect);
-    effect->release();
     dropItem();
 }
 
@@ -241,9 +236,9 @@ void Monster::doAction(SensorObject* sensorObject)
     }
 }
 
-void Monster::notifyByEffect(CCObject* effect)
+void Monster::notifyByAffect(Affect* affect)
 {
-    Character::notifyByEffect(effect);
+    Character::notifyByAffect(affect);
 }
 
 void Monster::setPhysicGroup(uint16 group)
@@ -361,7 +356,7 @@ void Monster::onCreate()
 {
     Character::onCreate();
     
-}
+   }
 
 void Monster::setSensor(const char* bodyId)
 {

@@ -8,7 +8,9 @@
 
 #ifndef __SampleCocosProject__GameObject__
 #define __SampleCocosProject__GameObject__
+
 class GameObject;
+
 #include <iostream>
 #include <cocos2d.h>
 #include <Box2D/Box2D.h>
@@ -17,6 +19,7 @@ class GameObject;
 #include "GameObjectView.h"
 #include "Observable.h"
 #include "Observer.h"
+#include "Affect.h"
 
 USING_NS_CC;
 
@@ -28,7 +31,7 @@ private:
     
 protected:
     bool isDestroyed;
-    cocos2d::CCArray* listEffect;
+    cocos2d::CCArray* listAffect;
     Direction direction;
     CC_SYNTHESIZE(GameObjectID, gameObjectID, GameObjectID);
     CC_SYNTHESIZE(CCSprite*, sprite, Sprite);
@@ -38,7 +41,7 @@ protected:
     
     GameObjectView* gameObjectView;
     
-    virtual void updateAllEffect(float dt);
+    virtual void updateAllAffect(float dt);
     
     virtual uint16 getCorrectGroup(Group group);
     virtual void setPhysicGroup(uint16 group);
@@ -79,9 +82,9 @@ public:
     virtual void setGroup(Group group);
     virtual uint16 getPhysicGroup();
     
-    virtual void applyEffect(CCObject* effect);
-    virtual void removeEffect(CCObject* object);
-    virtual void notifyByEffect(CCObject* effect);
+    virtual void applyAffect(Affect* affect);
+    virtual void removeAffect(Affect* affect);
+    virtual void notifyByAffect(Affect* affect);
     virtual void destroy();
     
     virtual void attach(Observer* observer);

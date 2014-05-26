@@ -2,7 +2,7 @@
     <animation>tower1</animation>
 	<body>tower_1</body>
     <hp>200</hp>
-    <atk>-10</atk>
+    <atk>10</atk>
     <def>2</def>
     <speed>10</speed>
     <atk_speed>0.1</atk_speed>

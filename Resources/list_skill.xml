@@ -15,7 +15,7 @@
         </texture>
         <list_effect>
             <enemy>
-                <effect>cat_bleeding</effect>
+                <effect>cat_normal_attack_affect</effect>
             </enemy>
         </list_effect>
 	</skill>
@@ -23,8 +23,8 @@
     <skill id="monkey_aura" type="0">
 		<body>monkey_aura</body>
         <delay>0.1</delay>
-        <life_time>2</life_time>
-		<cool_down>3</cool_down>
+        <life_time>3</life_time>
+		<cool_down>5</cool_down>
         <joints>
             <holder x="0" y="0" offsetX="0" offsetY="0"></holder>
             <this x="0" y="0" offsetX="0" offsetY="0"></this>
@@ -46,7 +46,7 @@
             </allies>
         </list_effect>
         
-        <time_tick>0.1</time_tick>
+        <time_tick>0.5</time_tick>
 	</skill>
     
     <skill id="monkey_ultimate" type="0">
@@ -128,8 +128,8 @@
     <skill id="tower_shooting_1" type="1">
 		<body>tower_orb_1_2</body>
         <delay>0</delay>
-        <life_time>1</life_time>
-		<cool_down>1</cool_down>
+        <life_time>5</life_time>
+		<cool_down>0.5</cool_down>
         <joints>
             <holder x="0" y="0" offsetX="1" offsetY="0.8"></holder>
             <this x="0" y="0" offsetX="0" offsetY="0"></this>
@@ -152,7 +152,7 @@
         
         <list_effect>
             <enemy>
-                <effect>cat_bleeding</effect>
+                <effect>cat_normal_attack_affect</effect>
             </enemy>
         </list_effect>
 	</skill>
@@ -184,7 +184,7 @@
         
         <list_effect>
             <enemy>
-                <effect>cat_bleeding</effect>
+                <effect>cat_normal_attack_affect</effect>
             </enemy>
         </list_effect>
 	</skill>

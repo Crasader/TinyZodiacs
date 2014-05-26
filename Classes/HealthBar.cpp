@@ -48,10 +48,9 @@ void HealthBar::setBackground(const char *imageName)
 
 void HealthBar::setForeground(const char *imageName)
 {
-    this->foreground = CCSprite::createWithSpriteFrameName(imageName);
-    this->foreground->setAnchorPoint(ccp(0,0.5f));
+    this->foreground->setDisplayFrame(CCSpriteFrameCache::sharedSpriteFrameCache()->spriteFrameByName(imageName)); 
+    this->foreground->setAnchorPoint(ccp(0,0.5));
     this->foreground->setPosition(ccp(-this->foreground->getContentSize().width/2,0));
-    this->addChild(this->foreground,2);
 }
 
 void HealthBar::updateProgress(float max, float current)

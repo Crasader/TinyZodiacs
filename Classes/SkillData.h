@@ -13,7 +13,7 @@
 #include "cocos2d.h"
 #include "PhysicConstants.h"
 #include "Constants.h"
-#include "Effect.h"
+#include "Affect.h"
 
 USING_NS_CC;
 

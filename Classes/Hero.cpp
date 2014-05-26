@@ -41,10 +41,13 @@ Hero::~Hero()
         this->ghostAnimation->release();
     }
 }
-
+bool a = false;
 void Hero::onCreate()
 {
     Character::onCreate();
+    
+    ControllerManager::getInstance()->registerController(HERO_CONTROLLER, this);
+    //
 }
 
 uint16  Hero::getCorrectGroup(Group group)
@@ -113,4 +116,43 @@ void Hero::attachSpriteTo(CCNode* node)
 {
     GameObject::attachSpriteTo(node);
     node->addChild(this->sprite,CHARACTER_LAYER);
+}
+
+void Hero::destroy()
+{
+    Character::destroy();
+    
+    ControllerManager::getInstance()->unregisterController(HERO_CONTROLLER, this);
+    //ControllerManager::getInstance()->sendCommand(HERO_CONTROLLER, DISABLE_BUTTON_ATTACK);
+}
+
+bool Hero::receiveCommand(CommandID commandID, void* data)
+{
+    Controller::receiveCommand(commandID, data);
+    
+    switch (commandID)
+    {
+        case HERO_MOVE_LEFT:
+            move(LEFT);
+            break;
+        case HERO_MOVE_RIGHT:
+            move(RIGHT);
+            break;
+        case HERO_MOVE_STOP:
+            stopMove();
+            break;
+        case HERO_MOVE_JUMP:
+            jump();
+            break;
+        case HERO_ATTACK_1:
+            attack();
+            break;
+        case HERO_ATTACK_2:
+            useSkill1();
+            break;
+        default:
+            break;
+    }
+    
+    return true;
 }

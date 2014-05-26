@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>frames</key>
+	<dict>
+		
+		<key>bull_run_1.png</key>
+		<dict>
+			<key>aliases</key>
+			<array>
+			
+			</array>
+			<key>spriteColorRect</key>
+			<string>{{32, 49}, {309, 289}}</string>
+			<key>spriteOffset</key>
+			<string>{-11, 2}</string>
+			<key>spriteSize</key>
+			<string>{309, 289}</string>
+			<key>spriteSourceSize</key>
+			<string>{395, 391}</string>
+			<key>spriteTrimmed</key>
+			<true/>
+			<key>textureRect</key>
+			<string>{{0, 291}, {309, 289}}</string>
+			<key>textureRotated</key>
+			<false/>
+		</dict>
+		
+		<key>bull_run_10.png</key>
+		<dict>
+			<key>aliases</key>
+			<array>
+			
+			</array>
+			<key>spriteColorRect</key>
+			<string>{{32, 41}, {309, 289}}</string>
+			<key>spriteOffset</key>
+			<string>{-11, 10}</string>
+			<key>spriteSize</key>
+			<string>{309, 289}</string>
+			<key>spriteSourceSize</key>
+			<string>{395, 391}</string>
+			<key>spriteTrimmed</key>
+			<true/>
+			<key>textureRect</key>
+			<string>{{0, 582}, {309, 289}}</string>
+			<key>textureRotated</key>
+			<false/>
+		</dict>
+		
+		<key>bull_run_2.png</key>
+		<dict>
+			<key>aliases</key>
+			<array>
+			
+			</array>
+			<key>spriteColorRect</key>
+			<string>{{32, 41}, {309, 285}}</string>
+			<key>spriteOffset</key>
+			<string>{-11, 12}</string>
+			<key>spriteSize</key>
+			<string>{309, 285}</string>
+			<key>spriteSourceSize</key>
+			<string>{395, 391}</string>
+			<key>spriteTrimmed</key>
+			<true/>
+			<key>textureRect</key>
+			<string>{{620, 289}, {309, 285}}</string>
+			<key>textureRotated</key>
+			<false/>
+		</dict>
+		
+		<key>bull_run_3.png</key>
+		<dict>
+			<key>aliases</key>
+			<array>
+			
+			</array>
+			<key>spriteColorRect</key>
+			<string>{{33, 38}, {309, 287}}</string>
+			<key>spriteOffset</key>
+			<string>{-10, 14}</string>
+			<key>spriteSize</key>
+			<string>{309, 287}</string>
+			<key>spriteSourceSize</key>
+			<string>{395, 391}</string>
+			<key>spriteTrimmed</key>
+			<true/>
+			<key>textureRect</key>
+			<string>{{311, 582}, {309, 287}}</string>
+			<key>textureRotated</key>
+			<false/>
+		</dict>
+		
+		<key>bull_run_4.png</key>
+		<dict>
+			<key>aliases</key>
+			<array>
+			
+			</array>
+			<key>spriteColorRect</key>
+			<string>{{34, 40}, {307, 283}}</string>
+			<key>spriteOffset</key>
+			<string>{-10, 14}</string>
+			<key>spriteSize</key>
+			<string>{307, 283}</string>
+			<key>spriteSourceSize</key>
+			<string>{395, 391}</string>
+			<key>spriteTrimmed</key>
+			<true/>
+			<key>textureRect</key>
+			<string>{{927, 0}, {307, 283}}</string>
+			<key>textureRotated</key>
+			<false/>
+		</dict>
+		
+		<key>bull_run_5.png</key>
+		<dict>
+			<key>aliases</key>
+			<array>
+			
+			</array>
+			<key>spriteColorRect</key>
+			<string>{{35, 45}, {307, 281}}</string>
+			<key>spriteOffset</key>
+			<string>{-9, 10}</string>
+			<key>spriteSize</key>
+			<string>{307, 281}</string>
+			<key>spriteSourceSize</key>
+			<string>{395, 391}</string>
+			<key>spriteTrimmed</key>
+			<true/>
+			<key>textureRect</key>
+			<string>{{622, 576}, {307, 281}}</string>
+			<key>textureRotated</key>
+			<false/>
+		</dict>
+		
+		<key>bull_run_6.png</key>
+		<dict>
+			<key>aliases</key>
+			<array>
+			
+			</array>
+			<key>spriteColorRect</key>
+			<string>{{36, 54}, {305, 287}}</string>
+			<key>spriteOffset</key>
+			<string>{-9, -2}</string>
+			<key>spriteSize</key>
+			<string>{305, 287}</string>
+			<key>spriteSourceSize</key>
+			<string>{395, 391}</string>
+			<key>spriteTrimmed</key>
+			<true/>
+			<key>textureRect</key>
+			<string>{{620, 0}, {305, 287}}</string>
+			<key>textureRotated</key>
+			<false/>
+		</dict>
+		
+		<key>bull_run_7.png</key>
+		<dict>
+			<key>aliases</key>
+			<array>
+			
+			</array>
+			<key>spriteColorRect</key>
+			<string>{{35, 45}, {307, 289}}</string>
+			<key>spriteOffset</key>
+			<string>{-9, 6}</string>
+			<key>spriteSize</key>
+			<string>{307, 289}</string>
+			<key>spriteSourceSize</key>
+			<string>{395, 391}</string>
+			<key>spriteTrimmed</key>
+			<true/>
+			<key>textureRect</key>
+			<string>{{311, 291}, {307, 289}}</string>
+			<key>textureRotated</key>
+			<false/>
+		</dict>
+		
+		<key>bull_run_8.png</key>
+		<dict>
+			<key>aliases</key>
+			<array>
+			
+			</array>
+			<key>spriteColorRect</key>
+			<string>{{34, 40}, {307, 289}}</string>
+			<key>spriteOffset</key>
+			<string>{-10, 11}</string>
+			<key>spriteSize</key>
+			<string>{307, 289}</string>
+			<key>spriteSourceSize</key>
+			<string>{395, 391}</string>
+			<key>spriteTrimmed</key>
+			<true/>
+			<key>textureRect</key>
+			<string>{{311, 0}, {307, 289}}</string>
+			<key>textureRotated</key>
+			<false/>
+		</dict>
+		
+		<key>bull_run_9.png</key>
+		<dict>
+			<key>aliases</key>
+			<array>
+			
+			</array>
+			<key>spriteColorRect</key>
+			<string>{{33, 38}, {309, 289}}</string>
+			<key>spriteOffset</key>
+			<string>{-10, 13}</string>
+			<key>spriteSize</key>
+			<string>{309, 289}</string>
+			<key>spriteSourceSize</key>
+			<string>{395, 391}</string>
+			<key>spriteTrimmed</key>
+			<true/>
+			<key>textureRect</key>
+			<string>{{0, 0}, {309, 289}}</string>
+			<key>textureRotated</key>
+			<false/>
+		</dict>
+		
+	</dict>
+	<key>metadata</key>
+	<dict>
+		<key>version</key>
+		<string>1.6.0</string>
+		<key>format</key>
+		<integer>3</integer>
+		<key>size</key>
+		<string>{2048, 1024}</string>
+		<key>name</key>
+		<string>bull</string>
+		<key>target</key>
+		<dict>
+			<key>name</key>
+			<string>default</string>
+			<key>textureFileName</key>
+			<string>bull_default</string>
+			<key>textureFileExtension</key>
+			<string>.png</string>
+			<key>coordinatesFileName</key>
+			<string>bull_default</string>
+			<key>coordinatesFileExtension</key>
+			<string>.plist</string>
+			<key>premultipliedAlpha</key>
+			<false/>
+		</dict>
+	</dict>
+</dict>
+</plist>

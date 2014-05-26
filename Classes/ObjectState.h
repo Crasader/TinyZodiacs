@@ -9,8 +9,12 @@
 #ifndef __Headball__ObjectState__
 #define __Headball__ObjectState__
 
+class ObjectState;
+
 #include <iostream>
-#include "Character.h"
+#include "cocos2d.h"
+
+USING_NS_CC;
 
 class ObjectState: public CCObject
 {
