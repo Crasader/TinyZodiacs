@@ -194,6 +194,8 @@ void Affect::start()
     
     this->lifeTimeAction = ScheduleManager::getInstance()->scheduleFunction(destroyFunction, NULL,this->lifeTime, 1);
     this->lifeTimeAction->retain();
+    
+    EffectManager::getInstance()->runEffect(this->animation, CCPoint(0, 0), animationLayerIndex);
 }
 
 bool Affect::init()
@@ -216,6 +218,7 @@ void Affect::setData(EffectData effectData)
     
     this->lifeTime = effectData.getLifeTime();
     this->timeTick = effectData.gettimeTick();
+    this->animationLayerIndex = effectData.getAnimationLayerIndex();
     
     if(effectData.getAnimationId() != "")
     {
@@ -231,7 +234,7 @@ void Affect::setData(EffectData effectData)
             this->animation->setIsFiniteAction(false);
         }
         
-        EffectManager::getInstance()->runEffect(this->animation, CCPoint(0, 0), effectData.getAnimationLayerIndex());
+        
     }
 }
 

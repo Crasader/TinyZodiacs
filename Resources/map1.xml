@@ -232,36 +232,42 @@
 
          <monster_factory group="A">
 
-            <monster_creator delay_per_unit="1" delay="3" lane = "2">
+            <monster_creator delay_per_unit="2" delay="10" lane = "2">
                 <position x="1290" y="540"/>
                 <monster_list>
                     <monster id="monster_onion" quantity="2"/>
                     <monster id="monster_pig" quantity="1"/>
                     <monster id="monster_monkey" quantity="1"/>
-                        <monster id="monster_onion" quantity="1"/>
-                            <monster id="monster_bull" quantity="1"/>
                 </monster_list>
             </monster_creator>
         </monster_factory>
 
  -
             <monster_factory group="B">
-                <monster_creator delay_per_unit="1" delay="4" lane = "2" max="200">
-                    <position x="4000" y="500"/>
+                <monster_creator delay_per_unit="2" delay="10" lane = "2" max="200">
+                    <position x="6000" y="500"/>
                     <monster_list>
-                        <monster id="monster_onion" quantity="3"/>
-                          <monster id="monster_pig" quantity="1"/>
-                            <monster id="monster_bull" quantity="1"/>
+                        <monster id="monster_onion" quantity="4"/>
+                          <monster id="monster_pig" quantity="2"/>
                           
                     </monster_list>
                 </monster_creator>
+                <monster_creator delay_per_unit="2" delay="5" lane = "2" max="200">
+                    <position x="7000" y="500"/>
+                    <monster_list>
+               
+                        <monster id="monster_bull" quantity="1"/>
+                        
+                    </monster_list>
+                </monster_creator>
+
             </monster_factory>
         
     </monster_factory_list>
 
     <item_creator_list>
   
-        <item_creator max="100" delay_min="0.01" delay_max="0.1">
+        <item_creator max="100" delay_min="2" delay_max="10">
             <begin_position x="0" y="0"/>
             <end_position x="8000" y="2000"/>
             <item_list>

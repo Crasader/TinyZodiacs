@@ -17,7 +17,7 @@
 #include "Affect.h"
 #include "HealthPointEffect.h"
 #include "EffectManager.h"
-
+#include "AnimationEffect.h"
 
 
 USING_NS_CC;
@@ -513,12 +513,12 @@ void Character::setPhysicGroup(uint16 group)
     }
 }
 
-void Character::notifyByAffect(Affect* effect)
+void Character::notifyByAffect(Affect* affect)
 {
     if(this->isDestroyed == false)
     {
         
-    this->characterData.applyAffect((Affect*)effect, this);
+    this->characterData.applyAffect((Affect*)affect, this);
 
     if(this->gameObjectView != NULL)
     {
@@ -526,9 +526,10 @@ void Character::notifyByAffect(Affect* effect)
     }
     
     HealthPointEffect* effect = HealthPointEffect::create();
-    effect->setHealthPoint(((Affect*)effect)->getHealth());
-    EffectManager::getInstance()->runEffect(effect, this->getPositionInPixel());
+    effect->setHealthPoint(((Affect*)affect)->getHealth());
+    EffectManager::getInstance()->runEffect(effect, this->getPositionInPixel(),ABOVE_CHARACTER_LAYER);
         
+    
     }
 }
 

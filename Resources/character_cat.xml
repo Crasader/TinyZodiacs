@@ -2,7 +2,7 @@
     <animation>cat</animation>
 	<body>cat</body>
     <hp>2000</hp>
-    <atk>0</atk>
+    <atk>20</atk>
     <def>0</def>
     <speed>10</speed>
     <atk_speed>0.1</atk_speed>
