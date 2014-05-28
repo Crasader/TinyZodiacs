@@ -226,7 +226,7 @@ void Affect::setData(EffectData effectData)
         this->animation->retain();
         this->animation->setAnimation(effectData.getAnimationId().c_str(), effectData.getMinRotateAngle(), effectData.getMaxRotateAngle(), effectData.getMinScale(), effectData.getMaxScale(), effectData.getRepeatTimes(), CCPoint(0, 0));
         
-        if(effectData.getRepeatTimes() <=0)
+        if(effectData.getRepeatTimes() <= 0)
         {
             int repeatTime = effectData.getRepeatTimes();
             repeatTime = effectData.getLifeTime() / ((SkillAnimationEffect*)this->animation)->getAnimationDuration();

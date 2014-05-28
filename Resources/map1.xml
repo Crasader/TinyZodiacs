@@ -105,6 +105,7 @@
         <map_object id="23" image_name="map1_26.png" body_name="map1_26" layer_index="23">
             <position x="1240" y="687"/>
         </map_object>
+        
     </map_object_list>
     <sensor_object_list>
         <sensor_object is_back = "true" must_stop = "false" direction = "right" move_speed="8" jump_height = "0">
@@ -238,6 +239,7 @@
                     <monster id="monster_onion" quantity="2"/>
                     <monster id="monster_pig" quantity="1"/>
                     <monster id="monster_monkey" quantity="1"/>
+                        <monster id="monster_onion" quantity="1"/>
                 </monster_list>
             </monster_creator>
         </monster_factory>
@@ -245,15 +247,15 @@
  -
             <monster_factory group="B">
                 <monster_creator delay_per_unit="2" delay="10" lane = "2" max="200">
-                    <position x="6000" y="500"/>
+                    <position x="4000" y="500"/>
                     <monster_list>
-                        <monster id="monster_onion" quantity="4"/>
-                          <monster id="monster_pig" quantity="2"/>
+                        <monster id="monster_onion" quantity="3"/>
+                          <monster id="monster_pig" quantity="1"/>
                           
                     </monster_list>
                 </monster_creator>
-                <monster_creator delay_per_unit="2" delay="5" lane = "2" max="200">
-                    <position x="7000" y="500"/>
+                <monster_creator delay_per_unit="2" delay="20" lane = "2" max="200">
+                    <position x="5000" y="500"/>
                     <monster_list>
                
                         <monster id="monster_bull" quantity="1"/>
