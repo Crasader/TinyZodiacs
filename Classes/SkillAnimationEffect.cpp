@@ -17,10 +17,6 @@ SkillAnimationEffect::SkillAnimationEffect()
     this->maxScale = 1;
     this->repeatTimes = 1;
     
-    this->sprite = CCSprite::create();
-    this->addChild(sprite);
-    this->animationObject = NULL;
-    this->isFiniteAction = true;
 }
 
 SkillAnimationEffect::~SkillAnimationEffect()

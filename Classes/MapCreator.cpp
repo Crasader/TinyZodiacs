@@ -72,11 +72,12 @@ Map* MapCreator::createMap(MapDTO* mapDTO, GameWorld* gameWorld)
         
         map->addWave(wave);
     }
-    
-//        //    //create background
-//       map->addParallaxBackground(createParallaxBackground(mapDTO->listBackgroundDTO,mapDTO->width,mapDTO->height));
-////        //    //create foreground
-//        map->addParallaxForeground(createParallaxForeground(mapDTO->listForegroundDTO,mapDTO->width,mapDTO->height));
+
+        //    //create background
+     //  map->addParallaxBackground(createParallaxBackground(mapDTO->listBackgroundDTO,mapDTO->width,mapDTO->height));
+//        //    //create foreground
+      //  map->addParallaxForeground(createParallaxForeground(mapDTO->listForegroundDTO,mapDTO->width,mapDTO->height));
+
     
     return map;
     

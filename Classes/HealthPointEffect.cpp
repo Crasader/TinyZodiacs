@@ -36,7 +36,7 @@ void HealthPointEffect::run()
 
     CCFadeOut* fadeOut = CCFadeOut::create(0.6f);
     CCScaleBy* scaleBy = CCScaleBy::create(0.5f, 0.75f);
-    CCCallFunc* func = CCCallFuncND::create(this, callfuncND_selector(HealthPointEffect::stop),NULL);
+    CCCallFunc* func = CCCallFunc::create(this, callfunc_selector(HealthPointEffect::stop));
     
     
     
@@ -57,7 +57,7 @@ void HealthPointEffect::run()
 
 void HealthPointEffect::stop()
 {
-   // this->label->stopAllActioons();
+    this->label->stopAllActions();
     this->removeFromParent();
 }
 
@@ -69,8 +69,4 @@ void HealthPointEffect::setHealthPoint(float hp)
 
 void HealthPointEffect::update(float dt)
 {
-    if(numberOfRunningActions() == 0)
-    {
-        // stop();
-    }
-}
+   }

@@ -41,7 +41,6 @@ void AnimationEffect::run()
 void AnimationEffect::stop()
 {
     this->sprite->stopAllActions();
-    this->sprite->removeFromParent();
     this->removeFromParent();
 }
 
