@@ -192,7 +192,7 @@ void GameWorld::update(float dt)
 
     if(this->world != NULL)
     {
-        world->Step(1/40.000f,8, 1);
+        world->Step(1/60.000f,8, 3);
     }
 }
 

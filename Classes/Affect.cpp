@@ -231,7 +231,7 @@ void Affect::setData(EffectData effectData)
             this->animation->setIsFiniteAction(false);
         }
         
-        EffectManager::getInstance()->runEffect(this->animation, CCPoint(0, 0), effectData.getAnimationLayerIndex());
+//        EffectManager::getInstance()->runEffect(this->animation, CCPoint(0, 0), effectData.getAnimationLayerIndex());
     }
 }
 

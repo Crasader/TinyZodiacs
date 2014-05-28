@@ -28,7 +28,6 @@ public:
     ~GameManager();
     bool loadResource();
     bool loadData();
-    int count = 0;
     static GameManager* getInstance();
     
     CC_SYNTHESIZE(GameHolder, gameplayHolder, GameplayHolder);

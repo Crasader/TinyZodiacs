@@ -14,7 +14,7 @@ static GameManager* instance = NULL;
 
 GameManager::GameManager()
 {
-    count = 0;
+  
 }
 
 GameManager::~GameManager()

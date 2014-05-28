@@ -62,10 +62,10 @@ void Tower::createSensor()
 //    bodyDef.fixedRotation=true;
     
     PhysicData* data =  new PhysicData();
-    data->BodyId = TOWER_SENSOR;
-    data->GameObjectID = TOWER;
-    data->FixtureId = TOWER_SENSOR_FIXTURE;
-    data->Data = this;
+    data->bodyId = TOWER_SENSOR;
+    data->gameObjectID = TOWER;
+    data->fixtureId = TOWER_SENSOR_FIXTURE;
+    data->data = this;
     fixtureDef.userData = data;
     
     this->sensor = this->getBody()->CreateFixture(&fixtureDef);
@@ -158,7 +158,7 @@ void Tower::checkCollisionDataInBeginContact(PhysicData* holderData, PhysicData*
 {
 //    if(data->Data == this)
 //    {
-        if(holderData->Data == this)
+        if(holderData->data == this)
         {
 //            PhysicData* physicData = NULL;
 //            if(isSideA)
@@ -172,9 +172,9 @@ void Tower::checkCollisionDataInBeginContact(PhysicData* holderData, PhysicData*
             
             if(collisionData != NULL)
             {
-                if(collisionData->BodyId == CHARACTER_BODY)
+                if(collisionData->bodyId == CHARACTER_BODY)
                 {
-                    CCObject* obj = (CCObject*)collisionData->Data;
+                    CCObject* obj = (CCObject*)collisionData->data;
                     if(this->listTarget->indexOfObject(obj) == CC_INVALID_INDEX)
                     {
                          this->listTarget->addObject(obj);
@@ -187,7 +187,7 @@ void Tower::checkCollisionDataInBeginContact(PhysicData* holderData, PhysicData*
 
 void Tower::checkCollisionDataInEndContact(PhysicData* holderData, PhysicData* collisionData, b2Contact *contact)
 {
-    if(holderData->Data == this)
+    if(holderData->data == this)
     {
 //        PhysicData* physicData = NULL;
 //        if(isSideA)
@@ -201,9 +201,9 @@ void Tower::checkCollisionDataInEndContact(PhysicData* holderData, PhysicData* c
         
         if(collisionData != NULL)
         {
-            if(collisionData->BodyId == CHARACTER_BODY)
+            if(collisionData->bodyId == CHARACTER_BODY)
             {
-                this->listTarget->removeObject((CCObject*)collisionData->Data);
+                this->listTarget->removeObject((CCObject*)collisionData->data);
             }
         }
     }
@@ -353,9 +353,9 @@ uint16  Tower::getCorrectGroup(Group group)
 void Tower::onCreate()
 {
     PhysicData* data = new PhysicData();
-    data->BodyId = CHARACTER_BODY;
-    data->Data = this;
-    data->GameObjectID = this->gameObjectID;
+    data->bodyId = CHARACTER_BODY;
+    data->data = this;
+    data->gameObjectID = this->gameObjectID;
     this->getBody()->SetUserData(data);
     Character::onCreate();
 }
@@ -396,9 +396,9 @@ void Tower::setSensor(const char* bodyId)
     gbox2d::GB2ShapeCache *sc =  gbox2d::GB2ShapeCache::sharedGB2ShapeCache();
     
     PhysicData* data =  new PhysicData();
-    data->BodyId = TOWER_SENSOR;
-    data->GameObjectID = TOWER;
-    data->FixtureId = TOWER_SENSOR_FIXTURE;
-    data->Data = this;
+    data->bodyId = TOWER_SENSOR;
+    data->gameObjectID = TOWER;
+    data->fixtureId = TOWER_SENSOR_FIXTURE;
+    data->data = this;
     sc->addFixturesToBody(this->body, bodyId, data);
 }

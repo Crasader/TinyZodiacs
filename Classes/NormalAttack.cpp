@@ -50,10 +50,10 @@ void NormalAttack::onCreate()
     for (b2Fixture* f = this->data.getSkillSensor()->GetFixtureList(); f; f = f->GetNext())
     {
         PhysicData* sensorData = new PhysicData();
-        sensorData->BodyId = SKILL_SENSOR;
-        sensorData->GameObjectID = SKILL_OBJECT;
-        sensorData->FixtureId = SKILL_FIXTURE;
-        sensorData->Data = this;
+        sensorData->bodyId = SKILL_SENSOR;
+        sensorData->gameObjectID = SKILL_OBJECT;
+        sensorData->fixtureId = SKILL_FIXTURE;
+        sensorData->data = this;
         
         f->SetUserData(sensorData);
     }
@@ -220,7 +220,7 @@ void NormalAttack::checkCollisionDataInBeginContact(PhysicData* holderData, Phys
     }
     
 
-    if(holderData->BodyId == SKILL_SENSOR && holderData->Data == this )
+    if(holderData->bodyId == SKILL_SENSOR && holderData->data == this )
 
     {
 //        PhysicData* otherData;
@@ -234,12 +234,12 @@ void NormalAttack::checkCollisionDataInBeginContact(PhysicData* holderData, Phys
 //        }
         if(collisionData != NULL)
         {
-            switch (collisionData->BodyId) {
+            switch (collisionData->bodyId) {
                 case CHARACTER_BODY:
                 {
                     //   if(otherData->GameObjectID == HERO)
                     {
-                        Character* character = (Character*)collisionData->Data;
+                        Character* character = (Character*)collisionData->data;
                         if(character != holder)
                         {
                             if(listTarget != NULL)
@@ -293,7 +293,7 @@ void NormalAttack::checkCollisionDataInEndContact(PhysicData* holderData, Physic
         return;
     }
 
-    if(holderData->BodyId == SKILL_SENSOR && holderData->Data == this)
+    if(holderData->bodyId == SKILL_SENSOR && holderData->data == this)
     {
 //        PhysicData* otherData;
 //        if(isSideA)
@@ -307,10 +307,10 @@ void NormalAttack::checkCollisionDataInEndContact(PhysicData* holderData, Physic
         
         if(collisionData != NULL)
         {
-            switch (collisionData->BodyId) {
+            switch (collisionData->bodyId) {
                 case CHARACTER_BODY:
                 {
-                    Character* character = (Character*)collisionData->Data;
+                    Character* character = (Character*)collisionData->data;
                     
                     if(listTarget != NULL)
                     {

@@ -61,10 +61,10 @@ void NormalProjectile::setData(NormalShootingSkillData data, GameObject* holder)
         for (b2Fixture* f = this->body->GetFixtureList(); f; f = f->GetNext())
         {
             PhysicData* pData= new PhysicData();
-            pData->BodyId = PROJECTILE;
-            pData->GameObjectID = PROJECTILE_OBJECT;
-            pData->FixtureId = PROJECTILE_FIXTURE;
-            pData->Data = this;
+            pData->bodyId = PROJECTILE;
+            pData->gameObjectID = PROJECTILE_OBJECT;
+            pData->fixtureId = PROJECTILE_FIXTURE;
+            pData->data = this;
             f->SetUserData(pData);
         }
 //        body->SetUserData(pData);
@@ -231,11 +231,11 @@ void NormalProjectile::checkCollisionDataInBeginContact(PhysicData* holderData, 
         return;
     }
     //
-    switch (collisionData->BodyId)
+    switch (collisionData->bodyId)
     {
         case CHARACTER_BODY:
         {
-            Character* character = (Character*)collisionData->Data;
+            Character* character = (Character*)collisionData->data;
             if(character != NULL /*&& character != holder*/)
             {
                 if(character->getGroup() == /*this->holder->getGroup()*/this->group)

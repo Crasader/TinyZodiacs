@@ -125,31 +125,31 @@ void GameObjectManager::EndContact(b2Contact *contact)
 
 void GameObjectManager::checkCollisionDataInBeginContact(PhysicData* holderData , PhysicData* collisionData, b2Contact *contact)
 {
-    if(holderData == NULL || holderData->Data == NULL)
+    if(holderData == NULL || holderData->data == NULL)
     {
         return;
     }
-    switch (holderData->GameObjectID) {
+    switch (holderData->gameObjectID) {
         case HERO:
-            ((Hero*)holderData->Data)->checkCollisionDataInBeginContact(holderData, collisionData, contact);
+            ((Hero*)holderData->data)->checkCollisionDataInBeginContact(holderData, collisionData, contact);
             break;
         case MONSTER:
-            ((Monster*)holderData->Data)->checkCollisionDataInBeginContact(holderData, collisionData, contact);
+            ((Monster*)holderData->data)->checkCollisionDataInBeginContact(holderData, collisionData, contact);
             break;
         case MAP_OBJECT:
-            ((MapObject*)holderData->Data)->checkCollisionDataInBeginContact(holderData, collisionData, contact);
+            ((MapObject*)holderData->data)->checkCollisionDataInBeginContact(holderData, collisionData, contact);
             break;
         case SKILL_OBJECT:
-            ((AbstractSkill*)holderData->Data)->checkCollisionDataInBeginContact(holderData, collisionData, contact);
+            ((AbstractSkill*)holderData->data)->checkCollisionDataInBeginContact(holderData, collisionData, contact);
             break;
         case TOWER:
-            ((Tower*)holderData->Data)->checkCollisionDataInBeginContact(holderData, collisionData, contact);
+            ((Tower*)holderData->data)->checkCollisionDataInBeginContact(holderData, collisionData, contact);
             break;
         case ITEM:
-            ((Item*)holderData->Data)->checkCollisionDataInBeginContact(holderData, collisionData, contact);
+            ((Item*)holderData->data)->checkCollisionDataInBeginContact(holderData, collisionData, contact);
             break;
         case PROJECTILE_OBJECT:
-            ((NormalProjectile*)holderData->Data)->checkCollisionDataInBeginContact(holderData, collisionData, contact);
+            ((NormalProjectile*)holderData->data)->checkCollisionDataInBeginContact(holderData, collisionData, contact);
         default:
             break;
     }
@@ -159,15 +159,15 @@ void GameObjectManager::checkCollisionDataInBeginContact(PhysicData* holderData 
 
 void GameObjectManager::checkCollisionDataInEndContact(PhysicData* holderData , PhysicData* collisionData, b2Contact *contact)
 {
-    if(holderData == NULL || holderData->Data == NULL)
+    if(holderData == NULL || holderData->data == NULL)
     {
         return;
     }
     
-    switch (holderData->BodyId) {
+    switch (holderData->bodyId) {
         case PROJECTILE:
         {
-            void* pData = holderData->Data;
+            void* pData = holderData->data;
             NormalProjectile* projectile = (NormalProjectile *)pData;
             if(projectile != NULL)
             {
@@ -180,24 +180,24 @@ void GameObjectManager::checkCollisionDataInEndContact(PhysicData* holderData , 
     }
     
     ///
-    switch (holderData->GameObjectID) {
+    switch (holderData->gameObjectID) {
         case HERO:
-            ((Hero*)holderData->Data)->checkCollisionDataInEndContact(holderData, collisionData, contact);
+            ((Hero*)holderData->data)->checkCollisionDataInEndContact(holderData, collisionData, contact);
             break;
         case MONSTER:
-            ((Monster*)holderData->Data)->checkCollisionDataInEndContact(holderData, collisionData, contact);
+            ((Monster*)holderData->data)->checkCollisionDataInEndContact(holderData, collisionData, contact);
             break;
         case MAP_OBJECT:
-            ((MapObject*)holderData->Data)->checkCollisionDataInEndContact(holderData, collisionData, contact);
+            ((MapObject*)holderData->data)->checkCollisionDataInEndContact(holderData, collisionData, contact);
             break;
         case SKILL_OBJECT:
-            ((AbstractSkill*)holderData->Data)->checkCollisionDataInEndContact(holderData, collisionData, contact);
+            ((AbstractSkill*)holderData->data)->checkCollisionDataInEndContact(holderData, collisionData, contact);
             break;
         case TOWER:
-            ((Tower*)holderData->Data)->checkCollisionDataInEndContact(holderData, collisionData, contact);
+            ((Tower*)holderData->data)->checkCollisionDataInEndContact(holderData, collisionData, contact);
             break;
         case ITEM:
-            ((Item*)holderData->Data)->checkCollisionDataInEndContact(holderData, collisionData, contact);
+            ((Item*)holderData->data)->checkCollisionDataInEndContact(holderData, collisionData, contact);
             break;
             
         default:

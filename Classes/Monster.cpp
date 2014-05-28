@@ -30,10 +30,11 @@ Monster::~Monster()
 {
     this->listTarget->removeAllObjects();
     this->listTarget->release();
+    
     AnimationEffect* effect = AnimationEffect::create();
     effect->setAnimation("effect-smoke");
-    
     EffectManager::getInstance()->runEffect(effect, this->getPositionInPixel());
+    
     dropItem();
 }
 
@@ -57,7 +58,7 @@ void Monster::update(float dt)
     {
         if(!isStopMove)
         {
-            this->move(this->direction);
+         this->move(this->direction);
         }
     }
     //
@@ -107,7 +108,7 @@ void Monster::checkCollisionDataInBeginContact(PhysicData* holderData, PhysicDat
 {
     Character::checkCollisionDataInBeginContact(holderData, collisionData, contact);
     
-    if(holderData->Data == this)
+    if(holderData->data == this)
     {
         //        PhysicData* physicData = NULL;
         //        if(isSideA)
@@ -122,24 +123,24 @@ void Monster::checkCollisionDataInBeginContact(PhysicData* holderData, PhysicDat
         if(collisionData != NULL)
         {
             //Contact sensor
-            if(holderData->BodyId == MONSTER_SENSOR && collisionData->BodyId == CHARACTER_BODY && collisionData->Data != this)
+            if(holderData->bodyId == MONSTER_SENSOR && collisionData->bodyId == CHARACTER_BODY && collisionData->data != this)
             {
-                if(listTarget->indexOfObject((GameObject*)collisionData->Data) == CC_INVALID_INDEX)
+                if(listTarget->indexOfObject((GameObject*)collisionData->data) == CC_INVALID_INDEX)
                 {
                     this->stopMove();
                     this->defaultDirection = this->getDirection();
-                    listTarget->addObject((GameObject*)collisionData->Data);
+                    listTarget->addObject((GameObject*)collisionData->data);
                 }
                 return;
             }
             //
             
-            switch (collisionData->BodyId) {
+            switch (collisionData->bodyId) {
                 case MAP_SENSOR:
                 {
-                    if(holderData->BodyId == CHARACTER_FOOT_SENSOR)
+                    if(holderData->bodyId == CHARACTER_FOOT_SENSOR)
                     {
-                        SensorObject* sensorObject = static_cast<SensorObject*>(collisionData->Data);
+                        SensorObject* sensorObject = static_cast<SensorObject*>(collisionData->data);
                         if(sensorObject->checkValidLaneID(this->laneID))
                         {
                             // cung huong
@@ -158,9 +159,9 @@ void Monster::checkCollisionDataInBeginContact(PhysicData* holderData, PhysicDat
                     
                 case MAP_BASE:
                 {
-                    if(holderData->BodyId == CHARACTER_FOOT_SENSOR)
+                    if(holderData->bodyId == CHARACTER_FOOT_SENSOR)
                     {
-                        MapObject* mapObject = static_cast<MapObject*>(collisionData->Data);
+                        MapObject* mapObject = static_cast<MapObject*>(collisionData->data);
                         if(!Util::bodiesArePassingThrough(this->body, mapObject->getBody()))
                         {
                             this->isStopMove = false;
@@ -179,7 +180,7 @@ void Monster::checkCollisionDataInBeginContact(PhysicData* holderData, PhysicDat
 void Monster::checkCollisionDataInEndContact(PhysicData* holderData, PhysicData* collisionData, b2Contact *contact)
 {
     Character::checkCollisionDataInEndContact(holderData, collisionData, contact);
-    if(holderData->Data == this)
+    if(holderData->data == this)
     {
         //        PhysicData* physicData = NULL;
         //        if(isSideA)
@@ -194,9 +195,9 @@ void Monster::checkCollisionDataInEndContact(PhysicData* holderData, PhysicData*
         if(collisionData != NULL)
         {
             //Contact sensor
-            if(holderData->BodyId == MONSTER_SENSOR && collisionData->BodyId == CHARACTER_BODY && collisionData->Data != this)
+            if(holderData->bodyId == MONSTER_SENSOR && collisionData->bodyId == CHARACTER_BODY && collisionData->data != this)
             {
-                listTarget->removeObject((GameObject*)collisionData->Data);
+                listTarget->removeObject((GameObject*)collisionData->data);
                 if(listTarget->count()==0)
                 {
                     flipDirection(this->defaultDirection);
@@ -204,7 +205,7 @@ void Monster::checkCollisionDataInEndContact(PhysicData* holderData, PhysicData*
                 return;
             }
             //
-            switch (collisionData->BodyId) {
+            switch (collisionData->bodyId) {
                 case MAP_SENSOR:
                 {
                     //this->isStopMove = false;
@@ -251,7 +252,7 @@ void Monster::setSensorGroup(uint16 group)
 {
     for (b2Fixture* f = this->body->GetFixtureList(); f; f = f->GetNext())
     {
-        if(f != NULL && ((PhysicData*)(f->GetUserData()))->FixtureId == MONSTER_SENSOR_FIXTURE)
+        if(f != NULL && ((PhysicData*)(f->GetUserData()))->fixtureId == MONSTER_SENSOR_FIXTURE)
         {
             b2Filter filter = f->GetFilterData();
             filter.categoryBits = GROUP_MONSTER_SENSOR;
@@ -363,10 +364,10 @@ void Monster::setSensor(const char* bodyId)
     gbox2d::GB2ShapeCache *sc =  gbox2d::GB2ShapeCache::sharedGB2ShapeCache();
     
     PhysicData* data =  new PhysicData();
-    data->BodyId = MONSTER_SENSOR;
-    data->FixtureId = MONSTER_SENSOR_FIXTURE;
-    data->Data = this;
-    data->GameObjectID = MONSTER;
+    data->bodyId = MONSTER_SENSOR;
+    data->fixtureId = MONSTER_SENSOR_FIXTURE;
+    data->data = this;
+    data->gameObjectID = MONSTER;
     sc->addFixturesToBody(this->body, bodyId, data);
 }
 

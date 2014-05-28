@@ -10,5 +10,13 @@
 
 PhysicData::PhysicData()
 {
-    GameObjectID = NONE;
+    gameObjectID = NONE;
+    bodyId = MAP_BASE;
+    fixtureId = FOOT_SENSOR;
+    data = NULL;
+}
+
+PhysicData::~PhysicData()
+{
+    
 }

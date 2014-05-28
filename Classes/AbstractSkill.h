@@ -9,6 +9,8 @@
 #ifndef __TinyZodiacs__AbstractSkill__
 #define __TinyZodiacs__AbstractSkill__
 
+class AbstractSkill;
+
 #include <iostream>
 #include "Box2D/Box2D.h"
 #include "cocos2d.h"

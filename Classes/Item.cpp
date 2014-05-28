@@ -44,9 +44,9 @@ void Item::onCreate()
     for (b2Fixture* f = this->body->GetFixtureList(); f; f = f->GetNext())
     {
         PhysicData* physicData = new PhysicData();
-        physicData->BodyId = GAME_ITEM;
-        physicData->GameObjectID = this->gameObjectID;
-        physicData->Data = this;
+        physicData->bodyId = GAME_ITEM;
+        physicData->gameObjectID = this->gameObjectID;
+        physicData->data = this;
         
         f->SetUserData(physicData);
     }
@@ -173,14 +173,14 @@ void Item::checkCollisionDataInBeginContact(PhysicData* holderData, PhysicData* 
     {
         return;
     }
-    if(holderData->Data == this)
+    if(holderData->data == this)
     {
         if(collisionData != NULL)
         {
-            switch (collisionData->GameObjectID) {
+            switch (collisionData->gameObjectID) {
                 case SKILL_OBJECT:
                 {
-                    AbstractSkill* skill = static_cast<AbstractSkill*>(collisionData->Data);
+                    AbstractSkill* skill = static_cast<AbstractSkill*>(collisionData->data);
                     if(!skill->getIsDisable())
                     {
                         open(skill->getHolder());

@@ -312,6 +312,7 @@
 		F50BF81C18F2426D00CD518D /* cat_spritesheet.plist in Resources */ = {isa = PBXBuildFile; fileRef = F50BF81A18F2426D00CD518D /* cat_spritesheet.plist */; };
 		F50F3DB41925E10C00A2A1B3 /* healthbar_spritesheet.plist in Resources */ = {isa = PBXBuildFile; fileRef = F50F3DB21925E10C00A2A1B3 /* healthbar_spritesheet.plist */; };
 		F50F3DB51925E10C00A2A1B3 /* healthbar_spritesheet.png in Resources */ = {isa = PBXBuildFile; fileRef = F50F3DB31925E10C00A2A1B3 /* healthbar_spritesheet.png */; };
+		F521AF0119347FDE00D71E02 /* monster_monkey.xml in Resources */ = {isa = PBXBuildFile; fileRef = F521AF0019347FDE00D71E02 /* monster_monkey.xml */; };
 		F52678F318EEAEA500CE1E3B /* arial.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F52678E518EEAEA500CE1E3B /* arial.ttf */; };
 		F52678F418EEAEA500CE1E3B /* Marker Felt.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F52678E618EEAEA500CE1E3B /* Marker Felt.ttf */; };
 		F52678F518EEAEA500CE1E3B /* map1_background_spritesheet_1.png in Resources */ = {isa = PBXBuildFile; fileRef = F52678E718EEAEA500CE1E3B /* map1_background_spritesheet_1.png */; };
@@ -1037,6 +1038,7 @@
 		F50BF81A18F2426D00CD518D /* cat_spritesheet.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = cat_spritesheet.plist; sourceTree = "<group>"; };
 		F50F3DB21925E10C00A2A1B3 /* healthbar_spritesheet.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = healthbar_spritesheet.plist; sourceTree = "<group>"; };
 		F50F3DB31925E10C00A2A1B3 /* healthbar_spritesheet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = healthbar_spritesheet.png; sourceTree = "<group>"; };
+		F521AF0019347FDE00D71E02 /* monster_monkey.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = monster_monkey.xml; sourceTree = "<group>"; };
 		F52678E518EEAEA500CE1E3B /* arial.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = arial.ttf; sourceTree = "<group>"; };
 		F52678E618EEAEA500CE1E3B /* Marker Felt.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Marker Felt.ttf"; sourceTree = "<group>"; };
 		F52678E718EEAEA500CE1E3B /* map1_background_spritesheet_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = map1_background_spritesheet_1.png; sourceTree = "<group>"; };
@@ -2880,6 +2882,7 @@
 		F5EE379318FE192B001CC636 /* Monster */ = {
 			isa = PBXGroup;
 			children = (
+				F521AF0019347FDE00D71E02 /* monster_monkey.xml */,
 				F5FB8E79193341420074598C /* monster_bull.xml */,
 				F5FB8E71193341020074598C /* bull_default.plist */,
 				F5FB8E72193341020074598C /* bull_default.png */,
@@ -2975,6 +2978,7 @@
 				F5FB8E78193341020074598C /* pig_default.png in Resources */,
 				F544FB9918D93CC100A818DF /* map2_body.plist in Resources */,
 				D4EF949C15BD2D8E00D803EB /* Icon-114.png in Resources */,
+				F521AF0119347FDE00D71E02 /* monster_monkey.xml in Resources */,
 				F5C89E0418D2FD2A006E909D /* map_body.plist in Resources */,
 				F5ECC7741929EA4A00328FBE /* coin1_animation.xml in Resources */,
 				2D0DA1421908F67400881C8D /* skill_animation.xml in Resources */,

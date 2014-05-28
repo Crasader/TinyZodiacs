@@ -31,9 +31,9 @@ void MapObject::onCreate()
     for (b2Fixture* f = this->body->GetFixtureList(); f; f = f->GetNext())
     {
         PhysicData* data = new PhysicData();//= new PhysicData();
-        data->BodyId = MAP_BASE;
-        data->GameObjectID = MAP_OBJECT;
-        data->Data = this;
+        data->bodyId = MAP_BASE;
+        data->gameObjectID = MAP_OBJECT;
+        data->data = this;
 //        this->body->SetUserData(data);
         f->SetUserData(data);
     }

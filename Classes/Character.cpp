@@ -69,7 +69,6 @@ void Character::changeState(CharacterState *states)
     this->state->onEnterState();
 }
 
-b2Joint* joint;
 void Character::setSkin(b2Body *body, CCSprite *sprite)
 {
     GameObject::setSkin(body, sprite);
@@ -80,17 +79,17 @@ void Character::setSkin(b2Body *body, CCSprite *sprite)
         {
             //set body data
             PhysicData* scharacterData = new PhysicData();
-            scharacterData->BodyId = CHARACTER_BODY;
-            scharacterData->Data = this;
-            scharacterData->GameObjectID = this->gameObjectID;
+            scharacterData->bodyId = CHARACTER_BODY;
+            scharacterData->data = this;
+            scharacterData->gameObjectID = this->gameObjectID;
             
             if(f->GetNext() != NULL)
             {
-                scharacterData->FixtureId = BODY_SUB_FIXTURE;
+                scharacterData->fixtureId = BODY_SUB_FIXTURE;
             }
             else
             {
-                scharacterData->FixtureId = BODY_MAIN_FIXTURE;
+                scharacterData->fixtureId = BODY_MAIN_FIXTURE;
             }
             
             
@@ -99,7 +98,6 @@ void Character::setSkin(b2Body *body, CCSprite *sprite)
     }
     //create foot sensor
     createFootSensor();
-    
 }
 
 void Character::onCreate()
@@ -229,10 +227,10 @@ void Character::createFootSensor()
     fixDef.density = WEIGHTLESS_DENSITY;
     
     PhysicData* sensorData = new PhysicData();
-    sensorData->BodyId = CHARACTER_FOOT_SENSOR;
-    sensorData->Data = this;
-    sensorData->GameObjectID = this->gameObjectID;
-    sensorData->FixtureId = FOOT_SENSOR_FIXTURE;
+    sensorData->bodyId = CHARACTER_FOOT_SENSOR;
+    sensorData->data = this;
+    sensorData->gameObjectID = this->gameObjectID;
+    sensorData->fixtureId = FOOT_SENSOR_FIXTURE;
     fixDef.userData = sensorData;
 
     this->footSensor = this->body->CreateFixture(&fixDef);
@@ -298,7 +296,7 @@ void Character::stopMove()
 void Character::checkCollisionDataInBeginContact(PhysicData* holderData, PhysicData* collisionData, b2Contact *contact)
 {
     
-    if(holderData->Data == this)
+    if(holderData->data == this)
     {
 //        PhysicData* physicData = NULL;
 //        if(isSideA)
@@ -310,16 +308,16 @@ void Character::checkCollisionDataInBeginContact(PhysicData* holderData, PhysicD
 //            physicData = (PhysicData*)contact->GetFixtureA()->GetBody()->GetUserData();
 //        }
 //        CCLOG("");
-        switch (holderData->BodyId)
+        switch (holderData->bodyId)
         {
             case CHARACTER_FOOT_SENSOR:
             {
                 if(collisionData!=NULL)
                 {
-                    switch (collisionData->BodyId) {
+                    switch (collisionData->bodyId) {
                         case MAP_BASE:
                         {
-                            GameObject* mapObject = (GameObject*)collisionData->Data;
+                            GameObject* mapObject = (GameObject*)collisionData->data;
                             if(!Util::bodiesArePassingThrough(mapObject->getBody(), this->body))
                             {
                                 this->landing ++;
@@ -341,10 +339,10 @@ void Character::checkCollisionDataInBeginContact(PhysicData* holderData, PhysicD
                 if(collisionData!=NULL)
                 {
                     
-                    switch (collisionData->BodyId) {
+                    switch (collisionData->bodyId) {
                         case MAP_BASE:
                         {
-                            MapObject* mapObject = (MapObject*)collisionData->Data;
+                            MapObject* mapObject = (MapObject*)collisionData->data;
                             if (!Util::bodiesArePassingThrough(this->body, mapObject->getBody())) {
                                 this->isLanding = true;
                             }
@@ -383,7 +381,7 @@ void Character::checkCollisionDataInBeginContact(PhysicData* holderData, PhysicD
 
 void Character::checkCollisionDataInEndContact(PhysicData* holderData, PhysicData* collisionData, b2Contact *contact)
 {
-    if(holderData->Data == this)
+    if(holderData->data == this)
     {
 //        PhysicData* physicData = NULL;
 //        if(isSideA)
@@ -395,12 +393,12 @@ void Character::checkCollisionDataInEndContact(PhysicData* holderData, PhysicDat
 //            physicData = (PhysicData*)contact->GetFixtureA()->GetBody()->GetUserData();
 //        }
         
-        switch (holderData->BodyId) {
+        switch (holderData->bodyId) {
             case CHARACTER_FOOT_SENSOR:
             {
                 if(collisionData!=NULL)
                 {
-                    switch (collisionData->BodyId) {
+                    switch (collisionData->bodyId) {
                         case MAP_BASE:
                         {
                             //                            GameObject* mapObject = (GameObject*)physicData->Data;
@@ -441,7 +439,7 @@ void Character::checkCollisionDataInEndContact(PhysicData* holderData, PhysicDat
                 
                 if(collisionData != NULL)
                 {
-                    switch (collisionData->BodyId) {
+                    switch (collisionData->bodyId) {
                             
                         case MAP_BASE:
                         {

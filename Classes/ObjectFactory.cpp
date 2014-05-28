@@ -159,8 +159,8 @@ SensorObject* ObjectFactory::createSensorObject(b2Vec2 dumb,b2World *world, CCPo
     
     //set data id
     PhysicData* data = new PhysicData();
-    data->BodyId = MAP_SENSOR;
-    data->Data = sensorObject;
+    data->bodyId = MAP_SENSOR;
+    data->data = sensorObject;
     
     fixDef.userData = data;
     
@@ -213,8 +213,8 @@ SensorObject* ObjectFactory::createSensorObject(SensorObjectDTO* sensorObjectDTO
     fixDef.isSensor = true;
     
     PhysicData* data = new PhysicData();
-    data->BodyId = MAP_SENSOR;
-    data->Data = sensorObject;
+    data->bodyId = MAP_SENSOR;
+    data->data = sensorObject;
     fixDef.userData = data;
     
     

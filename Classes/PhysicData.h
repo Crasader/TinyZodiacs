@@ -18,9 +18,10 @@ private:
 protected:
 public:
     PhysicData();
-    BodyId BodyId;
-    FixtureID FixtureId;
-    GameObjectID GameObjectID;
-    void* Data;
+    ~PhysicData();
+    BodyId bodyId;
+    FixtureID fixtureId;
+    GameObjectID gameObjectID;
+    void* data;
 };
 #endif /* defined(__Headball__PhysicData__) */
