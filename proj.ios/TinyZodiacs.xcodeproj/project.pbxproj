@@ -290,7 +290,6 @@
 		51136AE51908E8C300317D3A /* cat_animation.xml in Resources */ = {isa = PBXBuildFile; fileRef = 51136AE31908E8C300317D3A /* cat_animation.xml */; };
 		51136AE81908E91000317D3A /* character_cat.xml in Resources */ = {isa = PBXBuildFile; fileRef = 51136AE71908E91000317D3A /* character_cat.xml */; };
 		51136AEA1908F60300317D3A /* monster_onion.xml in Resources */ = {isa = PBXBuildFile; fileRef = 51136AE91908F60300317D3A /* monster_onion.xml */; };
-		51A6579D1934774F00872685 /* monster_monkey.xml in Resources */ = {isa = PBXBuildFile; fileRef = 51A6579C1934774F00872685 /* monster_monkey.xml */; };
 		7855E0E1153FEF240059DD9A /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 7855E0DF153FEF240059DD9A /* Default.png */; };
 		BF171245129291EC00B8313A /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF170DB012928DE900B8313A /* OpenGLES.framework */; };
 		BF1712461292920000B8313A /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BF170DB212928DE900B8313A /* libxml2.dylib */; };
@@ -313,7 +312,6 @@
 		F50BF81C18F2426D00CD518D /* cat_spritesheet.plist in Resources */ = {isa = PBXBuildFile; fileRef = F50BF81A18F2426D00CD518D /* cat_spritesheet.plist */; };
 		F50F3DB41925E10C00A2A1B3 /* healthbar_spritesheet.plist in Resources */ = {isa = PBXBuildFile; fileRef = F50F3DB21925E10C00A2A1B3 /* healthbar_spritesheet.plist */; };
 		F50F3DB51925E10C00A2A1B3 /* healthbar_spritesheet.png in Resources */ = {isa = PBXBuildFile; fileRef = F50F3DB31925E10C00A2A1B3 /* healthbar_spritesheet.png */; };
-		F521AF0119347FDE00D71E02 /* monster_monkey.xml in Resources */ = {isa = PBXBuildFile; fileRef = F521AF0019347FDE00D71E02 /* monster_monkey.xml */; };
 		F52678F318EEAEA500CE1E3B /* arial.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F52678E518EEAEA500CE1E3B /* arial.ttf */; };
 		F52678F418EEAEA500CE1E3B /* Marker Felt.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F52678E618EEAEA500CE1E3B /* Marker Felt.ttf */; };
 		F52678F518EEAEA500CE1E3B /* map1_background_spritesheet_1.png in Resources */ = {isa = PBXBuildFile; fileRef = F52678E718EEAEA500CE1E3B /* map1_background_spritesheet_1.png */; };
@@ -1012,7 +1010,6 @@
 		51136AE31908E8C300317D3A /* cat_animation.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = cat_animation.xml; sourceTree = "<group>"; };
 		51136AE71908E91000317D3A /* character_cat.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = character_cat.xml; sourceTree = "<group>"; };
 		51136AE91908F60300317D3A /* monster_onion.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = monster_onion.xml; sourceTree = "<group>"; };
-		51A6579C1934774F00872685 /* monster_monkey.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = monster_monkey.xml; sourceTree = "<group>"; };
 		7855E0DF153FEF240059DD9A /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = SOURCE_ROOT; };
 		BF170DB012928DE900B8313A /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		BF170DB212928DE900B8313A /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
@@ -2980,7 +2977,6 @@
 				F5FB8E78193341020074598C /* pig_default.png in Resources */,
 				F544FB9918D93CC100A818DF /* map2_body.plist in Resources */,
 				D4EF949C15BD2D8E00D803EB /* Icon-114.png in Resources */,
-				51A6579D1934774F00872685 /* monster_monkey.xml in Resources */,
 				F5C89E0418D2FD2A006E909D /* map_body.plist in Resources */,
 				F5ECC7741929EA4A00328FBE /* coin1_animation.xml in Resources */,
 				2D0DA1421908F67400881C8D /* skill_animation.xml in Resources */,
