@@ -31,6 +31,7 @@ public:
     virtual bool receiveCommand(CommandID commandID, void* data);
     virtual bool removeSubController(Controller* controller);
     virtual void removeAllSubController();
+    virtual bool containController(Controller* controller);
 };
 
 #endif /* defined(__TinyZodiacs__Controller__) */

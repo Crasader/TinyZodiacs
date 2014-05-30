@@ -31,16 +31,18 @@ class MonsterFactory: public CCObject, public Observer {
     
 private:
     bool isStopped;
-    int monsterCount;
     CC_SYNTHESIZE(Group, group, Group);
     CC_SYNTHESIZE(GameHolder, holder, Holder);
     CC_SYNTHESIZE(CCArray*, listMonster, ListMonster);
     CC_SYNTHESIZE(CCArray*, listMonsterCreator, ListMonsterCreator);
     CC_SYNTHESIZE(int, max, Max);
+     CC_SYNTHESIZE(int, monsterCountKilled, MonsterCountKilled);
     CC_SYNTHESIZE(bool, isCompletedCreateMonster, IsCompletedCreateMonster);
 
 protected:
 public:
+    
+    int monsterCount;
     MonsterFactory();
     virtual ~MonsterFactory();
     

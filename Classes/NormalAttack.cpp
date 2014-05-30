@@ -26,7 +26,6 @@ NormalAttack::NormalAttack(GameObject* holder, NormalMeleeSkillData data): Abstr
     {
         this->data = data;
     }
-    
 }
 
 NormalAttack::~NormalAttack()
@@ -93,15 +92,18 @@ void NormalAttack::update(float dt)
         this->skillSprite->setRotation(-1 * CC_RADIANS_TO_DEGREES(this->data.getSkillSensor()->GetAngle()));
     }
     
-    if(this->holderButton != NULL)
+    if(this->skillButtonID != UNKNOWN);
     {
         if(this->isExcutable)
         {
-            //            this->holderButton->changeState(ENABLE);
+//            data->isActive = true;
         }
         else
         {
-            this->holderButton->changeState(DISABLE);
+            StateCommandData *data = new StateCommandData();
+            data->controllerId = this->skillButtonID;
+            data->isActive = false;
+            this->holder->notifyUIChange(data);
         }
     }
 }
@@ -134,9 +136,13 @@ void NormalAttack::excute()
             this->coolDownAction->retain();
             
             this->isExcutable = false;
-            if(this-> holderButton != NULL)
+            
+            if(this-> skillButtonID != UNKNOWN)
             {
-                this->holderButton->changeState(DISABLE);
+                StateCommandData *data = new StateCommandData();
+                data->controllerId = this->skillButtonID;
+                data->isActive = false;
+                this->holder->notifyUIChange(data);
             }
         }
     }
@@ -158,8 +164,13 @@ void NormalAttack::stop()
 
 void NormalAttack::excuteImmediately()
 {
+    if(isDisable)
+    {
+        return;
+    }
+        
     this->data.getSkillSensor()->SetActive(true);
-    if(this->data.getSkillAnimation() != NULL && this->holder != NULL)
+    if(this->data.getSkillAnimation() != NULL && this->holder != NULL && this->holder->getSprite() != NULL)
     {
         this->skillSprite->removeFromParent();
         this->holder->getSprite()->getParent()->addChild(this->skillSprite, this->data.getAnimationLayerIndex());
@@ -178,6 +189,10 @@ void NormalAttack::excuteImmediately()
 
 void NormalAttack::stopImmediately()
 {
+    if(isDisable)
+    {
+        return;
+    }
     //deactive sensor
     this->data.getSkillSensor()->SetActive(false);
     if(this->data.getSkillAnimation() != NULL && this->holder != NULL)
@@ -223,15 +238,6 @@ void NormalAttack::checkCollisionDataInBeginContact(PhysicData* holderData, Phys
     if(holderData->bodyId == SKILL_SENSOR && holderData->data == this )
 
     {
-//        PhysicData* otherData;
-//        if(isSideA)
-//        {
-//            otherData = (PhysicData* )contact->GetFixtureB()->GetBody()->GetUserData();
-//        }
-//        else
-//        {
-//            otherData = (PhysicData* )contact->GetFixtureA()->GetBody()->GetUserData();
-//        }
         if(collisionData != NULL)
         {
             switch (collisionData->bodyId) {
@@ -253,22 +259,10 @@ void NormalAttack::checkCollisionDataInBeginContact(PhysicData* holderData, Phys
                             
                             if(character->getGroup() == this->holder->getGroup())
                             {
-//                                AnimationEffect* effect = AnimationEffect::create();
-//                                effect->setAnimation("effect1-slash");
-//                                effect->sprite->setRotation(CCRANDOM_MINUS1_1()*180);
-//                                effect->sprite->setScale(CCRANDOM_0_1()*2);
-//                                
-//                                EffectManager::getInstance()->runEffect(effect, character->getPositionInPixel());
                                 Util::applyEffectFromList(calculatedSkillData.getListAlliesEffect(), character);
                             }
                             else
                             {
-//                                AnimationEffect* effect = AnimationEffect::create();
-//                                effect->setAnimation("effect1-slash");
-//                                effect->sprite->setRotation(CCRANDOM_MINUS1_1()*180);
-//                                effect->sprite->setScale(CCRANDOM_0_1()*2);
-                                
-//                                EffectManager::getInstance()->runEffect(effect, character->getPositionInPixel());
                                 Util::applyEffectFromList(calculatedSkillData.getListEnemyEffect(), character);
                             }
                         }
@@ -295,16 +289,6 @@ void NormalAttack::checkCollisionDataInEndContact(PhysicData* holderData, Physic
 
     if(holderData->bodyId == SKILL_SENSOR && holderData->data == this)
     {
-//        PhysicData* otherData;
-//        if(isSideA)
-//        {
-//            otherData = (PhysicData* )contact->GetFixtureB()->GetBody()->GetUserData();
-//        }
-//        else
-//        {
-//            otherData = (PhysicData* )contact->GetFixtureA()->GetBody()->GetUserData();
-//        }
-        
         if(collisionData != NULL)
         {
             switch (collisionData->bodyId) {
@@ -413,10 +397,18 @@ void NormalAttack::setPhysicGroup(uint16 group)
 
 void NormalAttack::setExcuteAble()
 {
-    this->isExcutable = true;
-    if(this->holderButton != NULL && this->holderButton->getState() == DISABLE)
+    if(isDisable)
     {
-        this->holderButton->changeState(ENABLE);
+        return;
+    }
+    this->isExcutable = true;
+
+    if(this->skillButtonID != UNKNOWN)
+    {
+        StateCommandData *data = new StateCommandData();
+        data->controllerId = this->skillButtonID;
+        data->isActive = true;
+        this->holder->notifyUIChange(data);
     }
 }
 
@@ -433,11 +425,14 @@ void NormalAttack::stopAllAction()
         timeTickAction->release();
         timeTickAction = NULL;
     }
-    
 }
 
 void NormalAttack::applyEffectOnTimeTick()
 {
+    if(isDisable)
+    {
+        return;
+    }
     CCObject* obj = NULL;
     CCARRAY_FOREACH(listTarget, obj)
     {

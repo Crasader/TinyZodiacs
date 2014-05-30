@@ -25,6 +25,7 @@ GameObject::GameObject()
     this->listAffect = CCArray::create();
     this->listAffect->retain();
     
+    this->isControlled = false;
     init();
 }
 
@@ -414,4 +415,9 @@ void GameObject::notifyToDestroy()
     {
         this->listObserver[i]->notifyToDestroy(this);
     }
+}
+
+void GameObject::notifyUIChange(void* data)
+{
+    
 }

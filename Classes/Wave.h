@@ -24,7 +24,7 @@ class Wave: public CCObject
 {
 private:
 protected:
-    CC_SYNTHESIZE(MonsterFactory*, monsterFactory, MonsterFactory);
+  
     CC_SYNTHESIZE(CCArray*, listMonsterFactory, ListMonsterFactory);
     CC_SYNTHESIZE(CCArray*, listItemCreator, ListItemCreator);
     int monsterQuantity;
@@ -51,6 +51,9 @@ public:
     void stop();
     
     int getMonsterCount();
+    int getMonsterCountMax();
+    
+    int getMonsterCountKilled();
     
     CREATE_FUNC(Wave);
 };

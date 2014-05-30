@@ -50,10 +50,19 @@ void GameMatch::updateToCheckMatch()
     }
     if(currentWave < this->gameWorld->getMap()->getListWave()->count())
     {
-        int* a = new int( ((Wave*)this->gameWorld->getMap()->getListWave()->objectAtIndex(this->currentWave))->getMonsterCount());
-        int* b = new int(this->currentWave+1);
-        ControllerManager::getInstance()->sendCommand(HERO_CONTROLLER, DISPLAY_MONSTER_COUNT, a);
+        int a = ((Wave*)this->gameWorld->getMap()->getListWave()->objectAtIndex(this->currentWave))->getMonsterCountKilled();
+        int b = ((Wave*)this->gameWorld->getMap()->getListWave()->objectAtIndex(this->currentWave))->getMonsterCountMax();
+        CCLOG("aaaaa %d", ((Wave*)this->gameWorld->getMap()->getListWave()->objectAtIndex(this->currentWave))->getMonsterCount());
+        CCLOG("%d,%d",a,b);
+        if(b-a < 0)
+        {
+            assert(0);
+        }
+        vector<int>* arr = new vector<int>();
+        arr->push_back(a);
+        arr->push_back(b);
         
+        ControllerManager::getInstance()->sendCommand(HERO_CONTROLLER, DISPLAY_MONSTER_COUNT,arr);
     }
     
     if(this->rule->checkNextWave())
@@ -69,10 +78,10 @@ void GameMatch::updateToCheckMatch()
     
     if(this->rule->checkLose())
     {
-//        CCLOG("LOSE");
-//        assert(0);
-//        GameObjectManager::getInstance()->removeAllGameObject();
-//        this->removeChild(this->gameWorld);
+        //        CCLOG("LOSE");
+        //        assert(0);
+        //        GameObjectManager::getInstance()->removeAllGameObject();
+        //        this->removeChild(this->gameWorld);
         
     }
     

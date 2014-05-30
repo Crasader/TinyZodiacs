@@ -74,6 +74,6 @@ void GameObjectLayer::ccTouchesBegan(cocos2d::CCSet *pTouches, cocos2d::CCEvent 
     
     CCPoint temp =   this->gameMatch->getGameWorld()->convertToNodeSpace(touchPoint);
 
- //   ControllerManager::getInstance()->sendCommand(HERO_CONTROLLER, DISPLAY_WORLD_COORDINATE, new CCPoint(temp));
+    ControllerManager::getInstance()->sendCommand(HERO_CONTROLLER, DISPLAY_WORLD_COORDINATE, new CCPoint(temp));
 }
 

@@ -36,6 +36,8 @@ public:
     
     bool registerController(ControllerID controllerID, Controller* controller);
     bool unregisterController(ControllerID controllerID, Controller* controller);
+    bool isRegisteredWith(ControllerID controllerID, Controller* controller);
+
     
     bool sendCommand(ControllerID controllerID, CommandID commandID);
     bool sendCommand(ControllerID controllerID, CommandID commandID, void* data);

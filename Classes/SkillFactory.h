@@ -37,7 +37,7 @@ class SkillFactory
 {
 private:
 protected:
-    static AbstractSkill* loadXMLFile(const char* id,const char* xmlFileName, b2World* world, GameObject* holder, bool isLocal, int buttonIndex);
+    static AbstractSkill* loadXMLFile(const char* id,const char* xmlFileName, b2World* world, GameObject* holder, bool isLocal, ButtonID buttonIndex);
     static const XMLElement* loadElementById(const char* id, const XMLElement* root);
     
     static string readSkillType(const XMLElement* root);
@@ -46,7 +46,7 @@ protected:
     static void setButton();
 
 public:
-    static AbstractSkill* createSkill(const char* id, b2World* world, GameObject* holder, bool isLocal, int buttonIndex);
+    static AbstractSkill* createSkill(const char* id, b2World* world, GameObject* holder, bool isLocal, ButtonID buttonIndex);
 };
 
 #endif /* defined(__TinyZodiacs__SkillFactory__) */

@@ -49,3 +49,15 @@ void Controller::removeAllSubController()
     }
     this->listSubController.clear();
 }
+
+bool Controller::containController(Controller* controller)
+{
+    for( std::vector<Controller*>::iterator iter = this->listSubController.begin(); iter != this->listSubController.end(); ++iter )
+    {
+        if( *iter == controller )
+        {
+            return true;
+        }
+    }
+    return false;
+}

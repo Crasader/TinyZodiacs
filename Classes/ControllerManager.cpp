@@ -157,6 +157,23 @@ bool ControllerManager::unregisterController(ControllerID controllerID, Controll
     return true;
 }
 
+bool ControllerManager::isRegisteredWith(ControllerID controllerID, Controller* controller)
+{
+    map<ControllerID, Controller*>::iterator it = listController.find(controllerID);
+    
+    if(it != listController.end())
+    {
+        
+        Controller* con = it->second;
+        if (con->containController(controller))
+        {
+            return true;
+        }
+    }
+    return false;
+
+}
+
 bool ControllerManager::sendCommand(ControllerID controllerID, CommandID commandID)
 {
     map<ControllerID, Controller*>::iterator it = listController.find(controllerID);

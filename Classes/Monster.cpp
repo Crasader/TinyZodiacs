@@ -349,7 +349,20 @@ void Monster::setGroup(Group group)
 void Monster::onCreate()
 {
     Character::onCreate();
-    
+
+    if(this->normalAttack != NULL)
+    {
+        this->normalAttack->setSkillButtonID(UNKNOWN);
+    }
+    if(this->skill1 != NULL)
+    {
+        this->skill1->setSkillButtonID(UNKNOWN);
+    }
+    if(this->skill2 != NULL)
+    {
+        this->skill2->setSkillButtonID(UNKNOWN);
+    }
+
 }
 
 void Monster::setSensor(const char* bodyId)

@@ -10,9 +10,6 @@
 
 Wave::Wave()
 {
-    this->monsterFactory = MonsterFactory::create();
-    this->monsterFactory->retain();
-    this->monsterFactory->setGroup(B);
     
     this->listMonsterFactory = CCArray::create();
     this->listMonsterFactory->retain();
@@ -24,7 +21,6 @@ Wave::Wave()
 
 Wave::~Wave()
 {
-    this->monsterFactory->release();
     this->listMonsterFactory->release();
     this->listItemCreator->release();
 }
@@ -136,7 +132,32 @@ int Wave::getMonsterCount()
     CCARRAY_FOREACH(this->listMonsterFactory, object)
     {
         MonsterFactory* monsterFactory = static_cast<MonsterFactory*>(object);
-        count += monsterFactory->getListMonster()->count();
+        count += monsterFactory->monsterCount;
+    }
+    return count;
+}
+
+int Wave::getMonsterCountMax()
+{
+    int count = 0;
+    CCObject* object = NULL;
+    CCARRAY_FOREACH(this->listMonsterFactory, object)
+    {
+        MonsterFactory* monsterFactory = static_cast<MonsterFactory*>(object);
+        count += monsterFactory->getMax();
+    }
+    return count;
+}
+
+
+int Wave::getMonsterCountKilled()
+{
+    int count = 0;
+    CCObject* object = NULL;
+    CCARRAY_FOREACH(this->listMonsterFactory, object)
+    {
+        MonsterFactory* monsterFactory = static_cast<MonsterFactory*>(object);
+        count += monsterFactory->getMonsterCountKilled();
     }
     return count;
 }

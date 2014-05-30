@@ -24,6 +24,7 @@ MonsterFactory::MonsterFactory()
     this->group = A;
     this->monsterCount = 0;
     this->isCompletedCreateMonster = false;
+    this->monsterCountKilled = 0;
 }
 
 MonsterFactory::~MonsterFactory()
@@ -83,7 +84,7 @@ Monster* MonsterFactory::createMonster(MonsterDTO* monsterDTO, CCPoint position,
     //    monster->setSensor(sensorBody);
     monster->setSensor(((MonsterDTO*)monsterDTO)->sensorBody.c_str());
     //load skill
-    monster->setNormalAttack(SkillFactory::createSkill(monsterDTO->data.getSkill0().c_str(), world, monster, false, SKILL_0_BUTTON));
+    monster->setNormalAttack(SkillFactory::createSkill(monsterDTO->data.getSkill0().c_str(), world, monster, false, SKILL_0_BTN));
     //
     monster->setPositionInPixel(position);
     monster->flipDirection(LEFT);
@@ -165,22 +166,25 @@ void MonsterFactory::finishCreateMonsterFromSchedule(CCNode* sender, void* data)
 
 void MonsterFactory::createMonsterListFromSchedule(CCNode* sender, void* data)
 {
-    std::vector<void*>* params =  static_cast< std::vector<void*>*>(data);
-    
-    CCArray* listMonster  = static_cast<CCArray*>(params->at(0));
-    
-    if(listMonster->count() > 0)
+    if(this->isStopped == false)
     {
-        MonsterDTO* dto = (MonsterDTO*)(listMonster->objectAtIndex(0));
-        CCPoint *pos = static_cast<CCPoint*>(params->at(1));
-        int* laneID = static_cast<int*>(params->at(2));
-        b2World *world = static_cast<b2World*>(params->at(3));
-        if (this->listMonster->count() < this->max)
+        std::vector<void*>* params =  static_cast< std::vector<void*>*>(data);
+        
+        CCArray* listMonster  = static_cast<CCArray*>(params->at(0));
+        
+        if(listMonster->count() > 0)
         {
-            addNewMonster(createMonster(dto, *pos, *laneID, world));
-            
+            MonsterDTO* dto = (MonsterDTO*)(listMonster->objectAtIndex(0));
+            CCPoint *pos = static_cast<CCPoint*>(params->at(1));
+            int* laneID = static_cast<int*>(params->at(2));
+            b2World *world = static_cast<b2World*>(params->at(3));
+            if (this->listMonster->count() < this->max)
+            {
+                addNewMonster(createMonster(dto, *pos, *laneID, world));
+                
+            }
+            listMonster->removeObjectAtIndex(0);
         }
-        listMonster->removeObjectAtIndex(0);
     }
 }
 
@@ -254,7 +258,7 @@ void MonsterFactory::startCreateMonster()
         monsterCreator->start();
     }
     this->isStopped = false;
-   
+    
 }
 
 void MonsterFactory::update(float dt)
@@ -279,6 +283,6 @@ void MonsterFactory::notifyToDestroy(GameObject* object)
     if(this->listMonster->indexOfObject(object) != CC_INVALID_INDEX)
     {
         this->listMonster->removeObject(object);
+        this->monsterCountKilled++;
     }
-    
 }

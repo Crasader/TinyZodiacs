@@ -33,6 +33,8 @@ public:
     virtual bool init();
     virtual void onCreate();
     
+    virtual void update(float dt);
+    
     virtual void checkCollisionDataInBeginContact(PhysicData* holderData, PhysicData* collisionData, b2Contact *contact);
     virtual void checkCollisionDataInEndContact(PhysicData* holderData, PhysicData* collisionData, b2Contact *contact);
     void pickUp(Item* item);
@@ -40,6 +42,8 @@ public:
     virtual void destroy();
     
     bool receiveCommand(CommandID commandID, void* data);
+    
+    virtual void notifyUIChange(void* data);
     
     CREATE_FUNC(Hero);
 };

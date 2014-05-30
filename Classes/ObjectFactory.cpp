@@ -59,11 +59,13 @@ Hero* ObjectFactory::createHero(HeroDTO* heroDTO, b2World* world, bool isLocal)
     hero->getSprite()->setAnchorPoint(sc->anchorPointForShape(heroDTO->body.c_str()));
     hero->setSkin(body, hero->getSprite());
     
-    hero->setNormalAttack(SkillFactory::createSkill(heroDTO->data.getSkill0().c_str(), world, hero, isLocal, SKILL_0_BUTTON));
-    hero->setSkill1(SkillFactory::createSkill(heroDTO->data.getSkill1().c_str(), world, hero, isLocal, SKILL_1_BUTTON));
-    hero->setSkill2(SkillFactory::createSkill(heroDTO->data.getSkill2().c_str(), world, hero, isLocal, SKILL_2_BUTTON));
+    hero->setNormalAttack(SkillFactory::createSkill(heroDTO->data.getSkill0().c_str(), world, hero, isLocal, SKILL_0_BTN));
+    hero->setSkill1(SkillFactory::createSkill(heroDTO->data.getSkill1().c_str(), world, hero, isLocal, SKILL_1_BTN));
+    hero->setSkill2(SkillFactory::createSkill(heroDTO->data.getSkill2().c_str(), world, hero, isLocal, SKILL_2_BTN));
+    CCLOG("%d",isLocal);
+    hero->setIsControlled(isLocal);
     
-       hero->onCreate();
+    hero->onCreate();
     return hero;
 }
 
@@ -291,7 +293,7 @@ Tower* ObjectFactory::createTower(TowerStructDTO* towerStructDTO, b2World* world
     //
     tower->setSensor(towerDTO->towerSensorId.c_str());
     
-    tower->setNormalAttack(SkillFactory::createSkill(towerDTO->data.getSkill0().c_str(), world, tower, false, SKILL_0_BUTTON));
+    tower->setNormalAttack(SkillFactory::createSkill(towerDTO->data.getSkill0().c_str(), world, tower, false, SKILL_0_BTN));
     //    tower->setSkill1(SkillFactory::createSkill(towerDTO->data.getSkill1().c_str(), world, tower, false, SKILL_1_BUTTON));
     //    tower->setSkill2(SkillFactory::createSkill(towerDTO->data.getSkill2().c_str(), world, tower, false, SKILL_2_BUTTON));
     
