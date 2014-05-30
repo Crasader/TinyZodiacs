@@ -10,19 +10,17 @@
 
 Wave::Wave()
 {
-    this->monsterFactory = MonsterFactory::create();
-    this->monsterFactory->retain();
-    this->monsterFactory->setGroup(B);
     
     this->listMonsterFactory = CCArray::create();
     this->listMonsterFactory->retain();
     this->listItemCreator = CCArray::create();
     this->listItemCreator->retain();
+    
+    this->monsterQuantity = 0;
 }
 
 Wave::~Wave()
 {
-    this->monsterFactory->release();
     this->listMonsterFactory->release();
     this->listItemCreator->release();
 }
@@ -30,6 +28,21 @@ Wave::~Wave()
 bool Wave::init()
 {
     return true;
+}
+
+void Wave::update(float dt)
+{
+    CCObject* object = NULL;
+    CCARRAY_FOREACH(this->listMonsterFactory, object)
+    {
+        MonsterFactory* monsterFactory = static_cast<MonsterFactory*>(object);
+        monsterFactory->update(dt);
+    }
+    
+    if(isMonsterFactoryCompletedCreateMonsterAndAllMonsterHaveBeenKilled())
+    {
+        RuleManager::getInstance()->addRuleEvent(RULE_EVENT_COMPLETE_KILL_ALL_MONSTER_IN_WAVE, true);
+    }
 }
 
 void Wave::setHolder(GameHolder holder)
@@ -47,6 +60,7 @@ void Wave::addMonsterFactory(MonsterFactory* monsterFactory)
     if(monsterFactory != NULL)
     {
         this->listMonsterFactory->addObject(monsterFactory);
+        this->monsterQuantity += monsterFactory->getMax();
     }
 }
 
@@ -118,9 +132,48 @@ int Wave::getMonsterCount()
     CCARRAY_FOREACH(this->listMonsterFactory, object)
     {
         MonsterFactory* monsterFactory = static_cast<MonsterFactory*>(object);
-        count += monsterFactory->getListMonster()->count();
+        count += monsterFactory->monsterCount;
     }
     return count;
+}
+
+int Wave::getMonsterCountMax()
+{
+    int count = 0;
+    CCObject* object = NULL;
+    CCARRAY_FOREACH(this->listMonsterFactory, object)
+    {
+        MonsterFactory* monsterFactory = static_cast<MonsterFactory*>(object);
+        count += monsterFactory->getMax();
+    }
+    return count;
+}
+
+
+int Wave::getMonsterCountKilled()
+{
+    int count = 0;
+    CCObject* object = NULL;
+    CCARRAY_FOREACH(this->listMonsterFactory, object)
+    {
+        MonsterFactory* monsterFactory = static_cast<MonsterFactory*>(object);
+        count += monsterFactory->getMonsterCountKilled();
+    }
+    return count;
+}
+
+bool Wave::isMonsterFactoryCompletedCreateMonsterAndAllMonsterHaveBeenKilled()
+{
+    CCObject* object = NULL;
+    CCARRAY_FOREACH(this->listMonsterFactory, object)
+    {
+        MonsterFactory* monsterFactory = static_cast<MonsterFactory*>(object);
+        if(!monsterFactory->getIsCompletedCreateMonster() || monsterFactory->getCountOfAliveMonster() > 0)
+        {
+            return false;
+        }
+    }
+    return true;
 }
 
 

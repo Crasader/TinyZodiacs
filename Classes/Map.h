@@ -34,16 +34,13 @@ private:
     CCArray* listItemCreator;
     
     CC_SYNTHESIZE(CCArray*, listWave, ListWave);
-
-    HealthBar* bar;
-    
-protected:
-public:
     CC_SYNTHESIZE(float, width, Width);
     CC_SYNTHESIZE(float, height, Height);
-    CC_SYNTHESIZE(CCParallaxNode*, parallaxBackground, ParallaxBackground);
     CC_SYNTHESIZE(MapDTO*, mapDTO, MapDTO);
-  
+    
+    CC_SYNTHESIZE(CCParallaxNode*, parallaxBackground, ParallaxBackground);
+protected:
+public:
     Map();
     virtual ~Map();
     virtual bool init();
@@ -57,7 +54,6 @@ public:
     void attachAllMapObject();
     void addParallaxBackground(CCParallaxNode* parallaxBackground);
     void addParallaxForeground(CCParallaxNode* parallaxForeground);
-
     
     CREATE_FUNC(Map);
 };

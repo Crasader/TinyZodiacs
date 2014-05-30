@@ -380,6 +380,10 @@
 		F5779C6E18E56CF10044D5CD /* healthbar_foreground_red.png in Resources */ = {isa = PBXBuildFile; fileRef = F5779C6B18E56CF10044D5CD /* healthbar_foreground_red.png */; };
 		F5779C6F18E56CF10044D5CD /* healthbar_background.png in Resources */ = {isa = PBXBuildFile; fileRef = F5779C6C18E56CF10044D5CD /* healthbar_background.png */; };
 		F58E78CE1924770E00091875 /* GameObjectViewContainer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F58E78CC1924770E00091875 /* GameObjectViewContainer.cpp */; };
+
+		F58ED4CB19383DA200488E69 /* MonsterBoss.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F58ED4C919383DA200488E69 /* MonsterBoss.cpp */; };
+		F59E0BDC18D85E90001048BD /* NormalAttack.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F59E0BDA18D85E8F001048BD /* NormalAttack.cpp */; };
+
 		F5A46B26190508A900A8FF55 /* SensorObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F5A46B24190508A900A8FF55 /* SensorObject.cpp */; };
 		F5AE36A91906799900FB7519 /* SensorObjectDTO.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F5AE36A71906799900FB7519 /* SensorObjectDTO.cpp */; };
 		F5B4286A19173597002DC13B /* HeroDTO.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F5B4286819173597002DC13B /* HeroDTO.cpp */; };
@@ -417,6 +421,8 @@
 		F5CCA7A7191B6276002A7F2A /* XMLItemParser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F5CCA7A5191B6276002A7F2A /* XMLItemParser.cpp */; };
 		F5CCF217192C8E9200E56EE2 /* Wave.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F5CCF215192C8E9200E56EE2 /* Wave.cpp */; };
 		F5CCF21A192C8EBE00E56EE2 /* WaveDTO.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F5CCF218192C8EBE00E56EE2 /* WaveDTO.cpp */; };
+		F5CFE1541937115D00CC8A94 /* TextShowEffect.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F5CFE1521937115D00CC8A94 /* TextShowEffect.cpp */; };
+		F5CFE15719372B2400CC8A94 /* MainCrystal.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F5CFE15519372B2400CC8A94 /* MainCrystal.cpp */; };
 		F5DB5356192D93EC0065C55E /* GameMatch.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F5DB5354192D93EC0065C55E /* GameMatch.cpp */; };
 		F5DC910F1928FD50004851A4 /* item_spritesheet.plist in Resources */ = {isa = PBXBuildFile; fileRef = F5DC910D1928FD50004851A4 /* item_spritesheet.plist */; };
 		F5DC91101928FD50004851A4 /* item_spritesheet.png in Resources */ = {isa = PBXBuildFile; fileRef = F5DC910E1928FD50004851A4 /* item_spritesheet.png */; };
@@ -429,6 +435,8 @@
 		F5EAC341191B652700BE083E /* ItemLoader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F5EAC33F191B652700BE083E /* ItemLoader.cpp */; };
 		F5ECC7741929EA4A00328FBE /* coin1_animation.xml in Resources */ = {isa = PBXBuildFile; fileRef = F5ECC7731929EA4A00328FBE /* coin1_animation.xml */; };
 		F5ECC77A192A02CA00328FBE /* BonusItem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F5ECC778192A02CA00328FBE /* BonusItem.cpp */; };
+		F5F5F1061935A285006EAEA6 /* RuleManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F5F5F1041935A285006EAEA6 /* RuleManager.cpp */; };
+		F5F5F10A1935C8FB006EAEA6 /* Rule1.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F5F5F1081935C8FB006EAEA6 /* Rule1.cpp */; };
 		F5FA5B5E1900E78300B80EF0 /* ParameterObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F5FA5B5C1900E78300B80EF0 /* ParameterObject.cpp */; };
 		F5FB8E6519333D060074598C /* Affect.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F5FB8E6319333D060074598C /* Affect.cpp */; };
 		F5FB8E6A19333E100074598C /* ControllerManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F5FB8E6619333E0F0074598C /* ControllerManager.cpp */; };
@@ -1153,6 +1161,11 @@
 		F5779C6C18E56CF10044D5CD /* healthbar_background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = healthbar_background.png; sourceTree = "<group>"; };
 		F58E78CC1924770E00091875 /* GameObjectViewContainer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameObjectViewContainer.cpp; sourceTree = "<group>"; };
 		F58E78CD1924770E00091875 /* GameObjectViewContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameObjectViewContainer.h; sourceTree = "<group>"; };
+
+		F58ED4C919383DA200488E69 /* MonsterBoss.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MonsterBoss.cpp; sourceTree = "<group>"; };
+		F58ED4CA19383DA200488E69 /* MonsterBoss.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MonsterBoss.h; sourceTree = "<group>"; };
+		F59E0BDA18D85E8F001048BD /* NormalAttack.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = NormalAttack.cpp; sourceTree = "<group>"; };
+
 		F59E0BDB18D85E90001048BD /* NormalAttack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NormalAttack.h; sourceTree = "<group>"; };
 		F5A46B24190508A900A8FF55 /* SensorObject.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SensorObject.cpp; sourceTree = "<group>"; };
 		F5A46B25190508A900A8FF55 /* SensorObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SensorObject.h; sourceTree = "<group>"; };
@@ -1218,6 +1231,10 @@
 		F5CCF216192C8E9200E56EE2 /* Wave.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Wave.h; sourceTree = "<group>"; };
 		F5CCF218192C8EBE00E56EE2 /* WaveDTO.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = WaveDTO.cpp; sourceTree = "<group>"; };
 		F5CCF219192C8EBE00E56EE2 /* WaveDTO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WaveDTO.h; sourceTree = "<group>"; };
+		F5CFE1521937115D00CC8A94 /* TextShowEffect.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TextShowEffect.cpp; sourceTree = "<group>"; };
+		F5CFE1531937115D00CC8A94 /* TextShowEffect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextShowEffect.h; sourceTree = "<group>"; };
+		F5CFE15519372B2400CC8A94 /* MainCrystal.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MainCrystal.cpp; sourceTree = "<group>"; };
+		F5CFE15619372B2400CC8A94 /* MainCrystal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainCrystal.h; sourceTree = "<group>"; };
 		F5DB5354192D93EC0065C55E /* GameMatch.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GameMatch.cpp; path = ../Classes/GameMatch.cpp; sourceTree = "<group>"; };
 		F5DB5355192D93EC0065C55E /* GameMatch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GameMatch.h; path = ../Classes/GameMatch.h; sourceTree = "<group>"; };
 		F5DC910D1928FD50004851A4 /* item_spritesheet.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = item_spritesheet.plist; sourceTree = "<group>"; };
@@ -1239,6 +1256,10 @@
 		F5ECC7731929EA4A00328FBE /* coin1_animation.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = coin1_animation.xml; sourceTree = "<group>"; };
 		F5ECC778192A02CA00328FBE /* BonusItem.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BonusItem.cpp; sourceTree = "<group>"; };
 		F5ECC779192A02CA00328FBE /* BonusItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BonusItem.h; sourceTree = "<group>"; };
+		F5F5F1041935A285006EAEA6 /* RuleManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RuleManager.cpp; sourceTree = "<group>"; };
+		F5F5F1051935A285006EAEA6 /* RuleManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RuleManager.h; sourceTree = "<group>"; };
+		F5F5F1081935C8FB006EAEA6 /* Rule1.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Rule1.cpp; sourceTree = "<group>"; };
+		F5F5F1091935C8FB006EAEA6 /* Rule1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Rule1.h; sourceTree = "<group>"; };
 		F5FA5B5C1900E78300B80EF0 /* ParameterObject.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ParameterObject.cpp; sourceTree = "<group>"; };
 		F5FA5B5D1900E78300B80EF0 /* ParameterObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParameterObject.h; sourceTree = "<group>"; };
 		F5FB8E6319333D060074598C /* Affect.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Affect.cpp; path = ../Classes/Affect.cpp; sourceTree = "<group>"; };
@@ -1960,6 +1981,8 @@
 				3414166118DC23A0007B8C2B /* GameObjectManager.h */,
 				345F6B5118E2C71F00985A7A /* ScheduleManager.cpp */,
 				345F6B5218E2C71F00985A7A /* ScheduleManager.h */,
+				F5F5F1041935A285006EAEA6 /* RuleManager.cpp */,
+				F5F5F1051935A285006EAEA6 /* RuleManager.h */,
 			);
 			name = Managers;
 			sourceTree = "<group>";
@@ -2440,8 +2463,7 @@
 		F54AE96D18D2F01B00194E66 /* Objects */ = {
 			isa = PBXGroup;
 			children = (
-				F5FB8E6C19333E3A0074598C /* GameRule.h */,
-				F5FB8E6D19333E3A0074598C /* GameRule.cpp */,
+				F5F5F1071935C8C0006EAEA6 /* Rule */,
 				F5FB8E6719333E100074598C /* Controller.h */,
 				F5FB8E6819333E100074598C /* Controller.cpp */,
 				F5FB8E6319333D060074598C /* Affect.cpp */,
@@ -2489,6 +2511,10 @@
 				F5CCF216192C8E9200E56EE2 /* Wave.h */,
 				F5DB5354192D93EC0065C55E /* GameMatch.cpp */,
 				F5DB5355192D93EC0065C55E /* GameMatch.h */,
+				F5CFE15519372B2400CC8A94 /* MainCrystal.cpp */,
+				F5CFE15619372B2400CC8A94 /* MainCrystal.h */,
+				F58ED4C919383DA200488E69 /* MonsterBoss.cpp */,
+				F58ED4CA19383DA200488E69 /* MonsterBoss.h */,
 			);
 			name = Objects;
 			sourceTree = "<group>";
@@ -2804,6 +2830,8 @@
 				F5BAF29119148B380093BA4F /* HealthPointEffect.h */,
 				F5CCA789191B2BDB002A7F2A /* AnimationEffect.cpp */,
 				F5CCA78A191B2BDB002A7F2A /* AnimationEffect.h */,
+				F5CFE1521937115D00CC8A94 /* TextShowEffect.cpp */,
+				F5CFE1531937115D00CC8A94 /* TextShowEffect.h */,
 			);
 			name = Effect;
 			sourceTree = "<group>";
@@ -2935,6 +2963,17 @@
 				51136AE91908F60300317D3A /* monster_onion.xml */,
 			);
 			name = Monster;
+			sourceTree = "<group>";
+		};
+		F5F5F1071935C8C0006EAEA6 /* Rule */ = {
+			isa = PBXGroup;
+			children = (
+				F5FB8E6C19333E3A0074598C /* GameRule.h */,
+				F5FB8E6D19333E3A0074598C /* GameRule.cpp */,
+				F5F5F1081935C8FB006EAEA6 /* Rule1.cpp */,
+				F5F5F1091935C8FB006EAEA6 /* Rule1.h */,
+			);
+			name = Rule;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -3111,6 +3150,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F58ED4CB19383DA200488E69 /* MonsterBoss.cpp in Sources */,
 				F54AE9B818D2F1AA00194E66 /* CharacterJumpState.cpp in Sources */,
 				15A3D8FF1682F7D5002FB0C5 /* b2BroadPhase.cpp in Sources */,
 				F54AE9C418D2F1FC00194E66 /* GameObject.cpp in Sources */,
@@ -3193,6 +3233,7 @@
 				15A3D9391682F7D5002FB0C5 /* b2Rope.cpp in Sources */,
 				15A3D9951682F7F9002FB0C5 /* chipmunk.c in Sources */,
 				F558161319176AD800A1CCB2 /* XMLMonsterParser.cpp in Sources */,
+				F5CFE15719372B2400CC8A94 /* MainCrystal.cpp in Sources */,
 				15A3D9971682F7F9002FB0C5 /* cpConstraint.c in Sources */,
 				F5BA76A9192066CA0070997B /* TowerDTO.cpp in Sources */,
 				15A3D9981682F7F9002FB0C5 /* cpDampedRotarySpring.c in Sources */,
@@ -3220,6 +3261,7 @@
 				34B1273318EF9619005DAF04 /* NormalShootingSkillData.cpp in Sources */,
 				15A3D9A81682F7F9002FB0C5 /* cpHashSet.c in Sources */,
 				15A3D9A91682F7F9002FB0C5 /* cpPolyShape.c in Sources */,
+				F5F5F10A1935C8FB006EAEA6 /* Rule1.cpp in Sources */,
 				15A3D9AA1682F7F9002FB0C5 /* cpShape.c in Sources */,
 				15A3D9AB1682F7F9002FB0C5 /* cpSpace.c in Sources */,
 				3486802618D93B82001692BB /* AbstractSkill.cpp in Sources */,
@@ -3385,9 +3427,12 @@
 				379BB9AB17F03F3700829B88 /* CCTweenFunction.cpp in Sources */,
 				F5FB8E6519333D060074598C /* Affect.cpp in Sources */,
 				F5CCA7A2191B3D18002A7F2A /* ItemDTO.cpp in Sources */,
+				F5F5F1061935A285006EAEA6 /* RuleManager.cpp in Sources */,
 				34E614EF19133BFA006D933E /* CharacterDTO.cpp in Sources */,
 				F54AEA0D18D2F50300194E66 /* PhysicData.cpp in Sources */,
 				379BB9AC17F03F3700829B88 /* CCUtilMath.cpp in Sources */,
+				F5CFE1541937115D00CC8A94 /* TextShowEffect.cpp in Sources */,
+				F54AE9F018D2F38100194E66 /* GamePlayButton.cpp in Sources */,
 				34E614F519133F5E006D933E /* MapDTO.cpp in Sources */,
 				F54AE9F818D2F3F800194E66 /* GLES-Render.cpp in Sources */,
 				379BB9AD17F03F3700829B88 /* CCComAttribute.cpp in Sources */,

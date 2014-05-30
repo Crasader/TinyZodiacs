@@ -187,7 +187,7 @@ TowerStructDTO* XMLMapParser::getTowerStructDTOFromXMLNode(XMLElement* towerXMLE
     {
         towerStructDTO->group = B;
     }
-    
+    towerStructDTO->type = XMLHelper::readAttributeString(towerXMLElement, "type", "");
     //position
     if(towerXMLElement->FirstChildElement(TAG_POSITION) != NULL)
     {
@@ -256,6 +256,7 @@ MonsterFactoryDTO* XMLMapParser::getMonsterFactoryDTOFromXMLNode(XMLElement* mon
     MonsterFactoryDTO* monsterFactoryDTO = MonsterFactoryDTO::create();
     
     std::string group = std::string(monsterFactoryXMLElement->Attribute(ATTRIBUTE_MONSTER_FACTORY_GROUP));
+    int max = XMLHelper::readAttributeInt(monsterFactoryXMLElement, ATTRIBUTE_MONSTER_FACTORY_MAX, INFINITY);
     
     if (strcasecmp(group.c_str(), "A") == 0) {
         monsterFactoryDTO->group = A;
@@ -264,6 +265,7 @@ MonsterFactoryDTO* XMLMapParser::getMonsterFactoryDTOFromXMLNode(XMLElement* mon
     {
         monsterFactoryDTO->group = B;
     }
+    monsterFactoryDTO->max = max;
     
     //monster creator
     for (XMLElement* element = monsterFactoryXMLElement->FirstChildElement(TAG_MONSTER_CREATOR); element; element = element->NextSiblingElement())

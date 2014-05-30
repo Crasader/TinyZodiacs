@@ -30,7 +30,7 @@ GameObjectView* InfoViewCreator::createHeroView(Hero* hero, Player* player)
 
     }
     
-    CCLabelTTF* label = CCLabelTTF::create("Hoa Phat", "Arial", 25);
+    CCLabelTTF* label = CCLabelTTF::create("Hoa Phat", "Marker Felt", 25);
     
     heroView->setHealthBar(healthBar);
     heroView->setTextNameLabel(label);
@@ -61,7 +61,7 @@ GameObjectView* InfoViewCreator::createMonsterView(Monster* monster, Player* pla
         
     }
     
-    CCLabelTTF* label = CCLabelTTF::create("monster", "Arial", 25);
+    CCLabelTTF* label = CCLabelTTF::create("monster", "Marker Felt", 25);
     
     heroView->setHealthBar(healthBar);
     heroView->setTextNameLabel(label);

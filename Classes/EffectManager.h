@@ -12,13 +12,14 @@
 #include <iostream>
 #include "cocos2d.h"
 #include "Effect.h"
+#include "Constants.h"
 
 USING_NS_CC;
 
 class EffectManager: public CCNode
 {
 private:
-    CC_SYNTHESIZE(CCNode*, holder, Holder);
+    CC_SYNTHESIZE(GameHolder, holder, Holder);
     CCArray* listEffect;
 protected:
     EffectManager();
@@ -32,6 +33,7 @@ public:
     
     void runEffect(Effect* effect, CCPoint position);
     void runEffect(Effect* effect, CCPoint position, int layerIndex);
+    void runEffect(Effect* effect, CCPoint position, CCNode* holder);
 
     void stopEffect(Effect* effect);
     

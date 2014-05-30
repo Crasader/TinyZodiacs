@@ -83,8 +83,6 @@ bool HoldableUIButton::onTouchBegan(CCTouch *touch, CCEvent *unused_event)
         {
             listTouchedPoint->addObject(touch);
         }
-//        CCLOG("%s - onTouchBegan %d", this->getName(), this->listTouchedPoint->count());
-        
         return cocos2d::gui::UIButton::onTouchBegan(touch,unused_event);
     }
     return false;
@@ -105,7 +103,6 @@ void HoldableUIButton::onTouchMoved(CCTouch *touch, CCEvent *unused_event)
             this->onTouchBegan(touch, unused_event);
         }
     }
-//    CCLOG("%s - onTouchMoved %d", this->getName(), this->listTouchedPoint->count());
     //cocos2d::gui::UIButton::onTouchMoved(touch,unused_event);
 }
 
@@ -115,8 +112,6 @@ void HoldableUIButton::onTouchEnded(CCTouch *touch, CCEvent *unused_event)
     {
         listTouchedPoint->removeObject(touch);
     }
-//    CCLOG("%s - onTouchEnded %d", this->getName(), this->listTouchedPoint->count());
-    
     if(isActive && ((hitTest(touch->getLocation()) && this->isFocused()) || (this->listTouchedPoint->indexOfObject(touch) != CC_INVALID_INDEX && !hitTest(touch->getLocation()))))
     {
         cocos2d::gui::UIButton::onTouchEnded(touch,unused_event);
@@ -129,7 +124,6 @@ void HoldableUIButton::onTouchCancelled(CCTouch *touch, CCEvent *unused_event)
     {
         listTouchedPoint->removeObject(touch);
     }
-//    CCLOG("%s - onTouchCancelled %d", this->getName(), this->listTouchedPoint->count());
     if(isActive)
     {
         cocos2d::gui::UIButton::onTouchCancelled(touch,unused_event);

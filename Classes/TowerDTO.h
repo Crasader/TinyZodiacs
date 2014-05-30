@@ -42,6 +42,7 @@ public:
 
     string id;
     Group group;
+    string type;
     float positionX;
     float positionY;
     

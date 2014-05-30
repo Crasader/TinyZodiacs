@@ -24,9 +24,10 @@ class Wave: public CCObject
 {
 private:
 protected:
-    CC_SYNTHESIZE(MonsterFactory*, monsterFactory, MonsterFactory);
+  
     CC_SYNTHESIZE(CCArray*, listMonsterFactory, ListMonsterFactory);
     CC_SYNTHESIZE(CCArray*, listItemCreator, ListItemCreator);
+    int monsterQuantity;
 
 public:
     Wave();
@@ -34,9 +35,12 @@ public:
     
     void setHolder(GameHolder holder);
     virtual bool init();
+    virtual void update(float dt);
     
     void addMonsterFactory(MonsterFactory* monsterFactory);
     void addItemCreator(ItemCreator* itemCreator);
+    bool isMonsterFactoryCompletedCreateMonsterAndAllMonsterHaveBeenKilled();
+    
     
     void startCreateMonster();
     void startCreateItem();
@@ -47,6 +51,9 @@ public:
     void stop();
     
     int getMonsterCount();
+    int getMonsterCountMax();
+    
+    int getMonsterCountKilled();
     
     CREATE_FUNC(Wave);
 };

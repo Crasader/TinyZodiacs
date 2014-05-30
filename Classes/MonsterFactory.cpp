@@ -22,6 +22,9 @@ MonsterFactory::MonsterFactory()
     this->listMonsterCreator->retain();
     this->isStopped = false;
     this->group = A;
+    this->monsterCount = 0;
+    this->isCompletedCreateMonster = false;
+    this->monsterCountKilled = 0;
 }
 
 MonsterFactory::~MonsterFactory()
@@ -39,7 +42,7 @@ bool MonsterFactory::init()
 Monster* MonsterFactory::createMonster(MonsterDTO* monsterDTO, CCPoint position, int laneID, b2World* world)
 {
     Monster* monster = Monster::create();
-
+    
     monster->setOriginCharacterData(monsterDTO->data);
     
     //Create Animation
@@ -74,11 +77,11 @@ Monster* MonsterFactory::createMonster(MonsterDTO* monsterDTO, CCPoint position,
     monster->getSprite()->setAnchorPoint(sc->anchorPointForShape(monsterDTO->body.c_str()));
     
     monster->setSkin(body, monster->getSprite());
-      //monster->getSprite()->setVisible(false);
+    //monster->getSprite()->setVisible(false);
     //load sensor body
-//    b2Body *sensorBody = world->CreateBody(&bodyDef);
-//    sc->addFixturesToBody(sensorBody, ((MonsterDTO*)monsterDTO)->sensorBody.c_str());
-//    monster->setSensor(sensorBody);
+    //    b2Body *sensorBody = world->CreateBody(&bodyDef);
+    //    sc->addFixturesToBody(sensorBody, ((MonsterDTO*)monsterDTO)->sensorBody.c_str());
+    //    monster->setSensor(sensorBody);
     monster->setSensor(((MonsterDTO*)monsterDTO)->sensorBody.c_str());
     //load skill
     monster->setNormalAttack(SkillFactory::createSkill(monsterDTO->data.getSkill0().c_str(), world, monster, false, SKILL_0_BTN));
@@ -90,29 +93,29 @@ Monster* MonsterFactory::createMonster(MonsterDTO* monsterDTO, CCPoint position,
     monster->setlistItem(monsterDTO->listItem);
     monster->onCreate();
     monster->setGameObjectView(InfoViewCreator::createMonsterView(monster, NULL));
-
+    
     return monster;
 }
 
 //void MonsterFactory::createMonsters(CharacterDTO* monsterDTO, CCPoint position, int quantity, float timeDelayPerMonster)
 //{
 //    vector<void*> *prms = new vector<void*>();
-//    
+//
 //    CCPoint* pos = new CCPoint(position);
 //    CharacterDTO* dto = monsterDTO;
-//    
+//
 //    prms->push_back(dto);
 //    prms->push_back(pos);
 //    prms->push_back(world);
-//    
+//
 //    ScheduleManager::getInstance()->scheduleFunction(CCCallFuncND::create((CCObject*)this, callfuncND_selector(MonsterFactory::createMonsterFromSchedule),prms),CCCallFuncND::create((CCObject*)this, callfuncND_selector(MonsterFactory::finishCreateMonsterFromSchedule),prms), timeDelayPerMonster, quantity);
-//    
+//
 //}
 
 void MonsterFactory::createMonsterList(CCArray* listMonsterDTO, CCPoint position, int laneID, int quantity, float timeDelayPerMonster)
 {
     vector<void*> *prms = new vector<void*>();
-
+    
     CCArray* listDTO = CCArray::createWithCapacity(listMonsterDTO->count());
     listDTO->addObjectsFromArray(listMonsterDTO);
     listDTO->retain();
@@ -163,28 +166,31 @@ void MonsterFactory::finishCreateMonsterFromSchedule(CCNode* sender, void* data)
 
 void MonsterFactory::createMonsterListFromSchedule(CCNode* sender, void* data)
 {
-    std::vector<void*>* params =  static_cast< std::vector<void*>*>(data);
-    
-    CCArray* listMonster  = static_cast<CCArray*>(params->at(0));
-    
-    if(listMonster->count() > 0)
+    if(this->isStopped == false)
     {
-        MonsterDTO* dto = (MonsterDTO*)(listMonster->objectAtIndex(0));
-        CCPoint *pos = static_cast<CCPoint*>(params->at(1));
-        int* laneID = static_cast<int*>(params->at(2));
-        b2World *world = static_cast<b2World*>(params->at(3));
-        if (this->listMonster->count() <= 100)
+        std::vector<void*>* params =  static_cast< std::vector<void*>*>(data);
+        
+        CCArray* listMonster  = static_cast<CCArray*>(params->at(0));
+        
+        if(listMonster->count() > 0)
         {
-            addNewMonster(createMonster(dto, *pos, *laneID, world));
-
+            MonsterDTO* dto = (MonsterDTO*)(listMonster->objectAtIndex(0));
+            CCPoint *pos = static_cast<CCPoint*>(params->at(1));
+            int* laneID = static_cast<int*>(params->at(2));
+            b2World *world = static_cast<b2World*>(params->at(3));
+            if (this->listMonster->count() < this->max)
+            {
+                addNewMonster(createMonster(dto, *pos, *laneID, world));
+                
+            }
+            listMonster->removeObjectAtIndex(0);
         }
-        listMonster->removeObjectAtIndex(0);
     }
 }
 
 void MonsterFactory::finishCreateMonsterListFromSchedule(CCNode* sender, void* data)
 {
- 
+    
     std::vector<void*>* params =  static_cast< std::vector<void*>*>(data);
     
     CCArray* listMonster  = static_cast<CCArray*>(params->at(0));
@@ -208,6 +214,8 @@ void MonsterFactory::addNewMonster(Monster* monster)
     this->listMonster->addObject(monster);
     monster->attach(this);
     monster->attachSpriteTo(this->holder.nodeHolder);
+    
+    this->monsterCount++;
 }
 void MonsterFactory::removeMonster(Monster* monster)
 {
@@ -229,13 +237,16 @@ void MonsterFactory::registerMonsterCreator(MonsterCreatorDTO* monsterCreatorDTO
 
 void MonsterFactory::stopCreateMonster()
 {
-    CCObject* object = NULL;
-    CCARRAY_FOREACH(this->listMonsterCreator, object)
+    if(this->isStopped == false)
     {
-        MonsterCreator* monsterCreator = static_cast<MonsterCreator*>(object);
-        monsterCreator->stop();
+        CCObject* object = NULL;
+        CCARRAY_FOREACH(this->listMonsterCreator, object)
+        {
+            MonsterCreator* monsterCreator = static_cast<MonsterCreator*>(object);
+            monsterCreator->stop();
+        }
+        this->isStopped = true;
     }
-    this->isStopped = true;
 }
 
 void MonsterFactory::startCreateMonster()
@@ -247,11 +258,24 @@ void MonsterFactory::startCreateMonster()
         monsterCreator->start();
     }
     this->isStopped = false;
+    
 }
 
 void MonsterFactory::update(float dt)
 {
+    if(this->isStopped == false)
+    {
+        if(this->monsterCount >= this->max)
+        {
+            stopCreateMonster();
+            this->isCompletedCreateMonster = true;
+        }
+    }
+}
 
+int MonsterFactory::getCountOfAliveMonster()
+{
+    return this->getListMonster()->count();
 }
 
 void MonsterFactory::notifyToDestroy(GameObject* object)
@@ -259,6 +283,6 @@ void MonsterFactory::notifyToDestroy(GameObject* object)
     if(this->listMonster->indexOfObject(object) != CC_INVALID_INDEX)
     {
         this->listMonster->removeObject(object);
+        this->monsterCountKilled++;
     }
-    
 }

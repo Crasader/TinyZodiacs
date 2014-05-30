@@ -22,8 +22,9 @@ using namespace std;
 class ItemFactory: public Observer
 {
 private:
+    
+    CC_SYNTHESIZE(GameHolder, holder, Holder)
     ItemFactory();
-    GameHolder* holder;
     CCArray* listItem;
     vector<ItemStruct> listItemStructPrepareToCreate;
 protected:
@@ -34,7 +35,6 @@ public:
     static ItemFactory* getInstance();
     void update(float dt);
     
-    void setHolder(GameHolder* holder);
     Item* createItem(const char* id, CCPoint position);
     void destroyItem(Item* item);
     

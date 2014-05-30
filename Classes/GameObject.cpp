@@ -89,9 +89,13 @@ void GameObject::excuteScheduledFunction(CCObject* pSender, void *body)
 
 void GameObject::update(float dt)
 {
-    updateSpritePositionWithBodyPosition();
-    updateAllAffect(dt);
-    updateGameObjectView(dt);
+    if(this->isDestroyed == false)
+    {
+        updateSpritePositionWithBodyPosition();
+        updateAllAffect(dt);
+        updateGameObjectView(dt);
+    }
+
 }
 
 void GameObject::updateGameObjectView(float dt)

@@ -30,16 +30,12 @@ ItemFactory* ItemFactory::getInstance()
     return instance;
 }
 
-void ItemFactory::setHolder(GameHolder* holder)
-{
-    this->holder = holder;
-}
 Item* ItemFactory::createItem(const char* id, CCPoint position)
 {
 
-    Item* item = ObjectFactory::createItem(DataCollector::getInstance()->getItemDTOByKey(id), this->holder->worldHolder);
+    Item* item = ObjectFactory::createItem(DataCollector::getInstance()->getItemDTOByKey(id), this->holder.worldHolder);
     item->setPositionInPixel(position);
-    item->attachSpriteTo(this->holder->nodeHolder);
+    item->attachSpriteTo(this->holder.nodeHolder);
     
     this->listItem->addObject(item);
     GameObjectManager::getInstance()->addGameObject(item);

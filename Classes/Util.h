@@ -30,6 +30,7 @@ public:
     
     static bool bodiesAreTouching( b2Body* body1, b2Body* body2 );
     static bool bodiesArePassingThrough( b2Body* body1, b2Body* body2 );
+    static bool fixtureArePassingThroughBody(b2Fixture* fixture, b2Body* body);
     static bool bodiesAreTouchingWith(b2Body* body, int type);
     static bool bodiesAreTouchingFixture( b2Body* body1, b2Fixture* fixture );
     

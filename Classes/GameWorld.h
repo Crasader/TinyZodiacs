@@ -30,17 +30,12 @@ class GameWorld;
 #include "GameManager.h"
 #include "GameMatch.h"
 
-
 USING_NS_CC;
+using namespace std;
+
 class GameWorld: public CCNode, public b2ContactListener
 {
 private:
-    int count;
-    CCAction* cameraFollowAction;
-protected:
-    bool init();
-    void createWorldBox();
-public:
     CC_SYNTHESIZE(b2World*, world, World);
     CC_SYNTHESIZE(float, width, Width);
     CC_SYNTHESIZE(float, height, Height);
@@ -50,31 +45,41 @@ public:
     CC_SYNTHESIZE_READONLY(b2Body*, leftLine, LeftLine);
     CC_SYNTHESIZE_READONLY(b2Body*, rightLine, RightLine);
     CC_SYNTHESIZE_READONLY(b2Body*, bottomLine, BottomLine);
-  
+     CC_SYNTHESIZE(string, mapID, MapID);
     CC_SYNTHESIZE(Map*, map, Map);
     CC_SYNTHESIZE(GameGroup*, group1, Group1);
     CC_SYNTHESIZE(GameGroup*, group2, Group2);
-    CC_SYNTHESIZE(GameMatch*, gameMatch, GameMatch);
-
-
-    Character* getCharacter();
-    
-    void foo();
-
-    GameWorld();
-    virtual ~GameWorld();
-    
+    CCAction* cameraFollowAction;
+protected:
+ 
+public:
+    virtual bool init();
     virtual void update(float dt);
     virtual void draw();
     
-    void setCameraFollowGroup(GameGroup* group);
+    void createWorldBox();
+    void onCreate();
+    void onCreateMap();
+    void onCreateWorld();
+    void onCreateUnits();
+    
+    Character* getCharacter();
+    
+    
+    void addManager();
+    GameWorld();
+    virtual ~GameWorld();
+    
 
+    
+    void setCameraFollowGroup(GameGroup* group);
+    
     virtual void BeginContact(b2Contact *contact);
     virtual void EndContact(b2Contact *contact);
     
     void setContactListener(b2ContactListener* listener);
     
-    void addManager();
+    void foo();
     
     CREATE_FUNC(GameWorld);
 };

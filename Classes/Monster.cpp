@@ -58,7 +58,7 @@ void Monster::update(float dt)
     {
         if(!isStopMove)
         {
-         this->move(this->direction);
+            this->move(this->direction);
         }
     }
     //
@@ -110,20 +110,10 @@ void Monster::checkCollisionDataInBeginContact(PhysicData* holderData, PhysicDat
     
     if(holderData->data == this)
     {
-        //        PhysicData* physicData = NULL;
-        //        if(isSideA)
-        //        {
-        //            physicData = (PhysicData*)contact->GetFixtureB()->GetBody()->GetUserData();
-        //        }
-        //        else
-        //        {
-        //            physicData = (PhysicData*)contact->GetFixtureA()->GetBody()->GetUserData();
-        //        }
-        
         if(collisionData != NULL)
         {
             //Contact sensor
-            if(holderData->bodyId == MONSTER_SENSOR && collisionData->bodyId == CHARACTER_BODY && collisionData->data != this)
+            if(holderData->fixtureId == MONSTER_SENSOR_FIXTURE && collisionData->fixtureId == BODY_MAIN_FIXTURE && collisionData->data != this)
             {
                 if(listTarget->indexOfObject((GameObject*)collisionData->data) == CC_INVALID_INDEX)
                 {
@@ -133,12 +123,11 @@ void Monster::checkCollisionDataInBeginContact(PhysicData* holderData, PhysicDat
                 }
                 return;
             }
-            //
             
             switch (collisionData->bodyId) {
                 case MAP_SENSOR:
                 {
-                    if(holderData->bodyId == CHARACTER_FOOT_SENSOR)
+                    if(holderData->fixtureId == FOOT_SENSOR_FIXTURE)
                     {
                         SensorObject* sensorObject = static_cast<SensorObject*>(collisionData->data);
                         if(sensorObject->checkValidLaneID(this->laneID))
@@ -159,13 +148,13 @@ void Monster::checkCollisionDataInBeginContact(PhysicData* holderData, PhysicDat
                     
                 case MAP_BASE:
                 {
-                    if(holderData->bodyId == CHARACTER_FOOT_SENSOR)
+                    if(holderData->fixtureId == BODY_MAIN_FIXTURE)
                     {
-                        MapObject* mapObject = static_cast<MapObject*>(collisionData->data);
-                        if(!Util::bodiesArePassingThrough(this->body, mapObject->getBody()))
-                        {
-                            this->isStopMove = false;
-                        }
+                        //                        MapObject* mapObject = static_cast<MapObject*>(collisionData->data);
+                        //                        if(!Util::bodiesArePassingThrough(this->body, mapObject->getBody()))
+                        //                        {
+                        this->isStopMove = false;
+                        //                        }
                     }
                 }
                     break;
@@ -195,7 +184,7 @@ void Monster::checkCollisionDataInEndContact(PhysicData* holderData, PhysicData*
         if(collisionData != NULL)
         {
             //Contact sensor
-            if(holderData->bodyId == MONSTER_SENSOR && collisionData->bodyId == CHARACTER_BODY && collisionData->data != this)
+            if(holderData->fixtureId == MONSTER_SENSOR_FIXTURE && collisionData->fixtureId == BODY_MAIN_FIXTURE && collisionData->data != this)
             {
                 listTarget->removeObject((GameObject*)collisionData->data);
                 if(listTarget->count()==0)
@@ -206,9 +195,13 @@ void Monster::checkCollisionDataInEndContact(PhysicData* holderData, PhysicData*
             }
             //
             switch (collisionData->bodyId) {
-                case MAP_SENSOR:
+                case MAP_BASE:
                 {
-                    //this->isStopMove = false;
+                    if(holderData->fixtureId == BODY_MAIN_FIXTURE)
+                    {
+                        //this->isStopMove = false;
+                    }
+                    
                 }
                     break;
                 default:
@@ -356,6 +349,7 @@ void Monster::setGroup(Group group)
 void Monster::onCreate()
 {
     Character::onCreate();
+
     if(this->normalAttack != NULL)
     {
         this->normalAttack->setSkillButtonID(UNKNOWN);
@@ -368,6 +362,7 @@ void Monster::onCreate()
     {
         this->skill2->setSkillButtonID(UNKNOWN);
     }
+
 }
 
 void Monster::setSensor(const char* bodyId)

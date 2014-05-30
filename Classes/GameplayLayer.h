@@ -9,12 +9,16 @@
 #ifndef __HelloWorld__GameplayScene__
 #define __HelloWorld__GameplayScene__
 
+class GameplayLayer;
+
 #include <iostream>
 #include "AbstractScene.h"
 #include "cocos2d.h"
 #include "CocosGUI.h"
 #include "HoldableUIButton.h"
 #include "Controller.h"
+#include "EffectManager.h"
+#include "TextShowEffect.h"
 
 USING_NS_CC;
 

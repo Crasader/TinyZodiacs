@@ -11,6 +11,7 @@
 MonsterFactoryDTO::MonsterFactoryDTO()
 {
     this->group = A;
+    this->max = 0;
     this->listMonsterCreatorDTO = CCArray::create();
     this->listMonsterCreatorDTO->retain();
 }

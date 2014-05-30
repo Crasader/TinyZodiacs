@@ -37,10 +37,11 @@ bool TestScene::init()
  //   this->addChild(menuBack, 1);
     
         initScene();
-    
+        this->addChild(GameManager::getInstance());
     
     return true;
 }
+
 CCScene* TestScene::scene()
 {
     // 'scene' is an autorelease object

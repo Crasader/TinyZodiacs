@@ -31,11 +31,8 @@ EffectManager* EffectManager::getInstance()
 
 void EffectManager::runEffect(Effect* effect, CCPoint position)
 {
-   // this->listEffect->addObject(effect);
-    
-    
     effect->setPosition(position);
-    this->holder->addChild(effect);
+    this->holder.nodeHolder->addChild(effect);
     effect->run();
     
 }
@@ -43,10 +40,17 @@ void EffectManager::runEffect(Effect* effect, CCPoint position)
 void EffectManager::runEffect(Effect* effect, CCPoint position, int layerIndex)
 {
     effect->setPosition(position);
-    this->holder->addChild(effect, layerIndex);
+    this->holder.nodeHolder->addChild(effect, layerIndex);
     
     effect->run();
+}
+
+void EffectManager::runEffect(Effect* effect, CCPoint position, CCNode* holder)
+{
+    effect->setPosition(position);
+    holder->addChild(effect);
     
+    effect->run();
 }
 
 void EffectManager::stopEffect(Effect* effect)

@@ -144,7 +144,7 @@ void GameplayLayer::setWaveValue(int number)
 
 void GameplayLayer::setMonsterProcessValue(int maxMonsterQuantity, int currentMonsterQuantity)
 {
-    this->processMonsterLeft->setPercent(currentMonsterQuantity/maxMonsterQuantity*100);
+    this->processMonsterLeft->setPercent(((1.0f*currentMonsterQuantity/maxMonsterQuantity))*100);
 }
 
 bool GameplayLayer::receiveCommand(CommandID commandID, void* data)
@@ -152,8 +152,37 @@ bool GameplayLayer::receiveCommand(CommandID commandID, void* data)
     Controller::receiveCommand(commandID, data);
     switch (commandID)
     {
-        case DISPLAY_MONSTER_COUNT:
+        case DISPLAY_NEW_WAVE:
+        {
+            int* waveNumber = static_cast<int*>(data);
             
+            CCSize size = CCDirector::sharedDirector()->getWinSize();
+            
+            CCLabelTTF* labelStyle = CCLabelTTF::create("", "Marker Felt", 150);
+            labelStyle->setOpacity(100);
+            
+            TextShowEffect* effect = TextShowEffect::create();
+            effect->setContent(CCString::createWithFormat("Wave %d", *waveNumber)->getCString());
+            effect->setLabelStyle(labelStyle);
+            
+            EffectManager::getInstance()->runEffect(effect, ccp(size.width/2, size.height/2),this);
+            
+            setWaveValue(*waveNumber);
+            delete waveNumber;
+        }
+            break;
+        case DISPLAY_WORLD_COORDINATE:
+        {
+            CCPoint* point = static_cast<CCPoint*>(data);
+            this->lblTimeLeft->setText(CCString::createWithFormat("%0.1f - %0.1f",point->x,point->y)->getCString());
+        }
+            break;
+        case DISPLAY_MONSTER_COUNT:
+        {
+            vector<int>* arr = static_cast<vector<int>*>(data);
+            CCLOG("%d-%d",arr->at(1),arr->at(1)-arr->at(0));
+            setMonsterProcessValue(arr->at(1),arr->at(1)-arr->at(0));
+        }
             break;
         case CHANGE_SKILL_0_TEXTURE_SET:
         {

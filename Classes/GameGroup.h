@@ -38,8 +38,6 @@ public:
     virtual void update(float dt);
     
     void joinGame(Group group, b2World* world, Map* map);
-    void BeginContact(b2Contact* contact);
-    void EndContact(b2Contact* contact);
     void setFollowCharacter(Character* character);
     Character* getCharacterOfPlayer();
     Character* getFollowingCharacter();

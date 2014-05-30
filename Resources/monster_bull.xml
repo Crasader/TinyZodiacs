@@ -1,10 +1,10 @@
 <character id="monster_bull">
     <animation>bull</animation>
 	<body>bull</body>
-    <hp>300</hp>
-    <atk>20</atk>
-    <def>0</def>
-    <speed>3</speed>
+    <hp>100</hp>
+    <atk>400</atk>
+    <def>100</def>
+    <speed>5</speed>
     <atk_speed>0.5</atk_speed>
     <max_jump>3</max_jump>
     <jump_height>10</jump_height>

@@ -27,6 +27,7 @@ public:
     
     Group group;
     CCArray* listMonsterCreatorDTO;
+    int max;
     
     
     

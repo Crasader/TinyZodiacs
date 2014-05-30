@@ -38,9 +38,12 @@ void ItemCreator::start()
 void ItemCreator::stop()
 {
     this->isStopped = true;
-    if(this->delayAction != NULL && this->delayAction->isDone() == false)
+    if(this->delayAction != NULL)
     {
-        ScheduleManager::getInstance()->stopAction(this->delayAction);
+        if(this->delayAction->isDone() == false)
+        {
+            ScheduleManager::getInstance()->stopAction(this->delayAction);
+        }
         this->delayAction->release();
         this->delayAction = NULL;
     }
