@@ -87,6 +87,7 @@ public:
     virtual void attach(Observer* observer);
     virtual void detach(Observer* observer);
     virtual void notifyToDestroy();
+    
 };
 
 #endif /* defined(__SampleCocosProject__Character__) */

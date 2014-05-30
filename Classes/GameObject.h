@@ -20,6 +20,7 @@ class GameObject;
 #include "Observable.h"
 #include "Observer.h"
 #include "Affect.h"
+#include "Constants.h"
 
 USING_NS_CC;
 
@@ -90,7 +91,10 @@ public:
     virtual void attach(Observer* observer);
     virtual void detach(Observer* observer);
     virtual void notifyToDestroy();
+    
+    virtual void notifyUIChange(void* data);
 
+    CC_SYNTHESIZE(bool, isControlled, IsControlled);
 };
 
 #endif /* defined(__SampleCocosProject__GameObject__) */

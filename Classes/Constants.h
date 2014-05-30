@@ -31,6 +31,14 @@ enum SkillTarget
     ALLIES
 };
 
+enum ButtonID
+{
+    UNKNOWN,
+    SKILL_0_BTN,
+    SKILL_1_BTN,
+    SKILL_2_BTN
+};
+
 enum ItemType
 {
     GOLD,
@@ -49,17 +57,22 @@ enum CommandID
     HERO_MOVE_RIGHT,
     HERO_MOVE_STOP,
     HERO_MOVE_JUMP,
+    HERO_ATTACK_0,
     HERO_ATTACK_1,
     HERO_ATTACK_2,
     DISABLE_BUTTON_ATTACK,
-    DISPLAY_MONSTER_COUNT
+    DISPLAY_MONSTER_COUNT,
+    CHANGE_SKILL_0_TEXTURE_SET,
+    CHANGE_SKILL_1_TEXTURE_SET,
+    CHANGE_SKILL_2_TEXTURE_SET,
+    CHANGE_STATE
 };
 
 struct TextureSelector
 {
-    CCSpriteFrame* activeTexture;
-    CCSpriteFrame* deactiveTexture;
-    CCSpriteFrame* selectedTexture;
+    std::string activeTexture;
+    std::string deactiveTexture;
+    std::string selectedTexture;
 };
 
 struct ItemStruct
@@ -84,4 +97,10 @@ struct GameHolder
     b2World* worldHolder;
 };
 
+class StateCommandData
+{
+public:
+    ButtonID controllerId;
+    bool isActive;
+};
 #endif

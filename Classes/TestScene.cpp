@@ -12,8 +12,8 @@
 #include "GameManager.h"
 #include "GameBackgroundLayer.h"
 #include "GameObjectLayer.h"
-#include "GameMenuLayer.h"
 #include "LayerIndexConstants.h"
+#include "GameplayLayer.h"
 
 USING_NS_CC;
 
@@ -54,7 +54,7 @@ CCScene* TestScene::scene()
     // add layer as a child to scene
     scene->addChild(layer);
   
-    GameMenuLayer* menuLayer = GameMenuLayer::create();
+    GameplayLayer* menuLayer = GameplayLayer::create();
     scene->addChild(menuLayer, GAME_MENU_LAYER, 4);
     
     GameObjectLayer* objectLayer = GameObjectLayer::create();

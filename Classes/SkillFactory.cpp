@@ -7,16 +7,17 @@
 //
 
 #include "SkillFactory.h"
-#include "ControllerLayer.h"
 #include "NormalShootingSkillData.h"
 #include "SkillType0Parser.h"
 #include "SkillType1Parser.h"
 #include "NormalAttack.h"
 #include "SkillDTO.h"
 #include "NormalShootingAttack.h"
+#include "ControllerManager.h"
+#include "GameplayLayer.h"
 
 
-AbstractSkill* SkillFactory::loadXMLFile(const char* id, const char *xmlFileName, b2World* world, GameObject* holder, bool isLocal, int buttonIndex)
+AbstractSkill* SkillFactory::loadXMLFile(const char* id, const char *xmlFileName, b2World* world, GameObject* holder, bool isLocal, ButtonID buttonIndex)
 {
     //
     std::string fullPath = CCFileUtils::sharedFileUtils()->fullPathForFilename(xmlFileName);
@@ -65,47 +66,19 @@ AbstractSkill* SkillFactory::loadXMLFile(const char* id, const char *xmlFileName
             
         }
         normalAttack->onCreate();
-        if(isLocal)
-        {
-            //read texture
-            std::string selectedTexture = readTextureId(result->FirstChildElement(TAG_TEXTURE), TAG_SELECTED);
-            std::string activeTexture = readTextureId(result->FirstChildElement(TAG_TEXTURE), TAG_ACTIVE);
-            std::string deactiveTexture = readTextureId(result->FirstChildElement(TAG_TEXTURE), TAG_DEACTIVE);
-            
-            TextureSelector selector;
-            selector.activeTexture = CCSpriteFrameCache::sharedSpriteFrameCache()->spriteFrameByName(activeTexture.c_str());
-            selector.deactiveTexture = CCSpriteFrameCache::sharedSpriteFrameCache()->spriteFrameByName(deactiveTexture.c_str());
-            selector.selectedTexture = CCSpriteFrameCache::sharedSpriteFrameCache()->spriteFrameByName(selectedTexture.c_str());
-            
-            ControllerLayer* instance = ControllerLayer::getInstance();
-            if(instance != NULL)
-            {
-                switch (buttonIndex)
-                {
-                    case SKILL_0_BUTTON:
-                        instance->getAtkButtonSprite()->setTextureSelector(selector);
-                        if(normalAttack!= NULL)
-                        {
-                            normalAttack->setholderButton(instance->getAtkButtonSprite());
-                        }
-                        break;
-                    case SKILL_1_BUTTON:
-                        instance->getSkill1ButtonSprite()->setTextureSelector(selector);
-                        if(normalAttack!= NULL)
-                        {
-                            normalAttack->setholderButton(instance->getSkill1ButtonSprite());
-                        }
-                        break;
-                    case SKILL_2_BUTTON:
-                        instance->getSkill2ButtonSprite()->setTextureSelector(selector);
-                        if(normalAttack!= NULL)
-                        {
-                            normalAttack->setholderButton(instance->getSkill2ButtonSprite());
-                        }
-                        break;
-                }
-            }
-        }
+        std::string selectedTexture = readTextureId(result->FirstChildElement(TAG_TEXTURE), TAG_SELECTED);
+        std::string activeTexture = readTextureId(result->FirstChildElement(TAG_TEXTURE), TAG_ACTIVE);
+        std::string deactiveTexture = readTextureId(result->FirstChildElement(TAG_TEXTURE), TAG_DEACTIVE);
+        
+        TextureSelector selector;
+        selector.activeTexture = activeTexture;
+        selector.deactiveTexture = deactiveTexture;
+        selector.selectedTexture = selectedTexture;
+        
+        normalAttack->setSkillTextureSelector(selector);
+        normalAttack->setSkillButtonID(buttonIndex);
+        
+        
         delete []pFileData;
         return normalAttack;
     }
@@ -120,7 +93,7 @@ const XMLElement* SkillFactory::loadElementById(const char* id, const XMLElement
     
     while(child != NULL)
     {
-//        CCLOG("%s - %s",id,child->Attribute(ATTRIBUTE_ID));
+        //        CCLOG("%s - %s",id,child->Attribute(ATTRIBUTE_ID));
         if(strcasecmp(id,child->Attribute(ATTRIBUTE_ID)) == 0)
         {
             return  child;
@@ -151,11 +124,15 @@ std::string SkillFactory::readTextureId(const XMLElement* root, string tagName)
     //        return typeValue;
     //    }
     //    return "";
-    return XMLHelper::readString(root->FirstChildElement(tagName.c_str()), "");
+    if(root != NULL)
+    {
+        return XMLHelper::readString(root->FirstChildElement(tagName.c_str()), "");
+    }
+    return "";
 }
 
 
-AbstractSkill* SkillFactory::createSkill(const char* id, b2World* world, GameObject* holder, bool isLocal, int buttonIndex)
+AbstractSkill* SkillFactory::createSkill(const char* id, b2World* world, GameObject* holder, bool isLocal, ButtonID buttonIndex)
 {
     AbstractSkill* skill = loadXMLFile(id, SKILL_XML_FILE, world, holder, isLocal, buttonIndex);
     skill->retain();

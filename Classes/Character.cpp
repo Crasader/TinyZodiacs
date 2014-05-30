@@ -27,7 +27,6 @@ Character::Character()
     this->state = NULL;
     this->landing = 0;
     this->currentJumpCount = 0;
-    
     this->normalAttack = NULL;
     this->skill1 = NULL;
     this->skill2 = NULL;

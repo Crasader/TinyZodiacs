@@ -24,7 +24,7 @@ protected:
 public:
     SkillData();
     ~SkillData();
-    
+    CC_SYNTHESIZE(TextureSelector, skillTextureSelector, skillTextureSelector);
     CC_SYNTHESIZE(float, coolDown, CoolDown);
     CC_SYNTHESIZE(float, delay, Delay);
     CC_SYNTHESIZE(float, lifeTime, LifeTime);

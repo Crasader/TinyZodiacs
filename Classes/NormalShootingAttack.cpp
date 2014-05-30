@@ -19,7 +19,7 @@ NormalShootingAttack::NormalShootingAttack(GameObject* holder, NormalShootingSki
     {
         this->data = data;
         this->isExcutable = true;
-        this->holderButton = NULL;
+        //        this->holderButton = NULL;
     }
 }
 
@@ -59,15 +59,20 @@ void NormalShootingAttack::excute()
             this->coolDownAction->retain();
             
             this->isExcutable = false;
-            if(this-> holderButton != NULL)
+            
+            if(this-> skillButtonID != UNKNOWN)
             {
-                this->holderButton->changeState(DISABLE);
+                //                this->holderButton->changeState(DISABLE);
+                StateCommandData *data = new StateCommandData();
+                data->controllerId = this->skillButtonID;
+                data->isActive = false;
+                this->holder->notifyUIChange(data);
             }
         }
-//        else
-//        {
-//            this->AbstractSkill::excuteImmediately();
-//        }
+        //        else
+        //        {
+        //            this->AbstractSkill::excuteImmediately();
+        //        }
     }
 }
 
@@ -78,23 +83,25 @@ void NormalShootingAttack::stop()
 
 void NormalShootingAttack::update(float dt)
 {
-//    for(unsigned int i=0; i< projectTileList->count() ; i++)
-//    {
-//        if(((NormalProjectile*)projectTileList->objectAtIndex(i)) != NULL)
-//        {
-//            ((NormalProjectile*)projectTileList->objectAtIndex(i))->update(dt);
-//        }
-//    }
+    //    for(unsigned int i=0; i< projectTileList->count() ; i++)
+    //    {
+    //        if(((NormalProjectile*)projectTileList->objectAtIndex(i)) != NULL)
+    //        {
+    //            ((NormalProjectile*)projectTileList->objectAtIndex(i))->update(dt);
+    //        }
+    //    }
     
-    if(this->holderButton != NULL)
+    if(this->skillButtonID != UNKNOWN)
     {
         if(this->isExcutable)
         {
-            //            this->holderButton->changeState(ENABLE);
         }
         else
         {
-            this->holderButton->changeState(DISABLE);
+            StateCommandData *data = new StateCommandData();
+            data->controllerId = this->skillButtonID;
+            data->isActive = false;
+            this->holder->notifyUIChange(data);
         }
     }
 }
@@ -111,7 +118,7 @@ void NormalShootingAttack::destroy()
 
 void NormalShootingAttack::setPhysicGroup(uint16 group)
 {
-   
+    
 }
 
 void NormalShootingAttack::excuteImmediately()
@@ -120,13 +127,13 @@ void NormalShootingAttack::excuteImmediately()
     {
         NormalShootingSkillData calculatedSkillData = this->data;
         calculateSkillData(&calculatedSkillData, this->holder);
-
+        
         NormalProjectile* proj = NormalProjectile::create();
         proj->setData(calculatedSkillData, this->holder);
         proj->setGroup(GROUP_SKILL_DEFAULT);
         GameObjectManager::getInstance()->addGameObject(proj);
     }
-
+    
 }
 
 void NormalShootingAttack::stopImmediately()
@@ -137,9 +144,16 @@ void NormalShootingAttack::stopImmediately()
 void NormalShootingAttack::setExcuteAble()
 {
     this->isExcutable = true;
-    if(this->holderButton != NULL && this->holderButton->getState() == DISABLE)
+    //    if(this->holderButton != NULL && this->holderButton->getState() == DISABLE)
+    //    {
+    //        this->holderButton->changeState(ENABLE);
+    //    }
+    if(this->skillButtonID != UNKNOWN)
     {
-        this->holderButton->changeState(ENABLE);
+        StateCommandData *data = new StateCommandData();
+        data->controllerId = this->skillButtonID;
+        data->isActive = true;
+        this->holder->notifyUIChange(data);
     }
 }
 
@@ -149,11 +163,11 @@ void NormalShootingAttack::checkCollisionDataInBeginContact(PhysicData* holderDa
     {
         return;
     }
-//    if(data ==NULL || data->Data == NULL)
-//    {
-//        return;
-//    }
-
+    //    if(data ==NULL || data->Data == NULL)
+    //    {
+    //        return;
+    //    }
+    
 }
 
 void NormalShootingAttack::checkCollisionDataInEndContact(PhysicData* holderData, PhysicData* collisionData, b2Contact *contact)
@@ -162,8 +176,8 @@ void NormalShootingAttack::checkCollisionDataInEndContact(PhysicData* holderData
     {
         return;
     }
-//    if(data == NULL || data->Data == NULL)
-//    {
-//        return;
-//    }
+    //    if(data == NULL || data->Data == NULL)
+    //    {
+    //        return;
+    //    }
 }

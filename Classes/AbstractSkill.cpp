@@ -17,8 +17,8 @@ AbstractSkill::AbstractSkill(GameObject* holder, SkillData data)
     this->excuteAction = NULL;
     this->stopAction = NULL;
     this->coolDownAction = NULL;
-    this->holderButton = NULL;
     this->isExcutable = true;
+    this->skillButtonID = UNKNOWN;
     
     if(holder != NULL)
     {

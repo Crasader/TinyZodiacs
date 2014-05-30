@@ -17,7 +17,8 @@ class AbstractSkill;
 #include "PhysicConstants.h"
 #include "GameObject.h"
 #include "SkillData.h"
-#include "GamePlayButton.h"
+#include "HoldableUIButton.h"
+#include "ControllerManager.h"
 
 #define FUCTION_EXCUTE 0
 #define FUCTION_STOP 1
@@ -57,6 +58,8 @@ public:
     virtual void stopAllAction();
     
     CC_SYNTHESIZE(GameObject* , holder, Holder);
-    CC_SYNTHESIZE(GameplayButton* , holderButton, holderButton);
+//    CC_SYNTHESIZE(HoldableUIButton*, holderButton, holderButton);
+    CC_SYNTHESIZE(ButtonID, skillButtonID, SkillButtonID);
+    CC_SYNTHESIZE(TextureSelector, skillTextureSelector, SkillTextureSelector);
 };
 #endif /* defined(__TinyZodiacs__AbstractSkill__) */
