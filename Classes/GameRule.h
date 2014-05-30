@@ -18,6 +18,8 @@ protected:
 public:
     virtual bool checkWin() = 0;
     virtual bool checkLose() = 0;
+    virtual bool checkNextWave() = 0;
+    virtual void update(float dt) = 0;
 };
 
 #endif /* defined(__TinyZodiacs__GameRule__) */

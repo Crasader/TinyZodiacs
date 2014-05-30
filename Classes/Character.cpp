@@ -227,7 +227,7 @@ void Character::createFootSensor()
     fixDef.density = WEIGHTLESS_DENSITY;
     
     PhysicData* sensorData = new PhysicData();
-    sensorData->bodyId = CHARACTER_FOOT_SENSOR;
+    sensorData->bodyId = CHARACTER_BODY;
     sensorData->data = this;
     sensorData->gameObjectID = this->gameObjectID;
     sensorData->fixtureId = FOOT_SENSOR_FIXTURE;
@@ -298,19 +298,9 @@ void Character::checkCollisionDataInBeginContact(PhysicData* holderData, PhysicD
     
     if(holderData->data == this)
     {
-//        PhysicData* physicData = NULL;
-//        if(isSideA)
-//        {
-//            physicData = (PhysicData*)contact->GetFixtureB()->GetBody()->GetUserData();
-//        }
-//        else
-//        {
-//            physicData = (PhysicData*)contact->GetFixtureA()->GetBody()->GetUserData();
-//        }
-//        CCLOG("");
-        switch (holderData->bodyId)
+        switch (holderData->fixtureId)
         {
-            case CHARACTER_FOOT_SENSOR:
+            case FOOT_SENSOR_FIXTURE:
             {
                 if(collisionData!=NULL)
                 {
@@ -333,7 +323,7 @@ void Character::checkCollisionDataInBeginContact(PhysicData* holderData, PhysicD
                 
             }
                 break;
-            case CHARACTER_BODY:
+            case BODY_MAIN_FIXTURE:
             {
                 
                 if(collisionData!=NULL)
@@ -393,8 +383,8 @@ void Character::checkCollisionDataInEndContact(PhysicData* holderData, PhysicDat
 //            physicData = (PhysicData*)contact->GetFixtureA()->GetBody()->GetUserData();
 //        }
         
-        switch (holderData->bodyId) {
-            case CHARACTER_FOOT_SENSOR:
+        switch (holderData->fixtureId) {
+            case FOOT_SENSOR_FIXTURE:
             {
                 if(collisionData!=NULL)
                 {
@@ -425,7 +415,7 @@ void Character::checkCollisionDataInEndContact(PhysicData* holderData, PhysicDat
                 
                 break;
                 
-            case CHARACTER_BODY:
+            case BODY_MAIN_FIXTURE:
             {
 //                PhysicData* physicData = NULL;
 //                if(isSideA)

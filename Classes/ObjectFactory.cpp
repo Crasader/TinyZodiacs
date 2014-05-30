@@ -243,7 +243,18 @@ SensorObject* ObjectFactory::createSensorObject(SensorObjectDTO* sensorObjectDTO
 Tower* ObjectFactory::createTower(TowerStructDTO* towerStructDTO, b2World* world)
 {
     TowerDTO* towerDTO = DataCollector::getInstance()->getTowerDTOByKey(towerStructDTO->id.c_str());
-    Tower* tower = Tower::create();
+    Tower* tower = NULL;
+    if(strcasecmp(towerStructDTO->type.c_str(), "main") == 0)
+    {
+        tower = MainCrystal::create();
+        CCLOG("main");
+    }
+    else
+    {
+       // tower = Tower::create();
+        CCLOG("tower");
+    }
+  
     
     tower->setOriginCharacterData(towerDTO->data);
     

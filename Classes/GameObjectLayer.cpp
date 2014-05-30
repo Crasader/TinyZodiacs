@@ -21,13 +21,13 @@ USING_NS_CC;
 
 GameObjectLayer::GameObjectLayer()
 {
-    text = CCString::create("dsdsd");
-    text->retain();
+
+    gameMatch = NULL;
 }
 
 GameObjectLayer::~GameObjectLayer()
 {
-    CC_SAFE_RELEASE_NULL(this->gameWorld);
+    
 }
 
 bool GameObjectLayer::init()
@@ -37,11 +37,16 @@ bool GameObjectLayer::init()
     {
         return false;
     }
-      
-    this->gameWorld = GameWorld::create();
     
-    this->addChild(gameWorld);
+    gameMatch = GameMatch::create();
     
+    this->addChild(gameMatch);
+    
+    gameMatch->start();
+//    this->gameWorld = GameWorld::create();
+//    
+//    this->addChild(gameWorld);
+//    
     this->setTouchEnabled(true);
     this->scheduleUpdate();
     
@@ -54,10 +59,11 @@ void GameObjectLayer::draw()
 
 void GameObjectLayer::update(float dt)
 {
-    this->gameWorld->update(dt);
+//    this->gameWorld->update(dt);
 }
 
-Character* GameObjectLayer::getCharacter(){
+Character* GameObjectLayer::getCharacter()
+{
     return this->characterActionEngine->getCharacter();
 }
 
@@ -66,13 +72,8 @@ void GameObjectLayer::ccTouchesBegan(cocos2d::CCSet *pTouches, cocos2d::CCEvent 
     CCTouch* touch = (CCTouch*)pTouches->anyObject();
     CCPoint touchPoint = CCDirector::sharedDirector()->convertToGL(touch->getLocationInView()) ;
     
-    CCPoint temp =   this->gameWorld->convertToNodeSpace(touchPoint);
-    text->release();
-    text = CCString::createWithFormat("%0.2f-%0.2f",temp.x,temp.y);
-    
-    text->retain();
-   // text->retain();
+    CCPoint temp =   this->gameMatch->getGameWorld()->convertToNodeSpace(touchPoint);
 
-    
+ //   ControllerManager::getInstance()->sendCommand(HERO_CONTROLLER, DISPLAY_WORLD_COORDINATE, new CCPoint(temp));
 }
 

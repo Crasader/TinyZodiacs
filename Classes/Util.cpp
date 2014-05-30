@@ -249,6 +249,24 @@ bool Util::bodiesArePassingThrough( b2Body* body1, b2Body* body2 )
     return false;
 }
 
+
+bool Util::fixtureArePassingThroughBody(b2Fixture* fixture, b2Body* body)
+{
+//    for (b2ContactEdge* edge = fixture->GetBody()->GetContactList(); edge; edge = edge->next)
+//    {
+//        if ( !edge->contact->IsTouching())
+//            continue;
+//        b2Body* bA = edge->contact->GetFixtureA()->GetBody();
+//        b2Body* bB = edge->contact->GetFixtureB()->GetBody();
+//        if ( (( bA == body1 && bB == body2 ) || ( bB == body1 && bA == body2 )) && edge->contact->IsEnabled() == false )
+//        {
+//            return true;
+//        }
+//    }
+    return false;
+}
+
+
 bool Util::bodiesAreTouchingWith(b2Body* body, int type)
 {
     return false;

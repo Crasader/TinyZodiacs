@@ -24,18 +24,66 @@ GameWorld::GameWorld()
 {
     this->width = 0;
     this->height = 0;
+    this->world = NULL;
+    this->map = NULL;
+    this->group1 = NULL;
+    this->group2 = NULL;
+    
 }
 
 GameWorld::~GameWorld()
 {
-    
+    delete this->world;
 }
 
 bool GameWorld::init()
 {
-    count = 0;
+    this->scheduleUpdate();
+    //
+    //    CCArray* arr = CCArray::create();
+    //    arr->addObject(CCDelayTime::create(10));
+    //    arr->addObject(CCCallFunc::create(this, callfunc_selector (GameWorld::foo)));
+    //
+    //    CCSequence* seq = CCSequence::create(arr);
+    //    this->runAction(CCRepeatForever::create(seq));
+    return true;
+}
+
+void GameWorld::onCreate()
+{
+    onCreateWorld();
+    onCreateMap();
+    onCreateUnits();
+    
+    // init gameholder
+    GameHolder gameplayholder;
+    gameplayholder.nodeHolder = this->map;
+    gameplayholder.worldHolder = this->world;
+    GameManager::getInstance()->setGameplayHolder(gameplayholder);
+    
+    this->setCameraFollowGroup(this->group1);
+    
+    
+    addManager();
+    
+}
+void GameWorld::onCreateMap()
+{
+    MapCreator* mapCreator = new MapCreator();
+    map = mapCreator->createMap(this->mapID.c_str(),this);
+    delete mapCreator;
+    
+    this->map->attachAllMapObject();
+    this->addChild(map, MAP_LAYER);
+}
+void GameWorld::onCreateWorld()
+{
     b2Vec2 gravity = b2Vec2(GRAVITY_ACCELERATION_X, GRAVITY_ACCELERATION_Y);
     this->world = new b2World(gravity);
+    //Set contact listener
+    this->setContactListener(this);
+    
+    createWorldBox();
     
     //DEBUG WORLD
     b2Draw* _debugDraw = new GLESDebugDraw(PTM_RATIO);
@@ -47,27 +95,10 @@ bool GameWorld::init()
     flags += b2Draw::e_centerOfMassBit;
     _debugDraw->SetFlags(flags);
     this->world->SetDebugDraw(_debugDraw);
-    //Set contact listener
-    this->setContactListener(this);
-  
-    //MAP
-    MapCreator* mapCreator = new MapCreator();
-    map = mapCreator->createMap("map1",this);
-    map->attachAllMapObject();
-   
-    this->addChild(map,MAP_LAYER);
-    
-    delete mapCreator;
-    
-    GameHolder gameplayholder;
-    gameplayholder.nodeHolder = this->map;
-    gameplayholder.worldHolder = this->world;
-    
-    GameManager::getInstance()->setGameplayHolder(gameplayholder);
-    
-    
-    createWorldBox();
-  
+}
+
+void GameWorld::onCreateUnits()
+{
     this->group1 = GameGroup::create();
     this->group1->retain();
     this->group1->joinGame(A, this->world, this->map);
@@ -75,32 +106,17 @@ bool GameWorld::init()
     this->group2 = GameGroup::create();
     this->group2->retain();
     this->group2->joinGame(B, this->world, this->map);
-    
-    
-    CCArray* arr = CCArray::create();
-    arr->addObject(CCDelayTime::create(10));
-    arr->addObject(CCCallFunc::create(this, callfunc_selector (GameWorld::foo)));
-    
-    CCSequence* seq = CCSequence::create(arr);
-    this->runAction(CCRepeatForever::create(seq));
-    
-    this->setCameraFollowGroup(this->group1);
-    
-    addManager();
-    return true;
 }
-
 
 void GameWorld::addManager()
 {
-    this->addChild(ScheduleManager::getInstance());
-    this->addChild(GameObjectManager::getInstance());
-    this->addChild(EffectManager::getInstance());
-    EffectManager::getInstance()->setHolder(this);
-    GameHolder* holder = new GameHolder();
-    holder->nodeHolder = this->map;
-    holder->worldHolder = this->world;
-    ItemFactory::getInstance()->setHolder(holder);
+    GameHolder holder;
+    holder.nodeHolder = this->map;
+    holder.worldHolder = this->world;
+    
+    GameManager::getInstance()->setGameplayHolder(holder);
+    EffectManager::getInstance()->setHolder(GameManager::getInstance()->getGameplayHolder());
+    ItemFactory::getInstance()->setHolder(GameManager::getInstance()->getGameplayHolder());
 }
 
 
@@ -177,7 +193,8 @@ void GameWorld::createWorldBox()
 
 void GameWorld::setContactListener(b2ContactListener *listener)
 {
-    if(this->world != NULL){
+    if(this->world != NULL)
+    {
         this->world->SetContactListener(listener);
     }
 }
@@ -187,10 +204,10 @@ void GameWorld::update(float dt)
     this->map->update(dt);
     this->group1->update(dt);
     this->group2->update(dt);
-
+    
     if(this->world != NULL)
     {
-        world->Step(1/60.000f,8, 3);
+        world->Step(1/20.000f,8, 3);
     }
 }
 
@@ -222,22 +239,18 @@ void GameWorld::setCameraFollowGroup(GameGroup* group)
     }
     
     this->cameraFollowAction = CCFollow::create(group->getFollowingCharacter()->getSprite(),CCRect(0, 0, this->width, this->height));
-
+    
     this->runAction(this->cameraFollowAction);
 }
 
 //PHYSICS CONTACT
 void GameWorld::BeginContact(b2Contact *contact)
 {
-    this->group1->BeginContact(contact);
-    this->group2->BeginContact(contact);
     GameObjectManager::getInstance()->BeginContact(contact);
 }
 
 void GameWorld::EndContact(b2Contact *contact)
 {
-    this->group1->EndContact(contact);
-    this->group2->EndContact(contact);
     GameObjectManager::getInstance()->EndContact(contact);
 }
 

@@ -15,6 +15,7 @@
 #include "Character.h"
 #include "GameWorld.h"
 #include "CharacterActionEngine.h"
+#include "ControllerManager.h"
 
 class GameObjectLayer: public cocos2d::CCLayer
 {
@@ -36,12 +37,6 @@ public:
 
     CREATE_FUNC(GameObjectLayer);
 
-private:
-    GameWorld* gameWorld;
-
-  
-    
-    
     
 };
 

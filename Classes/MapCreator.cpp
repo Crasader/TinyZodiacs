@@ -135,6 +135,7 @@ Wave* MapCreator::createWave(WaveDTO* waveDTO, GameWorld* gameWorld)
                 MonsterFactory* monsterFactory = MonsterFactory::create();
                 monsterFactory->setHolder(GameManager::getInstance()->getGameplayHolder());
                 monsterFactory->setGroup(B);
+                monsterFactory->setMax(monsterFactoryDTO->max);
                 
                 CCObject* object1 = NULL;
                 CCARRAY_FOREACH(monsterFactoryDTO->listMonsterCreatorDTO, object1)

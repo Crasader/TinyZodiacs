@@ -30,6 +30,9 @@ bool HelloWorld::init()
     }
     GameManager::getInstance()->loadResource();
     GameManager::getInstance()->loadData();
+    GameManager::getInstance()->initManager();
+
+
     CCSize visibleSize = CCDirector::sharedDirector()->getVisibleSize();
     CCPoint origin = CCDirector::sharedDirector()->getVisibleOrigin();
     

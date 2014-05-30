@@ -11,6 +11,7 @@
 #include "LayerIndexConstants.h"
 #include "EffectManager.h"
 #include "WaveDTO.h"
+#include "RuleManager.h"
 
 GameGroup::GameGroup()
 {
@@ -35,10 +36,10 @@ bool GameGroup::init()
 void GameGroup::update(float dt)
 {
     this->character->update(dt);
-    this->monsterFactory->update(dt);
+  //  this->monsterFactory->update(dt);
     
-    int *a = new int(this->monsterFactory->getListMonster()->count());
-    ControllerManager::getInstance()->sendCommand(HERO_CONTROLLER, DISPLAY_MONSTER_COUNT, a);
+    int* a = new int(this->monsterFactory->getListMonster()->count());
+  
 }
 
 void GameGroup::joinGame(Group group, b2World* world, Map* map)
@@ -103,7 +104,7 @@ void GameGroup::joinGame(Group group, b2World* world, Map* map)
         }
     }
     
-    this->monsterFactory->startCreateMonster();
+   // this->monsterFactory->startCreateMonster();
     
     
     
@@ -116,16 +117,6 @@ void GameGroup::joinGame(Group group, b2World* world, Map* map)
         ControllerManager::getInstance()->unregisterController(HERO_CONTROLLER, this->character);
     }
 
-    
-}
-
-void GameGroup::BeginContact(b2Contact* contact)
-{
-    
-}
-
-void GameGroup::EndContact(b2Contact* contact)
-{
     
 }
 

@@ -21,6 +21,7 @@ class MonsterFactory;
 #include "SkillFactory.h"
 #include "GameObject.h"
 #include "InfoViewCreator.h"
+#include "RuleManager.h"
 
 #define MONSTER_CREATION_DELAY 1;
 
@@ -30,10 +31,14 @@ class MonsterFactory: public CCObject, public Observer {
     
 private:
     bool isStopped;
+    int monsterCount;
     CC_SYNTHESIZE(Group, group, Group);
     CC_SYNTHESIZE(GameHolder, holder, Holder);
     CC_SYNTHESIZE(CCArray*, listMonster, ListMonster);
     CC_SYNTHESIZE(CCArray*, listMonsterCreator, ListMonsterCreator);
+    CC_SYNTHESIZE(int, max, Max);
+    CC_SYNTHESIZE(bool, isCompletedCreateMonster, IsCompletedCreateMonster);
+
 protected:
 public:
     MonsterFactory();
@@ -54,6 +59,7 @@ public:
     void registerMonsterCreator(MonsterCreatorDTO* monsterCreatorDTO, b2World* world);
     void stopCreateMonster();
     void startCreateMonster();
+    int getCountOfAliveMonster();
     
     virtual void notifyToDestroy(GameObject* object);
 

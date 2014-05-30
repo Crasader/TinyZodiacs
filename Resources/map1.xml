@@ -203,17 +203,15 @@
          </sensor_object>-->
     </sensor_object_list>
     <tower_list>
-        <tower id="tower1" group="B" >
-            <position x="600" y="920"/>
+        <tower type="main" id="tower1" group="A" >
+            <position x="294" y="920"/>
         </tower>
 
+<!--
         <tower id="tower1" group="A" >
             <position x="2780" y="500"/>
         </tower>
-        <tower id="tower1" group="A" >
-            <position x="294" y="920"/>
-        </tower>
-        <tower id="tower2" group="B" >
+               <tower id="tower2" group="B" >
             <position x="5623" y="1180"/>
         </tower>
         <tower id="tower2" group="B" >
@@ -227,10 +225,11 @@
         <tower id="tower2" group="B" >
             <position x="4228" y="1378"/>
         </tower>
+ -->
     </tower_list>
     <monster_factory_list>
 
-
+<!--
          <monster_factory group="A">
 
             <monster_creator delay_per_unit="2" delay="10" lane = "2">
@@ -264,7 +263,7 @@
                 </monster_creator>
 
             </monster_factory>
-        
+        -->
     </monster_factory_list>
 
     <item_creator_list>
@@ -294,9 +293,10 @@
     </item_creator_list>
    
     <wave_list>
+ 
         <wave id = "1">
             <monster_factory_list>
-                <monster_factory group="B" max="20">
+                <monster_factory group="B" max="12">
                  
                     <monster_creator delay_per_unit="1" delay="2" lane = "2">
                         <position x="6827" y="1076"/>
@@ -304,14 +304,10 @@
                             <monster id="monster_onion" quantity="4"/>
                         </monster_list>
                     </monster_creator>
-                    <monster_creator delay_per_unit="1" delay="2" lane = "2" max="200">
-                        <position x="7660" y="764"/>
-                        <monster_list>
-                            <monster id="monster_onion" quantity="4"/>
-                        </monster_list>
-                    </monster_creator>
+        
                 </monster_factory>
-                         
+                
+                                       
             </monster_factory_list>
             <item_creator_list>
                 
@@ -329,22 +325,23 @@
                         <item id="coin2" chance="100"/>
                     </item_list>
                 </item_creator>
+         
             </item_creator_list>
 
         </wave>
         
         <wave id = "2">
             <monster_factory_list>
-                <monster_factory group="B">
+                <monster_factory group="B" max = "10" >
                     
-                    <monster_creator delay_per_unit="1" delay="10" lane = "2">
+                    <monster_creator delay_per_unit="1" delay="2" lane = "2">
                         <position x="6827" y="1076"/>
                         <monster_list>
-                            <monster id="monster_pig" quantity="22"/>
+                            <monster id="monster_pig" quantity="10"/>
                         </monster_list>
                     </monster_creator>
                 </monster_factory>
-                <!--
+           <!--
                 <monster_factory group="B">
                     <monster_creator delay_per_unit="1" delay="10" lane = "2" max="200">
                         <position x="7660" y="764"/>
@@ -353,8 +350,8 @@
                         </monster_list>
                     </monster_creator>
                 </monster_factory>
-                 -->
-                
+
+                -->
             </monster_factory_list>
             <item_creator_list>
                 
@@ -370,13 +367,40 @@
                     <begin_position x="3200" y="600"/>
                     <end_position x="3400" y="600"/>
                     <item_list>
-                                               <item id="coin1" chance="100"/>
+                         <item id="coin1" chance="100"/>
                         
                     </item_list>
                 </item_creator>
             </item_creator_list>
             
         </wave>
-
+  
+        <wave id = "3">
+            <monster_factory_list>
+                <monster_factory group="B" max="1">
+                    
+                    <monster_creator delay_per_unit="1" delay="2" lane = "2">
+                        <position x="6827" y="1076"/>
+                        <monster_list>
+                            <monster id="monster_bull" quantity="1"/>
+                        </monster_list>
+                    </monster_creator>
+                </monster_factory>
+     
+                
+            </monster_factory_list>
+            <item_creator_list>
+                
+                <item_creator max="100" delay_min="0.01" delay_max="0.02">
+                    <begin_position x="0" y="0"/>
+                    <end_position x="8000" y="2000"/>
+                    <item_list>
+                        <item id="coin2" chance="100"/>
+                        
+                    </item_list>
+                </item_creator>
+                           </item_creator_list>
+            
+        </wave>
     </wave_list>
 </map>

@@ -19,18 +19,26 @@
 #include "MonsterLoader.h"
 #include "XMLMonsterParser.h"
 #include "TowerLoader.h"
+#include "EffectManager.h"
+#include "GameObjectManager.h"
+#include "ScheduleManager.h"
 
+USING_NS_CC;
 
-class GameManager
+class GameManager: public CCNode
 {
+private:
+    CC_SYNTHESIZE(GameHolder, gameplayHolder, GameplayHolder);
+protected:
 public:
     GameManager();
     ~GameManager();
+    
     bool loadResource();
     bool loadData();
-    static GameManager* getInstance();
+    void initManager();
     
-    CC_SYNTHESIZE(GameHolder, gameplayHolder, GameplayHolder);
+    static GameManager* getInstance();
     
 };
 

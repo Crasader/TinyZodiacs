@@ -31,6 +31,7 @@
 #include "EffectFactory.h"
 #include "ItemCreator.h"
 #include "ItemCreatorDTO.h"
+#include "MainCrystal.h"
 
 #define TAG_BODY "body"
 #define TAG_ANIMATION "animation"

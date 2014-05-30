@@ -69,15 +69,7 @@ bool GameMenuLayer::init()
 
 void GameMenuLayer::update(float dt)
 {
-    if(this->getParent()->getChildByTag(3)!=NULL)
-    {
-        label->setString(((GameObjectLayer*)this->getParent()->getChildByTag(3))->text->getCString());
-        
-    }
-    
-    
-    
-}
+   }
 
 
 void GameMenuLayer::touchBegan(void* sender ,CCSet* pTouches, CCEvent* event)
@@ -176,7 +168,30 @@ bool GameMenuLayer::receiveCommand(CommandID commandID, void* data)
             monsterCount->setString(CCString::createWithFormat("%d",*count)->getCString());
         }
             break;
+        case DISPLAY_NEW_WAVE:
+        {
+            int* waveNumber = static_cast<int*>(data);
             
+            CCSize size = CCDirector::sharedDirector()->getWinSize();
+            
+            CCLabelTTF* labelStyle = CCLabelTTF::create("", "Marker Felt", 150);
+            labelStyle->setOpacity(100);
+            
+            TextShowEffect* effect = TextShowEffect::create();
+            effect->setContent(CCString::createWithFormat("Wave %d", *waveNumber)->getCString());
+            effect->setLabelStyle(labelStyle);
+            
+            EffectManager::getInstance()->runEffect(effect, ccp(size.width/2, size.height/2),this);
+            
+            delete waveNumber;
+        }
+            break;
+        case DISPLAY_WORLD_COORDINATE:
+        {
+            CCPoint* point = static_cast<CCPoint*>(data);
+         
+            label->setString(CCString::createWithFormat("%f - %f",point->x,point->y)->getCString());
+        }
             
         default:
             break;

@@ -14,6 +14,8 @@
 #include "iUIObjectTouchInterface.h"
 #include "Controller.h"
 #include "ControllerLayer.h"
+#include "TextShowEffect.h"
+#include "EffectManager.h"
 
 
 

@@ -84,4 +84,11 @@ bool GameManager::loadData()
     return true;
 }
 
+void GameManager::initManager()
+{
+    this->addChild(ScheduleManager::getInstance());
+    this->addChild(GameObjectManager::getInstance());
+    this->addChild(EffectManager::getInstance());
+}
+
 

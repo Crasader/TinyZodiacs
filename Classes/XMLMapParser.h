@@ -78,6 +78,7 @@
 #define TAG_MONSTER_FACTORY_LIST "monster_factory_list"
 #define TAG_MONSTER_FACTORY "monster_factory"
 #define ATTRIBUTE_MONSTER_FACTORY_GROUP "group"
+#define ATTRIBUTE_MONSTER_FACTORY_MAX "max"
 #define TAG_MONSTER_CREATOR "monster_creator"
 #define ATTRIBUTE_MONSTER_CREATOR_DELAY_PER_UNIT "delay_per_unit"
 #define ATTRIBUTE_MONSTER_CREATOR_DELAY "delay"

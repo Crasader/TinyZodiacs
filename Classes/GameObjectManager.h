@@ -33,6 +33,7 @@ public:
     void addObjectRemoved(GameObject* object);
     void addGameObject(GameObject* object);
     void removeGameObject(GameObject* object);
+    void removeAllGameObject();
     
     void BeginContact(b2Contact *contact);
     void EndContact(b2Contact *contact);

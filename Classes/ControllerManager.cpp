@@ -117,7 +117,6 @@ bool ControllerManager::registerController(ControllerID controllerID, Controller
     return true;
 }
 
-
 //bool ControllerManager::registerController(const char* controllerID1, const char* controllerID2)
 //{
 //    map<string, Controller*>::iterator it1 = listController.find(controllerID1);

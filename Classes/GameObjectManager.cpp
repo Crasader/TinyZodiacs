@@ -84,6 +84,16 @@ void GameObjectManager::removeGameObject(GameObject* object)
     }
 }
 
+void GameObjectManager::removeAllGameObject()
+{
+    CCObject* object = NULL;
+    CCARRAY_FOREACH(this->listGameObject, object)
+    {
+        ((GameObject*)object)->destroy();
+    }
+}
+
+
 void GameObjectManager::BeginContact(b2Contact *contact)
 {
     
