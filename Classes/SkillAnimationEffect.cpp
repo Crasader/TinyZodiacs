@@ -66,7 +66,7 @@ void SkillAnimationEffect::stop()
 {
     AnimationEffect::stop();
   
-    if(this->action != NULL && this->action->isDone() == false)
+    if(this->action != NULL && this->action->isDone() == false && this->isFiniteAction == true)
     {
         this->sprite->stopAction(this->action);
     }

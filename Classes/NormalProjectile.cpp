@@ -19,7 +19,7 @@
 
 NormalProjectile::NormalProjectile()
 {
-//    this->holder = NULL;
+    //    this->holder = NULL;
     this->lifeTimeScheduled = NULL;
     this->group = NEUTRAL;
 }
@@ -39,7 +39,7 @@ void NormalProjectile::setData(NormalShootingSkillData data, GameObject* holder)
     if(holder != NULL && holder->getBody() != NULL)
     {
         this->data = data;
-//        this->holder = holder;
+        //        this->holder = holder;
         this->group = holder->getGroup();
         
         //Create body
@@ -67,7 +67,6 @@ void NormalProjectile::setData(NormalShootingSkillData data, GameObject* holder)
             pData->data = this;
             f->SetUserData(pData);
         }
-//        body->SetUserData(pData);
         
         //
         this->sprite = CCSprite::create();
@@ -90,27 +89,22 @@ void NormalProjectile::setData(NormalShootingSkillData data, GameObject* holder)
         }
         //schedule life time
         this->lifeTimeScheduled = ScheduleManager::getInstance()->scheduleForGameObject(this, this->data.getLifeTime());
+        this->lifeTimeScheduled->retain();
         //
     }
     else
     {
-//        ScheduleManager::getInstance()->stopScheduledObjectAction(this->lifeTimeScheduled);
         GameObjectManager::getInstance()->addObjectRemoved(this);
         GameObjectManager::getInstance()->removeGameObject(this);
-//        collector->removeObject(this);
     }
 }
 
 NormalProjectile::~NormalProjectile()
 {
-    //    CC_SAFE_RELEASE_NULL(this->lifeTimeScheduled);
-    //    this->collector->removeObject(this);
-    //    CC_SAFE_RELEASE_NULL(this->sprite);
     if(body!=NULL)
     {
         this->body->SetActive(false);
     }
-    
 }
 
 b2Vec2 NormalProjectile::getStartPosition(GameObject* holder, b2Body* me)
@@ -139,10 +133,6 @@ b2Vec2 NormalProjectile::getStartPosition(GameObject* holder, b2Body* me)
     tempA.x = holder_join_type;
     b2Vec2 anchorA = getGlobalBodyStartPosition(holder->getBody(), tempA);
     b2AABB thisBoudningBox = Util::getBodyBoundingBoxDynamic(body);
-    
-    //    CCLOG("%f-%f-%f-%f",thisBoudningBox.lowerBound.x,thisBoudningBox.lowerBound.y,thisBoudningBox.upperBound.x,thisBoudningBox.upperBound.y);
-    
-    
     if(this->data.getJointDefA().x == JOINT_REAR && this->data.getJointDefB().x == JOINT_REAR)
     {
         if(holder->getDirection() == LEFT)
@@ -217,15 +207,6 @@ void NormalProjectile::update(float dt)
 
 void NormalProjectile::checkCollisionDataInBeginContact(PhysicData* holderData, PhysicData* collisionData, b2Contact *contact)
 {
-//    PhysicData* otherData;
-//    if(isSideA)
-//    {
-//        otherData = (PhysicData* )contact->GetFixtureB()->GetBody()->GetUserData();
-//    }
-//    else
-//    {
-//        otherData = (PhysicData* )contact->GetFixtureA()->GetBody()->GetUserData();
-//    }
     if(collisionData == NULL /*|| otherData->Data == this->holder*/)
     {
         return;
@@ -268,102 +249,57 @@ void NormalProjectile::checkCollisionDataInBeginContact(PhysicData* holderData, 
 
 void NormalProjectile::checkCollisionDataInEndContact(PhysicData* holderData, PhysicData* collisionData, b2Contact *contact)
 {
-//    PhysicData* otherData;
-//    if(isSideA)
-//    {
-//        otherData = (PhysicData* )contact->GetFixtureB()->GetBody()->GetUserData();
-//    }
-//    else
-//    {
-//        otherData = (PhysicData* )contact->GetFixtureA()->GetBody()->GetUserData();
-//    }
-//    //
-//    if(otherData == NULL)
-//    {
-//        return;
-//    }
-//    
-//    switch (otherData->Id)
-//    {
-//        case CHARACTER_BODY:
-//        {
-//            Character* character = (Character*)otherData->Data;
-//            if(character != holder)
-//            {
-//                if(character->getGroup() == this->holder->getGroup())
-//                {
-//                    // CCLOG("Allie end");
-//                }
-//                else
-//                {
-//                    //  CCLOG("Enemy end");
-//                }
-//            }
-//            break;
-//        }
-//        default:
-//            break;
-//    }
     
 }
 
 void NormalProjectile::remove()
 {
-    ScheduleManager::getInstance()->stopScheduledObjectAction(this->lifeTimeScheduled);
-    //    this->lifeTimeScheduled->stop();
-    //    GameObjectManager::getInstance()->addObject((GameObject*)this);
-    //    if(this->sprite != NULL)
-    //    {
-    //        this->sprite->getParent()->removeChild(this->getSprite());
-    //        CC_SAFE_RELEASE_NULL(this->sprite);
-    //    }
-    //    this->release();
-    //  CC_SAFE_RELEASE_NULL(this->lifeTimeScheduled);
+    if(this->lifeTimeScheduled != NULL)
+    {
+        if(this->lifeTimeScheduled->isDone() == false)
+        {
+            ScheduleManager::getInstance()->stopScheduledObjectAction(this->lifeTimeScheduled);
+        }
+        this->lifeTimeScheduled->release();
+        this->lifeTimeScheduled= NULL;
+    }
+    
     GameObjectManager::getInstance()->addObjectRemoved(this);
     GameObjectManager::getInstance()->removeGameObject(this);
-//    this->collector->removeObject(this);
-    //     this -> release();
-    
 }
 
 void NormalProjectile::excuteScheduledFunction(CCObject* pSender, void *object)
 {
-    //    GameObjectManager::getInstance()->addObject((GameObject*)object);
-    //    if(this->sprite)
-    //    {
-    //        ((GameObject*)object)->getSprite()->getParent()->removeChild(((GameObject*)object)->getSprite());
-    //    }
-    //    this -> release();
     if(object != NULL)
     {
-    GameObjectManager::getInstance()->addObjectRemoved((GameObject*)object);
-    GameObjectManager::getInstance()->removeGameObject(this);
-//    if(this->collector != NULL)
-//    {
-//        this->collector->removeObject((CCObject*)object);
-//    }
+        if(this->lifeTimeScheduled != NULL)
+        {
+            this->lifeTimeScheduled->release();
+            this->lifeTimeScheduled = NULL;
+        }
+        
+        GameObjectManager::getInstance()->addObjectRemoved((GameObject*)object);
+        GameObjectManager::getInstance()->removeGameObject(this);
     }
-    //     this -> release();
-    
 }
 
 void NormalProjectile::setGroup(uint16 group)
 {
     if(this->body!=NULL)
     {
-    for (b2Fixture* f = this->body->GetFixtureList(); f; f = f->GetNext())
-    {
-        if(f != NULL)
+        for (b2Fixture* f = this->body->GetFixtureList(); f; f = f->GetNext())
         {
-            Util::setFixtureGroup(f, group);
-            if(this->data.getTerrainCollide() == true)
+            if(f != NULL)
             {
-                b2Filter filter = f->GetFilterData();
-                filter.maskBits = filter.maskBits | GROUP_TERRAIN;
-                f->SetFilterData(filter);
+                Util::setFixtureGroup(f, group);
+                if(this->data.getTerrainCollide() == true)
+                {
+                    b2Filter filter = f->GetFilterData();
+                    filter.maskBits = filter.maskBits | GROUP_TERRAIN;
+                    f->SetFilterData(filter);
+                }
             }
         }
-    }
     }
 }
 
