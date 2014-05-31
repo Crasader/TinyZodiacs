@@ -206,6 +206,8 @@
         <tower type="main" id="tower1" group="A" >
             <position x="294" y="920"/>
               </tower>
+        <!--
+
         <tower id="tower1" group="B" >
             <position x="600" y="920"/>
 
@@ -228,6 +230,7 @@
         <tower id="tower2" group="B" >
             <position x="4228" y="1378"/>
         </tower>
+         -->
     </tower_list>
     <monster_factory_list>
 

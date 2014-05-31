@@ -10,7 +10,7 @@
     <jump_height>10</jump_height>
     <sensor_body>creep_1_sensor</sensor_body>
 
-    <skill_0>monster_normal_attack</skill_0>
+    <skill_0>self_explosion</skill_0>
 
     
     <item_list>

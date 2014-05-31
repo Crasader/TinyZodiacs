@@ -214,10 +214,10 @@ void GameWorld::update(float dt)
 
 void GameWorld::draw()
 {
-//    ccGLEnableVertexAttribs( kCCVertexAttribFlag_Position );
-//    kmGLPushMatrix();
-//    world->DrawDebugData();
-//    kmGLPopMatrix();
+    ccGLEnableVertexAttribs( kCCVertexAttribFlag_Position );
+    kmGLPushMatrix();
+    world->DrawDebugData();
+    kmGLPopMatrix();
 }
 
 void GameWorld::setCameraFollowGroup(GameGroup* group)

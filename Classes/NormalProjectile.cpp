@@ -71,7 +71,7 @@ void NormalProjectile::setData(NormalShootingSkillData data, GameObject* holder)
         //
         this->sprite = CCSprite::create();
         //
-        this->data.getAnimation()->getAnimation()->setLoops(INFINITY);
+//        this->data.getAnimation()->getAnimation()->setLoops(INFINITY);
         CCAnimate* action = CCAnimate::create(this->data.getAnimation()->getAnimation());
         this->sprite->runAction(action);
         //

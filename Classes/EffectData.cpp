@@ -46,13 +46,14 @@ EffectData::~EffectData()
 EffectData EffectData::clone()
 {
     EffectData effectData;
-    effectData.setAnimationId(this->animationId);
-    effectData.setAnimationLayerIndex(this->animationLayerIndex);
-    effectData.setMinRotateAngle(this->minRotateAngle);
-    effectData.setMaxRotateAngle(this->maxRotateAngle);
-    effectData.setMinScale(this->minScale);
-    effectData.setMaxScale(this->maxScale);
-    effectData.setRepeatTimes(this->repeatTimes);
+//    effectData.setAnimationId(this->animationId);
+//    effectData.setAnimationLayerIndex(this->animationLayerIndex);
+//    effectData.setMinRotateAngle(this->minRotateAngle);
+//    effectData.setMaxRotateAngle(this->maxRotateAngle);
+//    effectData.setMinScale(this->minScale);
+//    effectData.setMaxScale(this->maxScale);
+//    effectData.setRepeatTimes(this->repeatTimes);
+    effectData.setAnimationData(this->animationData);
     effectData.setJointDefA(this->jointDefA);
     effectData.setJointDefB(this->jointDefB);
     

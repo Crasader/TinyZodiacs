@@ -33,6 +33,7 @@ public:
     CC_SYNTHESIZE(SkillTarget, target, Target)
     CC_SYNTHESIZE(vector<EffectData>, listEnemyEffect, ListEnemyEffect);
     CC_SYNTHESIZE(vector<EffectData>, listAlliesEffect, ListAlliesEffect);
+    CC_SYNTHESIZE(vector<EffectData>, listSelfEffect, ListSelfEffect);
     
     void releaseEffectLists();
     virtual void clone();

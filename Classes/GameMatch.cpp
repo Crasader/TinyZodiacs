@@ -56,7 +56,7 @@ void GameMatch::updateToCheckMatch()
         CCLOG("%d,%d",a,b);
         if(b-a < 0)
         {
-            assert(0);
+//            assert(0);
         }
         vector<int>* arr = new vector<int>();
         arr->push_back(a);

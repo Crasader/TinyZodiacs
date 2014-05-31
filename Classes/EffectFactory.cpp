@@ -10,6 +10,8 @@
 
 #include "XMLHelper.h"
 #include "LayerIndexConstants.h"
+#include "AnimationData.h"
+#include "XMLAnimationDataParser.h"
 
 using namespace tinyxml2;
 
@@ -53,14 +55,15 @@ EffectData* EffectFactory::loadXMLFile(const char* key, const char *xmlFileName)
     if(result != NULL)
     {
         data = new EffectData();
-        data->setAnimationId(readAnimationId(result->FirstChildElement(TAG_ANIMATION_ID)));
-        data->setAnimationLayerIndex(readAnimationLayerIndex(result->FirstChildElement(TAG_ANIMATION_ID)));
-        data->setMinRotateAngle(readMinRotation(result->FirstChildElement(TAG_ANIMATION_ID)));
-        data->setMaxRotateAngle(readMaxRotation(result->FirstChildElement(TAG_ANIMATION_ID)));
-        data->setMinScale(readMinScale(result->FirstChildElement(TAG_ANIMATION_ID)));
-        data->setMaxScale(readMaxScale(result->FirstChildElement(TAG_ANIMATION_ID)));
-        data->setRepeatTimes(readRepeatTimes(result->FirstChildElement(TAG_ANIMATION_ID)));
-
+//        data->setAnimationId(readAnimationId(result->FirstChildElement(TAG_ANIMATION_ID)));
+//        data->setAnimationLayerIndex(readAnimationLayerIndex(result->FirstChildElement(TAG_ANIMATION_ID)));
+//        data->setMinRotateAngle(readMinRotation(result->FirstChildElement(TAG_ANIMATION_ID)));
+//        data->setMaxRotateAngle(readMaxRotation(result->FirstChildElement(TAG_ANIMATION_ID)));
+//        data->setMinScale(readMinScale(result->FirstChildElement(TAG_ANIMATION_ID)));
+//        data->setMaxScale(readMaxScale(result->FirstChildElement(TAG_ANIMATION_ID)));
+//        data->setRepeatTimes(readRepeatTimes(result->FirstChildElement(TAG_ANIMATION_ID)));
+        AnimationData animData = XMLAnimationDataParser::parseData(result);
+        data->setAnimationData(animData);
 //        CCLOG("%s - %d - %f - %f- %f - %f - %d",data->getAnimationId().c_str(), data->getAnimationLayerIndex(),data->getMinRotateAngle(), data->getMaxRotateAngle(), data->getMinScale(),data->getMaxScale(),data->getRepeatTimes());
         
         if(result->FirstChildElement(TAG_JOINTS) != NULL)

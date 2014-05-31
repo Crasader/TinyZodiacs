@@ -198,6 +198,7 @@
 		340DE0B5192C9EB50056D51E /* EffectManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 340DE0B3192C9EB50056D51E /* EffectManager.cpp */; };
 		3412551318DAA44900D9FBA6 /* NormalProjectile.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3412551118DAA44900D9FBA6 /* NormalProjectile.cpp */; };
 		3414166218DC23A0007B8C2B /* GameObjectManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3414166018DC23A0007B8C2B /* GameObjectManager.cpp */; };
+		34315E51193972430058D433 /* AnimationData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 34315E4F193972430058D433 /* AnimationData.cpp */; };
 		343187051936F20E00D0D683 /* HoldableUIButton.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 343187011936F20E00D0D683 /* HoldableUIButton.cpp */; };
 		343187061936F20E00D0D683 /* MultitouchTouchGroup.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 343187021936F20E00D0D683 /* MultitouchTouchGroup.cpp */; };
 		343187091936F22000D0D683 /* AbstractScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 343187081936F22000D0D683 /* AbstractScene.cpp */; };
@@ -211,6 +212,7 @@
 		343D9A4C19134163003F5DE4 /* GameWorld.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 343D9A4B19134163003F5DE4 /* GameWorld.cpp */; };
 		343D9A5219134A52003F5DE4 /* Effect.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 343D9A5119134A52003F5DE4 /* Effect.cpp */; };
 		345F6B5318E2C71F00985A7A /* ScheduleManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 345F6B5118E2C71F00985A7A /* ScheduleManager.cpp */; };
+		346701F5193978BF00CC4E2B /* XMLAnimationDataParser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 346701F3193978BF00CC4E2B /* XMLAnimationDataParser.cpp */; };
 		3486802618D93B82001692BB /* AbstractSkill.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3486802418D93B82001692BB /* AbstractSkill.cpp */; };
 		3486802918D95FB2001692BB /* NormalShootingAttack.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3486802718D95FB2001692BB /* NormalShootingAttack.cpp */; };
 		3486802C18D97940001692BB /* SkillData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3486802A18D97940001692BB /* SkillData.cpp */; };
@@ -380,10 +382,7 @@
 		F5779C6E18E56CF10044D5CD /* healthbar_foreground_red.png in Resources */ = {isa = PBXBuildFile; fileRef = F5779C6B18E56CF10044D5CD /* healthbar_foreground_red.png */; };
 		F5779C6F18E56CF10044D5CD /* healthbar_background.png in Resources */ = {isa = PBXBuildFile; fileRef = F5779C6C18E56CF10044D5CD /* healthbar_background.png */; };
 		F58E78CE1924770E00091875 /* GameObjectViewContainer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F58E78CC1924770E00091875 /* GameObjectViewContainer.cpp */; };
-
 		F58ED4CB19383DA200488E69 /* MonsterBoss.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F58ED4C919383DA200488E69 /* MonsterBoss.cpp */; };
-		F59E0BDC18D85E90001048BD /* NormalAttack.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F59E0BDA18D85E8F001048BD /* NormalAttack.cpp */; };
-
 		F5A46B26190508A900A8FF55 /* SensorObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F5A46B24190508A900A8FF55 /* SensorObject.cpp */; };
 		F5AE36A91906799900FB7519 /* SensorObjectDTO.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F5AE36A71906799900FB7519 /* SensorObjectDTO.cpp */; };
 		F5B4286A19173597002DC13B /* HeroDTO.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F5B4286819173597002DC13B /* HeroDTO.cpp */; };
@@ -835,6 +834,8 @@
 		3412551218DAA44900D9FBA6 /* NormalProjectile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NormalProjectile.h; path = ../Classes/NormalProjectile.h; sourceTree = "<group>"; };
 		3414166018DC23A0007B8C2B /* GameObjectManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameObjectManager.cpp; sourceTree = "<group>"; };
 		3414166118DC23A0007B8C2B /* GameObjectManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameObjectManager.h; sourceTree = "<group>"; };
+		34315E4F193972430058D433 /* AnimationData.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = AnimationData.cpp; path = ../Classes/AnimationData.cpp; sourceTree = "<group>"; };
+		34315E50193972430058D433 /* AnimationData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AnimationData.h; path = ../Classes/AnimationData.h; sourceTree = "<group>"; };
 		343187011936F20E00D0D683 /* HoldableUIButton.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = HoldableUIButton.cpp; sourceTree = "<group>"; };
 		343187021936F20E00D0D683 /* MultitouchTouchGroup.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MultitouchTouchGroup.cpp; sourceTree = "<group>"; };
 		343187031936F20E00D0D683 /* MultitouchTouchGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MultitouchTouchGroup.h; sourceTree = "<group>"; };
@@ -855,6 +856,8 @@
 		343D9A5119134A52003F5DE4 /* Effect.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Effect.cpp; sourceTree = "<group>"; };
 		345F6B5118E2C71F00985A7A /* ScheduleManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ScheduleManager.cpp; sourceTree = "<group>"; };
 		345F6B5218E2C71F00985A7A /* ScheduleManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScheduleManager.h; sourceTree = "<group>"; };
+		346701F3193978BF00CC4E2B /* XMLAnimationDataParser.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = XMLAnimationDataParser.cpp; path = ../Classes/XMLAnimationDataParser.cpp; sourceTree = "<group>"; };
+		346701F4193978BF00CC4E2B /* XMLAnimationDataParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XMLAnimationDataParser.h; path = ../Classes/XMLAnimationDataParser.h; sourceTree = "<group>"; };
 		3486802418D93B82001692BB /* AbstractSkill.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = AbstractSkill.cpp; path = ../Classes/AbstractSkill.cpp; sourceTree = "<group>"; };
 		3486802518D93B82001692BB /* AbstractSkill.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AbstractSkill.h; path = ../Classes/AbstractSkill.h; sourceTree = "<group>"; };
 		3486802718D95FB2001692BB /* NormalShootingAttack.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = NormalShootingAttack.cpp; path = ../Classes/NormalShootingAttack.cpp; sourceTree = "<group>"; };
@@ -1161,11 +1164,8 @@
 		F5779C6C18E56CF10044D5CD /* healthbar_background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = healthbar_background.png; sourceTree = "<group>"; };
 		F58E78CC1924770E00091875 /* GameObjectViewContainer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameObjectViewContainer.cpp; sourceTree = "<group>"; };
 		F58E78CD1924770E00091875 /* GameObjectViewContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameObjectViewContainer.h; sourceTree = "<group>"; };
-
 		F58ED4C919383DA200488E69 /* MonsterBoss.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MonsterBoss.cpp; sourceTree = "<group>"; };
 		F58ED4CA19383DA200488E69 /* MonsterBoss.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MonsterBoss.h; sourceTree = "<group>"; };
-		F59E0BDA18D85E8F001048BD /* NormalAttack.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = NormalAttack.cpp; sourceTree = "<group>"; };
-
 		F59E0BDB18D85E90001048BD /* NormalAttack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NormalAttack.h; sourceTree = "<group>"; };
 		F5A46B24190508A900A8FF55 /* SensorObject.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SensorObject.cpp; sourceTree = "<group>"; };
 		F5A46B25190508A900A8FF55 /* SensorObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SensorObject.h; sourceTree = "<group>"; };
@@ -2626,6 +2626,8 @@
 				34EED02118E50E5D001AFFC9 /* NormalMeleeSkillData.h */,
 				34B1273118EF9619005DAF04 /* NormalShootingSkillData.cpp */,
 				34B1273218EF9619005DAF04 /* NormalShootingSkillData.h */,
+				34315E4F193972430058D433 /* AnimationData.cpp */,
+				34315E50193972430058D433 /* AnimationData.h */,
 			);
 			name = Data;
 			sourceTree = "<group>";
@@ -2790,6 +2792,8 @@
 				F558161219176AD800A1CCB2 /* XMLMonsterParser.h */,
 				F5CCA7A5191B6276002A7F2A /* XMLItemParser.cpp */,
 				F5CCA7A6191B6276002A7F2A /* XMLItemParser.h */,
+				346701F3193978BF00CC4E2B /* XMLAnimationDataParser.cpp */,
+				346701F4193978BF00CC4E2B /* XMLAnimationDataParser.h */,
 			);
 			name = "XML Parser";
 			sourceTree = "<group>";
@@ -3370,6 +3374,7 @@
 				F5B4286D191735AC002DC13B /* MonsterDTO.cpp in Sources */,
 				1A8F3B71175E05DA00049216 /* Atlas.cpp in Sources */,
 				1A8F3B72175E05DA00049216 /* AtlasAttachmentLoader.cpp in Sources */,
+				34315E51193972430058D433 /* AnimationData.cpp in Sources */,
 				1A8F3B73175E05DA00049216 /* Attachment.cpp in Sources */,
 				F5B4B79418E66E8700E4C2AA /* GameObjectView.cpp in Sources */,
 				34EED02218E50E5D001AFFC9 /* NormalMeleeSkillData.cpp in Sources */,
@@ -3417,6 +3422,7 @@
 				379BB9A417F03F3700829B88 /* CCSkin.cpp in Sources */,
 				379BB9A517F03F3700829B88 /* CCColliderDetector.cpp in Sources */,
 				F54AE9FC18D2F4A100194E66 /* TestScene.cpp in Sources */,
+				346701F5193978BF00CC4E2B /* XMLAnimationDataParser.cpp in Sources */,
 				F5B4286A19173597002DC13B /* HeroDTO.cpp in Sources */,
 				379BB9A617F03F3700829B88 /* CCArmatureDataManager.cpp in Sources */,
 				379BB9A717F03F3700829B88 /* CCArmatureDefine.cpp in Sources */,
@@ -3432,7 +3438,6 @@
 				F54AEA0D18D2F50300194E66 /* PhysicData.cpp in Sources */,
 				379BB9AC17F03F3700829B88 /* CCUtilMath.cpp in Sources */,
 				F5CFE1541937115D00CC8A94 /* TextShowEffect.cpp in Sources */,
-				F54AE9F018D2F38100194E66 /* GamePlayButton.cpp in Sources */,
 				34E614F519133F5E006D933E /* MapDTO.cpp in Sources */,
 				F54AE9F818D2F3F800194E66 /* GLES-Render.cpp in Sources */,
 				379BB9AD17F03F3700829B88 /* CCComAttribute.cpp in Sources */,

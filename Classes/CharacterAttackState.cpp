@@ -30,7 +30,7 @@ bool CharacterAttackState::onEnterState()
     
     this->action = CCSequence::create(arr);
     this->action->retain();
-    this->character->getSprite()->runAction( this->action);
+    this->character->getSprite()->runAction(this->action);
     
     //Excute attack
     this->skill->excute();
@@ -39,7 +39,7 @@ bool CharacterAttackState::onEnterState()
 
 bool CharacterAttackState::onExitState()
 {
-      this->skill->stop();
+    this->skill->stop();
     stopAction();
     return true;
 }
