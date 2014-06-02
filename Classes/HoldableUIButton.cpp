@@ -72,7 +72,7 @@ void HoldableUIButton::update(float dt)
             this->setFocused(false);
         }
     }
-    //    CCLOG("%s - %d",this->getName(),this->isActive);
+    CCLOG("%s - %d",this->getName(),this->listTouchedPoint->count());
 }
 
 bool HoldableUIButton::onTouchBegan(CCTouch *touch, CCEvent *unused_event)
@@ -102,6 +102,10 @@ void HoldableUIButton::onTouchMoved(CCTouch *touch, CCEvent *unused_event)
         {
             this->onTouchBegan(touch, unused_event);
         }
+    }
+    else
+    {
+        listTouchedPoint->removeObject(touch);
     }
     //cocos2d::gui::UIButton::onTouchMoved(touch,unused_event);
 }
