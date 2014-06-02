@@ -121,7 +121,10 @@ void GameObject::setPositionInPixel(const cocos2d::CCPoint &pos)
 
 void GameObject::attachSpriteTo(CCNode* node)
 {
+    if(this->gameObjectView != NULL)
+    {
     node->addChild(this->gameObjectView,GAME_OBJECT_VIEW);
+    }
 }
 
 CCPoint GameObject::getPositionInPixel()

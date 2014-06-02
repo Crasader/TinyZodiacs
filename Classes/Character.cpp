@@ -546,12 +546,10 @@ void Character::destroy()
     {
         normalAttack->destroy();
     }
-    
     if(skill1)
     {
         skill1->destroy();
     }
-
     if(skill2)
     {
         skill2->destroy();

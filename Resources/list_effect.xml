@@ -155,26 +155,6 @@
         <life_time>0</life_time>
         <time_tick>0</time_tick>
     </effect>
-    <effect id="explosion_effect">
-        <animation animation_layer="4" minRotateAngle ="-90" maxRotateAngle="90" minScale="0.75" maxScale="1" repeatTimes="1">effect1-slash</animation>
-        <joints>
-            <holder x="0" y="0" offsetX="0" offsetY="0"></holder>
-            <this x="0" y="0" offsetX="0" offsetY="0"></this>
-        </joints>
-		<chance>100</chance>
-        <crit_chance>1</crit_chance>
-        <crit>1.5</crit>
-        
-        <hp>-500</hp>
-        <atk>0</atk>
-        <def>0</def>
-        <speed>0</speed>
-        <atk_speed>0</atk_speed>
-        <max_jump>0</max_jump>
-        <jump_height>0</jump_height>
-        
-        <life_time>0</life_time>
-        <time_tick>0</time_tick>
-    </effect>
+
 
 </list_effect>

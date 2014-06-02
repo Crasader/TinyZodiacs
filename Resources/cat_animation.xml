@@ -64,16 +64,11 @@
     <animation name="skill" delay="0.1" loop="1">
         <origin x="0.5" y="0.5" />
         <framelist>
-            <frame name="monkey_skill_1.png" />
-            <frame name="monkey_skill_2.png" />
-            <frame name="monkey_skill_3.png" />
-            <frame name="monkey_skill_4.png" />
-            <frame name="monkey_skill_5.png" />
-            <frame name="monkey_skill_6.png" />
-            <frame name="monkey_skill_7.png" />
-        	<frame name="monkey_skill_8.png" />
-       	 	<frame name="monkey_skill_9.png" />
-       		<frame name="monkey_skill_10.png"/>
+            <frame name="cat_attack_1.png" />
+            <frame name="cat_attack_2.png" />
+            <frame name="cat_attack_3.png" />
+            <frame name="cat_attack_4.png" />
+            <frame name="cat_attack_5.png" />
         
          </framelist>
 

@@ -218,17 +218,17 @@ void Affect::setData(EffectData effectData)
     
     this->lifeTime = effectData.getLifeTime();
     this->timeTick = effectData.gettimeTick();
-    this->animationLayerIndex = effectData.getAnimationData().getAnimationLayerIndex();
+    this->animationLayerIndex = effectData.getAnimationLayerIndex();
     
-    if(effectData.getAnimationData().getAnimationId() != "")
+    if(effectData.getAnimationId() != "")
     {
         this->animation = SkillAnimationEffect::create();
         this->animation->retain();
-        this->animation->setAnimation(effectData.getAnimationData().getAnimationId().c_str(), effectData.getAnimationData().getMinRotateAngle(), effectData.getAnimationData().getMaxRotateAngle(), effectData.getAnimationData().getMinScale(), effectData.getAnimationData().getMaxScale(), effectData.getAnimationData().getRepeatTimes(), CCPoint(0, 0));
+        this->animation->setAnimation(effectData.getAnimationId().c_str(), effectData.getMinRotateAngle(), effectData.getMaxRotateAngle(), effectData.getMinScale(), effectData.getMaxScale(), effectData.getRepeatTimes(), CCPoint(0, 0));
         
-        if(effectData.getAnimationData().getRepeatTimes() <= 0)
+        if(effectData.getRepeatTimes() <= 0)
         {
-            int repeatTime = effectData.getAnimationData().getRepeatTimes();
+            int repeatTime = effectData.getRepeatTimes();
             repeatTime = effectData.getLifeTime() / ((SkillAnimationEffect*)this->animation)->getAnimationDuration();
             this->animation->setRepeatTimes(repeatTime);
             this->animation->setIsFiniteAction(false);

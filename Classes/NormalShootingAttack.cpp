@@ -128,8 +128,6 @@ void NormalShootingAttack::excuteImmediately()
         NormalShootingSkillData calculatedSkillData = this->data;
         calculateSkillData(&calculatedSkillData, this->holder);
         
-        Util::applyEffectFromList(this->data.getListSelfEffect(), this->holder);
-        
         NormalProjectile* proj = NormalProjectile::create();
         proj->setData(calculatedSkillData, this->holder);
         proj->setGroup(GROUP_SKILL_DEFAULT);

@@ -62,7 +62,6 @@ Hero* ObjectFactory::createHero(HeroDTO* heroDTO, b2World* world, bool isLocal)
     hero->setNormalAttack(SkillFactory::createSkill(heroDTO->data.getSkill0().c_str(), world, hero, isLocal, SKILL_0_BTN));
     hero->setSkill1(SkillFactory::createSkill(heroDTO->data.getSkill1().c_str(), world, hero, isLocal, SKILL_1_BTN));
     hero->setSkill2(SkillFactory::createSkill(heroDTO->data.getSkill2().c_str(), world, hero, isLocal, SKILL_2_BTN));
-    CCLOG("%d",isLocal);
     hero->setIsControlled(isLocal);
     
     hero->onCreate();
@@ -253,7 +252,7 @@ Tower* ObjectFactory::createTower(TowerStructDTO* towerStructDTO, b2World* world
     }
     else
     {
-       // tower = Tower::create();
+        tower = Tower::create();
         CCLOG("tower");
     }
   

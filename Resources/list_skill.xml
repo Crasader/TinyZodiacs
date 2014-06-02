@@ -44,9 +44,6 @@
             <allies>
                 <effect>cat_healing</effect>
             </allies>
-            <self>
-                <effect>cat_healing</effect>
-            </self>
         </list_effect>
         
         <time_tick>0.5</time_tick>
@@ -191,40 +188,4 @@
             </enemy>
         </list_effect>
 	</skill>
-    
-    <skill id="self_explosion" type="1">
-		<body>monkey_aura</body>
-        <delay>0</delay>
-        <life_time>0.2</life_time>
-		<cool_down>0</cool_down>
-        <joints>
-            <holder x="0" y="0" offsetX="0" offsetY="0"></holder>
-            <this x="0" y="0" offsetX="0" offsetY="0"></this>
-        </joints>
-        <animation>effect-smoke</animation>
-        <animation_layer>4</animation_layer>
-        <texture>
-            <active>normal_meelee_normal.png</active>
-            <deactive>normal_meelee_deactive.png</deactive>
-            <selected>normal_meelee_selected.png</selected>
-        </texture>
-        <list_effect>
-            <enemy>
-                <effect>explosion_effect</effect>
-            </enemy>
-            <self>
-                <effect>explosion_effect</effect>
-            </self>
-        </list_effect>
-        
-        <speed>
-            <x>0</x>
-            <y>0</y>
-        </speed>
-        <gravity_scale>0</gravity_scale>
-        <collide_terrain>4</collide_terrain>
-        <piercing>0</piercing>
-
-	</skill>
-
 </skill_list>

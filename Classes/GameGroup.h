@@ -28,7 +28,7 @@ protected:
 public:
     CC_SYNTHESIZE(Group, group, Group);
     CC_SYNTHESIZE(MonsterFactory*, monsterFactory, MonsterFactory);
-    CC_SYNTHESIZE(Hero*, character, Character);
+//    CC_SYNTHESIZE(Hero*, character, Character);
     CC_SYNTHESIZE(CCArray*, listTower, ListTower);
     
     GameGroup();

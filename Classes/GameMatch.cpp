@@ -26,20 +26,28 @@ bool GameMatch::init()
     this->gameWorld = GameWorld::create();
     this->gameWorld->setMapID("map1");
     this->gameWorld->onCreate();
-    this->addChild(this->gameWorld);
     
+    
+    this->addChild(this->gameWorld);
+    Player* player = Player::create();
+    player->attachWithHero("cat");
+    player->getHero()->attachSpriteTo(this->gameWorld->getMap());
+    
+    this->gameWorld->addPlayer(player);
+    
+ 
+    
+
     this->rule = new Rule1();
     this->schedule(schedule_selector(GameMatch::updateToCheckMatch),1);
     
     
     return true;
 }
-bool s = false;
 
 void GameMatch::update(float dt)
 {
-    
-    
+   
 }
 
 void GameMatch::updateToCheckMatch()
@@ -52,11 +60,10 @@ void GameMatch::updateToCheckMatch()
     {
         int a = ((Wave*)this->gameWorld->getMap()->getListWave()->objectAtIndex(this->currentWave))->getMonsterCountKilled();
         int b = ((Wave*)this->gameWorld->getMap()->getListWave()->objectAtIndex(this->currentWave))->getMonsterCountMax();
-        CCLOG("aaaaa %d", ((Wave*)this->gameWorld->getMap()->getListWave()->objectAtIndex(this->currentWave))->getMonsterCount());
-        CCLOG("%d,%d",a,b);
+
         if(b-a < 0)
         {
-//            assert(0);
+        //    assert(0);
         }
         vector<int>* arr = new vector<int>();
         arr->push_back(a);
@@ -72,17 +79,17 @@ void GameMatch::updateToCheckMatch()
     
     if(this->rule->checkWin())
     {
+
         CCLOG("WIN");
-        assert(0);
+        ControllerManager::getInstance()->sendCommand(HERO_CONTROLLER, DISPLAY_RESULT ,new int(1));
+        
+
     }
     
     if(this->rule->checkLose())
     {
-        //        CCLOG("LOSE");
-        //        assert(0);
-        //        GameObjectManager::getInstance()->removeAllGameObject();
-        //        this->removeChild(this->gameWorld);
-        
+        CCLOG("LOSE");
+        ControllerManager::getInstance()->sendCommand(HERO_CONTROLLER, DISPLAY_RESULT ,new int(0));
     }
     
 }

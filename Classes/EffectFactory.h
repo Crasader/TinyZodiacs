@@ -23,6 +23,7 @@ using namespace tinyxml2;
 #define EFFECT_XML_FILE "list_effect.xml"
 #define TAG_EFFECT "effect"
 
+#define TAG_ANIMATION_ID "animation"
 //#define TAG_ANIMATION_LAYER "animation_layer"
 #define TAG_JOINTS "joints"
 #define TAG_HOLDER "holder"
@@ -49,14 +50,12 @@ using namespace tinyxml2;
 #define ATTRIBUTE_OFFSET_X "offsetX"
 #define ATTRIBUTE_OFFSET_Y "offsetY"
 
-//#define TAG_ANIMATION_ID "animation"
-//
-//#define ATTRIBUTE_ANIMATION_LAYER "animation_layer"
-//#define ATTRIBUTE_MIN_ROTATE_ANGLE "minRotateAngle"
-//#define ATTRIBUTE_MAX_ROTATE_ANGLE "maxRotateAngle"
-//#define ATTRIBUTE_MIN_SCALE "minScale"
-//#define ATTRIBUTE_MAX_SCALE "maxScale"
-//#define ATTRIBUTE_REPEAT_TIMES "repeatTimes"
+#define ATTRIBUTE_ANIMATION_LAYER "animation_layer"
+#define ATTRIBUTE_MIN_ROTATE_ANGLE "minRotateAngle"
+#define ATTRIBUTE_MAX_ROTATE_ANGLE "maxRotateAngle"
+#define ATTRIBUTE_MIN_SCALE "minScale"
+#define ATTRIBUTE_MAX_SCALE "maxScale"
+#define ATTRIBUTE_REPEAT_TIMES "repeatTimes"
 
 
 class EffectFactory

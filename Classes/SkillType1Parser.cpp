@@ -101,7 +101,6 @@ NormalShootingSkillData SkillType1Parser::parse(const XMLElement* root, b2World*
         //        {
         //            CCLOG("%d",data.getListAlliesEffect()->count());
         //        }
-        data.setListSelfEffect(readEffectList(root->FirstChildElement(TAG_LIST_EFFECT)->FirstChildElement(TAG_LIST_EFFECT_SELF)));
     }
 
     return data;

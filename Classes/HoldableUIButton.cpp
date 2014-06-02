@@ -120,7 +120,7 @@ void HoldableUIButton::onTouchEnded(CCTouch *touch, CCEvent *unused_event)
 
 void HoldableUIButton::onTouchCancelled(CCTouch *touch, CCEvent *unused_event)
 {
-//    if(hitTest(touch->getLocation()))
+    if(hitTest(touch->getLocation()))
     {
         listTouchedPoint->removeObject(touch);
     }

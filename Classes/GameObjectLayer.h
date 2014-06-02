@@ -16,10 +16,13 @@
 #include "GameWorld.h"
 #include "CharacterActionEngine.h"
 #include "ControllerManager.h"
+#include "Controller.h"
 
-class GameObjectLayer: public cocos2d::CCLayer
+
+class GameObjectLayer: public cocos2d::CCLayer, public Controller
 {
 public:
+    CCNode* node;
     GameObjectLayer();
     virtual ~GameObjectLayer();
     virtual bool init();
@@ -32,8 +35,11 @@ public:
     
     CC_SYNTHESIZE(CharacterActionEngine*, characterActionEngine, CharacterActionEngine);
     virtual void ccTouchesBegan(CCSet* pTouches, CCEvent* event);
-    
+    virtual void ccTouchesMoved(cocos2d::CCSet *pTouches, cocos2d::CCEvent *event);
     CCString *text;
+    
+    virtual bool receiveCommand(CommandID commandID, void* data);
+    virtual bool removeSubController(Controller* controller);
 
     CREATE_FUNC(GameObjectLayer);
 

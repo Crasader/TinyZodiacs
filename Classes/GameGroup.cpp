@@ -35,11 +35,7 @@ bool GameGroup::init()
 
 void GameGroup::update(float dt)
 {
-    this->character->update(dt);
-  //  this->monsterFactory->update(dt);
-    
-    int* a = new int(this->monsterFactory->getListMonster()->count());
-  
+//    this->character->update(dt);
 }
 
 void GameGroup::joinGame(Group group, b2World* world, Map* map)
@@ -49,12 +45,12 @@ void GameGroup::joinGame(Group group, b2World* world, Map* map)
     this->monsterFactory->setGroup(this->group);
     //CHARACTER
     
-    this->character = ObjectFactory::createHero(DataCollector::getInstance()->getHeroDTOByKey("cat"), world, false);
-    this->character->setPositionInPixel(ccp(2500,500));
-    this->character->setGroup(this->group);
-    
-    this->character->retain();
-    this->character->setGameObjectView(InfoViewCreator::createHeroView(this->character, NULL));
+//    this->character = ObjectFactory::createHero(DataCollector::getInstance()->getHeroDTOByKey("cat"), world, false);
+//    this->character->setPositionInPixel(ccp(2500,500));
+//    this->character->setGroup(this->group);
+//    
+//    this->character->retain();
+//    this->character->setGameObjectView(InfoViewCreator::createHeroView(this->character, NULL));
 
     
     //MONSTER
@@ -112,10 +108,10 @@ void GameGroup::joinGame(Group group, b2World* world, Map* map)
     
     attachSpriteToMap(map);
     
-    if(group == B)
-    {
-        ControllerManager::getInstance()->unregisterController(HERO_CONTROLLER, this->character);
-    }
+//    if(group == B)
+//    {
+//        ControllerManager::getInstance()->unregisterController(HERO_CONTROLLER, this->character);
+//    }
 
     
 }
@@ -123,13 +119,13 @@ void GameGroup::joinGame(Group group, b2World* world, Map* map)
 Character* GameGroup::getFollowingCharacter()
 {
     //  Character* character = static_cast<Character*>(this->monsterFactory->getListMonster()->objectAtIndex(0));
-    Character* character = static_cast<Character*>(this->character);
-    return character;
+//    Character* character = static_cast<Character*>(this->character);
+    return NULL;
 }
 
 Character* GameGroup::getCharacterOfPlayer()
 {
-    return this->character;
+    return NULL;
 }
 
 void GameGroup::createTowers(CCArray* listTowerStructDTO, b2World* world)
@@ -147,7 +143,7 @@ void GameGroup::createTowers(CCArray* listTowerStructDTO, b2World* world)
 
 void GameGroup::attachSpriteToMap(Map* map)
 {
-    character->attachSpriteTo(map);
+//    character->attachSpriteTo(map);
     
     
     //towers

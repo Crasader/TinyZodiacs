@@ -28,6 +28,8 @@ GameWorld::GameWorld()
     this->map = NULL;
     this->group1 = NULL;
     this->group2 = NULL;
+    this->player = NULL;
+    this->cameraFollowAction = NULL;
     
 }
 
@@ -60,10 +62,10 @@ void GameWorld::onCreate()
     gameplayholder.nodeHolder = this->map;
     gameplayholder.worldHolder = this->world;
     GameManager::getInstance()->setGameplayHolder(gameplayholder);
-    
-    this->setCameraFollowGroup(this->group1);
-    
-    
+    //
+    //    this->setCameraFollowGroup(this->group1);
+    //
+    //
     addManager();
     
 }
@@ -106,6 +108,17 @@ void GameWorld::onCreateUnits()
     this->group2 = GameGroup::create();
     this->group2->retain();
     this->group2->joinGame(B, this->world, this->map);
+}
+
+
+void GameWorld::addPlayer(Player* player)
+{
+    if(player != NULL)
+    {
+        this->player = player;
+        this->addChild(player);
+        setCameraFollowNode(this->player->getHero()->getSprite());
+    }
 }
 
 void GameWorld::addManager()
@@ -198,7 +211,7 @@ void GameWorld::setContactListener(b2ContactListener *listener)
         this->world->SetContactListener(listener);
     }
 }
-
+bool sss = false;
 void GameWorld::update(float dt)
 {
     this->map->update(dt);
@@ -207,17 +220,28 @@ void GameWorld::update(float dt)
     
     if(this->world != NULL)
     {
-        world->Step(1/20.000f,8, 3);
+        world->Step(1/40.000f,8, 3);
     }
+    
+//    if(sss == false)
+//    {
+//     
+//        if(this->player->getHero()->isDead == true)
+//        {
+//            sss= true;
+//         //   ControllerManager::getInstance()->sendCommand(OBJECT_CONTROLLER, CAMERA_FOLLOW_POINTER,this);
+//        }
+//        
+//    }
 }
 
 
 void GameWorld::draw()
 {
-    ccGLEnableVertexAttribs( kCCVertexAttribFlag_Position );
-    kmGLPushMatrix();
-    world->DrawDebugData();
-    kmGLPopMatrix();
+    //    ccGLEnableVertexAttribs( kCCVertexAttribFlag_Position );
+    //    kmGLPushMatrix();
+    //    world->DrawDebugData();
+    //    kmGLPopMatrix();
 }
 
 void GameWorld::setCameraFollowGroup(GameGroup* group)
@@ -237,12 +261,20 @@ void GameWorld::setCameraFollowGroup(GameGroup* group)
     {
         return;
     }
+    setCameraFollowNode(group->getFollowingCharacter()->getSprite());
     
-    this->cameraFollowAction = CCFollow::create(group->getFollowingCharacter()->getSprite(),CCRect(0, 0, this->width, this->height));
+}
+
+void GameWorld::setCameraFollowNode(CCNode* nodeFollowed)
+{
+    if(this->cameraFollowAction != NULL)
+    {
+        this->stopAction(this->cameraFollowAction);
+    }
+    this->cameraFollowAction = CCFollow::create(nodeFollowed,CCRect(0, 0, this->width, this->height));
     
     this->runAction(this->cameraFollowAction);
 }
-
 //PHYSICS CONTACT
 void GameWorld::BeginContact(b2Contact *contact)
 {
@@ -259,7 +291,3 @@ void GameWorld::foo()
     this->group1->test();
 }
 
-Character* GameWorld::getCharacter()
-{
-    return this->group1->getCharacterOfPlayer();
-}
