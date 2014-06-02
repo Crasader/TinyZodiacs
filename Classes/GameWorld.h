@@ -29,6 +29,8 @@ class GameWorld;
 #include "ItemFactory.h"
 #include "GameManager.h"
 #include "GameMatch.h"
+#include "Player.h"
+#include "ControllerManager.h"
 
 USING_NS_CC;
 using namespace std;
@@ -45,10 +47,11 @@ private:
     CC_SYNTHESIZE_READONLY(b2Body*, leftLine, LeftLine);
     CC_SYNTHESIZE_READONLY(b2Body*, rightLine, RightLine);
     CC_SYNTHESIZE_READONLY(b2Body*, bottomLine, BottomLine);
-     CC_SYNTHESIZE(string, mapID, MapID);
+    CC_SYNTHESIZE(string, mapID, MapID);
     CC_SYNTHESIZE(Map*, map, Map);
     CC_SYNTHESIZE(GameGroup*, group1, Group1);
     CC_SYNTHESIZE(GameGroup*, group2, Group2);
+    CC_SYNTHESIZE(Player*, player, player);
     CCAction* cameraFollowAction;
 protected:
  
@@ -63,7 +66,8 @@ public:
     void onCreateWorld();
     void onCreateUnits();
     
-    Character* getCharacter();
+    void addPlayer(Player* player);
+
     
     
     void addManager();
@@ -73,6 +77,7 @@ public:
 
     
     void setCameraFollowGroup(GameGroup* group);
+    void setCameraFollowNode(CCNode* nodeFollowed);
     
     virtual void BeginContact(b2Contact *contact);
     virtual void EndContact(b2Contact *contact);

@@ -62,7 +62,7 @@ void NormalAttack::onCreate()
     {
         this->skillSprite = CCSprite::create();
         this->skillSprite->retain();
-//        this->data.getSkillAnimation()->getAnimation()->setLoops(INFINITY);
+        this->data.getSkillAnimation()->getAnimation()->setLoops(INFINITY);
     }
     
     if(data.getLifeTime() > 0 && data.getTimeTick() > 0)
@@ -168,11 +168,6 @@ void NormalAttack::excuteImmediately()
     {
         return;
     }
-    
-    //Apply dmg to self
-    NormalMeleeSkillData calculatedSkillData = this->data;
-    calculateSkillData(&calculatedSkillData, this->holder);
-    Util::applyEffectFromList(this->data.getListSelfEffect(), this->holder);
         
     this->data.getSkillSensor()->SetActive(true);
     if(this->data.getSkillAnimation() != NULL && this->holder != NULL && this->holder->getSprite() != NULL)
@@ -208,6 +203,7 @@ void NormalAttack::stopImmediately()
     //stop time tick
     if(this->timeTickAction != NULL)
     {
+        //            this->timeTickAction->stop();
         if(this->timeTickAction->isDone() == false)
         {
             ScheduleManager::getInstance()->stopAction(this->timeTickAction);
@@ -438,13 +434,12 @@ void NormalAttack::applyEffectOnTimeTick()
         return;
     }
     CCObject* obj = NULL;
-    
-    NormalMeleeSkillData calculatedSkillData = this->data;
-    calculateSkillData(&calculatedSkillData, this->holder);
-    
     CCARRAY_FOREACH(listTarget, obj)
     {
         Character* character = (Character*)obj;
+        
+        NormalMeleeSkillData calculatedSkillData = this->data;
+        calculateSkillData(&calculatedSkillData, this->holder);
         
         if(character->getGroup() == this->holder->getGroup())
         {
@@ -455,8 +450,6 @@ void NormalAttack::applyEffectOnTimeTick()
             Util::applyEffectFromList(calculatedSkillData.getListEnemyEffect(), character);
         }
     }
-    //
-    Util::applyEffectFromList(calculatedSkillData.getListSelfEffect(), this->holder);
 }
 
 void NormalAttack::notifyToDestroy(GameObject* object)

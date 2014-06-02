@@ -13,7 +13,6 @@
 #include "cocos2d.h"
 #include "AnimationObject.h"
 #include "PhysicConstants.h"
-#include "AnimationData.cpp"
 
 USING_NS_CC;
 class EffectData: public CCObject
@@ -24,14 +23,13 @@ public:
     EffectData();
     ~EffectData();
     
-//    CC_SYNTHESIZE(std::string, animationId, AnimationId);
-//    CC_SYNTHESIZE(int, animationLayerIndex, AnimationLayerIndex);
-//    CC_SYNTHESIZE(float, minRotateAngle, MinRotateAngle);
-//    CC_SYNTHESIZE(float, maxRotateAngle, MaxRotateAngle);
-//    CC_SYNTHESIZE(float, minScale, MinScale);
-//    CC_SYNTHESIZE(float, maxScale, MaxScale);
-//    CC_SYNTHESIZE(int, repeatTimes, RepeatTimes);
-    CC_SYNTHESIZE(AnimationData, animationData, AnimationData);
+    CC_SYNTHESIZE(std::string, animationId, AnimationId);
+    CC_SYNTHESIZE(int, animationLayerIndex, AnimationLayerIndex);
+    CC_SYNTHESIZE(float, minRotateAngle, MinRotateAngle);
+    CC_SYNTHESIZE(float, maxRotateAngle, MaxRotateAngle);
+    CC_SYNTHESIZE(float, minScale, MinScale);
+    CC_SYNTHESIZE(float, maxScale, MaxScale);
+    CC_SYNTHESIZE(int, repeatTimes, RepeatTimes);
     
     CC_SYNTHESIZE(JointDef, jointDefA, JointDefA);
     CC_SYNTHESIZE(JointDef, jointDefB, JointDefB);

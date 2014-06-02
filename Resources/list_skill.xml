@@ -44,9 +44,6 @@
             <allies>
                 <effect>cat_healing</effect>
             </allies>
-            <self>
-                <effect>cat_healing</effect>
-            </self>
         </list_effect>
         
         <time_tick>0.5</time_tick>
@@ -191,7 +188,6 @@
             </enemy>
         </list_effect>
 	</skill>
-    
     <skill id="self_explosion" type="1">
 		<body>monkey_aura</body>
         <delay>0</delay>
@@ -226,5 +222,4 @@
         <piercing>0</piercing>
 
 	</skill>
-
 </skill_list>

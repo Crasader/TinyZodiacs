@@ -22,10 +22,12 @@ class Hero;
 class Hero : public Character, public Controller
 {
 private:
+    
 protected:
    
     uint16  getCorrectGroup(Group group);
 public:
+    bool isDead;
     Hero();
     ~Hero();
     CC_SYNTHESIZE_RETAIN(CCAnimation*, ghostAnimation, GhostAnimation);
@@ -44,6 +46,8 @@ public:
     bool receiveCommand(CommandID commandID, void* data);
     
     virtual void notifyUIChange(void* data);
+    void revive();
+    void dead();
     
     CREATE_FUNC(Hero);
 };

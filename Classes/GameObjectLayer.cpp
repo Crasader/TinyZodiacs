@@ -21,8 +21,10 @@ USING_NS_CC;
 
 GameObjectLayer::GameObjectLayer()
 {
-
+    
     gameMatch = NULL;
+    node = CCNode::create();
+    node->retain();
 }
 
 GameObjectLayer::~GameObjectLayer()
@@ -43,13 +45,15 @@ bool GameObjectLayer::init()
     this->addChild(gameMatch);
     
     gameMatch->start();
-//    this->gameWorld = GameWorld::create();
-//    
-//    this->addChild(gameWorld);
-//    
+    //    this->gameWorld = GameWorld::create();
+    //
+    //    this->addChild(gameWorld);
+    //
     this->setTouchEnabled(true);
     this->scheduleUpdate();
     
+    
+    ControllerManager::getInstance()->registerController(OBJECT_CONTROLLER, this);
     return true;
 }
 
@@ -59,7 +63,7 @@ void GameObjectLayer::draw()
 
 void GameObjectLayer::update(float dt)
 {
-//    this->gameWorld->update(dt);
+    //    this->gameWorld->update(dt);
 }
 
 Character* GameObjectLayer::getCharacter()
@@ -73,7 +77,46 @@ void GameObjectLayer::ccTouchesBegan(cocos2d::CCSet *pTouches, cocos2d::CCEvent 
     CCPoint touchPoint = CCDirector::sharedDirector()->convertToGL(touch->getLocationInView()) ;
     
     CCPoint temp =   this->gameMatch->getGameWorld()->convertToNodeSpace(touchPoint);
-
+    node->setPosition(temp);
     ControllerManager::getInstance()->sendCommand(HERO_CONTROLLER, DISPLAY_WORLD_COORDINATE, new CCPoint(temp));
+    //    ControllerManager::getInstance()->sendCommand(HERO_CONTROLLER,CAMERA_FOLLOW_POINTER,node);
 }
 
+void GameObjectLayer::ccTouchesMoved(cocos2d::CCSet *pTouches, cocos2d::CCEvent *event)
+{
+    
+    CCTouch* touch = (CCTouch*)pTouches->anyObject();
+    CCPoint touchPoint = CCDirector::sharedDirector()->convertToGL(touch->getLocationInView()) ;
+    
+    CCPoint temp =   this->gameMatch->getGameWorld()->convertToNodeSpace(touchPoint);
+    node->setPosition(temp);
+
+}
+
+bool GameObjectLayer::receiveCommand(CommandID commandID, void* data)
+{
+    Controller::receiveCommand(commandID, data);
+    switch (commandID)
+    {
+        case CAMERA_FOLLOW_POINTER:
+        {
+            GameWorld* world = static_cast<GameWorld*>(data);
+            if(this->node->getParent() == NULL)
+            {
+                world->addChild(this->node);
+            }
+            world->setCameraFollowNode(node);
+            
+        }
+            break;
+        default:
+            break;
+    }
+    return true;
+}
+
+bool GameObjectLayer::removeSubController(Controller* controller)
+{
+    Controller::removeSubController(controller);
+    return true;
+}

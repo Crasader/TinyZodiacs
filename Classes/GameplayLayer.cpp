@@ -110,7 +110,7 @@ void GameplayLayer::loadAllUI(cocos2d::gui::Widget* ul)
     this->btnJump->addTouchEventListener(this, toucheventselector(GameplayLayer::jumpButtonTouchEvent));
     this->btnSkill0->addTouchEventListener(this, toucheventselector(GameplayLayer::skill0ButtonTouchEvent));
     this->btnSkill1->addTouchEventListener(this, toucheventselector(GameplayLayer::skill1ButtonTouchEvent));
-//    this->btnSkill2->addTouchEventListener(this, toucheventselector(GameplayLayer::skill2ButtonTouchEvent));
+    //    this->btnSkill2->addTouchEventListener(this, toucheventselector(GameplayLayer::skill2ButtonTouchEvent));
     
 }
 
@@ -171,6 +171,34 @@ bool GameplayLayer::receiveCommand(CommandID commandID, void* data)
             delete waveNumber;
         }
             break;
+        case DISPLAY_RESULT:
+        {
+            int* waveNumber = static_cast<int*>(data);
+            
+            CCSize size = CCDirector::sharedDirector()->getWinSize();
+            
+            CCLabelTTF* labelStyle = CCLabelTTF::create("", "Marker Felt", 150);
+            labelStyle->setOpacity(100);
+            
+            TextShowEffect* effect = TextShowEffect::create();
+            if(waveNumber == 0)
+            {
+                effect->setContent("LOSE");
+            }
+            else
+            {
+                effect->setContent("WIN");
+            }
+            
+            effect->setLabelStyle(labelStyle);
+            
+            EffectManager::getInstance()->runEffect(effect, ccp(size.width/2, size.height/2),this);
+            
+            setWaveValue(*waveNumber);
+            delete waveNumber;
+        }
+            break;
+
         case DISPLAY_WORLD_COORDINATE:
         {
             CCPoint* point = static_cast<CCPoint*>(data);
@@ -227,6 +255,29 @@ bool GameplayLayer::receiveCommand(CommandID commandID, void* data)
             delete mData;
         }
             break;
+        case INVISIBLE_ALL_HERO_CONTROLLER:
+        {
+            this->btnLeft->setVisible(false);
+            this->btnRight->setVisible(false);
+            this->btnJump->setVisible(false);
+            this->btnSkill0->setVisible(false);
+            this->btnSkill1->setVisible(false);
+             this->btnSkill2->setVisible(false);
+    
+        }
+            break;
+        case VISIBLE_ALL_HERO_CONTROLLER:
+        {
+            this->btnLeft->setVisible(true);
+            this->btnRight->setVisible(true);
+            this->btnJump->setVisible(true);
+            this->btnSkill0->setVisible(true);
+            this->btnSkill1->setVisible(true);
+            this->btnSkill2->setVisible(true);
+
+        }
+            break;
+            
         default:
             break;
     }
@@ -361,16 +412,16 @@ void GameplayLayer::skill2ButtonTouchEvent(CCObject* sender, cocos2d::gui::Touch
             ControllerManager::getInstance()->sendCommand(HERO_CONTROLLER,  HERO_ATTACK_1);
             break;
             //        case cocos2d::gui::TOUCH_EVENT_MOVED:
-            //            
+            //
             //            break;
             //        case cocos2d::gui::TOUCH_EVENT_HOLD:
-            //            
+            //
             //            break;
             //        case cocos2d::gui::TOUCH_EVENT_CANCELED:
-            //            
+            //
             //            break;
             //        case cocos2d::gui::TOUCH_EVENT_ENDED:
-            //            
+            //
             //            break;
         default:
             break;
