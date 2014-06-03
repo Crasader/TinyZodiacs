@@ -84,7 +84,7 @@ void Tower::createSensor()
 void Tower::setSkin(b2Body *body, CCSprite *sprite)
 {
     Character::setSkin(body, sprite);
-    this->createSensor();
+//    this->createSensor();
 }
 
 void Tower::setPhysicGroup(uint16 group)

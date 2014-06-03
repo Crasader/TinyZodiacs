@@ -208,7 +208,7 @@ bool GameplayLayer::receiveCommand(CommandID commandID, void* data)
         case DISPLAY_MONSTER_COUNT:
         {
             vector<int>* arr = static_cast<vector<int>*>(data);
-            CCLOG("%d-%d",arr->at(1),arr->at(1)-arr->at(0));
+//            CCLOG("%d-%d",arr->at(1),arr->at(1)-arr->at(0));
             setMonsterProcessValue(arr->at(1),arr->at(1)-arr->at(0));
         }
             break;

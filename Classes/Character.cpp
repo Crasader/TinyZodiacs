@@ -90,8 +90,6 @@ void Character::setSkin(b2Body *body, CCSprite *sprite)
             {
                 scharacterData->fixtureId = BODY_MAIN_FIXTURE;
             }
-            
-            
             f->SetUserData(scharacterData);
         }
     }
@@ -210,7 +208,6 @@ void Character::useSkill2()
     //    {
     //        changeState(new CharacterAttackState(this,this->skill2,this->skill2Animation));
     //    }
-    
 }
 
 void Character::createFootSensor()

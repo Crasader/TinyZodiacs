@@ -165,7 +165,7 @@
         <crit_chance>1</crit_chance>
         <crit>1.5</crit>
         
-        <hp>-5</hp>
+        <hp>-500</hp>
         <atk>0</atk>
         <def>0</def>
         <speed>0</speed>

@@ -62,7 +62,7 @@ void NormalAttack::onCreate()
     {
         this->skillSprite = CCSprite::create();
         this->skillSprite->retain();
-        this->data.getSkillAnimation()->getAnimation()->setLoops(INFINITY);
+//        this->data.getSkillAnimation()->getAnimation()->setLoops(INFINITY);
     }
     
     if(data.getLifeTime() > 0 && data.getTimeTick() > 0)
@@ -349,7 +349,9 @@ void NormalAttack::createJoint()
         
         JointDef tempA = data.getJointDefA();
         tempA.x = holder_join_type;
-        b2Vec2 anchorA = Util::getb2VecAnchor(this->holder->getBody(), tempA);
+//        b2Vec2 anchorA = Util::getb2VecAnchor(this->holder->getBody(), tempA);
+        b2Fixture* mainFix = Util::getFixtureById(this->holder->getBody(), BODY_MAIN_FIXTURE);
+        b2Vec2 anchorA = Util::getb2VecAnchor(mainFix, tempA);
         skillJointDef.localAnchorA.Set(anchorA.x,anchorA.y);
         
         JointDef tempB = data.getJointDefB();

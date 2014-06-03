@@ -133,7 +133,6 @@ void NormalShootingAttack::excuteImmediately()
         proj->setGroup(GROUP_SKILL_DEFAULT);
         GameObjectManager::getInstance()->addGameObject(proj);
     }
-    
 }
 
 void NormalShootingAttack::stopImmediately()

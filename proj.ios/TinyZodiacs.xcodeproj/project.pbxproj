@@ -2434,13 +2434,6 @@
 			name = Observer;
 			sourceTree = "<group>";
 		};
-		F507B4191921DC3500D23B99 /* New Group */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = "New Group";
-			sourceTree = "<group>";
-		};
 		F50BF81818F2425200CD518D /* Cat */ = {
 			isa = PBXGroup;
 			children = (
@@ -2468,7 +2461,6 @@
 				F5FB8E6819333E100074598C /* Controller.cpp */,
 				F5FB8E6319333D060074598C /* Affect.cpp */,
 				F5FB8E6419333D060074598C /* Affect.h */,
-				F507B4191921DC3500D23B99 /* New Group */,
 				F5BA76AA1920788A0070997B /* Map.cpp */,
 				F5BA76AB1920788A0070997B /* Map.h */,
 				F5579EB8191DDAD900F29241 /* Hero.cpp */,

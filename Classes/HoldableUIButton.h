@@ -19,7 +19,7 @@ class HoldableUIButton : public cocos2d::gui::UIButton
 private:
 protected:
 public:
-    CCArray* listTouchedPoint;
+//    CCArray* listTouchedPoint;
     
     HoldableUIButton();
     ~HoldableUIButton();

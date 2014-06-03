@@ -143,7 +143,7 @@
         </texture>
         
         <speed>
-            <x>1000</x>
+            <x>10</x>
             <y>0</y>
         </speed>
         <gravity_scale>0</gravity_scale>
@@ -175,7 +175,7 @@
         </texture>
         
         <speed>
-            <x>1000</x>
+            <x>10</x>
             <y>0</y>
         </speed>
         <gravity_scale>0</gravity_scale>

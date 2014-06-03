@@ -26,7 +26,10 @@ public:
     static b2AABB getBodyBoundingBox(b2Body* body);
     static b2AABB getBodyBoundingBoxDynamic(b2Body* body);
     static b2AABB getFixtureBoundingBoxDynamic(b2Fixture* fixture);
+    static b2AABB getFixtureBoundingBox(b2Fixture* fixture);
 
+
+    static b2Fixture* getFixtureById(b2Body* body, FixtureID fixtureId);
     
     static bool bodiesAreTouching( b2Body* body1, b2Body* body2 );
     static bool bodiesArePassingThrough( b2Body* body1, b2Body* body2 );
@@ -35,6 +38,7 @@ public:
     static bool bodiesAreTouchingFixture( b2Body* body1, b2Fixture* fixture );
     
     static b2Vec2 getb2VecAnchor(b2Body* body, JointDef jointDef);
+    static b2Vec2 getb2VecAnchor(b2Fixture* fixture, JointDef jointDef);
     static void setFixtureGroup(b2Fixture* fixture, uint16 group);
     static vector<string> getStrTok(const char* string);
 

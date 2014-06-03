@@ -36,6 +36,7 @@ Monster::~Monster()
     EffectManager::getInstance()->runEffect(effect, this->getPositionInPixel());
     
     dropItem();
+    
 }
 
 bool Monster::init()
