@@ -19,6 +19,7 @@ class AbstractSkill;
 #include "SkillData.h"
 #include "HoldableUIButton.h"
 #include "ControllerManager.h"
+#include "CharacterData.h"
 
 #define FUCTION_EXCUTE 0
 #define FUCTION_STOP 1
@@ -39,7 +40,7 @@ protected:
     
     CCAction *excuteAction, *stopAction, *coolDownAction;
     
-    virtual void calculateSkillData(SkillData* data, GameObject* character);
+    virtual void calculateSkillData(SkillData* data, CharacterData characterData);
     
 public:
     AbstractSkill(GameObject* holder, SkillData data);

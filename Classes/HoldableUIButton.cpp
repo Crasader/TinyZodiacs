@@ -169,12 +169,12 @@ void HoldableUIButton::loadTextures(const char* normal,const char* selected,cons
 void HoldableUIButton::setActive(bool value)
 {
     this->isActive = value;
-    if(this->isActive)
-    {
-        this->setBright(true);
-    }
-    else
-    {
-        this->setBright(false);
-    }
+//    if(this->isActive)
+//    {
+//        this->setBright(true);
+//    }
+//    else
+//    {
+//        this->setBright(false);
+//    }
 }

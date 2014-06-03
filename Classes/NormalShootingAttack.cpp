@@ -36,7 +36,7 @@ NormalShootingAttack::~NormalShootingAttack()
 
 void NormalShootingAttack::excute()
 {
-    if(this->getIsExcutable())
+    if(this->isDisable == false && this->getIsExcutable())
     {
         if(this->excuteAction != NULL)
         {
@@ -123,10 +123,10 @@ void NormalShootingAttack::setPhysicGroup(uint16 group)
 
 void NormalShootingAttack::excuteImmediately()
 {
-    if(holder != NULL)
+    if(this->isDisable == false && holder != NULL)
     {
         NormalShootingSkillData calculatedSkillData = this->data;
-        calculateSkillData(&calculatedSkillData, this->holder);
+        calculateSkillData(&calculatedSkillData, ((Character*)this->holder)->getcharacterData());
         
         NormalProjectile* proj = NormalProjectile::create();
         proj->setData(calculatedSkillData, this->holder);

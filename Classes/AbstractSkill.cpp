@@ -75,14 +75,14 @@ void AbstractSkill::stopAllAction()
     }
 }
 
-void AbstractSkill::calculateSkillData(SkillData* data, GameObject* character)
+void AbstractSkill::calculateSkillData(SkillData* data, CharacterData characterData)
 {
     //Calculate enemy effect list
     vector<EffectData> listEffect = data->getListEnemyEffect();
     for(int i=0 ; i<listEffect.size() ; i++)
     {
         EffectData effectData = data->getListEnemyEffect()[i];
-        effectData.setHealth(effectData.getHealth()-((Character*)character)->getcharacterData().getAttack());
+        effectData.setHealth(effectData.getHealth()-characterData.getAttack());
         listEffect[i] = effectData;
         //        CCLOG("%d",data->getListEnemyEffect()[i].getHealth());
     }

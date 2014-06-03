@@ -31,7 +31,6 @@ class GameObject: public cocos2d::CCObject, public Observable
 private:
     
 protected:
-    bool isDestroyed;
     cocos2d::CCArray* listAffect;
     Direction direction;
     CC_SYNTHESIZE(GameObjectID, gameObjectID, GameObjectID);
@@ -53,6 +52,7 @@ public:
     ~GameObject();
     float32 isPassingThroughBody;
     
+    bool isDestroyed;
     
     Direction getDirection();
     b2AABB getBodyBoundingBox();

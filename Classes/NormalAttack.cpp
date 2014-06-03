@@ -110,7 +110,7 @@ void NormalAttack::update(float dt)
 
 void NormalAttack::excute()
 {
-    if(this->getIsExcutable())
+    if(this->isDisable == false && this->getIsExcutable())
     {
         destroyJoint();
         createJoint();
@@ -255,7 +255,7 @@ void NormalAttack::checkCollisionDataInBeginContact(PhysicData* holderData, Phys
                             }
                             
                             NormalMeleeSkillData calculatedSkillData = this->data;
-                            calculateSkillData(&calculatedSkillData, this->holder);
+                            calculateSkillData(&calculatedSkillData, ((Character*)this->holder)->getcharacterData());
                             
                             if(character->getGroup() == this->holder->getGroup())
                             {
@@ -265,6 +265,17 @@ void NormalAttack::checkCollisionDataInBeginContact(PhysicData* holderData, Phys
                             {
                                 Util::applyEffectFromList(calculatedSkillData.getListEnemyEffect(), character);
                             }
+                            
+                            b2WorldManifold worldManifold;
+                            contact->GetWorldManifold(&worldManifold);
+                            
+                            //now you can use these properties for whatever you need
+                            b2Vec2 contactPoint = (worldManifold.points[0]); //b2Vec2
+                            AnimationEffect* effect = AnimationEffect::create();
+                            CCLOG("%d,%d",contactPoint.x/32, contactPoint.y/32);
+                            effect->setAnimation("effect-smoke");
+                            EffectManager::getInstance()->runEffect(effect, CCPoint(contactPoint.x/32, contactPoint.y/32));
+
                         }
                         
                     }
@@ -441,7 +452,7 @@ void NormalAttack::applyEffectOnTimeTick()
         Character* character = (Character*)obj;
         
         NormalMeleeSkillData calculatedSkillData = this->data;
-        calculateSkillData(&calculatedSkillData, this->holder);
+        calculateSkillData(&calculatedSkillData, ((Character*)this->holder)->getcharacterData());
         
         if(character->getGroup() == this->holder->getGroup())
         {

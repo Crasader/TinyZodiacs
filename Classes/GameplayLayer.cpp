@@ -58,7 +58,7 @@ bool GameplayLayer::init()
     ControllerManager::getInstance()->registerController(HERO_CONTROLLER, this);
     
     cocos2d::gui::Widget* ul =cocos2d::gui::Widget::create();
-    ul = cocos2d::extension::GUIReader::shareReader()->widgetFromJsonFile("GameplayScene_1.ExportJson");
+    ul = cocos2d::extension::GUIReader::shareReader()->widgetFromJsonFile("ControllerLayer_1.ExportJson");
     
     ul->setScale(CCDirector::sharedDirector()->getWinSize().width/ul->getSize().width, CCDirector::sharedDirector()->getWinSize().height/ul->getSize().height);
     
@@ -73,8 +73,8 @@ void GameplayLayer::loadAllUI(cocos2d::gui::Widget* ul)
     //Getbutton
     cocos2d::gui::Button *BtnLeft,*BtnRight,*BtnJump,*BtnSkill0,*BtnSkill1,*BtnSkill2;
     
-    BtnLeft  = (cocos2d::gui::Button*)ul->getChildByName("controller_layer")->getChildByName("left_btn");
-    BtnRight  = (cocos2d::gui::Button*)ul->getChildByName("controller_layer")->getChildByName("right_btn");
+    BtnLeft  = (cocos2d::gui::Button*)ul->getChildByName("controller_layer")->getChildByName("left_button");
+    BtnRight  = (cocos2d::gui::Button*)ul->getChildByName("controller_layer")->getChildByName("right_button");
     BtnJump  = (cocos2d::gui::Button*)ul->getChildByName("controller_layer")->getChildByName("jump_button");
     BtnSkill0  = (cocos2d::gui::Button*)ul->getChildByName("controller_layer")->getChildByName("skill_0_button");
     BtnSkill1  = (cocos2d::gui::Button*)ul->getChildByName("controller_layer")->getChildByName("skill_1_button");
@@ -98,11 +98,12 @@ void GameplayLayer::loadAllUI(cocos2d::gui::Widget* ul)
     this->listAssignedWidget->addObject(this->btnRight);
     
     //Get label and process
-    processMonsterLeft  = (cocos2d::gui::LoadingBar*)ul->getChildByName("infomation_layer")->getChildByName("monster_left_process");
-    lblWave  = (cocos2d::gui::LabelBMFont*)ul->getChildByName("infomation_layer")->getChildByName("wave_label");
-    lblTimeLeft  = (cocos2d::gui::LabelBMFont*)ul->getChildByName("infomation_layer")->getChildByName("time_left_label");
-    lblMoney  = (cocos2d::gui::LabelBMFont*)ul->getChildByName("infomation_layer")->getChildByName("money_number_label");
-    listWave  = (cocos2d::gui::ListView*)ul->getChildByName("infomation_layer")->getChildByName("wave_list");
+    processMonsterLeft  = (cocos2d::gui::LoadingBar*)ul->getChildByName("information_layer")->getChildByName("monster_left_process");
+    lblWave  = (cocos2d::gui::LabelBMFont*)ul->getChildByName("information_layer")->getChildByName("wave_text");
+    lblTimeLeft  = (cocos2d::gui::LabelBMFont*)ul->getChildByName("information_layer")->getChildByName("time_left_text");
+    lblMoney  = (cocos2d::gui::LabelBMFont*)ul->getChildByName("information_layer")->getChildByName("money_text");
+    lblMonsterLeft  = (cocos2d::gui::LabelBMFont*)ul->getChildByName("information_layer")->getChildByName("monster_left_text");
+
     
     //add touch event
     this->btnLeft->addTouchEventListener(this, toucheventselector(GameplayLayer::leftButtonTouchEvent));
@@ -144,6 +145,7 @@ void GameplayLayer::setWaveValue(int number)
 
 void GameplayLayer::setMonsterProcessValue(int maxMonsterQuantity, int currentMonsterQuantity)
 {
+    this->lblMonsterLeft->setText(CCString::createWithFormat("%d/%d",currentMonsterQuantity,maxMonsterQuantity)->getCString());
     this->processMonsterLeft->setPercent(((1.0f*currentMonsterQuantity/maxMonsterQuantity))*100);
 }
 

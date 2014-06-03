@@ -196,7 +196,7 @@ void Character::attack()
 
 void Character::useSkill1()
 {
-    if(this->skill1->getIsExcutable() && this->state->attack() && isDead() == false && isDead() == false)
+    if(this->skill1->getIsExcutable() && this->state->attack() && isDead() == false)
     {
         changeState(new CharacterAttackState(this,this->skill1,this->skill1Animation));
     }

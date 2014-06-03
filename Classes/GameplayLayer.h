@@ -28,7 +28,7 @@ private:
     void cloneAndRemoveButton(cocos2d::gui::Widget* ul, HoldableUIButton* mButton,cocos2d::gui::Button* button);
 protected:
     cocos2d::gui::LoadingBar *processMonsterLeft;
-    cocos2d::gui::LabelBMFont *lblWave, *lblTimeLeft, *lblMoney;
+    cocos2d::gui::LabelBMFont *lblWave, *lblTimeLeft, *lblMoney, *lblMonsterLeft;
     cocos2d::gui::ListView *listWave;
     
     void loadAllUI(cocos2d::gui::Widget* ul);

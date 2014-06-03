@@ -16,6 +16,7 @@
 #include "ScheduleManager.h"
 #include "Affect.h"
 #include "EffectData.h"
+#include "GameManager.h"
 
 NormalProjectile::NormalProjectile()
 {
@@ -36,7 +37,7 @@ bool NormalProjectile::init()
 
 void NormalProjectile::setData(NormalShootingSkillData data, GameObject* holder)
 {
-    if(holder != NULL && holder->getBody() != NULL)
+    if(holder != NULL && holder->isDestroyed == false && holder->getBody() != NULL)
     {
         this->data = data;
         //        this->holder = holder;
@@ -49,7 +50,7 @@ void NormalProjectile::setData(NormalShootingSkillData data, GameObject* holder)
         bodyDef.fixedRotation=true;
         bodyDef.bullet = true;
         
-        this->body = holder->getBody()->GetWorld()->CreateBody(&bodyDef);
+        this->body = GameManager::getInstance()->getGameplayHolder().worldHolder->CreateBody(&bodyDef);
         
         gbox2d::GB2ShapeCache *sc =  gbox2d::GB2ShapeCache::sharedGB2ShapeCache();
         sc->addFixturesToBody(body, data.getProjectileBodyId());
@@ -80,12 +81,12 @@ void NormalProjectile::setData(NormalShootingSkillData data, GameObject* holder)
         if(holder->getDirection() == LEFT)
         {
             this->flipDirection(LEFT);
-            this->body->SetLinearVelocity(b2Vec2(-this->data.getSpeedX(), this->data.getSpeedY()));
+            this->body->SetLinearVelocity(b2Vec2(-this->data.getSpeedX()+holder->getBody()->GetLinearVelocity().x, this->data.getSpeedY()+holder->getBody()->GetLinearVelocity().y));
         }
         else if(holder->getDirection() == RIGHT)
         {
             this->flipDirection(RIGHT);
-            this->body->SetLinearVelocity(b2Vec2(this->data.getSpeedX(), this->data.getSpeedY()));
+            this->body->SetLinearVelocity(b2Vec2(this->data.getSpeedX()+holder->getBody()->GetLinearVelocity().x, this->data.getSpeedY()+holder->getBody()->GetLinearVelocity().y));
         }
         //schedule life time
         this->lifeTimeScheduled = ScheduleManager::getInstance()->scheduleForGameObject(this, this->data.getLifeTime());
@@ -158,7 +159,9 @@ b2Vec2 NormalProjectile::getGlobalBodyStartPosition(b2Body* body, JointDef joint
     }
     
     //set joint anchor A
-    b2AABB boundingBox = Util::getBodyBoundingBoxDynamic(body);
+//    b2AABB boundingBox = Util::getBodyBoundingBoxDynamic(body);
+    b2Fixture* mainFix = Util::getFixtureById(body, BODY_MAIN_FIXTURE);
+    b2AABB boundingBox = Util::getFixtureBoundingBoxDynamic(mainFix);
     b2Vec2 jointAAnchor(0,0);
     switch (jointDef.x) {
         case JOINT_CENTER:

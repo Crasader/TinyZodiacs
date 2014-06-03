@@ -115,7 +115,7 @@ b2AABB Util::getBodyBoundingBoxDynamic(b2Body* body)
 
 b2AABB Util::getFixtureBoundingBoxDynamic(b2Fixture* fixture)
 {
-    if(fixture != NULL)
+    if(fixture != NULL && fixture->GetBody()->IsActive() == true)
     {
         //        bool bodyState = body->IsActive();
         //        if(bodyState == false)
