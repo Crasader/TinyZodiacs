@@ -11,7 +11,6 @@
 Hero::Hero()
 {
     this->gameObjectID = HERO;
-    this->isDead = false;
 }
 
 bool Hero::init()
@@ -29,18 +28,7 @@ bool Hero::init()
 
 Hero::~Hero()
 {
-    if(this->skill1Animation != NULL)
-    {
-        this->skill1Animation->release();
-    }
-    if(this->skill2Animation != NULL)
-    {
-        this->skill2Animation->release();
-    }
-    if(this->ghostAnimation != NULL)
-    {
-        this->ghostAnimation->release();
-    }
+    
 }
 bool a = false;
 void Hero::onCreate()
@@ -119,16 +107,12 @@ void Hero::checkCollisionDataInEndContact(PhysicData* holderData, PhysicData* co
 void Hero::attachSpriteTo(CCNode* node)
 {
     GameObject::attachSpriteTo(node);
-    node->addChild(this->sprite,CHARACTER_LAYER);
+    node->addChild(this->sprite, CHARACTER_LAYER);
 }
 
 void Hero::destroy()
 {
-   // Character::destroy();
-    
-    ControllerManager::getInstance()->unregisterController(HERO_CONTROLLER, this);
-    dead();
-    //ControllerManager::getInstance()->sendCommand(HERO_CONTROLLER, DISABLE_BUTTON_ATTACK);
+    Character::destroy();
 }
 
 bool Hero::receiveCommand(CommandID commandID, void* data)
@@ -164,10 +148,8 @@ bool Hero::receiveCommand(CommandID commandID, void* data)
 
 void Hero::update(float dt)
 {
-    if(this->isDead == false)
-    {
-        Character::update(dt);
-    }
+    
+    Character::update(dt);
     
     //
     //    if(this->normalAttack->getSkillButtonID()!= UNKNOWN && ControllerManager::getInstance()->isRegisteredWith(HERO_CONTROLLER, this));
@@ -227,45 +209,3 @@ void Hero::notifyUIChange(void* data)
     }
 }
 
-void Hero::revive()
-{
-    this->isDead = false;
-    ControllerManager::getInstance()->registerController(HERO_CONTROLLER, this);
-    this->sprite->setVisible(true);
-    this->body->SetActive(true);
-    
-    setcharacterData(this->originCharacterData);
-    if(this->gameObjectView != NULL)
-    {
-        this->gameObjectView->setVisible(true);
-        this->gameObjectView->notifyChange();
-    }
-  
-    
-    ControllerManager::getInstance()->sendCommand(HERO_CONTROLLER, VISIBLE_ALL_HERO_CONTROLLER);
-    setPositionInPixel(ccp(122,780));
-    AnimationEffect* effect = AnimationEffect::create();
-    effect->setAnimation("effect-smoke");
-    EffectManager::getInstance()->runEffect(effect, getPositionInPixel());
-    this->body->SetLinearVelocity(b2Vec2(0,0));
-}
-
-void Hero::dead()
-{
-    isDead = true;
-    ControllerManager::getInstance()->unregisterController(HERO_CONTROLLER, this);
-    this->sprite->setVisible(false);
-    this->body->SetActive(false);
-    if(this->gameObjectView != NULL)
-    {
-        this->gameObjectView->setVisible(false);
-    }
-    ScheduleManager::getInstance()->scheduleFunction(CCCallFunc::create(this, callfunc_selector(Hero::revive)), NULL, 5, 1);
-    AnimationEffect* effect = AnimationEffect::create();
-    effect->setAnimation("effect-smoke");
-    EffectManager::getInstance()->runEffect(effect, getPositionInPixel());
-    
-    ControllerManager::getInstance()->sendCommand(HERO_CONTROLLER, INVISIBLE_ALL_HERO_CONTROLLER);
-     this->body->SetLinearVelocity(b2Vec2(0,0));
-    
-}

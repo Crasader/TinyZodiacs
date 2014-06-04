@@ -18,12 +18,14 @@
 #include "NormalShootingSkillData.h"
 
 USING_NS_CC;
+
 class NormalProjectile: public GameObject
 {
 private:
+    b2Vec2 holderSpeed;
     b2Vec2 getGlobalBodyStartPosition(b2Body* body, JointDef jointDef);
 protected:
-    CCSequence* lifeTimeScheduled;
+    CCAction* lifeTimeScheduled;
     
     virtual b2Vec2 getStartPosition(GameObject* holder, b2Body* me);
 public:
@@ -38,13 +40,13 @@ public:
     CC_SYNTHESIZE(NormalShootingSkillData, data, Data);
     CC_SYNTHESIZE(Group, group, Group);
     
-    virtual void remove();
     virtual void checkCollisionDataInBeginContact(PhysicData* holderData, PhysicData* collisionData, b2Contact *contact);
     virtual void checkCollisionDataInEndContact(PhysicData* holderData, PhysicData* collisionData, b2Contact *contact);
     virtual void update(float dt);
     
     virtual void setGroup(uint16 group);
-
-    virtual void excuteScheduledFunction(CCObject* pSender, void *body);
+    virtual void destroy();
+    
+    void shoot();
 };
 #endif /* defined(__TinyZodiacs__NormalProjectile__) */

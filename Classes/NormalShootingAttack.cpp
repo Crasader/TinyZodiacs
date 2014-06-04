@@ -131,7 +131,8 @@ void NormalShootingAttack::excuteImmediately()
         NormalProjectile* proj = NormalProjectile::create();
         proj->setData(calculatedSkillData, this->holder);
         proj->setGroup(GROUP_SKILL_DEFAULT);
-        GameObjectManager::getInstance()->addGameObject(proj);
+        proj->shoot();
+        
     }
 }
 

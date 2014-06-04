@@ -9,6 +9,8 @@
 #ifndef __SampleCocosProject__ObjectFactory__
 #define __SampleCocosProject__ObjectFactory__
 
+class ObjectManager;
+
 #include <iostream>
 #include "Character.h"
 #include "MapObject.h"
@@ -32,6 +34,7 @@
 #include "ItemCreator.h"
 #include "ItemCreatorDTO.h"
 #include "MainCrystal.h"
+#include "MainHero.h"
 
 #define TAG_BODY "body"
 #define TAG_ANIMATION "animation"
@@ -61,13 +64,13 @@
 #define item_appear "-appear"
 #define item_prepareToDisappear "-prepareToDisappear"
 
-
-
-class Item;
 class ObjectFactory
 {
 public:
     static Hero* createHero(HeroDTO* heroDTO, b2World* world, bool isLocal);
+    static Hero* createHero(const char* id);
+    static void createHero(Hero* hero, HeroDTO* heroDTO);
+    static MainHero* createMainHero(const char* id);
     static MapObject* createMapObject(const char *idMapObject, b2World *world);
     static MapObject* createMapObject(MapObjectDTO* mapObjectDTO, b2World *world);
     static SensorObject* createSensorObject(b2Vec2 dumb, b2World *world, CCPoint position);
@@ -79,6 +82,7 @@ public:
     static Item* createGoldItem(ItemDTO* itemDTO, b2World* world);
     static Item* createBonusItem(ItemDTO* itemDTO, b2World* world);
     static ItemCreator* createItemCreator(ItemCreatorDTO* itemCreatorDTO);
+  
     
     
 };

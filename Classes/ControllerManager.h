@@ -41,6 +41,8 @@ public:
     
     bool sendCommand(ControllerID controllerID, CommandID commandID);
     bool sendCommand(ControllerID controllerID, CommandID commandID, void* data);
+    
+    void clean();
 };
 
 #endif /* defined(__TinyZodiacs__ControllerManager__) */

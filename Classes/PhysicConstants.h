@@ -33,6 +33,7 @@
 #define GROUP_TOWER_B 0x0400
 #define GROUP_MONSTER_SENSOR 0x0800
 #define GROUP_ITEM 0x1000
+#define GROUP_WALL 0x2000
 
 //#define GROUP_TOWER 0x0200
 
@@ -58,7 +59,8 @@ enum BodyId
     TOWER_SENSOR ,
     MAP_SENSOR ,
     MONSTER_SENSOR,
-    GAME_ITEM
+    GAME_ITEM,
+    WALL_BODY
 };
 
 enum GameObjectID

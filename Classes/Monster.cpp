@@ -36,7 +36,6 @@ Monster::~Monster()
     EffectManager::getInstance()->runEffect(effect, this->getPositionInPixel());
     
     dropItem();
-    
 }
 
 bool Monster::init()
@@ -87,6 +86,7 @@ void Monster::update(float dt)
 void Monster::destroy()
 {
     Character::destroy();
+    CCLOG("retain - %d", this->retainCount());
 }
 
 void Monster::attachSpriteTo(CCNode* node)
@@ -151,11 +151,16 @@ void Monster::checkCollisionDataInBeginContact(PhysicData* holderData, PhysicDat
                 {
                     if(holderData->fixtureId == BODY_MAIN_FIXTURE)
                     {
-                        //                        MapObject* mapObject = static_cast<MapObject*>(collisionData->data);
-                        //                        if(!Util::bodiesArePassingThrough(this->body, mapObject->getBody()))
-                        //                        {
-                        this->isStopMove = false;
-                        //                        }
+                        if(this->body->GetLinearVelocity().y < 0)
+                        {
+                              this->isStopMove = false;
+                            
+                        }
+                                               MapObject* mapObject = static_cast<MapObject*>(collisionData->data);
+                                               if(!Util::bodiesArePassingThrough(this->body, mapObject->getBody()))
+                                               {
+                     
+                                                }
                     }
                 }
                     break;

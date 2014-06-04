@@ -13,14 +13,15 @@ class Player;
 
 #include <iostream>
 #include "cocos2d.h"
-#include "Hero.h"
+#include "MainHero.h"
+#include "ObjectFactory.h"
 
 USING_NS_CC;
 
 class Player: public CCNode
 {
 private:
-    CC_SYNTHESIZE(Hero*, hero, Hero);
+    CC_SYNTHESIZE(MainHero*, hero, Hero);
 protected:
 public:
     Player();

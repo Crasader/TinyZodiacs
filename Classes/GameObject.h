@@ -78,8 +78,7 @@ public:
     virtual void EndContact(b2Contact *contact);
     virtual void PreSolve(b2Contact* contact, const b2Manifold* oldManifold);
     virtual void PostSolve(b2Contact* contact, const b2ContactImpulse* impulse);
-    
-    virtual void excuteScheduledFunction(CCObject* pSender, void *body);
+
     virtual void setGroup(Group group);
     virtual uint16 getPhysicGroup();
     
@@ -93,6 +92,8 @@ public:
     virtual void notifyToDestroy();
     
     virtual void notifyUIChange(void* data);
+    
+    virtual void clearPhysicUserData();
 
     CC_SYNTHESIZE(bool, isControlled, IsControlled);
 };

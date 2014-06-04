@@ -36,6 +36,12 @@ GameWorld::GameWorld()
 GameWorld::~GameWorld()
 {
     delete this->world;
+    this->world = NULL;
+    
+    GameHolder holder;
+    holder.worldHolder = NULL;
+    holder.nodeHolder = NULL;
+    GameManager::getInstance()->setGameplayHolder(holder);
 }
 
 bool GameWorld::init()
@@ -211,9 +217,10 @@ void GameWorld::setContactListener(b2ContactListener *listener)
         this->world->SetContactListener(listener);
     }
 }
-bool sss = false;
+
 void GameWorld::update(float dt)
 {
+    GameObjectManager::getInstance()->update(dt);
     this->map->update(dt);
     this->group1->update(dt);
     this->group2->update(dt);
@@ -222,26 +229,22 @@ void GameWorld::update(float dt)
     {
         world->Step(1/40.000f,8, 3);
     }
-    
-//    if(sss == false)
-//    {
-//     
-//        if(this->player->getHero()->isDead == true)
-//        {
-//            sss= true;
-//         //   ControllerManager::getInstance()->sendCommand(OBJECT_CONTROLLER, CAMERA_FOLLOW_POINTER,this);
-//        }
-//        
-//    }
+
 }
 
+void GameWorld::destroy()
+{
+    GameObjectManager::getInstance()->removeAllGameObject();
+}
 
 void GameWorld::draw()
 {
+
 //        ccGLEnableVertexAttribs( kCCVertexAttribFlag_Position );
 //       kmGLPushMatrix();
 //        world->DrawDebugData();
 //       kmGLPopMatrix();
+
 }
 
 void GameWorld::setCameraFollowGroup(GameGroup* group)

@@ -41,6 +41,7 @@ public:
     MapParallaxBackground* createParallaxBackground(CCArray* listBackgroundDTO, float width, float height);
     MapParallaxForeground* createParallaxForeground(CCArray* listForegroundDTO, float width, float height);
     Wave* createWave(WaveDTO* waveDTO, GameWorld* gameWorld);
+    void createWall(WallDTO* wallDTO, GameWorld* gameWorld);
 };
 
 

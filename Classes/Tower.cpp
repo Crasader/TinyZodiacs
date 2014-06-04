@@ -28,7 +28,7 @@ bool Tower::init()
     this->sprite = CCSprite::createWithSpriteFrameName("cat_idle_1.png");
     this->listTarget = CCArray::create();
     this->listTarget->retain();
-
+    
     return true;
 }
 
@@ -42,163 +42,111 @@ Tower::~Tower()
     //    {
     //        this->skill2Animation->release();
     //    }
-//    this->body->GetWorld()->DestroyBody(this->sensor);
+    //    this->body->GetWorld()->DestroyBody(this->sensor);
     this->listTarget->release();
 }
 
 void Tower::createSensor()
 {
-    b2CircleShape circleShape;
-    circleShape.m_radius = RADIUS_TOWER_SENSOR;
-    
-    b2FixtureDef fixtureDef;
-    fixtureDef.isSensor = true;
-    fixtureDef.density = WEIGHTLESS_DENSITY;
-    fixtureDef.shape = &circleShape;
-    
-//    b2BodyDef bodyDef;
-//    bodyDef.bullet=true;
-//    bodyDef.type=b2_dynamicBody;
-//    bodyDef.fixedRotation=true;
-    
-    PhysicData* data =  new PhysicData();
-    data->bodyId = TOWER_SENSOR;
-    data->gameObjectID = TOWER;
-    data->fixtureId = TOWER_SENSOR_FIXTURE;
-    data->data = this;
-    fixtureDef.userData = data;
-    
-    this->sensor = this->getBody()->CreateFixture(&fixtureDef);
-    
-//    this->sensor = this->getBody()->GetWorld()->CreateBody(&bodyDef);
-//    this->sensor->CreateFixture(&fixtureDef);
-//    this->sensor->SetGravityScale(0);
-//    
-//    b2RevoluteJointDef revoluteJointDef;
-//    revoluteJointDef.bodyA = this->getBody();
-//    revoluteJointDef.bodyB = this->sensor;
-    
-//    this->getBody()->GetWorld()->CreateJoint(&revoluteJointDef);
+    //    b2CircleShape circleShape;
+    //    circleShape.m_radius = RADIUS_TOWER_SENSOR;
+    //
+    //    b2FixtureDef fixtureDef;
+    //    fixtureDef.isSensor = true;
+    //    fixtureDef.density = WEIGHTLESS_DENSITY;
+    //    fixtureDef.shape = &circleShape;
+    //
+    ////    b2BodyDef bodyDef;
+    ////    bodyDef.bullet=true;
+    ////    bodyDef.type=b2_dynamicBody;
+    ////    bodyDef.fixedRotation=true;
+    //
+    //    PhysicData* data =  new PhysicData();
+    //    data->bodyId = TOWER_SENSOR;
+    //    data->gameObjectID = TOWER;
+    //    data->fixtureId = TOWER_SENSOR_FIXTURE;
+    //    data->data = this;
+    //    fixtureDef.userData = data;
+    //
+    //    this->sensor = this->getBody()->CreateFixture(&fixtureDef);
+    //
+    ////    this->sensor = this->getBody()->GetWorld()->CreateBody(&bodyDef);
+    ////    this->sensor->CreateFixture(&fixtureDef);
+    ////    this->sensor->SetGravityScale(0);
+    ////
+    ////    b2RevoluteJointDef revoluteJointDef;
+    ////    revoluteJointDef.bodyA = this->getBody();
+    ////    revoluteJointDef.bodyB = this->sensor;
+    //
+    ////    this->getBody()->GetWorld()->CreateJoint(&revoluteJointDef);
 }
 
 void Tower::setSkin(b2Body *body, CCSprite *sprite)
 {
     Character::setSkin(body, sprite);
-//   this->createSensor();
 }
 
 void Tower::setPhysicGroup(uint16 group)
 {
     Character::setPhysicGroup(group);
-    this->setSensorGroup(group);
+    //    this->setSensorGroup(group);
 }
 
 void Tower::setSensorGroup(uint16 group)
 {
-//    for (b2Fixture* f = this->sensor->GetFixtureList(); f; f = f->GetNext())
-//    {
-//        if(f != NULL)
-//        {
-//            b2Filter filter = f->GetFilterData();
-//            filter.categoryBits = group;
-//            switch (group) {
-//                case GROUP_A:
-//                case GROUP_HERO_A:
-//                case GROUP_TOWER_A:
-//                    filter.maskBits = GROUP_TOWER_B|GROUP_B|GROUP_HERO_B|GROUP_NEUTRUAL|GROUP_TOWER_B;
-//                    break;
-//                    
-//                case GROUP_B:
-//                case GROUP_HERO_B:
-//                case GROUP_TOWER_B:
-//                filter.maskBits = GROUP_TOWER_A|GROUP_A|GROUP_HERO_A|GROUP_NEUTRUAL|GROUP_TOWER_A;
-//                    break;
-//                    
-//                case GROUP_NEUTRUAL:
-//                    filter.maskBits = GROUP_A | GROUP_B | GROUP_HERO_A | GROUP_HERO_B;
-//                    break;
-//                    
-//                default:
-//                    break;
-//            }
-//            f->SetFilterData(filter);
-//        }
-//    }
-    
-        if(this->sensor != NULL)
-        {
-            b2Filter filter = this->sensor->GetFilterData();
-            filter.categoryBits = group;
-            switch (group) {
-                case GROUP_A:
-                case GROUP_HERO_A:
-                case GROUP_TOWER_A:
-                    filter.maskBits = GROUP_TOWER_B|GROUP_B|GROUP_HERO_B|GROUP_NEUTRUAL|GROUP_TOWER_B;
-                    break;
-                    
-                case GROUP_B:
-                case GROUP_HERO_B:
-                case GROUP_TOWER_B:
-                    filter.maskBits = GROUP_TOWER_A|GROUP_A|GROUP_HERO_A|GROUP_NEUTRUAL|GROUP_TOWER_A;
-                    break;
-                    
-                case GROUP_NEUTRUAL:
-                    filter.maskBits = GROUP_A | GROUP_B | GROUP_HERO_A | GROUP_HERO_B;
-                    break;
-                    
-                default:
-                    break;
-            }
-            this->sensor->SetFilterData(filter);
+    //          if(this->sensor != NULL)
+    {
+        b2Filter filter = this->sensor->GetFilterData();
+        filter.categoryBits = group;
+        switch (group) {
+            case GROUP_A:
+            case GROUP_HERO_A:
+            case GROUP_TOWER_A:
+                filter.maskBits = GROUP_TOWER_B|GROUP_B|GROUP_HERO_B|GROUP_NEUTRUAL|GROUP_TOWER_B;
+                break;
+                
+            case GROUP_B:
+            case GROUP_HERO_B:
+            case GROUP_TOWER_B:
+                filter.maskBits = GROUP_TOWER_A|GROUP_A|GROUP_HERO_A|GROUP_NEUTRUAL|GROUP_TOWER_A;
+                break;
+                
+            case GROUP_NEUTRUAL:
+                filter.maskBits = GROUP_A | GROUP_B | GROUP_HERO_A | GROUP_HERO_B;
+                break;
+                
+            default:
+                break;
+        }
+        this->sensor->SetFilterData(filter);
     }
-
+    
 }
 
 void Tower::checkCollisionDataInBeginContact(PhysicData* holderData, PhysicData* collisionData, b2Contact *contact)
 {
-//    if(data->Data == this)
-//    {
-        if(holderData->data == this)
+    
+    if(holderData->data == this)
+    {
+        if(collisionData != NULL)
         {
-//            PhysicData* physicData = NULL;
-//            if(isSideA)
-//            {
-//                physicData = (PhysicData*)contact->GetFixtureB()->GetBody()->GetUserData();
-//            }
-//            else
-//            {
-//                physicData = (PhysicData*)contact->GetFixtureA()->GetBody()->GetUserData();
-//            }
-            
-            if(collisionData != NULL)
+            if(collisionData->bodyId == CHARACTER_BODY)
             {
-                if(collisionData->bodyId == CHARACTER_BODY)
+                CCObject* obj = (CCObject*)collisionData->data;
+                if(this->listTarget->indexOfObject(obj) == CC_INVALID_INDEX)
                 {
-                    CCObject* obj = (CCObject*)collisionData->data;
-                    if(this->listTarget->indexOfObject(obj) == CC_INVALID_INDEX)
-                    {
-                         this->listTarget->addObject(obj);
-                    }
+                    this->listTarget->addObject(obj);
                 }
             }
         }
-//    }
+    }
+    
 }
 
 void Tower::checkCollisionDataInEndContact(PhysicData* holderData, PhysicData* collisionData, b2Contact *contact)
 {
     if(holderData->data == this)
     {
-//        PhysicData* physicData = NULL;
-//        if(isSideA)
-//        {
-//            physicData = (PhysicData*)contact->GetFixtureB()->GetBody()->GetUserData();
-//        }
-//        else
-//        {
-//            physicData = (PhysicData*)contact->GetFixtureA()->GetBody()->GetUserData();
-//        }
-        
         if(collisionData != NULL)
         {
             if(collisionData->bodyId == CHARACTER_BODY)
@@ -217,18 +165,7 @@ void Tower::aimTarget()
     {
         b2Vec2 targetPoint = ((Character*)listTarget->objectAtIndex(0))->getPositionInPhysicWorld();
         b2Vec2 towerPoint = getStartPoint(this->body, attack->getData().getJointDefA());
-        
-//        if(targetPoint.x < towerPoint.x)
-//        {
-//            flipDirection(LEFT);
-//        }
-//        else
-//        {
-//            flipDirection(RIGHT);
-//        }
-      //  CCLOG("%0.4f - %0.4f",towerPoint.x,towerPoint.y);
-        
-        
+
         b2Vec2 sp = targetPoint -  towerPoint;
         sp*=TOWER_VELOCITY;
         
@@ -290,13 +227,13 @@ b2Vec2 Tower::getStartPoint(b2Body* body, JointDef jointDef)
             break;
     }
     //    jointAAnchor += this->getPositionInPhysicWorld();
-    //    CCLOG("%f, %f", jointAAnchor.x,jointAAnchor.y);
+        CCLOG("%f, %f", jointAAnchor.x,jointAAnchor.y);
     return jointAAnchor;
 }
 
 void Tower::update(float dt)
 {
-       if(this->characterData.getHealth()>0)
+    if(this->characterData.getHealth()>0)
     {
         if(this->listTarget->count() <=0)
         {
@@ -310,9 +247,9 @@ void Tower::update(float dt)
     else
     {
         this->body->SetActive(false);
-//        this->sensor->SetActive(false);
+        //        this->sensor->SetActive(false);
         
-//        GameObjectManager::getInstance()->addObjectRemoved(this);
+        //        GameObjectManager::getInstance()->addObjectRemoved(this);
     }
     
     //
@@ -334,7 +271,7 @@ void Tower::update(float dt)
     }
     listTargetRemoved->removeAllObjects();
     Character::update(dt);
-
+    
 }
 
 uint16  Tower::getCorrectGroup(Group group)
@@ -401,4 +338,6 @@ void Tower::setSensor(const char* bodyId)
     data->fixtureId = TOWER_SENSOR_FIXTURE;
     data->data = this;
     sc->addFixturesToBody(this->body, bodyId, data);
+    
+    this->sensor = Util::getFixtureById(this->body, TOWER_SENSOR_FIXTURE);
 }

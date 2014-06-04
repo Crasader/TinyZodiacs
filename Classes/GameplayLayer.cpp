@@ -23,7 +23,7 @@ GameplayLayer::GameplayLayer()
 
 GameplayLayer::~GameplayLayer()
 {
-    
+       ControllerManager::getInstance()->unregisterController(HERO_CONTROLLER, this);
 }
 
 CCScene* GameplayLayer::scene()

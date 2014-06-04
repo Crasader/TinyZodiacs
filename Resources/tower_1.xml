@@ -1,7 +1,7 @@
 <character id="tower1">
     <animation>tower1</animation>
 	<body>tower_1</body>
-    <hp>400</hp>
+    <hp>1</hp>
     <atk>20</atk>
     <def>20</def>
     <speed>10</speed>

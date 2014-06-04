@@ -32,16 +32,16 @@ bool GameObjectManager::init()
     {
         return false;
     }
-    this->scheduleUpdate();
+ 
     return true;
 }
 
 void GameObjectManager::release()
 {
-//    if(getInstance() != NULL)
-//    {
-//        delete getInstance();
-//    }
+    //    if(getInstance() != NULL)
+    //    {
+    //        delete getInstance();
+    //    }
 }
 
 GameObjectManager* GameObjectManager::getInstance()
@@ -56,43 +56,48 @@ GameObjectManager* GameObjectManager::getInstance()
 
 void GameObjectManager::addObjectRemoved(GameObject *body)
 {
-    this->listObjectRemoved->addObject(body);
+    instance->listObjectRemoved->addObject(body);
     removeGameObject(body);
 }
 
 void GameObjectManager::update(float dt)
 {
     CCObject* object;
-    CCARRAY_FOREACH(this->listGameObject, object)
+    CCARRAY_FOREACH(instance->listGameObject, object)
     {
-        ((GameObject*)object)->update(dt);
+        GameObject* gameObject = static_cast<GameObject*>(object);
+        gameObject->update(dt);
     }
-    
-    this->listObjectRemoved->removeAllObjects();
+    instance->listObjectRemoved->removeAllObjects();
 }
 
 void GameObjectManager::addGameObject(GameObject* object)
 {
-    this->listGameObject->addObject(object);
+    instance->listGameObject->addObject(object);
 }
 
 void GameObjectManager::removeGameObject(GameObject* object)
 {
-    if(this->listGameObject->indexOfObject(object) != CC_INVALID_INDEX)
+    if(instance->listGameObject->indexOfObject(object) != CC_INVALID_INDEX)
     {
-        this->listGameObject->removeObject(object);
+        instance->listGameObject->removeObject(object);
     }
 }
 
 void GameObjectManager::removeAllGameObject()
 {
+    CCArray* copyArray = CCArray::create();
+    copyArray->addObjectsFromArray(instance->listGameObject);
+    
     CCObject* object = NULL;
-    CCARRAY_FOREACH(this->listGameObject, object)
+    CCARRAY_FOREACH(copyArray, object)
     {
-        ((GameObject*)object)->destroy();
+        GameObject* gameObject = static_cast<GameObject*>(object);
+        gameObject->destroy();
+        CCLOG("sdsdsd %d",gameObject->retainCount());
     }
+    instance->listObjectRemoved->removeAllObjects();
 }
-
 
 void GameObjectManager::BeginContact(b2Contact *contact)
 {

@@ -26,6 +26,8 @@ MapDTO::MapDTO()
     this->listItemCreatorDTO->retain();
     this->listWaveDTO = CCArray::create();
     this->listWaveDTO->retain();
+    this->listWallDTO = CCArray::create();
+    this->listWallDTO->retain();
     
     this->height = 0;
     this->width = 0;
@@ -41,6 +43,7 @@ MapDTO::~MapDTO()
     CC_SAFE_RELEASE(this->listTowerStructDTO);
     CC_SAFE_RELEASE(this->listMonsterFactoryDTO);
     CC_SAFE_RELEASE(this->listItemCreatorDTO);
+    CC_SAFE_RELEASE(this->listWallDTO);
 }
 
 bool MapDTO::init()

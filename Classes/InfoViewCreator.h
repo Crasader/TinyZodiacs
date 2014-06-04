@@ -9,15 +9,17 @@
 #ifndef __TinyZodiacs__InfoViewCreator__
 #define __TinyZodiacs__InfoViewCreator__
 
+class InfoViewCreator;
+
 #include <iostream>
 #include "cocos2d.h"
 #include "GameObjectView.h"
 #include "Player.h"
 #include "Hero.h"
 #include "GameObjectViewContainer.h"
+#include "Monster.h"
 
 USING_NS_CC;
-
 
 class InfoViewCreator
 {

@@ -9,6 +9,8 @@
 #ifndef __TinyZodiacs__PhysicBodyManager__
 #define __TinyZodiacs__PhysicBodyManager__
 
+class GameObjectManager;
+
 #include <iostream>
 #include "cocos2d.h"
 #include "Box2D/Box2D.h"
@@ -25,6 +27,7 @@ protected:
     GameObjectManager();
     ~GameObjectManager();
 public:
+    int monsterCount = 0;
     static GameObjectManager* getInstance();
     
     virtual bool init();

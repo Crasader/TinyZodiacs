@@ -239,19 +239,19 @@ void Util::setFixtureGroup(b2Fixture* fixture, uint16 group)
         filter.categoryBits = group;
         switch (group) {
             case GROUP_A:
-                filter.maskBits = GROUP_TOWER_B | GROUP_TERRAIN | GROUP_SKILL_DEFAULT | GROUP_MONSTER_SENSOR;
+                filter.maskBits = GROUP_TOWER_B | GROUP_TERRAIN | GROUP_SKILL_DEFAULT | GROUP_MONSTER_SENSOR | GROUP_WALL;
                 break;
             case GROUP_B:
-                filter.maskBits = GROUP_TOWER_A | GROUP_TERRAIN| GROUP_SKILL_DEFAULT | GROUP_MONSTER_SENSOR;
+                filter.maskBits = GROUP_TOWER_A | GROUP_TERRAIN| GROUP_SKILL_DEFAULT | GROUP_MONSTER_SENSOR | GROUP_WALL;
                 break;
             case GROUP_NEUTRUAL:
                 filter.maskBits = GROUP_TOWER_A | GROUP_TOWER_B | GROUP_TERRAIN | GROUP_SKILL_DEFAULT | GROUP_MONSTER_SENSOR;
                 break;
             case GROUP_HERO_A:
-                filter.maskBits = GROUP_TOWER_B| GROUP_TERRAIN | GROUP_SKILL_DEFAULT | GROUP_MONSTER_SENSOR |GROUP_ITEM;
+                filter.maskBits = GROUP_TOWER_B| GROUP_TERRAIN | GROUP_SKILL_DEFAULT | GROUP_MONSTER_SENSOR |GROUP_ITEM | GROUP_WALL;
                 break;
             case GROUP_HERO_B:
-                filter.maskBits = GROUP_TOWER_A | GROUP_TERRAIN | GROUP_SKILL_DEFAULT | GROUP_MONSTER_SENSOR | GROUP_ITEM;
+                filter.maskBits = GROUP_TOWER_A | GROUP_TERRAIN | GROUP_SKILL_DEFAULT | GROUP_MONSTER_SENSOR | GROUP_ITEM | GROUP_WALL;
                 break;
             case GROUP_TERRAIN:
                 filter.maskBits = 0xFFFFFF;
@@ -269,8 +269,12 @@ void Util::setFixtureGroup(b2Fixture* fixture, uint16 group)
                 filter.maskBits = GROUP_HERO_A | GROUP_A | GROUP_NEUTRUAL | GROUP_TERRAIN | GROUP_SKILL_DEFAULT| GROUP_MONSTER_SENSOR;
                 break;
             case GROUP_ITEM:
-                filter.maskBits = GROUP_TERRAIN |GROUP_HERO_A | GROUP_HERO_B | GROUP_SKILL_DEFAULT;
+                filter.maskBits = GROUP_TERRAIN |GROUP_HERO_A | GROUP_HERO_B | GROUP_SKILL_DEFAULT | GROUP_WALL;
                 break;
+            case GROUP_WALL:
+                filter.maskBits = GROUP_HERO_A | GROUP_HERO_B | GROUP_A | GROUP_B | GROUP_ITEM;
+                break;
+
             default:
                 break;
         }
@@ -340,8 +344,14 @@ bool Util::fixtureArePassingThroughBody(b2Fixture* fixture, b2Body* body)
 //    {
 //        if ( !edge->contact->IsTouching())
 //            continue;
-//        b2Body* bA = edge->contact->GetFixtureA()->GetBody();
+//        b2Fixture* fix = edge->contact->GetFixtureA();
 //        b2Body* bB = edge->contact->GetFixtureB()->GetBody();
+//        
+//        if((fix == fixture && bB == body) && edge->contact->IsEnabled() == false )
+//        {
+//            
+//        }
+//        
 //        if ( (( bA == body1 && bB == body2 ) || ( bB == body1 && bA == body2 )) && edge->contact->IsEnabled() == false )
 //        {
 //            return true;

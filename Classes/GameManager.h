@@ -9,6 +9,8 @@
 #ifndef __SampleCocosProject__GameManager__
 #define __SampleCocosProject__GameManager__
 
+class GameManager;
+
 #include <iostream>
 #include "cocos2d.h"
 #include "AnimationLoader.h"

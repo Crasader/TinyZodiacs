@@ -52,8 +52,6 @@ bool GameObjectLayer::init()
     this->setTouchEnabled(true);
     this->scheduleUpdate();
     
-    
-    ControllerManager::getInstance()->registerController(OBJECT_CONTROLLER, this);
     return true;
 }
 
@@ -73,12 +71,12 @@ Character* GameObjectLayer::getCharacter()
 
 void GameObjectLayer::ccTouchesBegan(cocos2d::CCSet *pTouches, cocos2d::CCEvent *event)
 {
-    CCTouch* touch = (CCTouch*)pTouches->anyObject();
-    CCPoint touchPoint = CCDirector::sharedDirector()->convertToGL(touch->getLocationInView()) ;
-    
-    CCPoint temp =   this->gameMatch->getGameWorld()->convertToNodeSpace(touchPoint);
-    node->setPosition(temp);
-    ControllerManager::getInstance()->sendCommand(HERO_CONTROLLER, DISPLAY_WORLD_COORDINATE, new CCPoint(temp));
+//    CCTouch* touch = (CCTouch*)pTouches->anyObject();
+//    CCPoint touchPoint = CCDirector::sharedDirector()->convertToGL(touch->getLocationInView()) ;
+//    
+//    CCPoint temp =   this->gameMatch->getGameWorld()->convertToNodeSpace(touchPoint);
+//    node->setPosition(temp);
+//    ControllerManager::getInstance()->sendCommand(HERO_CONTROLLER, DISPLAY_WORLD_COORDINATE, new CCPoint(temp));
     //    ControllerManager::getInstance()->sendCommand(HERO_CONTROLLER,CAMERA_FOLLOW_POINTER,node);
 }
 

@@ -39,13 +39,18 @@ void MonsterCreator::createMonster()
 
 void MonsterCreator::start()
 {
-   this->actionCreateMonster = ScheduleManager::getInstance()->scheduleFunctionForever(CCCallFunc::create(this,callfunc_selector(MonsterCreator::createMonster)), NULL, this->delay);
+    this->actionCreateMonster = ScheduleManager::getInstance()->scheduleFunctionForever(CCCallFunc::create(this,callfunc_selector(MonsterCreator::createMonster)), NULL, this->delay);
+    this->actionCreateMonster->retain();
 }
 
 void MonsterCreator::stop()
 {
     if(this->actionCreateMonster != NULL)
     {
-        ScheduleManager::getInstance()->stopAction(this->actionCreateMonster);
+        if(this->actionCreateMonster->isDone() == false)
+        {
+            ScheduleManager::getInstance()->stopAction(this->actionCreateMonster);
+        }
+        this->actionCreateMonster->release();
     }
 }

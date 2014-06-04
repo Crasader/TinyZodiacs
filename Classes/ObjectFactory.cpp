@@ -23,51 +23,71 @@ USING_NS_CC;
 Hero* ObjectFactory::createHero(HeroDTO* heroDTO, b2World* world, bool isLocal)
 {
     Hero* hero = Hero::create();
-    hero->setOriginCharacterData(heroDTO->data);
-    
-    //Create Animation
-    string run = heroDTO->animation;
-    string attack = heroDTO->animation;
-    string idle = heroDTO->animation;
-    string fall = heroDTO->animation;
-    string fly = heroDTO->animation;
-    string jump = heroDTO->animation;
-    string skill = heroDTO->animation;
-    
-    hero->runAnimation = DataCollector::getInstance()->getAnimationObjectByKey(string(std::string(run) + std::string(RUN)).c_str());
-    hero->attackAnimation = DataCollector::getInstance()->getAnimationObjectByKey(attack.append(ATTACK).c_str());
-    hero->jumpAnimation = DataCollector::getInstance()->getAnimationObjectByKey(jump.append(JUMP).c_str());
-    hero->idleAnimation = DataCollector::getInstance()->getAnimationObjectByKey(idle.append(IDLE).c_str());
-    hero->fallAnimation = DataCollector::getInstance()->getAnimationObjectByKey(fall.append(FALL).c_str());
-    hero->flyAnimation = DataCollector::getInstance()->getAnimationObjectByKey(fly.append(FLY).c_str());
-    hero->skill1Animation = DataCollector::getInstance()->getAnimationObjectByKey(skill.append(SKILL).c_str());
-    
-    hero->attackAnimation->getAnimation()->setDelayPerUnit(hero->getOriginCharacterData().getAttackSpeed());
-    
-    
-    //Create body
-    b2BodyDef bodyDef;
-    bodyDef.type = b2_dynamicBody;
-    bodyDef.angle = ccpToAngle(ccp(0,0));
-    bodyDef.fixedRotation = true;
-    
-    b2Body *body = world->CreateBody(&bodyDef);
-    
-    gbox2d::GB2ShapeCache *sc =  gbox2d::GB2ShapeCache::sharedGB2ShapeCache();
-    sc->addFixturesToBody(body, heroDTO->body.c_str());
-    hero->setSpriteAnchorPoint(sc->anchorPointForShape(heroDTO->body.c_str()));
-    hero->getSprite()->setAnchorPoint(sc->anchorPointForShape(heroDTO->body.c_str()));
-    hero->setSkin(body, hero->getSprite());
-    
-    hero->setNormalAttack(SkillFactory::createSkill(heroDTO->data.getSkill0().c_str(), world, hero, isLocal, SKILL_0_BTN));
-    hero->setSkill1(SkillFactory::createSkill(heroDTO->data.getSkill1().c_str(), world, hero, isLocal, SKILL_1_BTN));
-    hero->setSkill2(SkillFactory::createSkill(heroDTO->data.getSkill2().c_str(), world, hero, isLocal, SKILL_2_BTN));
-    hero->setIsControlled(isLocal);
-    
-    hero->onCreate();
+    createHero(hero, heroDTO);
     return hero;
 }
 
+void ObjectFactory::createHero(Hero* hero, HeroDTO* heroDTO)
+{
+    if(hero != NULL)
+    {
+        b2World* world = GameManager::getInstance()->getGameplayHolder().worldHolder;
+        hero->setOriginCharacterData(heroDTO->data);
+        
+        //Create Animation
+        string run = heroDTO->animation;
+        string attack = heroDTO->animation;
+        string idle = heroDTO->animation;
+        string fall = heroDTO->animation;
+        string fly = heroDTO->animation;
+        string jump = heroDTO->animation;
+        string skill = heroDTO->animation;
+        
+        hero->runAnimation = DataCollector::getInstance()->getAnimationObjectByKey(string(std::string(run) + std::string(RUN)).c_str());
+        hero->attackAnimation = DataCollector::getInstance()->getAnimationObjectByKey(attack.append(ATTACK).c_str());
+        hero->jumpAnimation = DataCollector::getInstance()->getAnimationObjectByKey(jump.append(JUMP).c_str());
+        hero->idleAnimation = DataCollector::getInstance()->getAnimationObjectByKey(idle.append(IDLE).c_str());
+        hero->fallAnimation = DataCollector::getInstance()->getAnimationObjectByKey(fall.append(FALL).c_str());
+        hero->flyAnimation = DataCollector::getInstance()->getAnimationObjectByKey(fly.append(FLY).c_str());
+        hero->skill1Animation = DataCollector::getInstance()->getAnimationObjectByKey(skill.append(SKILL).c_str());
+        
+        hero->attackAnimation->getAnimation()->setDelayPerUnit(hero->getOriginCharacterData().getAttackSpeed());
+        
+        
+        //Create body
+        b2BodyDef bodyDef;
+        bodyDef.type = b2_dynamicBody;
+        bodyDef.angle = ccpToAngle(ccp(0,0));
+        bodyDef.fixedRotation = true;
+        
+        b2Body *body = world->CreateBody(&bodyDef);
+        
+        gbox2d::GB2ShapeCache *sc =  gbox2d::GB2ShapeCache::sharedGB2ShapeCache();
+        sc->addFixturesToBody(body, heroDTO->body.c_str());
+        hero->setSpriteAnchorPoint(sc->anchorPointForShape(heroDTO->body.c_str()));
+        hero->getSprite()->setAnchorPoint(sc->anchorPointForShape(heroDTO->body.c_str()));
+        hero->setSkin(body, hero->getSprite());
+        
+        hero->setNormalAttack(SkillFactory::createSkill(heroDTO->data.getSkill0().c_str(), world, hero, true, SKILL_0_BTN));
+        hero->setSkill1(SkillFactory::createSkill(heroDTO->data.getSkill1().c_str(), world, hero, true, SKILL_1_BTN));
+        hero->setSkill2(SkillFactory::createSkill(heroDTO->data.getSkill2().c_str(), world, hero, true, SKILL_2_BTN));
+        hero->setIsControlled(true);
+        
+        hero->onCreate();
+    }
+}
+MainHero* ObjectFactory::createMainHero(const char* id)
+{
+    MainHero* mainHero = MainHero::create();
+    createHero(mainHero, DataCollector::getInstance()->getHeroDTOByKey(id));
+    return mainHero;
+}
+Hero* ObjectFactory::createHero(const char* id)
+{
+    Hero* hero = Hero::create();
+    createHero(hero, DataCollector::getInstance()->getHeroDTOByKey(id));
+    return hero;
+}
 
 MapObject* ObjectFactory::createMapObject(const char *idMapObject, b2World *world)
 {
@@ -176,12 +196,12 @@ SensorObject* ObjectFactory::createSensorObject(b2Vec2 dumb,b2World *world, CCPo
     
     
     
-//    //set data id
-//    PhysicData* data = new PhysicData();
-//    data->BodyId = MAP_SENSOR;
-//    data->Data = sensorObject;
-//    
-//    body->SetUserData(data);
+    //    //set data id
+    //    PhysicData* data = new PhysicData();
+    //    data->BodyId = MAP_SENSOR;
+    //    data->Data = sensorObject;
+    //
+    //    body->SetUserData(data);
     
     
     sensorObject->setSkin(body, NULL);
@@ -228,11 +248,11 @@ SensorObject* ObjectFactory::createSensorObject(SensorObjectDTO* sensorObjectDTO
     body->CreateFixture(&fixDef);
     
     //set data id
-//    PhysicData* data = new PhysicData();
-//    data->BodyId = MAP_SENSOR;
-//    data->Data = sensorObject;
+    //    PhysicData* data = new PhysicData();
+    //    data->BodyId = MAP_SENSOR;
+    //    data->Data = sensorObject;
     
-//    body->SetUserData(data);
+    //    body->SetUserData(data);
     
     sensorObject->setSkin(body, NULL);
     sensorObject->setPositionInPixel(ccp(sensorObjectDTO->x,sensorObjectDTO->y));
@@ -240,6 +260,8 @@ SensorObject* ObjectFactory::createSensorObject(SensorObjectDTO* sensorObjectDTO
     
     return sensorObject;
 }
+
+
 
 Tower* ObjectFactory::createTower(TowerStructDTO* towerStructDTO, b2World* world)
 {
@@ -255,7 +277,7 @@ Tower* ObjectFactory::createTower(TowerStructDTO* towerStructDTO, b2World* world
         tower = Tower::create();
         CCLOG("tower");
     }
-  
+    
     
     tower->setOriginCharacterData(towerDTO->data);
     

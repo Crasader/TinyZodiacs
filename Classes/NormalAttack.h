@@ -9,6 +9,8 @@
 #ifndef __TinyZodiacs__NormalAttack__
 #define __TinyZodiacs__NormalAttack__
 
+class NormalAttack;
+
 #include <iostream>
 #include "AbstractSkill.h"
 #include "NormalMeleeSkillData.h"

@@ -73,10 +73,20 @@ Map* MapCreator::createMap(MapDTO* mapDTO, GameWorld* gameWorld)
         map->addWave(wave);
     }
 
+    object = NULL;
+    CCARRAY_FOREACH(mapDTO->listWallDTO, object)
+    {
+        WallDTO* wallDTO = static_cast<WallDTO*>(object);
+        
+        createWall(wallDTO, gameWorld);
+    }
+
         //    //create background
+
 //       map->addParallaxBackground(createParallaxBackground(mapDTO->listBackgroundDTO,mapDTO->width,mapDTO->height));
 //        //    //create foreground
 //      map->addParallaxForeground(createParallaxForeground(mapDTO->listForegroundDTO,mapDTO->width,mapDTO->height));
+
 
     
     return map;
@@ -162,5 +172,41 @@ Wave* MapCreator::createWave(WaveDTO* waveDTO, GameWorld* gameWorld)
 
     
     return wave;
+}
+
+void MapCreator::createWall(WallDTO* wallDTO, GameWorld* gameWorld)
+{
+    b2EdgeShape edge;
+    
+    edge.Set(b2Vec2(0,0),b2Vec2(wallDTO->edge_x/PTM_RATIO,wallDTO->edge_y/PTM_RATIO));
+    
+    // edge.SetAsBox(1/PTM_RATIO, 4);
+    
+    b2FixtureDef fixDef;
+    fixDef.shape = &edge;
+    fixDef.friction = 0;
+    
+    
+    PhysicData* data = new PhysicData();
+    data->gameObjectID = NONE;
+    data->bodyId = WALL_BODY;
+    
+    fixDef.userData = data;
+    
+    b2BodyDef bodyDef;
+    bodyDef.type = b2_staticBody;
+    bodyDef.angle = ccpToAngle(ccp(0,0));
+    
+    b2Body *body = gameWorld->getWorld()->CreateBody(&bodyDef);
+    body->CreateFixture(&fixDef);
+    
+    for (b2Fixture* f = body->GetFixtureList(); f; f = f->GetNext())
+    {
+        Util::setFixtureGroup(f, GROUP_WALL);
+    }
+    
+    b2Vec2 bodyPosition = b2Vec2(wallDTO->x/PTM_RATIO, wallDTO->y/PTM_RATIO) ;
+    body->SetTransform(bodyPosition,0);
+    
 }
 

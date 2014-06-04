@@ -200,5 +200,9 @@ bool ControllerManager::sendCommand(ControllerID controllerID, CommandID command
     return false;
 }
 
+void ControllerManager::clean()
+{
+    this->listController.clear();
+}
 
 

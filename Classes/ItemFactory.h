@@ -22,7 +22,7 @@ using namespace std;
 class ItemFactory: public Observer
 {
 private:
-    
+    CC_SYNTHESIZE(bool, isActive, IsActive);
     CC_SYNTHESIZE(GameHolder, holder, Holder)
     ItemFactory();
     CCArray* listItem;

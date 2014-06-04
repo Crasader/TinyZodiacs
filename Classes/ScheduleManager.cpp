@@ -17,20 +17,7 @@ ScheduleManager::~ScheduleManager()
 {
     
 }
-CCSequence* ScheduleManager::scheduleForGameObject(GameObject* object, float duration)
-{
-    CCDelayTime *delayAction = CCDelayTime::create(duration);
-    CCCallFuncND *callFuncSelector = CCCallFuncND::create(object, callfuncND_selector(GameObject::excuteScheduledFunction), object);
-    CCArray* arr = CCArray::create();
-    arr->addObject(delayAction);
-    arr->addObject(callFuncSelector);
-    
-    
-    CCSequence* sequence = CCSequence::create(arr);
 
-    this->runAction(sequence);
-    return sequence;
-}
 void ScheduleManager::scheduleForSkill(AbstractSkill* object, float duration, int fuctionCall)
 {
     CCCallFunc *callFuncSelector;

@@ -26,6 +26,7 @@ class AbstractSkill;
 #define FUCTION_SET_EXCUTABLE 2
 
 USING_NS_CC;
+
 class AbstractSkill: public CCObject
 {
 private:
