@@ -15,7 +15,8 @@ Player::Player()
 
 Player::~Player()
 {
-    this->hero->release();
+
+
 }
 
 bool Player::init()
@@ -26,30 +27,32 @@ bool Player::init()
 
 void Player::update(float dt)
 {
-    this->hero->update(dt);
+ 
 }
 
 void Player::attachWithHero(Hero* hero)
 {
     if(hero != NULL)
     {
-        this->hero = hero;
+    //    this->hero = hero;
     }
 }
 
 void Player::attachWithHero(const char* heroID)
 {
-    this->hero = ObjectFactory::createHero(DataCollector::getInstance()->getHeroDTOByKey(heroID), GameManager::getInstance()->getGameplayHolder().worldHolder, false);
-    this->hero->setPositionInPixel(ccp(2500,500));
+    this->hero = ObjectFactory::createMainHero(heroID);
+
+    this->hero->setPositionInPixel(ccp(3000,1076));
     this->hero->setGroup(A);
     
 
     
     this->hero->setGameObjectView(InfoViewCreator::createHeroView(this->hero, NULL));
-    this->hero->retain();
+   
+    GameObjectManager::getInstance()->addGameObject(this->hero);
 }
 
 void Player::reviveHero()
 {
-    this->hero->revive();
+   // this->hero->revive();
 }

@@ -15,9 +15,9 @@ class Hero;
 #include "Character.h"
 #include "cocos2d.h"
 #include "Item.h"
-#include "GameObjectManager.h"
 #include "Controller.h"
 #include "ControllerManager.h"
+#include "LayerIndexConstants.h"
 
 class Hero : public Character, public Controller
 {
@@ -27,7 +27,7 @@ protected:
    
     uint16  getCorrectGroup(Group group);
 public:
-    bool isDead;
+  
     Hero();
     ~Hero();
     CC_SYNTHESIZE_RETAIN(CCAnimation*, ghostAnimation, GhostAnimation);
@@ -46,8 +46,7 @@ public:
     bool receiveCommand(CommandID commandID, void* data);
     
     virtual void notifyUIChange(void* data);
-    void revive();
-    void dead();
+  
     
     CREATE_FUNC(Hero);
 };

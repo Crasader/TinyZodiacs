@@ -74,13 +74,13 @@ MapDTO* XMLMapParser::getMapDTOFromXMLNode(XMLElement *mapXMLElement)
         mapDTO->listForegroundDTO->addObject(XMLMapParser::getForegroundDTOFromXMLNode(element));
     }
     
-   
+    
     mapDTO->listSensorObjectDTO->addObjectsFromArray(getSensorObjectDTOListFromXMLElement(mapXMLElement));
     mapDTO->listTowerStructDTO->addObjectsFromArray(getTowerStructDTOListFromXMLElement(mapXMLElement));
     mapDTO->listMonsterFactoryDTO->addObjectsFromArray(getMonsterFactoryDTOListFromXMLElement(mapXMLElement));
     mapDTO->listItemCreatorDTO->addObjectsFromArray(getItemCreatorDTOListFromXMLElement(mapXMLElement));
     mapDTO->listWaveDTO->addObjectsFromArray(getWaveDTOListFromXMLElement(mapXMLElement));
-    
+    mapDTO->listWallDTO->addObjectsFromArray(getWallDTOListFromXMLElement(mapXMLElement));
     
     return mapDTO;
 }
@@ -326,6 +326,30 @@ WaveDTO* XMLMapParser::getWaveFromXMLNode(XMLElement* waveXMLElement)
     return waveDTO;
 }
 
+WallDTO* XMLMapParser::getWallDTOFromXMLNode(XMLElement* wallXMLElement)
+{
+    WallDTO *wallDTO = WallDTO::create();
+    
+    //position
+    if(wallXMLElement->FirstChildElement(TAG_POSITION) != NULL)
+    {
+        XMLElement* positionXMLElement = wallXMLElement->FirstChildElement(TAG_POSITION);
+        
+        wallDTO->x = atof(positionXMLElement->Attribute(ATTRIBUTE_POSITION_X));
+        wallDTO->y = atof(positionXMLElement->Attribute(ATTRIBUTE_POSITION_Y));
+    }
+    
+    if(wallXMLElement->FirstChildElement(TAG_EDGE) != NULL)
+    {
+        XMLElement* positionXMLElement = wallXMLElement->FirstChildElement(TAG_EDGE);
+        
+        wallDTO->edge_x = atof(positionXMLElement->Attribute(ATTRIBUTE_EDGE_X));
+        wallDTO->edge_y = atof(positionXMLElement->Attribute(ATTRIBUTE_EDGE_Y));
+    }
+    
+    return wallDTO;
+}
+
 CCArray* XMLMapParser::getMonsterFactoryDTOListFromXMLElement(XMLElement* root)
 {
     CCArray* monsterFactoryList = CCArray::create();
@@ -402,6 +426,20 @@ CCArray* XMLMapParser::getSensorObjectDTOListFromXMLElement(XMLElement* root)
     {
         sensorList->addObject(XMLMapParser::getSensorObjectDTOFromXMLNode(element));
     }
-
+    
     return sensorList;
+}
+
+CCArray* XMLMapParser::getWallDTOListFromXMLElement(XMLElement* root)
+{
+    CCArray* wallList = CCArray::create();
+    
+    XMLElement* sensorListXMLElement = root->FirstChildElement(TAG_WALL_LIST);
+    
+    for (XMLElement* element = sensorListXMLElement->FirstChildElement(TAG_WALL); element; element = element->NextSiblingElement())
+    {
+        wallList->addObject(XMLMapParser::getWallDTOFromXMLNode(element));
+    }
+    
+    return wallList;
 }

@@ -24,6 +24,7 @@
 #include "XMLHelper.h"
 #include "XMLItemParser.h"
 #include "WaveDTO.h"
+#include "WallDTO.h"
 
 #define TAG_BACKGROUND_LIST "background_list"
 #define TAG_BACKGROUND "background"
@@ -101,6 +102,10 @@
 #define TAG_WAVE_LIST "wave_list"
 #define TAG_WAVE "wave"
 
+//wall
+#define TAG_WALL_LIST "wall_list"
+#define TAG_WALL "wall"
+
 
 USING_NS_CC;
 using namespace tinyxml2;
@@ -118,13 +123,16 @@ public:
     static MonsterFactoryDTO* getMonsterFactoryDTOFromXMLNode(XMLElement* monsterFactoryXMLElement);
     static ItemCreatorDTO* getItemCreatorDTOFromXMLNode(XMLElement* itemCreatorXMLElement);
     static WaveDTO* getWaveFromXMLNode(XMLElement* waveXMLElement);
+    static WallDTO* getWallDTOFromXMLNode(XMLElement* wallXMLElement);
+
     
     static CCArray* getMonsterFactoryDTOListFromXMLElement(XMLElement* root);
     static CCArray* getItemCreatorDTOListFromXMLElement(XMLElement* root);
     static CCArray* getWaveDTOListFromXMLElement(XMLElement* root);
     static CCArray* getTowerStructDTOListFromXMLElement(XMLElement* root);
     static CCArray* getSensorObjectDTOListFromXMLElement(XMLElement* root);
-
+    static CCArray* getWallDTOListFromXMLElement(XMLElement* root);
+    
 };
 
 #endif /* defined(__TinyZodiacs__XMLMapParser__) */

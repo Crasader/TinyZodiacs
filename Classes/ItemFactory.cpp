@@ -14,6 +14,8 @@ ItemFactory::ItemFactory()
 {
     this->listItem = CCArray::create();
     this->listItem->retain();
+    
+    this->isActive = true;
 }
 
 ItemFactory::~ItemFactory()
@@ -32,26 +34,32 @@ ItemFactory* ItemFactory::getInstance()
 
 Item* ItemFactory::createItem(const char* id, CCPoint position)
 {
-
-    Item* item = ObjectFactory::createItem(DataCollector::getInstance()->getItemDTOByKey(id), this->holder.worldHolder);
-    item->setPositionInPixel(position);
-    item->attachSpriteTo(this->holder.nodeHolder);
-    
-    this->listItem->addObject(item);
-    GameObjectManager::getInstance()->addGameObject(item);
-    item->attach(this);
-    
-    item->getBody()->SetLinearVelocity(b2Vec2(CCRANDOM_MINUS1_1()*3,7));
-    return item;
+    if(this->isActive == true)
+    {
+        Item* item = ObjectFactory::createItem(DataCollector::getInstance()->getItemDTOByKey(id), this->holder.worldHolder);
+        item->setPositionInPixel(position);
+        item->attachSpriteTo(this->holder.nodeHolder);
+        
+        this->listItem->addObject(item);
+        GameObjectManager::getInstance()->addGameObject(item);
+        item->attach(this);
+        
+        item->getBody()->SetLinearVelocity(b2Vec2(CCRANDOM_MINUS1_1()*3,7));
+        return item;
+    }
+    return NULL;
 }
 
 void ItemFactory::update(float dt)
 {
-    for(int i=0; i<this->listItemStructPrepareToCreate.size(); i++)
+    if(this->isActive == true)
     {
-        createItem(this->listItemStructPrepareToCreate[i].itemID.c_str(),ccp(this->listItemStructPrepareToCreate[i].positionX, this->listItemStructPrepareToCreate[i].positionY));
+        for(int i=0; i<this->listItemStructPrepareToCreate.size(); i++)
+        {
+            createItem(this->listItemStructPrepareToCreate[i].itemID.c_str(),ccp(this->listItemStructPrepareToCreate[i].positionX, this->listItemStructPrepareToCreate[i].positionY));
+        }
+        this->listItemStructPrepareToCreate.clear();
     }
-    this->listItemStructPrepareToCreate.clear();
 }
 
 void ItemFactory::addItemPrepareToCreate(ItemStruct itemStruct)

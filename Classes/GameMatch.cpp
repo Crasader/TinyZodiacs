@@ -9,11 +9,14 @@
 #include "GameMatch.h"
 #include "MapCreator.h"
 
+
+bool stopss = false;
 GameMatch::GameMatch()
 {
     this->gameWorld = NULL;
     this->currentWave = -1;
     this->oldWave = -1;
+    stopss = false;
 }
 
 GameMatch::~GameMatch()
@@ -32,7 +35,6 @@ bool GameMatch::init()
     Player* player = Player::create();
     player->attachWithHero("cat");
     player->getHero()->attachSpriteTo(this->gameWorld->getMap());
-    
     this->gameWorld->addPlayer(player);
     
  
@@ -49,7 +51,6 @@ void GameMatch::update(float dt)
 {
    
 }
-
 void GameMatch::updateToCheckMatch()
 {
     if( this->currentWave < this->gameWorld->getMap()->getListWave()->count())
@@ -63,7 +64,7 @@ void GameMatch::updateToCheckMatch()
 
         if(b-a < 0)
         {
-        //    assert(0);
+//            assert(0);
         }
         vector<int>* arr = new vector<int>();
         arr->push_back(a);
@@ -72,24 +73,30 @@ void GameMatch::updateToCheckMatch()
         ControllerManager::getInstance()->sendCommand(HERO_CONTROLLER, DISPLAY_MONSTER_COUNT,arr);
     }
     
-    if(this->rule->checkNextWave())
+    if(this->rule->checkNextWave()  &&  stopss == false)
     {
         nextWave();
     }
     
-    if(this->rule->checkWin())
+    if(this->rule->checkWin()  &&  stopss == false)
     {
 
         CCLOG("WIN");
         ControllerManager::getInstance()->sendCommand(HERO_CONTROLLER, DISPLAY_RESULT ,new int(1));
         
-
     }
     
-    if(this->rule->checkLose())
+    if(this->rule->checkLose() &&  stopss == false)
     {
+        stopss = true;
         CCLOG("LOSE");
         ControllerManager::getInstance()->sendCommand(HERO_CONTROLLER, DISPLAY_RESULT ,new int(0));
+        stop();
+        ItemFactory::getInstance()->setIsActive(false);
+        this->gameWorld->destroy();
+        this->removeFromParent();
+        
+        CCDirector::sharedDirector()->popScene();
     }
     
 }
@@ -101,6 +108,7 @@ void GameMatch::start()
 
 void GameMatch::stop()
 {
+    CCLOG("stop");
     CCObject* object = NULL;
     CCARRAY_FOREACH(this->gameWorld->getMap()->getListWave(), object)
     {

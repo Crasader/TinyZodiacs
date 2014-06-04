@@ -36,9 +36,9 @@ private:
     CC_SYNTHESIZE(CCArray*, listMonster, ListMonster);
     CC_SYNTHESIZE(CCArray*, listMonsterCreator, ListMonsterCreator);
     CC_SYNTHESIZE(int, max, Max);
-     CC_SYNTHESIZE(int, monsterCountKilled, MonsterCountKilled);
+    CC_SYNTHESIZE(int, monsterCountKilled, MonsterCountKilled);
     CC_SYNTHESIZE(bool, isCompletedCreateMonster, IsCompletedCreateMonster);
-
+    
 protected:
 public:
     
@@ -50,7 +50,7 @@ public:
     virtual void update(float dt);
     
     Monster* createMonster(MonsterDTO* monsterDTO, CCPoint position, int laneID, b2World* world);
-//  void createMonsters(CharacterDTO* monsterDTO, CCPoint position, int quantity, float timeDelayPerMonster);
+    //  void createMonsters(CharacterDTO* monsterDTO, CCPoint position, int quantity, float timeDelayPerMonster);
     void createMonsterList(CCArray* listMonsterDTO, CCPoint position, int laneID, int quantity, float timeDelayPerMonster);
     void createMonsterFromSchedule(CCNode* sender, void* data);
     void finishCreateMonsterFromSchedule(CCNode* sender, void* data);
@@ -64,7 +64,7 @@ public:
     int getCountOfAliveMonster();
     
     virtual void notifyToDestroy(GameObject* object);
-
+    
     CREATE_FUNC(MonsterFactory);
 };
 

@@ -16,6 +16,7 @@
 
 #include "AnimationEffect.h"
 #include "EffectManager.h"
+#include "GameManager.h"
 
 NormalAttack::NormalAttack(GameObject* holder, NormalMeleeSkillData data): AbstractSkill(holder,data)
 {
@@ -30,10 +31,12 @@ NormalAttack::NormalAttack(GameObject* holder, NormalMeleeSkillData data): Abstr
 
 NormalAttack::~NormalAttack()
 {
- 
+    if(GameManager::getInstance()->getGameplayHolder().worldHolder != NULL)
+    {
+        data.getSkillSensor()->SetActive(false);
+        data.getSkillSensor()->GetWorld()->DestroyBody(data.getSkillSensor());
+    }
     CC_SAFE_RELEASE(this->skillSprite);
-    data.getSkillSensor()->SetActive(false);
-    data.getSkillSensor()->GetWorld()->DestroyBody(data.getSkillSensor());
     
     this->data.releaseEffectLists();
 }
@@ -96,7 +99,7 @@ void NormalAttack::update(float dt)
     {
         if(this->isExcutable)
         {
-//            data->isActive = true;
+            //            data->isActive = true;
         }
         else
         {
@@ -168,7 +171,7 @@ void NormalAttack::excuteImmediately()
     {
         return;
     }
-        
+    
     this->data.getSkillSensor()->SetActive(true);
     if(this->data.getSkillAnimation() != NULL && this->holder != NULL && this->holder->getSprite() != NULL)
     {
@@ -193,6 +196,7 @@ void NormalAttack::stopImmediately()
     {
         return;
     }
+   
     //deactive sensor
     this->data.getSkillSensor()->SetActive(false);
     if(this->data.getSkillAnimation() != NULL && this->holder != NULL)
@@ -217,7 +221,7 @@ void NormalAttack::stopImmediately()
         CCObject* object = NULL;
         CCARRAY_FOREACH(this->listTarget, object)
         {
-   
+            
             Character* gameObject = static_cast<Character*>(object);
             gameObject->detach(this);
             
@@ -228,15 +232,15 @@ void NormalAttack::stopImmediately()
 
 void NormalAttack::checkCollisionDataInBeginContact(PhysicData* holderData, PhysicData* collisionData, b2Contact *contact)
 {
-
+    
     if(this->isDisable)
     {
         return;
     }
     
-
+    
     if(holderData->bodyId == SKILL_SENSOR && holderData->data == this )
-
+        
     {
         if(collisionData != NULL)
         {
@@ -292,12 +296,12 @@ void NormalAttack::checkCollisionDataInBeginContact(PhysicData* holderData, Phys
 
 void NormalAttack::checkCollisionDataInEndContact(PhysicData* holderData, PhysicData* collisionData, b2Contact *contact)
 {
-
+    
     if(this->isDisable)
     {
         return;
     }
-
+    
     if(holderData->bodyId == SKILL_SENSOR && holderData->data == this)
     {
         if(collisionData != NULL)
@@ -415,7 +419,7 @@ void NormalAttack::setExcuteAble()
         return;
     }
     this->isExcutable = true;
-
+    
     if(this->skillButtonID != UNKNOWN)
     {
         StateCommandData *data = new StateCommandData();

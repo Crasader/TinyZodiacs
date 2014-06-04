@@ -42,6 +42,7 @@ bool MonsterFactory::init()
 Monster* MonsterFactory::createMonster(MonsterDTO* monsterDTO, CCPoint position, int laneID, b2World* world)
 {
     Monster* monster = Monster::create();
+
     
     monster->setOriginCharacterData(monsterDTO->data);
     
@@ -157,7 +158,6 @@ void MonsterFactory::finishCreateMonsterFromSchedule(CCNode* sender, void* data)
     //world do not delete
     //b2World *world = static_cast<b2World*>(params->at(2));
     
-    
     delete dto;
     delete pos;
     
@@ -181,7 +181,6 @@ void MonsterFactory::createMonsterListFromSchedule(CCNode* sender, void* data)
             if (this->listMonster->count() < this->max)
             {
                 addNewMonster(createMonster(dto, *pos, *laneID, world));
-                
             }
             listMonster->removeObjectAtIndex(0);
         }
@@ -216,6 +215,7 @@ void MonsterFactory::addNewMonster(Monster* monster)
     monster->attachSpriteTo(this->holder.nodeHolder);
     
     this->monsterCount++;
+    GameObjectManager::getInstance()->monsterCount ++;
 }
 void MonsterFactory::removeMonster(Monster* monster)
 {

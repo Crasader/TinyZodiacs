@@ -34,6 +34,7 @@ public:
     CCArray* listMonsterFactoryDTO;
     CCArray* listItemCreatorDTO;
     CCArray* listWaveDTO;
+    CCArray* listWallDTO;
 
     CREATE_FUNC(MapDTO);
 };

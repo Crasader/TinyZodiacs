@@ -423,6 +423,9 @@
 		F5CFE1541937115D00CC8A94 /* TextShowEffect.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F5CFE1521937115D00CC8A94 /* TextShowEffect.cpp */; };
 		F5CFE15719372B2400CC8A94 /* MainCrystal.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F5CFE15519372B2400CC8A94 /* MainCrystal.cpp */; };
 		F5DB5356192D93EC0065C55E /* GameMatch.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F5DB5354192D93EC0065C55E /* GameMatch.cpp */; };
+		F5DB6888193EC3C300FFF5A1 /* Wall.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F5DB6886193EC3C300FFF5A1 /* Wall.cpp */; };
+		F5DB688D193EC3E400FFF5A1 /* MainHero.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F5DB6889193EC3E400FFF5A1 /* MainHero.cpp */; };
+		F5DB688E193EC3E400FFF5A1 /* WallDTO.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F5DB688B193EC3E400FFF5A1 /* WallDTO.cpp */; };
 		F5DC910F1928FD50004851A4 /* item_spritesheet.plist in Resources */ = {isa = PBXBuildFile; fileRef = F5DC910D1928FD50004851A4 /* item_spritesheet.plist */; };
 		F5DC91101928FD50004851A4 /* item_spritesheet.png in Resources */ = {isa = PBXBuildFile; fileRef = F5DC910E1928FD50004851A4 /* item_spritesheet.png */; };
 		F5DF11A5192AED2D00CA5C2F /* GoldItem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F5DF11A3192AED2D00CA5C2F /* GoldItem.cpp */; };
@@ -1237,6 +1240,12 @@
 		F5CFE15619372B2400CC8A94 /* MainCrystal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainCrystal.h; sourceTree = "<group>"; };
 		F5DB5354192D93EC0065C55E /* GameMatch.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GameMatch.cpp; path = ../Classes/GameMatch.cpp; sourceTree = "<group>"; };
 		F5DB5355192D93EC0065C55E /* GameMatch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GameMatch.h; path = ../Classes/GameMatch.h; sourceTree = "<group>"; };
+		F5DB6886193EC3C300FFF5A1 /* Wall.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Wall.cpp; path = ../Classes/Wall.cpp; sourceTree = "<group>"; };
+		F5DB6887193EC3C300FFF5A1 /* Wall.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Wall.h; path = ../Classes/Wall.h; sourceTree = "<group>"; };
+		F5DB6889193EC3E400FFF5A1 /* MainHero.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = MainHero.cpp; path = ../Classes/MainHero.cpp; sourceTree = "<group>"; };
+		F5DB688A193EC3E400FFF5A1 /* MainHero.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MainHero.h; path = ../Classes/MainHero.h; sourceTree = "<group>"; };
+		F5DB688B193EC3E400FFF5A1 /* WallDTO.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = WallDTO.cpp; path = ../Classes/WallDTO.cpp; sourceTree = "<group>"; };
+		F5DB688C193EC3E400FFF5A1 /* WallDTO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WallDTO.h; path = ../Classes/WallDTO.h; sourceTree = "<group>"; };
 		F5DC910D1928FD50004851A4 /* item_spritesheet.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = item_spritesheet.plist; sourceTree = "<group>"; };
 		F5DC910E1928FD50004851A4 /* item_spritesheet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = item_spritesheet.png; sourceTree = "<group>"; };
 		F5DF11A3192AED2D00CA5C2F /* GoldItem.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GoldItem.cpp; sourceTree = "<group>"; };
@@ -2456,6 +2465,10 @@
 		F54AE96D18D2F01B00194E66 /* Objects */ = {
 			isa = PBXGroup;
 			children = (
+				F5DB6889193EC3E400FFF5A1 /* MainHero.cpp */,
+				F5DB688A193EC3E400FFF5A1 /* MainHero.h */,
+				F5DB6886193EC3C300FFF5A1 /* Wall.cpp */,
+				F5DB6887193EC3C300FFF5A1 /* Wall.h */,
 				F5F5F1071935C8C0006EAEA6 /* Rule */,
 				F5FB8E6719333E100074598C /* Controller.h */,
 				F5FB8E6819333E100074598C /* Controller.cpp */,
@@ -2793,6 +2806,8 @@
 		F5B85FB61904BAAB00CE4604 /* MapDTO */ = {
 			isa = PBXGroup;
 			children = (
+				F5DB688B193EC3E400FFF5A1 /* WallDTO.cpp */,
+				F5DB688C193EC3E400FFF5A1 /* WallDTO.h */,
 				34E614F319133F5E006D933E /* MapDTO.h */,
 				34E614F419133F5E006D933E /* MapDTO.cpp */,
 				34E614EA19133B2D006D933E /* MonsterFactoryDTO.h */,
@@ -3149,6 +3164,7 @@
 				F58ED4CB19383DA200488E69 /* MonsterBoss.cpp in Sources */,
 				F54AE9B818D2F1AA00194E66 /* CharacterJumpState.cpp in Sources */,
 				15A3D8FF1682F7D5002FB0C5 /* b2BroadPhase.cpp in Sources */,
+				F5DB688D193EC3E400FFF5A1 /* MainHero.cpp in Sources */,
 				F54AE9C418D2F1FC00194E66 /* GameObject.cpp in Sources */,
 				3414166218DC23A0007B8C2B /* GameObjectManager.cpp in Sources */,
 				15A3D9001682F7D5002FB0C5 /* b2CollideCircle.cpp in Sources */,
@@ -3299,6 +3315,7 @@
 				15A3DA431682F826002FB0C5 /* CCNodeLoader.cpp in Sources */,
 				15A3DA441682F826002FB0C5 /* CCNodeLoaderLibrary.cpp in Sources */,
 				15A3DA451682F826002FB0C5 /* CCParticleSystemQuadLoader.cpp in Sources */,
+				F5DB6888193EC3C300FFF5A1 /* Wall.cpp in Sources */,
 				15A3DA461682F826002FB0C5 /* CCScale9SpriteLoader.cpp in Sources */,
 				15A3DA471682F826002FB0C5 /* CCScrollViewLoader.cpp in Sources */,
 				15A3DA481682F826002FB0C5 /* CCSpriteLoader.cpp in Sources */,
@@ -3367,6 +3384,7 @@
 				1A8F3B71175E05DA00049216 /* Atlas.cpp in Sources */,
 				1A8F3B72175E05DA00049216 /* AtlasAttachmentLoader.cpp in Sources */,
 				34315E51193972430058D433 /* AnimationData.cpp in Sources */,
+				F5DB688E193EC3E400FFF5A1 /* WallDTO.cpp in Sources */,
 				1A8F3B73175E05DA00049216 /* Attachment.cpp in Sources */,
 				F5B4B79418E66E8700E4C2AA /* GameObjectView.cpp in Sources */,
 				34EED02218E50E5D001AFFC9 /* NormalMeleeSkillData.cpp in Sources */,

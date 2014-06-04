@@ -135,9 +135,10 @@ void Character::update(float dt)
     {
         flipDirection(LEFT);
     }
+    
     if(isDead() == true)
     {
-        destroy();
+        die();
     }
 }
 
@@ -369,16 +370,6 @@ void Character::checkCollisionDataInEndContact(PhysicData* holderData, PhysicDat
 {
     if(holderData->data == this)
     {
-//        PhysicData* physicData = NULL;
-//        if(isSideA)
-//        {
-//            physicData = (PhysicData*)contact->GetFixtureB()->GetBody()->GetUserData();
-//        }
-//        else
-//        {
-//            physicData = (PhysicData*)contact->GetFixtureA()->GetBody()->GetUserData();
-//        }
-        
         switch (holderData->fixtureId) {
             case FOOT_SENSOR_FIXTURE:
             {
@@ -413,16 +404,6 @@ void Character::checkCollisionDataInEndContact(PhysicData* holderData, PhysicDat
                 
             case BODY_MAIN_FIXTURE:
             {
-//                PhysicData* physicData = NULL;
-//                if(isSideA)
-//                {
-//                    physicData = (PhysicData*)contact->GetFixtureB()->GetBody()->GetUserData();
-//                }
-//                else
-//                {
-//                    physicData = (PhysicData*)contact->GetFixtureA()->GetBody()->GetUserData();
-//                }
-                
                 if(collisionData != NULL)
                 {
                     switch (collisionData->bodyId) {
@@ -434,12 +415,19 @@ void Character::checkCollisionDataInEndContact(PhysicData* holderData, PhysicDat
                             //                            }
                         }
                             break;
+                        case WALL_BODY:
+                            if(this->body->GetLinearVelocity().y > 2)
+                            {
+                            this->body->SetLinearVelocity(b2Vec2(0,5));
+                            }
+                            
+                            
+                            break;
                             
                         default:
                             break;
                     }
                 }
-                
             }
                 break;
                 
@@ -552,6 +540,11 @@ void Character::destroy()
         skill2->destroy();
     }
     GameObject::destroy();
+}
+
+void Character::die()
+{
+    destroy();
 }
 
 void Character::attach(Observer* observer)

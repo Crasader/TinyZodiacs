@@ -44,7 +44,6 @@ void GameGroup::joinGame(Group group, b2World* world, Map* map)
     this->group = group;
     this->monsterFactory->setGroup(this->group);
     //CHARACTER
-    
 //    this->character = ObjectFactory::createHero(DataCollector::getInstance()->getHeroDTOByKey("cat"), world, false);
 //    this->character->setPositionInPixel(ccp(2500,500));
 //    this->character->setGroup(this->group);
@@ -79,7 +78,6 @@ void GameGroup::joinGame(Group group, b2World* world, Map* map)
             }
         }
     }
-    
     
     //monster factory
     object = NULL;

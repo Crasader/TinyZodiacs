@@ -65,11 +65,10 @@ public:
     void onCreateMap();
     void onCreateWorld();
     void onCreateUnits();
+    void destroy();
     
     void addPlayer(Player* player);
 
-    
-    
     void addManager();
     GameWorld();
     virtual ~GameWorld();

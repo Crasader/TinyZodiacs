@@ -14,6 +14,7 @@
 #include "GameObjectLayer.h"
 #include "LayerIndexConstants.h"
 #include "GameplayLayer.h"
+#include "ControllerManager.h"
 
 USING_NS_CC;
 
@@ -24,22 +25,24 @@ bool TestScene::init()
         return false;
     }
     
-    CCMenuItemImage *pMenuBack = CCMenuItemImage::create("CloseNormal.png",
-                                                         "CloseSelected.png",
-                                                         this,
-                                                         menu_selector(TestScene::menuBackCallBack));
-    pMenuBack->setPosition(ccp(20 ,20));
+      CCLOG("sdsdsdasfasfasfas");
+    initScene();
+    if(GameManager::getInstance()->getParent() == NULL)
+    {
+            this->addChild(GameManager::getInstance());
+    }
     
-    
-    CCMenu *menuBack = CCMenu::create(pMenuBack,NULL);
-    
-    menuBack->setPosition(CCPointZero);
- //   this->addChild(menuBack, 1);
-    
-        initScene();
-        this->addChild(GameManager::getInstance());
+ 
+   
+
     
     return true;
+}
+
+TestScene::~TestScene()
+{
+    ControllerManager::getInstance()->clean();
+    RuleManager::getInstance()->clean();
 }
 
 CCScene* TestScene::scene()

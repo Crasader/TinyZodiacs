@@ -34,27 +34,32 @@ GameObject::~GameObject()
     
     if(this->sprite != NULL)
     {
-        this->sprite->removeFromParent();
+        if(this->sprite->getParent() != NULL)
+        {
+            this->sprite->removeFromParent();
+        }
         this->sprite = NULL;
     }
-    
-    if(this->body != NULL)
+    if(GameManager::getInstance()->getGameplayHolder().worldHolder != NULL)
     {
-        for (b2Fixture* f = this->body->GetFixtureList(); f; f = f->GetNext())
+        if(this->body != NULL)
         {
-            PhysicData* data = static_cast<PhysicData*>(f->GetUserData());
-            delete data;
-            f->SetUserData(NULL);
+            for (b2Fixture* f = this->body->GetFixtureList(); f; f = f->GetNext())
+            {
+                PhysicData* data = static_cast<PhysicData*>(f->GetUserData());
+                delete data;
+                f->SetUserData(NULL);
+            }
+            if(this->body->GetUserData() != NULL)
+            {
+                PhysicData* data = static_cast<PhysicData*>(this->body->GetUserData());
+                delete data;
+            }
+            
+            this->body->SetUserData(NULL);
+            this->body->GetWorld()->DestroyBody(this->body);
+            this->body = NULL;
         }
-        if(this->body->GetUserData() != NULL)
-        {
-            PhysicData* data = static_cast<PhysicData*>(this->body->GetUserData());
-            delete data;
-        }
-        
-        this->body->SetUserData(NULL);
-        this->body->GetWorld()->DestroyBody(this->body);
-        this->body = NULL;
     }
     
     this->listAffect->removeAllObjects();
@@ -81,12 +86,6 @@ void GameObject::onCreate()
     //
 }
 
-void GameObject::excuteScheduledFunction(CCObject* pSender, void *body)
-{
-    
-}
-
-
 void GameObject::update(float dt)
 {
     if(this->isDestroyed == false)
@@ -95,7 +94,7 @@ void GameObject::update(float dt)
         updateAllAffect(dt);
         updateGameObjectView(dt);
     }
-
+    
 }
 
 void GameObject::updateGameObjectView(float dt)
@@ -123,7 +122,7 @@ void GameObject::attachSpriteTo(CCNode* node)
 {
     if(this->gameObjectView != NULL)
     {
-    node->addChild(this->gameObjectView,GAME_OBJECT_VIEW);
+        node->addChild(this->gameObjectView,GAME_OBJECT_VIEW);
     }
 }
 
@@ -160,6 +159,7 @@ void GameObject::updateSpritePositionWithBodyPosition()
     }
     
 }
+
 
 void GameObject::updateAllAffect(float dt)
 {
@@ -392,6 +392,8 @@ void GameObject::destroy()
             affect->destroy();
         }
         this->listAffect->removeAllObjects();
+        
+        clearPhysicUserData();
     }
 }
 
@@ -423,4 +425,23 @@ void GameObject::notifyToDestroy()
 void GameObject::notifyUIChange(void* data)
 {
     
+}
+
+void GameObject::clearPhysicUserData()
+{
+    if(this->body != NULL)
+    {
+        for (b2Fixture* f = this->body->GetFixtureList(); f; f = f->GetNext())
+        {
+            PhysicData* data = static_cast<PhysicData*>(f->GetUserData());
+            delete data;
+            f->SetUserData(NULL);
+        }
+        if(this->body->GetUserData() != NULL)
+        {
+            PhysicData* data = static_cast<PhysicData*>(this->body->GetUserData());
+            delete data;
+            this->body->SetUserData(NULL);
+        }
+    }
 }

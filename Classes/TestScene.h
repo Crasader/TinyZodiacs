@@ -17,6 +17,7 @@ class TestScene: public cocos2d::CCLayer
 private:
     void menuBackCallBack(CCObject* pSender);
 public:
+    ~TestScene();
     virtual bool init();
     void initScene();
     

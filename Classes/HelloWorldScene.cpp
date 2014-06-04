@@ -123,6 +123,6 @@ void HelloWorld::menuStartCallback(cocos2d::CCObject *pSender)
     // position the sprite on the center of the screen
     //  pSprite->setPosition(ccp(visibleSize.width/2 + origin.x, visibleSize.height/2 + origin.y));
     CCScene* testScene = TestScene::scene();
-    CCDirector::sharedDirector()->replaceScene(testScene);
+    CCDirector::sharedDirector()->pushScene(testScene);
     
 }

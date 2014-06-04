@@ -28,6 +28,7 @@ bool ItemCreator::init()
 
 void ItemCreator::start()
 {
+       CCLOG("start item");
     this->isStopped = false;
     CCCallFunc* createFunction = CCCallFunc::create(this, callfunc_selector(ItemCreator::createItem));
     
@@ -37,6 +38,7 @@ void ItemCreator::start()
 
 void ItemCreator::stop()
 {
+    CCLOG("stop item");
     this->isStopped = true;
     if(this->delayAction != NULL)
     {
@@ -60,8 +62,13 @@ void ItemCreator::createItem()
             CCPoint createPosition = this->beginPosition + ccp(CCRANDOM_0_1()* (this->endPosition.x - this->beginPosition.x), CCRANDOM_0_1()*(this->endPosition.y - this->beginPosition.y));
             
             Item* item = ItemFactory::getInstance()->createItem(listItem[i].itemID.c_str(), createPosition);
-            this->listItem->addObject(item);
-            item->attach(this);
+           if(item != NULL)
+           {
+               this->listItem->addObject(item);
+               item->attach(this);
+           }
+           
+        
         }
         if(this->listItem->count() < this->max)
         {
