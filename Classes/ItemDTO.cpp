@@ -16,6 +16,7 @@ ItemDTO::ItemDTO()
     this->positionX = 0;
     this->positionY = 0;
     this->lifeTime = 0;
+    this->goldValue = 0;
 }
 
 ItemDTO::~ItemDTO()

@@ -39,7 +39,7 @@ public:
     
     virtual void checkCollisionDataInBeginContact(PhysicData* holderData, PhysicData* collisionData, b2Contact *contact);
     virtual void checkCollisionDataInEndContact(PhysicData* holderData, PhysicData* collisionData, b2Contact *contact);
-    void pickUp(Item* item);
+    virtual void pickUp(Item* item);
     virtual void attachSpriteTo(CCNode* node);
     virtual void destroy();
     

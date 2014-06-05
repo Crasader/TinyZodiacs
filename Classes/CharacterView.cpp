@@ -7,11 +7,13 @@
 //
 
 #include "CharacterView.h"
+#include "Util.h"
 
 CharacterView::CharacterView()
 {
     this->healthBar = NULL;
     this->textNameLabel = NULL;
+    this->holderHeight = NULL;
 }
 
 CharacterView::~CharacterView()
@@ -30,13 +32,20 @@ bool CharacterView::init()
 
 void CharacterView::update(float dt)
 {
-    this->healthBar->setPosition(this->gameObject->getPositionInPixel() + ccp(0,100));
-    this->textNameLabel->setPosition(this->gameObject->getPositionInPixel() - ccp(0,100));
+
+    this->healthBar->setPosition(this->gameObject->getPositionInPixel() + ccp(0,holderHeight/2 + 30) );
+    if(this->textNameLabel != NULL)
+    {
+        this->textNameLabel->setPosition(this->gameObject->getPositionInPixel() - ccp(0,100));
+    }
 }
 
 void CharacterView::attach(GameObject *gameObject)
 {
     GameObjectView::attach(gameObject);
+    
+    b2AABB aabb = Util::getBodyBoundingBox(gameObject->getBody());
+    holderHeight = aabb.upperBound.y*PTM_RATIO - aabb.lowerBound.y*PTM_RATIO;
 }
 
 void CharacterView::setHealthBar(HealthBar* healthBar)

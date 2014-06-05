@@ -1,0 +1,597 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>frames</key>
+	<dict>
+		
+		<key>effect_die_1.png</key>
+		<dict>
+			<key>aliases</key>
+			<array>
+			
+			</array>
+			<key>spriteColorRect</key>
+			<string>{{0, 285}, {158, 257}}</string>
+			<key>spriteOffset</key>
+			<string>{0, -135}</string>
+			<key>spriteSize</key>
+			<string>{158, 257}</string>
+			<key>spriteSourceSize</key>
+			<string>{158, 557}</string>
+			<key>spriteTrimmed</key>
+			<true/>
+			<key>textureRect</key>
+			<string>{{616, 1464}, {158, 257}}</string>
+			<key>textureRotated</key>
+			<false/>
+		</dict>
+		
+		<key>effect_die_10.png</key>
+		<dict>
+			<key>aliases</key>
+			<array>
+			
+			</array>
+			<key>spriteColorRect</key>
+			<string>{{6, 23}, {128, 521}}</string>
+			<key>spriteOffset</key>
+			<string>{-9, -5}</string>
+			<key>spriteSize</key>
+			<string>{128, 521}</string>
+			<key>spriteSourceSize</key>
+			<string>{158, 557}</string>
+			<key>spriteTrimmed</key>
+			<true/>
+			<key>textureRect</key>
+			<string>{{0, 0}, {128, 521}}</string>
+			<key>textureRotated</key>
+			<false/>
+		</dict>
+		
+		<key>effect_die_2.png</key>
+		<dict>
+			<key>aliases</key>
+			<array>
+			
+			</array>
+			<key>spriteColorRect</key>
+			<string>{{0, 274}, {158, 283}}</string>
+			<key>spriteOffset</key>
+			<string>{0, -137}</string>
+			<key>spriteSize</key>
+			<string>{158, 283}</string>
+			<key>spriteSourceSize</key>
+			<string>{158, 557}</string>
+			<key>spriteTrimmed</key>
+			<true/>
+			<key>textureRect</key>
+			<string>{{456, 1464}, {158, 283}}</string>
+			<key>textureRotated</key>
+			<false/>
+		</dict>
+		
+		<key>effect_die_3.png</key>
+		<dict>
+			<key>aliases</key>
+			<array>
+			
+			</array>
+			<key>spriteColorRect</key>
+			<string>{{0, 260}, {148, 297}}</string>
+			<key>spriteOffset</key>
+			<string>{-5, -130}</string>
+			<key>spriteSize</key>
+			<string>{148, 297}</string>
+			<key>spriteSourceSize</key>
+			<string>{158, 557}</string>
+			<key>spriteTrimmed</key>
+			<true/>
+			<key>textureRect</key>
+			<string>{{788, 778}, {148, 297}}</string>
+			<key>textureRotated</key>
+			<false/>
+		</dict>
+		
+		<key>effect_die_4.png</key>
+		<dict>
+			<key>aliases</key>
+			<array>
+			
+			</array>
+			<key>spriteColorRect</key>
+			<string>{{0, 202}, {158, 355}}</string>
+			<key>spriteOffset</key>
+			<string>{0, -101}</string>
+			<key>spriteSize</key>
+			<string>{158, 355}</string>
+			<key>spriteSourceSize</key>
+			<string>{158, 557}</string>
+			<key>spriteTrimmed</key>
+			<true/>
+			<key>textureRect</key>
+			<string>{{1062, 1400}, {158, 355}}</string>
+			<key>textureRotated</key>
+			<false/>
+		</dict>
+		
+		<key>effect_die_5.png</key>
+		<dict>
+			<key>aliases</key>
+			<array>
+			
+			</array>
+			<key>spriteColorRect</key>
+			<string>{{0, 190}, {158, 359}}</string>
+			<key>spriteOffset</key>
+			<string>{0, -91}</string>
+			<key>spriteSize</key>
+			<string>{158, 359}</string>
+			<key>spriteSourceSize</key>
+			<string>{158, 557}</string>
+			<key>spriteTrimmed</key>
+			<true/>
+			<key>textureRect</key>
+			<string>{{1252, 1097}, {158, 359}}</string>
+			<key>textureRotated</key>
+			<false/>
+		</dict>
+		
+		<key>effect_die_6.png</key>
+		<dict>
+			<key>aliases</key>
+			<array>
+			
+			</array>
+			<key>spriteColorRect</key>
+			<string>{{0, 163}, {158, 393}}</string>
+			<key>spriteOffset</key>
+			<string>{0, -81}</string>
+			<key>spriteSize</key>
+			<string>{158, 393}</string>
+			<key>spriteSourceSize</key>
+			<string>{158, 557}</string>
+			<key>spriteTrimmed</key>
+			<true/>
+			<key>textureRect</key>
+			<string>{{562, 0}, {158, 393}}</string>
+			<key>textureRotated</key>
+			<false/>
+		</dict>
+		
+		<key>effect_die_7.png</key>
+		<dict>
+			<key>aliases</key>
+			<array>
+			
+			</array>
+			<key>spriteColorRect</key>
+			<string>{{0, 121}, {158, 423}}</string>
+			<key>spriteOffset</key>
+			<string>{0, -54}</string>
+			<key>spriteSize</key>
+			<string>{158, 423}</string>
+			<key>spriteSourceSize</key>
+			<string>{158, 557}</string>
+			<key>spriteTrimmed</key>
+			<true/>
+			<key>textureRect</key>
+			<string>{{160, 948}, {158, 423}}</string>
+			<key>textureRotated</key>
+			<false/>
+		</dict>
+		
+		<key>effect_die_8.png</key>
+		<dict>
+			<key>aliases</key>
+			<array>
+			
+			</array>
+			<key>spriteColorRect</key>
+			<string>{{0, 76}, {158, 451}}</string>
+			<key>spriteOffset</key>
+			<string>{0, -23}</string>
+			<key>spriteSize</key>
+			<string>{158, 451}</string>
+			<key>spriteSourceSize</key>
+			<string>{158, 557}</string>
+			<key>spriteTrimmed</key>
+			<true/>
+			<key>textureRect</key>
+			<string>{{0, 948}, {158, 451}}</string>
+			<key>textureRotated</key>
+			<false/>
+		</dict>
+		
+		<key>effect_die_9.png</key>
+		<dict>
+			<key>aliases</key>
+			<array>
+			
+			</array>
+			<key>spriteColorRect</key>
+			<string>{{0, 54}, {148, 481}}</string>
+			<key>spriteOffset</key>
+			<string>{-5, -16}</string>
+			<key>spriteSize</key>
+			<string>{148, 481}</string>
+			<key>spriteSourceSize</key>
+			<string>{158, 557}</string>
+			<key>spriteTrimmed</key>
+			<true/>
+			<key>textureRect</key>
+			<string>{{444, 778}, {148, 481}}</string>
+			<key>textureRotated</key>
+			<false/>
+		</dict>
+		
+		<key>maincrystal_broken_1.png</key>
+		<dict>
+			<key>aliases</key>
+			<array>
+			
+			</array>
+			<key>spriteColorRect</key>
+			<string>{{205, 105}, {188, 307}}</string>
+			<key>spriteOffset</key>
+			<string>{0, -45}</string>
+			<key>spriteSize</key>
+			<string>{188, 307}</string>
+			<key>spriteSourceSize</key>
+			<string>{598, 427}</string>
+			<key>spriteTrimmed</key>
+			<true/>
+			<key>textureRect</key>
+			<string>{{1668, 381}, {188, 307}}</string>
+			<key>textureRotated</key>
+			<false/>
+		</dict>
+		
+		<key>maincrystal_broken_10.png</key>
+		<dict>
+			<key>aliases</key>
+			<array>
+			
+			</array>
+			<key>spriteColorRect</key>
+			<string>{{58, 82}, {472, 345}}</string>
+			<key>spriteOffset</key>
+			<string>{-5, -41}</string>
+			<key>spriteSize</key>
+			<string>{472, 345}</string>
+			<key>spriteSourceSize</key>
+			<string>{598, 427}</string>
+			<key>spriteTrimmed</key>
+			<true/>
+			<key>textureRect</key>
+			<string>{{1194, 383}, {472, 345}}</string>
+			<key>textureRotated</key>
+			<false/>
+		</dict>
+		
+		<key>maincrystal_broken_11.png</key>
+		<dict>
+			<key>aliases</key>
+			<array>
+			
+			</array>
+			<key>spriteColorRect</key>
+			<string>{{58, 60}, {476, 367}}</string>
+			<key>spriteOffset</key>
+			<string>{-3, -30}</string>
+			<key>spriteSize</key>
+			<string>{476, 367}</string>
+			<key>spriteSourceSize</key>
+			<string>{598, 427}</string>
+			<key>spriteTrimmed</key>
+			<true/>
+			<key>textureRect</key>
+			<string>{{1422, 730}, {476, 367}}</string>
+			<key>textureRotated</key>
+			<false/>
+		</dict>
+		
+		<key>maincrystal_broken_12.png</key>
+		<dict>
+			<key>aliases</key>
+			<array>
+			
+			</array>
+			<key>spriteColorRect</key>
+			<string>{{35, 61}, {494, 365}}</string>
+			<key>spriteOffset</key>
+			<string>{-17, -30}</string>
+			<key>spriteSize</key>
+			<string>{494, 365}</string>
+			<key>spriteSourceSize</key>
+			<string>{598, 427}</string>
+			<key>spriteTrimmed</key>
+			<true/>
+			<key>textureRect</key>
+			<string>{{444, 411}, {494, 365}}</string>
+			<key>textureRotated</key>
+			<false/>
+		</dict>
+		
+		<key>maincrystal_broken_13.png</key>
+		<dict>
+			<key>aliases</key>
+			<array>
+			
+			</array>
+			<key>spriteColorRect</key>
+			<string>{{64, 60}, {454, 367}}</string>
+			<key>spriteOffset</key>
+			<string>{-8, -30}</string>
+			<key>spriteSize</key>
+			<string>{454, 367}</string>
+			<key>spriteSourceSize</key>
+			<string>{598, 427}</string>
+			<key>spriteTrimmed</key>
+			<true/>
+			<key>textureRect</key>
+			<string>{{0, 1401}, {454, 367}}</string>
+			<key>textureRotated</key>
+			<false/>
+		</dict>
+		
+		<key>maincrystal_broken_14.png</key>
+		<dict>
+			<key>aliases</key>
+			<array>
+			
+			</array>
+			<key>spriteColorRect</key>
+			<string>{{56, 61}, {466, 365}}</string>
+			<key>spriteOffset</key>
+			<string>{-10, -30}</string>
+			<key>spriteSize</key>
+			<string>{466, 365}</string>
+			<key>spriteSourceSize</key>
+			<string>{598, 427}</string>
+			<key>spriteTrimmed</key>
+			<true/>
+			<key>textureRect</key>
+			<string>{{594, 1097}, {466, 365}}</string>
+			<key>textureRotated</key>
+			<false/>
+		</dict>
+		
+		<key>maincrystal_broken_15.png</key>
+		<dict>
+			<key>aliases</key>
+			<array>
+			
+			</array>
+			<key>spriteColorRect</key>
+			<string>{{27, 61}, {480, 365}}</string>
+			<key>spriteOffset</key>
+			<string>{-32, -30}</string>
+			<key>spriteSize</key>
+			<string>{480, 365}</string>
+			<key>spriteSourceSize</key>
+			<string>{598, 427}</string>
+			<key>spriteTrimmed</key>
+			<true/>
+			<key>textureRect</key>
+			<string>{{940, 730}, {480, 365}}</string>
+			<key>textureRotated</key>
+			<false/>
+		</dict>
+		
+		<key>maincrystal_broken_2.png</key>
+		<dict>
+			<key>aliases</key>
+			<array>
+			
+			</array>
+			<key>spriteColorRect</key>
+			<string>{{205, 105}, {188, 307}}</string>
+			<key>spriteOffset</key>
+			<string>{0, -45}</string>
+			<key>spriteSize</key>
+			<string>{188, 307}</string>
+			<key>spriteSourceSize</key>
+			<string>{598, 427}</string>
+			<key>spriteTrimmed</key>
+			<true/>
+			<key>textureRect</key>
+			<string>{{1858, 381}, {188, 307}}</string>
+			<key>textureRotated</key>
+			<false/>
+		</dict>
+		
+		<key>maincrystal_broken_3.png</key>
+		<dict>
+			<key>aliases</key>
+			<array>
+			
+			</array>
+			<key>spriteColorRect</key>
+			<string>{{202, 108}, {192, 303}}</string>
+			<key>spriteOffset</key>
+			<string>{-1, -46}</string>
+			<key>spriteSize</key>
+			<string>{192, 303}</string>
+			<key>spriteSourceSize</key>
+			<string>{598, 427}</string>
+			<key>spriteTrimmed</key>
+			<true/>
+			<key>textureRect</key>
+			<string>{{594, 778}, {192, 303}}</string>
+			<key>textureRotated</key>
+			<false/>
+		</dict>
+		
+		<key>maincrystal_broken_4.png</key>
+		<dict>
+			<key>aliases</key>
+			<array>
+			
+			</array>
+			<key>spriteColorRect</key>
+			<string>{{178, 74}, {252, 345}}</string>
+			<key>spriteOffset</key>
+			<string>{5, -33}</string>
+			<key>spriteSize</key>
+			<string>{252, 345}</string>
+			<key>spriteSourceSize</key>
+			<string>{598, 427}</string>
+			<key>spriteTrimmed</key>
+			<true/>
+			<key>textureRect</key>
+			<string>{{940, 383}, {252, 345}}</string>
+			<key>textureRotated</key>
+			<false/>
+		</dict>
+		
+		<key>maincrystal_broken_5.png</key>
+		<dict>
+			<key>aliases</key>
+			<array>
+			
+			</array>
+			<key>spriteColorRect</key>
+			<string>{{101, 40}, {390, 381}}</string>
+			<key>spriteOffset</key>
+			<string>{-3, -17}</string>
+			<key>spriteSize</key>
+			<string>{390, 381}</string>
+			<key>spriteSourceSize</key>
+			<string>{598, 427}</string>
+			<key>spriteTrimmed</key>
+			<true/>
+			<key>textureRect</key>
+			<string>{{1134, 0}, {390, 381}}</string>
+			<key>textureRotated</key>
+			<false/>
+		</dict>
+		
+		<key>maincrystal_broken_6.png</key>
+		<dict>
+			<key>aliases</key>
+			<array>
+			
+			</array>
+			<key>spriteColorRect</key>
+			<string>{{88, 11}, {430, 409}}</string>
+			<key>spriteOffset</key>
+			<string>{4, -2}</string>
+			<key>spriteSize</key>
+			<string>{430, 409}</string>
+			<key>spriteSourceSize</key>
+			<string>{598, 427}</string>
+			<key>spriteTrimmed</key>
+			<true/>
+			<key>textureRect</key>
+			<string>{{130, 0}, {430, 409}}</string>
+			<key>textureRotated</key>
+			<false/>
+		</dict>
+		
+		<key>maincrystal_broken_7.png</key>
+		<dict>
+			<key>aliases</key>
+			<array>
+			
+			</array>
+			<key>spriteColorRect</key>
+			<string>{{83, 3}, {442, 423}}</string>
+			<key>spriteOffset</key>
+			<string>{5, -1}</string>
+			<key>spriteSize</key>
+			<string>{442, 423}</string>
+			<key>spriteSourceSize</key>
+			<string>{598, 427}</string>
+			<key>spriteTrimmed</key>
+			<true/>
+			<key>textureRect</key>
+			<string>{{0, 523}, {442, 423}}</string>
+			<key>textureRotated</key>
+			<false/>
+		</dict>
+		
+		<key>maincrystal_broken_8.png</key>
+		<dict>
+			<key>aliases</key>
+			<array>
+			
+			</array>
+			<key>spriteColorRect</key>
+			<string>{{103, 46}, {410, 381}}</string>
+			<key>spriteOffset</key>
+			<string>{9, -23}</string>
+			<key>spriteSize</key>
+			<string>{410, 381}</string>
+			<key>spriteSourceSize</key>
+			<string>{598, 427}</string>
+			<key>spriteTrimmed</key>
+			<true/>
+			<key>textureRect</key>
+			<string>{{722, 0}, {410, 381}}</string>
+			<key>textureRotated</key>
+			<false/>
+		</dict>
+		
+		<key>maincrystal_broken_9.png</key>
+		<dict>
+			<key>aliases</key>
+			<array>
+			
+			</array>
+			<key>spriteColorRect</key>
+			<string>{{91, 47}, {428, 379}}</string>
+			<key>spriteOffset</key>
+			<string>{6, -23}</string>
+			<key>spriteSize</key>
+			<string>{428, 379}</string>
+			<key>spriteSourceSize</key>
+			<string>{598, 427}</string>
+			<key>spriteTrimmed</key>
+			<true/>
+			<key>textureRect</key>
+			<string>{{1526, 0}, {428, 379}}</string>
+			<key>textureRotated</key>
+			<false/>
+		</dict>
+		
+		<key>maincrystal_idle_1.png</key>
+		<dict>
+			<key>aliases</key>
+			<array>
+			
+			</array>
+			<key>spriteColorRect</key>
+			<string>{{203, 109}, {188, 301}}</string>
+			<key>spriteOffset</key>
+			<string>{-2, -46}</string>
+			<key>spriteSize</key>
+			<string>{188, 301}</string>
+			<key>spriteSourceSize</key>
+			<string>{598, 427}</string>
+			<key>spriteTrimmed</key>
+			<true/>
+			<key>textureRect</key>
+			<string>{{1062, 1097}, {188, 301}}</string>
+			<key>textureRotated</key>
+			<false/>
+		</dict>
+		
+	</dict>
+	<key>metadata</key>
+	<dict>
+		<key>version</key>
+		<string>1.6.0</string>
+		<key>format</key>
+		<integer>3</integer>
+		<key>size</key>
+		<string>{2048, 2048}</string>
+		<key>name</key>
+		<string>Untitled</string>
+		<key>textureFileName</key>
+		<string>maincrystal_spritesheet.png</string>
+		<key>premultipliedAlpha</key>
+		<false/>
+	</dict>
+</dict>
+</plist>

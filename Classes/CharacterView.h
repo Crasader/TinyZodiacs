@@ -21,7 +21,7 @@ class CharacterView: public GameObjectView
 private:
     HealthBar* healthBar;
     CCLabelTTF* textNameLabel;
-  
+    float holderHeight;
 protected:
 public:
     CharacterView();

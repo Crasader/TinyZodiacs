@@ -72,14 +72,12 @@ void Hero::checkCollisionDataInBeginContact(PhysicData* holderData, PhysicData* 
         if( collisionData != NULL)
         {
             
-            switch (holderData->bodyId)
+            switch (holderData->fixtureId)
             {
-                case CHARACTER_FOOT_SENSOR:
-                    break;
-                case CHARACTER_BODY:
+                case BODY_MAIN_FIXTURE:
                 {
                     
-                    if(collisionData->bodyId == GAME_ITEM)
+                    if(collisionData->gameObjectID == ITEM || collisionData->gameObjectID == GOLD_ITEM)
                     {
                         contact->SetEnabled(false);
                         Item* item = static_cast<Item*>(collisionData->data);

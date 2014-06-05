@@ -21,10 +21,12 @@ CharacterMoveState::CharacterMoveState(Character* character): CharacterState(cha
 
 bool CharacterMoveState::onEnterState()
 {
-    //CCLOG("enter move state");
-    this->action = CCAnimate::create(this->character->runAnimation->getAnimation());
-    this->action->retain();
-    this->character->getSprite()->runAction(this->action);
+    if(this->character->runAnimation != NULL)
+    {
+        this->action = CCAnimate::create(this->character->runAnimation->getAnimation());
+        this->action->retain();
+        this->character->getSprite()->runAction(this->action);
+    }
     return true;
 }
 

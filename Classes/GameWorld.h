@@ -51,7 +51,6 @@ private:
     CC_SYNTHESIZE(Map*, map, Map);
     CC_SYNTHESIZE(GameGroup*, group1, Group1);
     CC_SYNTHESIZE(GameGroup*, group2, Group2);
-    CC_SYNTHESIZE(Player*, player, player);
     CCAction* cameraFollowAction;
 protected:
  
@@ -67,15 +66,14 @@ public:
     void onCreateUnits();
     void destroy();
     
-    void addPlayer(Player* player);
 
     void addManager();
     GameWorld();
     virtual ~GameWorld();
     
 
-    
-    void setCameraFollowGroup(GameGroup* group);
+    void addHero(MainHero* hero);
+      void setCameraFollowGroup(GameGroup* group);
     void setCameraFollowNode(CCNode* nodeFollowed);
     
     virtual void BeginContact(b2Contact *contact);

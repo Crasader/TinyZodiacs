@@ -18,16 +18,22 @@ CharacterJumpState::CharacterJumpState(Character* character): CharacterState(cha
 
 bool CharacterJumpState::onEnterState()
 {
-  //  CCLOG("enter jump state");
-    CCAnimate* jumpAction = CCAnimate::create(this->character->jumpAnimation->getAnimation());
-    CCCallFunc* callBack = CCCallFunc::create(this, callfunc_selector(CharacterJumpState::finishJumpAction));
-
+    //  CCLOG("enter jump state");
+    
+    
     CCArray* arr = CCArray::create();
-    arr->addObject(jumpAction);
+    
+    CCCallFunc* callBack = CCCallFunc::create(this, callfunc_selector(CharacterJumpState::finishJumpAction));
+    
+    if(this->character->jumpAnimation != NULL)
+    {
+        CCAnimate* jumpAction = CCAnimate::create(this->character->jumpAnimation->getAnimation());
+        arr->addObject(jumpAction);
+    }
     arr->addObject(callBack);
-
+    
     this->action = CCSequence::create(arr);
-       this->action->retain();
+    this->action->retain();
     this->character->getSprite()->runAction(this->action);
     
     return true;

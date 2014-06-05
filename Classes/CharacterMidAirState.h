@@ -19,6 +19,7 @@ class CharacterMidAirState: public CharacterState
 private:
     bool isFlying;
     bool isFalling;
+    float oldFriction;
 protected:
 public:
     CharacterMidAirState(Character* character);

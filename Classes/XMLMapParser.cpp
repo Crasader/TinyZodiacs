@@ -82,6 +82,10 @@ MapDTO* XMLMapParser::getMapDTOFromXMLNode(XMLElement *mapXMLElement)
     mapDTO->listWaveDTO->addObjectsFromArray(getWaveDTOListFromXMLElement(mapXMLElement));
     mapDTO->listWallDTO->addObjectsFromArray(getWallDTOListFromXMLElement(mapXMLElement));
     
+    CCPoint revivePosition = getHeroRevivePositionFromXMLElement(mapXMLElement);
+    mapDTO->revivePositionX = revivePosition.x;
+    mapDTO->revivePositionY = revivePosition.y;
+    
     return mapDTO;
 }
 
@@ -442,4 +446,21 @@ CCArray* XMLMapParser::getWallDTOListFromXMLElement(XMLElement* root)
     }
     
     return wallList;
+}
+
+CCPoint XMLMapParser::getHeroRevivePositionFromXMLElement(XMLElement* root)
+{
+    CCPoint position;
+    
+    XMLElement* revivePosition = root->FirstChildElement(TAG_REVIVE_POSITION);
+    
+    if(revivePosition->FirstChildElement(TAG_POSITION) != NULL)
+    {
+        XMLElement* positionXMLElement = revivePosition->FirstChildElement(TAG_POSITION);
+        
+        position.x = atof(positionXMLElement->Attribute(ATTRIBUTE_POSITION_X));
+        position.y = atof(positionXMLElement->Attribute(ATTRIBUTE_POSITION_Y));
+    }
+    
+    return position;
 }

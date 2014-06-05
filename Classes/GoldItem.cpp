@@ -10,7 +10,7 @@
 
 GoldItem::GoldItem()
 {
-    
+    this->gameObjectID = GOLD_ITEM;
 }
 
 GoldItem::~GoldItem()
@@ -78,4 +78,5 @@ void GoldItem::contact(GameObject* contactGameObject)
 
 void GoldItem::open(GameObject* openGameObject)
 {
+    
 }

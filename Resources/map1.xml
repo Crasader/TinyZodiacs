@@ -107,6 +107,9 @@
         </map_object>
         
     </map_object_list>
+    <revive_position>
+        <position x="347" y="776"/>
+    </revive_position>
     <wall_list>
         <wall>
             <position x="729" y="513"/>
@@ -229,9 +232,11 @@
          </sensor_object>-->
     </sensor_object_list>
     <tower_list>
-        <tower type="main" id="tower1" group="B" >
+        
+        <tower type="main" id="maincrystal" group="B" >
             <position x="294" y="920"/>
          </tower>
+        <!--
          <tower id="tower1" group="A" >
             <position x="2780" y="500"/>
         </tower>
@@ -249,6 +254,7 @@
         <tower id="tower2" group="B" >
             <position x="4228" y="1378"/>
         </tower>
+      -->
     </tower_list>
     <monster_factory_list>
 

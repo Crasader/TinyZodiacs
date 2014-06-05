@@ -1,0 +1,31 @@
+<object_animation name="maincrystal" plist_name="tower_1_default.plist" image_name="tower_1_default.png">
+    
+    <animation name="die" delay="0.07" loop="1">
+        <origin x="0.54" y="0.5" />
+        <framelist>
+            <frame name="maincrystal_broken_1.png"/>
+            <frame name="maincrystal_broken_2.png"/>
+            <frame name="maincrystal_broken_3.png"/>
+            <frame name="maincrystal_broken_4.png"/>
+            <frame name="maincrystal_broken_5.png"/>
+            <frame name="maincrystal_broken_6.png"/>
+            <frame name="maincrystal_broken_7.png"/>
+            <frame name="maincrystal_broken_8.png"/>
+            <frame name="maincrystal_broken_9.png"/>
+            <frame name="maincrystal_broken_10.png"/>
+            <frame name="maincrystal_broken_11.png"/>
+            <frame name="maincrystal_broken_12.png"/>
+            <frame name="maincrystal_broken_13.png"/>
+            <frame name="maincrystal_broken_14.png"/>
+            <frame name="maincrystal_broken_15.png"/>
+            
+        </framelist>
+    </animation>
+
+    <animation name="idle" delay="1" loop="infinity">
+        <origin x="0.54" y="0.5" />
+        <framelist>
+            <frame name="maincrystal_idle_1.png"/>
+        </framelist>
+    </animation>
+</object_animation>

@@ -42,7 +42,8 @@ void ObjectFactory::createHero(Hero* hero, HeroDTO* heroDTO)
         string fly = heroDTO->animation;
         string jump = heroDTO->animation;
         string skill = heroDTO->animation;
-        
+        string die = heroDTO->animation;
+
         hero->runAnimation = DataCollector::getInstance()->getAnimationObjectByKey(string(std::string(run) + std::string(RUN)).c_str());
         hero->attackAnimation = DataCollector::getInstance()->getAnimationObjectByKey(attack.append(ATTACK).c_str());
         hero->jumpAnimation = DataCollector::getInstance()->getAnimationObjectByKey(jump.append(JUMP).c_str());
@@ -50,7 +51,7 @@ void ObjectFactory::createHero(Hero* hero, HeroDTO* heroDTO)
         hero->fallAnimation = DataCollector::getInstance()->getAnimationObjectByKey(fall.append(FALL).c_str());
         hero->flyAnimation = DataCollector::getInstance()->getAnimationObjectByKey(fly.append(FLY).c_str());
         hero->skill1Animation = DataCollector::getInstance()->getAnimationObjectByKey(skill.append(SKILL).c_str());
-        
+        hero->dieAnimation = DataCollector::getInstance()->getAnimationObjectByKey(die.append(DIE).c_str());
         hero->attackAnimation->getAnimation()->setDelayPerUnit(hero->getOriginCharacterData().getAttackSpeed());
         
         
@@ -288,6 +289,7 @@ Tower* ObjectFactory::createTower(TowerStructDTO* towerStructDTO, b2World* world
     string fall = towerDTO->animation;
     string fly = towerDTO->animation;
     string jump = towerDTO->animation;
+    string die = towerDTO->animation;
     
     tower->runAnimation = DataCollector::getInstance()->getAnimationObjectByKey(run.append(RUN).c_str());
     tower->attackAnimation = DataCollector::getInstance()->getAnimationObjectByKey(attack.append(ATTACK).c_str());
@@ -295,11 +297,16 @@ Tower* ObjectFactory::createTower(TowerStructDTO* towerStructDTO, b2World* world
     tower->idleAnimation = DataCollector::getInstance()->getAnimationObjectByKey(idle.append(IDLE).c_str());
     tower->fallAnimation = DataCollector::getInstance()->getAnimationObjectByKey(fall.append(FALL).c_str());
     tower->flyAnimation = DataCollector::getInstance()->getAnimationObjectByKey(fly.append(FLY).c_str());
-    tower->attackAnimation->getAnimation()->setDelayPerUnit(tower->getOriginCharacterData().getAttackSpeed());
+    tower->dieAnimation = DataCollector::getInstance()->getAnimationObjectByKey(die.append(DIE).c_str());
+    if( tower->attackAnimation != NULL)
+    {
+        tower->attackAnimation->getAnimation()->setDelayPerUnit(tower->getOriginCharacterData().getAttackSpeed());
+    }
+    
     
     //body
     b2BodyDef bodyDef;
-    bodyDef.type = b2_staticBody;
+    bodyDef.type = b2_dynamicBody;
     bodyDef.angle = ccpToAngle(ccp(0,0));
     bodyDef.fixedRotation=true;
     
@@ -383,7 +390,7 @@ Item* ObjectFactory::createContainerItem(ItemDTO* itemDTO, b2World* world)
 Item* ObjectFactory::createGoldItem(ItemDTO* itemDTO, b2World* world)
 {
     GoldItem* item = GoldItem::create();
-    
+    item->setGoldValue(itemDTO->goldValue);
     //sprite
     CCSprite* sprite = CCSprite::createWithSpriteFrameName(itemDTO->imageName.c_str());
     

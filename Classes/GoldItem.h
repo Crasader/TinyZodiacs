@@ -19,6 +19,7 @@ using namespace std;
 class GoldItem: public Item
 {
 private:
+    CC_SYNTHESIZE(int, goldValue, GoldValue);
 protected:
 public:
     GoldItem();

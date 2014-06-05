@@ -136,6 +136,8 @@ void GameGroup::createTowers(CCArray* listTowerStructDTO, b2World* world)
         this->listTower->addObject(tower);
         tower->attach(this);
         GameObjectManager::getInstance()->addGameObject(tower);
+        tower->setGameObjectView(InfoViewCreator::createTowerView(tower, NULL));
+        tower->attachSpriteTo(GameManager::getInstance()->getGameplayHolder().nodeHolder);
     }
 }
 
@@ -143,14 +145,6 @@ void GameGroup::attachSpriteToMap(Map* map)
 {
 //    character->attachSpriteTo(map);
     
-    
-    //towers
-    CCObject* object = NULL;
-    CCARRAY_FOREACH(this->listTower, object)
-    {
-        Tower* tower = static_cast<Tower*>(object);
-        map->addChild(tower->getSprite(), UNDER_CHARACTER_LAYER);
-    }
 }
 
 void GameGroup::test()

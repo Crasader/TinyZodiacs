@@ -28,6 +28,8 @@ bool AnimationLoader::loadData()
     
     AnimationLoader::loadDataByFileName("effect_animation_1.xml");
     
+    AnimationLoader::loadDataByFileName("maincrystal_animation.xml");
+    
     return true;
 }
 

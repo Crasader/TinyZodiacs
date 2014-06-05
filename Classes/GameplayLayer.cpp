@@ -280,6 +280,17 @@ bool GameplayLayer::receiveCommand(CommandID commandID, void* data)
         }
             break;
             
+        case DISPLAY_GOLD_VALUE:
+        {
+            int* goldValue = static_cast<int*>(data);
+           
+            lblMoney->setText(CCString::createWithFormat("%d", *goldValue)->getCString());
+            
+            delete goldValue;
+        }
+            break;
+            
+
         default:
             break;
     }

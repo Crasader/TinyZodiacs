@@ -14,6 +14,7 @@ USING_NS_CC;
 
 GameObject::GameObject()
 {
+//    setGameObjectID(NONE);
     this->gameObjectID = NONE;
     this->isDestroyed = false;
     this->isPassingThroughBody = 0;
@@ -80,6 +81,28 @@ bool GameObject::init()
     
     return true;
 }
+
+//void GameObject::setGameObjectID(GameObjectID gameObjectID)
+//{
+//    this->listGameObjectIDInherited.push_back(gameObjectID);
+//}
+//
+//bool GameObject::checkGameObjectID(GameObjectID gameObjectID)
+//{
+//    for( std::vector<GameObjectID>::iterator iter = this->listGameObjectIDInherited.begin(); iter != this->listGameObjectIDInherited.end(); ++iter )
+//    {
+//        if( *iter == gameObjectID )
+//        {
+//            return true;
+//        }
+//    }
+//    return false;
+//}
+//
+//GameObjectID GameObject::getLastGameObjectIDInherited()
+//{
+//    return this->listGameObjectIDInherited[this->listGameObjectIDInherited.size()-1];
+//}
 
 void GameObject::onCreate()
 {
@@ -385,14 +408,7 @@ void GameObject::destroy()
         notifyToDestroy();
         GameObjectManager::getInstance()->addObjectRemoved(this);
         
-        CCObject* object = NULL;
-        CCARRAY_FOREACH(this->listAffect, object)
-        {
-            Affect* affect = static_cast<Affect*>(object);
-            affect->destroy();
-        }
-        this->listAffect->removeAllObjects();
-        
+        cleanAllAffect();
         clearPhysicUserData();
     }
 }
@@ -444,4 +460,15 @@ void GameObject::clearPhysicUserData()
             this->body->SetUserData(NULL);
         }
     }
+}
+
+void GameObject::cleanAllAffect()
+{
+    CCObject* object = NULL;
+    CCARRAY_FOREACH(this->listAffect, object)
+    {
+        Affect* affect = static_cast<Affect*>(object);
+        affect->destroy();
+    }
+    this->listAffect->removeAllObjects();
 }

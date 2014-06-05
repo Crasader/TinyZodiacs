@@ -35,6 +35,7 @@ public:
     void stop();
     
     void setAnimation(const char* id);
+    void setOpacity(GLubyte opacity);
     
     CREATE_FUNC(AnimationEffect);
 };

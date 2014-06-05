@@ -31,7 +31,7 @@ public:
     virtual bool init();
     virtual void update(float dt);
 
-    void attach(GameObject* gameObject);
+    virtual void attach(GameObject* gameObject);
     virtual void notifyChange() = 0;
 };
 

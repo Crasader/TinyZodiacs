@@ -11,7 +11,7 @@
 
 #include <iostream>
 #include "cocos2d.h"
-#include "CocosGUI.h"
+#include "UITouchGroup.h"
 
 USING_NS_CC;
 

@@ -45,6 +45,7 @@ public:
     virtual void setSkin(b2Body* body,cocos2d::CCSprite* sprite);
     virtual void onCreate();
     virtual void destroy();
+    virtual void attachSpriteTo(CCNode* node);
     
     virtual void attach(Observer* observer);
     virtual void detach(Observer* observer);

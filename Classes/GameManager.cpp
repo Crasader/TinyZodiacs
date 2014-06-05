@@ -57,9 +57,8 @@ bool GameManager::loadResource()
     CCSpriteFrameCache::sharedSpriteFrameCache()->addSpriteFramesWithFile("bull_default.plist", "bull_default.png");
     
     CCSpriteFrameCache::sharedSpriteFrameCache()->addSpriteFramesWithFile("pig_default.plist", "pig_default.png");
-    
-    
-    
+     CCSpriteFrameCache::sharedSpriteFrameCache()->addSpriteFramesWithFile("maincrystal_spritesheet.plist", "maincrystal_spritesheet.png");
+ 
     gbox2d::GB2ShapeCache *sc = gbox2d::GB2ShapeCache::sharedGB2ShapeCache();
     
     sc->addShapesWithFile("character_body.plist");

@@ -25,7 +25,8 @@ class Character;
 
 class Character: public GameObject
 {
-private:    
+private:
+   
     CharacterState* state;
 
     void setupJointSkillAndBody();
@@ -33,7 +34,7 @@ private:
     bool isCharacterCanPassThoughMapObject(MapObject* mapObject);
 protected:
     int currentJumpCount;
-    
+    CC_SYNTHESIZE(bool, isDead, IsDead);
     void checkCollisionDataInBeginContact(PhysicData* holderData, PhysicData* collisionData, b2Contact *contact);
     void checkCollisionDataInEndContact(PhysicData* holderData, PhysicData* collisionData, b2Contact *contact);
     
@@ -57,6 +58,7 @@ public:
     AnimationObject* idleAnimation;
     AnimationObject* flyAnimation;
     AnimationObject* fallAnimation;
+    AnimationObject* dieAnimation;
     AnimationObject* skill1Animation;
     AnimationObject* skill2Animation;
     
@@ -80,7 +82,7 @@ public:
     virtual void notifyByAffect(Affect* affect);
     virtual void removeAffect(Affect* affect);
     
-    virtual bool isDead();
+    virtual bool checkDead();
     
     virtual void destroy();
     

@@ -440,6 +440,10 @@
 		F5ECC77A192A02CA00328FBE /* BonusItem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F5ECC778192A02CA00328FBE /* BonusItem.cpp */; };
 		F5F5F1061935A285006EAEA6 /* RuleManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F5F5F1041935A285006EAEA6 /* RuleManager.cpp */; };
 		F5F5F10A1935C8FB006EAEA6 /* Rule1.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F5F5F1081935C8FB006EAEA6 /* Rule1.cpp */; };
+		F5FA2BB11940548600583009 /* maincrystal_spritesheet.png in Resources */ = {isa = PBXBuildFile; fileRef = F5FA2BAF1940548600583009 /* maincrystal_spritesheet.png */; };
+		F5FA2BB21940548600583009 /* maincrystal_spritesheet.plist in Resources */ = {isa = PBXBuildFile; fileRef = F5FA2BB01940548600583009 /* maincrystal_spritesheet.plist */; };
+		F5FA2BB4194054B300583009 /* maincrystal.xml in Resources */ = {isa = PBXBuildFile; fileRef = F5FA2BB3194054B300583009 /* maincrystal.xml */; };
+		F5FA2BB6194054F400583009 /* maincrystal_animation.xml in Resources */ = {isa = PBXBuildFile; fileRef = F5FA2BB5194054F400583009 /* maincrystal_animation.xml */; };
 		F5FA5B5E1900E78300B80EF0 /* ParameterObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F5FA5B5C1900E78300B80EF0 /* ParameterObject.cpp */; };
 		F5FB8E6519333D060074598C /* Affect.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F5FB8E6319333D060074598C /* Affect.cpp */; };
 		F5FB8E6A19333E100074598C /* ControllerManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F5FB8E6619333E0F0074598C /* ControllerManager.cpp */; };
@@ -1270,6 +1274,10 @@
 		F5F5F1051935A285006EAEA6 /* RuleManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RuleManager.h; sourceTree = "<group>"; };
 		F5F5F1081935C8FB006EAEA6 /* Rule1.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Rule1.cpp; sourceTree = "<group>"; };
 		F5F5F1091935C8FB006EAEA6 /* Rule1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Rule1.h; sourceTree = "<group>"; };
+		F5FA2BAF1940548600583009 /* maincrystal_spritesheet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = maincrystal_spritesheet.png; sourceTree = "<group>"; };
+		F5FA2BB01940548600583009 /* maincrystal_spritesheet.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = maincrystal_spritesheet.plist; sourceTree = "<group>"; };
+		F5FA2BB3194054B300583009 /* maincrystal.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = maincrystal.xml; sourceTree = "<group>"; };
+		F5FA2BB5194054F400583009 /* maincrystal_animation.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = maincrystal_animation.xml; sourceTree = "<group>"; };
 		F5FA5B5C1900E78300B80EF0 /* ParameterObject.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ParameterObject.cpp; sourceTree = "<group>"; };
 		F5FA5B5D1900E78300B80EF0 /* ParameterObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParameterObject.h; sourceTree = "<group>"; };
 		F5FB8E6319333D060074598C /* Affect.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Affect.cpp; path = ../Classes/Affect.cpp; sourceTree = "<group>"; };
@@ -1966,6 +1974,9 @@
 		2D0DA14F1908F6D000881C8D /* Towers */ = {
 			isa = PBXGroup;
 			children = (
+				F5FA2BB3194054B300583009 /* maincrystal.xml */,
+				F5FA2BAF1940548600583009 /* maincrystal_spritesheet.png */,
+				F5FA2BB01940548600583009 /* maincrystal_spritesheet.plist */,
 				2D0DA1501908F72200881C8D /* tower_1_default.plist */,
 				2D0DA1511908F72200881C8D /* tower_1_default.png */,
 				2D0DA1521908F72200881C8D /* tower_1.xml */,
@@ -2851,6 +2862,7 @@
 		F5C89DF618D2FC7F006E909D /* Animation */ = {
 			isa = PBXGroup;
 			children = (
+				F5FA2BB5194054F400583009 /* maincrystal_animation.xml */,
 				F5FB8E6F193340DD0074598C /* bull_animation.xml */,
 				F5ECC7721929EA1500328FBE /* item */,
 				34D0C9EA19260B0300DDC681 /* effect_animation_1.xml */,
@@ -3059,6 +3071,7 @@
 			files = (
 				7855E0E1153FEF240059DD9A /* Default.png in Resources */,
 				D4EF949A15BD2D8B00D803EB /* Icon-57.png in Resources */,
+				F5FA2BB6194054F400583009 /* maincrystal_animation.xml in Resources */,
 				F5FF0B60192712A6000A55C8 /* container_animation.xml in Resources */,
 				51136AEA1908F60300317D3A /* monster_onion.xml in Resources */,
 				2DC48A7C1919EE1C00B34724 /* onion_creep_default.png in Resources */,
@@ -3089,6 +3102,7 @@
 				34D0C9EE19260B1700DDC681 /* Slash_default.plist in Resources */,
 				F5CCA78F191B2E47002A7F2A /* smoke_spritesheet.plist in Resources */,
 				F5C89E1018D2FF9A006E909D /* 2.png in Resources */,
+				F5FA2BB4194054B300583009 /* maincrystal.xml in Resources */,
 				34FD845618DFDCA400373627 /* character_monkey.xml in Resources */,
 				F52678F418EEAEA500CE1E3B /* Marker Felt.ttf in Resources */,
 				F5CCA790191B2E47002A7F2A /* smoke_spritesheet.png in Resources */,
@@ -3112,6 +3126,7 @@
 				340423CE193D8F2800223029 /* ControllerLayer0.plist in Resources */,
 				F5579EC3191DE67900F29241 /* monster_pig.xml in Resources */,
 				2DE1502E191CCDEC001BD65C /* character_body.plist in Resources */,
+				F5FA2BB21940548600583009 /* maincrystal_spritesheet.plist in Resources */,
 				F561F29118D805BE00DD4598 /* map1.xml in Resources */,
 				F5579EC5191DE78600F29241 /* pig_animation.xml in Resources */,
 				340DE0A9192C96FA0056D51E /* list_effect.xml in Resources */,
@@ -3121,6 +3136,7 @@
 				2D0DA13F1908F65800881C8D /* tower_1_animation.xml in Resources */,
 				2DC48A84191A356600B34724 /* monster_sensor.plist in Resources */,
 				15A3D9961682F7F9002FB0C5 /* CMakeLists.txt in Resources */,
+				F5FA2BB11940548600583009 /* maincrystal_spritesheet.png in Resources */,
 				F5FB8E76193341020074598C /* bull_default.png in Resources */,
 				F52678F818EEAEA500CE1E3B /* map1_spritesheet_2.png in Resources */,
 				F52678FE18EEAEA500CE1E3B /* map1_spritesheet_2.plist in Resources */,

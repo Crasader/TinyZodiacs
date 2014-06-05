@@ -21,11 +21,17 @@ CharacterAttackState::CharacterAttackState(Character* character, AbstractSkill* 
 bool CharacterAttackState::onEnterState()
 {
     //  CCLOG("enter attack state");
-    CCAnimate* animation = CCAnimate::create(this->skillAnimation->getAnimation());
+   
+    CCArray* arr = CCArray::create();
+    
     CCCallFunc* callBack = CCCallFunc::create(this, callfunc_selector(CharacterAttackState::onFinishAttackAnimation));
     
-    CCArray* arr = CCArray::create();
-    arr->addObject(animation);
+    if(this->skillAnimation != NULL)
+    {
+        CCAnimate* animation = CCAnimate::create(this->skillAnimation->getAnimation());
+        arr->addObject(animation);
+    }
+    
     arr->addObject(callBack);
     
     this->action = CCSequence::create(arr);

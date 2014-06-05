@@ -10,13 +10,13 @@
 
 MainHero::MainHero()
 {
-    this->isDead = false;
     this->reviveAction = NULL;
+    this->goldValue = 0;
 }
 
 MainHero::~MainHero()
 {
-        ControllerManager::getInstance()->unregisterController(HERO_CONTROLLER, this);
+    ControllerManager::getInstance()->unregisterController(HERO_CONTROLLER, this);
     
     ControllerManager::getInstance()->sendCommand(HERO_CONTROLLER, INVISIBLE_ALL_HERO_CONTROLLER);
 }
@@ -37,6 +37,7 @@ void MainHero::update(float dt)
     {
         Hero::update(dt);
     }
+  
 }
 
 void MainHero::destroy()
@@ -70,10 +71,12 @@ void MainHero::die()
     
     AnimationEffect* effect = AnimationEffect::create();
     effect->setAnimation("effect-smoke");
-    EffectManager::getInstance()->runEffect(effect, getPositionInPixel());
+    EffectManager::getInstance()->runEffect(effect, getPositionInPixel(),ABOVE_CHARACTER_LAYER);
     
     ControllerManager::getInstance()->sendCommand(HERO_CONTROLLER, INVISIBLE_ALL_HERO_CONTROLLER);
     this->body->SetLinearVelocity(b2Vec2(0,0));
+    
+    cleanAllAffect();
 
 }
 
@@ -92,7 +95,7 @@ void MainHero::revive()
     }
     
     ControllerManager::getInstance()->sendCommand(HERO_CONTROLLER, VISIBLE_ALL_HERO_CONTROLLER);
-    setPositionInPixel(ccp(122,780));
+    setPositionInPixel(this->revivePosition);
     AnimationEffect* effect = AnimationEffect::create();
     effect->setAnimation("effect-smoke");
     EffectManager::getInstance()->runEffect(effect, getPositionInPixel());
@@ -106,3 +109,16 @@ void MainHero::revive()
     this->reviveAction = NULL;
 
 }
+
+void MainHero::pickUp(Item* item)
+{
+    Hero::pickUp(item);
+    if(item->getGameObjectID() == GOLD_ITEM)
+    {
+        GoldItem* goldItem = static_cast<GoldItem*>(item);
+        this->goldValue += goldItem->getGoldValue();
+        
+        ControllerManager::getInstance()->sendCommand(HERO_CONTROLLER, DISPLAY_GOLD_VALUE,new int(this->goldValue));
+    }
+}
+

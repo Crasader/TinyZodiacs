@@ -20,8 +20,18 @@ CharacterDieState::CharacterDieState(Character* character): CharacterState(chara
 
 bool CharacterDieState::onEnterState()
 {
-    CCLOG("enter idle state");
-    action = CCAnimate::create(this->character->idleAnimation->getAnimation());
+    CCArray* arr = CCArray::create();
+    
+    if(this->character->dieAnimation != NULL)
+    {
+        CCAnimate* dieAnimate = CCAnimate::create(this->character->dieAnimation->getAnimation());
+        arr->addObject(dieAnimate);
+    }
+    
+    CCCallFunc* dieFunction = CCCallFunc::create(this, callfunc_selector(CharacterDieState::die));
+    arr->addObject(dieFunction);
+    
+    action = CCSequence::create(arr);
     action->retain();
     this->character->getSprite()->runAction(action);
     return true;
@@ -55,4 +65,9 @@ bool CharacterDieState::jump()
 bool CharacterDieState::useSkill()
 {
     return false;
+}
+
+void CharacterDieState::die()
+{
+    this->character->destroy();
 }

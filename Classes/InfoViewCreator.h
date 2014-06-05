@@ -18,6 +18,7 @@ class InfoViewCreator;
 #include "Hero.h"
 #include "GameObjectViewContainer.h"
 #include "Monster.h"
+#include "Tower.h"
 
 USING_NS_CC;
 
@@ -28,6 +29,7 @@ protected:
 public:
     static GameObjectView* createHeroView(Hero* hero, Player* player);
     static GameObjectView* createMonsterView(Monster* monster, Player* player);
+    static GameObjectView* createTowerView(Tower* tower, Player* player);
 };
 
 #endif /* defined(__TinyZodiacs__InfoViewCreator__) */

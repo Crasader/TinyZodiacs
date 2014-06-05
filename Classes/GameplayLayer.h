@@ -14,11 +14,14 @@ class GameplayLayer;
 #include <iostream>
 #include "AbstractScene.h"
 #include "cocos2d.h"
-#include "CocosGUI.h"
 #include "HoldableUIButton.h"
 #include "Controller.h"
 #include "EffectManager.h"
 #include "TextShowEffect.h"
+#include "UILoadingBar.h"
+#include "UILabelBMFont.h"
+#include "UIListView.h"
+#include "GUIReader.h"
 
 USING_NS_CC;
 

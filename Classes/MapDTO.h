@@ -26,6 +26,9 @@ public:
     float width;
     float height;
     
+    float revivePositionX;
+    float revivePositionY;
+    
     CCArray* listMapObjectDTO;
     CCArray* listBackgroundDTO;
     CCArray* listForegroundDTO;

@@ -30,13 +30,7 @@ Monster::~Monster()
 {
     this->listTarget->removeAllObjects();
     this->listTarget->release();
-    
-    AnimationEffect* effect = AnimationEffect::create();
-    effect->setAnimation("effect-smoke");
-    EffectManager::getInstance()->runEffect(effect, this->getPositionInPixel());
-    
-    dropItem();
-}
+   }
 
 bool Monster::init()
 {
@@ -49,7 +43,7 @@ bool Monster::init()
 
 void Monster::update(float dt)
 {
-    if(!isDead())
+    if(!getIsDead())
     {
         this->aimTarget();
     }
@@ -69,7 +63,7 @@ void Monster::update(float dt)
     {
         Character* character = (Character*)object;
         
-        if(character->isDead())
+        if(character->getIsDead())
         {
             listTargetRemoved->addObject(character);
         }
@@ -86,7 +80,18 @@ void Monster::update(float dt)
 void Monster::destroy()
 {
     Character::destroy();
-    CCLOG("retain - %d", this->retainCount());
+}
+
+void Monster::die()
+{
+    AnimationEffect* effect = AnimationEffect::create();
+    effect->setAnimation("effect-smoke");
+    effect->setOpacity(170);
+    EffectManager::getInstance()->runEffect(effect, this->getPositionInPixel());
+    
+    dropItem();
+
+    Character::die();
 }
 
 void Monster::attachSpriteTo(CCNode* node)

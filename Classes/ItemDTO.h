@@ -34,6 +34,7 @@ public:
     float positionX;
     float positionY;
     float lifeTime;
+    int goldValue;
     
     vector<ItemStruct> listSubItemStruct;
     vector<string> listAffectID;

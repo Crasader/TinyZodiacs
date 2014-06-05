@@ -106,6 +106,8 @@
 #define TAG_WALL_LIST "wall_list"
 #define TAG_WALL "wall"
 
+#define TAG_REVIVE_POSITION "revive_position"
+
 
 USING_NS_CC;
 using namespace tinyxml2;
@@ -132,6 +134,7 @@ public:
     static CCArray* getTowerStructDTOListFromXMLElement(XMLElement* root);
     static CCArray* getSensorObjectDTOListFromXMLElement(XMLElement* root);
     static CCArray* getWallDTOListFromXMLElement(XMLElement* root);
+    static CCPoint getHeroRevivePositionFromXMLElement(XMLElement* root);
     
 };
 

@@ -1,0 +1,13 @@
+<character id="maincrystal">
+    <animation>maincrystal</animation>
+	<body>maincrystal</body>
+    <hp>500</hp>
+    <atk>20</atk>
+    <def>20</def>
+    <speed>10</speed>
+    <atk_speed>0.1</atk_speed>
+    <max_jump>5</max_jump>
+    <jump_height>10</jump_height>
+    <sensor_body>tower_sensor_1</sensor_body>
+
+</character>

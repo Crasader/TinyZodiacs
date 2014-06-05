@@ -72,7 +72,8 @@ enum GameObjectID
     SKILL_OBJECT,
     TOWER,
     ITEM,
-    PROJECTILE_OBJECT
+    PROJECTILE_OBJECT,
+    GOLD_ITEM
 };
 
 enum FixtureID

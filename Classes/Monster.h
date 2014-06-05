@@ -58,6 +58,8 @@ public:
 
     void notifyByAffect(Affect* affect);
     
+    virtual void die();
+    
     virtual void attach(Observer* observer);
     virtual void detach(Observer* observer);
     virtual void notifyToDestroy();

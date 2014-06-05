@@ -24,3 +24,8 @@ void MainCrystal::destroy()
     
     RuleManager::getInstance()->addRuleEvent(RULE_EVENT_MAIN_CRYSTAL_DESTROYED, true);
 }
+
+void MainCrystal::die()
+{
+    Tower::die();
+}

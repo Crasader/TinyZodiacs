@@ -23,6 +23,7 @@ class GameObject;
 #include "Constants.h"
 
 USING_NS_CC;
+using namespace std;
 
 enum Direction {LEFT, RIGHT};
 
@@ -33,6 +34,10 @@ private:
 protected:
     cocos2d::CCArray* listAffect;
     Direction direction;
+    
+    vector<GameObjectID> listGameObjectIDInherited;
+    
+
     CC_SYNTHESIZE(GameObjectID, gameObjectID, GameObjectID);
     CC_SYNTHESIZE(CCSprite*, sprite, Sprite);
     CC_SYNTHESIZE(b2Body*, body, Body);
@@ -87,6 +92,14 @@ public:
     virtual void notifyByAffect(Affect* affect);
     virtual void destroy();
     
+    
+//    void setGameObjectID(GameObjectID gameObjectID);
+//    
+//    bool checkGameObjectID(GameObjectID gameObjectID);
+//    
+//    GameObjectID getLastGameObjectIDInherited();
+
+    
     virtual void attach(Observer* observer);
     virtual void detach(Observer* observer);
     virtual void notifyToDestroy();
@@ -94,6 +107,7 @@ public:
     virtual void notifyUIChange(void* data);
     
     virtual void clearPhysicUserData();
+    virtual void cleanAllAffect();
 
     CC_SYNTHESIZE(bool, isControlled, IsControlled);
 };

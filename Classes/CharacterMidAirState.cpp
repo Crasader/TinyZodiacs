@@ -15,15 +15,24 @@ CharacterMidAirState::CharacterMidAirState(Character* character): CharacterState
 {
     isFalling = false;
     isFlying = false;
+    oldFriction = 0;
 }
 
 bool CharacterMidAirState::onEnterState()
 {
+//    for (b2Fixture* f = this->character->getBody()->GetFixtureList(); f; f = f->GetNext())
+//    {
+//        f->SetFriction(0);
+//    }
     return true;
 }
 
 bool CharacterMidAirState::onExitState()
 {
+//    for (b2Fixture* f = this->character->getBody()->GetFixtureList(); f; f = f->GetNext())
+//    {
+//        f->SetFriction(100);
+//    }
     stopAction();
     return true;
 }
@@ -36,10 +45,14 @@ void CharacterMidAirState::update(float dt)
         
         stopAction();
         //fall Action
-        this->action = CCAnimate::create(this->character->fallAnimation->getAnimation());
-           this->action->retain();
-        this->character->getSprite()->runAction(this->action);
-       
+        
+        if(this->character->fallAnimation != NULL)
+        {
+            this->action = CCAnimate::create(this->character->fallAnimation->getAnimation());
+            this->action->retain();
+            this->character->getSprite()->runAction(this->action);
+        }
+           
         return;
     }
     else if(this->character->getBody()->GetLinearVelocity().y > 3 && isFlying == false)
@@ -48,9 +61,12 @@ void CharacterMidAirState::update(float dt)
         
         stopAction();
         //fly action
+        if(this->character->flyAnimation != NULL)
+        {
         this->action = CCAnimate::create(this->character->flyAnimation->getAnimation());
            this->action->retain();
         this->character->getSprite()->runAction(this->action);
+        }
        
         return;
         

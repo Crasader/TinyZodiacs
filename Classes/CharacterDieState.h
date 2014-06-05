@@ -30,6 +30,7 @@ public:
     virtual bool jump();
     virtual bool useSkill();
     virtual bool move();
+    void die();
     
 };
 #endif /* defined(__TinyZodiacs__CharacterDieState__) */

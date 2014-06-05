@@ -27,9 +27,7 @@ GameWorld::GameWorld()
     this->world = NULL;
     this->map = NULL;
     this->group1 = NULL;
-    this->group2 = NULL;
-    this->player = NULL;
-    this->cameraFollowAction = NULL;
+    this->group2 = NULL;    this->cameraFollowAction = NULL;
     
 }
 
@@ -61,14 +59,16 @@ void GameWorld::onCreate()
 {
     onCreateWorld();
     onCreateMap();
-    onCreateUnits();
     
     // init gameholder
     GameHolder gameplayholder;
     gameplayholder.nodeHolder = this->map;
     gameplayholder.worldHolder = this->world;
     GameManager::getInstance()->setGameplayHolder(gameplayholder);
-    //
+
+    onCreateUnits();
+    
+      //
     //    this->setCameraFollowGroup(this->group1);
     //
     //
@@ -116,16 +116,17 @@ void GameWorld::onCreateUnits()
     this->group2->joinGame(B, this->world, this->map);
 }
 
-
-void GameWorld::addPlayer(Player* player)
+void GameWorld::addHero(MainHero* hero)
 {
-    if(player != NULL)
+    if(hero != NULL)
     {
-        this->player = player;
-        this->addChild(player);
-        setCameraFollowNode(this->player->getHero()->getSprite());
+        hero->setRevivePosition(ccp(this->map->getMapDTO()->revivePositionX, this->map->getMapDTO()->revivePositionY));
+        hero->setPositionInPixel(ccp(this->map->getMapDTO()->revivePositionX, this->map->getMapDTO()->revivePositionY));
+        hero->attachSpriteTo(this->map);
+        setCameraFollowNode(hero->getSprite());
     }
 }
+
 
 void GameWorld::addManager()
 {
@@ -135,6 +136,7 @@ void GameWorld::addManager()
     
     GameManager::getInstance()->setGameplayHolder(holder);
     EffectManager::getInstance()->setHolder(GameManager::getInstance()->getGameplayHolder());
+    ItemFactory::getInstance()->setIsActive(true);
     ItemFactory::getInstance()->setHolder(GameManager::getInstance()->getGameplayHolder());
 }
 
@@ -239,7 +241,7 @@ void GameWorld::destroy()
 
 void GameWorld::draw()
 {
-
+//
 //        ccGLEnableVertexAttribs( kCCVertexAttribFlag_Position );
 //       kmGLPushMatrix();
 //        world->DrawDebugData();

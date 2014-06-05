@@ -53,6 +53,7 @@ Monster* MonsterFactory::createMonster(MonsterDTO* monsterDTO, CCPoint position,
     string fall = monsterDTO->animation;
     string fly = monsterDTO->animation;
     string jump = monsterDTO->animation;
+    string die = monsterDTO->animation;
     
     monster->runAnimation = DataCollector::getInstance()->getAnimationObjectByKey(run.append(RUN).c_str());
     monster->attackAnimation = DataCollector::getInstance()->getAnimationObjectByKey(attack.append(ATTACK).c_str());
@@ -60,6 +61,7 @@ Monster* MonsterFactory::createMonster(MonsterDTO* monsterDTO, CCPoint position,
     monster->idleAnimation = DataCollector::getInstance()->getAnimationObjectByKey(idle.append(IDLE).c_str());
     monster->fallAnimation = DataCollector::getInstance()->getAnimationObjectByKey(fall.append(FALL).c_str());
     monster->flyAnimation = DataCollector::getInstance()->getAnimationObjectByKey(fly.append(FLY).c_str());
+    monster->dieAnimation = DataCollector::getInstance()->getAnimationObjectByKey(die.append(DIE).c_str());
     //
     monster->attackAnimation->getAnimation()->setDelayPerUnit(monster->getOriginCharacterData().getAttackSpeed());
     
@@ -209,13 +211,20 @@ void MonsterFactory::finishCreateMonsterListFromSchedule(CCNode* sender, void* d
 
 void MonsterFactory::addNewMonster(Monster* monster)
 {
-    GameObjectManager::getInstance()->addGameObject(monster);
-    this->listMonster->addObject(monster);
-    monster->attach(this);
-    monster->attachSpriteTo(this->holder.nodeHolder);
-    
-    this->monsterCount++;
-    GameObjectManager::getInstance()->monsterCount ++;
+    if(this->isStopped == false)
+    {
+        GameObjectManager::getInstance()->addGameObject(monster);
+        this->listMonster->addObject(monster);
+        monster->attach(this);
+        monster->attachSpriteTo(this->holder.nodeHolder);
+        
+        this->monsterCount++;
+        if(this->monsterCount >= this->max)
+        {
+            stopCreateMonster();
+            this->isCompletedCreateMonster = true;
+        }
+    }
 }
 void MonsterFactory::removeMonster(Monster* monster)
 {

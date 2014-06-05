@@ -10,13 +10,12 @@
 #include "MapCreator.h"
 
 
-bool stopss = false;
 GameMatch::GameMatch()
 {
     this->gameWorld = NULL;
     this->currentWave = -1;
     this->oldWave = -1;
-    stopss = false;
+    this->isStopped = false;
 }
 
 GameMatch::~GameMatch()
@@ -29,76 +28,38 @@ bool GameMatch::init()
     this->gameWorld = GameWorld::create();
     this->gameWorld->setMapID("map1");
     this->gameWorld->onCreate();
-    
-    
     this->addChild(this->gameWorld);
-    Player* player = Player::create();
-    player->attachWithHero("cat");
-    player->getHero()->attachSpriteTo(this->gameWorld->getMap());
-    this->gameWorld->addPlayer(player);
+   
+    this->player = Player::create();
+    this->player->attachWithHero("cat");
+    this->addChild(this->player);
     
- 
-    
-
+    this->gameWorld->addHero(this->player->getHero());
     this->rule = new Rule1();
     this->schedule(schedule_selector(GameMatch::updateToCheckMatch),1);
-    
     
     return true;
 }
 
 void GameMatch::update(float dt)
 {
-   
+    
 }
 void GameMatch::updateToCheckMatch()
 {
-    if( this->currentWave < this->gameWorld->getMap()->getListWave()->count())
+    if(this->isStopped == false)
     {
-        ((Wave*)this->gameWorld->getMap()->getListWave()->objectAtIndex(this->currentWave))->update(0);
-    }
-    if(currentWave < this->gameWorld->getMap()->getListWave()->count())
-    {
-        int a = ((Wave*)this->gameWorld->getMap()->getListWave()->objectAtIndex(this->currentWave))->getMonsterCountKilled();
-        int b = ((Wave*)this->gameWorld->getMap()->getListWave()->objectAtIndex(this->currentWave))->getMonsterCountMax();
-
-        if(b-a < 0)
+        if( this->currentWave < this->gameWorld->getMap()->getListWave()->count())
         {
-//            assert(0);
+            ((Wave*)this->gameWorld->getMap()->getListWave()->objectAtIndex(this->currentWave))->update(0);
         }
-        vector<int>* arr = new vector<int>();
-        arr->push_back(a);
-        arr->push_back(b);
         
-        ControllerManager::getInstance()->sendCommand(HERO_CONTROLLER, DISPLAY_MONSTER_COUNT,arr);
-    }
-    
-    if(this->rule->checkNextWave()  &&  stopss == false)
-    {
-        nextWave();
-    }
-    
-    if(this->rule->checkWin()  &&  stopss == false)
-    {
-
-        CCLOG("WIN");
-        ControllerManager::getInstance()->sendCommand(HERO_CONTROLLER, DISPLAY_RESULT ,new int(1));
+        displayMonsterCount();
         
+        checkWin();
+        checkLose();
+        checkNextWave();
     }
-    
-    if(this->rule->checkLose() &&  stopss == false)
-    {
-        stopss = true;
-        CCLOG("LOSE");
-        ControllerManager::getInstance()->sendCommand(HERO_CONTROLLER, DISPLAY_RESULT ,new int(0));
-        stop();
-        ItemFactory::getInstance()->setIsActive(false);
-        this->gameWorld->destroy();
-        this->removeFromParent();
-        
-        CCDirector::sharedDirector()->popScene();
-    }
-    
 }
 
 void GameMatch::start()
@@ -108,7 +69,7 @@ void GameMatch::start()
 
 void GameMatch::stop()
 {
-    CCLOG("stop");
+    this->isStopped = true;
     CCObject* object = NULL;
     CCARRAY_FOREACH(this->gameWorld->getMap()->getListWave(), object)
     {
@@ -136,16 +97,39 @@ void GameMatch::nextWave()
 
 bool GameMatch::checkWin()
 {
+    if(this->rule->checkWin())
+    {
+        //do something;
+        ControllerManager::getInstance()->sendCommand(HERO_CONTROLLER, DISPLAY_RESULT ,new int(1));
+        
+    }
     return false;
 }
 
 bool GameMatch::checkLose()
 {
+    
+    if(this->rule->checkLose())
+    {
+        //do something;
+        ControllerManager::getInstance()->sendCommand(HERO_CONTROLLER, DISPLAY_RESULT ,new int(0));
+        stop();
+        ItemFactory::getInstance()->setIsActive(false);
+        this->gameWorld->destroy();
+        this->removeFromParent();
+        
+        CCDirector::sharedDirector()->popScene();
+    }
+    
     return false;
 }
 
 bool GameMatch::checkNextWave()
 {
+    if(this->rule->checkNextWave())
+    {
+        nextWave();
+    }
     return false;
 }
 
@@ -154,8 +138,6 @@ void GameMatch::prepareToEnterNewWave()
     float delay = 5;
     CCCallFunc* enterWaveFunction = CCCallFunc::create(this, callfunc_selector(GameMatch::enterWave));
     ScheduleManager::getInstance()->scheduleFunction(enterWaveFunction, NULL, delay, 1);
-    
-    
 }
 
 void GameMatch::prepareToExitWave()
@@ -181,4 +163,28 @@ void GameMatch::exitWave()
     {
         ((Wave*)this->gameWorld->getMap()->getListWave()->objectAtIndex(this->oldWave))->stop();
     }
+}
+
+void GameMatch::displayMonsterCount()
+{
+    if(currentWave < this->gameWorld->getMap()->getListWave()->count())
+    {
+        int a = ((Wave*)this->gameWorld->getMap()->getListWave()->objectAtIndex(this->currentWave))->getMonsterCountKilled();
+        int b = ((Wave*)this->gameWorld->getMap()->getListWave()->objectAtIndex(this->currentWave))->getMonsterCountMax();
+        
+        if(b-a < 0)
+        {
+            assert(0);
+        }
+        vector<int>* arr = new vector<int>();
+        arr->push_back(a);
+        arr->push_back(b);
+        
+        ControllerManager::getInstance()->sendCommand(HERO_CONTROLLER, DISPLAY_MONSTER_COUNT,arr);
+    }
+}
+
+void GameMatch::initHeroPosition()
+{
+    
 }

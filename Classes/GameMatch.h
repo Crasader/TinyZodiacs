@@ -22,15 +22,18 @@ class GameMatch;
 #include "PhysicConstants.h"
 #include "ScheduleManager.h"
 #include "ControllerManager.h"
+#include "Player.h"
 
 USING_NS_CC;
 
 class GameMatch: public CCNode
 {
 private:
+    bool isStopped;
     int currentWave;
     int oldWave;
 protected:
+    CC_SYNTHESIZE(Player*, player, Player);
     CC_SYNTHESIZE(GameRule*, rule, Rule);
     CC_SYNTHESIZE(GameWorld*, gameWorld, GameWorld);
 public:
@@ -51,6 +54,8 @@ public:
     void prepareToExitWave();
     void enterWave();
     void exitWave();
+    void displayMonsterCount();
+    void initHeroPosition();
     
     CREATE_FUNC(GameMatch);
 };

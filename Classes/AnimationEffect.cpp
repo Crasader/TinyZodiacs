@@ -12,7 +12,6 @@
 AnimationEffect::AnimationEffect()
 {
     this->sprite = CCSprite::create();
-    this->sprite->setOpacity(170);
     this->addChild(sprite);
     this->animationObject = NULL;
 }
@@ -52,4 +51,12 @@ void AnimationEffect::update(float dt)
 void AnimationEffect::setAnimation(const char *id)
 {
     this->animationObject = DataCollector::getInstance()->getAnimationObjectByKey(id);
+}
+
+void AnimationEffect::setOpacity(GLubyte opacity)
+{
+    if(this->sprite != NULL)
+    {
+        this->sprite->setOpacity(opacity);
+    }
 }

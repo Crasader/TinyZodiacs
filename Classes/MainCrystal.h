@@ -13,6 +13,7 @@
 #include "cocos2d.h"
 #include "Tower.h"
 #include "RuleManager.h"
+#include "CharacterDieState.h"
 
 USING_NS_CC;
 
@@ -25,6 +26,7 @@ public:
     ~MainCrystal();
     
     virtual void destroy();
+    virtual void die();
     
     CREATE_FUNC(MainCrystal);
 };

@@ -11,10 +11,11 @@
 
 #include <iostream>
 #include "cocos2d.h"
-#include "CocosGUI.h"
+#include "UIButton.h"
 
 USING_NS_CC;
-class HoldableUIButton : public cocos2d::gui::UIButton
+
+class HoldableUIButton : public cocos2d::gui::Button
 {
 private:
 protected:

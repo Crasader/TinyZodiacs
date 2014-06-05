@@ -12,6 +12,7 @@ bool TowerLoader::loadData()
 {
     loadDataByFileName("tower_1.xml");
     loadDataByFileName("tower_2.xml");
+    loadDataByFileName("maincrystal.xml");
     
     return true;
 }

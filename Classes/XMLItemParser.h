@@ -28,6 +28,7 @@
 #define ATTRIBUTE_ITEM_CHANCE "chance"
 #define ATTRIBUTE_ITEM_ANIMATION "animation"
 #define ATTRIBUTE_ITEM_AFFECT_ID "id"
+#define TAG_ITEM_GOLD_VALUE "gold_value"
 
 using namespace tinyxml2;
 using namespace std;

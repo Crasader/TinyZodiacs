@@ -11,6 +11,49 @@
 	</dict>
 	<key>bodies</key>
 	<dict>
+		<key>maincrystal</key>
+		<dict>
+			<key>anchorpoint</key>
+			<string>{ 0.4950,0.2717 }</string>
+			<key>fixtures</key>
+			<array>
+				<dict>
+					<key>density</key>
+					<integer>100</integer>
+					<key>friction</key>
+					<integer>1</integer>
+					<key>restitution</key>
+					<real>0</real>
+					<key>filter_categoryBits</key>
+					<integer>1</integer>
+					<key>filter_groupIndex</key>
+					<integer>0</integer>
+					<key>filter_maskBits</key>
+					<integer>65535</integer>
+					<key>isSensor</key>
+					<false/>
+					<key>id</key>
+					<string></string>
+					<key>fixture_type</key>
+					<string>POLYGON</string>
+					<key>polygons</key>
+					<array>
+						<array>
+							<string>{ 57.000,199.000 }</string>
+							<string>{ -25.000,158.000 }</string>
+							<string>{ -78.000,31.000 }</string>
+							<string>{ 58.000,-93.000 }</string>
+							<string>{ 68.000,142.000 }</string>
+						</array>
+						<array>
+							<string>{ -53.000,-93.000 }</string>
+							<string>{ 58.000,-93.000 }</string>
+							<string>{ -78.000,31.000 }</string>
+						</array>
+					</array>
+				</dict>
+			</array>
+		</dict>
 		<key>pig2</key>
 		<dict>
 			<key>anchorpoint</key>

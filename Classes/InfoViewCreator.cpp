@@ -71,3 +71,31 @@ GameObjectView* InfoViewCreator::createMonsterView(Monster* monster, Player* pla
     
     return view;
 }
+
+GameObjectView* InfoViewCreator::createTowerView(Tower* tower, Player* player)
+{
+    GameObjectViewContainer* view = GameObjectViewContainer::create();
+    view->retain();
+    
+    CharacterView* towerView = CharacterView::create();
+    
+    
+    HealthBar* healthBar = HealthBar::create();
+    
+    if(tower->getGroup() == A)
+    {
+        healthBar->setForeground("healthbar_blue.png");
+    }
+    else
+    {
+        healthBar->setForeground("healthbar_red.png");
+        
+    }
+    
+    towerView->setHealthBar(healthBar);
+    
+    view->attach(tower);
+    view->addGameObjectView(towerView);
+    
+    return view;
+}

@@ -89,7 +89,7 @@ void Tower::setSkin(b2Body *body, CCSprite *sprite)
 void Tower::setPhysicGroup(uint16 group)
 {
     Character::setPhysicGroup(group);
-    //    this->setSensorGroup(group);
+    this->setSensorGroup(group);
 }
 
 void Tower::setSensorGroup(uint16 group)
@@ -130,7 +130,7 @@ void Tower::checkCollisionDataInBeginContact(PhysicData* holderData, PhysicData*
     {
         if(collisionData != NULL)
         {
-            if(collisionData->bodyId == CHARACTER_BODY)
+            if(holderData->fixtureId == TOWER_SENSOR_FIXTURE)
             {
                 CCObject* obj = (CCObject*)collisionData->data;
                 if(this->listTarget->indexOfObject(obj) == CC_INVALID_INDEX)
@@ -149,7 +149,7 @@ void Tower::checkCollisionDataInEndContact(PhysicData* holderData, PhysicData* c
     {
         if(collisionData != NULL)
         {
-            if(collisionData->bodyId == CHARACTER_BODY)
+            if(holderData->fixtureId == TOWER_SENSOR_FIXTURE)
             {
                 this->listTarget->removeObject((CCObject*)collisionData->data);
             }
@@ -159,36 +159,40 @@ void Tower::checkCollisionDataInEndContact(PhysicData* holderData, PhysicData* c
 
 void Tower::aimTarget()
 {
-    NormalShootingAttack* attack = dynamic_cast<NormalShootingAttack*>(this->normalAttack);
-    
-    if(attack != NULL)
+    if(this->normalAttack != NULL)
     {
-        b2Vec2 targetPoint = ((Character*)listTarget->objectAtIndex(0))->getPositionInPhysicWorld();
-        b2Vec2 towerPoint = getStartPoint(this->body, attack->getData().getJointDefA());
-
-        b2Vec2 sp = targetPoint -  towerPoint;
-        sp*=TOWER_VELOCITY;
+        NormalShootingAttack* attack = dynamic_cast<NormalShootingAttack*>(this->normalAttack);
         
-        //        if(sp.x <0)
-        //        {
-        //            flipDirection(LEFT);
-        //            sp.x = -sp.x;
-        //            CCLOG("%lf - %lf",sp.x,sp.y);
-        //        }
-        //        else
-        //        {
-        //            flipDirection(RIGHT);
-        //            CCLOG("%lf - %lf",sp.x,sp.y);
-        //        }
+        if(attack != NULL)
+        {
+            b2Vec2 targetPoint = ((Character*)listTarget->objectAtIndex(0))->getPositionInPhysicWorld();
+            b2Vec2 towerPoint = getStartPoint(this->body, attack->getData().getJointDefA());
+            
+            b2Vec2 sp = targetPoint -  towerPoint;
+            sp*=TOWER_VELOCITY;
+            
+            //        if(sp.x <0)
+            //        {
+            //            flipDirection(LEFT);
+            //            sp.x = -sp.x;
+            //            CCLOG("%lf - %lf",sp.x,sp.y);
+            //        }
+            //        else
+            //        {
+            //            flipDirection(RIGHT);
+            //            CCLOG("%lf - %lf",sp.x,sp.y);
+            //        }
+            
+            NormalShootingSkillData data = attack->getData();
+            data.setSpeedX(-sp.x);
+            data.setSpeedY(sp.y);
+            data.setRotateAngle(atan2(targetPoint.y - towerPoint.y,targetPoint.x - towerPoint.x)-3.14);
+            attack->setData(data);
+        }
         
-        NormalShootingSkillData data = attack->getData();
-        data.setSpeedX(-sp.x);
-        data.setSpeedY(sp.y);
-        data.setRotateAngle(atan2(targetPoint.y - towerPoint.y,targetPoint.x - towerPoint.x)-3.14);
-        attack->setData(data);
+        this->attack();
+        
     }
-    
-    this->attack();
 }
 
 b2Vec2 Tower::getStartPoint(b2Body* body, JointDef jointDef)
@@ -227,7 +231,7 @@ b2Vec2 Tower::getStartPoint(b2Body* body, JointDef jointDef)
             break;
     }
     //    jointAAnchor += this->getPositionInPhysicWorld();
-        CCLOG("%f, %f", jointAAnchor.x,jointAAnchor.y);
+    
     return jointAAnchor;
 }
 
@@ -259,7 +263,7 @@ void Tower::update(float dt)
     {
         Character* character = (Character*)object;
         
-        if(character->isDead())
+        if(character->getIsDead())
         {
             listTargetRemoved->addObject(character);
         }
@@ -300,6 +304,12 @@ void Tower::onCreate()
 void Tower::destroy()
 {
     Character::destroy();
+}
+
+void Tower::attachSpriteTo(CCNode* node)
+{
+    GameObject::attachSpriteTo(node);
+    node->addChild(this->sprite, UNDER_CHARACTER_LAYER);
 }
 
 void Tower::attach(Observer* observer)

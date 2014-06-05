@@ -30,6 +30,7 @@ Character::Character()
     this->normalAttack = NULL;
     this->skill1 = NULL;
     this->skill2 = NULL;
+    this->isDead = false;
 }
 
 Character::~Character()
@@ -112,35 +113,39 @@ void Character::setOriginCharacterData(CharacterData data)
 
 void Character::update(float dt)
 {
-    GameObject::update(dt);
-    this->state->update(dt);
-    if(this->normalAttack != NULL)
+    if(this->isDead == false)
     {
-        this->normalAttack->update(dt);
-    }
-    if(this->skill1 != NULL)
-    {
-        this->skill1->update(dt);
-    }
-    if(this->skill2 != NULL)
-    {
-        this->skill2->update(dt);
-    }
+        GameObject::update(dt);
+        this->state->update(dt);
+        if(this->normalAttack != NULL)
+        {
+            this->normalAttack->update(dt);
+        }
+        if(this->skill1 != NULL)
+        {
+            this->skill1->update(dt);
+        }
+        if(this->skill2 != NULL)
+        {
+            this->skill2->update(dt);
+        }
+        
+        if(this->body->GetLinearVelocity().x >=2)
+        {
+            flipDirection(RIGHT);
+        }
+        else if(this->body->GetLinearVelocity().x <=-2)
+        {
+            flipDirection(LEFT);
+        }
+        
+        if(checkDead() == true)
+        {
+            die();
+        }
 
-    if(this->body->GetLinearVelocity().x >=2)
-    {
-        flipDirection(RIGHT);
     }
-    else if(this->body->GetLinearVelocity().x <=-2)
-    {
-        flipDirection(LEFT);
-    }
-    
-    if(isDead() == true)
-    {
-        die();
-    }
-}
+   }
 
 void Character::move(Direction direction)
 {
@@ -189,7 +194,7 @@ void Character::jump(float force)
 
 void Character::attack()
 {
-    if(this->normalAttack->getIsExcutable() && this->state->attack() && isDead() == false)
+    if(this->normalAttack->getIsExcutable() && this->state->attack() && isDead == false)
     {
         changeState(new CharacterAttackState(this,this->normalAttack,this->attackAnimation));
     }
@@ -197,7 +202,7 @@ void Character::attack()
 
 void Character::useSkill1()
 {
-    if(this->skill1->getIsExcutable() && this->state->attack() && isDead() == false)
+    if(this->skill1->getIsExcutable() && this->state->attack() && isDead == false)
     {
         changeState(new CharacterAttackState(this,this->skill1,this->skill1Animation));
     }
@@ -514,7 +519,7 @@ void Character::removeAffect(Affect* affect)
     }
 }
 
-bool Character::isDead()
+bool Character::checkDead()
 {
     if(this->characterData.getHealth()<=0)
     {
@@ -544,7 +549,11 @@ void Character::destroy()
 
 void Character::die()
 {
-    destroy();
+    this->isDead = true;
+    changeState(new CharacterDieState(this));
+    
+    cleanAllAffect();
+
 }
 
 void Character::attach(Observer* observer)

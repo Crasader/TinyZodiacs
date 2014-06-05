@@ -20,10 +20,12 @@ CharacterIdleState::CharacterIdleState(Character* character): CharacterState(cha
 bool CharacterIdleState::onEnterState()
 {
    // CCLOG("enter idle state");
-    this->action = CCAnimate::create(this->character->idleAnimation->getAnimation());
-       this->action->retain();
-    this->character->getSprite()->runAction(action);
-  
+    if(this->character->idleAnimation != NULL)
+    {
+        this->action = CCAnimate::create(this->character->idleAnimation->getAnimation());
+        this->action->retain();
+        this->character->getSprite()->runAction(action);
+    }
     return true;
 }
 

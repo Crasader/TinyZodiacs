@@ -16,24 +16,25 @@ class MainHero;
 #include "Hero.h"
 #include "ControllerManager.h"
 #include "EffectManager.h"
+#include "GoldItem.h"
 
 USING_NS_CC;
 
 class MainHero: public Hero
 {
 private:
+    CC_SYNTHESIZE(int, goldValue, GoldValue);
+    CC_SYNTHESIZE(CCPoint, revivePosition, RevivePosition);
     CCAction* reviveAction;
 protected:
 public:
- 
-    bool isDead;
     MainHero();
     virtual ~MainHero();
     
     virtual bool init();
     virtual void update(float dt);
     virtual void destroy();
-    
+    virtual void pickUp(Item* item);
     virtual void die();
     void revive();
     

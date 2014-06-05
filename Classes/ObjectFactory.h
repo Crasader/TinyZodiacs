@@ -57,6 +57,7 @@ class ObjectManager;
 #define FALL "-fall"
 #define FLY "-fly"
 #define SKILL "-skill"
+#define DIE "-die"
 
 //ITEM ANIMATION
 
