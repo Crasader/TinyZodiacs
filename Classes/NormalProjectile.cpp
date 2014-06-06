@@ -44,7 +44,7 @@ void NormalProjectile::setData(NormalShootingSkillData data, GameObject* holder)
     b2BodyDef bodyDef;
     bodyDef.type = b2_dynamicBody;
     bodyDef.angle = ccpToAngle(ccp(0,0));
-    bodyDef.fixedRotation=true;
+    bodyDef.fixedRotation=false;
     bodyDef.bullet = true;
     
     this->body = GameManager::getInstance()->getGameplayHolder().worldHolder->CreateBody(&bodyDef);
@@ -79,7 +79,7 @@ void NormalProjectile::setData(NormalShootingSkillData data, GameObject* holder)
     CCCallFunc* destroyFunction = CCCallFunc::create(this, callfunc_selector(NormalProjectile::destroy));
     this->lifeTimeScheduled = ScheduleManager::getInstance()->scheduleFunction(destroyFunction, NULL, this->data.getLifeTime(), 1);
     this->lifeTimeScheduled->retain();
-    
+    //Allow rotate
     // Sprite
     this->sprite = CCSprite::create();
     GameManager::getInstance()->getGameplayHolder().nodeHolder->addChild(this->sprite, this->data.getAnimationLayerIndex());
@@ -115,7 +115,7 @@ b2Vec2 NormalProjectile::getStartPosition(GameObject* holder, b2Body* me)
     //create joint
     JointDef tempA = data.getJointDefA();
     tempA.x = holder_join_type;
-    b2Vec2 anchorA = getGlobalBodyStartPosition(holder->getBody(), tempA);
+    b2Vec2 anchorA = getGlobalBodyStartPosition(holder, tempA);
     b2AABB thisBoudningBox = Util::getBodyBoundingBoxDynamic(body);
     if(this->data.getJointDefA().x == JOINT_REAR && this->data.getJointDefB().x == JOINT_REAR)
     {
@@ -134,7 +134,7 @@ b2Vec2 NormalProjectile::getStartPosition(GameObject* holder, b2Body* me)
     return anchorA;
 }
 
-b2Vec2 NormalProjectile::getGlobalBodyStartPosition(b2Body* body, JointDef jointDef)
+b2Vec2 NormalProjectile::getGlobalBodyStartPosition(GameObject* holder, JointDef jointDef)
 {
     if(body == NULL)
     {
@@ -142,7 +142,8 @@ b2Vec2 NormalProjectile::getGlobalBodyStartPosition(b2Body* body, JointDef joint
     }
     
     //set joint anchor A
-    b2AABB boundingBox = Util::getBodyBoundingBoxDynamic(body);
+    b2AABB boundingBox = Util::getGameObjectBoundingBoxDynamic(holder);
+
 //    b2Fixture* mainFix = Util::getFixtureById(body, BODY_MAIN_FIXTURE);
 //    b2AABB boundingBoxMain = Util::getFixtureBoundingBoxDynamic(mainFix);
     
@@ -190,8 +191,6 @@ void NormalProjectile::shoot()
     {
         this->body->SetLinearVelocity(b2Vec2(this->data.getSpeedX(), this->data.getSpeedY()));
     }
-   
-
     this->data.getAnimation()->getAnimation()->setLoops(INFINITY);
     CCAnimate* action = CCAnimate::create(this->data.getAnimation()->getAnimation());
     this->sprite->runAction(action);
@@ -201,6 +200,7 @@ void NormalProjectile::shoot()
 
 void NormalProjectile::update(float dt)
 {
+    this->body->SetTransform(this->body->GetPosition(),atan2(this->body->GetLinearVelocity().y,this->body->GetLinearVelocity().x)-3.14);
     GameObject::update(dt);
 }
 
@@ -241,7 +241,6 @@ void NormalProjectile::checkCollisionDataInBeginContact(PhysicData* holderData, 
             }
         }
         default:
-            
             break;
     }
 }

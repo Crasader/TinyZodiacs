@@ -50,6 +50,8 @@ protected:
     
     virtual uint16 getCorrectGroup(Group group);
     virtual void setPhysicGroup(uint16 group);
+    
+    virtual void playSFX(const char* sfxName);
 public:
     virtual void checkCollisionDataInBeginContact(PhysicData* holderData, PhysicData* collisionData, b2Contact *contact);
     virtual void checkCollisionDataInEndContact(PhysicData* holderData, PhysicData* collisionData, b2Contact *contact);

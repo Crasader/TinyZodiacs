@@ -170,23 +170,12 @@ void Tower::aimTarget()
             
             b2Vec2 sp = targetPoint -  towerPoint;
             sp*=TOWER_VELOCITY;
-            
-            //        if(sp.x <0)
-            //        {
-            //            flipDirection(LEFT);
-            //            sp.x = -sp.x;
-            //            CCLOG("%lf - %lf",sp.x,sp.y);
-            //        }
-            //        else
-            //        {
-            //            flipDirection(RIGHT);
-            //            CCLOG("%lf - %lf",sp.x,sp.y);
-            //        }
-            
             NormalShootingSkillData data = attack->getData();
             data.setSpeedX(-sp.x);
             data.setSpeedY(sp.y);
-            data.setRotateAngle(atan2(targetPoint.y - towerPoint.y,targetPoint.x - towerPoint.x)-3.14);
+//            data.setRotateAngle(atan2(targetPoint.y - towerPoint.y,targetPoint.x - towerPoint.x)-3.14);
+            data.setRotateAngle(0);
+
             attack->setData(data);
         }
         
@@ -284,8 +273,10 @@ uint16  Tower::getCorrectGroup(Group group)
     {
         case A:
             return GROUP_TOWER_A;
+//            return GROUP_A;
         case B:
             return GROUP_TOWER_B;
+//            return GROUP_B;
         default:
             return GROUP_NEUTRUAL;
     }

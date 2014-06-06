@@ -23,7 +23,7 @@ class NormalProjectile: public GameObject
 {
 private:
     b2Vec2 holderSpeed;
-    b2Vec2 getGlobalBodyStartPosition(b2Body* body, JointDef jointDef);
+    b2Vec2 getGlobalBodyStartPosition(GameObject* holder, JointDef jointDef);
 protected:
     CCAction* lifeTimeScheduled;
     

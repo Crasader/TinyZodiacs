@@ -40,6 +40,8 @@ protected:
     void checkCollisionDataInEndContact(PhysicData* holderData, PhysicData* collisionData, b2Contact *contact);
     
     virtual void setPhysicGroup(uint16 group);
+    
+    virtual void playSoundByState(CharacterSound characterSoundState);
 public:
     Character();
     ~Character();

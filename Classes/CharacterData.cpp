@@ -59,8 +59,7 @@ void CharacterData::applyAffect(Affect* affect, GameObject* holder)
 {
     if(affect->getHealth() <0)
     {
-        this->health+=(affect->getHealth()+((Character*)holder)->getcharacterData().getDefense());
-        this->health = MAX(this->health,0);
+        this->health+=MIN((affect->getHealth()+((Character*)holder)->getcharacterData().getDefense()),0);
     }
     else
     {

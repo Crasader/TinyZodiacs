@@ -108,6 +108,14 @@ struct GameHolder
     b2World* worldHolder;
 };
 
+
+enum CharacterSound
+{
+    HURT_SOUND,
+    DEATH_SOUND,
+    JUMP_SOUND
+};
+
 class StateCommandData
 {
 public:

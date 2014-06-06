@@ -56,23 +56,18 @@ b2AABB Util::getFixtureBoundingBox(b2Fixture* fixture)
         
         aabb.lowerBound = b2Vec2(FLT_MAX,FLT_MAX);
         aabb.upperBound = b2Vec2(-FLT_MAX,-FLT_MAX);
-//        b2Fixture* fixture = fixture->GetFixtureList();
-//        while (fixture != NULL)
-//        {
-            //            aabb.Combine(aabb, fixture->GetAABB(0));
-            //            fixture = fixture->GetNext();
-            const b2Shape *shape = fixture->GetShape();
-            const int childCount = shape->GetChildCount();
-            for (int child = 0; child < childCount; ++child) {
-                const b2Vec2 r(shape->m_radius, shape->m_radius);
-                b2AABB shapeAABB;
-                shape->ComputeAABB(&shapeAABB, t, child);
-                shapeAABB.lowerBound = shapeAABB.lowerBound + r;
-                shapeAABB.upperBound = shapeAABB.upperBound - r;
-                aabb.Combine(shapeAABB);
-            }
-            fixture = fixture->GetNext();
-//        }
+        
+        const b2Shape *shape = fixture->GetShape();
+        const int childCount = shape->GetChildCount();
+        for (int child = 0; child < childCount; ++child) {
+            const b2Vec2 r(shape->m_radius, shape->m_radius);
+            b2AABB shapeAABB;
+            shape->ComputeAABB(&shapeAABB, t, child);
+            shapeAABB.lowerBound = shapeAABB.lowerBound + r;
+            shapeAABB.upperBound = shapeAABB.upperBound - r;
+            aabb.Combine(shapeAABB);
+        }
+        fixture = fixture->GetNext();
         return aabb;
     }
     return b2AABB();
@@ -230,6 +225,47 @@ b2Vec2 Util::getb2VecAnchor(b2Fixture* fixture, JointDef jointDef)
     return jointAAnchor;
 }
 
+b2Vec2 Util::getb2VecAnchor(b2AABB aabb, JointDef jointDef)
+{
+    //set joint anchor A
+    b2AABB boundingBox = aabb;
+    
+    b2Vec2 jointAAnchor(0,0);
+    
+    switch (jointDef.x) {
+        case JOINT_CENTER:
+            jointAAnchor.x = (boundingBox.lowerBound.x+boundingBox.upperBound.x)/2+jointDef.offsetX;
+            break;
+        case JOINT_REAR:
+        case JOINT_BOTTOM_OR_LEFT:
+            jointAAnchor.x = boundingBox.lowerBound.x - jointDef.offsetX;
+            break;
+        case JOINT_TOP_OR_RIGHT:
+            jointAAnchor.x = boundingBox.upperBound.x + jointDef.offsetX;
+            break;
+        default:
+            break;
+    }
+    
+    switch (jointDef.y) {
+        case JOINT_CENTER:
+            jointAAnchor.y = (boundingBox.lowerBound.y+boundingBox.upperBound.y)/2+jointDef.offsetY;
+            break;
+        case JOINT_REAR:
+        case JOINT_BOTTOM_OR_LEFT:
+            jointAAnchor.y = boundingBox.lowerBound.y - jointDef.offsetY;
+            break;
+        case JOINT_TOP_OR_RIGHT:
+            jointAAnchor.y = boundingBox.upperBound.y + jointDef.offsetY;
+            break;
+        default:
+            break;
+    }
+    
+    return jointAAnchor;
+}
+
+
 void Util::setFixtureGroup(b2Fixture* fixture, uint16 group)
 {
     if(fixture != NULL)
@@ -263,10 +299,12 @@ void Util::setFixtureGroup(b2Fixture* fixture, uint16 group)
                 filter.maskBits = GROUP_TERRAIN;
                 break;
             case GROUP_TOWER_A:
-                filter.maskBits = GROUP_HERO_B | GROUP_B | GROUP_NEUTRUAL | GROUP_TERRAIN | GROUP_SKILL_DEFAULT| GROUP_MONSTER_SENSOR;
+//                filter.maskBits = GROUP_HERO_B | GROUP_B | GROUP_NEUTRUAL | GROUP_TERRAIN | GROUP_SKILL_DEFAULT| GROUP_MONSTER_SENSOR;
+                filter.maskBits = GROUP_TERRAIN | GROUP_SKILL_DEFAULT;
                 break;
             case GROUP_TOWER_B:
-                filter.maskBits = GROUP_HERO_A | GROUP_A | GROUP_NEUTRUAL | GROUP_TERRAIN | GROUP_SKILL_DEFAULT| GROUP_MONSTER_SENSOR;
+//                filter.maskBits = GROUP_HERO_A | GROUP_A | GROUP_NEUTRUAL | GROUP_TERRAIN | GROUP_SKILL_DEFAULT| GROUP_MONSTER_SENSOR;
+                filter.maskBits = GROUP_TERRAIN | GROUP_SKILL_DEFAULT;
                 break;
             case GROUP_ITEM:
                 filter.maskBits = GROUP_TERRAIN |GROUP_HERO_A | GROUP_HERO_B | GROUP_SKILL_DEFAULT | GROUP_WALL;
@@ -274,7 +312,7 @@ void Util::setFixtureGroup(b2Fixture* fixture, uint16 group)
             case GROUP_WALL:
                 filter.maskBits = GROUP_HERO_A | GROUP_HERO_B | GROUP_A | GROUP_B | GROUP_ITEM;
                 break;
-
+                
             default:
                 break;
         }
@@ -340,23 +378,23 @@ bool Util::bodiesArePassingThrough( b2Body* body1, b2Body* body2 )
 
 bool Util::fixtureArePassingThroughBody(b2Fixture* fixture, b2Body* body)
 {
-//    for (b2ContactEdge* edge = fixture->GetBody()->GetContactList(); edge; edge = edge->next)
-//    {
-//        if ( !edge->contact->IsTouching())
-//            continue;
-//        b2Fixture* fix = edge->contact->GetFixtureA();
-//        b2Body* bB = edge->contact->GetFixtureB()->GetBody();
-//        
-//        if((fix == fixture && bB == body) && edge->contact->IsEnabled() == false )
-//        {
-//            
-//        }
-//        
-//        if ( (( bA == body1 && bB == body2 ) || ( bB == body1 && bA == body2 )) && edge->contact->IsEnabled() == false )
-//        {
-//            return true;
-//        }
-//    }
+    //    for (b2ContactEdge* edge = fixture->GetBody()->GetContactList(); edge; edge = edge->next)
+    //    {
+    //        if ( !edge->contact->IsTouching())
+    //            continue;
+    //        b2Fixture* fix = edge->contact->GetFixtureA();
+    //        b2Body* bB = edge->contact->GetFixtureB()->GetBody();
+    //
+    //        if((fix == fixture && bB == body) && edge->contact->IsEnabled() == false )
+    //        {
+    //
+    //        }
+    //
+    //        if ( (( bA == body1 && bB == body2 ) || ( bB == body1 && bA == body2 )) && edge->contact->IsEnabled() == false )
+    //        {
+    //            return true;
+    //        }
+    //    }
     return false;
 }
 
@@ -400,9 +438,9 @@ void Util::applyEffectFromList(vector<EffectData> listEffect, GameObject* object
         Affect* affect = Affect::create();
         affect->setHolder(object);
         affect->setData(listEffect[i]);
-       
+        
         ((Character*)object)->applyAffect(affect);
-       // effect->isapplyed = true;
+        // effect->isapplyed = true;
     }
 }
 
@@ -442,17 +480,17 @@ vector<ItemStruct> Util::randomItemInList(vector<ItemStruct> listItemStruct, int
     }
     
     vector<ItemStruct> listItem;
-
+    
     for(int i = 0; i < count; i++)
     {
         int a = round(CCRANDOM_0_1()*(listItemRandom.size()-1));
         if(a < listItemRandom.size())
         {
-             listItem.push_back(listItemRandom[a]);
+            listItem.push_back(listItemRandom[a]);
         }
-       
+        
     }
-
+    
     return listItem;
 }
 
@@ -472,4 +510,65 @@ b2Fixture* Util::getFixtureById(b2Body* body, FixtureID fixtureId)
         }
     }
     return NULL;
+}
+
+b2AABB Util::getGameObjectBoundingBox(GameObject* obj)
+{
+    if(obj->getBody() != NULL)
+    {
+        //Calculate b
+        b2AABB aabb;
+        aabb.lowerBound = b2Vec2(FLT_MAX,FLT_MAX);
+        aabb.upperBound = b2Vec2(-FLT_MAX,-FLT_MAX);
+        b2Fixture* fixture = obj->getBody()->GetFixtureList();
+        while (fixture != NULL)
+        {
+            PhysicData* data = (PhysicData*) fixture->GetUserData();
+            if(data != NULL && (data->fixtureId == BODY_MAIN_FIXTURE || data->fixtureId == BODY_SUB_FIXTURE))
+            {
+                b2Transform t;
+                t.SetIdentity();
+                const b2Shape *shape = fixture->GetShape();
+                const int childCount = shape->GetChildCount();
+                for (int child = 0; child < childCount; ++child)
+                {
+                    const b2Vec2 r(shape->m_radius, shape->m_radius);
+                    b2AABB shapeAABB;
+                    shape->ComputeAABB(&shapeAABB, t, child);
+                    shapeAABB.lowerBound = shapeAABB.lowerBound + r;
+                    shapeAABB.upperBound = shapeAABB.upperBound - r;
+                    aabb.Combine(shapeAABB);
+                }
+                
+            }
+            fixture = fixture->GetNext();
+        }
+        return aabb;
+    }
+    
+    
+    return b2AABB();
+}
+
+b2AABB Util::getGameObjectBoundingBoxDynamic(GameObject* obj)
+{
+    if(obj->getBody() != NULL)
+    {
+        //Calculate b
+        b2AABB aabb;
+        aabb.lowerBound = b2Vec2(FLT_MAX,FLT_MAX);
+        aabb.upperBound = b2Vec2(-FLT_MAX,-FLT_MAX);
+        b2Fixture* fixture = obj->getBody()->GetFixtureList();
+        while (fixture != NULL)
+        {
+            PhysicData* data = (PhysicData*) fixture->GetUserData();
+            if(data != NULL && (data->fixtureId == BODY_MAIN_FIXTURE || data->fixtureId == BODY_SUB_FIXTURE))
+            {
+                aabb.Combine(aabb, fixture->GetAABB(0));
+            }
+            fixture = fixture->GetNext();
+        }
+        return aabb;
+    }
+    return b2AABB();
 }

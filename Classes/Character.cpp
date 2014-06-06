@@ -18,7 +18,6 @@
 #include "HealthPointEffect.h"
 #include "EffectManager.h"
 #include "AnimationEffect.h"
-#include "SimpleAudioEngine.h"
 
 USING_NS_CC;
 
@@ -180,6 +179,9 @@ void Character::jump(float force)
     {
         if(this->state->jump())
         {
+            //
+            playSoundByState(JUMP_SOUND);
+            //
             changeState(new CharacterJumpState(this));
             
             b2Vec2 vel = this->body->GetLinearVelocity();
@@ -506,9 +508,9 @@ void Character::notifyByAffect(Affect* affect)
         effect->setHealthPoint(this->characterData.getHealth()-oldHp);
         EffectManager::getInstance()->runEffect(effect, this->getPositionInPixel(),ABOVE_CHARACTER_LAYER);
         
-        if(this->characterData.getHealth()<oldHp)
+        if(this->characterData.getHealth()-oldHp<0)
         {
-            CocosDenshion::SimpleAudioEngine::sharedEngine()->playEffect(this->soundData.getHurtSoundStr().c_str());
+            playSoundByState(HURT_SOUND);
         }
     }
 }
@@ -552,6 +554,9 @@ void Character::destroy()
 
 void Character::die()
 {
+    //
+    playSoundByState(DEATH_SOUND);
+    //
     this->isDead = true;
     changeState(new CharacterDieState(this));
     
@@ -573,3 +578,19 @@ void Character::notifyToDestroy()
     GameObject::notifyToDestroy();
 }
 
+void Character::playSoundByState(CharacterSound characterSoundState)
+{
+    switch (characterSoundState) {
+        case DEATH_SOUND:
+            playSFX(this->getSoundData().getDeathSoundStr().c_str());
+            break;
+        case HURT_SOUND:
+            playSFX(this->getSoundData().getHurtSoundStr().c_str());
+            break;
+        case JUMP_SOUND:
+            playSFX(this->getSoundData().getJumpSoundStr().c_str());
+            break;
+        default:
+            break;
+    }
+}

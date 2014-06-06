@@ -10,6 +10,8 @@
 #include "Box2D/Box2d.h"
 #include "Util.h"
 #include "GameObjectManager.h"
+#include "SimpleAudioEngine.h"
+
 USING_NS_CC;
 
 GameObject::GameObject()
@@ -322,7 +324,11 @@ b2AABB GameObject::getBodyBoundingBox()
         b2Fixture* fixture = this->body->GetFixtureList();
         while (fixture != NULL)
         {
-            aabb.Combine(aabb, fixture->GetAABB(0));
+            PhysicData* data = (PhysicData*) fixture->GetUserData();
+            if(data != NULL && (data->fixtureId == BODY_MAIN_FIXTURE || data->fixtureId == BODY_SUB_FIXTURE))
+            {
+                aabb.Combine(aabb, fixture->GetAABB(0));
+            }
             fixture = fixture->GetNext();
         }
         return aabb;
@@ -330,7 +336,6 @@ b2AABB GameObject::getBodyBoundingBox()
     
     
     return b2AABB();
-    //    return Util::getBodyBoundingBox(this->getBody());
 }
 
 void GameObject::setPhysicGroup(uint16 group)
@@ -344,7 +349,6 @@ void GameObject::setPhysicGroup(uint16 group)
                 Util::setFixtureGroup(f, group);
             }
         }
-        
     }
 }
 
@@ -471,4 +475,9 @@ void GameObject::cleanAllAffect()
         affect->destroy();
     }
     this->listAffect->removeAllObjects();
+}
+
+void GameObject::playSFX(const char* sfxName)
+{
+    CocosDenshion::SimpleAudioEngine::sharedEngine()->playEffect(sfxName);
 }

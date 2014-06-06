@@ -23,6 +23,9 @@ class Util
 private:
 protected:
 public:
+    static b2AABB getGameObjectBoundingBox(GameObject* obj);
+    static b2AABB getGameObjectBoundingBoxDynamic(GameObject* obj);
+    
     static b2AABB getBodyBoundingBox(b2Body* body);
     static b2AABB getBodyBoundingBoxDynamic(b2Body* body);
     static b2AABB getFixtureBoundingBoxDynamic(b2Fixture* fixture);
@@ -39,6 +42,7 @@ public:
     
     static b2Vec2 getb2VecAnchor(b2Body* body, JointDef jointDef);
     static b2Vec2 getb2VecAnchor(b2Fixture* fixture, JointDef jointDef);
+    static b2Vec2 getb2VecAnchor(b2AABB aabb, JointDef jointDef);
     static void setFixtureGroup(b2Fixture* fixture, uint16 group);
     static vector<string> getStrTok(const char* string);
 
