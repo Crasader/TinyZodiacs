@@ -1,5 +1,5 @@
 #include "AppDelegate.h"
-#include "HelloWorldScene.h"
+#include "MainMenuScene.h"
 
 USING_NS_CC;
 using namespace std;
@@ -69,7 +69,7 @@ bool AppDelegate::applicationDidFinishLaunching() {
     
     CCFileUtils::sharedFileUtils()->setSearchPaths(searchPath);
     // create a scene. it's an autorelease object
-    CCScene *pScene = HelloWorld::scene();
+    CCScene *pScene = MainMenuScene::scene();
     
     // run
     pDirector->runWithScene(pScene);

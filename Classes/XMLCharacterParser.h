@@ -28,6 +28,7 @@
 #define TAG_SKILL_2 "skill_2"
 #define ATTRIBUTE_ID "id"
 
+#define TAG_SFX "sfx"
 
 #define RUN "-run"
 #define ATTACK "-attack"
@@ -58,6 +59,7 @@ protected:
     static float readJumpHeightData(tinyxml2::XMLElement* root);
     static string readAnimationData(tinyxml2::XMLElement* root);
     static string readSkill(tinyxml2::XMLElement* root);
+    static string readSoundData(tinyxml2::XMLElement* root);
 public:
     static CharacterDTO* getCharacterDTOFromXMLElement(XMLElement* characterElement);
     static void getCharacterDTOFromXMLElement(CharacterDTO* characterDTO, XMLElement* characterElement);

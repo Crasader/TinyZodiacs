@@ -1,0 +1,7 @@
+<character_sound_list>
+	<character_sound id="cat_sounds">
+		<jump>cat_jump.wav</jump>
+		<hurt>cat_hurt.wav</hurt>
+		<death>cat_death.wav</death>
+	</character_sound>
+</character_sound_list>

@@ -7,7 +7,13 @@
 //
 
 #include "XMLCharacterParser.h"
+#include "CharacterSoundFactory.h"
 
+
+string XMLCharacterParser::readSoundData(tinyxml2::XMLElement* root)
+{
+    return XMLHelper::readString(root, "");
+}
 
 string XMLCharacterParser::readBodyData(tinyxml2::XMLElement* root)
 {
@@ -76,6 +82,7 @@ CharacterDTO* XMLCharacterParser::getCharacterDTOFromXMLElement(XMLElement* char
     data->data.setSkill0(readSkill(characterElement->FirstChildElement(TAG_SKILL_0)));
     data->data.setSkill1(readSkill(characterElement->FirstChildElement(TAG_SKILL_1)));
     data->data.setSkill2(readSkill(characterElement->FirstChildElement(TAG_SKILL_2)));
+    data->soundId = readSoundData(characterElement->FirstChildElement(TAG_SFX));
     
     return data;
 }
@@ -95,4 +102,5 @@ void XMLCharacterParser::getCharacterDTOFromXMLElement(CharacterDTO* characterDT
     characterDTO->data.setSkill0(readSkill(characterElement->FirstChildElement(TAG_SKILL_0)));
     characterDTO->data.setSkill1(readSkill(characterElement->FirstChildElement(TAG_SKILL_1)));
     characterDTO->data.setSkill2(readSkill(characterElement->FirstChildElement(TAG_SKILL_2)));
+    characterDTO->soundId = readSoundData(characterElement->FirstChildElement(TAG_SFX));
 }

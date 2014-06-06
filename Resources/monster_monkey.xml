@@ -15,4 +15,6 @@
         <item id="coin1" chance="50"/>
         <item id="coin1" chance="20"/>
     </item_list>
+    
+        <sfx>cat_sounds</sfx>
 </character>

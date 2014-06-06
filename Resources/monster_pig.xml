@@ -15,4 +15,6 @@
         <item id="bag1" chance="4"/>
         <item id="bag2" chance="4"/>
     </item_list>
+    
+        <sfx>cat_sounds</sfx>
 </character>

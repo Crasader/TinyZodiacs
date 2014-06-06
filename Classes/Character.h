@@ -22,6 +22,7 @@ class Character;
 #include "MapObject.h"
 #include "Observable.h"
 #include "CharacterState.h"
+#include "CharacterSoundData.h"
 
 class Character: public GameObject
 {
@@ -51,6 +52,8 @@ public:
     CC_SYNTHESIZE(AbstractSkill*, normalAttack, NormalAttack);
     CC_SYNTHESIZE(AbstractSkill*, skill1, Skill1);
     CC_SYNTHESIZE(AbstractSkill*, skill2, Skill2);
+    
+    CC_SYNTHESIZE(CharacterSoundData, soundData, SoundData);
     
     AnimationObject* runAnimation;
     AnimationObject* jumpAnimation;

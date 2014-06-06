@@ -18,7 +18,7 @@
 #include "HealthPointEffect.h"
 #include "EffectManager.h"
 #include "AnimationEffect.h"
-
+#include "SimpleAudioEngine.h"
 
 USING_NS_CC;
 
@@ -494,19 +494,22 @@ void Character::notifyByAffect(Affect* affect)
 {
     if(this->isDestroyed == false)
     {
+        float oldHp = this->characterData.getHealth();
+        this->characterData.applyAffect((Affect*)affect, this);
         
-    this->characterData.applyAffect((Affect*)affect, this);
-
-    if(this->gameObjectView != NULL)
-    {
-        this->gameObjectView->notifyChange();
-    }
-    
-    HealthPointEffect* effect = HealthPointEffect::create();
-    effect->setHealthPoint(((Affect*)affect)->getHealth());
-    EffectManager::getInstance()->runEffect(effect, this->getPositionInPixel(),ABOVE_CHARACTER_LAYER);
+        if(this->gameObjectView != NULL)
+        {
+            this->gameObjectView->notifyChange();
+        }
         
-    
+        HealthPointEffect* effect = HealthPointEffect::create();
+        effect->setHealthPoint(this->characterData.getHealth()-oldHp);
+        EffectManager::getInstance()->runEffect(effect, this->getPositionInPixel(),ABOVE_CHARACTER_LAYER);
+        
+        if(this->characterData.getHealth()<oldHp)
+        {
+            CocosDenshion::SimpleAudioEngine::sharedEngine()->playEffect(this->soundData.getHurtSoundStr().c_str());
+        }
     }
 }
 

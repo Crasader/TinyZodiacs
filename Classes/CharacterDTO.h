@@ -31,6 +31,8 @@ public:
     string animation;
     CharacterData data;
     
+    std::string soundId;
+    
     int getRefenceCount();
     
     CREATE_FUNC(CharacterDTO);
