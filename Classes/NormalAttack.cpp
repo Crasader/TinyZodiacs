@@ -153,7 +153,7 @@ void NormalAttack::excute()
 
 void NormalAttack::stop()
 {
-    if(this->stopAction != NULL)
+    if(this->stopAction != NULL && this->stopAction->isDone() == false)
     {
         
         ScheduleManager::getInstance()->stopAction(stopAction);

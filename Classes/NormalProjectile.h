@@ -24,6 +24,8 @@ class NormalProjectile: public GameObject
 private:
     b2Vec2 holderSpeed;
     b2Vec2 getGlobalBodyStartPosition(GameObject* holder, JointDef jointDef);
+    
+//    CCParticleSystemQuad* p;
 protected:
     CCAction* lifeTimeScheduled;
     

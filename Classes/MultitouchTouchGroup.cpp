@@ -100,10 +100,6 @@ void MultitouchTouchGroup::ccTouchMoved(CCTouch *pTouch, CCEvent *pEvent)
         {
             hitWidget->onTouchMoved(pTouch, pEvent);
         }
-//        else
-//        {
-//            ((cocos2d::gui::Widget*)hitWidget)->onTouchMoved(pTouch, pEvent);
-//        }
     }
     //
     CCObject* widget;
@@ -171,4 +167,32 @@ bool MultitouchTouchGroup::init()
     this->listAssignedWidget = CCArray::create();
     this->listAssignedWidget->retain();
     return true;
+}
+
+bool MultitouchTouchGroup::checkEventWidget(CCTouch* touch, CCEvent *pEvent)
+{
+    checkTouchEvent(m_pRootWidget,touch, pEvent);
+    return (m_pSelectedWidgets->count() > 0);
+}
+
+bool MultitouchTouchGroup::checkTouchEvent(cocos2d::gui::Widget *root, CCTouch* touch, CCEvent* pEvent)
+{
+//    ccArray* arrayRootChildren = root->getChildren()->data;
+//    int length = arrayRootChildren->num;
+//    for (int i=length-1; i >= 0; i--)
+//    {
+//        cocos2d::gui::Widget* widget = (cocos2d::gui::Widget*)(arrayRootChildren->arr[i]);
+//        if (checkTouchEvent(widget, touch, pEvent))
+//        {
+//            return true;
+//        }
+//    }
+//    bool pass = root->onTouchBegan(touch, pEvent);
+//    if (root->_hitted)
+//    {
+//        m_pSelectedWidgets->addObject(root);
+//        return true;
+//    }
+//    return pass;
+    return TouchGroup::checkTouchEvent(root, touch, pEvent);
 }

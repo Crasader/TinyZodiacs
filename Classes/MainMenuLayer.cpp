@@ -7,11 +7,12 @@
 //
 
 #include "MainMenuLayer.h"
-#include "TestScene.h"
+#include "MapSelectScene.h"
 #include "GameManager.h"
 
 
 using cocos2d::gui::SEL_TouchEvent;
+using cocos2d::gui::ListViewGravity;
 
 MainMenuLayer::MainMenuLayer()
 {
@@ -60,8 +61,7 @@ bool MainMenuLayer::init()
     
     ul->setScale(CCDirector::sharedDirector()->getWinSize().width/ul->getSize().width, CCDirector::sharedDirector()->getWinSize().height/ul->getSize().height);
     
-    loadAllUI(ul);
-    
+   loadAllUI(ul);
     this->addWidget(ul);
     return true;
 }
@@ -92,7 +92,7 @@ void MainMenuLayer::playButtonTouchEvent(CCObject* sender, cocos2d::gui::TouchEv
             break;
         case cocos2d::gui::TOUCH_EVENT_ENDED:
         {
-            CCScene* testScene = TestScene::scene();
+            CCScene* testScene = MapSelectScene::scene();
             CCDirector::sharedDirector()->pushScene(testScene);
         }
             break;
