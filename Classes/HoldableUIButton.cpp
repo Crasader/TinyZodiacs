@@ -79,14 +79,31 @@ bool HoldableUIButton::onTouchBegan(CCTouch *touch, CCEvent *unused_event)
 {
     if(isActive)
     {
-//        if(this->listTouchedPoint->indexOfObject(touch) == CC_INVALID_INDEX && hitTest(touch->getLocation()) && this->listTouchedPoint->count()==0)
-//        {
-//            listTouchedPoint->addObject(touch);
-//        }
-//        CCLOG("onTouchBegan %s - %d",this->getName(),this->listTouchedPoint->count());
-        
         return cocos2d::gui::Button::onTouchBegan(touch,unused_event);
-        CCLOG("%s - onTouchBegan", this->getName());
+    }
+    else
+    {
+        _hitted = false;
+        if (isEnabled() && isTouchEnabled())
+        {
+            _touchStartPos = touch->getLocation();
+            if(hitTest(_touchStartPos) && clippingParentAreaContainPoint(_touchStartPos))
+            {
+                _hitted = true;
+            }
+        }
+        if (!_hitted)
+        {
+            return false;
+        }
+        setFocused(true);
+        Widget* widgetParent = getWidgetParent();
+        if (widgetParent)
+        {
+            widgetParent->checkChildInfo(0,this,_touchStartPos);
+        }
+//        pushDownEvent();
+        return !_touchPassedEnabled;
     }
     return true;
 }
@@ -95,16 +112,15 @@ void HoldableUIButton::onTouchMoved(CCTouch *touch, CCEvent *unused_event)
 {
     if(isActive)
     {
-//        if(this->listTouchedPoint->indexOfObject(touch) != CC_INVALID_INDEX && !hitTest(touch->getLocation()))
-//        {
-//            listTouchedPoint->removeObject(touch);
-//            cocos2d::gui::UIButton::onTouchEnded(touch,unused_event);
-//        }
-//        else if(this->listTouchedPoint->indexOfObject(touch) == CC_INVALID_INDEX && hitTest(touch->getLocation()))
-//        {
-//            this->onTouchBegan(touch, unused_event);
-//        }
-        CCLOG("%s - onTouchMoved", this->getName());
+        _touchMovePos = touch->getLocation();
+//        setFocused(hitTest(_touchMovePos));
+        Widget* widgetParent = getWidgetParent();
+        if (widgetParent)
+        {
+            widgetParent->checkChildInfo(1,this,_touchMovePos);
+        }
+//        moveEvent();
+        
         if(hitTest(touch->getLocation()) == true)
         {
             if(hitTest(touch->getPreviousLocation()) == false)
@@ -121,42 +137,22 @@ void HoldableUIButton::onTouchMoved(CCTouch *touch, CCEvent *unused_event)
             }
         }
     }
-//    else
-//    {
-////        listTouchedPoint->removeObject(touch);
-//    }
-//    CCLOG("onTouchMoved %s - %d",this->getName(),this->listTouchedPoint->count());
-
-    //cocos2d::gui::UIButton::onTouchMoved(touch,unused_event);
 }
 
 void HoldableUIButton::onTouchEnded(CCTouch *touch, CCEvent *unused_event)
 {
-//    if(hitTest(touch->getLocation()))
-//    {
-//        listTouchedPoint->removeObject(touch);
-//    }
-//    if(isActive && ((hitTest(touch->getLocation()) && this->isFocused()) || (this->listTouchedPoint->indexOfObject(touch) != CC_INVALID_INDEX && !hitTest(touch->getLocation()))))
-    CCLOG("%s - onTouchEnded1", this->getName());
  if(isActive)
     {
-        CCLOG("%s - onTouchEnded2", this->getName());
         cocos2d::gui::Button::onTouchEnded(touch,unused_event);
     }
-//    CCLOG("onTouchEnded %s - %d",this->getName(),this->listTouchedPoint->count());
 }
 
 void HoldableUIButton::onTouchCancelled(CCTouch *touch, CCEvent *unused_event)
 {
-//    {
-//        listTouchedPoint->removeObject(touch);
-//    }
     if(isActive)
     {
-        CCLOG("%s - onTouchCancelled", this->getName());
         cocos2d::gui::Button::onTouchCancelled(touch,unused_event);
     }
-//    CCLOG("onTouchCancelled %s - %d",this->getName(),this->listTouchedPoint->count());
 }
 
 void HoldableUIButton::loadTextures(const char* normal,const char* selected,const char* disabled,cocos2d::gui::TextureResType texType)
@@ -169,12 +165,12 @@ void HoldableUIButton::loadTextures(const char* normal,const char* selected,cons
 void HoldableUIButton::setActive(bool value)
 {
     this->isActive = value;
-//    if(this->isActive)
-//    {
-//        this->setBright(true);
-//    }
-//    else
-//    {
-//        this->setBright(false);
-//    }
+    if(this->isActive)
+    {
+        this->setBright(true);
+    }
+    else
+    {
+        this->setBright(false);
+    }
 }

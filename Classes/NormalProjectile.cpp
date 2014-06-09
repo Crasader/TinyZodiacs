@@ -83,6 +83,11 @@ void NormalProjectile::setData(NormalShootingSkillData data, GameObject* holder)
     // Sprite
     this->sprite = CCSprite::create();
     GameManager::getInstance()->getGameplayHolder().nodeHolder->addChild(this->sprite, this->data.getAnimationLayerIndex());
+    //
+//    CCParticleSystemQuad* p = CCParticleSystemQuad::create("shoot.plist");
+//    p->setPosition(0,0);
+//    p->setRotation(0);
+//    this->sprite->addChild(p);
 
 }
 
@@ -201,6 +206,7 @@ void NormalProjectile::shoot()
 void NormalProjectile::update(float dt)
 {
     this->body->SetTransform(this->body->GetPosition(),atan2(this->body->GetLinearVelocity().y,this->body->GetLinearVelocity().x)-3.14);
+//    this->p->setRotation(-1 * CC_RADIANS_TO_DEGREES(this->body->GetAngle()));
     GameObject::update(dt);
 }
 

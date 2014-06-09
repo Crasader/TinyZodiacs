@@ -1,0 +1,7 @@
+<list_map>
+	<map state="1" normal_icon="map_1.png" selected_icon="map_2.png" id="map1"></map>
+	<map state="0" normal_icon="map_1.png" selected_icon="map_2.png" id="map1"></map>
+	<map state="0" normal_icon="map_1.png" selected_icon="map_2.png" id="map1"></map>
+	<map state="0" normal_icon="map_1.png" selected_icon="map_2.png" id="map1"></map>
+	<map state="0" normal_icon="map_1.png" selected_icon="map_2.png" id="map1"></map>
+</list_map>

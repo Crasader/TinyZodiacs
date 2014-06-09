@@ -39,6 +39,10 @@ public:
     virtual void onEnter();
     
     virtual bool init();
+    
+    bool checkEventWidget(CCTouch* touch, CCEvent *pEvent);
+    
+    bool checkTouchEvent(cocos2d::gui::Widget *root, CCTouch* touch, CCEvent* pEvent);
 };
 
 

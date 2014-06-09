@@ -93,10 +93,10 @@
     
     <skill id="monkey_shooting" type="1">
 		<body>arrow</body>
-        <delay>1</delay>
-        <life_time>10</life_time>
 
-		<cool_down>100</cool_down>
+        <delay>0</delay>
+        <life_time>5</life_time>
+		<cool_down>3</cool_down>
         <joints>
             <holder x="2" y="0" offsetX="0" offsetY="0"></holder>
             <this x="2" y="0" offsetX="0" offsetY="0"></this>

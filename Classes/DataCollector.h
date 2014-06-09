@@ -41,7 +41,7 @@ private:
     CCDictionary* dictItemDTO;
     //Tower Dictionary
     CCDictionary* dictTowerDTO;
-
+    
     
 protected:
 public:

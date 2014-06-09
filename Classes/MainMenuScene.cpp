@@ -35,7 +35,7 @@ CCScene* MainMenuScene::scene()
     MainMenuScene *layer = MainMenuScene::create();
     // add layer as a child to scene
     scene->addChild(layer);
-    //    CocosDenshion::SimpleAudioEngine::sharedEngine()->playBackgroundMusic("test.mp3", true);
+//    CocosDenshion::SimpleAudioEngine::sharedEngine()->playBackgroundMusic("test.mp3", true);
     
     // return the scene
     return scene;
@@ -50,4 +50,9 @@ void MainMenuScene::initScene()
 {
     MainMenuLayer* layer = MainMenuLayer::layer();
     this->addChild(layer);
+    
+//    CCParticleSystemQuad* p = CCParticleSystemQuad::create("starSky.plist");
+//    p->setPosition(0,0);
+//    p->setRotation(0);
+//    this->addChild(p);
 }
