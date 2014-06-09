@@ -85,7 +85,7 @@ void Monster::destroy()
 void Monster::die()
 {
     AnimationEffect* effect = AnimationEffect::create();
-    effect->setAnimation("effect-smoke");
+    effect->setAnimation("effect-explosion");
     effect->setOpacity(170);
     EffectManager::getInstance()->runEffect(effect, this->getPositionInPixel());
     

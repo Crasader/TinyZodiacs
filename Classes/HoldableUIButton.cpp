@@ -88,7 +88,7 @@ bool HoldableUIButton::onTouchBegan(CCTouch *touch, CCEvent *unused_event)
         return cocos2d::gui::Button::onTouchBegan(touch,unused_event);
         CCLOG("%s - onTouchBegan", this->getName());
     }
-    return false;
+    return true;
 }
 
 void HoldableUIButton::onTouchMoved(CCTouch *touch, CCEvent *unused_event)

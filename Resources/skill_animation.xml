@@ -46,5 +46,50 @@
             <frame name="tower_orb_2_6.png" />
         </framelist>
     </animation>
+    
+    <animation name="tower_orb_1_1" delay="0.07" loop="infinity">
+        <origin x="0.5" y="0.5" />
+        <framelist>
+            <frame name="magic_energy_ball_middle_1.png" />
+            <frame name="magic_energy_ball_middle_2.png" />
+            <frame name="magic_energy_ball_middle_3.png" />
+            <frame name="magic_energy_ball_middle_4.png" />
+            <frame name="magic_energy_ball_middle_5.png" />
+            <frame name="magic_energy_ball_middle_6.png" />
+            <frame name="magic_energy_ball_middle_7.png" />
+            <frame name="magic_energy_ball_middle_8.png" />
+            <frame name="magic_energy_ball_middle_9.png" />
+            <frame name="magic_energy_ball_middle_10.png" />
+            <frame name="magic_energy_ball_middle_11.png" />
+            <frame name="magic_energy_ball_middle_12.png" />
+            <frame name="magic_energy_ball_middle_13.png" />
+            <frame name="magic_energy_ball_middle_14.png" />
+            <frame name="magic_energy_ball_middle_15.png" />
+        </framelist>
+    </animation>
+    
+    <animation name="lightning" delay="0.05" loop="infinity">
+        <origin x="0.5" y="0.5" />
+        <framelist>
+            <frame name="magic_lightning_arrow_middle_1.png" />
+            <frame name="magic_lightning_arrow_middle_2.png" />
+            <frame name="magic_lightning_arrow_middle_3.png" />
+            <frame name="magic_lightning_arrow_middle_4.png" />
+            <frame name="magic_lightning_arrow_middle_5.png" />
+        </framelist>
+    </animation>
+    
+    <animation name="bomb" delay="0.05" loop="infinity">
+        <origin x="0.5" y="0.5" />
+        <framelist>
+            <frame name="magic_bomb_middle_1.png" />
+            <frame name="magic_bomb_middle_2.png" />
+            <frame name="magic_bomb_middle_3.png" />
+            <frame name="magic_bomb_middle_4.png" />
+            <frame name="magic_bomb_middle_5.png" />
+            <frame name="magic_bomb_middle_6.png" />
+        </framelist>
+    </animation>
+
 
 </character_animation>

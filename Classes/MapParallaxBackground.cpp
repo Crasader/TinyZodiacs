@@ -31,19 +31,31 @@ bool MapParallaxBackground::init()
 void MapParallaxBackground::addBackground(std::string imageName, std::string spritesheetName, float ratio_x, float ratio_y, float orderIndex, float width,float height)
 {
     //
+    CCSize designSize = CCEGLView::sharedOpenGLView()->getDesignResolutionSize();
     CCSprite* background = CCSprite::createWithSpriteFrameName(imageName.c_str());
     CCSize size = background->getContentSize();
     
-    int max = width/size.width + 1;
+
+    
+    float scaleDesignY = designSize.height/size.height;
+    float scaleyyy = scaleDesignY + ratio_y*((height-designSize.height)/size.height);
+    float scaleDesignX = designSize.width/size.width;
+    float scalexxx = scaleDesignX + ratio_x*((width-designSize.width)/size.width);
     
     CCSpriteBatchNode* batchNode = CCSpriteBatchNode::create(spritesheetName.c_str());
+    
+    int max = width/size.width*scaleyyy + 1;
     
     for(int i=0 ; i<max ; i++)
     {
         CCSprite* backgroundTemp = CCSprite::createWithSpriteFrameName(imageName.c_str());
-        
         backgroundTemp->setAnchorPoint(ccp(0,0));
-        backgroundTemp->setPosition(ccp(0+(background->getContentSize().width-1)*i,0));
+        backgroundTemp->setPosition(ccp(0+(background->getContentSize().width*scaleyyy-1)*i,0));
+        
+       
+    
+//        backgroundTemp->setScaleX(scalexxx);
+          backgroundTemp->setScale(scaleyyy);
         
         batchNode->addChild(backgroundTemp);
     }

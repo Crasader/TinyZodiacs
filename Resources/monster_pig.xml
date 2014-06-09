@@ -5,7 +5,7 @@
     <atk>0</atk>
     <def>0</def>
     <speed>8</speed>
-    <atk_speed>100</atk_speed>
+    <atk_speed>5</atk_speed>
     <max_jump>3</max_jump>
     <jump_height>10</jump_height>
     <sensor_body>creep_2_sensor</sensor_body>
