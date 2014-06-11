@@ -32,7 +32,10 @@ bool TestScene::init()
             this->addChild(GameManager::getInstance());
     }
     
- 
+        GameManager::getInstance()->loadSpritesheet("map1_spritesheet_1.png","map1_spritesheet_1.plist");
+        GameManager::getInstance()->loadSpritesheet("map1_spritesheet_2.png","map1_spritesheet_2.plist");
+       GameManager::getInstance() ->loadSpritesheet("map1_spritesheet_3.png","map1_spritesheet_3.plist");
+       GameManager::getInstance() ->loadSpritesheet("map1_spritesheet_4.png","map1_spritesheet_4.plist");
    
 
     
