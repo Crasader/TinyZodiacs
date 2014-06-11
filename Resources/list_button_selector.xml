@@ -1,0 +1,10 @@
+<button_selector_list>
+	<button id="normal_attack" active_texture="A0.png" deactive_texture="A1.png" selected_texture="A1.png"></button>
+    <button id="0" active_texture="00.png" selected_texture="01.png" deactive_texture="02.png"></button>
+    <button id="1" active_texture="10.png" selected_texture="11.png" deactive_texture="12.png"></button>
+    <button id="2" active_texture="20.png" selected_texture="21.png" deactive_texture="22.png"></button>
+    <button id="3" active_texture="30.png" selected_texture="31.png" deactive_texture="32.png"></button>
+    <button id="4" active_texture="40.png" selected_texture="41.png" deactive_texture="42.png"></button>
+    <button id="5" active_texture="50.png" selected_texture="51.png" deactive_texture="52.png"></button>
+    <button id="6" active_texture="60.png" selected_texture="61.png" deactive_texture="62.png"></button>
+</button_selector_list>

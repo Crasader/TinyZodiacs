@@ -28,15 +28,14 @@ class XMLMapListParser
 {
 private:
 protected:
-public:
     static std::string readID(const XMLElement* root);
     static std::string readNormalIcon(const XMLElement* root);
     static std::string readSelectedIcon(const XMLElement* root);
     static bool readState(const XMLElement* root);
     
-//    static std::vector<MapSelectData> parseData(const XMLElement* root);
+    //    static std::vector<MapSelectData> parseData(const XMLElement* root);
     static std::vector<MapSelectData> loadXMLFile(const char *xmlFileName);
-    
+public:
     static std::vector<MapSelectData> getMapList();
 };
 

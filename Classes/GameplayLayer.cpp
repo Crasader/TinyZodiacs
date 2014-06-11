@@ -112,7 +112,7 @@ void GameplayLayer::loadAllUI(cocos2d::gui::Widget* ul)
     this->btnJump->addTouchEventListener(this, toucheventselector(GameplayLayer::jumpButtonTouchEvent));
     this->btnSkill0->addTouchEventListener(this, toucheventselector(GameplayLayer::skill0ButtonTouchEvent));
     this->btnSkill1->addTouchEventListener(this, toucheventselector(GameplayLayer::skill1ButtonTouchEvent));
-    //    this->btnSkill2->addTouchEventListener(this, toucheventselector(GameplayLayer::skill2ButtonTouchEvent));
+    this->btnSkill2->addTouchEventListener(this, toucheventselector(GameplayLayer::skill2ButtonTouchEvent));
     
 }
 
@@ -379,7 +379,7 @@ void GameplayLayer::skill0ButtonTouchEvent(CCObject* sender, cocos2d::gui::Touch
 {
     switch (type) {
         case cocos2d::gui::TOUCH_EVENT_BEGAN:
-            ControllerManager::getInstance()->sendCommand(HERO_CONTROLLER,  HERO_ATTACK_1);
+            ControllerManager::getInstance()->sendCommand(HERO_CONTROLLER,  HERO_ATTACK_0);
             break;
             //        case cocos2d::gui::TOUCH_EVENT_MOVED:
             //
@@ -402,7 +402,7 @@ void GameplayLayer::skill1ButtonTouchEvent(CCObject* sender, cocos2d::gui::Touch
 {
     switch (type) {
         case cocos2d::gui::TOUCH_EVENT_BEGAN:
-            ControllerManager::getInstance()->sendCommand(HERO_CONTROLLER,  HERO_ATTACK_2);
+            ControllerManager::getInstance()->sendCommand(HERO_CONTROLLER,  HERO_ATTACK_1);
             break;
             //        case cocos2d::gui::TOUCH_EVENT_MOVED:
             //
@@ -425,7 +425,7 @@ void GameplayLayer::skill2ButtonTouchEvent(CCObject* sender, cocos2d::gui::Touch
 {
     switch (type) {
         case cocos2d::gui::TOUCH_EVENT_BEGAN:
-            ControllerManager::getInstance()->sendCommand(HERO_CONTROLLER,  HERO_ATTACK_1);
+            ControllerManager::getInstance()->sendCommand(HERO_CONTROLLER,  HERO_ATTACK_2);
             break;
             //        case cocos2d::gui::TOUCH_EVENT_MOVED:
             //

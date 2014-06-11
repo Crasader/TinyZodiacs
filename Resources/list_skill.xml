@@ -8,11 +8,7 @@
             <holder x="2" y="0" offsetX="0" offsetY="0"></holder>
             <this x="2" y="0" offsetX="0" offsetY="0"></this>
         </joints>
-        <texture>
-            <active>A0.png</active>
-            <deactive>A2.png</deactive>
-            <selected>A1.png</selected>
-        </texture>
+        <button_selector>normal_attack</button_selector>
         <list_effect>
             <enemy>
                 <effect>cat_normal_attack_affect</effect>
@@ -31,12 +27,7 @@
         </joints>
         <animation>skill-aura</animation>
         <animation_layer>2</animation_layer>
-        <texture>
-            <active>60.png</active>
-            <deactive>62.png</deactive>
-            <selected>61.png</selected>
-        </texture>
-        
+        <button_selector>6</button_selector>
         <list_effect>
             <enemy>
                 <effect>cat_normal_attack_affect</effect>
@@ -63,17 +54,12 @@
         </joints>
         <animation>skill-aura</animation>
         <animation_layer>4</animation_layer>
-        <texture>
-            <active>60.png</active>
-            <deactive>62.png</deactive>
-            <selected>61.png</selected>
-        </texture>
+        <button_selector>6</button_selector>
         <list_effect>
             <enemy>
                 <effect>cat_normal_attack_affect</effect>
             </enemy>
         </list_effect>
-        
         <time_tick>1</time_tick>
 	</skill>
     
@@ -82,7 +68,6 @@
         <delay>0.05</delay>
         <life_time>0</life_time>
 		<cool_down>0.5</cool_down>
-        
         <joints>
             <holder x="2" y="0" offsetX="0" offsetY="0"></holder>
             <this x="2" y="0" offsetX="0" offsetY="0"></this>
@@ -106,22 +91,14 @@
         </joints>
         <animation>skill-arrow</animation>
         <animation_layer>4</animation_layer>
-        <texture>
-            <active>30.png</active>
-            <deactive>32.png</deactive>
-            <selected>31.png</selected>
-        </texture>
-
-<speed>
-
-    <x>7</x>
-    <y>7</y>
-</speed>
-
+        <button_selector>3</button_selector>
+        <speed>
+            <x>7</x>
+            <y>7</y>
+        </speed>
         <gravity_scale>1</gravity_scale>
         <collide_terrain>1</collide_terrain>
         <piercing>1</piercing>
-        
         <list_effect>
             <enemy>
                 <effect>cat_normal_attack_affect</effect>
@@ -141,7 +118,6 @@
         </joints>
         <animation>skill-tower_orb_1_1</animation>
         <animation_layer>2</animation_layer>
-        
         <speed>
             <x>10</x>
             <y>0</y>
@@ -149,7 +125,6 @@
         <gravity_scale>0</gravity_scale>
         <collide_terrain>1</collide_terrain>
         <piercing>0</piercing>
-        
         <list_effect>
             <enemy>
                 <effect>cat_normal_attack_affect</effect>
@@ -168,7 +143,6 @@
         </joints>
         <animation>skill-tower_orb_2</animation>
         <animation_layer>4</animation_layer>
-        
         <speed>
             <x>10</x>
             <y>0</y>
@@ -176,13 +150,13 @@
         <gravity_scale>0</gravity_scale>
         <collide_terrain>4</collide_terrain>
         <piercing>0</piercing>
-        
         <list_effect>
             <enemy>
                 <effect>cat_normal_attack_affect</effect>
             </enemy>
         </list_effect>
 	</skill>
+    
     <skill id="self_explosion" type="1">
 		<body>monkey_aura</body>
         <delay>0</delay>
@@ -202,7 +176,6 @@
                 <effect>explosion_effect</effect>
             </self>
         </list_effect>
-        
         <speed>
             <x>0</x>
             <y>0</y>
@@ -210,6 +183,5 @@
         <gravity_scale>0</gravity_scale>
         <collide_terrain>4</collide_terrain>
         <piercing>0</piercing>
-
 	</skill>
 </skill_list>

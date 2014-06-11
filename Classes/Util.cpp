@@ -514,7 +514,7 @@ b2Fixture* Util::getFixtureById(b2Body* body, FixtureID fixtureId)
 
 b2AABB Util::getGameObjectBoundingBox(GameObject* obj)
 {
-    if(obj->getBody() != NULL)
+    if(obj->getBody() != NULL&& obj->getBody()->IsActive() == true)
     {
         //Calculate b
         b2AABB aabb;

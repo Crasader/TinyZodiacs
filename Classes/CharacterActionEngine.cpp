@@ -47,21 +47,21 @@ void CharacterActionEngine::attack()
 {
     if(this->character != NULL)
     {
-        this->character->attack();
+        this->character->playSkill(NORMAL_ATTACK);
     }
 }
 void CharacterActionEngine::skill1()
 {
     if(this->character != NULL)
     {
-        this->character->useSkill1();
+        this->character->playSkill(SKILL_1);
     }
 }
 void CharacterActionEngine::skill2()
 {
     if(this->character != NULL)
     {
-        this->character->useSkill2();
+        this->character->playSkill(SKILL_2);
     }
 }
 void CharacterActionEngine::stopMoveAction()

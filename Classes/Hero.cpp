@@ -37,9 +37,9 @@ void Hero::onCreate()
     
     ControllerManager::getInstance()->registerController(HERO_CONTROLLER, this);
     //
-    ControllerManager::getInstance()->sendCommand(HERO_CONTROLLER, CHANGE_SKILL_0_TEXTURE_SET, new TextureSelector(this->normalAttack->getSkillTextureSelector()));
-    ControllerManager::getInstance()->sendCommand(HERO_CONTROLLER, CHANGE_SKILL_1_TEXTURE_SET, new TextureSelector(this->skill1->getSkillTextureSelector()));
-    ControllerManager::getInstance()->sendCommand(HERO_CONTROLLER, CHANGE_SKILL_2_TEXTURE_SET, new TextureSelector(this->skill2->getSkillTextureSelector()));
+    ControllerManager::getInstance()->sendCommand(HERO_CONTROLLER, CHANGE_SKILL_0_TEXTURE_SET, new TextureSelector(this->getSkill(NORMAL_ATTACK)->getSkillTextureSelector()));
+    ControllerManager::getInstance()->sendCommand(HERO_CONTROLLER, CHANGE_SKILL_1_TEXTURE_SET, new TextureSelector(this->getSkill(SKILL_1)->getSkillTextureSelector()));
+    ControllerManager::getInstance()->sendCommand(HERO_CONTROLLER, CHANGE_SKILL_2_TEXTURE_SET, new TextureSelector(this->getSkill(SKILL_2)->getSkillTextureSelector()));
 }
 
 uint16  Hero::getCorrectGroup(Group group)
@@ -131,11 +131,14 @@ bool Hero::receiveCommand(CommandID commandID, void* data)
         case HERO_MOVE_JUMP:
             jump();
             break;
+        case HERO_ATTACK_0:
+            playSkill(NORMAL_ATTACK);
+            break;
         case HERO_ATTACK_1:
-            attack();
+            playSkill(SKILL_1);
             break;
         case HERO_ATTACK_2:
-            useSkill1();
+            playSkill(SKILL_2);
             break;
         default:
             break;

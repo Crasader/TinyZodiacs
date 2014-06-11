@@ -88,7 +88,7 @@ Monster* MonsterFactory::createMonster(MonsterDTO* monsterDTO, CCPoint position,
     //    monster->setSensor(sensorBody);
     monster->setSensor(((MonsterDTO*)monsterDTO)->sensorBody.c_str());
     //load skill
-    monster->setNormalAttack(SkillFactory::createSkill(monsterDTO->data.getSkill0().c_str(), world, monster, false, SKILL_0_BTN));
+    monster->setSkill(NORMAL_ATTACK, SkillFactory::createSkill(monsterDTO->data.getSkill0().c_str(), world, monster, false, SKILL_0_BTN));
     //
     monster->setPositionInPixel(position);
     monster->flipDirection(LEFT);

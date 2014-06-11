@@ -159,9 +159,9 @@ void Tower::checkCollisionDataInEndContact(PhysicData* holderData, PhysicData* c
 
 void Tower::aimTarget()
 {
-    if(this->normalAttack != NULL)
+    if(this->getSkill(NORMAL_ATTACK) != NULL)
     {
-        NormalShootingAttack* attack = dynamic_cast<NormalShootingAttack*>(this->normalAttack);
+        NormalShootingAttack* attack = dynamic_cast<NormalShootingAttack*>(this->getSkill(NORMAL_ATTACK));
         
         if(attack != NULL)
         {
@@ -179,7 +179,7 @@ void Tower::aimTarget()
             attack->setData(data);
         }
         
-        this->attack();
+        this->playSkill(NORMAL_ATTACK);
         
     }
 }

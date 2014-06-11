@@ -198,6 +198,8 @@
 		340DE0B5192C9EB50056D51E /* EffectManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 340DE0B3192C9EB50056D51E /* EffectManager.cpp */; };
 		3412551318DAA44900D9FBA6 /* NormalProjectile.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3412551118DAA44900D9FBA6 /* NormalProjectile.cpp */; };
 		3414166218DC23A0007B8C2B /* GameObjectManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3414166018DC23A0007B8C2B /* GameObjectManager.cpp */; };
+		341AFAC219477DC200693634 /* list_button_selector.xml in Resources */ = {isa = PBXBuildFile; fileRef = 341AFAC119477DC200693634 /* list_button_selector.xml */; };
+		341AFAC519477E7400693634 /* XMLButtonSelectorParser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 341AFAC319477E7400693634 /* XMLButtonSelectorParser.cpp */; };
 		34315E51193972430058D433 /* AnimationData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 34315E4F193972430058D433 /* AnimationData.cpp */; };
 		343187051936F20E00D0D683 /* HoldableUIButton.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 343187011936F20E00D0D683 /* HoldableUIButton.cpp */; };
 		343187061936F20E00D0D683 /* MultitouchTouchGroup.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 343187021936F20E00D0D683 /* MultitouchTouchGroup.cpp */; };
@@ -473,8 +475,6 @@
 		F5C89DFE18D2FCE9006E909D /* monkey_spritesheet.plist in Resources */ = {isa = PBXBuildFile; fileRef = F5C89DFC18D2FCE9006E909D /* monkey_spritesheet.plist */; };
 		F5C89DFF18D2FCE9006E909D /* monkey_spritesheet.png in Resources */ = {isa = PBXBuildFile; fileRef = F5C89DFD18D2FCE9006E909D /* monkey_spritesheet.png */; };
 		F5C89E0418D2FD2A006E909D /* map_body.plist in Resources */ = {isa = PBXBuildFile; fileRef = F5C89E0218D2FD2A006E909D /* map_body.plist */; };
-		F5C89E1018D2FF9A006E909D /* 2.png in Resources */ = {isa = PBXBuildFile; fileRef = F5C89E0E18D2FF9A006E909D /* 2.png */; };
-		F5C89E1118D2FF9A006E909D /* 1.png in Resources */ = {isa = PBXBuildFile; fileRef = F5C89E0F18D2FF9A006E909D /* 1.png */; };
 		F5CCA78B191B2BDB002A7F2A /* AnimationEffect.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F5CCA789191B2BDB002A7F2A /* AnimationEffect.cpp */; };
 		F5CCA78F191B2E47002A7F2A /* smoke_spritesheet.plist in Resources */ = {isa = PBXBuildFile; fileRef = F5CCA78D191B2E47002A7F2A /* smoke_spritesheet.plist */; };
 		F5CCA790191B2E47002A7F2A /* smoke_spritesheet.png in Resources */ = {isa = PBXBuildFile; fileRef = F5CCA78E191B2E47002A7F2A /* smoke_spritesheet.png */; };
@@ -906,6 +906,9 @@
 		3412551218DAA44900D9FBA6 /* NormalProjectile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NormalProjectile.h; path = ../Classes/NormalProjectile.h; sourceTree = "<group>"; };
 		3414166018DC23A0007B8C2B /* GameObjectManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameObjectManager.cpp; sourceTree = "<group>"; };
 		3414166118DC23A0007B8C2B /* GameObjectManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameObjectManager.h; sourceTree = "<group>"; };
+		341AFAC119477DC200693634 /* list_button_selector.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = list_button_selector.xml; sourceTree = "<group>"; };
+		341AFAC319477E7400693634 /* XMLButtonSelectorParser.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = XMLButtonSelectorParser.cpp; sourceTree = "<group>"; };
+		341AFAC419477E7400693634 /* XMLButtonSelectorParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMLButtonSelectorParser.h; sourceTree = "<group>"; };
 		34315E4F193972430058D433 /* AnimationData.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = AnimationData.cpp; path = ../Classes/AnimationData.cpp; sourceTree = "<group>"; };
 		34315E50193972430058D433 /* AnimationData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AnimationData.h; path = ../Classes/AnimationData.h; sourceTree = "<group>"; };
 		343187011936F20E00D0D683 /* HoldableUIButton.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = HoldableUIButton.cpp; sourceTree = "<group>"; };
@@ -1362,8 +1365,6 @@
 		F5C89DFC18D2FCE9006E909D /* monkey_spritesheet.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = monkey_spritesheet.plist; sourceTree = "<group>"; };
 		F5C89DFD18D2FCE9006E909D /* monkey_spritesheet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = monkey_spritesheet.png; sourceTree = "<group>"; };
 		F5C89E0218D2FD2A006E909D /* map_body.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = map_body.plist; sourceTree = "<group>"; };
-		F5C89E0E18D2FF9A006E909D /* 2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 2.png; sourceTree = "<group>"; };
-		F5C89E0F18D2FF9A006E909D /* 1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1.png; sourceTree = "<group>"; };
 		F5CB2F0D18DA9A930035D27B /* LayerIndexConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LayerIndexConstants.h; sourceTree = "<group>"; };
 		F5CCA789191B2BDB002A7F2A /* AnimationEffect.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = AnimationEffect.cpp; path = ../Classes/AnimationEffect.cpp; sourceTree = "<group>"; };
 		F5CCA78A191B2BDB002A7F2A /* AnimationEffect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AnimationEffect.h; path = ../Classes/AnimationEffect.h; sourceTree = "<group>"; };
@@ -3114,6 +3115,8 @@
 				346701F4193978BF00CC4E2B /* XMLAnimationDataParser.h */,
 				34B3BE251942F48600D3E651 /* XMLMapListParser.cpp */,
 				34B3BE261942F48600D3E651 /* XMLMapListParser.h */,
+				341AFAC319477E7400693634 /* XMLButtonSelectorParser.cpp */,
+				341AFAC419477E7400693634 /* XMLButtonSelectorParser.h */,
 			);
 			name = "XML Parser";
 			sourceTree = "<group>";
@@ -3235,8 +3238,7 @@
 		F5C89E0D18D2FF87006E909D /* UI */ = {
 			isa = PBXGroup;
 			children = (
-				F5C89E0E18D2FF9A006E909D /* 2.png */,
-				F5C89E0F18D2FF9A006E909D /* 1.png */,
+				341AFAC119477DC200693634 /* list_button_selector.xml */,
 			);
 			name = UI;
 			sourceTree = "<group>";
@@ -3433,7 +3435,6 @@
 				34D0C9EE19260B1700DDC681 /* Slash_default.plist in Resources */,
 				F5CCA78F191B2E47002A7F2A /* smoke_spritesheet.plist in Resources */,
 				34B3BE201942F26500D3E651 /* list_map.xml in Resources */,
-				F5C89E1018D2FF9A006E909D /* 2.png in Resources */,
 				34B3BDE81942BE3300D3E651 /* starSky.plist in Resources */,
 				F5FA2BB4194054B300583009 /* maincrystal.xml in Resources */,
 				3446809F1943044100FECCE8 /* MapListItem0.plist in Resources */,
@@ -3443,7 +3444,6 @@
 				F56FDD411942AF7B00232F7F /* magic_fireball_middle.plist in Resources */,
 				F50BF81C18F2426D00CD518D /* cat_spritesheet.plist in Resources */,
 				D4EF94A015BD2D9800D803EB /* Icon-144.png in Resources */,
-				F5C89E1118D2FF9A006E909D /* 1.png in Resources */,
 				F53ACBAF18D831C700F958A8 /* map2.xml in Resources */,
 				3446809D1943037D00FECCE8 /* MapListItem0.png in Resources */,
 				F56FDD4E1942AF7B00232F7F /* magic_energy_ball_middle.png in Resources */,
@@ -3492,6 +3492,7 @@
 				F52678FE18EEAEA500CE1E3B /* map1_spritesheet_2.plist in Resources */,
 				F56FDD341942AF7B00232F7F /* magic_mass_bomb_middle.png in Resources */,
 				F52678FD18EEAEA500CE1E3B /* map1_spritesheet_1.plist in Resources */,
+				341AFAC219477DC200693634 /* list_button_selector.xml in Resources */,
 				F5FB8E70193340DD0074598C /* bull_animation.xml in Resources */,
 				34F69CC3194158A7005DD696 /* MainMenuLayer_1.ExportJson in Resources */,
 				340423CF193D8F2800223029 /* ControllerLayer0.png in Resources */,
@@ -3714,6 +3715,7 @@
 				F5831B161945A5440055798F /* DefenseDTO.cpp in Sources */,
 				15A3DA4B1682F826002FB0C5 /* CCControlColourPicker.cpp in Sources */,
 				15A3DA4C1682F826002FB0C5 /* CCControlHuePicker.cpp in Sources */,
+				341AFAC519477E7400693634 /* XMLButtonSelectorParser.cpp in Sources */,
 				375BD50F1868454E0024609E /* CCActionFrame.cpp in Sources */,
 				F54AE9BF18D2F1AA00194E66 /* ObjectState.cpp in Sources */,
 				F5CCA78B191B2BDB002A7F2A /* AnimationEffect.cpp in Sources */,

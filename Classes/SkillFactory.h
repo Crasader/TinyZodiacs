@@ -24,7 +24,7 @@
 #define ATTRIBUTE_TYPE "type"
 
 #define TAG_SKILL "skill"
-#define TAG_TEXTURE "texture"
+#define TAG_TEXTURE "button_selector"
 #define TAG_SELECTED "selected"
 #define TAG_ACTIVE "active"
 #define TAG_DEACTIVE "deactive"
@@ -41,7 +41,7 @@ protected:
     static const XMLElement* loadElementById(const char* id, const XMLElement* root);
     
     static string readSkillType(const XMLElement* root);
-    static std::string readTextureId(const XMLElement* root, string tagName);
+    static std::string readTextureId(const XMLElement* root);
     
     static void setButton();
 

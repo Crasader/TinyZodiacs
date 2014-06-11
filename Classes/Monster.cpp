@@ -331,7 +331,7 @@ void Monster::aimTarget()
         {
             flipDirection(RIGHT);
         }
-        this->attack();
+        this->playSkill(NORMAL_ATTACK);
     }
     else
     {
@@ -361,17 +361,22 @@ void Monster::onCreate()
 {
     Character::onCreate();
 
-    if(this->normalAttack != NULL)
+//    if(this->normalAttack != NULL)
+//    {
+//        this->normalAttack->setSkillButtonID(UNKNOWN);
+//    }
+//    if(this->skill1 != NULL)
+//    {
+//        this->skill1->setSkillButtonID(UNKNOWN);
+//    }
+//    if(this->skill2 != NULL)
+//    {
+//        this->skill2->setSkillButtonID(UNKNOWN);
+//    }
+    CCObject* skill;
+    CCARRAY_FOREACH(this->listSkill, skill)
     {
-        this->normalAttack->setSkillButtonID(UNKNOWN);
-    }
-    if(this->skill1 != NULL)
-    {
-        this->skill1->setSkillButtonID(UNKNOWN);
-    }
-    if(this->skill2 != NULL)
-    {
-        this->skill2->setSkillButtonID(UNKNOWN);
+        ((AbstractSkill*)skill)->setSkillButtonID(UNKNOWN);
     }
 
 }

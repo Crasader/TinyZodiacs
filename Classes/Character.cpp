@@ -26,34 +26,48 @@ Character::Character()
     this->state = NULL;
     this->landing = 0;
     this->currentJumpCount = 0;
-    this->normalAttack = NULL;
-    this->skill1 = NULL;
-    this->skill2 = NULL;
+//    this->normalAttack = NULL;
+//    this->skill1 = NULL;
+//    this->skill2 = NULL;
     this->isDead = false;
+    
+    this->listSkill = CCArray::create();
+    this->listSkill->retain();
+    
+    runAnimation = NULL;
+    jumpAnimation = NULL;
+    attackAnimation = NULL;
+    idleAnimation = NULL;
+    flyAnimation = NULL;
+    fallAnimation = NULL;
+    dieAnimation = NULL;
+    skill1Animation = NULL;
+    skill2Animation = NULL;
 }
 
 Character::~Character()
 {
 //    this->footSensor->GetWorld()->DestroyBody(this->footSensor);
+    this->listSkill->removeAllObjects();
+    this->listSkill->release();
     
-    
-    if(normalAttack)
-    {
-        normalAttack->release();
-        normalAttack = NULL;
-    }
-    
-    if(skill1)
-    {
-        skill1->release();
-        skill1 = NULL;
-    }
-    
-    if(skill2)
-    {
-        skill2->release();
-        skill2 = NULL;
-    }
+//    if(normalAttack)
+//    {
+//        normalAttack->release();
+//        normalAttack = NULL;
+//    }
+//    
+//    if(skill1)
+//    {
+//        skill1->release();
+//        skill1 = NULL;
+//    }
+//    
+//    if(skill2)
+//    {
+//        skill2->release();
+//        skill2 = NULL;
+//    }
 }
 
 void Character::changeState(CharacterState *states)
@@ -116,17 +130,23 @@ void Character::update(float dt)
     {
         GameObject::update(dt);
         this->state->update(dt);
-        if(this->normalAttack != NULL)
+//        if(this->normalAttack != NULL)
+//        {
+//            this->normalAttack->update(dt);
+//        }
+//        if(this->skill1 != NULL)
+//        {
+//            this->skill1->update(dt);
+//        }
+//        if(this->skill2 != NULL)
+//        {
+//            this->skill2->update(dt);
+//        }
+
+        CCObject* skill;
+        CCARRAY_FOREACH(this->listSkill, skill)
         {
-            this->normalAttack->update(dt);
-        }
-        if(this->skill1 != NULL)
-        {
-            this->skill1->update(dt);
-        }
-        if(this->skill2 != NULL)
-        {
-            this->skill2->update(dt);
+            ((AbstractSkill*)skill)->update(dt);
         }
         
         if(this->body->GetLinearVelocity().x >=2)
@@ -194,29 +214,32 @@ void Character::jump(float force)
     
 }
 
-void Character::attack()
-{
-    if(this->normalAttack->getIsExcutable() && this->state->attack() && isDead == false)
-    {
-        changeState(new CharacterAttackState(this,this->normalAttack,this->attackAnimation));
-    }
-}
-
-void Character::useSkill1()
-{
-    if(this->skill1->getIsExcutable() && this->state->attack() && isDead == false)
-    {
-        changeState(new CharacterAttackState(this,this->skill1,this->skill1Animation));
-    }
-}
-
-void Character::useSkill2()
-{
-    //    if(this->skill2->getIsExcutable() && this->state->attack() && isDead() == false)
-    //    {
-    //        changeState(new CharacterAttackState(this,this->skill2,this->skill2Animation));
-    //    }
-}
+//void Character::attack()
+//{
+////    if(this->normalAttack->getIsExcutable() && this->state->attack() && isDead == false)
+////    {
+////        changeState(new CharacterAttackState(this,this->normalAttack,this->attackAnimation));
+////    }
+//    this->playSkill(NORMAL_ATTACK, this->attackAnimation);
+//}
+//
+//void Character::useSkill1()
+//{
+////    if(this->skill1->getIsExcutable() && this->state->attack() && isDead == false)
+////    {
+////        changeState(new CharacterAttackState(this,this->skill1,this->skill1Animation));
+////    }
+//    this->playSkill(SKILL_1, this->skill1Animation);
+//}
+//
+//void Character::useSkill2()
+//{
+//    //    if(this->skill2->getIsExcutable() && this->state->attack() && isDead() == false)
+//    //    {
+//    //        changeState(new CharacterAttackState(this,this->skill2,this->skill2Animation));
+//    //    }
+//    this->playSkill(SKILL_2, this->skill2Animation);
+//}
 
 void Character::createFootSensor()
 {
@@ -457,21 +480,25 @@ void Character::setPhysicGroup(uint16 group)
 //    }
 
     
-    if(this->normalAttack != NULL)
+//    if(this->normalAttack != NULL)
+//    {
+//        this->normalAttack->setPhysicGroup(GROUP_SKILL_DEFAULT);
+//    }
+//    
+//    if(this->skill1 != NULL)
+//    {
+//        this->skill1->setPhysicGroup(GROUP_SKILL_DEFAULT);
+//    }
+//    
+//    if(this->skill2 != NULL)
+//    {
+//        this->skill2->setPhysicGroup(GROUP_SKILL_DEFAULT);
+//    }
+    CCObject* skill;
+    CCARRAY_FOREACH(this->listSkill, skill)
     {
-        this->normalAttack->setPhysicGroup(GROUP_SKILL_DEFAULT);
+        ((AbstractSkill*)skill)->setPhysicGroup(GROUP_SKILL_DEFAULT);
     }
-    
-    if(this->skill1 != NULL)
-    {
-        this->skill1->setPhysicGroup(GROUP_SKILL_DEFAULT);
-    }
-    
-    if(this->skill2 != NULL)
-    {
-        this->skill2->setPhysicGroup(GROUP_SKILL_DEFAULT);
-    }
-    
     
     b2Fixture* fixture = this->body->GetFixtureList();
     Util::setFixtureGroup(fixture, group);
@@ -537,18 +564,26 @@ void Character::destroy()
 {
     this->state->onExitState();
     
-    if(normalAttack)
+//    if(normalAttack)
+//    {
+//        normalAttack->destroy();
+//    }
+//    if(skill1)
+//    {
+//        skill1->destroy();
+//    }
+//    if(skill2)
+//    {
+//        skill2->destroy();
+//    }
+    
+    CCObject* skill;
+    CCARRAY_FOREACH(this->listSkill, skill)
     {
-        normalAttack->destroy();
+        ((AbstractSkill*)skill)->destroy();
     }
-    if(skill1)
-    {
-        skill1->destroy();
-    }
-    if(skill2)
-    {
-        skill2->destroy();
-    }
+
+    
     GameObject::destroy();
 }
 
@@ -593,4 +628,54 @@ void Character::playSoundByState(CharacterSound characterSoundState)
         default:
             break;
     }
+}
+
+void Character::setSkill(CharacterSkill skillIndex, AbstractSkill* skill)
+{
+    if(skillIndex > this->listSkill->count() || skill == NULL)
+    {
+        return;
+    }
+    this->listSkill->insertObject(skill, skillIndex);
+}
+
+void Character::playSkill(CharacterSkill skillIndex, AnimationObject* characterAnimation)
+{
+    AbstractSkill* skill = getSkill(skillIndex);
+    
+    if(skill != NULL && skill->getIsExcutable() && this->state->attack() && isDead == false)
+    {
+        changeState(new CharacterAttackState(this,skill,characterAnimation));
+    }
+}
+
+AbstractSkill* Character::getSkill(CharacterSkill skillIndex)
+{
+    if(skillIndex >= this->listSkill->count())
+    {
+        return NULL;
+    }
+    AbstractSkill* skill = (AbstractSkill*)this->listSkill->objectAtIndex(skillIndex);
+
+    return skill;
+}
+
+void Character::playSkill(CharacterSkill skillIndex)
+{
+    AnimationObject* correctAnimation;
+    switch (skillIndex) {
+        case NORMAL_ATTACK:
+            correctAnimation = this->attackAnimation;
+            break;
+        case SKILL_1:
+            correctAnimation = this->skill1Animation;
+            break;
+        case SKILL_2:
+            correctAnimation = this->skill2Animation;
+            break;
+        default:
+            correctAnimation = this->attackAnimation;
+            break;
+    }
+    playSkill(skillIndex, correctAnimation);
 }

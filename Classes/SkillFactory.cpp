@@ -15,6 +15,7 @@
 #include "NormalShootingAttack.h"
 #include "ControllerManager.h"
 #include "GameplayLayer.h"
+#include "XMLButtonSelectorParser.h"
 
 
 AbstractSkill* SkillFactory::loadXMLFile(const char* id, const char *xmlFileName, b2World* world, GameObject* holder, bool isLocal, ButtonID buttonIndex)
@@ -66,14 +67,16 @@ AbstractSkill* SkillFactory::loadXMLFile(const char* id, const char *xmlFileName
             
         }
         normalAttack->onCreate();
-        std::string selectedTexture = readTextureId(result->FirstChildElement(TAG_TEXTURE), TAG_SELECTED);
-        std::string activeTexture = readTextureId(result->FirstChildElement(TAG_TEXTURE), TAG_ACTIVE);
-        std::string deactiveTexture = readTextureId(result->FirstChildElement(TAG_TEXTURE), TAG_DEACTIVE);
+//        std::string selectedTexture = readTextureId(result->FirstChildElement(TAG_TEXTURE), TAG_SELECTED);
+//        std::string activeTexture = readTextureId(result->FirstChildElement(TAG_TEXTURE), TAG_ACTIVE);
+//        std::string deactiveTexture = readTextureId(result->FirstChildElement(TAG_TEXTURE), TAG_DEACTIVE);
         
         TextureSelector selector;
-        selector.activeTexture = activeTexture;
-        selector.deactiveTexture = deactiveTexture;
-        selector.selectedTexture = selectedTexture;
+//        selector.activeTexture = activeTexture;
+//        selector.deactiveTexture = deactiveTexture;
+//        selector.selectedTexture = selectedTexture;
+        
+        selector = XMLButtonSelectorParser::parseData(readTextureId(result->FirstChildElement(TAG_TEXTURE)));
         
         normalAttack->setSkillTextureSelector(selector);
         normalAttack->setSkillButtonID(buttonIndex);
@@ -116,7 +119,7 @@ std::string SkillFactory::readSkillType(const XMLElement* root)
     return XMLHelper::readAttributeString(root, ATTRIBUTE_TYPE, "");
 }
 
-std::string SkillFactory::readTextureId(const XMLElement* root, string tagName)
+std::string SkillFactory::readTextureId(const XMLElement* root)
 {
     //    if(root != NULL)
     //    {
@@ -126,7 +129,7 @@ std::string SkillFactory::readTextureId(const XMLElement* root, string tagName)
     //    return "";
     if(root != NULL)
     {
-        return XMLHelper::readString(root->FirstChildElement(tagName.c_str()), "");
+        return XMLHelper::readString(root, "");
     }
     return "";
 }
@@ -135,10 +138,10 @@ std::string SkillFactory::readTextureId(const XMLElement* root, string tagName)
 AbstractSkill* SkillFactory::createSkill(const char* id, b2World* world, GameObject* holder, bool isLocal, ButtonID buttonIndex)
 {
     AbstractSkill* skill = loadXMLFile(id, SKILL_XML_FILE, world, holder, isLocal, buttonIndex);
-    if(skill != NULL)
-    {
-        skill->retain();
-    }
+//    if(skill != NULL)
+//    {
+//        skill->retain();
+//    }
     return skill;
 }
 

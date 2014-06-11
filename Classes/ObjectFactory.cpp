@@ -70,9 +70,9 @@ void ObjectFactory::createHero(Hero* hero, HeroDTO* heroDTO)
         hero->getSprite()->setAnchorPoint(sc->anchorPointForShape(heroDTO->body.c_str()));
         hero->setSkin(body, hero->getSprite());
         
-        hero->setNormalAttack(SkillFactory::createSkill(heroDTO->data.getSkill0().c_str(), world, hero, true, SKILL_0_BTN));
-        hero->setSkill1(SkillFactory::createSkill(heroDTO->data.getSkill1().c_str(), world, hero, true, SKILL_1_BTN));
-        hero->setSkill2(SkillFactory::createSkill(heroDTO->data.getSkill2().c_str(), world, hero, true, SKILL_2_BTN));
+        hero->setSkill(NORMAL_ATTACK, SkillFactory::createSkill(heroDTO->data.getSkill0().c_str(), world, hero, true, SKILL_0_BTN));
+        hero->setSkill(SKILL_1, SkillFactory::createSkill(heroDTO->data.getSkill1().c_str(), world, hero, true, SKILL_1_BTN));
+        hero->setSkill(SKILL_2, SkillFactory::createSkill(heroDTO->data.getSkill2().c_str(), world, hero, true, SKILL_2_BTN));
         hero->setIsControlled(true);
         
         hero->setSoundData(CharacterSoundFactory::loadCharacterSoundData(heroDTO->soundId.c_str()));
@@ -281,12 +281,12 @@ Tower* ObjectFactory::createTower(TowerStructDTO* towerStructDTO, b2World* world
     if(strcasecmp(towerStructDTO->type.c_str(), "main") == 0)
     {
         tower = MainCrystal::create();
-        CCLOG("main");
+//        CCLOG("main");
     }
     else
     {
         tower = Tower::create();
-        CCLOG("tower");
+//        CCLOG("tower");
     }
     
     
@@ -331,7 +331,7 @@ Tower* ObjectFactory::createTower(TowerStructDTO* towerStructDTO, b2World* world
     //
     tower->setSensor(towerDTO->towerSensorId.c_str());
     
-    tower->setNormalAttack(SkillFactory::createSkill(towerDTO->data.getSkill0().c_str(), world, tower, false, SKILL_0_BTN));
+    tower->setSkill(NORMAL_ATTACK, SkillFactory::createSkill(towerDTO->data.getSkill0().c_str(), world, tower, false, SKILL_0_BTN));
     //    tower->setSkill1(SkillFactory::createSkill(towerDTO->data.getSkill1().c_str(), world, tower, false, SKILL_1_BUTTON));
     //    tower->setSkill2(SkillFactory::createSkill(towerDTO->data.getSkill2().c_str(), world, tower, false, SKILL_2_BUTTON));
     
