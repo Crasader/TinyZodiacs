@@ -21,28 +21,7 @@ MainMenuLayer::MainMenuLayer()
 
 MainMenuLayer::~MainMenuLayer()
 {
-}
-
-CCScene* MainMenuLayer::scene()
-{
-    // 'scene' is an autorelease object
-    CCScene *scene = CCScene::create();
     
-    // 'layer' is an autorelease object
-    MainMenuLayer *layer = MainMenuLayer::create();
-    
-    // add layer as a child to scene
-    scene->addChild(layer);
-    
-    // return the scene
-    return scene;
-}
-
-MainMenuLayer* MainMenuLayer::layer()
-{
-    // 'layer' is an autorelease object
-    MainMenuLayer *layer = MainMenuLayer::create();
-    return layer;
 }
 
 bool MainMenuLayer::init()
@@ -61,7 +40,7 @@ bool MainMenuLayer::init()
     
     ul->setScale(CCDirector::sharedDirector()->getWinSize().width/ul->getSize().width, CCDirector::sharedDirector()->getWinSize().height/ul->getSize().height);
     
-   loadAllUI(ul);
+    loadAllUI(ul);
     this->addWidget(ul);
     return true;
 }
@@ -117,7 +96,7 @@ void MainMenuLayer::infoButtonTouchEvent(CCObject* sender, cocos2d::gui::TouchEv
         default:
             break;
     }
-
+    
 }
 
 void MainMenuLayer::optionButtonTouchEvent(CCObject* sender, cocos2d::gui::TouchEventType type)
@@ -136,5 +115,5 @@ void MainMenuLayer::optionButtonTouchEvent(CCObject* sender, cocos2d::gui::Touch
         default:
             break;
     }
-
+    
 }

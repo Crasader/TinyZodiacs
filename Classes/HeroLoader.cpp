@@ -12,6 +12,7 @@ bool HeroLoader::loadData()
 {
     HeroLoader::loadDataByFileName("character_cat.xml");
     HeroLoader::loadDataByFileName("character_monkey.xml");
+    HeroLoader::loadDataByFileName("character_pig.xml");
     
     return true;
 }
@@ -27,4 +28,13 @@ bool HeroLoader::loadDataByFileName(const char *xmlFileName)
    
     delete document;
     return true;
+}
+
+CCArray* HeroLoader::loadListHero(const char *xmlFileName)
+{
+    XMLDocument* document = XMLHelper::getXMLDocument(xmlFileName);
+    
+    XMLElement* docElement = document->FirstChildElement();
+    
+    return XMLHeroParser::getHeroPreviewListXMLFromXMLElement(docElement);
 }

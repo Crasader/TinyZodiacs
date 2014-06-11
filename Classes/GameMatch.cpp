@@ -25,13 +25,16 @@ GameMatch::~GameMatch()
 
 bool GameMatch::init()
 {
+    CCLOG("%s - %s",DataCollector::getInstance()->getMatchData()->mapIDSelected.c_str(),DataCollector::getInstance()->getMatchData()->heroIDSelected.c_str());
+    
+    
     this->gameWorld = GameWorld::create();
-    this->gameWorld->setMapID("map1");
+    this->gameWorld->setMapID(DataCollector::getInstance()->getMatchData()->mapIDSelected.c_str());
     this->gameWorld->onCreate();
     this->addChild(this->gameWorld);
    
     this->player = Player::create();
-    this->player->attachWithHero("cat");
+    this->player->attachWithHero(DataCollector::getInstance()->getMatchData()->heroIDSelected.c_str() );
     this->addChild(this->player);
     
     this->gameWorld->addHero(this->player->getHero());

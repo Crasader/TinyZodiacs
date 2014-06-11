@@ -186,7 +186,7 @@ void Tower::aimTarget()
 
 b2Vec2 Tower::getStartPoint(b2Body* body, JointDef jointDef)
 {
-    b2AABB boundingBox = Util::getBodyBoundingBoxDynamic(body);
+    b2AABB boundingBox = Util::getGameObjectBoundingBoxDynamic(this);
     
     b2Vec2 jointAAnchor(0,0);
     

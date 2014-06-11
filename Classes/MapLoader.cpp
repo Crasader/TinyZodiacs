@@ -11,6 +11,7 @@
 #include "DataCollector.h"
 #include "XMLMapParser.h"
 
+
 bool MapLoader::loadData()
 {
     MapLoader::loadDataByFileName("map1.xml");
@@ -29,4 +30,13 @@ bool MapLoader::loadDataByFileName(const char *xmlFileName)
     DataCollector::getInstance()->setMapDTO(mapDTO->id.c_str(), mapDTO);
 
     return true;
+}
+
+CCArray* MapLoader::loadDefenseDTOList(const char* fileName)
+{
+    XMLDocument* document = XMLHelper::getXMLDocument(fileName);
+    
+    XMLElement* docElement = document->FirstChildElement();
+    
+    return XMLCharacterParser::getDefenseDTOListFromXMLElement(docElement);
 }

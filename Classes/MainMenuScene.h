@@ -23,7 +23,6 @@ public:
     virtual bool init();
     void initScene();
     
-    
     static cocos2d::CCScene* scene();
     
     CREATE_FUNC(MainMenuScene);

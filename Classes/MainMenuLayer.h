@@ -24,13 +24,9 @@ public:
     cocos2d::gui::ImageView *backgroundLayer;
     
     MainMenuLayer();
-    
     ~MainMenuLayer();
     
     bool init();
-    
-    static CCScene* scene();
-    static MainMenuLayer* layer();
     
     void playButtonTouchEvent(CCObject* sender, cocos2d::gui::TouchEventType type);
     void infoButtonTouchEvent(CCObject* sender, cocos2d::gui::TouchEventType type);

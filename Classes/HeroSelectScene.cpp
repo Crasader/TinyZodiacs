@@ -1,15 +1,14 @@
 //
-//  MapSelectScene.cpp
+//  HeroSelectScene.cpp
 //  TinyZodiacs
 //
-//  Created by NhutVM on 6/7/14.
+//  Created by Nguyễn Hòa Phát on 6/9/14.
 //
 //
 
-#include "MapSelectScene.h"
-#include "MapSelectLayer.h"
+#include "HeroSelectScene.h"
 
-bool MapSelectScene::init()
+bool HeroSelectScene::init()
 {
     if(!CCLayer::init())
     {
@@ -20,18 +19,18 @@ bool MapSelectScene::init()
 }
 
 
-MapSelectScene::~MapSelectScene()
+HeroSelectScene::~HeroSelectScene()
 {
     
 }
 
-CCScene* MapSelectScene::scene()
+CCScene* HeroSelectScene::scene()
 {
     // 'scene' is an autorelease object
     CCScene *scene = CCScene::create();
     
     // 'layer' is an autorelease object
-    MapSelectScene *layer = MapSelectScene::create();
+    HeroSelectScene *layer = HeroSelectScene::create();
     // add layer as a child to scene
     scene->addChild(layer);
     //    CocosDenshion::SimpleAudioEngine::sharedEngine()->playBackgroundMusic("test.mp3", true);
@@ -41,8 +40,8 @@ CCScene* MapSelectScene::scene()
 }
 
 
-void MapSelectScene::initScene()
+void HeroSelectScene::initScene()
 {
-    MapSelectLayer* layer = MapSelectLayer::create();
+    HeroSelectLayer* layer = HeroSelectLayer::create();
     this->addChild(layer);
 }

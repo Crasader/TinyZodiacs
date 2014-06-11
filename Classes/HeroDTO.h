@@ -14,6 +14,23 @@
 #include "CharacterDTO.h"
 
 USING_NS_CC;
+using namespace std;
+
+class HeroPreviewDTO: public CCObject
+{
+private:
+protected:
+public:
+    HeroPreviewDTO();
+    ~HeroPreviewDTO();
+    
+    virtual bool init();
+    
+    string id;
+    int state;
+    
+    CREATE_FUNC(HeroPreviewDTO);
+};
 
 class HeroDTO: public CharacterDTO
 {

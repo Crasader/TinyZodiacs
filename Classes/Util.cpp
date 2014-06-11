@@ -300,11 +300,11 @@ void Util::setFixtureGroup(b2Fixture* fixture, uint16 group)
                 break;
             case GROUP_TOWER_A:
 //                filter.maskBits = GROUP_HERO_B | GROUP_B | GROUP_NEUTRUAL | GROUP_TERRAIN | GROUP_SKILL_DEFAULT| GROUP_MONSTER_SENSOR;
-                filter.maskBits = GROUP_TERRAIN | GROUP_SKILL_DEFAULT;
+                filter.maskBits = GROUP_TERRAIN | GROUP_SKILL_DEFAULT| GROUP_MONSTER_SENSOR;
                 break;
             case GROUP_TOWER_B:
 //                filter.maskBits = GROUP_HERO_A | GROUP_A | GROUP_NEUTRUAL | GROUP_TERRAIN | GROUP_SKILL_DEFAULT| GROUP_MONSTER_SENSOR;
-                filter.maskBits = GROUP_TERRAIN | GROUP_SKILL_DEFAULT;
+                filter.maskBits = GROUP_TERRAIN | GROUP_SKILL_DEFAULT| GROUP_MONSTER_SENSOR;
                 break;
             case GROUP_ITEM:
                 filter.maskBits = GROUP_TERRAIN |GROUP_HERO_A | GROUP_HERO_B | GROUP_SKILL_DEFAULT | GROUP_WALL;
@@ -552,7 +552,7 @@ b2AABB Util::getGameObjectBoundingBox(GameObject* obj)
 
 b2AABB Util::getGameObjectBoundingBoxDynamic(GameObject* obj)
 {
-    if(obj->getBody() != NULL)
+    if(obj->getBody() != NULL && obj->getBody()->IsActive() == true)
     {
         //Calculate b
         b2AABB aabb;

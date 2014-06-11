@@ -28,7 +28,6 @@ bool ItemCreator::init()
 
 void ItemCreator::start()
 {
-       CCLOG("start item");
     this->isStopped = false;
     CCCallFunc* createFunction = CCCallFunc::create(this, callfunc_selector(ItemCreator::createItem));
     
@@ -38,7 +37,6 @@ void ItemCreator::start()
 
 void ItemCreator::stop()
 {
-    CCLOG("stop item");
     this->isStopped = true;
     if(this->delayAction != NULL)
     {

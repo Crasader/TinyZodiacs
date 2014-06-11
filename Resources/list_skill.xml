@@ -44,6 +44,9 @@
             <allies>
                 <effect>cat_healing</effect>
             </allies>
+            <self>
+                <effect>cat_healing</effect>
+            </self>
         </list_effect>
         
         <time_tick>0.5</time_tick>

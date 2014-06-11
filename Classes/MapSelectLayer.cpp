@@ -10,6 +10,9 @@
 
 #include "XMLMapListParser.h"
 #include "TestScene.h"
+#include "HeroSelectScene.h"
+#include "AnimationEffect.h"
+#include "EffectManager.h"
 
 using cocos2d::gui::SEL_TouchEvent;
 using cocos2d::gui::SEL_ListViewEvent;
@@ -22,28 +25,6 @@ MapSelectLayer::MapSelectLayer()
 MapSelectLayer::~MapSelectLayer()
 {
 
-}
-
-CCScene* MapSelectLayer::scene()
-{
-    // 'scene' is an autorelease object
-    CCScene *scene = CCScene::create();
-    
-    // 'layer' is an autorelease object
-    MapSelectLayer *layer = MapSelectLayer::create();
-    
-    // add layer as a child to scene
-    scene->addChild(layer);
-    
-    // return the scene
-    return scene;
-}
-
-MapSelectLayer* MapSelectLayer::layer()
-{
-    // 'layer' is an autorelease object
-    MapSelectLayer *layer = MapSelectLayer::create();
-    return layer;
 }
 
 bool MapSelectLayer::init()
@@ -59,7 +40,6 @@ bool MapSelectLayer::init()
     
     loadAllUI(ul);
     this->addWidget(ul);
-    
 
     return true;
 }
@@ -83,6 +63,7 @@ void MapSelectLayer::backButtonTouchEvent(CCObject* sender, cocos2d::gui::TouchE
         case cocos2d::gui::TOUCH_EVENT_BEGAN:
             break;
         case cocos2d::gui::TOUCH_EVENT_MOVED:
+   
             break;
         case cocos2d::gui::TOUCH_EVENT_HOLD:
             break;
@@ -102,6 +83,7 @@ void MapSelectLayer::listItemTouchEvent(CCObject* sender, cocos2d::gui::TouchEve
         case cocos2d::gui::TOUCH_EVENT_BEGAN:
             break;
         case cocos2d::gui::TOUCH_EVENT_MOVED:
+        
             break;
         case cocos2d::gui::TOUCH_EVENT_HOLD:
             break;
@@ -112,10 +94,11 @@ void MapSelectLayer::listItemTouchEvent(CCObject* sender, cocos2d::gui::TouchEve
             CCString* mapId = (CCString*)this->listMap->getItem(this->listMap->getCurSelectedIndex())->getUserObject();
             if(mapId != NULL)
             {
-                CCLOG("%s",mapId->getCString());
-
-                CCScene* scene = TestScene::scene();
-                CCDirector::sharedDirector()->pushScene(scene);
+         
+                DataCollector::getInstance()->getMatchData()->mapIDSelected = mapId->getCString();
+                
+                CCScene* heroSelectScene = HeroSelectScene::scene();
+                CCDirector::sharedDirector()->pushScene(heroSelectScene);
             }
             break;
         }
@@ -130,6 +113,7 @@ void MapSelectLayer::loadMapList()
     std::vector<MapSelectData> listMap = XMLMapListParser::getMapList();
     for(int i=0 ; i<listMap.size() ; i++)
     {
+        
         cocos2d::gui::Button* button = (cocos2d::gui::Button*)cocos2d::extension::GUIReader::shareReader()->widgetFromJsonFile("MapListItem_1.ExportJson")->getChildByName("item")->clone();
         
         if(listMap[i].getstate() == true)
@@ -152,6 +136,6 @@ void MapSelectLayer::loadMapList()
 
 void MapSelectLayer::onSelectedListMap(CCObject* sender, cocos2d::gui::ListViewEventType type)
 {
-//    CCLOG("%d",this->listMap->getCurSelectedIndex());
+    CCLOG("%d",this->listMap->getCurSelectedIndex());
 //    this->listMap->getItem(this->listMap->getCurSelectedIndex());
 }

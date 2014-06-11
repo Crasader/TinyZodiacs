@@ -32,45 +32,35 @@ GameManager* GameManager::getInstance()
 
 bool GameManager::loadResource()
 {
-    CCSpriteFrameCache::sharedSpriteFrameCache()->addSpriteFramesWithFile("monkey_spritesheet.plist", "monkey_spritesheet.png");
-    CCSpriteFrameCache::sharedSpriteFrameCache()->addSpriteFramesWithFile("cat_spritesheet.plist", "cat_spritesheet.png");
-    CCSpriteFrameCache::sharedSpriteFrameCache()->addSpriteFramesWithFile("onion_creep_default.plist", "onion_creep_default.png");
+    loadSpritesheet("monkey_spritesheet.png","monkey_spritesheet.plist");
+    loadSpritesheet("cat_spritesheet.png","cat_spritesheet.plist");
+    loadSpritesheet("onion_creep_default.png","onion_creep_default.plist");
+    loadSpritesheet("map1_spritesheet_1.png","map1_spritesheet_1.plist");
+    loadSpritesheet("map1_spritesheet_2.png","map1_spritesheet_2.plist");
+    loadSpritesheet("map1_spritesheet_3.png","map1_spritesheet_3.plist");
+    loadSpritesheet("map1_spritesheet_4.png","map1_spritesheet_4.plist");
+    loadSpritesheet("test_sheet.png","test_sheet.plist");
+    loadSpritesheet("tower_orb_default.png","tower_orb_default.plist");
+    loadSpritesheet("tower_spritesheet.png","tower_spritesheet.plist");
+    loadSpritesheet("smoke_spritesheet.png","smoke_spritesheet.plist");
+    loadSpritesheet("item_spritesheet.png","item_spritesheet.plist");
+    loadSpritesheet("healthbar_spritesheet.png","healthbar_spritesheet.plist");
+    loadSpritesheet("Slash_default.png","Slash_default.plist");
+    loadSpritesheet("bull_default.png","bull_default.plist");
+    loadSpritesheet("pig_default.png","pig_default.plist");
+    loadSpritesheet("maincrystal_spritesheet.png","maincrystal_spritesheet.plist");
+    loadSpritesheet("magic_mass_bomb_start.png","magic_mass_bomb_start.plist");
+    loadSpritesheet("magic_energy_ball_middle.png","magic_energy_ball_middle.plist");
+    loadSpritesheet("magic_lightning_arrow_middle.png","magic_lightning_arrow_middle.plist");
+    loadSpritesheet("magic_bomb_middle.png","magic_bomb_middle.plist");
+    loadSpritesheet("monkey_spritesheet.png","monkey_spritesheet.plist");
     
-    CCSpriteFrameCache::sharedSpriteFrameCache()->addSpriteFramesWithFile("map1_spritesheet_1.plist", "map1_spritesheet_1.png");
-    CCSpriteFrameCache::sharedSpriteFrameCache()->addSpriteFramesWithFile("map1_spritesheet_2.plist", "map1_spritesheet_2.png");
-    CCSpriteFrameCache::sharedSpriteFrameCache()->addSpriteFramesWithFile("map1_spritesheet_3.plist", "map1_spritesheet_3.png");
-    CCSpriteFrameCache::sharedSpriteFrameCache()->addSpriteFramesWithFile("map1_spritesheet_4.plist", "map1_spritesheet_4.png");
-    
-//    CCSpriteFrameCache::sharedSpriteFrameCache()->addSpriteFramesWithFile("map1_background_spritesheet_1.plist", "map1_background_spritesheet_1.png");
-//    CCSpriteFrameCache::sharedSpriteFrameCache()->addSpriteFramesWithFile("map1_background_spritesheet_2.plist", "map1_background_spritesheet_2.png");
-    CCSpriteFrameCache::sharedSpriteFrameCache()->addSpriteFramesWithFile("test_sheet.plist", "test_sheet.png");
-    
-    CCSpriteFrameCache::sharedSpriteFrameCache()->addSpriteFramesWithFile("tower_1_default.plist", "tower_1_default.png");
-    CCSpriteFrameCache::sharedSpriteFrameCache()->addSpriteFramesWithFile("tower_2_default.plist", "tower_2_default.png");
-    CCSpriteFrameCache::sharedSpriteFrameCache()->addSpriteFramesWithFile("tower_orb_default.plist", "tower_orb_default.png");
-    CCSpriteFrameCache::sharedSpriteFrameCache()->addSpriteFramesWithFile("smoke_spritesheet.plist", "smoke_spritesheet.png");
-    CCSpriteFrameCache::sharedSpriteFrameCache()->addSpriteFramesWithFile("item_spritesheet.plist", "item_spritesheet.png");
-    
-    CCSpriteFrameCache::sharedSpriteFrameCache()->addSpriteFramesWithFile("healthbar_spritesheet.plist", "healthbar_spritesheet.png");
-    
-    CCSpriteFrameCache::sharedSpriteFrameCache()->addSpriteFramesWithFile("Slash_default.plist", "Slash_default.png");
-    CCSpriteFrameCache::sharedSpriteFrameCache()->addSpriteFramesWithFile("bull_default.plist", "bull_default.png");
-    
-    CCSpriteFrameCache::sharedSpriteFrameCache()->addSpriteFramesWithFile("pig_default.plist", "pig_default.png");
-    CCSpriteFrameCache::sharedSpriteFrameCache()->addSpriteFramesWithFile("maincrystal_spritesheet.plist", "maincrystal_spritesheet.png");
-    CCSpriteFrameCache::sharedSpriteFrameCache()->addSpriteFramesWithFile("magic_mass_bomb_start.plist", "magic_mass_bomb_start.png");
-    CCSpriteFrameCache::sharedSpriteFrameCache()->addSpriteFramesWithFile("magic_energy_ball_middle.plist", "magic_energy_ball_middle.png");
-    
-    CCSpriteFrameCache::sharedSpriteFrameCache()->addSpriteFramesWithFile("magic_lightning_arrow_middle.plist", "magic_lightning_arrow_middle.png");
-    
-    CCSpriteFrameCache::sharedSpriteFrameCache()->addSpriteFramesWithFile("magic_bomb_middle.plist", "magic_bomb_middle.png");
-    
-     CCSpriteFrameCache::sharedSpriteFrameCache()->addSpriteFramesWithFile("map1_background_1.plist", "map1_background_1.png");
-      CCSpriteFrameCache::sharedSpriteFrameCache()->addSpriteFramesWithFile("map1_background_2.plist", "map1_background_2.png");
-      CCSpriteFrameCache::sharedSpriteFrameCache()->addSpriteFramesWithFile("map1_background_3.plist", "map1_background_3.png");
-    CCSpriteFrameCache::sharedSpriteFrameCache()->addSpriteFramesWithFile("map1_background_3_small.plist", "map1_background_3_small.png");
-      CCSpriteFrameCache::sharedSpriteFrameCache()->addSpriteFramesWithFile("bg.plist", "bg.png");
-    
+    loadSpritesheet("map1_background_1.png","map1_background_1.plist");
+    loadSpritesheet("map1_background_2.png","map1_background_2.plist");
+    loadSpritesheet("map1_background_3.png","map1_background_3.plist");
+    loadSpritesheet("map1_background_3_small.png","map1_background_3_small.plist");
+
+
     gbox2d::GB2ShapeCache *sc = gbox2d::GB2ShapeCache::sharedGB2ShapeCache();
     
     sc->addShapesWithFile("character_body.plist");
@@ -81,6 +71,13 @@ bool GameManager::loadResource()
     sc->addShapesWithFile("tower_sensor.plist");
     
     return false;
+}
+
+
+bool GameManager::loadSpritesheet(const char* imageFileName, const char* plistFilename)
+{
+    CCSpriteFrameCache::sharedSpriteFrameCache()->addSpriteFramesWithFile(plistFilename, imageFileName);
+    return true;
 }
 
 bool GameManager::loadData()

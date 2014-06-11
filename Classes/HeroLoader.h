@@ -26,6 +26,7 @@ protected:
 public:
     static bool loadData();
     static bool loadDataByFileName(const char* fileName);
+    static CCArray* loadListHero(const char *xmlFileName);
 };
 
 #endif /* defined(__TinyZodiacs__HeroLoader__) */

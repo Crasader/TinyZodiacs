@@ -104,3 +104,31 @@ void XMLCharacterParser::getCharacterDTOFromXMLElement(CharacterDTO* characterDT
     characterDTO->data.setSkill2(readSkill(characterElement->FirstChildElement(TAG_SKILL_2)));
     characterDTO->soundId = readSoundData(characterElement->FirstChildElement(TAG_SFX));
 }
+
+DefenseDTO* XMLCharacterParser::getDefenseDTOFromXMLElement(XMLElement* defenseElement)
+{
+    DefenseDTO* defenseDTO = DefenseDTO::create();
+    
+    string id = XMLHelper::readAttributeString(defenseElement, ATTRIBUTE_DEFENSE_ID,"");
+    string icon = XMLHelper::readAttributeString(defenseElement, ATTRIBUTE_DEFENSE_ICON,"");
+    int cost = XMLHelper::readAttributeInt(defenseElement, ATTRIBUTE_DEFENSE_COST, 0);
+    
+    defenseDTO->id = id;
+    defenseDTO->icon = icon;
+    defenseDTO->cost = cost;
+    
+    return defenseDTO;
+}
+
+
+CCArray* XMLCharacterParser::getDefenseDTOListFromXMLElement(XMLElement* defenseListElement)
+{
+    CCArray* arr = CCArray::create();
+    
+    for (XMLElement* element = defenseListElement->FirstChildElement(TAG_DEFENSE); element; element = element->NextSiblingElement())
+    {
+        arr->addObject(XMLCharacterParser::getDefenseDTOFromXMLElement(element));
+    }
+    
+    return arr;
+}

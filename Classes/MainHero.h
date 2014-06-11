@@ -17,6 +17,8 @@ class MainHero;
 #include "ControllerManager.h"
 #include "EffectManager.h"
 #include "GoldItem.h"
+#include "DefenseDTO.h"
+#include "ObjectFactory.h"
 
 USING_NS_CC;
 
@@ -37,7 +39,7 @@ public:
     virtual void pickUp(Item* item);
     virtual void die();
     void revive();
-    
+    bool receiveCommand(CommandID commandID, void* data);
     CREATE_FUNC(MainHero);
 };
 

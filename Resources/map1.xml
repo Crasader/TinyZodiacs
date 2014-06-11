@@ -232,7 +232,7 @@
     </sensor_object_list>
     <tower_list>
         
-        <tower type="main" id="maincrystal" group="B" >
+        <tower type="main" id="maincrystal" group="A" >
             <position x="294" y="920"/>
          </tower>
         
@@ -320,7 +320,7 @@
 
         <wave id = "1">
             <monster_factory_list>
-                <monster_factory group="B" max="5">
+                <monster_factory group="B" max="1000">
                  
                     <monster_creator delay_per_unit="1" delay="1" lane = "2">
                         <position x="6827" y="1076"/>
@@ -330,7 +330,7 @@
                     </monster_creator>
                 </monster_factory>
                 
-                <monster_factory group="B" max="5">
+                <monster_factory group="B" max="1000">
                     
                     <monster_creator delay_per_unit="1" delay="1" lane = "2">
                         <position x="7750" y="790"/>

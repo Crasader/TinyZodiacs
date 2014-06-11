@@ -28,11 +28,12 @@ USING_NS_CC;
 class GameplayLayer: public AbstractScene, public Controller
 {
 private:
+    CCArray* defenseList;
     void cloneAndRemoveButton(cocos2d::gui::Widget* ul, HoldableUIButton* mButton,cocos2d::gui::Button* button);
 protected:
     cocos2d::gui::LoadingBar *processMonsterLeft;
     cocos2d::gui::LabelBMFont *lblWave, *lblTimeLeft, *lblMoney, *lblMonsterLeft;
-    cocos2d::gui::ListView *listWave;
+    cocos2d::gui::ListView* lvDefense;
     
     void loadAllUI(cocos2d::gui::Widget* ul);
 public:
@@ -43,10 +44,7 @@ public:
     ~GameplayLayer();
     
     bool init();
-    
-    static CCScene* scene();
-    static GameplayLayer* layer();
-    
+
     virtual void ccTouchMoved(CCTouch *pTouch, CCEvent *pEvent);
     
     CREATE_FUNC(GameplayLayer);
@@ -65,6 +63,11 @@ public:
     void skill0ButtonTouchEvent(CCObject* sender, cocos2d::gui::TouchEventType type);
     void skill1ButtonTouchEvent(CCObject* sender, cocos2d::gui::TouchEventType type);
     void skill2ButtonTouchEvent(CCObject* sender, cocos2d::gui::TouchEventType type);
+    
+    void loadDefenseList();
+    void refeshDefenseListView(int cost);
+    
+      void listItemTouchEvent(CCObject* sender, cocos2d::gui::TouchEventType type);
 
 };
 

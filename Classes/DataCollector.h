@@ -23,6 +23,12 @@ class DataCollector;
 
 USING_NS_CC;
 
+struct MatchData
+{
+    string heroIDSelected;
+    string mapIDSelected;
+};
+
 class DataCollector
 {
 private:
@@ -42,6 +48,7 @@ private:
     //Tower Dictionary
     CCDictionary* dictTowerDTO;
     
+    MatchData matchData;
     
 protected:
 public:
@@ -62,6 +69,8 @@ public:
     MonsterDTO* getMonsterDTOByKey(const char* key);
     ItemDTO* getItemDTOByKey(const char* key);
     TowerDTO* getTowerDTOByKey(const char* key);
+    
+    MatchData* getMatchData();
 };
 
 #endif /* defined(__TinyZodiacs__DataCollector__) */

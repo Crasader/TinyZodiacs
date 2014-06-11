@@ -72,6 +72,13 @@ namespace gbox2d {
          */
         bool addFixturesToBody(b2Body *body, const std::string &shape);
         
+        /**
+         * Add fixtures for the specified shape to the given body
+         * @param body the body
+         * @param shape the shape name
+         */
+        bool addFixturesToBody(b2Body *body, const std::string &shape, void* userData, float x, float y);
+        
         bool isBodyExisted(const char* bodyName);
         
         /**

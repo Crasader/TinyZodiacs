@@ -43,6 +43,8 @@ TestScene::~TestScene()
 {
     ControllerManager::getInstance()->clean();
     RuleManager::getInstance()->clean();
+    
+    CCTextureCache::sharedTextureCache()->removeUnusedTextures();
 }
 
 CCScene* TestScene::scene()

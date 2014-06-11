@@ -83,6 +83,13 @@ void ObjectFactory::createHero(Hero* hero, HeroDTO* heroDTO)
 MainHero* ObjectFactory::createMainHero(const char* id)
 {
     MainHero* mainHero = MainHero::create();
+    HeroDTO* heroDTO = DataCollector::getInstance()->getHeroDTOByKey(id);
+    
+    if(heroDTO == NULL)
+    {
+        // NOT FOUND HERO
+        assert(0);
+    }
     createHero(mainHero, DataCollector::getInstance()->getHeroDTOByKey(id));
     return mainHero;
 }
@@ -301,10 +308,10 @@ Tower* ObjectFactory::createTower(TowerStructDTO* towerStructDTO, b2World* world
     tower->fallAnimation = DataCollector::getInstance()->getAnimationObjectByKey(fall.append(FALL).c_str());
     tower->flyAnimation = DataCollector::getInstance()->getAnimationObjectByKey(fly.append(FLY).c_str());
     tower->dieAnimation = DataCollector::getInstance()->getAnimationObjectByKey(die.append(DIE).c_str());
-    if( tower->attackAnimation != NULL)
-    {
-        tower->attackAnimation->getAnimation()->setDelayPerUnit(tower->getOriginCharacterData().getAttackSpeed());
-    }
+//    if( tower->attackAnimation != NULL)
+//    {
+//        tower->attackAnimation->getAnimation()->setDelayPerUnit(tower->getOriginCharacterData().getAttackSpeed());
+//    }
     
     
     //body

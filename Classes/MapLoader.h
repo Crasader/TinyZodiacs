@@ -23,5 +23,7 @@ protected:
 public:
     static bool loadData();
     static bool loadDataByFileName(const char* fileName);
+    
+    static CCArray* loadDefenseDTOList(const char* fileName);
 };
 #endif /* defined(__TinyZodiacs__MapLoader__) */

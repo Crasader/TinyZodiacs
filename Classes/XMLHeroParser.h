@@ -12,8 +12,14 @@
 #include <iostream>
 #include "cocos2d.h"
 #include "HeroDTO.h"
+#include "XMLHelper.h"
 
 using namespace tinyxml2;
+using namespace std;
+
+#define TAG_HERO "hero"
+#define ATTRIBUTE_HERO_STATE "state"
+#define ATTRIBUTE_HERO_ID "id"
 
 class XMLHeroParser
 {
@@ -21,6 +27,9 @@ private:
 protected:
 public:
     static HeroDTO* getHeroDTOFromXMLElement(XMLElement* heroXMLElement);
+    static HeroPreviewDTO* getHeroPreviewDTOXMLElement(XMLElement* heroPreviewDTOXMLElement);
+    static CCArray* getHeroPreviewListXMLFromXMLElement(XMLElement* heroPreviewListXMLElement);
+    
 };
 
 #endif /* defined(__TinyZodiacs__XMLHeroParser__) */

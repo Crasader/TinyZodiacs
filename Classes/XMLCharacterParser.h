@@ -13,6 +13,7 @@
 #include "cocos2d.h"
 #include "CharacterDTO.h"
 #include "XMLHelper.h"
+#include "DefenseDTO.h"
 
 #define TAG_BODY "body"
 #define TAG_ANIMATION "animation"
@@ -30,6 +31,13 @@
 
 #define TAG_SFX "sfx"
 
+
+#define TAG_DEFENSE "defense"
+#define ATTRIBUTE_DEFENSE_ID "id"
+#define ATTRIBUTE_DEFENSE_ICON "icon"
+#define ATTRIBUTE_DEFENSE_COST "cost"
+
+
 #define RUN "-run"
 #define ATTACK "-attack"
 #define JUMP "-jump"
@@ -38,10 +46,8 @@
 #define FLY "-fly"
 #define SKILL "-skill"
 
-#define CHARACTER_MONKEY_ID "monkey"
 
-#define CHARACTER_MONKEY_XML_FILE "character_monkey.xml"
-#define CHARACTER_CAT_XML_FILE "character_cat.xml"
+
 
 using namespace tinyxml2;
 
@@ -63,6 +69,9 @@ protected:
 public:
     static CharacterDTO* getCharacterDTOFromXMLElement(XMLElement* characterElement);
     static void getCharacterDTOFromXMLElement(CharacterDTO* characterDTO, XMLElement* characterElement);
+    
+    static DefenseDTO* getDefenseDTOFromXMLElement(XMLElement* defenseElement);
+     static CCArray* getDefenseDTOListFromXMLElement(XMLElement* defenseListElement);
 };
 
 #endif /* defined(__TinyZodiacs__XMLCharacterParser__) */

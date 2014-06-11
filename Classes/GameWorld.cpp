@@ -241,7 +241,7 @@ void GameWorld::destroy()
 
 void GameWorld::draw()
 {
-//
+
 //        ccGLEnableVertexAttribs( kCCVertexAttribFlag_Position );
 //       kmGLPushMatrix();
 //        world->DrawDebugData();

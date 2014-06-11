@@ -7,8 +7,10 @@
 //
 
 #include "GameplayLayer.h"
+#include "UIListView.h"
 
 using cocos2d::gui::SEL_TouchEvent;
+using namespace cocos2d::gui;
 
 GameplayLayer::GameplayLayer()
 {
@@ -19,34 +21,18 @@ GameplayLayer::GameplayLayer()
     this->btnSkill1 = NULL;
     this->btnSkill2 = NULL;
     
+    this->defenseList = CCArray::create();
+    this->defenseList->retain();
+    
 }
 
 GameplayLayer::~GameplayLayer()
 {
-       ControllerManager::getInstance()->unregisterController(HERO_CONTROLLER, this);
+    this->defenseList->release();
+    ControllerManager::getInstance()->unregisterController(HERO_CONTROLLER, this);
 }
 
-CCScene* GameplayLayer::scene()
-{
-    // 'scene' is an autorelease object
-    CCScene *scene = CCScene::create();
-    
-    // 'layer' is an autorelease object
-    GameplayLayer *layer = GameplayLayer::create();
-    
-    // add layer as a child to scene
-    scene->addChild(layer);
-    
-    // return the scene
-    return scene;
-}
 
-GameplayLayer* GameplayLayer::layer()
-{
-    // 'layer' is an autorelease object
-    GameplayLayer *layer = GameplayLayer::create();
-    return layer;
-}
 
 bool GameplayLayer::init()
 {
@@ -64,7 +50,22 @@ bool GameplayLayer::init()
     
     loadAllUI(ul);
     
+    
+    this->lvDefense = (cocos2d::gui::ListView*)cocos2d::extension::GUIReader::shareReader()->widgetFromJsonFile("MapSelectScene_1.ExportJson")->getChildByName("map_list")->clone();
+    this->lvDefense->setSize(ccp(100,450));
+    this->lvDefense->setBackGroundColorType(LAYOUT_COLOR_SOLID);
+    this->lvDefense->setBackGroundColor(ccc3(255,0,0));
+    this->lvDefense->setPosition(ccp(50,170));
+
+    
+    this->lvDefense->setDirection(SCROLLVIEW_DIR_VERTICAL);
+    this->lvDefense->setTouchEnabled(true);
+    this->lvDefense->setGravity(LISTVIEW_GRAVITY_CENTER_HORIZONTAL);
+    ul->addChild(this->lvDefense);
     this->addWidget(ul);
+    
+    loadDefenseList();
+    
     return true;
 }
 
@@ -103,7 +104,7 @@ void GameplayLayer::loadAllUI(cocos2d::gui::Widget* ul)
     lblTimeLeft  = (cocos2d::gui::LabelBMFont*)ul->getChildByName("information_layer")->getChildByName("time_left_text");
     lblMoney  = (cocos2d::gui::LabelBMFont*)ul->getChildByName("information_layer")->getChildByName("money_text");
     lblMonsterLeft  = (cocos2d::gui::LabelBMFont*)ul->getChildByName("information_layer")->getChildByName("monster_left_text");
-
+    
     
     //add touch event
     this->btnLeft->addTouchEventListener(this, toucheventselector(GameplayLayer::leftButtonTouchEvent));
@@ -200,7 +201,7 @@ bool GameplayLayer::receiveCommand(CommandID commandID, void* data)
             delete waveNumber;
         }
             break;
-
+            
         case DISPLAY_WORLD_COORDINATE:
         {
             CCPoint* point = static_cast<CCPoint*>(data);
@@ -210,7 +211,7 @@ bool GameplayLayer::receiveCommand(CommandID commandID, void* data)
         case DISPLAY_MONSTER_COUNT:
         {
             vector<int>* arr = static_cast<vector<int>*>(data);
-//            CCLOG("%d-%d",arr->at(1),arr->at(1)-arr->at(0));
+            //            CCLOG("%d-%d",arr->at(1),arr->at(1)-arr->at(0));
             setMonsterProcessValue(arr->at(1),arr->at(1)-arr->at(0));
         }
             break;
@@ -264,8 +265,8 @@ bool GameplayLayer::receiveCommand(CommandID commandID, void* data)
             this->btnJump->setVisible(false);
             this->btnSkill0->setVisible(false);
             this->btnSkill1->setVisible(false);
-             this->btnSkill2->setVisible(false);
-    
+            this->btnSkill2->setVisible(false);
+            
         }
             break;
         case VISIBLE_ALL_HERO_CONTROLLER:
@@ -276,21 +277,23 @@ bool GameplayLayer::receiveCommand(CommandID commandID, void* data)
             this->btnSkill0->setVisible(true);
             this->btnSkill1->setVisible(true);
             this->btnSkill2->setVisible(true);
-
+            
         }
             break;
             
         case DISPLAY_GOLD_VALUE:
         {
             int* goldValue = static_cast<int*>(data);
-           
+            refeshDefenseListView(*goldValue);
             lblMoney->setText(CCString::createWithFormat("%d", *goldValue)->getCString());
             
             delete goldValue;
+            
+            
         }
             break;
             
-
+            
         default:
             break;
     }
@@ -438,5 +441,88 @@ void GameplayLayer::skill2ButtonTouchEvent(CCObject* sender, cocos2d::gui::Touch
             //            break;
         default:
             break;
+    }
+}
+
+void GameplayLayer::loadDefenseList()
+{
+    this->defenseList->addObjectsFromArray(MapLoader::loadDefenseDTOList("defense_list.xml"));
+    CCObject* object = NULL;
+    CCARRAY_FOREACH(this->defenseList, object)
+    {
+        DefenseDTO* defenseDTO = static_cast<DefenseDTO*>(object);
+        
+        Layout* layout = Layout::create();
+        layout->setSize(CCSize(70,70));
+        
+        
+        Button* button = Button::create();
+        
+        button->ignoreContentAdaptWithSize(false);
+        button->setSizeType(SIZE_PERCENT);
+        button->setSizePercent(ccp(1,1));
+        button->loadTextures(defenseDTO->icon.c_str(), defenseDTO->icon.c_str(), defenseDTO->icon.c_str(),cocos2d::gui::UI_TEX_TYPE_PLIST);
+        button->setPosition(layout->getSize()/2);;
+        button->setTouchEnabled(true);
+        button->addTouchEventListener(this, toucheventselector(GameplayLayer::listItemTouchEvent));
+  
+        layout->addChild(button, 0, 1);
+        layout->setUserData(defenseDTO);
+        
+        this->lvDefense->pushBackCustomItem(layout);
+    
+    }
+    refeshDefenseListView(0);
+}
+
+void GameplayLayer::listItemTouchEvent(CCObject* sender, cocos2d::gui::TouchEventType type)
+{
+    switch (type) {
+        case cocos2d::gui::TOUCH_EVENT_BEGAN:
+            break;
+        case cocos2d::gui::TOUCH_EVENT_MOVED:
+            break;
+        case cocos2d::gui::TOUCH_EVENT_HOLD:
+            break;
+        case cocos2d::gui::TOUCH_EVENT_CANCELED:
+            break;
+        case cocos2d::gui::TOUCH_EVENT_ENDED:
+        {
+            DefenseDTO* defenseDTO = static_cast<DefenseDTO*>(this->lvDefense->getItem(this->lvDefense->getCurSelectedIndex())->getUserData());
+            
+            ControllerManager::getInstance()->sendCommand(HERO_CONTROLLER,  HERO_CREATE_DEFENSE,defenseDTO);
+            break;
+        }
+        default:
+            break;
+    }
+}
+
+void GameplayLayer::refeshDefenseListView(int cost)
+{
+    CCObject* object = NULL;
+    CCARRAY_FOREACH(this->lvDefense->getItems(), object)
+    {
+//        Widget* wid = static_cast<Widget*>(object);
+        
+        Layout* layout = static_cast<Layout*>(object);
+        DefenseDTO* defenseDTO = static_cast<DefenseDTO*>(layout->getUserData());
+
+        if(cost < defenseDTO->cost)
+        {
+            Button* button = static_cast<Button*>(layout->getChildByTag(1));
+            button->setBright(false);
+            button->setTouchEnabled(false);
+            layout->setBackGroundColorType(LAYOUT_COLOR_SOLID);
+            layout->setBackGroundColor(ccc3(119,119,119));
+        }
+        else
+        {
+            Button* button = static_cast<Button*>(layout->getChildByTag(1));
+            button->setBright(true);
+            button->setTouchEnabled(true);
+            layout->setBackGroundColorType(LAYOUT_COLOR_NONE);
+            layout->setBackGroundColor(ccc3(119,119,119));
+        }
     }
 }

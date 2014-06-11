@@ -132,7 +132,6 @@ void NormalShootingAttack::excuteImmediately()
         proj->setData(calculatedSkillData, this->holder);
         proj->setGroup(GROUP_SKILL_DEFAULT);
         proj->shoot();
-        
     }
 }
 

@@ -11,6 +11,82 @@
 	</dict>
 	<key>bodies</key>
 	<dict>
+		<key>tower1</key>
+		<dict>
+			<key>anchorpoint</key>
+			<string>{ 0.5180,0.0384 }</string>
+			<key>fixtures</key>
+			<array>
+				<dict>
+					<key>density</key>
+					<real>2</real>
+					<key>friction</key>
+					<real>1</real>
+					<key>restitution</key>
+					<real>0</real>
+					<key>filter_categoryBits</key>
+					<integer>1</integer>
+					<key>filter_groupIndex</key>
+					<integer>0</integer>
+					<key>filter_maskBits</key>
+					<integer>65535</integer>
+					<key>isSensor</key>
+					<false/>
+					<key>id</key>
+					<string></string>
+					<key>fixture_type</key>
+					<string>POLYGON</string>
+					<key>polygons</key>
+					<array>
+						<array>
+							<string>{ -8.000,380.000 }</string>
+							<string>{ -80.000,322.000 }</string>
+							<string>{ -41.000,-4.000 }</string>
+							<string>{ 40.000,-4.000 }</string>
+							<string>{ 69.000,326.000 }</string>
+						</array>
+					</array>
+				</dict>
+			</array>
+		</dict>
+		<key>tower2</key>
+		<dict>
+			<key>anchorpoint</key>
+			<string>{ 0.5097,0.0483 }</string>
+			<key>fixtures</key>
+			<array>
+				<dict>
+					<key>density</key>
+					<real>2</real>
+					<key>friction</key>
+					<real>1</real>
+					<key>restitution</key>
+					<real>0</real>
+					<key>filter_categoryBits</key>
+					<integer>1</integer>
+					<key>filter_groupIndex</key>
+					<integer>0</integer>
+					<key>filter_maskBits</key>
+					<integer>65535</integer>
+					<key>isSensor</key>
+					<false/>
+					<key>id</key>
+					<string></string>
+					<key>fixture_type</key>
+					<string>POLYGON</string>
+					<key>polygons</key>
+					<array>
+						<array>
+							<string>{ -10.000,380.000 }</string>
+							<string>{ -72.000,343.000 }</string>
+							<string>{ -31.000,-4.000 }</string>
+							<string>{ 31.000,-3.000 }</string>
+							<string>{ 64.000,343.000 }</string>
+						</array>
+					</array>
+				</dict>
+			</array>
+		</dict>
 		<key>maincrystal</key>
 		<dict>
 			<key>anchorpoint</key>
@@ -263,7 +339,7 @@
 					<key>density</key>
 					<real>2</real>
 					<key>friction</key>
-					<real>0</real>
+					<integer>1</integer>
 					<key>restitution</key>
 					<real>0</real>
 					<key>filter_categoryBits</key>
@@ -292,7 +368,7 @@
 					<key>density</key>
 					<real>2</real>
 					<key>friction</key>
-					<real>0</real>
+					<real>1</real>
 					<key>restitution</key>
 					<real>0</real>
 					<key>filter_categoryBits</key>
@@ -327,7 +403,7 @@
 					<key>density</key>
 					<real>2</real>
 					<key>friction</key>
-					<real>0</real>
+					<integer>1</integer>
 					<key>restitution</key>
 					<real>0</real>
 					<key>filter_categoryBits</key>
@@ -356,7 +432,7 @@
 					<key>density</key>
 					<real>2</real>
 					<key>friction</key>
-					<real>0</real>
+					<integer>1</integer>
 					<key>restitution</key>
 					<real>0</real>
 					<key>filter_categoryBits</key>

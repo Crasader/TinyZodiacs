@@ -111,7 +111,7 @@ bool GB2ShapeCache::addFixturesToBody(b2Body *body, const std::string &shape) {
         body->CreateFixture(&fix->fixture);
         fix = fix->next;
     }
-
+    return false;
 }
 
 //NHUTVM
@@ -139,6 +139,27 @@ bool GB2ShapeCache::addFixturesToBody(b2Body *body, const std::string &shape, vo
         fix = fix->next;
     }
 
+}
+
+bool GB2ShapeCache::addFixturesToBody(b2Body *body, const std::string &shape, void* userData, float x, float y)
+{
+    std::map<std::string, BodyDef *>::iterator pos = shapeObjects.find(shape);
+    
+    //found
+    assert(pos != shapeObjects.end());
+    
+    BodyDef *so = (*pos).second;
+    
+    FixtureDef *fix = so->fixtures;
+    while (fix) {
+        //
+        fix->fixture.userData = userData;
+  
+        //
+        body->CreateFixture(&fix->fixture);
+        fix = fix->next;
+    }
+    
 }
 
 cocos2d::CCPoint GB2ShapeCache::anchorPointForShape(const std::string &shape) {

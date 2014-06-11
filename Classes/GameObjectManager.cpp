@@ -94,7 +94,6 @@ void GameObjectManager::removeAllGameObject()
     {
         GameObject* gameObject = static_cast<GameObject*>(object);
         gameObject->destroy();
-        CCLOG("sdsdsd %d",gameObject->retainCount());
     }
     instance->listObjectRemoved->removeAllObjects();
 }

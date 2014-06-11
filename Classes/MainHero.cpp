@@ -37,7 +37,7 @@ void MainHero::update(float dt)
     {
         Hero::update(dt);
     }
-  
+    
 }
 
 void MainHero::destroy()
@@ -53,7 +53,7 @@ void MainHero::destroy()
         this->reviveAction->release();
         this->reviveAction = NULL;
     }
-
+    
 }
 
 void MainHero::die()
@@ -77,7 +77,7 @@ void MainHero::die()
     this->body->SetLinearVelocity(b2Vec2(0,0));
     
     cleanAllAffect();
-
+    
 }
 
 void MainHero::revive()
@@ -100,14 +100,14 @@ void MainHero::revive()
     effect->setAnimation("effect-smoke");
     EffectManager::getInstance()->runEffect(effect, getPositionInPixel());
     this->body->SetLinearVelocity(b2Vec2(0,0));
-//    this->release();
-////    destroy();
-//      ControllerManager::getInstance()->unregisterController(HERO_CONTROLLER, this);
-//       ControllerManager::getInstance()->sendCommand(HERO_CONTROLLER, INVISIBLE_ALL_HERO_CONTROLLER);
+    //    this->release();
+    ////    destroy();
+    //      ControllerManager::getInstance()->unregisterController(HERO_CONTROLLER, this);
+    //       ControllerManager::getInstance()->sendCommand(HERO_CONTROLLER, INVISIBLE_ALL_HERO_CONTROLLER);
     
     this->reviveAction->release();
     this->reviveAction = NULL;
-
+    
 }
 
 void MainHero::pickUp(Item* item)
@@ -122,3 +122,42 @@ void MainHero::pickUp(Item* item)
     }
 }
 
+bool MainHero::receiveCommand(CommandID commandID, void* data)
+{
+    Hero::receiveCommand(commandID, data);
+    
+    switch (commandID)
+    {
+        case HERO_CREATE_DEFENSE:
+        {
+            DefenseDTO* defenseDTO = static_cast<DefenseDTO*>(data);
+            
+            TowerStructDTO* towerStructDTO = new TowerStructDTO();
+            towerStructDTO->group = this->group;
+            towerStructDTO->id = defenseDTO->id;
+            towerStructDTO->positionX = this->getPositionInPixel().x;
+            towerStructDTO->positionY = this->getPositionInPixel().y;
+            
+            
+            
+            Tower* tower = ObjectFactory::createTower(towerStructDTO, GameManager::getInstance()->getGameplayHolder().worldHolder);
+            tower->setGameObjectView(InfoViewCreator::createTowerView(tower, NULL));
+            
+            tower->attachSpriteTo(GameManager::getInstance()->getGameplayHolder().nodeHolder);
+            GameObjectManager::getInstance()->addGameObject(tower);
+            
+            this->goldValue -= defenseDTO->cost;
+            if(this->goldValue <= 0)
+            {
+                this->goldValue = 0;
+            }
+            ControllerManager::getInstance()->sendCommand(HERO_CONTROLLER, DISPLAY_GOLD_VALUE,new int(this->goldValue));
+        }
+            break;
+            
+        default:
+            break;
+    }
+    
+    return true;
+}

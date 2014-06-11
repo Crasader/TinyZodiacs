@@ -25,13 +25,9 @@ public:
     cocos2d::gui::ListView* listMap;
     
     MapSelectLayer();
-    
     ~MapSelectLayer();
     
     bool init();
-    
-    static CCScene* scene();
-    static MapSelectLayer* layer();
     
     void backButtonTouchEvent(CCObject* sender, cocos2d::gui::TouchEventType type);
     void listItemTouchEvent(CCObject* sender, cocos2d::gui::TouchEventType type);

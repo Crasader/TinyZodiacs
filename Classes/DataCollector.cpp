@@ -24,7 +24,6 @@ DataCollector::DataCollector()
     this->dictItemDTO->retain();
     this->dictTowerDTO = CCDictionary::create();
     this->dictTowerDTO->retain();
-
 }
 
 DataCollector::~DataCollector()
@@ -107,3 +106,9 @@ TowerDTO* DataCollector::getTowerDTOByKey(const char* key)
 {
     return (TowerDTO*)this->dictTowerDTO->objectForKey(key);
 }
+
+MatchData* DataCollector::getMatchData()
+{
+    return &matchData;
+}
+

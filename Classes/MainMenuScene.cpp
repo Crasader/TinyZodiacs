@@ -48,7 +48,7 @@ void MainMenuScene::menuBackCallBack(cocos2d::CCObject *pSender)
 
 void MainMenuScene::initScene()
 {
-    MainMenuLayer* layer = MainMenuLayer::layer();
+    MainMenuLayer* layer = MainMenuLayer::create();
     this->addChild(layer);
     
 //    CCParticleSystemQuad* p = CCParticleSystemQuad::create("starSky.plist");

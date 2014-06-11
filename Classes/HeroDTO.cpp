@@ -16,3 +16,21 @@ HeroDTO::~HeroDTO()
 {
     
 }
+
+//////////////// HeroPreviewDTO ////////////////
+
+HeroPreviewDTO::HeroPreviewDTO()
+{
+    id = "";
+    state = 0;
+}
+
+HeroPreviewDTO::~HeroPreviewDTO()
+{
+    
+}
+
+bool HeroPreviewDTO::init()
+{
+    return true;
+}

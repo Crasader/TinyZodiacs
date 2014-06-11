@@ -17,7 +17,6 @@ USING_NS_CC;
 class MapSelectScene: public cocos2d::CCLayer
 {
 private:
-    void menuBackCallBack(CCObject* pSender);
 public:
     ~MapSelectScene();
     virtual bool init();

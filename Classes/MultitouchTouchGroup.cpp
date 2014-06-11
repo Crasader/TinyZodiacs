@@ -64,6 +64,7 @@ void MultitouchTouchGroup::ccTouchesEnded(CCSet *pTouches, CCEvent *pEvent)
 
 void MultitouchTouchGroup::ccTouchesCancelled(CCSet *pTouches, CCEvent *pEvent)
 {
+       CCLOG("touch cancel");
     CCSetIterator i;
     CCTouch* mTouch;
     for( i = pTouches->begin(); i != pTouches->end(); i++) {
@@ -117,7 +118,8 @@ void MultitouchTouchGroup::ccTouchEnded(CCTouch *pTouch, CCEvent *pEvent)
     for (int i=0; i<length; ++i)
     {
         cocos2d::gui::Widget* hitWidget = (cocos2d::gui::Widget*)(selectedWidgetArray->arr[i]);
-        if(hitWidget->hitTest(pTouch->getLocation()))
+//        if(hitWidget->hitTest(pTouch->getLocation()))
+        if(this->listAssignedWidget->indexOfObject(hitWidget) == CC_INVALID_INDEX)
         {
             m_pSelectedWidgets->removeObject(hitWidget);
             hitWidget->onTouchEnded(pTouch, pEvent);
@@ -137,6 +139,7 @@ void MultitouchTouchGroup::ccTouchEnded(CCTouch *pTouch, CCEvent *pEvent)
 
 void MultitouchTouchGroup::ccTouchCancelled(CCTouch *pTouch, CCEvent *pEvent)
 {
+    CCLOG("touch cancel");
     ccArray* selectedWidgetArray = m_pSelectedWidgets->data;
     int length = selectedWidgetArray->num;
     for (int i=0; i<length; ++i)

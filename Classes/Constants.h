@@ -54,6 +54,7 @@ enum ControllerID
 
 enum CommandID
 {
+    HERO_CREATE_DEFENSE,
     HERO_MOVE_LEFT,
     HERO_MOVE_RIGHT,
     HERO_MOVE_STOP,
