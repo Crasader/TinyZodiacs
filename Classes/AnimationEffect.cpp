@@ -8,12 +8,15 @@
 
 #include "AnimationEffect.h"
 #include "DataCollector.h"
+#include "ScheduleManager.h"
+
 
 AnimationEffect::AnimationEffect()
 {
     this->sprite = CCSprite::create();
     this->addChild(sprite);
     this->animationObject = NULL;
+    this->stopAction = NULL;
 }
 
 AnimationEffect::~AnimationEffect()
@@ -39,6 +42,12 @@ void AnimationEffect::run()
 
 void AnimationEffect::stop()
 {
+    if(stopAction != NULL)
+    {
+        ScheduleManager::getInstance()->scheduleFuction(stopAction, 0);
+        this->stopAction->release();
+    }
+    
     this->sprite->stopAllActions();
     this->removeFromParent();
 }
@@ -59,4 +68,10 @@ void AnimationEffect::setOpacity(GLubyte opacity)
     {
         this->sprite->setOpacity(opacity);
     }
+}
+
+void AnimationEffect::setStopAction(CCCallFunc* action)
+{
+    this->stopAction = action;
+    this->stopAction->retain();
 }

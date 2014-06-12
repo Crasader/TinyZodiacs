@@ -44,6 +44,7 @@
 #define TAG_LIST_EFFECT "list_effect"
 #define TAG_LIST_EFFECT_ENEMY "enemy"
 #define TAG_LIST_EFFECT_ALLIES "allies"
+#define TAG_LIST_EFFECT_SELF "self"
 #define TAG_EFFECT "effect"
 #define TAG_TIME_TICK "time_tick"
 

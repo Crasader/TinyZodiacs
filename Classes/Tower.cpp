@@ -169,12 +169,21 @@ void Tower::aimTarget()
             b2Vec2 towerPoint = getStartPoint(this->body, attack->getData().getJointDefA());
             
             b2Vec2 sp = targetPoint -  towerPoint;
-            sp*=TOWER_VELOCITY;
+//            sp*=TOWER_VELOCITY;
             NormalShootingSkillData data = attack->getData();
-            data.setSpeedX(-sp.x);
-            data.setSpeedY(sp.y);
-//            data.setRotateAngle(atan2(targetPoint.y - towerPoint.y,targetPoint.x - towerPoint.x)-3.14);
-            data.setRotateAngle(0);
+//            data.setSpeedX(-sp.x);
+//            data.setSpeedY(sp.y);
+//            data.setSpeedX(-(cos(atan2(sp.y, sp.x))*data.getSpeedX()));
+//            data.setSpeedY((sin(atan2(sp.y, sp.x))*data.getSpeedX()));
+            float calculatedAngle = atan2(sp.y, sp.x);
+            if(targetPoint.x > towerPoint.x)
+            {
+                data.setAngle(calculatedAngle-3.14);
+            }
+            else
+            {
+                data.setAngle(calculatedAngle+3.14);
+            }
 
             attack->setData(data);
         }

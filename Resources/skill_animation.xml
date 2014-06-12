@@ -91,5 +91,211 @@
         </framelist>
     </animation>
 
+<animation name="lightning_arrow_end" delay="0.05" loop="1">
+    <origin x="0.5" y="0.5" />
+    <framelist>
+        <framelist>
+            <frame name="magic_lightning_arrow_end_1.png" />
+            <frame name="magic_lightning_arrow_end_2.png" />
+            <frame name="magic_lightning_arrow_end_3.png" />
+            <frame name="magic_lightning_arrow_end_4.png" />
+            <frame name="magic_lightning_arrow_end_5.png" />
+            <frame name="magic_lightning_arrow_end_6.png" />
+            <frame name="magic_lightning_arrow_end_7.png" />
+            <frame name="magic_lightning_arrow_end_8.png" />
+            <frame name="magic_lightning_arrow_end_9.png" />
+            <frame name="magic_lightning_arrow_end_10.png" />
+            <frame name="magic_lightning_arrow_end_11.png" />
+            <frame name="magic_lightning_arrow_end_12.png" />
+            <frame name="magic_lightning_arrow_end_13.png" />
+            <frame name="magic_lightning_arrow_end_14.png" />
+            <frame name="magic_lightning_arrow_end_15.png" />
+            <frame name="magic_lightning_arrow_end_16.png" />
+            <frame name="magic_lightning_arrow_end_17.png" />
+            <frame name="magic_lightning_arrow_end_18.png" />
+            <frame name="magic_lightning_arrow_end_19.png" />
+            <frame name="magic_lightning_arrow_end_20.png" />
+            <frame name="magic_lightning_arrow_end_21.png" />
+            <frame name="magic_lightning_arrow_end_22.png" />
+            <frame name="magic_lightning_arrow_end_23.png" />
+            <frame name="magic_lightning_arrow_end_24.png" />
+            <frame name="magic_lightning_arrow_end_25.png" />
+            <frame name="magic_lightning_arrow_end_26.png" />
+            <frame name="magic_lightning_arrow_end_27.png" />
+            <frame name="magic_lightning_arrow_end_28.png" />
+        </framelist>
+    </framelist>
+</animation>
+
+<animation name="lightning_arrow_create" delay="0.01" loop="1">
+    <origin x="0.5" y="0.5" />
+    <framelist>
+        <frame name="magic_lightning_arrow_start_1.png" />
+        <frame name="magic_lightning_arrow_start_2.png" />
+        <frame name="magic_lightning_arrow_start_3.png" />
+        <frame name="magic_lightning_arrow_start_4.png" />
+        <frame name="magic_lightning_arrow_start_5.png" />
+        <frame name="magic_lightning_arrow_start_6.png" />
+        <frame name="magic_lightning_arrow_start_7.png" />
+        <frame name="magic_lightning_arrow_start_8.png" />
+        <frame name="magic_lightning_arrow_start_9.png" />
+        <frame name="magic_lightning_arrow_start_10.png" />
+        <frame name="magic_lightning_arrow_start_11.png" />
+        <frame name="magic_lightning_arrow_start_12.png" />
+        <frame name="magic_lightning_arrow_start_13.png" />
+        <frame name="magic_lightning_arrow_start_14.png" />
+        <frame name="magic_lightning_arrow_start_15.png" />
+        <frame name="magic_lightning_arrow_start_16.png" />
+        <frame name="magic_lightning_arrow_start_17.png" />
+        <frame name="magic_lightning_arrow_start_18.png" />
+        <frame name="magic_lightning_arrow_start_19.png" />
+        <frame name="magic_lightning_arrow_start_20.png" />
+        <frame name="magic_lightning_arrow_start_21.png" />
+        <frame name="magic_lightning_arrow_start_22.png" />
+        <frame name="magic_lightning_arrow_start_23.png" />
+        <frame name="magic_lightning_arrow_start_24.png" />
+        <frame name="magic_lightning_arrow_start_25.png" />
+        <frame name="magic_lightning_arrow_start_26.png" />
+        <frame name="magic_lightning_arrow_start_27.png" />
+        <frame name="magic_lightning_arrow_start_28.png" />
+        <frame name="magic_lightning_arrow_start_29.png" />
+        <frame name="magic_lightning_arrow_start_30.png" />
+    </framelist>
+</animation>
+
+<animation name="lightning_arrow_shoot" delay="0.05" loop="infinity">
+    <origin x="0.5" y="0.5" />
+    <framelist>
+        <frame name="magic_lightning_arrow_middle_1.png" />
+        <frame name="magic_lightning_arrow_middle_2.png" />
+        <frame name="magic_lightning_arrow_middle_3.png" />
+        <frame name="magic_lightning_arrow_middle_4.png" />
+        <frame name="magic_lightning_arrow_middle_5.png" />
+    </framelist>
+</animation>
+
+<animation name="lightning_arrow_hit" delay="0.05" loop="1">
+    <origin x="0.5" y="0.5" />
+    <framelist>
+        <frame name="magic_lightning_arrow_end_1.png" />
+        <frame name="magic_lightning_arrow_end_2.png" />
+        <frame name="magic_lightning_arrow_end_3.png" />
+        <frame name="magic_lightning_arrow_end_4.png" />
+        <frame name="magic_lightning_arrow_end_5.png" />
+        <frame name="magic_lightning_arrow_end_6.png" />
+        <frame name="magic_lightning_arrow_end_7.png" />
+        <frame name="magic_lightning_arrow_end_8.png" />
+        <frame name="magic_lightning_arrow_end_9.png" />
+        <frame name="magic_lightning_arrow_end_10.png" />
+        <frame name="magic_lightning_arrow_end_11.png" />
+        <frame name="magic_lightning_arrow_end_12.png" />
+        <frame name="magic_lightning_arrow_end_13.png" />
+        <frame name="magic_lightning_arrow_end_14.png" />
+        <frame name="magic_lightning_arrow_end_15.png" />
+        <frame name="magic_lightning_arrow_end_16.png" />
+        <frame name="magic_lightning_arrow_end_17.png" />
+        <frame name="magic_lightning_arrow_end_18.png" />
+        <frame name="magic_lightning_arrow_end_19.png" />
+        <frame name="magic_lightning_arrow_end_20.png" />
+        <frame name="magic_lightning_arrow_end_21.png" />
+        <frame name="magic_lightning_arrow_end_22.png" />
+        <frame name="magic_lightning_arrow_end_23.png" />
+        <frame name="magic_lightning_arrow_end_24.png" />
+        <frame name="magic_lightning_arrow_end_25.png" />
+        <frame name="magic_lightning_arrow_end_26.png" />
+        <frame name="magic_lightning_arrow_end_27.png" />
+        <frame name="magic_lightning_arrow_end_28.png" />
+    </framelist>
+</animation>
+
+<animation name="fire_pillar_create" delay="0.05" loop="1">
+    <origin x="0.5" y="0.5" />
+    <framelist>
+        <frame name="magic_fire_pillar_start_1.png" />
+        <frame name="magic_fire_pillar_start_2.png" />
+        <frame name="magic_fire_pillar_start_3.png" />
+        <frame name="magic_fire_pillar_start_4.png" />
+        <frame name="magic_fire_pillar_start_5.png" />
+        <frame name="magic_fire_pillar_start_6.png" />
+        <frame name="magic_fire_pillar_start_7.png" />
+        <frame name="magic_fire_pillar_start_8.png" />
+        <frame name="magic_fire_pillar_start_9.png" />
+        <frame name="magic_fire_pillar_start_10.png" />
+        <frame name="magic_fire_pillar_start_11.png" />
+        <frame name="magic_fire_pillar_start_12.png" />
+        <frame name="magic_fire_pillar_start_13.png" />
+        <frame name="magic_fire_pillar_start_14.png" />
+        <frame name="magic_fire_pillar_start_15.png" />
+        <frame name="magic_fire_pillar_start_16.png" />
+        <frame name="magic_fire_pillar_start_17.png" />
+        <frame name="magic_fire_pillar_start_18.png" />
+        <frame name="magic_fire_pillar_start_19.png" />
+        <frame name="magic_fire_pillar_start_20.png" />
+        <frame name="magic_fire_pillar_start_21.png" />
+        <frame name="magic_fire_pillar_start_22.png" />
+        <frame name="magic_fire_pillar_start_23.png" />
+        <frame name="magic_fire_pillar_start_24.png" />
+        <frame name="magic_fire_pillar_start_25.png" />
+        <frame name="magic_fire_pillar_start_26.png" />
+        <frame name="magic_fire_pillar_start_27.png" />
+        <frame name="magic_fire_pillar_start_28.png" />
+        <frame name="magic_fire_pillar_start_29.png" />
+        <frame name="magic_fire_pillar_start_30.png" />
+        <frame name="magic_fire_pillar_start_31.png" />
+        <frame name="magic_fire_pillar_start_32.png" />
+        <frame name="magic_fire_pillar_start_33.png" />
+        <frame name="magic_fire_pillar_start_34.png" />
+        <frame name="magic_fire_pillar_start_35.png" />
+        <frame name="magic_fire_pillar_start_36.png" />
+        <frame name="magic_fire_pillar_start_37.png" />
+        <frame name="magic_fire_pillar_start_38.png" />
+    </framelist>
+</animation>
+
+<animation name="fire_pillar_shoot" delay="0.05" loop="infinity">
+    <origin x="0.5" y="0.5" />
+    <framelist>
+        <frame name="magic_fire_pillar_end_1.png" />
+        <frame name="magic_fire_pillar_end_2.png" />
+        <frame name="magic_fire_pillar_end_3.png" />
+        <frame name="magic_fire_pillar_end_4.png" />
+        <frame name="magic_fire_pillar_end_5.png" />
+        <frame name="magic_fire_pillar_end_6.png" />
+        <frame name="magic_fire_pillar_end_7.png" />
+        <frame name="magic_fire_pillar_end_8.png" />
+        <frame name="magic_fire_pillar_end_9.png" />
+        <frame name="magic_fire_pillar_end_10.png" />
+        <frame name="magic_fire_pillar_end_11.png" />
+        <frame name="magic_fire_pillar_end_12.png" />
+        <frame name="magic_fire_pillar_end_13.png" />
+        <frame name="magic_fire_pillar_end_14.png" />
+        <frame name="magic_fire_pillar_end_15.png" />
+        <frame name="magic_fire_pillar_end_16.png" />
+        <frame name="magic_fire_pillar_end_17.png" />
+        <frame name="magic_fire_pillar_end_18.png" />
+        <frame name="magic_fire_pillar_end_19.png" />
+        <frame name="magic_fire_pillar_end_20.png" />
+        <frame name="magic_fire_pillar_end_21.png" />
+        <frame name="magic_fire_pillar_end_22.png" />
+        <frame name="magic_fire_pillar_end_23.png" />
+        <frame name="magic_fire_pillar_end_24.png" />
+        <frame name="magic_fire_pillar_end_25.png" />
+        <frame name="magic_fire_pillar_end_26.png" />
+        <frame name="magic_fire_pillar_end_27.png" />
+        <frame name="magic_fire_pillar_end_28.png" />
+        <frame name="magic_fire_pillar_end_29.png" />
+        <frame name="magic_fire_pillar_end_30.png" />
+        <frame name="magic_fire_pillar_end_31.png" />
+        <frame name="magic_fire_pillar_end_32.png" />
+        <frame name="magic_fire_pillar_end_33.png" />
+        <frame name="magic_fire_pillar_end_34.png" />
+        <frame name="magic_fire_pillar_end_35.png" />
+        <frame name="magic_fire_pillar_end_36.png" />
+        <frame name="magic_fire_pillar_end_37.png" />
+        <frame name="magic_fire_pillar_end_38.png" />
+        <frame name="magic_fire_pillar_end_39.png" />
+    </framelist>
+</animation>
+
 
 </character_animation>

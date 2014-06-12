@@ -59,6 +59,13 @@ bool GameManager::loadResource()
     loadSpritesheet("map1_background_2.png","map1_background_2.plist");
     loadSpritesheet("map1_background_3.png","map1_background_3.plist");
     loadSpritesheet("map1_background_3_small.png","map1_background_3_small.plist");
+    loadSpritesheet("magic_lightning_arrow_start.png","magic_lightning_arrow_start.plist");
+    loadSpritesheet("magic_lightning_arrow_middle.png","magic_lightning_arrow_middle.plist");
+    loadSpritesheet("magic_lightning_arrow_end.png","magic_lightning_arrow_end.plist");
+    loadSpritesheet("magic_fire_pillar_start.png","magic_fire_pillar_start.plist");
+    loadSpritesheet("magic_fire_pillar_end.png","magic_fire_pillar_end.plist");
+
+
 
 
     gbox2d::GB2ShapeCache *sc = gbox2d::GB2ShapeCache::sharedGB2ShapeCache();

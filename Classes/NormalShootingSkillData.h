@@ -11,7 +11,7 @@
 
 #include <iostream>
 #include "SkillData.h"
-#include "AnimationObject.h"
+#include "ProjectileData.h"
 
 USING_NS_CC;
 class NormalShootingSkillData: public SkillData
@@ -22,16 +22,14 @@ public:
     NormalShootingSkillData();
     ~NormalShootingSkillData();
     
-    CC_SYNTHESIZE(std::string, projectileBodyId, ProjectileBodyId);
-    CC_SYNTHESIZE(AnimationObject*, animation, Animation);
-    CC_SYNTHESIZE(float, rotateAngle, RotateAngle);
-    CC_SYNTHESIZE(bool, terrainCollide, TerrainCollide);
-    CC_SYNTHESIZE(bool, piercing, Piercing);
-    CC_SYNTHESIZE(float, gravityScale, GravityScale);
-    CC_SYNTHESIZE(float, speedX, SpeedX);
-    CC_SYNTHESIZE(float, speedY, SpeedY);
-
-    CC_SYNTHESIZE(int, animationLayerIndex, AnimationLayerIndex);
+    CC_SYNTHESIZE(ProjectileData, projectileData, ProjectileData);
+    CC_SYNTHESIZE(int, projectileQuantity, ProjectileQuantity);
+    CC_SYNTHESIZE(float, speed, Speed);
+    CC_SYNTHESIZE(float, angle, Angle);
+    CC_SYNTHESIZE(float, angleVariability, AngleVariability);
+    CC_SYNTHESIZE(int, quantity, Quantity);
+    CC_SYNTHESIZE(float, delayPerShoot, DelayPerShoot);
+    CC_SYNTHESIZE(CCPoint, positionPlusPerUnit, PositionPlusPerUnit);
     
     virtual void clone();
 };

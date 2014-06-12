@@ -22,6 +22,7 @@ class AnimationEffect: public Effect
 private:
 protected:
     AnimationObject* animationObject;
+    CCCallFunc* stopAction;
 public:
     CCSprite* sprite;
 
@@ -36,6 +37,8 @@ public:
     
     void setAnimation(const char* id);
     void setOpacity(GLubyte opacity);
+    
+    void setStopAction(CCCallFunc* action);
     
     CREATE_FUNC(AnimationEffect);
 };

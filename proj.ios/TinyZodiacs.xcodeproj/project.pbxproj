@@ -173,7 +173,6 @@
 		2D0DA13F1908F65800881C8D /* tower_1_animation.xml in Resources */ = {isa = PBXBuildFile; fileRef = 2D0DA13D1908F65800881C8D /* tower_1_animation.xml */; };
 		2D0DA1401908F65800881C8D /* tower_2_animation.xml in Resources */ = {isa = PBXBuildFile; fileRef = 2D0DA13E1908F65800881C8D /* tower_2_animation.xml */; };
 		2D0DA1421908F67400881C8D /* skill_animation.xml in Resources */ = {isa = PBXBuildFile; fileRef = 2D0DA1411908F67400881C8D /* skill_animation.xml */; };
-		2D0DA1461908F69C00881C8D /* skill_body.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2D0DA1441908F69C00881C8D /* skill_body.plist */; };
 		2D0DA14C1908F6C800881C8D /* list_skill.xml in Resources */ = {isa = PBXBuildFile; fileRef = 2D0DA1481908F6C800881C8D /* list_skill.xml */; };
 		2D0DA14D1908F6C800881C8D /* test_sheet.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2D0DA1491908F6C800881C8D /* test_sheet.plist */; };
 		2D0DA14E1908F6C800881C8D /* test_sheet.png in Resources */ = {isa = PBXBuildFile; fileRef = 2D0DA14A1908F6C800881C8D /* test_sheet.png */; };
@@ -191,6 +190,9 @@
 		340423CF193D8F2800223029 /* ControllerLayer0.png in Resources */ = {isa = PBXBuildFile; fileRef = 340423CC193D8F2800223029 /* ControllerLayer0.png */; };
 		340423D2193D8F4700223029 /* test_sheet.plist in Resources */ = {isa = PBXBuildFile; fileRef = 340423D0193D8F4700223029 /* test_sheet.plist */; };
 		340423D3193D8F4700223029 /* test_sheet.png in Resources */ = {isa = PBXBuildFile; fileRef = 340423D1193D8F4700223029 /* test_sheet.png */; };
+		3404B5B219499A9E00CD1A30 /* magic_fire_pillar_start.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3404B5B019499A9E00CD1A30 /* magic_fire_pillar_start.plist */; };
+		3404B5B319499A9E00CD1A30 /* magic_fire_pillar_start.png in Resources */ = {isa = PBXBuildFile; fileRef = 3404B5B119499A9E00CD1A30 /* magic_fire_pillar_start.png */; };
+		3404B5B71949A84A00CD1A30 /* skill_body.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3404B5B61949A84A00CD1A30 /* skill_body.plist */; };
 		340DE0A9192C96FA0056D51E /* list_effect.xml in Resources */ = {isa = PBXBuildFile; fileRef = 340DE0A8192C96FA0056D51E /* list_effect.xml */; };
 		340DE0AC192C97320056D51E /* EffectData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 340DE0AA192C97320056D51E /* EffectData.cpp */; };
 		340DE0AF192C977B0056D51E /* EffectFactory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 340DE0AD192C977B0056D51E /* EffectFactory.cpp */; };
@@ -232,6 +234,10 @@
 		34B3BE201942F26500D3E651 /* list_map.xml in Resources */ = {isa = PBXBuildFile; fileRef = 34B3BE1F1942F26500D3E651 /* list_map.xml */; };
 		34B3BE231942F2EC00D3E651 /* MapSelectData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 34B3BE211942F2EC00D3E651 /* MapSelectData.cpp */; };
 		34B3BE271942F48600D3E651 /* XMLMapListParser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 34B3BE251942F48600D3E651 /* XMLMapListParser.cpp */; };
+		34BFEA1619481AF500501A1D /* list_projectile.xml in Resources */ = {isa = PBXBuildFile; fileRef = 34BFEA1519481AF500501A1D /* list_projectile.xml */; };
+		34BFEA1919483BF700501A1D /* ProjectileData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 34BFEA1719483BF700501A1D /* ProjectileData.cpp */; };
+		34BFEA1C19483DBF00501A1D /* ProjectileStateAnimationData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 34BFEA1A19483DBF00501A1D /* ProjectileStateAnimationData.cpp */; };
+		34BFEA1F19483ED000501A1D /* XMLProjectileDataParser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 34BFEA1D19483ED000501A1D /* XMLProjectileDataParser.cpp */; };
 		34CD839E193ED0FD002AA209 /* monster_monkey.xml in Resources */ = {isa = PBXBuildFile; fileRef = 34CD839D193ED0FD002AA209 /* monster_monkey.xml */; };
 		34D0C9EB19260B0300DDC681 /* effect_animation_1.xml in Resources */ = {isa = PBXBuildFile; fileRef = 34D0C9EA19260B0300DDC681 /* effect_animation_1.xml */; };
 		34D0C9EE19260B1700DDC681 /* Slash_default.plist in Resources */ = {isa = PBXBuildFile; fileRef = 34D0C9EC19260B1700DDC681 /* Slash_default.plist */; };
@@ -873,7 +879,6 @@
 		2D0DA13D1908F65800881C8D /* tower_1_animation.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = tower_1_animation.xml; sourceTree = "<group>"; };
 		2D0DA13E1908F65800881C8D /* tower_2_animation.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = tower_2_animation.xml; sourceTree = "<group>"; };
 		2D0DA1411908F67400881C8D /* skill_animation.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = skill_animation.xml; sourceTree = "<group>"; };
-		2D0DA1441908F69C00881C8D /* skill_body.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = skill_body.plist; sourceTree = "<group>"; };
 		2D0DA1481908F6C800881C8D /* list_skill.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = list_skill.xml; sourceTree = "<group>"; };
 		2D0DA1491908F6C800881C8D /* test_sheet.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = test_sheet.plist; sourceTree = "<group>"; };
 		2D0DA14A1908F6C800881C8D /* test_sheet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = test_sheet.png; sourceTree = "<group>"; };
@@ -893,6 +898,9 @@
 		340423CC193D8F2800223029 /* ControllerLayer0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ControllerLayer0.png; sourceTree = "<group>"; };
 		340423D0193D8F4700223029 /* test_sheet.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = test_sheet.plist; sourceTree = "<group>"; };
 		340423D1193D8F4700223029 /* test_sheet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = test_sheet.png; sourceTree = "<group>"; };
+		3404B5B019499A9E00CD1A30 /* magic_fire_pillar_start.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = magic_fire_pillar_start.plist; sourceTree = "<group>"; };
+		3404B5B119499A9E00CD1A30 /* magic_fire_pillar_start.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = magic_fire_pillar_start.png; sourceTree = "<group>"; };
+		3404B5B61949A84A00CD1A30 /* skill_body.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = skill_body.plist; sourceTree = "<group>"; };
 		340DE0A8192C96FA0056D51E /* list_effect.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = list_effect.xml; sourceTree = "<group>"; };
 		340DE0AA192C97320056D51E /* EffectData.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = EffectData.cpp; sourceTree = "<group>"; };
 		340DE0AB192C97320056D51E /* EffectData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EffectData.h; sourceTree = "<group>"; };
@@ -960,6 +968,13 @@
 		34B3BE221942F2EC00D3E651 /* MapSelectData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapSelectData.h; sourceTree = "<group>"; };
 		34B3BE251942F48600D3E651 /* XMLMapListParser.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = XMLMapListParser.cpp; sourceTree = "<group>"; };
 		34B3BE261942F48600D3E651 /* XMLMapListParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMLMapListParser.h; sourceTree = "<group>"; };
+		34BFEA1519481AF500501A1D /* list_projectile.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = list_projectile.xml; sourceTree = "<group>"; };
+		34BFEA1719483BF700501A1D /* ProjectileData.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ProjectileData.cpp; sourceTree = "<group>"; };
+		34BFEA1819483BF700501A1D /* ProjectileData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProjectileData.h; sourceTree = "<group>"; };
+		34BFEA1A19483DBF00501A1D /* ProjectileStateAnimationData.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ProjectileStateAnimationData.cpp; sourceTree = "<group>"; };
+		34BFEA1B19483DBF00501A1D /* ProjectileStateAnimationData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProjectileStateAnimationData.h; sourceTree = "<group>"; };
+		34BFEA1D19483ED000501A1D /* XMLProjectileDataParser.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = XMLProjectileDataParser.cpp; sourceTree = "<group>"; };
+		34BFEA1E19483ED000501A1D /* XMLProjectileDataParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMLProjectileDataParser.h; sourceTree = "<group>"; };
 		34CD839D193ED0FD002AA209 /* monster_monkey.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = monster_monkey.xml; sourceTree = "<group>"; };
 		34D0C9EA19260B0300DDC681 /* effect_animation_1.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = effect_animation_1.xml; sourceTree = "<group>"; };
 		34D0C9EC19260B1700DDC681 /* Slash_default.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Slash_default.plist; sourceTree = "<group>"; };
@@ -2311,6 +2326,7 @@
 				2D0DA1481908F6C800881C8D /* list_skill.xml */,
 				2D0DA1491908F6C800881C8D /* test_sheet.plist */,
 				2D0DA14A1908F6C800881C8D /* test_sheet.png */,
+				34BFEA1519481AF500501A1D /* list_projectile.xml */,
 			);
 			name = Skills;
 			sourceTree = "<group>";
@@ -2906,6 +2922,10 @@
 				34315E50193972430058D433 /* AnimationData.h */,
 				34B3BE211942F2EC00D3E651 /* MapSelectData.cpp */,
 				34B3BE221942F2EC00D3E651 /* MapSelectData.h */,
+				34BFEA1719483BF700501A1D /* ProjectileData.cpp */,
+				34BFEA1819483BF700501A1D /* ProjectileData.h */,
+				34BFEA1A19483DBF00501A1D /* ProjectileStateAnimationData.cpp */,
+				34BFEA1B19483DBF00501A1D /* ProjectileStateAnimationData.h */,
 			);
 			name = Data;
 			sourceTree = "<group>";
@@ -2997,6 +3017,8 @@
 				F56FDD1D1942AF7B00232F7F /* magic_fireball_middle.plist */,
 				F56FDD1E1942AF7B00232F7F /* magic_fireball_end.png */,
 				F56FDD1F1942AF7B00232F7F /* magic_fireball_end.plist */,
+				3404B5B019499A9E00CD1A30 /* magic_fire_pillar_start.plist */,
+				3404B5B119499A9E00CD1A30 /* magic_fire_pillar_start.png */,
 				F56FDD221942AF7B00232F7F /* magic_fire_pillar_end.png */,
 				F56FDD231942AF7B00232F7F /* magic_fire_pillar_end.plist */,
 				F56FDD241942AF7B00232F7F /* magic_energy_ball2_end.png */,
@@ -3109,14 +3131,16 @@
 				F5B4287E19174F15002DC13B /* XMLHeroParser.h */,
 				F558161119176AD800A1CCB2 /* XMLMonsterParser.cpp */,
 				F558161219176AD800A1CCB2 /* XMLMonsterParser.h */,
-				F5CCA7A5191B6276002A7F2A /* XMLItemParser.cpp */,
 				F5CCA7A6191B6276002A7F2A /* XMLItemParser.h */,
 				346701F3193978BF00CC4E2B /* XMLAnimationDataParser.cpp */,
+				F5CCA7A5191B6276002A7F2A /* XMLItemParser.cpp */,
 				346701F4193978BF00CC4E2B /* XMLAnimationDataParser.h */,
 				34B3BE251942F48600D3E651 /* XMLMapListParser.cpp */,
 				34B3BE261942F48600D3E651 /* XMLMapListParser.h */,
 				341AFAC319477E7400693634 /* XMLButtonSelectorParser.cpp */,
 				341AFAC419477E7400693634 /* XMLButtonSelectorParser.h */,
+				34BFEA1D19483ED000501A1D /* XMLProjectileDataParser.cpp */,
+				34BFEA1E19483ED000501A1D /* XMLProjectileDataParser.h */,
 			);
 			name = "XML Parser";
 			sourceTree = "<group>";
@@ -3223,10 +3247,10 @@
 		F5C89E0018D2FCF2006E909D /* Body */ = {
 			isa = PBXGroup;
 			children = (
+				3404B5B61949A84A00CD1A30 /* skill_body.plist */,
 				34002584192DB46100059016 /* tower_sensor.plist */,
 				2DE1502D191CCDEC001BD65C /* character_body.plist */,
 				F5CCA796191B360B002A7F2A /* item_body.plist */,
-				2D0DA1441908F69C00881C8D /* skill_body.plist */,
 				2DC48A83191A356600B34724 /* monster_sensor.plist */,
 				51136AE11908E69F00317D3A /* map1_body.plist */,
 				F544FB9818D93CC100A818DF /* map2_body.plist */,
@@ -3445,6 +3469,7 @@
 				F50BF81C18F2426D00CD518D /* cat_spritesheet.plist in Resources */,
 				D4EF94A015BD2D9800D803EB /* Icon-144.png in Resources */,
 				F53ACBAF18D831C700F958A8 /* map2.xml in Resources */,
+				34BFEA1619481AF500501A1D /* list_projectile.xml in Resources */,
 				3446809D1943037D00FECCE8 /* MapListItem0.png in Resources */,
 				F56FDD4E1942AF7B00232F7F /* magic_energy_ball_middle.png in Resources */,
 				D41A0AD1160F154A004552AE /* Default-568h@2x.png in Resources */,
@@ -3454,7 +3479,6 @@
 				34F69CD319415A61005DD696 /* cat_death.wav in Resources */,
 				F56FDD431942AF7B00232F7F /* magic_fireball_end.plist in Resources */,
 				344680A11943049D00FECCE8 /* MapListItem_1.ExportJson in Resources */,
-				2D0DA1461908F69C00881C8D /* skill_body.plist in Resources */,
 				F5FB8E75193341020074598C /* bull_default.plist in Resources */,
 				F56FDD521942AF7B00232F7F /* magic_bomb_middle.png in Resources */,
 				F56FDD361942AF7B00232F7F /* magic_mass_bomb_end.png in Resources */,
@@ -3484,6 +3508,7 @@
 				2DC48A84191A356600B34724 /* monster_sensor.plist in Resources */,
 				F56FDD3A1942AF7B00232F7F /* magic_lightning_arrow_middle.png in Resources */,
 				F5048E3A1946A730005D58DC /* tower_spritesheet.plist in Resources */,
+				3404B5B71949A84A00CD1A30 /* skill_body.plist in Resources */,
 				15A3D9961682F7F9002FB0C5 /* CMakeLists.txt in Resources */,
 				F5FA2BB11940548600583009 /* maincrystal_spritesheet.png in Resources */,
 				F5FB8E76193341020074598C /* bull_default.png in Resources */,
@@ -3511,6 +3536,7 @@
 				F5EB8D1D19458B1700370B51 /* character_pig.xml in Resources */,
 				1AFAF8BC16D35E4900DB1158 /* CloseNormal.png in Resources */,
 				F5143E4E19430290000A0208 /* map1_background_2.png in Resources */,
+				3404B5B319499A9E00CD1A30 /* magic_fire_pillar_start.png in Resources */,
 				1AFAF8BC16D35E4900DB1158 /* CloseNormal.png in Resources */,
 				2DC48A7B1919EE1C00B34724 /* onion_creep_default.plist in Resources */,
 				F56FDD331942AF7B00232F7F /* magic_mass_bomb_start.plist in Resources */,
@@ -3533,6 +3559,7 @@
 				F56FDD3C1942AF7B00232F7F /* magic_lightning_arrow_end.png in Resources */,
 				F5CCA7A4191B5F95002A7F2A /* item_list.xml in Resources */,
 				1AFAF8BE16D35E4900DB1158 /* HelloWorld.png in Resources */,
+				3404B5B219499A9E00CD1A30 /* magic_fire_pillar_start.plist in Resources */,
 				2D0DA15A1908F72200881C8D /* tower_1.xml in Resources */,
 				340423D3193D8F4700223029 /* test_sheet.png in Resources */,
 			);
@@ -3597,6 +3624,7 @@
 				15A3D9191682F7D5002FB0C5 /* b2CircleContact.cpp in Sources */,
 				F54AE9BC18D2F1AA00194E66 /* CharacterHitState.cpp in Sources */,
 				15A3D91A1682F7D5002FB0C5 /* b2Contact.cpp in Sources */,
+				34BFEA1919483BF700501A1D /* ProjectileData.cpp in Sources */,
 				15A3D91B1682F7D5002FB0C5 /* b2ContactSolver.cpp in Sources */,
 				F54AE9D818D2F2B400194E66 /* GameManager.cpp in Sources */,
 				F54AE9D618D2F2B400194E66 /* AnimationLoader.cpp in Sources */,
@@ -3621,6 +3649,7 @@
 				15A3D9261682F7D5002FB0C5 /* b2PulleyJoint.cpp in Sources */,
 				51136ADC1908E62F00317D3A /* NoBodyMapObject.cpp in Sources */,
 				15A3D9271682F7D5002FB0C5 /* b2RevoluteJoint.cpp in Sources */,
+				34BFEA1F19483ED000501A1D /* XMLProjectileDataParser.cpp in Sources */,
 				15A3D9281682F7D5002FB0C5 /* b2RopeJoint.cpp in Sources */,
 				F5BAF29219148B380093BA4F /* HealthPointEffect.cpp in Sources */,
 				F5DB5356192D93EC0065C55E /* GameMatch.cpp in Sources */,
@@ -3726,6 +3755,7 @@
 				F5BAF288191484700093BA4F /* ContainerItem.cpp in Sources */,
 				15A3DA501682F826002FB0C5 /* CCControlStepper.cpp in Sources */,
 				15A3DA511682F826002FB0C5 /* CCControlSwitch.cpp in Sources */,
+				34BFEA1C19483DBF00501A1D /* ProjectileStateAnimationData.cpp in Sources */,
 				15A3DA521682F826002FB0C5 /* CCControlUtils.cpp in Sources */,
 				F58E78CE1924770E00091875 /* GameObjectViewContainer.cpp in Sources */,
 				375BD4C41868411B0024609E /* TriggerBase.cpp in Sources */,

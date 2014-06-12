@@ -153,16 +153,16 @@ void NormalAttack::excute()
 
 void NormalAttack::stop()
 {
-    if(this->stopAction != NULL && this->stopAction->isDone() == false)
-    {
-        
-        ScheduleManager::getInstance()->stopAction(stopAction);
-        this->stopAction->release();
-    }
-    CCCallFunc* stopFunc = CCCallFunc::create(this, callfunc_selector(NormalAttack::stopImmediately));
-    
-    this->stopAction = ScheduleManager::getInstance()->scheduleFunction(stopFunc, NULL, this->data.getLifeTime(), 1);
-    this->stopAction->retain();
+//    if(this->stopAction != NULL && this->stopAction->isDone() == false)
+//    {
+//        
+//        ScheduleManager::getInstance()->stopAction(stopAction);
+//        this->stopAction->release();
+//    }
+//    CCCallFunc* stopFunc = CCCallFunc::create(this, callfunc_selector(NormalAttack::stopImmediately));
+//    
+//    this->stopAction = ScheduleManager::getInstance()->scheduleFunction(stopFunc, NULL, this->data.getLifeTime(), 1);
+//    this->stopAction->retain();
 }
 
 void NormalAttack::excuteImmediately()
@@ -171,7 +171,9 @@ void NormalAttack::excuteImmediately()
     {
         return;
     }
-    
+    //
+    Util::applyEffectFromList(data.getlistSelfEffect(), this->holder);
+    //
     this->data.getSkillSensor()->SetActive(true);
     if(this->data.getSkillAnimation() != NULL && this->holder != NULL && this->holder->getSprite() != NULL)
     {
@@ -181,6 +183,19 @@ void NormalAttack::excuteImmediately()
         this->skillSprite->runAction(action);
         this->skillSprite->setPosition(ccp(0,0));
     }
+    //start life time
+    if(this->stopAction != NULL)
+    {
+        if(this->stopAction->isDone() == false)
+        {
+            ScheduleManager::getInstance()->stopAction(stopAction);
+        }
+        this->stopAction->release();
+    }
+    CCCallFunc* stopFunc = CCCallFunc::create(this, callfunc_selector(NormalAttack::stopImmediately));
+    
+    this->stopAction = ScheduleManager::getInstance()->scheduleFunction(stopFunc, NULL, this->data.getLifeTime(), 1);
+    this->stopAction->retain();
     //start time tick action
     if(data.getLifeTime() >0 && data.getTimeTick() >0)
     {
@@ -214,6 +229,16 @@ void NormalAttack::stopImmediately()
         }
         this->timeTickAction->release();
         this->timeTickAction = NULL;
+    }
+    // stop life time
+    if(this->stopAction != NULL)
+    {
+        if(this->stopAction->isDone() == false)
+        {
+            ScheduleManager::getInstance()->stopAction(stopAction);
+        }
+        this->stopAction->release();
+        this->stopAction = NULL;
     }
     //remove target
     if(this->listTarget != NULL)
@@ -269,16 +294,6 @@ void NormalAttack::checkCollisionDataInBeginContact(PhysicData* holderData, Phys
                             {
                                 Util::applyEffectFromList(calculatedSkillData.getListEnemyEffect(), character);
                             }
-                            
-//                            b2WorldManifold worldManifold;
-//                            contact->GetWorldManifold(&worldManifold);
-//                            
-//                            //now you can use these properties for whatever you need
-//                            b2Vec2 contactPoint = (worldManifold.points[0]); //b2Vec2
-//                            AnimationEffect* effect = AnimationEffect::create();
-//                            effect->setAnimation("effect-smoke");
-//                            EffectManager::getInstance()->runEffect(effect, CCPoint(contactPoint.x/32, contactPoint.y/32));
-
                         }
                         
                     }

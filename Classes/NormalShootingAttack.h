@@ -20,13 +20,20 @@ class NormalShootingAttack: public AbstractSkill
 {
 private:
 protected:
-
+    CCCallFunc* autoShootAction;
+    GameObject* lastShootedProjectile;
+    
+    int shootedTime;
+    
     CC_SYNTHESIZE(NormalShootingSkillData, data, Data);
 
     virtual void checkCollisionDataInBeginContact(PhysicData* holderData, PhysicData* collisionData, b2Contact *contact);
     virtual void checkCollisionDataInEndContact(PhysicData* holderData, PhysicData* collisionData, b2Contact *contact);
     
     virtual void setExcuteAble();
+    virtual void autoShoot();
+    
+    virtual void stopAllAction();
 public:
     NormalShootingAttack(GameObject* holder, NormalShootingSkillData data);
     ~NormalShootingAttack();
