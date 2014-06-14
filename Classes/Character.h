@@ -108,6 +108,7 @@ public:
     
     virtual void die();
     
+    virtual bool isBodyFixture(FixtureID fixtureID);
 };
 
 #endif /* defined(__SampleCocosProject__Character__) */

@@ -20,7 +20,6 @@ NormalShootingAttack::NormalShootingAttack(GameObject* holder, NormalShootingSki
         this->data = data;
         this->isExcutable = true;
         this->autoShootAction = NULL;
-        this->lastShootedProjectile = NULL;
         shootedTime =1;
     }
 }
@@ -132,9 +131,11 @@ void NormalShootingAttack::excuteImmediately()
         NormalShootingSkillData calculatedSkillData = this->data;
         calculateSkillData(&calculatedSkillData, ((Character*)this->holder)->getcharacterData());
         
+        this->calculatedGameObjectData = this->holder->getCalculatedData();
+        calculatedSkillData.setPositionPlusPerUnit(ccp((this->shootedTime-1)*calculatedSkillData.getPositionPlusPerUnit().x,(this->shootedTime-1)*calculatedSkillData.getPositionPlusPerUnit().y));
+        
         NormalProjectile* proj = NormalProjectile::create();
-        proj->initDataAndShoot(calculatedSkillData, this->holder, GROUP_SKILL_DEFAULT);
-        this->lastShootedProjectile = proj;
+        proj->initDataAndShoot(calculatedSkillData, this->calculatedGameObjectData, GROUP_SKILL_DEFAULT);
         //
         if(this->autoShootAction != NULL)
         {
@@ -210,18 +211,16 @@ void NormalShootingAttack::autoShoot()
     calculateSkillData(&calculatedSkillData, ((Character*)this->holder)->getcharacterData());
     
     this->shootedTime++;
-    calculatedSkillData.setPositionPlusPerUnit(ccp(this->shootedTime*calculatedSkillData.getPositionPlusPerUnit().x,this->shootedTime*calculatedSkillData.getPositionPlusPerUnit().y));
+    calculatedSkillData.setPositionPlusPerUnit(ccp((this->shootedTime-1)*calculatedSkillData.getPositionPlusPerUnit().x,(this->shootedTime-1)*calculatedSkillData.getPositionPlusPerUnit().y));
     //
     calculatedSkillData.setAngle(CC_DEGREES_TO_RADIANS(this->data.getAngle()+Util::randomFloatInRange(- calculatedSkillData.getAngleVariability(), calculatedSkillData.getAngleVariability())));
-    
+    //
     NormalProjectile* proj = NormalProjectile::create();
-    proj->initDataAndShoot(calculatedSkillData, this->holder, GROUP_SKILL_DEFAULT);
-    this->lastShootedProjectile = proj;
+    proj->initDataAndShoot(calculatedSkillData, this->calculatedGameObjectData, GROUP_SKILL_DEFAULT);
     //
     if(this->shootedTime == this->data.getQuantity())
     {
         this->shootedTime =1;
-        this->lastShootedProjectile = NULL;
     }
 }
 

@@ -679,3 +679,12 @@ void Character::playSkill(CharacterSkill skillIndex)
     }
     playSkill(skillIndex, correctAnimation);
 }
+
+bool Character::isBodyFixture(FixtureID fixtureId)
+{
+    if(fixtureId == BODY_MAIN_FIXTURE || fixtureId == BODY_SUB_FIXTURE)
+    {
+        return true;
+    }
+    return false;
+}

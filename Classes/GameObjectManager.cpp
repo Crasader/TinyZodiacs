@@ -66,7 +66,10 @@ void GameObjectManager::update(float dt)
     CCARRAY_FOREACH(instance->listGameObject, object)
     {
         GameObject* gameObject = static_cast<GameObject*>(object);
-        gameObject->update(dt);
+        if(gameObject)
+        {
+            gameObject->update(dt);
+        }
     }
     instance->listObjectRemoved->removeAllObjects();
 }

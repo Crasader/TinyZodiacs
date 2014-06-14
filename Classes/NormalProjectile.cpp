@@ -45,12 +45,12 @@ bool NormalProjectile::init()
     return true;
 }
 
-void NormalProjectile::setData(NormalShootingSkillData data, GameObject* holder)
+void NormalProjectile::setData(NormalShootingSkillData data, GameObjectCalculateData holder)
 {
     
     this->data = data;
-    this->group = holder->getGroup();
-    this->holderSpeed = holder->getBody()->GetLinearVelocity();
+    this->group = holder.getGroup();
+    this->holderSpeed = holder.getSpeed();
     
     //Create body
     b2BodyDef bodyDef;
@@ -79,11 +79,11 @@ void NormalProjectile::setData(NormalShootingSkillData data, GameObject* holder)
     }
     
     // set direction
-    if(holder->getDirection() == LEFT)
+    if(holder.getDirection() == LEFT)
     {
         this->flipDirection(LEFT);
     }
-    else if(holder->getDirection() == RIGHT)
+    else if(holder.getDirection() == RIGHT)
     {
         this->flipDirection(RIGHT);
     }
@@ -108,14 +108,14 @@ void NormalProjectile::setData(NormalShootingSkillData data, GameObject* holder)
 }
 
 
-b2Vec2 NormalProjectile::getStartPosition(GameObject* holder, b2Body* me)
+b2Vec2 NormalProjectile::getStartPosition(GameObjectCalculateData holder, b2Body* me)
 {
     //
     int holder_join_type = JOINT_CENTER;
     int this_join_type = JOINT_CENTER;
     if(this->data.getJointDefA().x == JOINT_REAR)
     {
-        if(holder->getDirection() == LEFT)
+        if(holder.getDirection() == LEFT)
         {
             holder_join_type = JOINT_BOTTOM_OR_LEFT;
         }
@@ -170,7 +170,7 @@ b2Vec2 NormalProjectile::getStartPosition(GameObject* holder, b2Body* me)
     //
     if(this->data.getJointDefA().x == JOINT_REAR /*&& this->data.getJointDefB().x == JOINT_REAR*/)
     {
-        if(holder->getDirection() == LEFT)
+        if(holder.getDirection() == LEFT)
         {
 //            anchorA.x -= this->data.getJointDefB().offsetX;
 //            anchorA.x -= abs(thisBoudningBox.upperBound.x);
@@ -178,7 +178,7 @@ b2Vec2 NormalProjectile::getStartPosition(GameObject* holder, b2Body* me)
             anchorA.x -= this->data.getPositionPlusPerUnit().x;
             anchorA.y += this->data.getPositionPlusPerUnit().y;
         }
-        else if(holder->getDirection() == RIGHT)
+        else if(holder.getDirection() == RIGHT)
         {
 //            anchorA.x += this->data.getJointDefB().offsetX;
 //            anchorA.x += abs(thisBoudningBox.lowerBound.x);
@@ -191,7 +191,7 @@ b2Vec2 NormalProjectile::getStartPosition(GameObject* holder, b2Body* me)
     return anchorA;
 }
 
-b2Vec2 NormalProjectile::getGlobalBodyStartPosition(GameObject* holder, JointDef jointDef)
+b2Vec2 NormalProjectile::getGlobalBodyStartPosition(GameObjectCalculateData holder, JointDef jointDef)
 {
     if(body == NULL)
     {
@@ -199,7 +199,7 @@ b2Vec2 NormalProjectile::getGlobalBodyStartPosition(GameObject* holder, JointDef
     }
     
     //set joint anchor A
-    b2AABB boundingBox = Util::getGameObjectBoundingBoxDynamic(holder);
+    b2AABB boundingBox = holder.getbodyBoundingBoxDynamic();
     
     b2Vec2 jointAAnchor(0,0);
     switch (jointDef.x) {
@@ -298,14 +298,6 @@ void NormalProjectile::checkCollisionDataInBeginContact(PhysicData* holderData, 
                 bool shouldHaveEffect = false;
                 if(character->getGroup() == this->group)
                 {
-                    // CCLOG("Allie begin");
-                    //                    for(int i=0 ; i<this->data.getListAlliesEffect().size() ; i++)
-                    //                    {
-                    //                        Affect* affect = Affect::create();
-                    //                        affect->setData(this->data.getListEnemyEffect()[i]);
-                    //                        affect->setHolder(character);
-                    //                        character->applyAffect(affect);
-                    //                    }
                     Util::applyEffectFromList(data.getListAlliesEffect(), character);
                     if(data.getListAlliesEffect().size()>0)
                     {
@@ -314,14 +306,6 @@ void NormalProjectile::checkCollisionDataInBeginContact(PhysicData* holderData, 
                 }
                 else
                 {
-                    // CCLOG("Enemy begin");
-                    //                    for(int i=0 ; i<this->data.getListEnemyEffect().size() ; i++)
-                    //                    {
-                    //                        Affect* affect = Affect::create();
-                    //                        affect->setData(this->data.getListEnemyEffect()[i]);
-                    //                        affect->setHolder(character);
-                    //                        character->applyAffect(affect);
-                    //                    }
                     Util::applyEffectFromList(data.getListEnemyEffect(), character);
                     if(data.getListEnemyEffect().size()>0)
                     {
@@ -329,7 +313,7 @@ void NormalProjectile::checkCollisionDataInBeginContact(PhysicData* holderData, 
                     }
                 }
                 //
-                if(listTarget != NULL)
+                if(listTarget != NULL && this->data.getTimeTick() >0)
                 {
                     listTarget->addObject(character);
                     character->attach(this);
@@ -349,12 +333,6 @@ void NormalProjectile::checkCollisionDataInBeginContact(PhysicData* holderData, 
                         this->destroy();
                     }
                 }
-                //
-                
-                //                else
-                //                {
-                //                    this->data.getProjectileData().setPiercing(this->data.getProjectileData().getPiercing()-1);
-                //                }
             }
         }
         default:
@@ -461,14 +439,14 @@ void NormalProjectile::setGroup(uint16 group)
     }
 }
 
-void NormalProjectile::initData(NormalShootingSkillData data, GameObject* holder, uint16 group)
+void NormalProjectile::initData(NormalShootingSkillData data, GameObjectCalculateData holder, uint16 group)
 {
     //    this->sprite->stopAllActions();
     this->setData(data, holder);
     this->setGroup(group);
 }
 
-void NormalProjectile::initDataAndShoot(NormalShootingSkillData data, GameObject* holder, uint16 group)
+void NormalProjectile::initDataAndShoot(NormalShootingSkillData data, GameObjectCalculateData holder, uint16 group)
 {
     initData(data, holder, group);
     

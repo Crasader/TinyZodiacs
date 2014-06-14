@@ -19,6 +19,8 @@ using namespace std;
 #define SKILL_TYPE_0 "0"
 #define SKILL_TYPE_1 "1"
 
+enum Direction {LEFT, RIGHT};
+
 enum CharacterSkill
 {
     NORMAL_ATTACK,

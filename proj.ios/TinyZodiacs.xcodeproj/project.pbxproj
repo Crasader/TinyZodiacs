@@ -198,6 +198,7 @@
 		340DE0AF192C977B0056D51E /* EffectFactory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 340DE0AD192C977B0056D51E /* EffectFactory.cpp */; };
 		340DE0B2192C9B010056D51E /* SkillAnimationEffect.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 340DE0B1192C9B010056D51E /* SkillAnimationEffect.cpp */; };
 		340DE0B5192C9EB50056D51E /* EffectManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 340DE0B3192C9EB50056D51E /* EffectManager.cpp */; };
+		34100F15194A202000EB08F3 /* GameObjectCalculateData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 34100F13194A202000EB08F3 /* GameObjectCalculateData.cpp */; };
 		3412551318DAA44900D9FBA6 /* NormalProjectile.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3412551118DAA44900D9FBA6 /* NormalProjectile.cpp */; };
 		3414166218DC23A0007B8C2B /* GameObjectManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3414166018DC23A0007B8C2B /* GameObjectManager.cpp */; };
 		341AFAC219477DC200693634 /* list_button_selector.xml in Resources */ = {isa = PBXBuildFile; fileRef = 341AFAC119477DC200693634 /* list_button_selector.xml */; };
@@ -910,6 +911,8 @@
 		340DE0B1192C9B010056D51E /* SkillAnimationEffect.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SkillAnimationEffect.cpp; sourceTree = "<group>"; };
 		340DE0B3192C9EB50056D51E /* EffectManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = EffectManager.cpp; sourceTree = "<group>"; };
 		340DE0B4192C9EB50056D51E /* EffectManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EffectManager.h; sourceTree = "<group>"; };
+		34100F13194A202000EB08F3 /* GameObjectCalculateData.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GameObjectCalculateData.cpp; path = ../Classes/GameObjectCalculateData.cpp; sourceTree = "<group>"; };
+		34100F14194A202000EB08F3 /* GameObjectCalculateData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GameObjectCalculateData.h; path = ../Classes/GameObjectCalculateData.h; sourceTree = "<group>"; };
 		3412551118DAA44900D9FBA6 /* NormalProjectile.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = NormalProjectile.cpp; path = ../Classes/NormalProjectile.cpp; sourceTree = "<group>"; };
 		3412551218DAA44900D9FBA6 /* NormalProjectile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NormalProjectile.h; path = ../Classes/NormalProjectile.h; sourceTree = "<group>"; };
 		3414166018DC23A0007B8C2B /* GameObjectManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameObjectManager.cpp; sourceTree = "<group>"; };
@@ -2661,8 +2664,8 @@
 				F5CCA78C191B2E32002A7F2A /* Effect */,
 				F5B428721917415B002DC13B /* XML Resource */,
 				F5C89DF618D2FC7F006E909D /* Animation */,
+				F5C89DF818D2FC92006E909D /* Map */,
 				F5C89DF718D2FC8A006E909D /* Character */,
-				F5048E3C1946A84A005D58DC /* New Group */,
 				F5C89DF918D2FC9B006E909D /* Background */,
 				F5C89E0018D2FCF2006E909D /* Body */,
 				F5C89E0D18D2FF87006E909D /* UI */,
@@ -2691,14 +2694,6 @@
 			);
 			name = Resources;
 			path = ../Resources;
-			sourceTree = "<group>";
-		};
-		F5048E3C1946A84A005D58DC /* New Group */ = {
-			isa = PBXGroup;
-			children = (
-				F5C89DF818D2FC92006E909D /* Map */,
-			);
-			name = "New Group";
 			sourceTree = "<group>";
 		};
 		F507B4181921DB6F00D23B99 /* Observer */ = {
@@ -2926,6 +2921,8 @@
 				34BFEA1819483BF700501A1D /* ProjectileData.h */,
 				34BFEA1A19483DBF00501A1D /* ProjectileStateAnimationData.cpp */,
 				34BFEA1B19483DBF00501A1D /* ProjectileStateAnimationData.h */,
+				34100F13194A202000EB08F3 /* GameObjectCalculateData.cpp */,
+				34100F14194A202000EB08F3 /* GameObjectCalculateData.h */,
 			);
 			name = Data;
 			sourceTree = "<group>";
@@ -3745,6 +3742,7 @@
 				15A3DA4B1682F826002FB0C5 /* CCControlColourPicker.cpp in Sources */,
 				15A3DA4C1682F826002FB0C5 /* CCControlHuePicker.cpp in Sources */,
 				341AFAC519477E7400693634 /* XMLButtonSelectorParser.cpp in Sources */,
+				34100F15194A202000EB08F3 /* GameObjectCalculateData.cpp in Sources */,
 				375BD50F1868454E0024609E /* CCActionFrame.cpp in Sources */,
 				F54AE9BF18D2F1AA00194E66 /* ObjectState.cpp in Sources */,
 				F5CCA78B191B2BDB002A7F2A /* AnimationEffect.cpp in Sources */,

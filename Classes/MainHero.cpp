@@ -70,7 +70,7 @@ void MainHero::die()
     this->reviveAction->retain();
     
     AnimationEffect* effect = AnimationEffect::create();
-    effect->setAnimation("skill-fire_pillar_shoot");
+    effect->setAnimation("effect-explosion");
     EffectManager::getInstance()->runEffect(effect, getPositionInPixel(),ABOVE_CHARACTER_LAYER);
     
     ControllerManager::getInstance()->sendCommand(HERO_CONTROLLER, INVISIBLE_ALL_HERO_CONTROLLER);

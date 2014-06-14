@@ -21,7 +21,7 @@ class NormalShootingAttack: public AbstractSkill
 private:
 protected:
     CCCallFunc* autoShootAction;
-    GameObject* lastShootedProjectile;
+    GameObjectCalculateData calculatedGameObjectData;
     
     int shootedTime;
     

@@ -25,7 +25,7 @@ class NormalProjectile: public GameObject, public Observer
 {
 private:
     b2Vec2 holderSpeed;
-    b2Vec2 getGlobalBodyStartPosition(GameObject* holder, JointDef jointDef);
+    b2Vec2 getGlobalBodyStartPosition(GameObjectCalculateData holder, JointDef jointDef);
     
 //    CCParticleSystemQuad* p;
 protected:
@@ -36,7 +36,7 @@ protected:
     
     bool isDisable;
     
-    virtual b2Vec2 getStartPosition(GameObject* holder, b2Body* me);
+    virtual b2Vec2 getStartPosition(GameObjectCalculateData holder, b2Body* me);
     virtual void changeCreatAnimationToShootingAnimation();
     
     virtual void applyEffectOnTimeTick();
@@ -46,7 +46,7 @@ public:
     NormalProjectile();
     ~NormalProjectile();
     
-    void setData(NormalShootingSkillData data, GameObject* holder);
+    void setData(NormalShootingSkillData data, GameObjectCalculateData holder);
     
     virtual bool init();
     CREATE_FUNC(NormalProjectile);
@@ -54,8 +54,8 @@ public:
     CC_SYNTHESIZE(NormalShootingSkillData, data, Data);
     CC_SYNTHESIZE(Group, group, Group);
     
-    virtual void initData(NormalShootingSkillData data, GameObject* holder, uint16 group);
-    virtual void initDataAndShoot(NormalShootingSkillData data, GameObject* holder, uint16 group);
+    virtual void initData(NormalShootingSkillData data, GameObjectCalculateData holder, uint16 group);
+    virtual void initDataAndShoot(NormalShootingSkillData data, GameObjectCalculateData holder, uint16 group);
     
     virtual void checkCollisionDataInBeginContact(PhysicData* holderData, PhysicData* collisionData, b2Contact *contact);
     virtual void checkCollisionDataInEndContact(PhysicData* holderData, PhysicData* collisionData, b2Contact *contact);
