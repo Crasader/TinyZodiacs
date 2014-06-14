@@ -25,9 +25,6 @@ GameMatch::~GameMatch()
 
 bool GameMatch::init()
 {
-    CCLOG("%s - %s",DataCollector::getInstance()->getMatchData()->mapIDSelected.c_str(),DataCollector::getInstance()->getMatchData()->heroIDSelected.c_str());
-    
-    
     this->gameWorld = GameWorld::create();
     this->gameWorld->setMapID(DataCollector::getInstance()->getMatchData()->mapIDSelected.c_str());
     this->gameWorld->onCreate();

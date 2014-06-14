@@ -66,12 +66,15 @@ void SkillAnimationEffect::stop()
 {
     AnimationEffect::stop();
   
-    if(this->action != NULL && this->action->isDone() == false && this->isFiniteAction == true)
+    if(this->action != NULL)
     {
-        this->sprite->stopAction(this->action);
+        if(this->action->isDone() == false && this->isFiniteAction == true)
+        {
+            this->sprite->stopAction(this->action);
+        }
+        this->action->release();
+        this->action = NULL;
     }
-    this->action->release();
-    this->action = NULL;
 }
 
 //void SkillAnimationEffect::setAnimation(const char* id)

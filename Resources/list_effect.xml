@@ -89,7 +89,7 @@
     </effect>
             
     <effect id="cat_bleeding">
-        <animation animation_layer="4" minRotateAngle ="0" maxRotateAngle="0" minScale="1" maxScale="1" repeatTimes="-1">effect1-slash</animation>
+        <animation animation_layer="4" minRotateAngle ="0" maxRotateAngle="0" minScale="1" maxScale="1" repeatTimes="-1">effect1-lightning</animation>
         <joints>
             <holder x="0" y="0" offsetX="0" offsetY="0"></holder>
             <this x="0" y="0" offsetX="0" offsetY="0"></this>
@@ -110,7 +110,31 @@
         <life_time>6</life_time>
         <time_tick>1</time_tick>
     </effect>
-                
+    
+    <effect id="lightning">
+        <animation animation_layer="4" minRotateAngle ="0" maxRotateAngle="360" minScale="0.7" maxScale="1" repeatTimes="0">effect1-lightning</animation>
+        <joints>
+            <holder x="0" y="0" offsetX="0" offsetY="0"></holder>
+            <this x="0" y="0" offsetX="0" offsetY="0"></this>
+        </joints>
+        
+        <chance>1</chance>
+        <crit_chance>1</crit_chance>
+        <crit>1.5</crit>
+        
+        <hp>-5</hp>
+        <atk>0</atk>
+        <def>0</def>
+        <speed>0</speed>
+        <atk_speed>0</atk_speed>
+        <max_jump>0</max_jump>
+        <jump_height>0</jump_height>
+        
+        <life_time>6</life_time>
+        <time_tick>1</time_tick>
+    </effect>
+
+
     <effect id="cat_healing">
         <animation animation_layer="4" minRotateAngle ="0" maxRotateAngle="0" minScale="1" maxScale="1" repeatTimes="1">effect1-slash</animation>
         <joints>

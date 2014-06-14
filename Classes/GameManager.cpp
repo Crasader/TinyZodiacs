@@ -35,10 +35,10 @@ bool GameManager::loadResource()
     loadSpritesheet("monkey_spritesheet.png","monkey_spritesheet.plist");
     loadSpritesheet("cat_spritesheet.png","cat_spritesheet.plist");
     loadSpritesheet("onion_creep_default.png","onion_creep_default.plist");
-    loadSpritesheet("map1_spritesheet_1.png","map1_spritesheet_1.plist");
-    loadSpritesheet("map1_spritesheet_2.png","map1_spritesheet_2.plist");
-    loadSpritesheet("map1_spritesheet_3.png","map1_spritesheet_3.plist");
-    loadSpritesheet("map1_spritesheet_4.png","map1_spritesheet_4.plist");
+//    loadSpritesheet("map1_spritesheet_1.png","map1_spritesheet_1.plist");
+//    loadSpritesheet("map1_spritesheet_2.png","map1_spritesheet_2.plist");
+//    loadSpritesheet("map1_spritesheet_3.png","map1_spritesheet_3.plist");
+//    loadSpritesheet("map1_spritesheet_4.png","map1_spritesheet_4.plist");
     loadSpritesheet("test_sheet.png","test_sheet.plist");
     loadSpritesheet("tower_orb_default.png","tower_orb_default.plist");
     loadSpritesheet("tower_spritesheet.png","tower_spritesheet.plist");
@@ -65,11 +65,12 @@ bool GameManager::loadResource()
     loadSpritesheet("magic_fire_pillar_start.png","magic_fire_pillar_start.plist");
     loadSpritesheet("magic_fire_pillar_end.png","magic_fire_pillar_end.plist");
 
-
-
-
-    gbox2d::GB2ShapeCache *sc = gbox2d::GB2ShapeCache::sharedGB2ShapeCache();
+    loadSpritesheet("magic_energy_ball2_end.png","magic_energy_ball2_end.plist");
+    loadSpritesheet("magic_mass_bomb_end.png","magic_mass_bomb_end.plist");
+    loadSpritesheet("magic_lightning_arrow_end.png","magic_lightning_arrow_end.plist");
     
+    
+    gbox2d::GB2ShapeCache *sc = gbox2d::GB2ShapeCache::sharedGB2ShapeCache();
     sc->addShapesWithFile("character_body.plist");
     sc->addShapesWithFile("skill_body.plist");
     sc->addShapesWithFile("map1_body.plist");
