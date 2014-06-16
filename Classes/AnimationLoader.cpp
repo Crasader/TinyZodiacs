@@ -21,13 +21,10 @@ bool AnimationLoader::loadData()
     AnimationLoader::loadDataByFileName("tower_2_animation.xml");
     AnimationLoader::loadDataByFileName("creep_1_animation.xml");
     AnimationLoader::loadDataByFileName("pig_animation.xml");
-        AnimationLoader::loadDataByFileName("bull_animation.xml");
-    
+    AnimationLoader::loadDataByFileName("bull_animation.xml");
     AnimationLoader::loadDataByFileName("coin1_animation.xml");
     AnimationLoader::loadDataByFileName("container_animation.xml");
-    
     AnimationLoader::loadDataByFileName("effect_animation_1.xml");
-    
     AnimationLoader::loadDataByFileName("maincrystal_animation.xml");
     
     return true;

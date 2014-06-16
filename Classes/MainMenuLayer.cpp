@@ -22,6 +22,9 @@ MainMenuLayer::MainMenuLayer()
 MainMenuLayer::~MainMenuLayer()
 {
     
+    CCTextureCache::sharedTextureCache()->removeTextureForKey("MainMenuLayer0.png");
+    CCTextureCache::sharedTextureCache()->removeUnusedTextures();
+    CCTextureCache::sharedTextureCache()->dumpCachedTextureInfo();
 }
 
 bool MainMenuLayer::init()
@@ -37,11 +40,13 @@ bool MainMenuLayer::init()
     //
     cocos2d::gui::Widget* ul =cocos2d::gui::Widget::create();
     ul = cocos2d::extension::GUIReader::shareReader()->widgetFromJsonFile("MainMenuLayer_1.ExportJson");
-    
+//
     ul->setScale(CCDirector::sharedDirector()->getWinSize().width/ul->getSize().width, CCDirector::sharedDirector()->getWinSize().height/ul->getSize().height);
-    
+//
     loadAllUI(ul);
     this->addWidget(ul);
+    
+      CCTextureCache::sharedTextureCache()->dumpCachedTextureInfo();
     return true;
 }
 
@@ -72,7 +77,7 @@ void MainMenuLayer::playButtonTouchEvent(CCObject* sender, cocos2d::gui::TouchEv
         case cocos2d::gui::TOUCH_EVENT_ENDED:
         {
             CCScene* testScene = MapSelectScene::scene();
-            CCDirector::sharedDirector()->pushScene(testScene);
+            CCDirector::sharedDirector()->replaceScene(testScene);
         }
             break;
         default:

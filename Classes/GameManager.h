@@ -39,7 +39,7 @@ public:
     ~GameManager();
     
     bool loadResource();
-    bool loadSpritesheet(const char* imageFileName, const char* plistFilename);
+    bool loadSpritesheet(const char* imageFileName, const char* plistFilename, CCTexture2DPixelFormat texturePixelFormat = kTexture2DPixelFormat_RGBA4444);
     bool loadData();
     void initManager();
     

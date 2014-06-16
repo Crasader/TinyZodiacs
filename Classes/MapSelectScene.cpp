@@ -15,6 +15,7 @@ bool MapSelectScene::init()
     {
         return false;
     }
+    //CCTextureCache::sharedTextureCache()->removeUnusedTextures();
     initScene();
     return true;
 }
@@ -22,7 +23,10 @@ bool MapSelectScene::init()
 
 MapSelectScene::~MapSelectScene()
 {
-    
+    CCTextureCache::sharedTextureCache()->removeTextureForKey("MapListItem0.png");
+    CCTextureCache::sharedTextureCache()->removeTextureForKey("MapSelectScene0.png");
+    CCTextureCache::sharedTextureCache()->removeUnusedTextures();
+    CCTextureCache::sharedTextureCache()->dumpCachedTextureInfo();
 }
 
 CCScene* MapSelectScene::scene()

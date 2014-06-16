@@ -98,7 +98,7 @@ void MapSelectLayer::listItemTouchEvent(CCObject* sender, cocos2d::gui::TouchEve
                 DataCollector::getInstance()->getMatchData()->mapIDSelected = mapId->getCString();
                 
                 CCScene* heroSelectScene = HeroSelectScene::scene();
-                CCDirector::sharedDirector()->pushScene(heroSelectScene);
+                CCDirector::sharedDirector()->replaceScene(heroSelectScene);
             }
             break;
         }

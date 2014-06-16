@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+    <dict>
+        <key>frames</key>
+        <dict>
+            <key>map1_background_3.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{2,2},{475,327}}</string>
+                <key>offset</key>
+                <string>{0,-0.5}</string>
+                <key>rotated</key>
+                <true/>
+                <key>sourceColorRect</key>
+                <string>{{0,0},{475,327}}</string>
+                <key>sourceSize</key>
+                <string>{475,326}</string>
+            </dict>
+        </dict>
+        <key>metadata</key>
+        <dict>
+            <key>format</key>
+            <integer>2</integer>
+            <key>realTextureFileName</key>
+            <string>map1_background_spritesheet_3.png</string>
+            <key>size</key>
+            <string>{331,479}</string>
+            <key>smartupdate</key>
+            <string>$TexturePacker:SmartUpdate:18362fae80437556ed898aa17079a259:56d89ab9d392096c7290ac563396703c:c9bf612d28078a6073e5e570c56ee507$</string>
+            <key>textureFileName</key>
+            <string>map1_background_spritesheet_3.png</string>
+        </dict>
+    </dict>
+</plist>

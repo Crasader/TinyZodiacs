@@ -288,8 +288,6 @@ bool GameplayLayer::receiveCommand(CommandID commandID, void* data)
             lblMoney->setText(CCString::createWithFormat("%d", *goldValue)->getCString());
             
             delete goldValue;
-            
-            
         }
             break;
             

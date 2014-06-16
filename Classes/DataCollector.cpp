@@ -24,6 +24,9 @@ DataCollector::DataCollector()
     this->dictItemDTO->retain();
     this->dictTowerDTO = CCDictionary::create();
     this->dictTowerDTO->retain();
+    
+    matchData.mapIDSelected = "map1";
+        matchData.heroIDSelected = "cat";
 }
 
 DataCollector::~DataCollector()

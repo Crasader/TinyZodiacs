@@ -1,5 +1,6 @@
 #include "AppDelegate.h"
 #include "MainMenuScene.h"
+#include "HeroSelectScene.h"
 
 USING_NS_CC;
 using namespace std;
@@ -25,9 +26,13 @@ AppDelegate::~AppDelegate()
 
 bool AppDelegate::applicationDidFinishLaunching() {
     // initialize director
+    
     CCDirector* pDirector = CCDirector::sharedDirector();
     CCEGLView* pEGLView = CCEGLView::sharedOpenGLView();
     
+//    CCTexture2D::setDefaultAlphaPixelFormat(kTexture2DPixelFormat_RGBA4444);
+    
+  //  CCTexture2D::setDefaultAlphaPixelFormat(kTexture2DPixelFormat_RGBA4444);
     pDirector->setOpenGLView(pEGLView);
         
     // turn on display FPS
@@ -53,7 +58,7 @@ bool AppDelegate::applicationDidFinishLaunching() {
     // if the frame's height is larger than the height of medium resource size, select large resource.
 //    if (frameSize.height >= largeResource.size.height)
 //    {
-       //searchPath.push_back(largeResource.directory);
+       searchPath.push_back(largeResource.directory);
        pDirector->setContentScaleFactor(1);
 //    }
 //    else if (frameSize.height >= mediumResource.size.height)
@@ -66,6 +71,11 @@ bool AppDelegate::applicationDidFinishLaunching() {
 //        searchPath.push_back(smallResource.directory);
 //        pDirector->setContentScaleFactor(0.25f);
 //    }
+    
+    if(frameSize.height <= largeResource.size.height)
+    {
+        CCTexture2D::setDefaultAlphaPixelFormat(kTexture2DPixelFormat_RGBA4444);
+    }
     
     CCFileUtils::sharedFileUtils()->setSearchPaths(searchPath);
     // create a scene. it's an autorelease object

@@ -184,4 +184,30 @@
         <collide_terrain>4</collide_terrain>
         <piercing>0</piercing>
 	</skill>
+    
+    <skill id="lightning-piercing" type="1">
+		<body>tower_orb_1_2</body>
+        <delay>0</delay>
+        <life_time>5</life_time>
+		<cool_down>0.5</cool_down>
+        <joints>
+            <holder x="0" y="0" offsetX="0" offsetY="0"></holder>
+            <this x="0" y="0" offsetX="0" offsetY="0"></this>
+        </joints>
+        <animation>skill-lightning</animation>
+        <animation_layer>2</animation_layer>
+        <speed>
+            <x>15</x>
+            <y>0</y>
+        </speed>
+        <gravity_scale>0</gravity_scale>
+        <collide_terrain>1</collide_terrain>
+        <piercing>1</piercing>
+        <list_effect>
+            <enemy>
+                <effect>lightning</effect>
+            </enemy>
+        </list_effect>
+	</skill>
+
 </skill_list>

@@ -73,7 +73,7 @@ void GameWorld::onCreate()
     //
     //
     addManager();
-    createWorldBox();
+   // createWorldBox();
 }
 void GameWorld::onCreateMap()
 {
