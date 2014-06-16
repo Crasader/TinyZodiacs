@@ -481,3 +481,20 @@ void GameObject::playSFX(const char* sfxName)
 {
     CocosDenshion::SimpleAudioEngine::sharedEngine()->playEffect(sfxName);
 }
+
+bool GameObject::isBodyFixture(FixtureID fixtureId)
+{
+    return true;
+}
+
+GameObjectCalculateData GameObject::getCalculatedData()
+{
+    GameObjectCalculateData data;
+    data.setbodyBoundingBox(Util::getGameObjectBoundingBox(this));
+    data.setbodyBoundingBoxDynamic(Util::getGameObjectBoundingBoxDynamic(this));
+    data.setDirection(this->getDirection());
+    data.setSpeed(this->body->GetLinearVelocity());
+    data.setGroup(this->getGroup());
+    
+    return data;
+}

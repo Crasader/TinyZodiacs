@@ -21,11 +21,10 @@ class GameObject;
 #include "Observer.h"
 #include "Affect.h"
 #include "Constants.h"
+#include "GameObjectCalculateData.h"
 
 USING_NS_CC;
 using namespace std;
-
-enum Direction {LEFT, RIGHT};
 
 class GameObject: public cocos2d::CCObject, public Observable
 {
@@ -111,6 +110,10 @@ public:
     virtual void clearPhysicUserData();
     virtual void cleanAllAffect();
 
+    virtual bool isBodyFixture(FixtureID fixtureId);
+    
+    virtual GameObjectCalculateData getCalculatedData();
+    
     CC_SYNTHESIZE(bool, isControlled, IsControlled);
 };
 

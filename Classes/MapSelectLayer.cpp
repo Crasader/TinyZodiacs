@@ -136,6 +136,6 @@ void MapSelectLayer::loadMapList()
 
 void MapSelectLayer::onSelectedListMap(CCObject* sender, cocos2d::gui::ListViewEventType type)
 {
-    CCLOG("%d",this->listMap->getCurSelectedIndex());
+//    CCLOG("%d",this->listMap->getCurSelectedIndex());
 //    this->listMap->getItem(this->listMap->getCurSelectedIndex());
 }

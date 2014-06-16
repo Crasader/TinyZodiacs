@@ -12,26 +12,29 @@
 #include <iostream>
 #include "SkillType0Parser.h"
 #include "NormalShootingSkillData.h"
+#include "XMLProjectileDataParser.h"
 
+#define TAG_PROJECTILE "projectile"
 #define TAG_SPEED "speed"
-#define TAG_GRAVITY_SCALE "gravity_scale"
-#define TAG_COLLIDE_TERRAIN "collide_terrain"
-#define TAG_PIERCING "piercing"
-#define TAG_X "x"
-#define TAG_Y "y"
+#define TAG_QUANTITY "quantity"
+#define TAG_DELAY_PER_SHOOT "delay_per_shoot"
+#define TAG_ANGLE_VARIBILITY "angle_variability"
+#define TAG_POSITION_PLUS_PER_UNIT "position_plus_per_unit"
 
-
+#define ATTRIBUTE_PLUS_X "plus_x"
+#define ATTRIBUTE_PLUS_Y "plus_y"
 
 class SkillType1Parser: public SkillType0Parser
 {
 private:
 protected:
-    static string readProjectileBodyId(const XMLElement* root);
     static float readProjectileSpeed(const XMLElement* root);
-    static float readProjectileGravityScale(const XMLElement* root);
-    static bool readTerrainCollide(const XMLElement* root);
-    static bool readPiercing(const XMLElement* root);
+    static int readQuantity(const XMLElement* root);
+    static float readDelayPerShoot(const XMLElement* root);
+    static float readAngleVaribility(const XMLElement* root);
+    static CCPoint readPositionPlus(const XMLElement* root);
 
+    static ProjectileData readProjectileData(const XMLElement* root);
 public:
     static NormalShootingSkillData parse(const XMLElement* root, b2World* world);
 };

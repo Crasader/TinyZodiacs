@@ -19,3 +19,5 @@ proj.android/obj/local/armeabi/objs/box2d_static/Dynamics/b2World.o.d
 *.xccheckout
 
 proj.ios/TinyZodiacs.xcodeproj/xcuserdata/hoaphat.xcuserdatad/xcdebugger/Breakpoints_v2.xcbkptlist
+
+Resources/magic_lightning_arrow_start.plist

@@ -3,14 +3,15 @@
 	<body>cat</body>
     <hp>300</hp>
     <atk>50</atk>
-    <def>20</def>
+    <def>20000</def>
     <speed>10</speed>
     <atk_speed>0.1</atk_speed>
     <max_jump>5</max_jump>
     <jump_height>10</jump_height>
-    <skill_0>tower_shooting_1</skill_0>
-    <skill_1>lightning-piercing</skill_1>
-    <skill_2>monkey_ultimate</skill_2>
+
+    <skill_0>lightning_arrow</skill_0>
+    <skill_1>chain_lightning_trap</skill_1>
+    <skill_2>chain_lightning_circle</skill_2>
     
     <sfx>cat_sounds</sfx>
 </character>

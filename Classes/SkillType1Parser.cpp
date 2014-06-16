@@ -8,100 +8,70 @@
 
 #include "SkillType1Parser.h"
 
-string SkillType1Parser::readProjectileBodyId(const XMLElement* root)
-{
-//    if(root != NULL)
-//    {
-//        string value = root->GetText();
-//        return value;
-//    }
-//    return "";
-    return XMLHelper::readString(root, "");
-}
-
 float SkillType1Parser::readProjectileSpeed(const XMLElement* root)
 {
-//    if(root != NULL)
-//    {
-//        string textValue = root->GetText();
-//        float value = atof(textValue.c_str());
-//        return value;
-//    }
-//    return 0;
     return XMLHelper::readFloat(root, 0);
 }
 
-float SkillType1Parser::readProjectileGravityScale(const XMLElement* root)
+ProjectileData SkillType1Parser::readProjectileData(const XMLElement* root)
 {
-//    if(root != NULL)
-//    {
-//        string textValue = root->GetText();
-//        float value = atof(textValue.c_str());
-//        return value;
-//    }
-//    return 0;
+    return XMLProjectileDataParser::parseData(XMLHelper::readString(root,""));
+}
+
+int SkillType1Parser::readQuantity(const XMLElement* root)
+{
+    return XMLHelper::readInt(root, 1);
+}
+
+float SkillType1Parser::readDelayPerShoot(const XMLElement* root)
+{
     return XMLHelper::readFloat(root, 0);
 }
 
-bool SkillType1Parser::readTerrainCollide(const XMLElement* root)
+float SkillType1Parser::readAngleVaribility(const XMLElement* root)
 {
-//    if(root != NULL)
-//    {
-//        string textValue = root->GetText();
-//        bool value = atoi(textValue.c_str());
-//        return value;
-//    }
-//    return false;
-    return XMLHelper::readBool(root, false);
+    return XMLHelper::readFloat(root, 0);
 }
 
-bool SkillType1Parser::readPiercing(const XMLElement* root)
+CCPoint SkillType1Parser::readPositionPlus(const XMLElement* root)
 {
-//    if(root != NULL)
-//    {
-//        string textValue = root->GetText();
-//        bool value = atoi(textValue.c_str());
-//        return value;
-//    }
-//    return false;
-    return XMLHelper::readBool(root, false);
+    return CCPoint(XMLHelper::readAttributeFloat(root, ATTRIBUTE_PLUS_X, 0), XMLHelper::readAttributeFloat(root, ATTRIBUTE_PLUS_Y, 0));
 }
+
 
 NormalShootingSkillData SkillType1Parser::parse(const XMLElement* root, b2World* world)
 {
     NormalShootingSkillData data;
-//    data.setDamage(readDamage(root->FirstChildElement(TAG_DAMAGE)));
+    data.setAngle(0);
     data.setCoolDown(readCoolDown(root->FirstChildElement(TAG_COOL_DOWN)));
     data.setDelay(readDelay(root->FirstChildElement(TAG_DELAY)));
     data.setLifeTime(readLifeTime(root->FirstChildElement(TAG_LIFE_TIME)));
-    data.setProjectileBodyId(readProjectileBodyId(root->FirstChildElement(TAG_BODY)));
     data.setJointDefA(readJoinDef(root->FirstChildElement(TAG_JOINTS)->FirstChildElement(TAG_HOLDER)));
     data.setJointDefB(readJoinDef(root->FirstChildElement(TAG_JOINTS)->FirstChildElement(TAG_THIS)));
-//    data.setCritical(readCriticalChance(root->FirstChildElement(TAG_CRITICAL_CHANCE)));
-    data.setAnimation(readAnimation(root->FirstChildElement(TAG_ANIMATION)));
-    data.setSpeedX(readProjectileSpeed(root->FirstChildElement(TAG_SPEED)->FirstChildElement(TAG_X)));
-    data.setSpeedY(readProjectileSpeed(root->FirstChildElement(TAG_SPEED)->FirstChildElement(TAG_Y)));
-    data.setTerrainCollide(readTerrainCollide(root->FirstChildElement(TAG_COLLIDE_TERRAIN)));
-    data.setGravityScale(readProjectileGravityScale(root->FirstChildElement(TAG_GRAVITY_SCALE)));
-    data.setAnimationLayerIndex(readAnimationLayerIndex(root->FirstChildElement(TAG_ANIMATION_LAYER)));
-    data.setPiercing(readPiercing(root->FirstChildElement(TAG_PIERCING)));
+    data.setSpeed(readProjectileSpeed(root->FirstChildElement(TAG_SPEED)));
     data.setTarget(readTarget(root->FirstChildElement(TAG_TARGET)));
+    data.setProjectileData(readProjectileData(root->FirstChildElement(TAG_PROJECTILE)));
+    data.setQuantity(readQuantity(root->FirstChildElement(TAG_QUANTITY)));
+    data.setDelayPerShoot(readDelayPerShoot(root->FirstChildElement(TAG_DELAY_PER_SHOOT)));
+    data.setAngleVariability(readAngleVaribility(root->FirstChildElement(TAG_ANGLE_VARIBILITY)));
+    data.setTimeTick(readTimeTick(root->FirstChildElement(TAG_TIME_TICK)));
+    data.setPositionPlusPerUnit(readPositionPlus(root->FirstChildElement(TAG_POSITION_PLUS_PER_UNIT)));
     
     if(root->FirstChildElement(TAG_LIST_EFFECT) != NULL)
     {
-        //        CCLOG("\t %s","AFFECT ENEMY");
         data.setListEnemyEffect(readEffectList(root->FirstChildElement(TAG_LIST_EFFECT)->FirstChildElement(TAG_LIST_EFFECT_ENEMY)));
-        //        if(data.getListEnemyEffect() != NULL)
-        //        {
-        //            CCLOG("%d",data.getListEnemyEffect()->count());
-        //        }
-        //        CCLOG("\t %s","AFFECT ALLIES");
-        data.setListAlliesEffect(readEffectList(root->FirstChildElement(TAG_LIST_EFFECT)->FirstChildElement(TAG_LIST_EFFECT_ALLIES)));
-        //        if(data.getListAlliesEffect() != NULL)
-        //        {
-        //            CCLOG("%d",data.getListAlliesEffect()->count());
-        //        }
-    }
 
+        data.setListAlliesEffect(readEffectList(root->FirstChildElement(TAG_LIST_EFFECT)->FirstChildElement(TAG_LIST_EFFECT_ALLIES)));
+
+        data.setlistSelfEffect(readEffectList(root->FirstChildElement(TAG_LIST_EFFECT)->FirstChildElement(TAG_LIST_EFFECT_SELF)));
+    }
+    // check if skill override peircing value
+    const XMLElement* temp = root->FirstChildElement(TAG_PIERCING);
+    if(temp)
+    {
+        ProjectileData newData = data.getProjectileData();
+        newData.setPiercing(XMLHelper::readInt(temp, data.getProjectileData().getPiercing()));
+        data.setProjectileData(newData);
+    }
     return data;
 }

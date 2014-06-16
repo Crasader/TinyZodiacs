@@ -524,7 +524,7 @@ b2AABB Util::getGameObjectBoundingBox(GameObject* obj)
         while (fixture != NULL)
         {
             PhysicData* data = (PhysicData*) fixture->GetUserData();
-            if(data != NULL && (data->fixtureId == BODY_MAIN_FIXTURE || data->fixtureId == BODY_SUB_FIXTURE))
+            if(data != NULL && obj->isBodyFixture(data->fixtureId)==true)
             {
                 b2Transform t;
                 t.SetIdentity();
@@ -562,7 +562,7 @@ b2AABB Util::getGameObjectBoundingBoxDynamic(GameObject* obj)
         while (fixture != NULL)
         {
             PhysicData* data = (PhysicData*) fixture->GetUserData();
-            if(data != NULL && (data->fixtureId == BODY_MAIN_FIXTURE || data->fixtureId == BODY_SUB_FIXTURE))
+            if(data != NULL && obj->isBodyFixture(data->fixtureId)==true)
             {
                 aabb.Combine(aabb, fixture->GetAABB(0));
             }

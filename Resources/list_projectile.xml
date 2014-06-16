@@ -1,0 +1,34 @@
+<list_projectile>
+    <projectile id="tower_orb_1">
+        <body>lightning_arrow</body>
+        <state_animation animation_layer="3" created_state_animation="skill-lightning_arrow_create" shooting_state_animation="skill-lightning_arrow_shoot" hit_state_ainmation="skill-lightning_arrow_hit" die_state_animation="skill-lightning_arrow_end"></state_animation>
+        <piercing>0</piercing>
+        <gravity_scale>0</gravity_scale>
+        <collide_terrain>1</collide_terrain>
+    </projectile>
+    
+    <projectile id="tower_orb_2">
+        <body>lightning_arrow</body>
+        <state_animation animation_layer="3" created_state_animation="skill-lightning_arrow_create" shooting_state_animation="skill-lightning_arrow_shoot" hit_state_ainmation="skill-lightning_arrow_hit" die_state_animation="skill-lightning_arrow_end"></state_animation>
+        <piercing>0</piercing>
+        <gravity_scale>0</gravity_scale>
+        <collide_terrain>1</collide_terrain>
+    </projectile>
+    
+    <projectile id="arrow">
+        <body>lightning_arrow</body>
+        <state_animation animation_layer="3" created_state_animation="skill-lightning_arrow_create" shooting_state_animation="skill-lightning_arrow_shoot" hit_state_ainmation="skill-lightning_arrow_hit" die_state_animation="skill-lightning_arrow_end"></state_animation>
+        <piercing>0</piercing>
+        <gravity_scale>0</gravity_scale>
+        <collide_terrain>1</collide_terrain>
+    </projectile>
+    
+    <projectile id="fire_pillar">
+        <body>fire_pillar</body>
+        <state_animation animation_layer="3" created_state_animation="" shooting_state_animation="skill-fire_pillar_shoot" hit_state_ainmation="" die_state_animation=""></state_animation>
+        <piercing>0</piercing>
+        <gravity_scale>0</gravity_scale>
+        <collide_terrain>1</collide_terrain>
+    </projectile>
+    
+</list_projectile>

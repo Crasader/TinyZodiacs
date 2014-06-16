@@ -45,13 +45,6 @@ GameWorld::~GameWorld()
 bool GameWorld::init()
 {
     this->scheduleUpdate();
-    //
-    //    CCArray* arr = CCArray::create();
-    //    arr->addObject(CCDelayTime::create(10));
-    //    arr->addObject(CCCallFunc::create(this, callfunc_selector (GameWorld::foo)));
-    //
-    //    CCSequence* seq = CCSequence::create(arr);
-    //    this->runAction(CCRepeatForever::create(seq));
     return true;
 }
 
@@ -67,11 +60,7 @@ void GameWorld::onCreate()
     GameManager::getInstance()->setGameplayHolder(gameplayholder);
 
     onCreateUnits();
-    
-      //
-    //    this->setCameraFollowGroup(this->group1);
-    //
-    //
+
     addManager();
    // createWorldBox();
 }

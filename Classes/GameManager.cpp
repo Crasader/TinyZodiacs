@@ -41,7 +41,7 @@ bool GameManager::loadResource()
     loadSpritesheet("other_effect_spritesheet.png","other_effect_spritesheet.plist");
     loadSpritesheet("onion_spritesheet.png","onion_spritesheet.plist");
     loadSpritesheet("monkey_spritesheet.png","monkey_spritesheet.plist");
-    
+
     loadSpritesheet("map1_spritesheet_4.png","map1_spritesheet_4.plist",kTexture2DPixelFormat_RGBA8888);
     loadSpritesheet("map1_spritesheet_3.png","map1_spritesheet_3.plist",kTexture2DPixelFormat_RGBA8888);
     loadSpritesheet("map1_spritesheet_2.png","map1_spritesheet_2.plist",kTexture2DPixelFormat_RGBA8888);
@@ -66,6 +66,7 @@ bool GameManager::loadResource()
     loadSpritesheet("test_sheet.png","test_sheet.plist");
 
     CCTextureCache::sharedTextureCache()->dumpCachedTextureInfo();
+
     
 //    loadSpritesheet("cat_spritesheet.png","cat_spritesheet.plist");
 //    loadSpritesheet("onion_creep_default.png","onion_creep_default.plist");
@@ -115,7 +116,7 @@ bool GameManager::loadSpritesheet(const char* imageFileName, const char* plistFi
 {
     CCTexture2D::setDefaultAlphaPixelFormat(texturePixelFormat);
     CCSpriteFrameCache::sharedSpriteFrameCache()->addSpriteFramesWithFile(plistFilename, imageFileName);
-    CCTexture2D::setDefaultAlphaPixelFormat(kTexture2DPixelFormat_Default);
+   // CCTexture2D::setDefaultAlphaPixelFormat(kTexture2DPixelFormat_Default);
     return true;
 }
 

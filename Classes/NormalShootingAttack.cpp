@@ -19,7 +19,8 @@ NormalShootingAttack::NormalShootingAttack(GameObject* holder, NormalShootingSki
     {
         this->data = data;
         this->isExcutable = true;
-        //        this->holderButton = NULL;
+        this->autoShootAction = NULL;
+        shootedTime =1;
     }
 }
 
@@ -78,7 +79,6 @@ void NormalShootingAttack::excute()
 
 void NormalShootingAttack::stop()
 {
-    
 }
 
 void NormalShootingAttack::update(float dt)
@@ -125,13 +125,31 @@ void NormalShootingAttack::excuteImmediately()
 {
     if(this->isDisable == false && holder != NULL)
     {
+        //
+        Util::applyEffectFromList(data.getlistSelfEffect(), this->holder);
+        //shoot first projectile
         NormalShootingSkillData calculatedSkillData = this->data;
         calculateSkillData(&calculatedSkillData, ((Character*)this->holder)->getcharacterData());
         
+        this->calculatedGameObjectData = this->holder->getCalculatedData();
+        calculatedSkillData.setPositionPlusPerUnit(ccp((this->shootedTime-1)*calculatedSkillData.getPositionPlusPerUnit().x,(this->shootedTime-1)*calculatedSkillData.getPositionPlusPerUnit().y));
+        
         NormalProjectile* proj = NormalProjectile::create();
-        proj->setData(calculatedSkillData, this->holder);
-        proj->setGroup(GROUP_SKILL_DEFAULT);
-        proj->shoot();
+        proj->initDataAndShoot(calculatedSkillData, this->calculatedGameObjectData, GROUP_SKILL_DEFAULT);
+        //
+        if(this->autoShootAction != NULL)
+        {
+            if(this->autoShootAction->isDone()==false)
+            {
+                ScheduleManager::getInstance()->stopAction(this->autoShootAction);
+                this->autoShootAction->release();
+            }
+        }
+        this->autoShootAction = CCCallFunc::create(this, callfunc_selector(NormalShootingAttack::autoShoot));
+        this->autoShootAction->retain();
+        
+        ScheduleManager::getInstance()->scheduleFuctionRepeatly(this->autoShootAction, this->data.getDelayPerShoot(), this->data.getQuantity()-1);
+        
     }
 }
 
@@ -179,4 +197,43 @@ void NormalShootingAttack::checkCollisionDataInEndContact(PhysicData* holderData
     //    {
     //        return;
     //    }
+}
+
+void NormalShootingAttack::autoShoot()
+{
+    if(this->isDisable)
+    {
+        return;
+    }
+    
+    
+    NormalShootingSkillData calculatedSkillData = this->data;
+    calculateSkillData(&calculatedSkillData, ((Character*)this->holder)->getcharacterData());
+    
+    this->shootedTime++;
+    calculatedSkillData.setPositionPlusPerUnit(ccp((this->shootedTime-1)*calculatedSkillData.getPositionPlusPerUnit().x,(this->shootedTime-1)*calculatedSkillData.getPositionPlusPerUnit().y));
+    //
+    calculatedSkillData.setAngle(CC_DEGREES_TO_RADIANS(this->data.getAngle()+Util::randomFloatInRange(- calculatedSkillData.getAngleVariability(), calculatedSkillData.getAngleVariability())));
+    //
+    NormalProjectile* proj = NormalProjectile::create();
+    proj->initDataAndShoot(calculatedSkillData, this->calculatedGameObjectData, GROUP_SKILL_DEFAULT);
+    //
+    if(this->shootedTime == this->data.getQuantity())
+    {
+        this->shootedTime =1;
+    }
+}
+
+void NormalShootingAttack::stopAllAction()
+{
+    AbstractSkill::stopAllAction();
+    if(this->autoShootAction != NULL)
+    {
+        if(this->autoShootAction->isDone()==false)
+        {
+            ScheduleManager::getInstance()->stopAction(this->autoShootAction);
+            this->autoShootAction->release();
+        }
+        this->autoShootAction=NULL;
+    }
 }

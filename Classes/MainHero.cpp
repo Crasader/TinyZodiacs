@@ -70,14 +70,21 @@ void MainHero::die()
     this->reviveAction->retain();
     
     AnimationEffect* effect = AnimationEffect::create();
+
     effect->setAnimation("effect-explosion3");
+
     EffectManager::getInstance()->runEffect(effect, getPositionInPixel(),ABOVE_CHARACTER_LAYER);
     
     ControllerManager::getInstance()->sendCommand(HERO_CONTROLLER, INVISIBLE_ALL_HERO_CONTROLLER);
     this->body->SetLinearVelocity(b2Vec2(0,0));
     
-    cleanAllAffect();
+    CCObject* skill;
+    CCARRAY_FOREACH(this->listSkill, skill)
+    {
+        ((AbstractSkill*)skill)->stopImmediately();
+    }
     
+    cleanAllAffect();
 }
 
 void MainHero::revive()

@@ -10,7 +10,7 @@
 
 NormalShootingSkillData::NormalShootingSkillData()
 {
-    this->rotateAngle = 0;
+//    this->rotateAngle = 0;
 }
 
 NormalShootingSkillData::~NormalShootingSkillData()

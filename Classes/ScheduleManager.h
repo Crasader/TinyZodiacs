@@ -9,6 +9,8 @@
 #ifndef __TinyZodiacs__ScheduleManager__
 #define __TinyZodiacs__ScheduleManager__
 
+class ScheduleManager;
+
 #include <iostream>
 #include "cocos2d.h"
 #include "GameObject.h"

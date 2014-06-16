@@ -632,19 +632,32 @@ void Character::playSoundByState(CharacterSound characterSoundState)
 
 void Character::setSkill(CharacterSkill skillIndex, AbstractSkill* skill)
 {
-    if(skillIndex > this->listSkill->count() || skill == NULL)
+    if(skill == NULL)
     {
+        CCLOG("skill null");
+    //    assert(0);
         return;
     }
-    this->listSkill->insertObject(skill, skillIndex);
+    if(skillIndex >= this->listSkill->count())
+    {
+         this->listSkill->addObject(skill);
+    }
+    else
+    {
+        this->listSkill->insertObject(skill, skillIndex);
+    }
 }
 
 void Character::playSkill(CharacterSkill skillIndex, AnimationObject* characterAnimation)
 {
     AbstractSkill* skill = getSkill(skillIndex);
-    
+    if(skill == NULL)
+    {
+        assert(0);
+    }
     if(skill != NULL && skill->getIsExcutable() && this->state->attack() && isDead == false)
     {
+     
         changeState(new CharacterAttackState(this,skill,characterAnimation));
     }
 }
@@ -653,10 +666,11 @@ AbstractSkill* Character::getSkill(CharacterSkill skillIndex)
 {
     if(skillIndex >= this->listSkill->count())
     {
+        CCLOG("null 1");
         return NULL;
     }
     AbstractSkill* skill = (AbstractSkill*)this->listSkill->objectAtIndex(skillIndex);
-
+CCLOG("null 2");
     return skill;
 }
 
@@ -678,4 +692,13 @@ void Character::playSkill(CharacterSkill skillIndex)
             break;
     }
     playSkill(skillIndex, correctAnimation);
+}
+
+bool Character::isBodyFixture(FixtureID fixtureId)
+{
+    if(fixtureId == BODY_MAIN_FIXTURE || fixtureId == BODY_SUB_FIXTURE)
+    {
+        return true;
+    }
+    return false;
 }

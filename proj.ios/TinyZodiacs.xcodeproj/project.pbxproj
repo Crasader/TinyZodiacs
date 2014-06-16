@@ -169,7 +169,6 @@
 		1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
 		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
 		288765A50DF7441C002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765A40DF7441C002DB57D /* CoreGraphics.framework */; };
-		2D0DA1461908F69C00881C8D /* skill_body.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2D0DA1441908F69C00881C8D /* skill_body.plist */; };
 		2D0DA14C1908F6C800881C8D /* list_skill.xml in Resources */ = {isa = PBXBuildFile; fileRef = 2D0DA1481908F6C800881C8D /* list_skill.xml */; };
 		2D0DA14D1908F6C800881C8D /* test_sheet.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2D0DA1491908F6C800881C8D /* test_sheet.plist */; };
 		2D0DA14E1908F6C800881C8D /* test_sheet.png in Resources */ = {isa = PBXBuildFile; fileRef = 2D0DA14A1908F6C800881C8D /* test_sheet.png */; };
@@ -189,6 +188,7 @@
 		340DE0AF192C977B0056D51E /* EffectFactory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 340DE0AD192C977B0056D51E /* EffectFactory.cpp */; };
 		340DE0B2192C9B010056D51E /* SkillAnimationEffect.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 340DE0B1192C9B010056D51E /* SkillAnimationEffect.cpp */; };
 		340DE0B5192C9EB50056D51E /* EffectManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 340DE0B3192C9EB50056D51E /* EffectManager.cpp */; };
+		34100F15194A202000EB08F3 /* GameObjectCalculateData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 34100F13194A202000EB08F3 /* GameObjectCalculateData.cpp */; };
 		3412551318DAA44900D9FBA6 /* NormalProjectile.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3412551118DAA44900D9FBA6 /* NormalProjectile.cpp */; };
 		3414166218DC23A0007B8C2B /* GameObjectManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3414166018DC23A0007B8C2B /* GameObjectManager.cpp */; };
 		341AFAC219477DC200693634 /* list_button_selector.xml in Resources */ = {isa = PBXBuildFile; fileRef = 341AFAC119477DC200693634 /* list_button_selector.xml */; };
@@ -223,6 +223,10 @@
 		34B3BE201942F26500D3E651 /* list_map.xml in Resources */ = {isa = PBXBuildFile; fileRef = 34B3BE1F1942F26500D3E651 /* list_map.xml */; };
 		34B3BE231942F2EC00D3E651 /* MapSelectData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 34B3BE211942F2EC00D3E651 /* MapSelectData.cpp */; };
 		34B3BE271942F48600D3E651 /* XMLMapListParser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 34B3BE251942F48600D3E651 /* XMLMapListParser.cpp */; };
+		34BFEA1619481AF500501A1D /* list_projectile.xml in Resources */ = {isa = PBXBuildFile; fileRef = 34BFEA1519481AF500501A1D /* list_projectile.xml */; };
+		34BFEA1919483BF700501A1D /* ProjectileData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 34BFEA1719483BF700501A1D /* ProjectileData.cpp */; };
+		34BFEA1C19483DBF00501A1D /* ProjectileStateAnimationData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 34BFEA1A19483DBF00501A1D /* ProjectileStateAnimationData.cpp */; };
+		34BFEA1F19483ED000501A1D /* XMLProjectileDataParser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 34BFEA1D19483ED000501A1D /* XMLProjectileDataParser.cpp */; };
 		34CD839E193ED0FD002AA209 /* monster_monkey.xml in Resources */ = {isa = PBXBuildFile; fileRef = 34CD839D193ED0FD002AA209 /* monster_monkey.xml */; };
 		34E614DD191338DC006D933E /* GameGroup.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 34E614DB191338DC006D933E /* GameGroup.cpp */; };
 		34E614E0191339A6006D933E /* MonsterFactory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 34E614DE191339A6006D933E /* MonsterFactory.cpp */; };
@@ -342,6 +346,8 @@
 		F51A482D194552E100E61987 /* hero_list.xml in Resources */ = {isa = PBXBuildFile; fileRef = F51A482C194552E100E61987 /* hero_list.xml */; };
 		F52678F318EEAEA500CE1E3B /* arial.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F52678E518EEAEA500CE1E3B /* arial.ttf */; };
 		F52678F418EEAEA500CE1E3B /* Marker Felt.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F52678E618EEAEA500CE1E3B /* Marker Felt.ttf */; };
+		F52BB9B9194E9DB900E101A7 /* skill_body.plist in Resources */ = {isa = PBXBuildFile; fileRef = F52BB9B8194E9DB900E101A7 /* skill_body.plist */; };
+		F52BB9BB194E9E6200E101A7 /* skill_animation.xml in Resources */ = {isa = PBXBuildFile; fileRef = F52BB9BA194E9E6200E101A7 /* skill_animation.xml */; };
 		F53ACBAF18D831C700F958A8 /* map2.xml in Resources */ = {isa = PBXBuildFile; fileRef = F53ACBAE18D831C700F958A8 /* map2.xml */; };
 		F54161A719494BC300F940EC /* AppDelegate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F54161A619494BC300F940EC /* AppDelegate.cpp */; };
 		F544FB9918D93CC100A818DF /* map2_body.plist in Resources */ = {isa = PBXBuildFile; fileRef = F544FB9818D93CC100A818DF /* map2_body.plist */; };
@@ -787,7 +793,6 @@
 		1D6058910D05DD3D006BFB54 /* TinyZodiacs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TinyZodiacs.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1DF5F4DF0D08C38300B7A737 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		288765A40DF7441C002DB57D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		2D0DA1441908F69C00881C8D /* skill_body.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = skill_body.plist; sourceTree = "<group>"; };
 		2D0DA1481908F6C800881C8D /* list_skill.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = list_skill.xml; sourceTree = "<group>"; };
 		2D0DA1491908F6C800881C8D /* test_sheet.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = test_sheet.plist; sourceTree = "<group>"; };
 		2D0DA14A1908F6C800881C8D /* test_sheet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = test_sheet.png; sourceTree = "<group>"; };
@@ -813,6 +818,8 @@
 		340DE0B1192C9B010056D51E /* SkillAnimationEffect.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SkillAnimationEffect.cpp; sourceTree = "<group>"; };
 		340DE0B3192C9EB50056D51E /* EffectManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = EffectManager.cpp; sourceTree = "<group>"; };
 		340DE0B4192C9EB50056D51E /* EffectManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EffectManager.h; sourceTree = "<group>"; };
+		34100F13194A202000EB08F3 /* GameObjectCalculateData.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GameObjectCalculateData.cpp; path = ../Classes/GameObjectCalculateData.cpp; sourceTree = "<group>"; };
+		34100F14194A202000EB08F3 /* GameObjectCalculateData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GameObjectCalculateData.h; path = ../Classes/GameObjectCalculateData.h; sourceTree = "<group>"; };
 		3412551118DAA44900D9FBA6 /* NormalProjectile.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = NormalProjectile.cpp; path = ../Classes/NormalProjectile.cpp; sourceTree = "<group>"; };
 		3412551218DAA44900D9FBA6 /* NormalProjectile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NormalProjectile.h; path = ../Classes/NormalProjectile.h; sourceTree = "<group>"; };
 		3414166018DC23A0007B8C2B /* GameObjectManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameObjectManager.cpp; sourceTree = "<group>"; };
@@ -869,6 +876,13 @@
 		34B3BE221942F2EC00D3E651 /* MapSelectData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapSelectData.h; sourceTree = "<group>"; };
 		34B3BE251942F48600D3E651 /* XMLMapListParser.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = XMLMapListParser.cpp; sourceTree = "<group>"; };
 		34B3BE261942F48600D3E651 /* XMLMapListParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMLMapListParser.h; sourceTree = "<group>"; };
+		34BFEA1519481AF500501A1D /* list_projectile.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = list_projectile.xml; sourceTree = "<group>"; };
+		34BFEA1719483BF700501A1D /* ProjectileData.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ProjectileData.cpp; sourceTree = "<group>"; };
+		34BFEA1819483BF700501A1D /* ProjectileData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProjectileData.h; sourceTree = "<group>"; };
+		34BFEA1A19483DBF00501A1D /* ProjectileStateAnimationData.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ProjectileStateAnimationData.cpp; sourceTree = "<group>"; };
+		34BFEA1B19483DBF00501A1D /* ProjectileStateAnimationData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProjectileStateAnimationData.h; sourceTree = "<group>"; };
+		34BFEA1D19483ED000501A1D /* XMLProjectileDataParser.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = XMLProjectileDataParser.cpp; sourceTree = "<group>"; };
+		34BFEA1E19483ED000501A1D /* XMLProjectileDataParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMLProjectileDataParser.h; sourceTree = "<group>"; };
 		34CD839D193ED0FD002AA209 /* monster_monkey.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = monster_monkey.xml; sourceTree = "<group>"; };
 		34E614DB191338DC006D933E /* GameGroup.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameGroup.cpp; sourceTree = "<group>"; };
 		34E614DC191338DC006D933E /* GameGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameGroup.h; sourceTree = "<group>"; };
@@ -1090,6 +1104,8 @@
 		F51A482C194552E100E61987 /* hero_list.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = hero_list.xml; sourceTree = "<group>"; };
 		F52678E518EEAEA500CE1E3B /* arial.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = arial.ttf; sourceTree = "<group>"; };
 		F52678E618EEAEA500CE1E3B /* Marker Felt.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Marker Felt.ttf"; sourceTree = "<group>"; };
+		F52BB9B8194E9DB900E101A7 /* skill_body.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = skill_body.plist; sourceTree = "<group>"; };
+		F52BB9BA194E9E6200E101A7 /* skill_animation.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = skill_animation.xml; sourceTree = "<group>"; };
 		F53ACBAE18D831C700F958A8 /* map2.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = map2.xml; sourceTree = "<group>"; };
 		F54161A619494BC300F940EC /* AppDelegate.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AppDelegate.cpp; sourceTree = "<group>"; };
 		F544FB9818D93CC100A818DF /* map2_body.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = map2_body.plist; sourceTree = "<group>"; };
@@ -2138,10 +2154,12 @@
 		34F7F92A18E15AA50084E87C /* Skills */ = {
 			isa = PBXGroup;
 			children = (
+				F52BB9BA194E9E6200E101A7 /* skill_animation.xml */,
 				340DE0A8192C96FA0056D51E /* list_effect.xml */,
 				2D0DA1481908F6C800881C8D /* list_skill.xml */,
 				2D0DA1491908F6C800881C8D /* test_sheet.plist */,
 				2D0DA14A1908F6C800881C8D /* test_sheet.png */,
+				34BFEA1519481AF500501A1D /* list_projectile.xml */,
 			);
 			name = Skills;
 			sourceTree = "<group>";
@@ -2475,7 +2493,8 @@
 				F5CCA79C191B3647002A7F2A /* Item */,
 				F5CCA78C191B2E32002A7F2A /* Effect */,
 				F5C89DF718D2FC8A006E909D /* Character */,
-				F5048E3C1946A84A005D58DC /* New Group */,
+				F5C89DF818D2FC92006E909D /* Map */,
+				F5C89DF718D2FC8A006E909D /* Character */,
 				F5C89E0018D2FCF2006E909D /* Body */,
 				F5C89E0D18D2FF87006E909D /* UI */,
 				34F7F92A18E15AA50084E87C /* Skills */,
@@ -2494,14 +2513,6 @@
 			);
 			name = Resources;
 			path = ../Resources;
-			sourceTree = "<group>";
-		};
-		F5048E3C1946A84A005D58DC /* New Group */ = {
-			isa = PBXGroup;
-			children = (
-				F5C89DF818D2FC92006E909D /* Map */,
-			);
-			name = "New Group";
 			sourceTree = "<group>";
 		};
 		F507B4181921DB6F00D23B99 /* Observer */ = {
@@ -2724,6 +2735,12 @@
 				34315E50193972430058D433 /* AnimationData.h */,
 				34B3BE211942F2EC00D3E651 /* MapSelectData.cpp */,
 				34B3BE221942F2EC00D3E651 /* MapSelectData.h */,
+				34BFEA1719483BF700501A1D /* ProjectileData.cpp */,
+				34BFEA1819483BF700501A1D /* ProjectileData.h */,
+				34BFEA1A19483DBF00501A1D /* ProjectileStateAnimationData.cpp */,
+				34BFEA1B19483DBF00501A1D /* ProjectileStateAnimationData.h */,
+				34100F13194A202000EB08F3 /* GameObjectCalculateData.cpp */,
+				34100F14194A202000EB08F3 /* GameObjectCalculateData.h */,
 			);
 			name = Data;
 			sourceTree = "<group>";
@@ -2871,14 +2888,16 @@
 				F5B4287E19174F15002DC13B /* XMLHeroParser.h */,
 				F558161119176AD800A1CCB2 /* XMLMonsterParser.cpp */,
 				F558161219176AD800A1CCB2 /* XMLMonsterParser.h */,
-				F5CCA7A5191B6276002A7F2A /* XMLItemParser.cpp */,
 				F5CCA7A6191B6276002A7F2A /* XMLItemParser.h */,
 				346701F3193978BF00CC4E2B /* XMLAnimationDataParser.cpp */,
+				F5CCA7A5191B6276002A7F2A /* XMLItemParser.cpp */,
 				346701F4193978BF00CC4E2B /* XMLAnimationDataParser.h */,
 				34B3BE251942F48600D3E651 /* XMLMapListParser.cpp */,
 				34B3BE261942F48600D3E651 /* XMLMapListParser.h */,
 				341AFAC319477E7400693634 /* XMLButtonSelectorParser.cpp */,
 				341AFAC419477E7400693634 /* XMLButtonSelectorParser.h */,
+				34BFEA1D19483ED000501A1D /* XMLProjectileDataParser.cpp */,
+				34BFEA1E19483ED000501A1D /* XMLProjectileDataParser.h */,
 			);
 			name = "XML Parser";
 			sourceTree = "<group>";
@@ -2951,10 +2970,10 @@
 		F5C89E0018D2FCF2006E909D /* Body */ = {
 			isa = PBXGroup;
 			children = (
+				F52BB9B8194E9DB900E101A7 /* skill_body.plist */,
 				34002584192DB46100059016 /* tower_sensor.plist */,
 				2DE1502D191CCDEC001BD65C /* character_body.plist */,
 				F5CCA796191B360B002A7F2A /* item_body.plist */,
-				2D0DA1441908F69C00881C8D /* skill_body.plist */,
 				2DC48A83191A356600B34724 /* monster_sensor.plist */,
 				51136AE11908E69F00317D3A /* map1_body.plist */,
 				F544FB9818D93CC100A818DF /* map2_body.plist */,
@@ -3116,7 +3135,9 @@
 				343638CA1944A92D00602F87 /* MapSelectScene_1.ExportJson in Resources */,
 				F544FB9918D93CC100A818DF /* map2_body.plist in Resources */,
 				D4EF949C15BD2D8E00D803EB /* Icon-114.png in Resources */,
+				F52BB9B9194E9DB900E101A7 /* skill_body.plist in Resources */,
 				F5C89E0418D2FD2A006E909D /* map_body.plist in Resources */,
+				F52BB9BB194E9E6200E101A7 /* skill_animation.xml in Resources */,
 				2D0DA14E1908F6C800881C8D /* test_sheet.png in Resources */,
 				51136AE81908E91000317D3A /* character_cat.xml in Resources */,
 				F52678F318EEAEA500CE1E3B /* arial.ttf in Resources */,
@@ -3133,13 +3154,13 @@
 				F52678F418EEAEA500CE1E3B /* Marker Felt.ttf in Resources */,
 				D4EF94A015BD2D9800D803EB /* Icon-144.png in Resources */,
 				F53ACBAF18D831C700F958A8 /* map2.xml in Resources */,
+				34BFEA1619481AF500501A1D /* list_projectile.xml in Resources */,
 				3446809D1943037D00FECCE8 /* MapListItem0.png in Resources */,
 				D41A0AD1160F154A004552AE /* Default-568h@2x.png in Resources */,
 				34002585192DB46100059016 /* tower_sensor.plist in Resources */,
 				34CD839E193ED0FD002AA209 /* monster_monkey.xml in Resources */,
 				34F69CD319415A61005DD696 /* cat_death.wav in Resources */,
 				344680A11943049D00FECCE8 /* MapListItem_1.ExportJson in Resources */,
-				2D0DA1461908F69C00881C8D /* skill_body.plist in Resources */,
 				2D0DA14D1908F6C800881C8D /* test_sheet.plist in Resources */,
 				D446FD6E16102124000ADA7B /* Default@2x.png in Resources */,
 				340423CE193D8F2800223029 /* ControllerLayer0.plist in Resources */,
@@ -3232,6 +3253,7 @@
 				15A3D9191682F7D5002FB0C5 /* b2CircleContact.cpp in Sources */,
 				F54AE9BC18D2F1AA00194E66 /* CharacterHitState.cpp in Sources */,
 				15A3D91A1682F7D5002FB0C5 /* b2Contact.cpp in Sources */,
+				34BFEA1919483BF700501A1D /* ProjectileData.cpp in Sources */,
 				15A3D91B1682F7D5002FB0C5 /* b2ContactSolver.cpp in Sources */,
 				F54AE9D818D2F2B400194E66 /* GameManager.cpp in Sources */,
 				F54AE9D618D2F2B400194E66 /* AnimationLoader.cpp in Sources */,
@@ -3257,6 +3279,7 @@
 				51136ADC1908E62F00317D3A /* NoBodyMapObject.cpp in Sources */,
 				F54161A719494BC300F940EC /* AppDelegate.cpp in Sources */,
 				15A3D9271682F7D5002FB0C5 /* b2RevoluteJoint.cpp in Sources */,
+				34BFEA1F19483ED000501A1D /* XMLProjectileDataParser.cpp in Sources */,
 				15A3D9281682F7D5002FB0C5 /* b2RopeJoint.cpp in Sources */,
 				F5BAF29219148B380093BA4F /* HealthPointEffect.cpp in Sources */,
 				F5DB5356192D93EC0065C55E /* GameMatch.cpp in Sources */,
@@ -3352,6 +3375,7 @@
 				15A3DA4B1682F826002FB0C5 /* CCControlColourPicker.cpp in Sources */,
 				15A3DA4C1682F826002FB0C5 /* CCControlHuePicker.cpp in Sources */,
 				341AFAC519477E7400693634 /* XMLButtonSelectorParser.cpp in Sources */,
+				34100F15194A202000EB08F3 /* GameObjectCalculateData.cpp in Sources */,
 				375BD50F1868454E0024609E /* CCActionFrame.cpp in Sources */,
 				F54AE9BF18D2F1AA00194E66 /* ObjectState.cpp in Sources */,
 				F5CCA78B191B2BDB002A7F2A /* AnimationEffect.cpp in Sources */,
@@ -3362,6 +3386,7 @@
 				F5BAF288191484700093BA4F /* ContainerItem.cpp in Sources */,
 				15A3DA501682F826002FB0C5 /* CCControlStepper.cpp in Sources */,
 				15A3DA511682F826002FB0C5 /* CCControlSwitch.cpp in Sources */,
+				34BFEA1C19483DBF00501A1D /* ProjectileStateAnimationData.cpp in Sources */,
 				15A3DA521682F826002FB0C5 /* CCControlUtils.cpp in Sources */,
 				F58E78CE1924770E00091875 /* GameObjectViewContainer.cpp in Sources */,
 				375BD4C41868411B0024609E /* TriggerBase.cpp in Sources */,
