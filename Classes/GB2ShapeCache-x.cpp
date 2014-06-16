@@ -102,7 +102,11 @@ bool GB2ShapeCache::addFixturesToBody(b2Body *body, const std::string &shape) {
     std::map<std::string, BodyDef *>::iterator pos = shapeObjects.find(shape);
    
     //found
-    assert(pos != shapeObjects.end());
+    if(pos == shapeObjects.end())
+    {
+        CCLOG("%s",shape.c_str());
+        assert(0);
+    }
  
     BodyDef *so = (*pos).second;
     

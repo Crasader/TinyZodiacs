@@ -27,7 +27,8 @@ public:
     virtual bool init();
     
     string id;
-    int state;
+    bool locked;
+    string buttonID;
     
     CREATE_FUNC(HeroPreviewDTO);
 };

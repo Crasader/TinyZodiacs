@@ -25,18 +25,12 @@ bool TestScene::init()
         return false;
     }
     
-      CCLOG("sdsdsdasfasfasfas");
     initScene();
     if(GameManager::getInstance()->getParent() == NULL)
     {
             this->addChild(GameManager::getInstance());
     }
-    
-        GameManager::getInstance()->loadSpritesheet("map1_spritesheet_1.png","map1_spritesheet_1.plist");
-        GameManager::getInstance()->loadSpritesheet("map1_spritesheet_2.png","map1_spritesheet_2.plist");
-       GameManager::getInstance() ->loadSpritesheet("map1_spritesheet_3.png","map1_spritesheet_3.plist");
-       GameManager::getInstance() ->loadSpritesheet("map1_spritesheet_4.png","map1_spritesheet_4.plist");
-   
+
 
     
     return true;
@@ -46,8 +40,6 @@ TestScene::~TestScene()
 {
     ControllerManager::getInstance()->clean();
     RuleManager::getInstance()->clean();
-    
-    CCTextureCache::sharedTextureCache()->removeUnusedTextures();
 }
 
 CCScene* TestScene::scene()

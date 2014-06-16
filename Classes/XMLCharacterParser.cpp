@@ -110,11 +110,11 @@ DefenseDTO* XMLCharacterParser::getDefenseDTOFromXMLElement(XMLElement* defenseE
     DefenseDTO* defenseDTO = DefenseDTO::create();
     
     string id = XMLHelper::readAttributeString(defenseElement, ATTRIBUTE_DEFENSE_ID,"");
-    string icon = XMLHelper::readAttributeString(defenseElement, ATTRIBUTE_DEFENSE_ICON,"");
+    string buttonID = XMLHelper::readAttributeString(defenseElement, ATTRIBUTE_DEFENSE_BUTTON_ID,"");
     int cost = XMLHelper::readAttributeInt(defenseElement, ATTRIBUTE_DEFENSE_COST, 0);
     
     defenseDTO->id = id;
-    defenseDTO->icon = icon;
+    defenseDTO->buttonID = buttonID;
     defenseDTO->cost = cost;
     
     return defenseDTO;

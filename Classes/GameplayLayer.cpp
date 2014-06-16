@@ -53,9 +53,9 @@ bool GameplayLayer::init()
     
     this->lvDefense = (cocos2d::gui::ListView*)cocos2d::extension::GUIReader::shareReader()->widgetFromJsonFile("MapSelectScene_1.ExportJson")->getChildByName("map_list")->clone();
     this->lvDefense->setSize(ccp(100,450));
-    this->lvDefense->setBackGroundColorType(LAYOUT_COLOR_SOLID);
-    this->lvDefense->setBackGroundColor(ccc3(255,0,0));
-    this->lvDefense->setPosition(ccp(50,170));
+    this->lvDefense->setBackGroundImageScale9Enabled(true);
+    this->lvDefense->setBackGroundImage("panel_2.png", UI_TEX_TYPE_PLIST);
+
 
     
     this->lvDefense->setDirection(SCROLLVIEW_DIR_VERTICAL);
@@ -288,8 +288,6 @@ bool GameplayLayer::receiveCommand(CommandID commandID, void* data)
             lblMoney->setText(CCString::createWithFormat("%d", *goldValue)->getCString());
             
             delete goldValue;
-            
-            
         }
             break;
             
@@ -461,7 +459,11 @@ void GameplayLayer::loadDefenseList()
         button->ignoreContentAdaptWithSize(false);
         button->setSizeType(SIZE_PERCENT);
         button->setSizePercent(ccp(1,1));
-        button->loadTextures(defenseDTO->icon.c_str(), defenseDTO->icon.c_str(), defenseDTO->icon.c_str(),cocos2d::gui::UI_TEX_TYPE_PLIST);
+        
+        TextureSelector textureSelector = XMLButtonSelectorParser::parseData(defenseDTO->buttonID);
+        
+        
+        button->loadTextures(textureSelector.activeTexture.c_str(), textureSelector.selectedTexture.c_str(), textureSelector.deactiveTexture.c_str(), cocos2d::gui::UI_TEX_TYPE_PLIST);
         button->setPosition(layout->getSize()/2);;
         button->setTouchEnabled(true);
         button->addTouchEventListener(this, toucheventselector(GameplayLayer::listItemTouchEvent));
@@ -513,16 +515,12 @@ void GameplayLayer::refeshDefenseListView(int cost)
             Button* button = static_cast<Button*>(layout->getChildByTag(1));
             button->setBright(false);
             button->setTouchEnabled(false);
-            layout->setBackGroundColorType(LAYOUT_COLOR_SOLID);
-            layout->setBackGroundColor(ccc3(119,119,119));
         }
         else
         {
             Button* button = static_cast<Button*>(layout->getChildByTag(1));
             button->setBright(true);
             button->setTouchEnabled(true);
-            layout->setBackGroundColorType(LAYOUT_COLOR_NONE);
-            layout->setBackGroundColor(ccc3(119,119,119));
         }
     }
 }

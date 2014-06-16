@@ -53,6 +53,9 @@ public:
     static vector<ItemStruct> randomItemInList(vector<ItemStruct> listItemStruct, int count);
 
     static float randomFloatInRange(float lowerBound, float upperBound);
+    
+    static void loadImage(const char* textureFilename, CCTexture2DPixelFormat texturePixelFormat = kTexture2DPixelFormat_Default);
+    static void loadPlist(const char* plistFilename);
 };
 
 #endif /* defined(__TinyZodiacs__Util__) */

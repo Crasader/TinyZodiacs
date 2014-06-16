@@ -21,8 +21,7 @@ HeroDTO::~HeroDTO()
 
 HeroPreviewDTO::HeroPreviewDTO()
 {
-    id = "";
-    state = 0;
+     locked = true;
 }
 
 HeroPreviewDTO::~HeroPreviewDTO()

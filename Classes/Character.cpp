@@ -632,19 +632,32 @@ void Character::playSoundByState(CharacterSound characterSoundState)
 
 void Character::setSkill(CharacterSkill skillIndex, AbstractSkill* skill)
 {
-    if(skillIndex > this->listSkill->count() || skill == NULL)
+    if(skill == NULL)
     {
+        CCLOG("skill null");
+    //    assert(0);
         return;
     }
-    this->listSkill->insertObject(skill, skillIndex);
+    if(skillIndex >= this->listSkill->count())
+    {
+         this->listSkill->addObject(skill);
+    }
+    else
+    {
+        this->listSkill->insertObject(skill, skillIndex);
+    }
 }
 
 void Character::playSkill(CharacterSkill skillIndex, AnimationObject* characterAnimation)
 {
     AbstractSkill* skill = getSkill(skillIndex);
-    
+    if(skill == NULL)
+    {
+        assert(0);
+    }
     if(skill != NULL && skill->getIsExcutable() && this->state->attack() && isDead == false)
     {
+     
         changeState(new CharacterAttackState(this,skill,characterAnimation));
     }
 }
@@ -653,6 +666,7 @@ AbstractSkill* Character::getSkill(CharacterSkill skillIndex)
 {
     if(skillIndex >= this->listSkill->count())
     {
+    
         return NULL;
     }
     AbstractSkill* skill = (AbstractSkill*)this->listSkill->objectAtIndex(skillIndex);

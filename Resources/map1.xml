@@ -1,13 +1,14 @@
 <map id="map1" width="8000" height="2000">
     <background_list>
         
-        <background image_name="map1_background_1_4.jpg" spritesheet_name="map1_background_1.png" layer_index="0">
-            <ratio x="0.05" y="0.1"/>
-        </background>        <background image_name="map1_background_2.png" spritesheet_name="map1_background_2.png" layer_index="0">
+        <background image_name="map1_background_1_4.jpg" spritesheet_name="map1_background_spritesheet_1.png" layer_index="0">
+            <ratio x="0.05" y="0"/>
+        </background>
+        <background image_name="map1_background_2.png" spritesheet_name="map1_background_spritesheet_2.png" layer_index="0">
             <ratio x="0.4" y="0.3"/>
         </background>
         
-        <background image_name="map1_background_3_small.png" spritesheet_name="map1_background_3.png" layer_index="0">
+        <background image_name="map1_background_3.png" spritesheet_name="map1_background_spritesheet_3.png" layer_index="0">
             <ratio x="0.6" y="0.4"/>
         </background>
     </background_list>
@@ -325,7 +326,7 @@
                     <monster_creator delay_per_unit="1" delay="1" lane = "2">
                         <position x="6827" y="1076"/>
                         <monster_list>
-                            <monster id="monster_onion" quantity="1"/>
+                            <monster id="monster_onion_invert" quantity="1"/>
                         </monster_list>
                     </monster_creator>
                 </monster_factory>

@@ -22,6 +22,7 @@ class GameplayLayer;
 #include "UILabelBMFont.h"
 #include "UIListView.h"
 #include "GUIReader.h"
+#include "XMLButtonSelectorParser.h"
 
 USING_NS_CC;
 

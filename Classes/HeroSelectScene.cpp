@@ -21,7 +21,10 @@ bool HeroSelectScene::init()
 
 HeroSelectScene::~HeroSelectScene()
 {
-    
+    CCTextureCache::sharedTextureCache()->removeTextureForKey("MapListItem0.png");
+    CCTextureCache::sharedTextureCache()->removeTextureForKey("MapSelectScene0.png");
+    CCTextureCache::sharedTextureCache()->removeUnusedTextures();
+    CCTextureCache::sharedTextureCache()->dumpCachedTextureInfo();
 }
 
 CCScene* HeroSelectScene::scene()
@@ -34,7 +37,7 @@ CCScene* HeroSelectScene::scene()
     // add layer as a child to scene
     scene->addChild(layer);
     //    CocosDenshion::SimpleAudioEngine::sharedEngine()->playBackgroundMusic("test.mp3", true);
-    
+
     // return the scene
     return scene;
 }

@@ -43,5 +43,29 @@
             <frame name="magic_lightning_arrow_end_28.png" />
         </framelist>
     </animation>
+    
+    <animation name="magicball" delay="0.05" loop="1">
+        <origin x="0.5" y="0.5" />
+        <framelist>
+            <frame name="magic_energy_ball1_end_1.png" />
+            <frame name="magic_energy_ball1_end_2.png" />
+            <frame name="magic_energy_ball1_end_3.png" />
+            <frame name="magic_energy_ball1_end_4.png" />
+            <frame name="magic_energy_ball1_end_5.png" />
+            <frame name="magic_energy_ball1_end_6.png" />
+            <frame name="magic_energy_ball1_end_7.png" />
+            <frame name="magic_energy_ball1_end_8.png" />
+            <frame name="magic_energy_ball1_end_9.png" />
+            <frame name="magic_energy_ball1_end_10.png" />
+            <frame name="magic_energy_ball1_end_11.png" />
+            <frame name="magic_energy_ball1_end_12.png" />
+            <frame name="magic_energy_ball1_end_13.png" />
+            <frame name="magic_energy_ball1_end_14.png" />
+            <frame name="magic_energy_ball1_end_15.png" />
+            <frame name="magic_energy_ball1_end_16.png" />
+            <frame name="magic_energy_ball1_end_17.png" />
+        </framelist>
+    </animation>
+
 
 </character_animation>

@@ -26,8 +26,7 @@ bool HeroSelectLayer::init()
     {
         return false;
     }
-    
-    cocos2d::gui::Widget* ul =cocos2d::gui::Widget::create();
+        cocos2d::gui::Widget* ul =cocos2d::gui::Widget::create();
     ul = cocos2d::extension::GUIReader::shareReader()->widgetFromJsonFile("MapSelectScene_1.ExportJson");
     ul->setScale(CCDirector::sharedDirector()->getWinSize().width/ul->getSize().width, CCDirector::sharedDirector()->getWinSize().height/ul->getSize().height);
     
