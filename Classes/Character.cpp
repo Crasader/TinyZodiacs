@@ -666,11 +666,11 @@ AbstractSkill* Character::getSkill(CharacterSkill skillIndex)
 {
     if(skillIndex >= this->listSkill->count())
     {
-        CCLOG("null 1");
+    
         return NULL;
     }
     AbstractSkill* skill = (AbstractSkill*)this->listSkill->objectAtIndex(skillIndex);
-CCLOG("null 2");
+
     return skill;
 }
 

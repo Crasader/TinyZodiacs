@@ -240,9 +240,9 @@
             </enemy>
         </list_effect>
         <projectile>tower_orb_1</projectile>
-        <quantity>30</quantity>
+        <quantity>300</quantity>
         <delay_per_shoot>0.1</delay_per_shoot>
-        <angle_variability>45</angle_variability>
+        <angle_variability>360</angle_variability>
         <piercing>5</piercing>
         <time_tick>1</time_tick>
         <position_plus_per_unit plus_x="0" plus_y="0"></position_plus_per_unit>

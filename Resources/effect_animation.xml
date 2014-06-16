@@ -1,0 +1,158 @@
+<character_animation name="effect" plist_name="test_sheet.plist" image_name="test_sheet.png">
+    <animation name="aura" delay="0.1">
+        <origin x="0.5" y="0.5" />
+        <framelist>
+            <frame name="aura_1.png" />
+            <frame name="aura_2.png" />
+            <frame name="aura_3.png" />
+            <frame name="aura_4.png" />
+
+        </framelist>
+    </animation>
+    
+    <animation name="arrow" delay="0.1">
+        <origin x="0.5" y="0.5" />
+        <framelist>
+            <frame name="arrow.png" />
+        </framelist>
+    </animation>
+    <animation name="smoke" delay="0.1">
+        <origin x="0.5" y="0.5" />
+        <framelist>
+            <frame name="smoke_1.png" />
+            <frame name="smoke_2.png" />
+            <frame name="smoke_3.png" />
+            <frame name="smoke_4.png" />
+            <frame name="smoke_5.png" />
+            <frame name="smoke_6.png" />
+            <frame name="smoke_7.png" />
+            <frame name="smoke_8.png" />
+            <frame name="smoke_9.png" />
+        </framelist>
+    </animation>
+    
+    <animation name="explosion2" delay="0.05">
+        <origin x="0.5" y="0.5" />
+        <framelist>
+            <frame name="magic_energy_ball2_end_1.png" />
+            <frame name="magic_energy_ball2_end_2.png" />
+            <frame name="magic_energy_ball2_end_3.png" />
+            <frame name="magic_energy_ball2_end_4.png" />
+            <frame name="magic_energy_ball2_end_5.png" />
+            <frame name="magic_energy_ball2_end_6.png" />
+            <frame name="magic_energy_ball2_end_7.png" />
+            <frame name="magic_energy_ball2_end_8.png" />
+            <frame name="magic_energy_ball2_end_9.png" />
+            <frame name="magic_energy_ball2_end_10.png" />
+            <frame name="magic_energy_ball2_end_11.png" />
+            <frame name="magic_energy_ball2_end_12.png" />
+            <frame name="magic_energy_ball2_end_13.png" />
+            <frame name="magic_energy_ball2_end_14.png" />
+            <frame name="magic_energy_ball2_end_15.png" />
+        </framelist>
+    </animation>
+    <animation name="explosion3" delay="0.025">
+        <origin x="0.5" y="0.5" />
+        <framelist>
+            <frame name="magic_mass_bomb_end_1.png" />
+            <frame name="magic_mass_bomb_end_2.png" />
+            <frame name="magic_mass_bomb_end_3.png" />
+            <frame name="magic_mass_bomb_end_4.png" />
+            <frame name="magic_mass_bomb_end_5.png" />
+            <frame name="magic_mass_bomb_end_6.png" />
+            <frame name="magic_mass_bomb_end_7.png" />
+            <frame name="magic_mass_bomb_end_8.png" />
+            <frame name="magic_mass_bomb_end_9.png" />
+            <frame name="magic_mass_bomb_end_10.png" />
+            <frame name="magic_mass_bomb_end_11.png" />
+            <frame name="magic_mass_bomb_end_12.png" />
+            <frame name="magic_mass_bomb_end_13.png" />
+            <frame name="magic_mass_bomb_end_14.png" />
+            <frame name="magic_mass_bomb_end_15.png" />
+            <frame name="magic_mass_bomb_end_16.png" />
+            <frame name="magic_mass_bomb_end_17.png" />
+            <frame name="magic_mass_bomb_end_18.png" />
+            <frame name="magic_mass_bomb_end_19.png" />
+            <frame name="magic_mass_bomb_end_20.png" />
+            <frame name="magic_mass_bomb_end_21.png" />
+            <frame name="magic_mass_bomb_end_22.png" />
+            <frame name="magic_mass_bomb_end_23.png" />
+            <frame name="magic_mass_bomb_end_24.png" />
+            <frame name="magic_mass_bomb_end_25.png" />
+            <frame name="magic_mass_bomb_end_26.png" />
+            <frame name="magic_mass_bomb_end_27.png" />
+            <frame name="magic_mass_bomb_end_28.png" />
+            <frame name="magic_mass_bomb_end_29.png" />
+            
+        </framelist>
+    </animation>
+    
+
+
+    <animation name="explosion" delay="0.025">
+        <origin x="0.5" y="0.5" />
+        <framelist>
+            <frame name="magic_mass_bomb_start_1.png" />
+            <frame name="magic_mass_bomb_start_2.png" />
+            <frame name="magic_mass_bomb_start_3.png" />
+            <frame name="magic_mass_bomb_start_4.png" />
+            <frame name="magic_mass_bomb_start_5.png" />
+            <frame name="magic_mass_bomb_start_6.png" />
+            <frame name="magic_mass_bomb_start_7.png" />
+            <frame name="magic_mass_bomb_start_8.png" />
+            <frame name="magic_mass_bomb_start_9.png" />
+            <frame name="magic_mass_bomb_start_10.png" />
+            <frame name="magic_mass_bomb_start_11.png" />
+            <frame name="magic_mass_bomb_start_12.png" />
+            <frame name="magic_mass_bomb_start_13.png" />
+            <frame name="magic_mass_bomb_start_14.png" />
+            <frame name="magic_mass_bomb_start_15.png" />
+            <frame name="magic_mass_bomb_start_16.png" />
+            <frame name="magic_mass_bomb_start_17.png" />
+            <frame name="magic_mass_bomb_start_18.png" />
+            <frame name="magic_mass_bomb_start_19.png" />
+            <frame name="magic_mass_bomb_start_20.png" />
+            <frame name="magic_mass_bomb_start_21.png" />
+            <frame name="magic_mass_bomb_start_22.png" />
+            <frame name="magic_mass_bomb_start_23.png" />
+            <frame name="magic_mass_bomb_start_24.png" />
+            <frame name="magic_mass_bomb_start_25.png" />
+            <frame name="magic_mass_bomb_start_26.png" />
+            <frame name="magic_mass_bomb_start_27.png" />
+            <frame name="magic_mass_bomb_start_28.png" />
+            <frame name="magic_mass_bomb_start_29.png" />
+            <frame name="magic_mass_bomb_start_30.png" />
+            <frame name="magic_mass_bomb_start_31.png" />
+            <frame name="magic_mass_bomb_start_32.png" />
+            <frame name="magic_mass_bomb_start_33.png" />
+            <frame name="magic_mass_bomb_start_34.png" />
+            <frame name="magic_mass_bomb_start_35.png" />
+            <frame name="magic_mass_bomb_start_36.png" />
+            <frame name="magic_mass_bomb_start_37.png" />
+            <frame name="magic_mass_bomb_start_38.png" />
+            <frame name="magic_mass_bomb_start_39.png" />
+            <frame name="magic_mass_bomb_start_40.png" />
+            <frame name="magic_mass_bomb_start_41.png" />
+            <frame name="magic_mass_bomb_start_42.png" />
+            <frame name="magic_mass_bomb_start_43.png" />
+            <frame name="magic_mass_bomb_start_44.png" />
+            <frame name="magic_mass_bomb_start_45.png" />
+            <frame name="magic_mass_bomb_start_46.png" />
+            <frame name="magic_mass_bomb_start_47.png" />
+            <frame name="magic_mass_bomb_start_48.png" />
+            <frame name="magic_mass_bomb_start_49.png" />
+            <frame name="magic_mass_bomb_start_50.png" />
+            <frame name="magic_mass_bomb_start_51.png" />
+            <frame name="magic_mass_bomb_start_52.png" />
+            <frame name="magic_mass_bomb_start_53.png" />
+            <frame name="magic_mass_bomb_start_54.png" />
+            <frame name="magic_mass_bomb_start_55.png" />
+            <frame name="magic_mass_bomb_start_56.png" />
+            <frame name="magic_mass_bomb_start_57.png" />
+            <frame name="magic_mass_bomb_start_58.png" />
+            <frame name="magic_mass_bomb_start_59.png" />
+            <frame name="magic_mass_bomb_start_60.png" />
+        </framelist>
+    </animation>
+
+</character_animation>

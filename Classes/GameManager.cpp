@@ -32,7 +32,8 @@ GameManager* GameManager::getInstance()
 
 bool GameManager::loadResource()
 {
-  
+    loadSpritesheet("thumbnail_spritesheet.png","thumbnail_spritesheet.plist");
+    loadSpritesheet("onion_invert_spritesheet.png","onion_invert_spritesheet.plist");
     loadSpritesheet("ui_spritesheet_3.png","ui_spritesheet_3.plist");
     loadSpritesheet("ui_spritesheet_2.png","ui_spritesheet_2.plist");
     loadSpritesheet("ui_spritesheet_1.png","ui_spritesheet_1.plist");

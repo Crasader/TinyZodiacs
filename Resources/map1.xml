@@ -326,7 +326,7 @@
                     <monster_creator delay_per_unit="1" delay="1" lane = "2">
                         <position x="6827" y="1076"/>
                         <monster_list>
-                            <monster id="monster_onion" quantity="1"/>
+                            <monster id="monster_onion_invert" quantity="1"/>
                         </monster_list>
                     </monster_creator>
                 </monster_factory>

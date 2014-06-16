@@ -1,0 +1,91 @@
+<object_animation name="pig" plist_name="pig_spritesheet.plist" image_name="pig_spritesheet.png">
+    <animation name="run" delay="0.06" loop="infinity">
+        <origin x="0.55" y="0.5" />
+        <framelist>
+            <frame name="pig_run_1.png" />
+            <frame name="pig_run_2.png" />
+            <frame name="pig_run_3.png" />
+            <frame name="pig_run_4.png" />
+            <frame name="pig_run_5.png" />
+            <frame name="pig_run_6.png" />
+            <frame name="pig_run_7.png" />
+            <frame name="pig_run_8.png" />
+            <frame name="pig_run_9.png" />
+            <frame name="pig_run_10.png" />
+        </framelist>
+    </animation>
+    <animation name="jump" delay="0.05" loop="1">
+      <origin x="0.65" y="0.4" />
+        <framelist>
+            <frame name="pig_jump_1.png" />
+            <frame name="pig_jump_2.png" />
+            <frame name="pig_jump_3.png" />
+        </framelist>
+    </animation>
+    
+    <animation name="attack" delay="0.1" loop="1">
+        <origin x="0.55" y="0.5" />
+        <framelist>
+            <frame name="pig_attack_1.png" />
+            <frame name="pig_attack_2.png" />
+            <frame name="pig_attack_3.png" />
+            <frame name="pig_attack_4.png" />
+            <frame name="pig_attack_5.png" />
+            <frame name="pig_attack_6.png" />
+        </framelist>
+    </animation>
+    
+    
+    <animation name="fall" delay="0.1" loop="infinity">
+        <origin x="0.6" y="0.4" />
+        <framelist>
+            <frame name="pig_fall_1.png" />
+            <frame name="pig_fall_2.png" />
+            <frame name="pig_fall_3.png" />
+            <frame name="pig_fall_4.png" />
+            <frame name="pig_fall_5.png" />
+            <frame name="pig_fall_6.png" />
+        </framelist>
+    </animation>
+
+    <animation name="fly" delay="0.1" loop="infinity">
+        <origin x="0.65" y="0.4" />
+        <framelist>
+            <frame name="pig_fly_1.png" />
+            <frame name="pig_fly_2.png" />
+            <frame name="pig_fly_3.png" />
+            <frame name="pig_fly_4.png" />
+            <frame name="pig_fly_5.png" />
+            <frame name="pig_fly_6.png" />
+            <frame name="pig_fly_7.png" />
+        </framelist>
+    </animation>
+
+    <animation name="skill" delay="0.1" loop="1">
+        <origin x="0.3" y="0.22" />
+        <framelist>
+            <frame name="pig_attack_1.png" />
+            <frame name="pig_attack_2.png" />
+            <frame name="pig_attack_3.png" />
+            <frame name="pig_attack_4.png" />
+            <frame name="pig_attack_5.png" />
+            <frame name="pig_attack_6.png" />
+         </framelist>
+
+    </animation>
+
+    <animation name="idle" delay="0.1" loop="infinity">
+        <origin x="0.54" y="0.5" />
+        <framelist>
+            <frame name="pig_idle_1.png" />
+            <frame name="pig_idle_2.png" />
+            <frame name="pig_idle_3.png" />
+            <frame name="pig_idle_4.png" />
+            <frame name="pig_idle_5.png" />
+            <frame name="pig_idle_6.png" />
+            <frame name="pig_idle_7.png" />
+            <frame name="pig_idle_8.png" />
+
+        </framelist>
+    </animation>
+</object_animation>

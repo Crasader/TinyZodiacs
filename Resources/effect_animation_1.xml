@@ -1,0 +1,71 @@
+<character_animation name="effect1" plist_name="Slash_default.plist" image_name="Slash_default.png">
+    <animation name="slash" delay="0.05" loop="1">
+        <origin x="0.5" y="0.5" />
+        <framelist>
+            <frame name="slash_1.png" />
+            <frame name="slash_2.png" />
+            <frame name="slash_3.png" />
+            <frame name="slash_4.png" />
+
+        </framelist>
+    </animation>
+    
+    <animation name="lightning" delay="0.05" loop="1">
+        <origin x="0.5" y="0.5" />
+        <framelist>
+            <frame name="magic_lightning_arrow_end_1.png" />
+            <frame name="magic_lightning_arrow_end_2.png" />
+            <frame name="magic_lightning_arrow_end_3.png" />
+            <frame name="magic_lightning_arrow_end_4.png" />
+            <frame name="magic_lightning_arrow_end_5.png" />
+            <frame name="magic_lightning_arrow_end_6.png" />
+            <frame name="magic_lightning_arrow_end_7.png" />
+            <frame name="magic_lightning_arrow_end_8.png" />
+            <frame name="magic_lightning_arrow_end_9.png" />
+            <frame name="magic_lightning_arrow_end_10.png" />
+            <frame name="magic_lightning_arrow_end_11.png" />
+            <frame name="magic_lightning_arrow_end_12.png" />
+            <frame name="magic_lightning_arrow_end_13.png" />
+            <frame name="magic_lightning_arrow_end_14.png" />
+            <frame name="magic_lightning_arrow_end_15.png" />
+            <frame name="magic_lightning_arrow_end_16.png" />
+            <frame name="magic_lightning_arrow_end_17.png" />
+            <frame name="magic_lightning_arrow_end_18.png" />
+            <frame name="magic_lightning_arrow_end_19.png" />
+            <frame name="magic_lightning_arrow_end_20.png" />
+            <frame name="magic_lightning_arrow_end_21.png" />
+            <frame name="magic_lightning_arrow_end_22.png" />
+            <frame name="magic_lightning_arrow_end_23.png" />
+            <frame name="magic_lightning_arrow_end_24.png" />
+            <frame name="magic_lightning_arrow_end_25.png" />
+            <frame name="magic_lightning_arrow_end_26.png" />
+            <frame name="magic_lightning_arrow_end_27.png" />
+            <frame name="magic_lightning_arrow_end_28.png" />
+        </framelist>
+    </animation>
+    
+    <animation name="magicball" delay="0.05" loop="1">
+        <origin x="0.5" y="0.5" />
+        <framelist>
+            <frame name="magic_energy_ball1_end_1.png" />
+            <frame name="magic_energy_ball1_end_2.png" />
+            <frame name="magic_energy_ball1_end_3.png" />
+            <frame name="magic_energy_ball1_end_4.png" />
+            <frame name="magic_energy_ball1_end_5.png" />
+            <frame name="magic_energy_ball1_end_6.png" />
+            <frame name="magic_energy_ball1_end_7.png" />
+            <frame name="magic_energy_ball1_end_8.png" />
+            <frame name="magic_energy_ball1_end_9.png" />
+            <frame name="magic_energy_ball1_end_10.png" />
+            <frame name="magic_energy_ball1_end_11.png" />
+            <frame name="magic_energy_ball1_end_12.png" />
+            <frame name="magic_energy_ball1_end_13.png" />
+            <frame name="magic_energy_ball1_end_14.png" />
+            <frame name="magic_energy_ball1_end_15.png" />
+            <frame name="magic_energy_ball1_end_16.png" />
+            <frame name="magic_energy_ball1_end_17.png" />
+        </framelist>
+    </animation>
+
+
+</character_animation>

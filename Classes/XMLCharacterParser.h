@@ -34,7 +34,7 @@
 
 #define TAG_DEFENSE "defense"
 #define ATTRIBUTE_DEFENSE_ID "id"
-#define ATTRIBUTE_DEFENSE_ICON "icon"
+#define ATTRIBUTE_DEFENSE_BUTTON_ID "button_id"
 #define ATTRIBUTE_DEFENSE_COST "cost"
 
 

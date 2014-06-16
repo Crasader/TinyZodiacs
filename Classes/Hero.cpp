@@ -37,9 +37,9 @@ void Hero::onCreate()
     
     ControllerManager::getInstance()->registerController(HERO_CONTROLLER, this);
 //    
-////    ControllerManager::getInstance()->sendCommand(HERO_CONTROLLER, CHANGE_SKILL_0_TEXTURE_SET, new TextureSelector(this->getSkill(NORMAL_ATTACK)->getSkillTextureSelector()));
-//    ControllerManager::getInstance()->sendCommand(HERO_CONTROLLER, CHANGE_SKILL_1_TEXTURE_SET, new TextureSelector(this->getSkill(SKILL_1)->getSkillTextureSelector()));
-//    ControllerManager::getInstance()->sendCommand(HERO_CONTROLLER, CHANGE_SKILL_2_TEXTURE_SET, new TextureSelector(this->getSkill(SKILL_2)->getSkillTextureSelector()));
+    ControllerManager::getInstance()->sendCommand(HERO_CONTROLLER, CHANGE_SKILL_0_TEXTURE_SET, new TextureSelector(this->getSkill(NORMAL_ATTACK)->getSkillTextureSelector()));
+    ControllerManager::getInstance()->sendCommand(HERO_CONTROLLER, CHANGE_SKILL_1_TEXTURE_SET, new TextureSelector(this->getSkill(SKILL_1)->getSkillTextureSelector()));
+    ControllerManager::getInstance()->sendCommand(HERO_CONTROLLER, CHANGE_SKILL_2_TEXTURE_SET, new TextureSelector(this->getSkill(SKILL_2)->getSkillTextureSelector()));
 }
 
 uint16  Hero::getCorrectGroup(Group group)

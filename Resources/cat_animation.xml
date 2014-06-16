@@ -1,0 +1,90 @@
+<object_animation name="cat" plist_name="cat_spritesheet.plist" image_name="cat_spritesheet.png">
+    <animation name="run" delay="0.06" loop="infinity">
+        <origin x="0.5" y="0.5" />
+        <framelist>
+            <frame name="cat_run_1.png" />
+            <frame name="cat_run_2.png" />
+            <frame name="cat_run_3.png" />
+            <frame name="cat_run_4.png" />
+            <frame name="cat_run_5.png" />
+            <frame name="cat_run_6.png" />
+            <frame name="cat_run_7.png" />
+            <frame name="cat_run_8.png" />
+            <frame name="cat_run_9.png" />
+        </framelist>
+    </animation>
+    <animation name="jump" delay="0.05" loop="1">
+       <origin x="0.5" y="0.5" />
+       <framelist>
+            <frame name="cat_jump_1.png" />
+        </framelist>
+    </animation>
+    
+    <animation name="attack" delay="0.1" loop="1">
+        <origin x="0.5" y="0.5" />
+        <framelist>
+            <frame name="cat_attack_1.png" />
+            <frame name="cat_attack_2.png" />
+            <frame name="cat_attack_3.png" />
+            <frame name="cat_attack_4.png" />
+            <frame name="cat_attack_5.png" />
+        </framelist>
+    </animation>
+    
+    
+    <animation name="fall" delay="0.1" loop="infinity">
+       <origin x="0.5" y="0.5" />
+        <framelist>
+            <frame name="cat_fall_1.png" />
+            <frame name="cat_fall_2.png" />
+            <frame name="cat_fall_3.png" />
+            <frame name="cat_fall_4.png" />
+            <frame name="cat_fall_5.png" />
+            <frame name="cat_fall_6.png" />
+            <frame name="cat_fall_7.png" />
+            <frame name="cat_fall_8.png" />
+        </framelist>
+    </animation>
+
+    <animation name="fly" delay="0.1" loop="infinity">
+        <origin x="0.5" y="0.5" />
+        <framelist>
+            <frame name="cat_fly_1.png" />
+            <frame name="cat_fly_2.png" />
+            <frame name="cat_fly_3.png" />
+            <frame name="cat_fly_4.png" />
+            <frame name="cat_fly_5.png" />
+            <frame name="cat_fly_6.png" />
+            <frame name="cat_fly_7.png" />
+            <frame name="cat_fly_8.png" />
+            <frame name="cat_fly_9.png" />
+        </framelist>
+    </animation>
+
+    <animation name="skill" delay="0.1" loop="1">
+        <origin x="0.5" y="0.5" />
+        <framelist>
+            <frame name="cat_attack_1.png" />
+            <frame name="cat_attack_2.png" />
+            <frame name="cat_attack_3.png" />
+            <frame name="cat_attack_4.png" />
+            <frame name="cat_attack_5.png" />
+        
+         </framelist>
+
+    </animation>
+
+    <animation name="idle" delay="0.1" loop="infinity">
+        <origin x="0.5" y="0.5" />
+        <framelist>
+            <frame name="cat_idle_1.png" />
+       		<frame name="cat_idle_2.png" />
+       		<frame name="cat_idle_3.png" />
+       	 	<frame name="cat_idle_4.png" />
+       	 	<frame name="cat_idle_5.png" />
+       	 	<frame name="cat_idle_6.png" />
+       	 	<frame name="cat_idle_7.png" />
+        	<frame name="cat_idle_8.png" />
+        </framelist>
+    </animation>
+</object_animation>

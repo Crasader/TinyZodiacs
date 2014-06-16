@@ -26,6 +26,7 @@ bool AnimationLoader::loadData()
     AnimationLoader::loadDataByFileName("container_animation.xml");
     AnimationLoader::loadDataByFileName("effect_animation_1.xml");
     AnimationLoader::loadDataByFileName("maincrystal_animation.xml");
+     AnimationLoader::loadDataByFileName("onion_invert_animation.xml");
     
     return true;
 }

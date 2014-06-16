@@ -21,10 +21,12 @@ HeroPreviewDTO* XMLHeroParser::getHeroPreviewDTOXMLElement(XMLElement* heroPrevi
     HeroPreviewDTO* heroPreviewDTO = HeroPreviewDTO::create();
     
     string id = XMLHelper::readAttributeString(heroPreviewDTOXMLElement, ATTRIBUTE_HERO_ID, "");
-    int state = XMLHelper::readAttributeInt(heroPreviewDTOXMLElement, ATTRIBUTE_HERO_STATE, 0);
+    int locked = XMLHelper::readAttributeBool(heroPreviewDTOXMLElement, ATTRIBUTE_HERO_LOCKED, true);
+    string buttonID = XMLHelper::readAttributeString(heroPreviewDTOXMLElement, ATTRIBUTE_HERO_BUTTON_ID, "");
     
     heroPreviewDTO->id = id;
-    heroPreviewDTO->state = state;
+    heroPreviewDTO->locked = locked;
+    heroPreviewDTO->buttonID = buttonID;
     
     return heroPreviewDTO;
 }

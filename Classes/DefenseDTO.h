@@ -26,7 +26,7 @@ public:
     virtual bool init();
     
     string id;
-    string icon;
+    string buttonID;
     int cost;
     
     
