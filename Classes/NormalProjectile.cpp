@@ -97,10 +97,9 @@ void NormalProjectile::setData(NormalShootingSkillData data, GameObjectCalculate
     {
         this->listTarget = NULL;
     }
-    //    CCCallFunc* destroyFunction = CCCallFunc::create(this, callfunc_selector(NormalProjectile::destroy));
-    //    this->lifeTimeScheduled = ScheduleManager::getInstance()->scheduleFunction(destroyFunction, NULL, this->data.getLifeTime(), 1);
-    //    this->lifeTimeScheduled->retain();
-    //Allow rotate
+    CCCallFunc* destroyFunction = CCCallFunc::create(this, callfunc_selector(NormalProjectile::destroy));
+    this->lifeTimeScheduled = ScheduleManager::getInstance()->scheduleFunction(destroyFunction, NULL, this->data.getLifeTime(), 1);
+    this->lifeTimeScheduled->retain();
     // Sprite
     this->sprite = CCSprite::create();
     GameManager::getInstance()->getGameplayHolder().nodeHolder->addChild(this->sprite, this->data.getProjectileData().getStateAnimation().getAnimationLayerIndex());
@@ -255,9 +254,9 @@ void NormalProjectile::shoot()
     //    CCAnimate* action = CCAnimate::create(animationObj->getAnimation());
     //    this->sprite->runAction(action);
     //
-    CCCallFunc* destroyFunction = CCCallFunc::create(this, callfunc_selector(NormalProjectile::destroy));
-    this->lifeTimeScheduled = ScheduleManager::getInstance()->scheduleFunction(destroyFunction, NULL, this->data.getLifeTime(), 1);
-    this->lifeTimeScheduled->retain();
+//    CCCallFunc* destroyFunction = CCCallFunc::create(this, callfunc_selector(NormalProjectile::destroy));
+//    this->lifeTimeScheduled = ScheduleManager::getInstance()->scheduleFunction(destroyFunction, NULL, this->data.getLifeTime(), 1);
+//    this->lifeTimeScheduled->retain();
     //
     //start time tick action
     if(data.getLifeTime() >0 && data.getTimeTick() >0)
@@ -315,8 +314,11 @@ void NormalProjectile::checkCollisionDataInBeginContact(PhysicData* holderData, 
                 //
                 if(listTarget != NULL && this->data.getTimeTick() >0)
                 {
-                    listTarget->addObject(character);
-                    character->attach(this);
+                    if(listTarget->indexOfObject(character) == CC_INVALID_INDEX)
+                    {
+                        listTarget->addObject(character);
+                        character->attach(this);
+                    }
                 }
                 //
                 if(shouldHaveEffect)

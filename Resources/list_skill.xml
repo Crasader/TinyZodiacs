@@ -142,6 +142,7 @@
         <list_effect>
             <enemy>
                 <effect>cat_normal_attack_affect</effect>
+                <effect>lightning</effect>
             </enemy>
         </list_effect>
         <projectile>tower_orb_2</projectile>
@@ -213,6 +214,7 @@
         <list_effect>
             <enemy>
                 <effect>cat_normal_attack_affect</effect>
+                <effect>lightning</effect>
             </enemy>
         </list_effect>
         <projectile>tower_orb_1</projectile>
@@ -240,7 +242,7 @@
             </enemy>
         </list_effect>
         <projectile>tower_orb_1</projectile>
-        <quantity>30</quantity>
+        <quantity>300</quantity>
         <delay_per_shoot>0.1</delay_per_shoot>
         <angle_variability>45</angle_variability>
         <piercing>5</piercing>

@@ -122,10 +122,10 @@
         <crit_chance>1</crit_chance>
         <crit>1.5</crit>
         
-        <hp>-5</hp>
+        <hp>0</hp>
         <atk>0</atk>
         <def>0</def>
-        <speed>0</speed>
+        <speed>-999</speed>
         <atk_speed>0</atk_speed>
         <max_jump>0</max_jump>
         <jump_height>0</jump_height>
