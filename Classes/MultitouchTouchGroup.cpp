@@ -175,6 +175,7 @@ bool MultitouchTouchGroup::init()
 bool MultitouchTouchGroup::checkEventWidget(CCTouch* touch, CCEvent *pEvent)
 {
     checkTouchEvent(m_pRootWidget,touch, pEvent);
+  
     return (m_pSelectedWidgets->count() > 0);
 }
 
@@ -197,5 +198,6 @@ bool MultitouchTouchGroup::checkTouchEvent(cocos2d::gui::Widget *root, CCTouch* 
 //        return true;
 //    }
 //    return pass;
+  
     return TouchGroup::checkTouchEvent(root, touch, pEvent);
 }

@@ -16,6 +16,7 @@
 #include "DataCollector.h"
 #include "TestScene.h"
 #include "LoadingScene.h"
+#include "XMLButtonSelectorParser.h"
 
 USING_NS_CC;
 using namespace cocos2d::gui;

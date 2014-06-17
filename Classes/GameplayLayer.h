@@ -31,12 +31,18 @@ class GameplayLayer: public AbstractScene, public Controller
 private:
     CCArray* defenseList;
     void cloneAndRemoveButton(cocos2d::gui::Widget* ul, HoldableUIButton* mButton,cocos2d::gui::Button* button);
+    
+    CCPoint correctPositionDefenseListGroup;
+    
+    
 protected:
-    cocos2d::gui::LoadingBar *processMonsterLeft;
     cocos2d::gui::LabelBMFont *lblWave, *lblTimeLeft, *lblMoney, *lblMonsterLeft;
     cocos2d::gui::ListView* lvDefense;
+    cocos2d::gui::Layout* defenseListGroup;
+    cocos2d::gui::Layout* actionControlPanel;
     
     void loadAllUI(cocos2d::gui::Widget* ul);
+    void initUI();
 public:
     HoldableUIButton *btnLeft, *btnRight, *btnJump, *btnSkill0, *btnSkill1, *btnSkill2;
     
@@ -64,6 +70,24 @@ public:
     void skill0ButtonTouchEvent(CCObject* sender, cocos2d::gui::TouchEventType type);
     void skill1ButtonTouchEvent(CCObject* sender, cocos2d::gui::TouchEventType type);
     void skill2ButtonTouchEvent(CCObject* sender, cocos2d::gui::TouchEventType type);
+    void openDefenseListButtonTouchEvent(CCObject* sender, cocos2d::gui::TouchEventType type);
+    void closeDefenseListButtonTouchEvent(CCObject* sender, cocos2d::gui::TouchEventType type);
+
+    void openDefenseListView(bool open);
+    
+    void activeDefenseList();
+    void deactiveDefenseList();
+    void activeActionControl();
+    void deactiveActionControl();
+    void openActionControlPanel();
+    void closeActionControlPanel();
+    void openDefenseListGroup();
+    void closeDefenseListGroup();
+    void finishAnimationOfActionControl();
+    void finishAnimationOfDefenseListGroup();
+    void setEnableWidgetInDefenseListGroup(bool able);
+    void setEnableWidgetInActionControl(bool able);
+
     
     void loadDefenseList();
     void refeshDefenseListView(int cost);
