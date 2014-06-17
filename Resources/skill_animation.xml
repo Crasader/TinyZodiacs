@@ -78,7 +78,7 @@
             <frame name="magic_lightning_arrow_middle_5.png" />
         </framelist>
     </animation>
-    
+    <!--
     <animation name="bomb" delay="0.05" loop="infinity">
         <origin x="0.5" y="0.5" />
         <framelist>
@@ -90,7 +90,7 @@
             <frame name="magic_bomb_middle_6.png" />
         </framelist>
     </animation>
-
+-->
 <animation name="lightning_arrow_end" delay="0.05" loop="1">
     <origin x="0.5" y="0.5" />
     <framelist>

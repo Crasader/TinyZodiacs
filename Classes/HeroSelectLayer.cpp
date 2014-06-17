@@ -58,23 +58,31 @@ void HeroSelectLayer::loadHeroPreviewList()
         HeroPreviewDTO* heroPreviewDTO = static_cast<HeroPreviewDTO*>(object);
         
         
-        ImageView* imageView = ImageView::create();
-        imageView->loadTexture(CCString::createWithFormat("%s_idle_1.png",heroPreviewDTO->id.c_str())->getCString(), UI_TEX_TYPE_PLIST);
-        imageView->setAnchorPoint(ccp(0.5f,0.5f));
+        Button* button = Button::create();
+        
+        button->ignoreContentAdaptWithSize(false);
+        button->setSizeType(SIZE_PERCENT);
+        button->setSizePercent(ccp(1,1));
+        TextureSelector textureSelector = XMLButtonSelectorParser::parseData(heroPreviewDTO->buttonID);
+        button->loadTextures(textureSelector.activeTexture.c_str(), textureSelector.selectedTexture.c_str(), textureSelector.deactiveTexture.c_str(), cocos2d::gui::UI_TEX_TYPE_PLIST);
         
         
         Layout* layout = Layout::create();
-        layout->setSize(CCSize(400,200));
+        layout->setSize(CCSize(200,200));
    
         
-        imageView->setPosition(layout->getSize()/2);
-        layout->addChild(imageView);
-        layout->setUserData(heroPreviewDTO);
+        button->setPosition(layout->getSize()/2);;
+        button->setTouchEnabled(true);
+        button->addTouchEventListener(this, toucheventselector(HeroSelectLayer::listItemTouchEvent));
         
-        layout->setTouchEnabled(true);
-        layout->addTouchEventListener(this, toucheventselector(HeroSelectLayer::listItemTouchEvent));
+        layout->addChild(button, 0, 1);
+        layout->setUserData(heroPreviewDTO);
+
         
         lvHeroPreview->pushBackCustomItem(layout);
+        
+        ///
+       
     }
     
 }
@@ -118,7 +126,7 @@ void HeroSelectLayer::listItemTouchEvent(CCObject* sender, cocos2d::gui::TouchEv
             
             DataCollector::getInstance()->getMatchData()->heroIDSelected = heroPreviewDTO->id;
             
-            CCScene* scene = TestScene::scene();
+            CCScene* scene = LoadingScene::scene();
             CCDirector::sharedDirector()->pushScene(scene);
             
             break;

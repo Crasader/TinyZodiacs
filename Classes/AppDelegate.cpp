@@ -13,7 +13,7 @@ typedef struct tagResource
 
 static Resource smallResource  =  { cocos2d::CCSizeMake(320, 240),  "SD" };
 static Resource mediumResource =  { cocos2d::CCSizeMake(800, 480),  "HD"   };
-static Resource largeResource  =  { cocos2d::CCSizeMake(1280, 720), "HDR" };
+static Resource largeResource  =  { cocos2d::CCSizeMake(1280, 800), "HDR" };
 static cocos2d::CCSize designResolutionSize = cocos2d::CCSizeMake(1280, 720);
 
 AppDelegate::AppDelegate() {

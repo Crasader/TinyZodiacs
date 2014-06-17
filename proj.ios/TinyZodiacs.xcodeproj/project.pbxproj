@@ -343,6 +343,7 @@
 		F51A28BB1949F32C00D204BF /* SD in Resources */ = {isa = PBXBuildFile; fileRef = F51A28BA1949F32C00D204BF /* SD */; };
 		F51A482819454D0300E61987 /* HeroSelectScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F51A482619454D0300E61987 /* HeroSelectScene.cpp */; };
 		F51A482B19454D0B00E61987 /* HeroSelectLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F51A482919454D0B00E61987 /* HeroSelectLayer.cpp */; };
+		F52371721950036E00166B49 /* LoadingScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F52371701950036E00166B49 /* LoadingScene.cpp */; };
 		F52678F318EEAEA500CE1E3B /* arial.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F52678E518EEAEA500CE1E3B /* arial.ttf */; };
 		F52678F418EEAEA500CE1E3B /* Marker Felt.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F52678E618EEAEA500CE1E3B /* Marker Felt.ttf */; };
 		F52BB9B9194E9DB900E101A7 /* skill_body.plist in Resources */ = {isa = PBXBuildFile; fileRef = F52BB9B8194E9DB900E101A7 /* skill_body.plist */; };
@@ -428,7 +429,6 @@
 		F5E2929518E6768F00B9B152 /* InfoViewCreator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F5E2929318E6768F00B9B152 /* InfoViewCreator.cpp */; };
 		F5E2929818E6779500B9B152 /* Player.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F5E2929618E6779500B9B152 /* Player.cpp */; };
 		F5E3B9B81917728E00E8FD95 /* MonsterLoader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F5E3B9B61917728E00E8FD95 /* MonsterLoader.cpp */; };
-		F5E8B34A19480FFF00C9B10F /* LoadingScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F5E8B34819480FFF00C9B10F /* LoadingScene.cpp */; };
 		F5EA4325192B438000E63C1A /* ItemCreator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F5EA4323192B438000E63C1A /* ItemCreator.cpp */; };
 		F5EAC341191B652700BE083E /* ItemLoader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F5EAC33F191B652700BE083E /* ItemLoader.cpp */; };
 		F5ECC77A192A02CA00328FBE /* BonusItem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F5ECC778192A02CA00328FBE /* BonusItem.cpp */; };
@@ -457,6 +457,10 @@
 		F5FA1C55194ED750002C73E2 /* coin1_animation.xml in Resources */ = {isa = PBXBuildFile; fileRef = F5FA1C53194ED750002C73E2 /* coin1_animation.xml */; };
 		F5FA1C56194ED750002C73E2 /* container_animation.xml in Resources */ = {isa = PBXBuildFile; fileRef = F5FA1C54194ED750002C73E2 /* container_animation.xml */; };
 		F5FA1C58194ED799002C73E2 /* onion_invert_animation.xml in Resources */ = {isa = PBXBuildFile; fileRef = F5FA1C57194ED799002C73E2 /* onion_invert_animation.xml */; };
+		F5FA1C5F194EE752002C73E2 /* sakkal_shadow.fnt in Resources */ = {isa = PBXBuildFile; fileRef = F5FA1C5B194EE752002C73E2 /* sakkal_shadow.fnt */; };
+		F5FA1C60194EE752002C73E2 /* sakkal_shadow.png in Resources */ = {isa = PBXBuildFile; fileRef = F5FA1C5C194EE752002C73E2 /* sakkal_shadow.png */; };
+		F5FA1C61194EE752002C73E2 /* sakkal.fnt in Resources */ = {isa = PBXBuildFile; fileRef = F5FA1C5D194EE752002C73E2 /* sakkal.fnt */; };
+		F5FA1C62194EE752002C73E2 /* sakkal.png in Resources */ = {isa = PBXBuildFile; fileRef = F5FA1C5E194EE752002C73E2 /* sakkal.png */; };
 		F5FA2BB4194054B300583009 /* maincrystal.xml in Resources */ = {isa = PBXBuildFile; fileRef = F5FA2BB3194054B300583009 /* maincrystal.xml */; };
 		F5FA5B5E1900E78300B80EF0 /* ParameterObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F5FA5B5C1900E78300B80EF0 /* ParameterObject.cpp */; };
 		F5FB8E6519333D060074598C /* Affect.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F5FB8E6319333D060074598C /* Affect.cpp */; };
@@ -1120,6 +1124,8 @@
 		F51A482719454D0300E61987 /* HeroSelectScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HeroSelectScene.h; sourceTree = "<group>"; };
 		F51A482919454D0B00E61987 /* HeroSelectLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = HeroSelectLayer.cpp; sourceTree = "<group>"; };
 		F51A482A19454D0B00E61987 /* HeroSelectLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HeroSelectLayer.h; sourceTree = "<group>"; };
+		F52371701950036E00166B49 /* LoadingScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LoadingScene.cpp; sourceTree = "<group>"; };
+		F52371711950036E00166B49 /* LoadingScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoadingScene.h; sourceTree = "<group>"; };
 		F52678E518EEAEA500CE1E3B /* arial.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = arial.ttf; sourceTree = "<group>"; };
 		F52678E618EEAEA500CE1E3B /* Marker Felt.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Marker Felt.ttf"; sourceTree = "<group>"; };
 		F52BB9B8194E9DB900E101A7 /* skill_body.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = skill_body.plist; sourceTree = "<group>"; };
@@ -1282,8 +1288,6 @@
 		F5E2929718E6779500B9B152 /* Player.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Player.h; sourceTree = "<group>"; };
 		F5E3B9B61917728E00E8FD95 /* MonsterLoader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MonsterLoader.cpp; sourceTree = "<group>"; };
 		F5E3B9B71917728E00E8FD95 /* MonsterLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MonsterLoader.h; sourceTree = "<group>"; };
-		F5E8B34819480FFF00C9B10F /* LoadingScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LoadingScene.cpp; sourceTree = "<group>"; };
-		F5E8B34919480FFF00C9B10F /* LoadingScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoadingScene.h; sourceTree = "<group>"; };
 		F5EA4323192B438000E63C1A /* ItemCreator.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ItemCreator.cpp; sourceTree = "<group>"; };
 		F5EA4324192B438000E63C1A /* ItemCreator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemCreator.h; sourceTree = "<group>"; };
 		F5EAC33F191B652700BE083E /* ItemLoader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ItemLoader.cpp; path = ../Classes/ItemLoader.cpp; sourceTree = "<group>"; };
@@ -1317,6 +1321,10 @@
 		F5FA1C53194ED750002C73E2 /* coin1_animation.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = coin1_animation.xml; sourceTree = "<group>"; };
 		F5FA1C54194ED750002C73E2 /* container_animation.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = container_animation.xml; sourceTree = "<group>"; };
 		F5FA1C57194ED799002C73E2 /* onion_invert_animation.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = onion_invert_animation.xml; sourceTree = "<group>"; };
+		F5FA1C5B194EE752002C73E2 /* sakkal_shadow.fnt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = sakkal_shadow.fnt; path = eng/sakkal_shadow.fnt; sourceTree = "<group>"; };
+		F5FA1C5C194EE752002C73E2 /* sakkal_shadow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = sakkal_shadow.png; path = eng/sakkal_shadow.png; sourceTree = "<group>"; };
+		F5FA1C5D194EE752002C73E2 /* sakkal.fnt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = sakkal.fnt; path = eng/sakkal.fnt; sourceTree = "<group>"; };
+		F5FA1C5E194EE752002C73E2 /* sakkal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = sakkal.png; path = eng/sakkal.png; sourceTree = "<group>"; };
 		F5FA2BB3194054B300583009 /* maincrystal.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = maincrystal.xml; sourceTree = "<group>"; };
 		F5FA5B5C1900E78300B80EF0 /* ParameterObject.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ParameterObject.cpp; sourceTree = "<group>"; };
 		F5FA5B5D1900E78300B80EF0 /* ParameterObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParameterObject.h; sourceTree = "<group>"; };
@@ -2039,6 +2047,7 @@
 		343186F21936EE6600D0D683 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				F523716F1950034F00166B49 /* GameplayLoadingScene */,
 				34B3BDEB1942C71300D3E651 /* MapSelectScene */,
 				34F69CBF1941586F005DD696 /* MainMenuScene */,
 				340423D0193D8F4700223029 /* test_sheet.plist */,
@@ -2571,9 +2580,22 @@
 			name = HeroSelectScene;
 			sourceTree = "<group>";
 		};
+		F523716F1950034F00166B49 /* GameplayLoadingScene */ = {
+			isa = PBXGroup;
+			children = (
+				F52371701950036E00166B49 /* LoadingScene.cpp */,
+				F52371711950036E00166B49 /* LoadingScene.h */,
+			);
+			name = GameplayLoadingScene;
+			sourceTree = "<group>";
+		};
 		F52678E418EEAEA500CE1E3B /* fonts */ = {
 			isa = PBXGroup;
 			children = (
+				F5FA1C5B194EE752002C73E2 /* sakkal_shadow.fnt */,
+				F5FA1C5C194EE752002C73E2 /* sakkal_shadow.png */,
+				F5FA1C5D194EE752002C73E2 /* sakkal.fnt */,
+				F5FA1C5E194EE752002C73E2 /* sakkal.png */,
 				F52678E518EEAEA500CE1E3B /* arial.ttf */,
 				F52678E618EEAEA500CE1E3B /* Marker Felt.ttf */,
 			);
@@ -2725,7 +2747,6 @@
 		F54AE97218D2F09800194E66 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
-				F5E8B34719480FE400C9B10F /* GameplayLoadingScene */,
 				F51A481F19454CAC00E61987 /* HeroSelectScene */,
 				34B3BE101942E2B100D3E651 /* MapSelectScene */,
 				34F69CDC19415B65005DD696 /* MainMenuScene */,
@@ -3034,16 +3055,6 @@
 			name = Item;
 			sourceTree = "<group>";
 		};
-		F5E8B34719480FE400C9B10F /* GameplayLoadingScene */ = {
-			isa = PBXGroup;
-			children = (
-				F5E8B34819480FFF00C9B10F /* LoadingScene.cpp */,
-				F5E8B34919480FFF00C9B10F /* LoadingScene.h */,
-			);
-			name = GameplayLoadingScene;
-			path = ../Resources;
-			sourceTree = "<group>";
-		};
 		F5F5F1071935C8C0006EAEA6 /* Rule */ = {
 			isa = PBXGroup;
 			children = (
@@ -3219,6 +3230,8 @@
 				340DE0A9192C96FA0056D51E /* list_effect.xml in Resources */,
 				342ABFBE194EF61400513B48 /* batchSettings.png in Resources */,
 				343187131936F67200D0D683 /* GUI in Resources */,
+				F5FA1C61194EE752002C73E2 /* sakkal.fnt in Resources */,
+				F5FA1C60194EE752002C73E2 /* sakkal_shadow.png in Resources */,
 				2DC48A84191A356600B34724 /* monster_sensor.plist in Resources */,
 				F5FA1C51194ED741002C73E2 /* tower_1_animation.xml in Resources */,
 				15A3D9961682F7F9002FB0C5 /* CMakeLists.txt in Resources */,
@@ -3229,6 +3242,7 @@
 				F5FA1C36194ED1B8002C73E2 /* hero_list.xml in Resources */,
 				F5FA1C34194ED1B8002C73E2 /* character_monkey.xml in Resources */,
 				340423CF193D8F2800223029 /* ControllerLayer0.png in Resources */,
+				F5FA1C5F194EE752002C73E2 /* sakkal_shadow.fnt in Resources */,
 				F5FA1C3D194ED24C002C73E2 /* monster_onion_invert.xml in Resources */,
 				51136AE21908E69F00317D3A /* map1_body.plist in Resources */,
 				342ABFBD194EF61400513B48 /* batchSettings.plist in Resources */,
@@ -3245,6 +3259,7 @@
 				F5831B131945A4420055798F /* defense_list.xml in Resources */,
 				F5CCA7A4191B5F95002A7F2A /* item_list.xml in Resources */,
 				F5FA1C4D194ED741002C73E2 /* effect_animation.xml in Resources */,
+				F5FA1C62194EE752002C73E2 /* sakkal.png in Resources */,
 				1AFAF8BE16D35E4900DB1158 /* HelloWorld.png in Resources */,
 				2D0DA15A1908F72200881C8D /* tower_1.xml in Resources */,
 				340423D3193D8F4700223029 /* test_sheet.png in Resources */,
@@ -3261,7 +3276,6 @@
 			files = (
 				F58ED4CB19383DA200488E69 /* MonsterBoss.cpp in Sources */,
 				F54AE9B818D2F1AA00194E66 /* CharacterJumpState.cpp in Sources */,
-				F5E8B34A19480FFF00C9B10F /* LoadingScene.cpp in Sources */,
 				15A3D8FF1682F7D5002FB0C5 /* b2BroadPhase.cpp in Sources */,
 				F5DB688D193EC3E400FFF5A1 /* MainHero.cpp in Sources */,
 				F54AE9C418D2F1FC00194E66 /* GameObject.cpp in Sources */,
@@ -3545,6 +3559,7 @@
 				F54AE9B918D2F1AA00194E66 /* CharacterMoveState.cpp in Sources */,
 				379BB9A317F03F3700829B88 /* CCDisplayManager.cpp in Sources */,
 				379BB9A417F03F3700829B88 /* CCSkin.cpp in Sources */,
+				F52371721950036E00166B49 /* LoadingScene.cpp in Sources */,
 				379BB9A517F03F3700829B88 /* CCColliderDetector.cpp in Sources */,
 				F54AE9FC18D2F4A100194E66 /* TestScene.cpp in Sources */,
 				346701F5193978BF00CC4E2B /* XMLAnimationDataParser.cpp in Sources */,
