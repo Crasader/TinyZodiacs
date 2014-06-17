@@ -14,7 +14,6 @@ static GameManager* instance = NULL;
 
 GameManager::GameManager()
 {
-    
 }
 
 GameManager::~GameManager()
@@ -62,14 +61,17 @@ bool GameManager::loadResource()
 bool GameManager::loadSpritesheet(const char* imageFileName, const char* plistFilename, CCTexture2DPixelFormat texturePixelFormat)
 {
     CCTexture2DPixelFormat old = CCTexture2D::defaultAlphaPixelFormat();
+    CCTexture2D::setDefaultAlphaPixelFormat(texturePixelFormat);
     
-    if(old != texturePixelFormat)
-    {
-        CCTexture2D::setDefaultAlphaPixelFormat(texturePixelFormat);
-    }
     CCSpriteFrameCache::sharedSpriteFrameCache()->addSpriteFramesWithFile(plistFilename, imageFileName);
     
     CCTexture2D::setDefaultAlphaPixelFormat(old);
+    return true;
+}
+
+bool GameManager::loadSpritesheet(const char* imageFileName, const char* plistFilename)
+{
+    CCSpriteFrameCache::sharedSpriteFrameCache()->addSpriteFramesWithFile(plistFilename, imageFileName);
     return true;
 }
 
