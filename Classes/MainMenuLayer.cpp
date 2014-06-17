@@ -304,7 +304,7 @@ void MainMenuLayer::googleplusButtonTouchEvent(CCObject* sender, cocos2d::gui::T
 
 CCAction* MainMenuLayer::initButtonAnimation(cocos2d::gui::Widget* target, cocos2d::gui::Widget* parent, CCPoint originalPosition, float originalScale, bool isIn)
 {
-    float duration = 1.25f;
+    float duration = 1.15f;
     
     CCMoveTo* moveToAction;
     CCRotateTo* rotateAction;
@@ -312,7 +312,7 @@ CCAction* MainMenuLayer::initButtonAnimation(cocos2d::gui::Widget* target, cocos
     
     if(isIn)
     {
-        moveToAction = CCMoveTo::create(duration, originalPosition);
+        moveToAction = CCMoveTo::create(duration-0.05, originalPosition);
         rotateAction = CCRotateTo::create(duration, 0);
         scaleAction = CCScaleTo::create(duration, originalScale);
         
@@ -322,7 +322,7 @@ CCAction* MainMenuLayer::initButtonAnimation(cocos2d::gui::Widget* target, cocos
     }
     else
     {
-        moveToAction = CCMoveTo::create(duration, ccp(target->getPositionX(), parent->getPositionY()));
+        moveToAction = CCMoveTo::create(duration-0.15, ccp(target->getPositionX(), parent->getPositionY()));
         rotateAction = CCRotateTo::create(duration, 270);
         scaleAction = CCScaleTo::create(duration, 0);
         
