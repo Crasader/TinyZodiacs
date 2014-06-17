@@ -193,6 +193,10 @@
 		3414166218DC23A0007B8C2B /* GameObjectManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3414166018DC23A0007B8C2B /* GameObjectManager.cpp */; };
 		341AFAC219477DC200693634 /* list_button_selector.xml in Resources */ = {isa = PBXBuildFile; fileRef = 341AFAC119477DC200693634 /* list_button_selector.xml */; };
 		341AFAC519477E7400693634 /* XMLButtonSelectorParser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 341AFAC319477E7400693634 /* XMLButtonSelectorParser.cpp */; };
+		342ABFBD194EF61400513B48 /* batchSettings.plist in Resources */ = {isa = PBXBuildFile; fileRef = 342ABFB8194EF61400513B48 /* batchSettings.plist */; };
+		342ABFBE194EF61400513B48 /* batchSettings.png in Resources */ = {isa = PBXBuildFile; fileRef = 342ABFB9194EF61400513B48 /* batchSettings.png */; };
+		342ABFC0194EF61400513B48 /* MainMenuLayer0.plist in Resources */ = {isa = PBXBuildFile; fileRef = 342ABFBB194EF61400513B48 /* MainMenuLayer0.plist */; };
+		342ABFC1194EF61400513B48 /* MainMenuLayer0.png in Resources */ = {isa = PBXBuildFile; fileRef = 342ABFBC194EF61400513B48 /* MainMenuLayer0.png */; };
 		34315E51193972430058D433 /* AnimationData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 34315E4F193972430058D433 /* AnimationData.cpp */; };
 		343187051936F20E00D0D683 /* HoldableUIButton.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 343187011936F20E00D0D683 /* HoldableUIButton.cpp */; };
 		343187061936F20E00D0D683 /* MultitouchTouchGroup.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 343187021936F20E00D0D683 /* MultitouchTouchGroup.cpp */; };
@@ -214,6 +218,9 @@
 		3486802C18D97940001692BB /* SkillData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3486802A18D97940001692BB /* SkillData.cpp */; };
 		34B1273318EF9619005DAF04 /* NormalShootingSkillData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 34B1273118EF9619005DAF04 /* NormalShootingSkillData.cpp */; };
 		34B1273718EF9619005DAF04 /* SkillType1Parser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 34B1273518EF9619005DAF04 /* SkillType1Parser.cpp */; };
+		34B249A7194FE8E50072B34B /* AssetMusic_Commons_Market.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 34B249A6194FE8E50072B34B /* AssetMusic_Commons_Market.mp3 */; };
+		34B249A9194FE9CB0072B34B /* AssetMusic_Commons_WitchTheme.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 34B249A8194FE9CB0072B34B /* AssetMusic_Commons_WitchTheme.mp3 */; };
+		34B249AD194FFF7C0072B34B /* MainMenuLayer_1.ExportJson in Resources */ = {isa = PBXBuildFile; fileRef = 34B249AC194FFF7C0072B34B /* MainMenuLayer_1.ExportJson */; };
 		34B3BDE11942B2BA00D3E651 /* SoundManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 34B3BDDF1942B2BA00D3E651 /* SoundManager.cpp */; };
 		34B3BDE71942BE3300D3E651 /* shoot.plist in Resources */ = {isa = PBXBuildFile; fileRef = 34B3BDE51942BE3300D3E651 /* shoot.plist */; };
 		34B3BDE81942BE3300D3E651 /* starSky.plist in Resources */ = {isa = PBXBuildFile; fileRef = 34B3BDE61942BE3300D3E651 /* starSky.plist */; };
@@ -241,9 +248,6 @@
 		34EED02218E50E5D001AFFC9 /* NormalMeleeSkillData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 34EED02018E50E5D001AFFC9 /* NormalMeleeSkillData.cpp */; };
 		34EED02518E525DF001AFFC9 /* SkillType0Parser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 34EED02318E525DF001AFFC9 /* SkillType0Parser.cpp */; };
 		34EED02918E5611F001AFFC9 /* Util.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 34EED02718E5611F001AFFC9 /* Util.cpp */; };
-		34F69CC3194158A7005DD696 /* MainMenuLayer_1.ExportJson in Resources */ = {isa = PBXBuildFile; fileRef = 34F69CC0194158A7005DD696 /* MainMenuLayer_1.ExportJson */; };
-		34F69CC4194158A7005DD696 /* MainMenuLayer0.plist in Resources */ = {isa = PBXBuildFile; fileRef = 34F69CC1194158A7005DD696 /* MainMenuLayer0.plist */; };
-		34F69CC5194158A7005DD696 /* MainMenuLayer0.png in Resources */ = {isa = PBXBuildFile; fileRef = 34F69CC2194158A7005DD696 /* MainMenuLayer0.png */; };
 		34F69CC8194159D0005DD696 /* CharacterSoundData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 34F69CC7194159D0005DD696 /* CharacterSoundData.cpp */; };
 		34F69CCB194159F8005DD696 /* XMLCharacterSoundParser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 34F69CC9194159F8005DD696 /* XMLCharacterSoundParser.cpp */; };
 		34F69CD219415A61005DD696 /* cat_jump.wav in Resources */ = {isa = PBXBuildFile; fileRef = 34F69CCF19415A61005DD696 /* cat_jump.wav */; };
@@ -842,6 +846,10 @@
 		341AFAC119477DC200693634 /* list_button_selector.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = list_button_selector.xml; sourceTree = "<group>"; };
 		341AFAC319477E7400693634 /* XMLButtonSelectorParser.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = XMLButtonSelectorParser.cpp; sourceTree = "<group>"; };
 		341AFAC419477E7400693634 /* XMLButtonSelectorParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMLButtonSelectorParser.h; sourceTree = "<group>"; };
+		342ABFB8194EF61400513B48 /* batchSettings.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = batchSettings.plist; sourceTree = "<group>"; };
+		342ABFB9194EF61400513B48 /* batchSettings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = batchSettings.png; sourceTree = "<group>"; };
+		342ABFBB194EF61400513B48 /* MainMenuLayer0.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = MainMenuLayer0.plist; sourceTree = "<group>"; };
+		342ABFBC194EF61400513B48 /* MainMenuLayer0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MainMenuLayer0.png; sourceTree = "<group>"; };
 		34315E4F193972430058D433 /* AnimationData.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = AnimationData.cpp; path = ../Classes/AnimationData.cpp; sourceTree = "<group>"; };
 		34315E50193972430058D433 /* AnimationData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AnimationData.h; path = ../Classes/AnimationData.h; sourceTree = "<group>"; };
 		343187011936F20E00D0D683 /* HoldableUIButton.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = HoldableUIButton.cpp; sourceTree = "<group>"; };
@@ -877,6 +885,9 @@
 		34B1273218EF9619005DAF04 /* NormalShootingSkillData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NormalShootingSkillData.h; sourceTree = "<group>"; };
 		34B1273518EF9619005DAF04 /* SkillType1Parser.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SkillType1Parser.cpp; sourceTree = "<group>"; };
 		34B1273618EF9619005DAF04 /* SkillType1Parser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SkillType1Parser.h; sourceTree = "<group>"; };
+		34B249A6194FE8E50072B34B /* AssetMusic_Commons_Market.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = AssetMusic_Commons_Market.mp3; sourceTree = "<group>"; };
+		34B249A8194FE9CB0072B34B /* AssetMusic_Commons_WitchTheme.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = AssetMusic_Commons_WitchTheme.mp3; sourceTree = "<group>"; };
+		34B249AC194FFF7C0072B34B /* MainMenuLayer_1.ExportJson */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = MainMenuLayer_1.ExportJson; sourceTree = "<group>"; };
 		34B3BDDF1942B2BA00D3E651 /* SoundManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SoundManager.cpp; sourceTree = "<group>"; };
 		34B3BDE01942B2BA00D3E651 /* SoundManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SoundManager.h; sourceTree = "<group>"; };
 		34B3BDE51942BE3300D3E651 /* shoot.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = shoot.plist; sourceTree = "<group>"; };
@@ -926,9 +937,6 @@
 		34EED02618E53C78001AFFC9 /* Constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		34EED02718E5611F001AFFC9 /* Util.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Util.cpp; sourceTree = "<group>"; };
 		34EED02818E5611F001AFFC9 /* Util.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Util.h; sourceTree = "<group>"; };
-		34F69CC0194158A7005DD696 /* MainMenuLayer_1.ExportJson */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = MainMenuLayer_1.ExportJson; sourceTree = "<group>"; };
-		34F69CC1194158A7005DD696 /* MainMenuLayer0.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = MainMenuLayer0.plist; sourceTree = "<group>"; };
-		34F69CC2194158A7005DD696 /* MainMenuLayer0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MainMenuLayer0.png; sourceTree = "<group>"; };
 		34F69CC6194159D0005DD696 /* CharacterSoundData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CharacterSoundData.h; sourceTree = "<group>"; };
 		34F69CC7194159D0005DD696 /* CharacterSoundData.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CharacterSoundData.cpp; sourceTree = "<group>"; };
 		34F69CC9194159F8005DD696 /* XMLCharacterSoundParser.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = XMLCharacterSoundParser.cpp; sourceTree = "<group>"; };
@@ -2128,9 +2136,11 @@
 		34F69CBF1941586F005DD696 /* MainMenuScene */ = {
 			isa = PBXGroup;
 			children = (
-				34F69CC0194158A7005DD696 /* MainMenuLayer_1.ExportJson */,
-				34F69CC1194158A7005DD696 /* MainMenuLayer0.plist */,
-				34F69CC2194158A7005DD696 /* MainMenuLayer0.png */,
+				34B249AC194FFF7C0072B34B /* MainMenuLayer_1.ExportJson */,
+				342ABFB8194EF61400513B48 /* batchSettings.plist */,
+				342ABFB9194EF61400513B48 /* batchSettings.png */,
+				342ABFBB194EF61400513B48 /* MainMenuLayer0.plist */,
+				342ABFBC194EF61400513B48 /* MainMenuLayer0.png */,
 			);
 			name = MainMenuScene;
 			sourceTree = "<group>";
@@ -2148,6 +2158,8 @@
 		34F69CCD19415A27005DD696 /* Musics */ = {
 			isa = PBXGroup;
 			children = (
+				34B249A8194FE9CB0072B34B /* AssetMusic_Commons_WitchTheme.mp3 */,
+				34B249A6194FE8E50072B34B /* AssetMusic_Commons_Market.mp3 */,
 			);
 			name = Musics;
 			sourceTree = "<group>";
@@ -3158,7 +3170,6 @@
 				F5FA1C37194ED1B8002C73E2 /* monster_bull.xml in Resources */,
 				D4EF949A15BD2D8B00D803EB /* Icon-57.png in Resources */,
 				F51A28B91949F24E00D204BF /* HDR in Resources */,
-				34F69CC5194158A7005DD696 /* MainMenuLayer0.png in Resources */,
 				F5FA1C33194ED1B8002C73E2 /* character_cat.xml in Resources */,
 				343638C71944A7DF00602F87 /* MapSelectScene0.plist in Resources */,
 				34F69CD719415A75005DD696 /* character_sounds.xml in Resources */,
@@ -3176,7 +3187,9 @@
 				2D0DA14E1908F6C800881C8D /* test_sheet.png in Resources */,
 				F52678F318EEAEA500CE1E3B /* arial.ttf in Resources */,
 				340423D2193D8F4700223029 /* test_sheet.plist in Resources */,
+				34B249A7194FE8E50072B34B /* AssetMusic_Commons_Market.mp3 in Resources */,
 				34B3BDEA1942C42200D3E651 /* ControllerLayer_1.ExportJson in Resources */,
+				34B249A9194FE9CB0072B34B /* AssetMusic_Commons_WitchTheme.mp3 in Resources */,
 				D4EF949E15BD2D9600D803EB /* Icon-72.png in Resources */,
 				34B3BE201942F26500D3E651 /* list_map.xml in Resources */,
 				F5FA1C3B194ED1B8002C73E2 /* monster_pig.xml in Resources */,
@@ -3188,6 +3201,7 @@
 				F5FA1C35194ED1B8002C73E2 /* character_pig.xml in Resources */,
 				F53ACBAF18D831C700F958A8 /* map2.xml in Resources */,
 				34BFEA1619481AF500501A1D /* list_projectile.xml in Resources */,
+				342ABFC0194EF61400513B48 /* MainMenuLayer0.plist in Resources */,
 				3446809D1943037D00FECCE8 /* MapListItem0.png in Resources */,
 				D41A0AD1160F154A004552AE /* Default-568h@2x.png in Resources */,
 				F5FA1C4F194ED741002C73E2 /* monkey_animation.xml in Resources */,
@@ -3198,29 +3212,31 @@
 				D446FD6E16102124000ADA7B /* Default@2x.png in Resources */,
 				340423CE193D8F2800223029 /* ControllerLayer0.plist in Resources */,
 				F5FA1C38194ED1B8002C73E2 /* monster_cat.xml in Resources */,
+				34B249AD194FFF7C0072B34B /* MainMenuLayer_1.ExportJson in Resources */,
 				F5FA1C55194ED750002C73E2 /* coin1_animation.xml in Resources */,
 				2DE1502E191CCDEC001BD65C /* character_body.plist in Resources */,
 				F561F29118D805BE00DD4598 /* map1.xml in Resources */,
 				340DE0A9192C96FA0056D51E /* list_effect.xml in Resources */,
+				342ABFBE194EF61400513B48 /* batchSettings.png in Resources */,
 				343187131936F67200D0D683 /* GUI in Resources */,
 				2DC48A84191A356600B34724 /* monster_sensor.plist in Resources */,
 				F5FA1C51194ED741002C73E2 /* tower_1_animation.xml in Resources */,
 				15A3D9961682F7F9002FB0C5 /* CMakeLists.txt in Resources */,
+				342ABFC1194EF61400513B48 /* MainMenuLayer0.png in Resources */,
 				F5FA1C4A194ED741002C73E2 /* cat_animation.xml in Resources */,
 				F5FA1C50194ED741002C73E2 /* pig_animation.xml in Resources */,
 				341AFAC219477DC200693634 /* list_button_selector.xml in Resources */,
 				F5FA1C36194ED1B8002C73E2 /* hero_list.xml in Resources */,
-				34F69CC3194158A7005DD696 /* MainMenuLayer_1.ExportJson in Resources */,
 				F5FA1C34194ED1B8002C73E2 /* character_monkey.xml in Resources */,
 				340423CF193D8F2800223029 /* ControllerLayer0.png in Resources */,
 				F5FA1C3D194ED24C002C73E2 /* monster_onion_invert.xml in Resources */,
 				51136AE21908E69F00317D3A /* map1_body.plist in Resources */,
+				342ABFBD194EF61400513B48 /* batchSettings.plist in Resources */,
 				343638C81944A7DF00602F87 /* MapSelectScene0.png in Resources */,
 				1AFAF8BC16D35E4900DB1158 /* CloseNormal.png in Resources */,
 				1AFAF8BC16D35E4900DB1158 /* CloseNormal.png in Resources */,
 				2D0DA15D1908F72200881C8D /* tower_2.xml in Resources */,
 				F5FA1C52194ED741002C73E2 /* tower_2_animation.xml in Resources */,
-				34F69CC4194158A7005DD696 /* MainMenuLayer0.plist in Resources */,
 				34F69CD219415A61005DD696 /* cat_jump.wav in Resources */,
 				F5FA1C39194ED1B8002C73E2 /* monster_monkey.xml in Resources */,
 				34F69CD419415A61005DD696 /* cat_hurt.wav in Resources */,

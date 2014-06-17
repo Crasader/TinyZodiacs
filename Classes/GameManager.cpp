@@ -115,7 +115,7 @@ bool GameManager::loadResource()
 
 bool GameManager::loadSpritesheet(const char* imageFileName, const char* plistFilename, CCTexture2DPixelFormat texturePixelFormat)
 {
-    CCTexture2D::setDefaultAlphaPixelFormat(texturePixelFormat);
+//    CCTexture2D::setDefaultAlphaPixelFormat(texturePixelFormat);
     CCSpriteFrameCache::sharedSpriteFrameCache()->addSpriteFramesWithFile(plistFilename, imageFileName);
    // CCTexture2D::setDefaultAlphaPixelFormat(kTexture2DPixelFormat_Default);
     return true;

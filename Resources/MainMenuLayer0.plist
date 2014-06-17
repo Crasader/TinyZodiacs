@@ -175,6 +175,25 @@
 				<key>offsetY</key>
 				<real>0</real>
 			</dict>
+			<key>panel_11.png</key>
+			<dict>
+				<key>width</key>
+				<integer>182</integer>
+				<key>height</key>
+				<integer>296</integer>
+				<key>originalWidth</key>
+				<integer>182</integer>
+				<key>originalHeight</key>
+				<integer>296</integer>
+				<key>x</key>
+				<integer>1634</integer>
+				<key>y</key>
+				<integer>1226</integer>
+				<key>offsetX</key>
+				<real>0</real>
+				<key>offsetY</key>
+				<real>0</real>
+			</dict>
 		</dict>
 		<key>metadata</key>
 		<dict>

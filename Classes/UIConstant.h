@@ -16,4 +16,7 @@
 #define SKILL_1_BTN_ID "4"
 #define SKILL_2_BTN_ID "5"
 
+#define SOUND_KEY "sound"
+#define MUSIC_KEY "music"
+
 #endif
