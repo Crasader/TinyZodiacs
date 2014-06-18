@@ -8,6 +8,7 @@
 
 #include "GameplayLayer.h"
 #include "UIListView.h"
+#include "PauseLayer.h"
 
 using cocos2d::gui::SEL_TouchEvent;
 using namespace cocos2d::gui;
@@ -98,7 +99,7 @@ void GameplayLayer::loadAllUI(cocos2d::gui::Widget* ul)
     lblMoney  = (cocos2d::gui::LabelBMFont*)ul->getChildByName("information_layer")->getChildByName("money_panel")->getChildByName("money_text");
     lblMonsterLeft  = (cocos2d::gui::LabelBMFont*)ul->getChildByName("information_layer")->getChildByName("wave_information_panel")->getChildByName("monster_left_text");
     
-    btnPause = (cocos2d::gui::UIButton*)ul->getChildByName("information_layer")->getChildByName("pause_button");
+    btnPause = (cocos2d::gui::UIButton*)ul->getChildByName("information_layer")->getChildByName("time_panel")->getChildByName("pause_button");
     //
     resultImage = (cocos2d::gui::ImageView*)ul->getChildByName("result_title");
     
@@ -118,11 +119,9 @@ void GameplayLayer::loadAllUI(cocos2d::gui::Widget* ul)
     this->actionControlPanel->getChildByName("defense_list_open_button")->addTouchEventListener(this, toucheventselector(GameplayLayer::openDefenseListButtonTouchEvent));
     
     this->defenseListGroup->getChildByName("defense_list_toggle")->addTouchEventListener(this, toucheventselector(GameplayLayer::closeDefenseListButtonTouchEvent));
-//    
-//    this->lvDefense->setBackGroundColorType(LAYOUT_COLOR_SOLID);
-//    this->lvDefense->setBackGroundColor(ccc3(0,255,0));
-//    this->lvDefense->setItemsMargin(10);
-    this->lvDefense->setBounceEnabled(false);
+
+    this->lvDefense->setBounceEnabled(true);
+    this->lvDefense->setInertiaScrollEnabled(false);
     
     correctPositionDefenseListGroup = this->defenseListGroup->getPosition();
     
@@ -465,7 +464,7 @@ void GameplayLayer::pauseButtonTouchEvent(CCObject* sender, cocos2d::gui::TouchE
         case cocos2d::gui::TOUCH_EVENT_CANCELED:
             break;
         case cocos2d::gui::TOUCH_EVENT_ENDED:
-            ControllerManager::getInstance()->sendCommand(GAME_MATCH_CONTROLLER, QUIT_GAME);
+            this->getParent()->addChild(PauseLayer::create(),5);
             break;
         default:
             break;

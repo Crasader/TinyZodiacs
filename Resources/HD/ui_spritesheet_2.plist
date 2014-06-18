@@ -7,7 +7,7 @@
             <key>button_back_active.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{330,757},{111,32}}</string>
+                <string>{{1276,115},{111,32}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -20,7 +20,7 @@
             <key>button_back_pressed.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{330,644},{111,32}}</string>
+                <string>{{1276,2},{111,32}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -33,7 +33,7 @@
             <key>map1_icon_active.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{173,1052},{134,155}}</string>
+                <string>{{1115,221},{134,155}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -46,7 +46,7 @@
             <key>map1_icon_pressed.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{173,916},{134,155}}</string>
+                <string>{{958,173},{134,155}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -59,7 +59,7 @@
             <key>map_lock.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{173,780},{134,155}}</string>
+                <string>{{801,173},{134,155}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -72,7 +72,7 @@
             <key>map_lock_pressed.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{173,644},{134,155}}</string>
+                <string>{{644,173},{134,155}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -85,11 +85,11 @@
             <key>panel_1.jpg</key>
             <dict>
                 <key>frame</key>
-                <string>{{2,644},{542,169}}</string>
+                <string>{{644,2},{542,169}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
-                <true/>
+                <false/>
                 <key>sourceColorRect</key>
                 <string>{{0,0},{542,169}}</string>
                 <key>sourceSize</key>
@@ -102,11 +102,89 @@
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
-                <true/>
+                <false/>
                 <key>sourceColorRect</key>
                 <string>{{0,0},{640,360}}</string>
                 <key>sourceSize</key>
                 <string>{640,360}</string>
+            </dict>
+            <key>panel_8.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{1188,2},{217,86}}</string>
+                <key>offset</key>
+                <string>{0,0}</string>
+                <key>rotated</key>
+                <true/>
+                <key>sourceColorRect</key>
+                <string>{{0,0},{217,86}}</string>
+                <key>sourceSize</key>
+                <string>{217,86}</string>
+            </dict>
+            <key>pause_text.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{1272,228},{85,25}}</string>
+                <key>offset</key>
+                <string>{0,0}</string>
+                <key>rotated</key>
+                <true/>
+                <key>sourceColorRect</key>
+                <string>{{0,0},{85,25}}</string>
+                <key>sourceSize</key>
+                <string>{85,25}</string>
+            </dict>
+            <key>quit_button.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{761,309},{115,41}}</string>
+                <key>offset</key>
+                <string>{0,0}</string>
+                <key>rotated</key>
+                <false/>
+                <key>sourceColorRect</key>
+                <string>{{0,0},{115,41}}</string>
+                <key>sourceSize</key>
+                <string>{115,41}</string>
+            </dict>
+            <key>quit_button_selected.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{644,309},{115,41}}</string>
+                <key>offset</key>
+                <string>{0,0}</string>
+                <key>rotated</key>
+                <false/>
+                <key>sourceColorRect</key>
+                <string>{{0,0},{115,41}}</string>
+                <key>sourceSize</key>
+                <string>{115,41}</string>
+            </dict>
+            <key>resume_button.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{993,309},{113,41}}</string>
+                <key>offset</key>
+                <string>{0,0}</string>
+                <key>rotated</key>
+                <false/>
+                <key>sourceColorRect</key>
+                <string>{{0,0},{113,41}}</string>
+                <key>sourceSize</key>
+                <string>{113,41}</string>
+            </dict>
+            <key>resume_button_selected.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{878,309},{113,41}}</string>
+                <key>offset</key>
+                <string>{0,0}</string>
+                <key>rotated</key>
+                <false/>
+                <key>sourceColorRect</key>
+                <string>{{0,0},{113,41}}</string>
+                <key>sourceSize</key>
+                <string>{113,41}</string>
             </dict>
         </dict>
         <key>metadata</key>
@@ -116,9 +194,9 @@
             <key>realTextureFileName</key>
             <string>ui_spritesheet_2.png</string>
             <key>size</key>
-            <string>{364,1188}</string>
+            <string>{1310,364}</string>
             <key>smartupdate</key>
-            <string>$TexturePacker:SmartUpdate:d71d67752c018361d7d3d0c1b5e8254e:2ab16b585ca276afba077dc133e8052b:a0c0c96cf91d49b4a4c7fa46bea5e606$</string>
+            <string>$TexturePacker:SmartUpdate:872215747c07445837d7f3b893fa887a:c38c76d946a2974f155ca1d670205123:a0c0c96cf91d49b4a4c7fa46bea5e606$</string>
             <key>textureFileName</key>
             <string>ui_spritesheet_2.png</string>
         </dict>

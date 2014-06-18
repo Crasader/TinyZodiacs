@@ -221,7 +221,6 @@
 		34B249A7194FE8E50072B34B /* AssetMusic_Commons_Market.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 34B249A6194FE8E50072B34B /* AssetMusic_Commons_Market.mp3 */; };
 		34B249A9194FE9CB0072B34B /* AssetMusic_Commons_WitchTheme.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 34B249A8194FE9CB0072B34B /* AssetMusic_Commons_WitchTheme.mp3 */; };
 		34B249AD194FFF7C0072B34B /* MainMenuLayer_1.ExportJson in Resources */ = {isa = PBXBuildFile; fileRef = 34B249AC194FFF7C0072B34B /* MainMenuLayer_1.ExportJson */; };
-		34B249BD19503F890072B34B /* ControllerLayer_1.ExportJson in Resources */ = {isa = PBXBuildFile; fileRef = 34B249BC19503F890072B34B /* ControllerLayer_1.ExportJson */; };
 		34B3BDE11942B2BA00D3E651 /* SoundManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 34B3BDDF1942B2BA00D3E651 /* SoundManager.cpp */; };
 		34B3BDE71942BE3300D3E651 /* shoot.plist in Resources */ = {isa = PBXBuildFile; fileRef = 34B3BDE51942BE3300D3E651 /* shoot.plist */; };
 		34B3BDE81942BE3300D3E651 /* starSky.plist in Resources */ = {isa = PBXBuildFile; fileRef = 34B3BDE61942BE3300D3E651 /* starSky.plist */; };
@@ -234,6 +233,9 @@
 		34BFEA1919483BF700501A1D /* ProjectileData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 34BFEA1719483BF700501A1D /* ProjectileData.cpp */; };
 		34BFEA1C19483DBF00501A1D /* ProjectileStateAnimationData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 34BFEA1A19483DBF00501A1D /* ProjectileStateAnimationData.cpp */; };
 		34BFEA1F19483ED000501A1D /* XMLProjectileDataParser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 34BFEA1D19483ED000501A1D /* XMLProjectileDataParser.cpp */; };
+		34CC3F3219513F1400CB46F0 /* ControllerLayer_1.ExportJson in Resources */ = {isa = PBXBuildFile; fileRef = 34CC3F3119513F1400CB46F0 /* ControllerLayer_1.ExportJson */; };
+		34CC3F37195151D900CB46F0 /* PauseLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 34CC3F35195151D900CB46F0 /* PauseLayer.cpp */; };
+		34CC3F3D1951799600CB46F0 /* PauseLayer.ExportJson in Resources */ = {isa = PBXBuildFile; fileRef = 34CC3F3C1951799600CB46F0 /* PauseLayer.ExportJson */; };
 		34E614DD191338DC006D933E /* GameGroup.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 34E614DB191338DC006D933E /* GameGroup.cpp */; };
 		34E614E0191339A6006D933E /* MonsterFactory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 34E614DE191339A6006D933E /* MonsterFactory.cpp */; };
 		34E614E319133A2B006D933E /* MonsterCreator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 34E614E119133A2B006D933E /* MonsterCreator.cpp */; };
@@ -892,7 +894,6 @@
 		34B249A6194FE8E50072B34B /* AssetMusic_Commons_Market.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = AssetMusic_Commons_Market.mp3; sourceTree = "<group>"; };
 		34B249A8194FE9CB0072B34B /* AssetMusic_Commons_WitchTheme.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = AssetMusic_Commons_WitchTheme.mp3; sourceTree = "<group>"; };
 		34B249AC194FFF7C0072B34B /* MainMenuLayer_1.ExportJson */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = MainMenuLayer_1.ExportJson; sourceTree = "<group>"; };
-		34B249BC19503F890072B34B /* ControllerLayer_1.ExportJson */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ControllerLayer_1.ExportJson; sourceTree = "<group>"; };
 		34B3BDDF1942B2BA00D3E651 /* SoundManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SoundManager.cpp; sourceTree = "<group>"; };
 		34B3BDE01942B2BA00D3E651 /* SoundManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SoundManager.h; sourceTree = "<group>"; };
 		34B3BDE51942BE3300D3E651 /* shoot.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = shoot.plist; sourceTree = "<group>"; };
@@ -913,6 +914,10 @@
 		34BFEA1B19483DBF00501A1D /* ProjectileStateAnimationData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProjectileStateAnimationData.h; sourceTree = "<group>"; };
 		34BFEA1D19483ED000501A1D /* XMLProjectileDataParser.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = XMLProjectileDataParser.cpp; sourceTree = "<group>"; };
 		34BFEA1E19483ED000501A1D /* XMLProjectileDataParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMLProjectileDataParser.h; sourceTree = "<group>"; };
+		34CC3F3119513F1400CB46F0 /* ControllerLayer_1.ExportJson */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ControllerLayer_1.ExportJson; sourceTree = "<group>"; };
+		34CC3F35195151D900CB46F0 /* PauseLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PauseLayer.cpp; sourceTree = "<group>"; };
+		34CC3F36195151D900CB46F0 /* PauseLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PauseLayer.h; sourceTree = "<group>"; };
+		34CC3F3C1951799600CB46F0 /* PauseLayer.ExportJson */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = PauseLayer.ExportJson; sourceTree = "<group>"; };
 		34E614DB191338DC006D933E /* GameGroup.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameGroup.cpp; sourceTree = "<group>"; };
 		34E614DC191338DC006D933E /* GameGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameGroup.h; sourceTree = "<group>"; };
 		34E614DE191339A6006D933E /* MonsterFactory.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MonsterFactory.cpp; sourceTree = "<group>"; };
@@ -2047,7 +2052,6 @@
 		343186F21936EE6600D0D683 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
-				F523716F1950034F00166B49 /* GameplayLoadingScene */,
 				34B3BDEB1942C71300D3E651 /* MapSelectScene */,
 				34F69CBF1941586F005DD696 /* MainMenuScene */,
 				340423D0193D8F4700223029 /* test_sheet.plist */,
@@ -2060,7 +2064,8 @@
 		343186F31936EE6F00D0D683 /* GameplayScene */ = {
 			isa = PBXGroup;
 			children = (
-				34B249BC19503F890072B34B /* ControllerLayer_1.ExportJson */,
+				34CC3F3C1951799600CB46F0 /* PauseLayer.ExportJson */,
+				34CC3F3119513F1400CB46F0 /* ControllerLayer_1.ExportJson */,
 				340423CB193D8F2800223029 /* ControllerLayer0.plist */,
 				340423CC193D8F2800223029 /* ControllerLayer0.png */,
 				3431870D1936F67200D0D683 /* GUI */,
@@ -2587,6 +2592,7 @@
 				F52371711950036E00166B49 /* LoadingScene.h */,
 			);
 			name = GameplayLoadingScene;
+			path = ../Resources;
 			sourceTree = "<group>";
 		};
 		F52678E418EEAEA500CE1E3B /* fonts */ = {
@@ -2747,6 +2753,7 @@
 		F54AE97218D2F09800194E66 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				F523716F1950034F00166B49 /* GameplayLoadingScene */,
 				F51A481F19454CAC00E61987 /* HeroSelectScene */,
 				34B3BE101942E2B100D3E651 /* MapSelectScene */,
 				34F69CDC19415B65005DD696 /* MainMenuScene */,
@@ -2823,6 +2830,8 @@
 				F54AE9FF18D2F4C100194E66 /* GameObjectLayer.h */,
 				F54AE9FA18D2F4A100194E66 /* TestScene.cpp */,
 				F54AE9FB18D2F4A100194E66 /* TestScene.h */,
+				34CC3F35195151D900CB46F0 /* PauseLayer.cpp */,
+				34CC3F36195151D900CB46F0 /* PauseLayer.h */,
 			);
 			name = GamePlayScene;
 			sourceTree = "<group>";
@@ -3173,9 +3182,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				F5FA1C4B194ED741002C73E2 /* creep_1_animation.xml in Resources */,
+				34CC3F3D1951799600CB46F0 /* PauseLayer.ExportJson in Resources */,
 				F5FA1C3A194ED1B8002C73E2 /* monster_onion.xml in Resources */,
 				F5FA1C58194ED799002C73E2 /* onion_invert_animation.xml in Resources */,
-				34B249BD19503F890072B34B /* ControllerLayer_1.ExportJson in Resources */,
+				34CC3F3219513F1400CB46F0 /* ControllerLayer_1.ExportJson in Resources */,
 				F51A28BB1949F32C00D204BF /* SD in Resources */,
 				F51A28B81949F24E00D204BF /* HD in Resources */,
 				7855E0E1153FEF240059DD9A /* Default.png in Resources */,
@@ -3594,6 +3604,7 @@
 				379BB9B617F03F3700829B88 /* UILayoutParameter.cpp in Sources */,
 				379BB9B717F03F3700829B88 /* UILayoutDefine.cpp in Sources */,
 				34E614DD191338DC006D933E /* GameGroup.cpp in Sources */,
+				34CC3F37195151D900CB46F0 /* PauseLayer.cpp in Sources */,
 				F50426AE190E0A6F001352B0 /* ActionZoomFollow.cpp in Sources */,
 				F54AE9BE18D2F1AA00194E66 /* CharacterState.cpp in Sources */,
 				379BB9B817F03F3700829B88 /* CocosGUI.cpp in Sources */,

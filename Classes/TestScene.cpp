@@ -61,9 +61,6 @@ CCScene* TestScene::scene()
     GameObjectLayer* objectLayer = GameObjectLayer::create();
     scene->addChild(objectLayer, GAME_OBJECT_LAYER, 3);
     
-
-    
-    
     // return the scene
     return scene;
 }
