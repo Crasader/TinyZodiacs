@@ -47,7 +47,7 @@ void LoadingScene::initScene()
 {
     CCSize winSize = CCDirector::sharedDirector()->getWinSize();
     
-        CCSprite* background = CCSprite::createWithSpriteFrameName("back_ground.jpg");
+        CCSprite* background = CCSprite::createWithSpriteFrameName("LOADING.jpg");
         background->setAnchorPoint(ccp(0.5,0.5));
         background->setPosition(ccp(winSize.width/2,winSize.height/2));
         this->addChild(background);

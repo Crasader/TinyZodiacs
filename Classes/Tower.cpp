@@ -34,15 +34,6 @@ bool Tower::init()
 
 Tower::~Tower()
 {
-    //    if(this->skill1Animation != NULL)
-    //    {
-    //        this->skill1Animation->release();
-    //    }
-    //    if(this->skill2Animation != NULL)
-    //    {
-    //        this->skill2Animation->release();
-    //    }
-    //    this->body->GetWorld()->DestroyBody(this->sensor);
     this->listTarget->release();
 }
 

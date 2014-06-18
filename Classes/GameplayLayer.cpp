@@ -98,6 +98,9 @@ void GameplayLayer::loadAllUI(cocos2d::gui::Widget* ul)
     lblMoney  = (cocos2d::gui::LabelBMFont*)ul->getChildByName("information_layer")->getChildByName("money_panel")->getChildByName("money_text");
     lblMonsterLeft  = (cocos2d::gui::LabelBMFont*)ul->getChildByName("information_layer")->getChildByName("wave_information_panel")->getChildByName("monster_left_text");
     
+    btnPause = (cocos2d::gui::UIButton*)ul->getChildByName("information_layer")->getChildByName("pause_button");
+    //
+    resultImage = (cocos2d::gui::ImageView*)ul->getChildByName("result_title");
     
     //add touch event
     this->btnLeft->addTouchEventListener(this, toucheventselector(GameplayLayer::leftButtonTouchEvent));
@@ -106,8 +109,7 @@ void GameplayLayer::loadAllUI(cocos2d::gui::Widget* ul)
     this->btnSkill0->addTouchEventListener(this, toucheventselector(GameplayLayer::skill0ButtonTouchEvent));
     this->btnSkill1->addTouchEventListener(this, toucheventselector(GameplayLayer::skill1ButtonTouchEvent));
     this->btnSkill2->addTouchEventListener(this, toucheventselector(GameplayLayer::skill2ButtonTouchEvent));
-    
-    
+    this->btnPause->addTouchEventListener(this, toucheventselector(GameplayLayer::pauseButtonTouchEvent));
     
     this->lvDefense = (ListView*)this->defenseListGroup->getChildByName("defense_list_panel")->getChildByName("defense_list");
     this->lvDefense->setGravity(LISTVIEW_GRAVITY_CENTER_VERTICAL);
@@ -120,6 +122,8 @@ void GameplayLayer::loadAllUI(cocos2d::gui::Widget* ul)
 //    this->lvDefense->setBackGroundColorType(LAYOUT_COLOR_SOLID);
 //    this->lvDefense->setBackGroundColor(ccc3(0,255,0));
 //    this->lvDefense->setItemsMargin(10);
+    this->lvDefense->setBounceEnabled(false);
+    
     correctPositionDefenseListGroup = this->defenseListGroup->getPosition();
     
 }
@@ -191,26 +195,16 @@ bool GameplayLayer::receiveCommand(CommandID commandID, void* data)
         case DISPLAY_RESULT:
         {
             int* waveNumber = static_cast<int*>(data);
-            
-            CCSize size = CCDirector::sharedDirector()->getWinSize();
-            
-            CCLabelTTF* labelStyle = CCLabelTTF::create("", "Marker Felt", 150);
-            labelStyle->setOpacity(100);
-            
-            TextShowEffect* effect = TextShowEffect::create();
-            if(waveNumber == 0)
+            resultImage->setVisible(true);
+            if(*waveNumber == 0)
             {
-                effect->setContent("LOSE");
+                resultImage->loadTexture("defeat_title.png",UI_TEX_TYPE_PLIST);
             }
             else
             {
-                effect->setContent("WIN");
+                resultImage->loadTexture("victory_title.png",UI_TEX_TYPE_PLIST);
+
             }
-            
-            effect->setLabelStyle(labelStyle);
-            
-            EffectManager::getInstance()->runEffect(effect, ccp(size.width/2, size.height/2),this);
-            
             setWaveValue(*waveNumber);
             delete waveNumber;
         }
@@ -373,18 +367,6 @@ void GameplayLayer::jumpButtonTouchEvent(CCObject* sender, cocos2d::gui::TouchEv
         case cocos2d::gui::TOUCH_EVENT_BEGAN:
             ControllerManager::getInstance()->sendCommand(HERO_CONTROLLER,  HERO_MOVE_JUMP);
             break;
-            //        case cocos2d::gui::TOUCH_EVENT_MOVED:
-            //            ControllerManager::getInstance()->sendCommand(HERO_CONTROLLER,  HERO_MOVE_RIGHT);
-            //            break;
-            //        case cocos2d::gui::TOUCH_EVENT_HOLD:
-            //            ControllerManager::getInstance()->sendCommand(HERO_CONTROLLER,  HERO_MOVE_RIGHT);
-            //            break;
-            //        case cocos2d::gui::TOUCH_EVENT_CANCELED:
-            //            ControllerManager::getInstance()->sendCommand(HERO_CONTROLLER,  HERO_MOVE_STOP);
-            //            break;
-            //        case cocos2d::gui::TOUCH_EVENT_ENDED:
-            //            ControllerManager::getInstance()->sendCommand(HERO_CONTROLLER,  HERO_MOVE_STOP);
-            //            break;
         default:
             break;
     }
@@ -396,18 +378,6 @@ void GameplayLayer::skill0ButtonTouchEvent(CCObject* sender, cocos2d::gui::Touch
         case cocos2d::gui::TOUCH_EVENT_BEGAN:
             ControllerManager::getInstance()->sendCommand(HERO_CONTROLLER,  HERO_ATTACK_0);
             break;
-            //        case cocos2d::gui::TOUCH_EVENT_MOVED:
-            //
-            //            break;
-            //        case cocos2d::gui::TOUCH_EVENT_HOLD:
-            //
-            //            break;
-            //        case cocos2d::gui::TOUCH_EVENT_CANCELED:
-            //
-            //            break;
-            //        case cocos2d::gui::TOUCH_EVENT_ENDED:
-            //
-            //            break;
         default:
             break;
     }
@@ -419,18 +389,6 @@ void GameplayLayer::skill1ButtonTouchEvent(CCObject* sender, cocos2d::gui::Touch
         case cocos2d::gui::TOUCH_EVENT_BEGAN:
             ControllerManager::getInstance()->sendCommand(HERO_CONTROLLER,  HERO_ATTACK_1);
             break;
-            //        case cocos2d::gui::TOUCH_EVENT_MOVED:
-            //
-            //            break;
-            //        case cocos2d::gui::TOUCH_EVENT_HOLD:
-            //
-            //            break;
-            //        case cocos2d::gui::TOUCH_EVENT_CANCELED:
-            //
-            //            break;
-            //        case cocos2d::gui::TOUCH_EVENT_ENDED:
-            //
-            //            break;
         default:
             break;
     }
@@ -442,18 +400,6 @@ void GameplayLayer::skill2ButtonTouchEvent(CCObject* sender, cocos2d::gui::Touch
         case cocos2d::gui::TOUCH_EVENT_BEGAN:
             ControllerManager::getInstance()->sendCommand(HERO_CONTROLLER,  HERO_ATTACK_2);
             break;
-            //        case cocos2d::gui::TOUCH_EVENT_MOVED:
-            //
-            //            break;
-            //        case cocos2d::gui::TOUCH_EVENT_HOLD:
-            //
-            //            break;
-            //        case cocos2d::gui::TOUCH_EVENT_CANCELED:
-            //
-            //            break;
-            //        case cocos2d::gui::TOUCH_EVENT_ENDED:
-            //
-            //            break;
         default:
             break;
     }
@@ -507,6 +453,24 @@ void GameplayLayer::closeDefenseListButtonTouchEvent(CCObject* sender, cocos2d::
     }
 }
 
+void GameplayLayer::pauseButtonTouchEvent(CCObject* sender, cocos2d::gui::TouchEventType type)
+{
+    switch (type) {
+        case cocos2d::gui::TOUCH_EVENT_BEGAN:
+            break;
+        case cocos2d::gui::TOUCH_EVENT_MOVED:
+            break;
+        case cocos2d::gui::TOUCH_EVENT_HOLD:
+            break;
+        case cocos2d::gui::TOUCH_EVENT_CANCELED:
+            break;
+        case cocos2d::gui::TOUCH_EVENT_ENDED:
+            ControllerManager::getInstance()->sendCommand(GAME_MATCH_CONTROLLER, QUIT_GAME);
+            break;
+        default:
+            break;
+    }
+}
 
 
 void GameplayLayer::openDefenseListView(bool open)

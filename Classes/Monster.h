@@ -64,6 +64,8 @@ public:
     virtual void detach(Observer* observer);
     virtual void notifyToDestroy();
     
+    void playSoundByState(CharacterSound characterSoundState);
+    
     CREATE_FUNC(Monster);
 };
 

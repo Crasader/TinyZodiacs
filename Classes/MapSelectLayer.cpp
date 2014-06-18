@@ -70,6 +70,7 @@ void MapSelectLayer::backButtonTouchEvent(CCObject* sender, cocos2d::gui::TouchE
         case cocos2d::gui::TOUCH_EVENT_CANCELED:
             break;
         case cocos2d::gui::TOUCH_EVENT_ENDED:
+            
             CCDirector::sharedDirector()->popScene();
             break;
         default:

@@ -221,10 +221,10 @@
 		34B249A7194FE8E50072B34B /* AssetMusic_Commons_Market.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 34B249A6194FE8E50072B34B /* AssetMusic_Commons_Market.mp3 */; };
 		34B249A9194FE9CB0072B34B /* AssetMusic_Commons_WitchTheme.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 34B249A8194FE9CB0072B34B /* AssetMusic_Commons_WitchTheme.mp3 */; };
 		34B249AD194FFF7C0072B34B /* MainMenuLayer_1.ExportJson in Resources */ = {isa = PBXBuildFile; fileRef = 34B249AC194FFF7C0072B34B /* MainMenuLayer_1.ExportJson */; };
+		34B249BD19503F890072B34B /* ControllerLayer_1.ExportJson in Resources */ = {isa = PBXBuildFile; fileRef = 34B249BC19503F890072B34B /* ControllerLayer_1.ExportJson */; };
 		34B3BDE11942B2BA00D3E651 /* SoundManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 34B3BDDF1942B2BA00D3E651 /* SoundManager.cpp */; };
 		34B3BDE71942BE3300D3E651 /* shoot.plist in Resources */ = {isa = PBXBuildFile; fileRef = 34B3BDE51942BE3300D3E651 /* shoot.plist */; };
 		34B3BDE81942BE3300D3E651 /* starSky.plist in Resources */ = {isa = PBXBuildFile; fileRef = 34B3BDE61942BE3300D3E651 /* starSky.plist */; };
-		34B3BDEA1942C42200D3E651 /* ControllerLayer_1.ExportJson in Resources */ = {isa = PBXBuildFile; fileRef = 34B3BDE91942C42200D3E651 /* ControllerLayer_1.ExportJson */; };
 		34B3BE131942E2D200D3E651 /* MapSelectScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 34B3BE111942E2D200D3E651 /* MapSelectScene.cpp */; };
 		34B3BE161942E35800D3E651 /* MapSelectLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 34B3BE141942E35800D3E651 /* MapSelectLayer.cpp */; };
 		34B3BE201942F26500D3E651 /* list_map.xml in Resources */ = {isa = PBXBuildFile; fileRef = 34B3BE1F1942F26500D3E651 /* list_map.xml */; };
@@ -892,11 +892,11 @@
 		34B249A6194FE8E50072B34B /* AssetMusic_Commons_Market.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = AssetMusic_Commons_Market.mp3; sourceTree = "<group>"; };
 		34B249A8194FE9CB0072B34B /* AssetMusic_Commons_WitchTheme.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = AssetMusic_Commons_WitchTheme.mp3; sourceTree = "<group>"; };
 		34B249AC194FFF7C0072B34B /* MainMenuLayer_1.ExportJson */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = MainMenuLayer_1.ExportJson; sourceTree = "<group>"; };
+		34B249BC19503F890072B34B /* ControllerLayer_1.ExportJson */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ControllerLayer_1.ExportJson; sourceTree = "<group>"; };
 		34B3BDDF1942B2BA00D3E651 /* SoundManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SoundManager.cpp; sourceTree = "<group>"; };
 		34B3BDE01942B2BA00D3E651 /* SoundManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SoundManager.h; sourceTree = "<group>"; };
 		34B3BDE51942BE3300D3E651 /* shoot.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = shoot.plist; sourceTree = "<group>"; };
 		34B3BDE61942BE3300D3E651 /* starSky.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = starSky.plist; sourceTree = "<group>"; };
-		34B3BDE91942C42200D3E651 /* ControllerLayer_1.ExportJson */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ControllerLayer_1.ExportJson; sourceTree = "<group>"; };
 		34B3BE111942E2D200D3E651 /* MapSelectScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MapSelectScene.cpp; sourceTree = "<group>"; };
 		34B3BE121942E2D200D3E651 /* MapSelectScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapSelectScene.h; sourceTree = "<group>"; };
 		34B3BE141942E35800D3E651 /* MapSelectLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MapSelectLayer.cpp; sourceTree = "<group>"; };
@@ -2060,7 +2060,7 @@
 		343186F31936EE6F00D0D683 /* GameplayScene */ = {
 			isa = PBXGroup;
 			children = (
-				34B3BDE91942C42200D3E651 /* ControllerLayer_1.ExportJson */,
+				34B249BC19503F890072B34B /* ControllerLayer_1.ExportJson */,
 				340423CB193D8F2800223029 /* ControllerLayer0.plist */,
 				340423CC193D8F2800223029 /* ControllerLayer0.png */,
 				3431870D1936F67200D0D683 /* GUI */,
@@ -3175,6 +3175,7 @@
 				F5FA1C4B194ED741002C73E2 /* creep_1_animation.xml in Resources */,
 				F5FA1C3A194ED1B8002C73E2 /* monster_onion.xml in Resources */,
 				F5FA1C58194ED799002C73E2 /* onion_invert_animation.xml in Resources */,
+				34B249BD19503F890072B34B /* ControllerLayer_1.ExportJson in Resources */,
 				F51A28BB1949F32C00D204BF /* SD in Resources */,
 				F51A28B81949F24E00D204BF /* HD in Resources */,
 				7855E0E1153FEF240059DD9A /* Default.png in Resources */,
@@ -3199,7 +3200,6 @@
 				F52678F318EEAEA500CE1E3B /* arial.ttf in Resources */,
 				340423D2193D8F4700223029 /* test_sheet.plist in Resources */,
 				34B249A7194FE8E50072B34B /* AssetMusic_Commons_Market.mp3 in Resources */,
-				34B3BDEA1942C42200D3E651 /* ControllerLayer_1.ExportJson in Resources */,
 				34B249A9194FE9CB0072B34B /* AssetMusic_Commons_WitchTheme.mp3 in Resources */,
 				D4EF949E15BD2D9600D803EB /* Icon-72.png in Resources */,
 				34B3BE201942F26500D3E651 /* list_map.xml in Resources */,

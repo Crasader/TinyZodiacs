@@ -34,12 +34,13 @@ private:
     
     CCPoint correctPositionDefenseListGroup;
     
-    
 protected:
     cocos2d::gui::LabelBMFont *lblWave, *lblTimeLeft, *lblMoney, *lblMonsterLeft;
     cocos2d::gui::ListView* lvDefense;
     cocos2d::gui::Layout* defenseListGroup;
     cocos2d::gui::Layout* actionControlPanel;
+    cocos2d::gui::ImageView* resultImage;
+    cocos2d::gui::UIButton* btnPause;
     
     void loadAllUI(cocos2d::gui::Widget* ul);
     void initUI();
@@ -72,6 +73,7 @@ public:
     void skill2ButtonTouchEvent(CCObject* sender, cocos2d::gui::TouchEventType type);
     void openDefenseListButtonTouchEvent(CCObject* sender, cocos2d::gui::TouchEventType type);
     void closeDefenseListButtonTouchEvent(CCObject* sender, cocos2d::gui::TouchEventType type);
+    void pauseButtonTouchEvent(CCObject* sender, cocos2d::gui::TouchEventType type);
 
     void openDefenseListView(bool open);
     

@@ -140,8 +140,19 @@ void MainMenuLayer::playButtonTouchEvent(CCObject* sender, cocos2d::gui::TouchEv
             break;
         case cocos2d::gui::TOUCH_EVENT_ENDED:
         {
-            this->inforPanel->setVisible(false);
-            this->optionPanel->setVisible(false);
+            this->btnMusic->stopAllActions();
+            this->btnSound->stopAllActions();
+
+            this->btnFacebook->stopAllActions();
+            this->btnGooglePlus->stopAllActions();
+            
+            //
+            this->isInforShown = this->isOPtionShown = false;
+            this->btnFacebook->setPositionY(this->inforPanel->getPositionY());
+            this->btnGooglePlus->setPositionY(this->inforPanel->getPositionY());
+            
+            this->btnSound->setPositionY(this->optionPanel->getPositionY());
+            this->btnMusic->setPositionY(this->optionPanel->getPositionY());
 
             
             CCScene* testScene = MapSelectScene::scene();

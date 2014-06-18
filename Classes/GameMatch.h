@@ -26,7 +26,7 @@ class GameMatch;
 
 USING_NS_CC;
 
-class GameMatch: public CCNode
+class GameMatch: public CCNode, public Controller
 {
 private:
     bool isStopped;
@@ -56,6 +56,9 @@ public:
     void exitWave();
     void displayMonsterCount();
     void initHeroPosition();
+    void destroy();
+    
+    virtual bool receiveCommand(CommandID commandID, void* data);
     
     CREATE_FUNC(GameMatch);
 };

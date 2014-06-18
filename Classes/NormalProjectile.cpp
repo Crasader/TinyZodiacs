@@ -401,10 +401,8 @@ void NormalProjectile::destroy()
         CCObject* object = NULL;
         CCARRAY_FOREACH(this->listTarget, object)
         {
-            
             Character* gameObject = static_cast<Character*>(object);
             gameObject->detach(this);
-            
         }
         this->listTarget->removeAllObjects();
     }

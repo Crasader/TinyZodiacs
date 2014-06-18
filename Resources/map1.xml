@@ -233,7 +233,7 @@
     </sensor_object_list>
     <tower_list>
         
-        <tower type="main" id="maincrystal" group="A" >
+        <tower type="main" id="maincrystal" group="B" >
             <position x="294" y="920"/>
          </tower>
         
