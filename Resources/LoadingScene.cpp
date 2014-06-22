@@ -90,7 +90,8 @@ void LoadingScene::loadResource()
     GameManager::getInstance()-> loadSpritesheet("item_spritesheet.png","item_spritesheet.plist");
     GameManager::getInstance()->loadSpritesheet("cat_spritesheet.png","cat_spritesheet.plist");
     GameManager::getInstance()-> loadSpritesheet("bull_spritesheet.png","bull_spritesheet.plist");
-    
+    GameManager::getInstance()-> loadSpritesheet("test_sheet.png","test_sheet.plist");
+
     
     AnimationLoader::loadData();
     

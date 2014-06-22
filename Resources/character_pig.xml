@@ -10,6 +10,6 @@
     <jump_height>10</jump_height>
     <skill_0>tower_shooting_1</skill_0>
     <skill_1>monkey_shooting</skill_1>
-    <skill_2>monkey_ultimate</skill_2>
+    <skill_2>ultimate_fire_pillars</skill_2>
     <sfx>cat_sounds</sfx>
 </character>

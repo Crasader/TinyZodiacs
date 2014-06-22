@@ -13,7 +13,7 @@
 #include "LayerIndexConstants.h"
 #include "DataCollector.h"
 #include <queue>
-#include "CharacterSoundFactory.h"
+#include "SoundManager.h"
 
 MonsterFactory::MonsterFactory()
 {
@@ -96,7 +96,7 @@ Monster* MonsterFactory::createMonster(MonsterDTO* monsterDTO, CCPoint position,
     monster->setLaneID(laneID);
     monster->setlistItem(monsterDTO->listItem);
     
-    monster->setSoundData(CharacterSoundFactory::loadCharacterSoundData(monsterDTO->soundId.c_str()));
+    monster->setSoundData(SoundManager::loadCharacterSoundData(monsterDTO->soundId.c_str()));
     
     monster->onCreate();
     monster->setGameObjectView(InfoViewCreator::createMonsterView(monster, NULL));

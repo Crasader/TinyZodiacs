@@ -66,7 +66,20 @@ void NormalProjectile::setData(NormalShootingSkillData data, GameObjectCalculate
     
     body->SetGravityScale(this->data.getProjectileData().getGravityScale());
     //set position
-    body->SetTransform(getStartPosition(holder, body), body->GetAngle());
+    float32 bodyAngle = body->GetAngle();
+    if(this->data.getAngleType() == HOLDER_DIRECTION)
+    {
+        if(holder.getDirection() == LEFT)
+        {
+            bodyAngle = 3.14;
+        }
+        else
+        {
+            bodyAngle = 0;
+        }
+    }
+    
+    body->SetTransform(getStartPosition(holder, body), bodyAngle);
     //
     for (b2Fixture* f = this->body->GetFixtureList(); f; f = f->GetNext())
     {
@@ -271,10 +284,20 @@ void NormalProjectile::shoot()
 
 void NormalProjectile::update(float dt)
 {
-    if(this->data.getAngle() != 0)
-    {
-        float rotateAngle = atan2(this->body->GetLinearVelocity().y,this->body->GetLinearVelocity().x);
-        this->body->SetTransform(this->body->GetPosition(),rotateAngle-3.14);
+    switch (this->data.getAngleType()) {
+        case FREE_STYLE:
+        {
+            float rotateAngle = atan2(this->body->GetLinearVelocity().y,this->body->GetLinearVelocity().x);
+            this->body->SetTransform(this->body->GetPosition(),rotateAngle-3.14);
+        }
+        break;
+        case HOLDER_DIRECTION:
+        {
+            
+        }
+        break;
+        default:
+            break;
     }
     //    this->p->setRotation(-1 * CC_RADIANS_TO_DEGREES(this->body->GetAngle()));
     GameObject::update(dt);

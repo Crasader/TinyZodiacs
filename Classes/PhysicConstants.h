@@ -105,4 +105,9 @@ enum RuleEventID
     RULE_EVENT_COMPLETE_ALL_WAVE
 };
 
+enum ProjectileAngle
+{
+    ABSOLUTE_LEFT =0,
+    ABSOLUTE_RIGHT=180
+};
 #endif

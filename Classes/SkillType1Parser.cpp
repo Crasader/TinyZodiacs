@@ -73,5 +73,14 @@ NormalShootingSkillData SkillType1Parser::parse(const XMLElement* root, b2World*
         newData.setPiercing(XMLHelper::readInt(temp, data.getProjectileData().getPiercing()));
         data.setProjectileData(newData);
     }
+    
+    if(data.getAngleVariability() != 0)
+    {
+        data.setAngleType(FREE_STYLE);
+    }
+    else
+    {
+        data.setAngleType(HOLDER_DIRECTION);
+    }
     return data;
 }

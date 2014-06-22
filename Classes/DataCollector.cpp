@@ -26,7 +26,7 @@ DataCollector::DataCollector()
     this->dictTowerDTO->retain();
     
     matchData.mapIDSelected = "map1";
-        matchData.heroIDSelected = "cat";
+    matchData.heroIDSelected = "cat";
 }
 
 DataCollector::~DataCollector()

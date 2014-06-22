@@ -8,6 +8,7 @@
 
 #include "GameMatch.h"
 #include "MapCreator.h"
+#include "SoundManager.h"
 
 
 GameMatch::GameMatch()
@@ -21,6 +22,7 @@ GameMatch::GameMatch()
 GameMatch::~GameMatch()
 {
     ControllerManager::getInstance()->unregisterController(GAME_MATCH_CONTROLLER, this);
+    SoundManager::unLoadAllAddedSound(true);
 }
 
 bool GameMatch::init()
@@ -39,6 +41,7 @@ bool GameMatch::init()
     this->schedule(schedule_selector(GameMatch::updateToCheckMatch),1);
     
     ControllerManager::getInstance()->registerController(GAME_MATCH_CONTROLLER, this);
+    SoundManager::preLoadAllAddedSound();
     
     return true;
 }
@@ -57,7 +60,6 @@ void GameMatch::updateToCheckMatch()
         }
         
         displayMonsterCount();
-        
         checkWin();
         checkLose();
         checkNextWave();
@@ -103,6 +105,16 @@ bool GameMatch::checkWin()
     {
         //do something;
         ControllerManager::getInstance()->sendCommand(HERO_CONTROLLER, DISPLAY_RESULT ,new int(1));
+        //
+        CCDelayTime *delayTime = CCDelayTime::create(2);
+        CCCallFunc *mfunction = CCCallFunc::create(this, callfunc_selector(GameMatch::destroy));
+        
+        CCArray* listAction = CCArray::create();
+        listAction->addObject(delayTime);
+        listAction->addObject(mfunction);
+        CCSequence* seq = CCSequence::create(listAction);
+        
+        this->runAction(seq);
     }
     return false;
 }
@@ -115,11 +127,7 @@ bool GameMatch::checkLose()
         //do something;
         ControllerManager::getInstance()->sendCommand(HERO_CONTROLLER, DISPLAY_RESULT ,new int(0));
         stop();
-//        ItemFactory::getInstance()->setIsActive(false);
-//        this->gameWorld->destroy();
-//        this->removeFromParent();
-//        
-//        CCDirector::sharedDirector()->popScene();
+        //
         CCDelayTime *delayTime = CCDelayTime::create(2);
         CCCallFunc *mfunction = CCCallFunc::create(this, callfunc_selector(GameMatch::destroy));
         

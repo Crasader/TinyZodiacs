@@ -122,6 +122,25 @@ enum CharacterSound
     JUMP_SOUND
 };
 
+enum SoundType
+{
+    MUSIC,
+    SOUND_EFFECT
+};
+
+enum ProjectileAngleType
+{
+    HOLDER_DIRECTION,
+    FREE_STYLE
+};
+
+class SoundStruct
+{
+public:
+    std::string soundId;
+    SoundType type;
+};
+
 class StateCommandData
 {
 public:

@@ -10,7 +10,8 @@
 #include "Box2D/Box2d.h"
 #include "Util.h"
 #include "GameObjectManager.h"
-#include "SimpleAudioEngine.h"
+//#include "SimpleAudioEngine.h"
+#include "SoundManager.h"
 
 USING_NS_CC;
 
@@ -479,7 +480,8 @@ void GameObject::cleanAllAffect()
 
 void GameObject::playSFX(const char* sfxName)
 {
-    CocosDenshion::SimpleAudioEngine::sharedEngine()->playEffect(sfxName);
+//    CocosDenshion::SimpleAudioEngine::sharedEngine()->playEffect(sfxName);
+    SoundManager::playSoundEffect(sfxName, false);
 }
 
 bool GameObject::isBodyFixture(FixtureID fixtureId)

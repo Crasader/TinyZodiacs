@@ -563,20 +563,7 @@ bool Character::checkDead()
 void Character::destroy()
 {
     this->state->onExitState();
-    
-//    if(normalAttack)
-//    {
-//        normalAttack->destroy();
-//    }
-//    if(skill1)
-//    {
-//        skill1->destroy();
-//    }
-//    if(skill2)
-//    {
-//        skill2->destroy();
-//    }
-    
+
     CCObject* skill;
     CCARRAY_FOREACH(this->listSkill, skill)
     {

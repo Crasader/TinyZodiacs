@@ -64,6 +64,7 @@ void GameWorld::onCreate()
     addManager();
    // createWorldBox();
 }
+
 void GameWorld::onCreateMap()
 {
     MapCreator* mapCreator = new MapCreator();
@@ -73,6 +74,7 @@ void GameWorld::onCreateMap()
     this->map->attachAllMapObject();
     this->addChild(map, MAP_LAYER);
 }
+
 void GameWorld::onCreateWorld()
 {
     b2Vec2 gravity = b2Vec2(GRAVITY_ACCELERATION_X, GRAVITY_ACCELERATION_Y);
@@ -80,7 +82,7 @@ void GameWorld::onCreateWorld()
     //Set contact listener
     this->setContactListener(this);
     
-//    createWorldBox();
+    createWorldBox();
     
     //DEBUG WORLD
     b2Draw* _debugDraw = new GLESDebugDraw(PTM_RATIO);
@@ -116,7 +118,6 @@ void GameWorld::addHero(MainHero* hero)
     }
 }
 
-
 void GameWorld::addManager()
 {
     GameHolder holder;
@@ -128,7 +129,6 @@ void GameWorld::addManager()
     ItemFactory::getInstance()->setIsActive(true);
     ItemFactory::getInstance()->setHolder(GameManager::getInstance()->getGameplayHolder());
 }
-
 
 void GameWorld::createWorldBox()
 {
@@ -231,10 +231,10 @@ void GameWorld::destroy()
 void GameWorld::draw()
 {
 
-//        ccGLEnableVertexAttribs( kCCVertexAttribFlag_Position );
-//       kmGLPushMatrix();
-//        world->DrawDebugData();
-//       kmGLPopMatrix();
+        ccGLEnableVertexAttribs( kCCVertexAttribFlag_Position );
+       kmGLPushMatrix();
+        world->DrawDebugData();
+       kmGLPopMatrix();
 
 }
 

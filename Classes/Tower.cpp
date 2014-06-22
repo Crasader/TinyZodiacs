@@ -175,7 +175,8 @@ void Tower::aimTarget()
             {
                 data.setAngle(calculatedAngle+3.14);
             }
-
+            data.setAngleType(FREE_STYLE);
+            
             attack->setData(data);
         }
         

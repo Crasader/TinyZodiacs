@@ -45,10 +45,6 @@ bool GameObjectLayer::init()
     this->addChild(gameMatch);
     
     gameMatch->start();
-    //    this->gameWorld = GameWorld::create();
-    //
-    //    this->addChild(gameWorld);
-    //
     this->setTouchEnabled(true);
     this->scheduleUpdate();
     

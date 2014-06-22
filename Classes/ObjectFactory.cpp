@@ -17,7 +17,7 @@
 #include "DataCollector.h"
 #include "SkillFactory.h"
 #include "InfoViewCreator.h"
-#include "CharacterSoundFactory.h"
+#include "SoundManager.h"
 
 USING_NS_CC;
 
@@ -75,7 +75,7 @@ void ObjectFactory::createHero(Hero* hero, HeroDTO* heroDTO)
         hero->setSkill(SKILL_2, SkillFactory::createSkill(heroDTO->data.getSkill2().c_str(), world, hero, true, SKILL_2_BTN));
         hero->setIsControlled(true);
         
-        hero->setSoundData(CharacterSoundFactory::loadCharacterSoundData(heroDTO->soundId.c_str()));
+        hero->setSoundData(SoundManager::loadCharacterSoundData(heroDTO->soundId.c_str()));
         
         hero->onCreate();
     }
@@ -338,7 +338,7 @@ Tower* ObjectFactory::createTower(TowerStructDTO* towerStructDTO, b2World* world
     tower->setPositionInPixel(ccp(towerStructDTO->positionX,towerStructDTO->positionY));
     tower->setGroup(towerStructDTO->group);
     
-    tower->setSoundData(CharacterSoundFactory::loadCharacterSoundData(towerDTO->soundId.c_str()));
+    tower->setSoundData(SoundManager::loadCharacterSoundData(towerDTO->soundId.c_str()));
     
     tower->onCreate();
     return tower;

@@ -130,7 +130,7 @@ void NormalShootingAttack::excuteImmediately()
         //shoot first projectile
         NormalShootingSkillData calculatedSkillData = this->data;
         calculateSkillData(&calculatedSkillData, ((Character*)this->holder)->getcharacterData());
-        
+
         this->calculatedGameObjectData = this->holder->getCalculatedData();
         calculatedSkillData.setPositionPlusPerUnit(ccp((this->shootedTime-1)*calculatedSkillData.getPositionPlusPerUnit().x,(this->shootedTime-1)*calculatedSkillData.getPositionPlusPerUnit().y));
         

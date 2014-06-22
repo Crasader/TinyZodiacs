@@ -12,6 +12,7 @@
 #include <iostream>
 #include "SkillData.h"
 #include "ProjectileData.h"
+#include "Constants.h"
 
 USING_NS_CC;
 class NormalShootingSkillData: public SkillData
@@ -27,6 +28,7 @@ public:
     CC_SYNTHESIZE(float, speed, Speed);
     CC_SYNTHESIZE(float, angle, Angle);
     CC_SYNTHESIZE(float, angleVariability, AngleVariability);
+    CC_SYNTHESIZE(ProjectileAngleType, angleType, AngleType);
     CC_SYNTHESIZE(int, quantity, Quantity);
     CC_SYNTHESIZE(float, delayPerShoot, DelayPerShoot);
     CC_SYNTHESIZE(CCPoint, positionPlusPerUnit, PositionPlusPerUnit);
