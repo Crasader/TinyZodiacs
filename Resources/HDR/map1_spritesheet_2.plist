@@ -127,13 +127,13 @@
             <key>format</key>
             <integer>2</integer>
             <key>realTextureFileName</key>
-            <string>map1_spritesheet_2.png</string>
+            <string>map1_spritesheet_2.pvr.ccz</string>
             <key>size</key>
-            <string>{1932,1960}</string>
+            <string>{1960,1960}</string>
             <key>smartupdate</key>
-            <string>$TexturePacker:SmartUpdate:930b882b52f7ce713e68fb1988d3cdd7:3c176dc7fbea80d8d99ef2dc10724b6e:086bc121b1c3d5d0148a3baecefa5cc9$</string>
+            <string>$TexturePacker:SmartUpdate:7887b9cefc8abaa2f01b67a15c4b228b:3c176dc7fbea80d8d99ef2dc10724b6e:66c7223a38dcf10a7bf6fe8f2371d35c$</string>
             <key>textureFileName</key>
-            <string>map1_spritesheet_2.png</string>
+            <string>map1_spritesheet_2.pvr.ccz</string>
         </dict>
     </dict>
 </plist>

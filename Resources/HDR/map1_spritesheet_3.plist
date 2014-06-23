@@ -7,11 +7,11 @@
             <key>map1_21.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{8,8},{1668,216}}</string>
+                <string>{{8,208},{1668,216}}</string>
                 <key>offset</key>
                 <string>{0.5,-0.5}</string>
                 <key>rotated</key>
-                <true/>
+                <false/>
                 <key>sourceColorRect</key>
                 <string>{{0,0},{1668,216}}</string>
                 <key>sourceSize</key>
@@ -20,7 +20,7 @@
             <key>map1_22.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{232,8},{1764,192}}</string>
+                <string>{{8,8},{1764,192}}</string>
                 <key>offset</key>
                 <string>{0.5,-0.5}</string>
                 <key>rotated</key>
@@ -33,11 +33,11 @@
             <key>map1_23.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{232,1208},{960,492}}</string>
+                <string>{{8,432},{960,492}}</string>
                 <key>offset</key>
                 <string>{1.5,-0.5}</string>
                 <key>rotated</key>
-                <false/>
+                <true/>
                 <key>sourceColorRect</key>
                 <string>{{0,0},{960,492}}</string>
                 <key>sourceSize</key>
@@ -46,7 +46,7 @@
             <key>map1_24.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{1160,552},{652,540}}</string>
+                <string>{{508,432},{652,540}}</string>
                 <key>offset</key>
                 <string>{1,0}</string>
                 <key>rotated</key>
@@ -56,45 +56,19 @@
                 <key>sourceSize</key>
                 <string>{650,540}</string>
             </dict>
-            <key>map1_25.png</key>
-            <dict>
-                <key>frame</key>
-                <string>{{1160,208},{824,336}}</string>
-                <key>offset</key>
-                <string>{1.5,-1}</string>
-                <key>rotated</key>
-                <false/>
-                <key>sourceColorRect</key>
-                <string>{{0,0},{824,336}}</string>
-                <key>sourceSize</key>
-                <string>{821,334}</string>
-            </dict>
-            <key>map1_26.png</key>
-            <dict>
-                <key>frame</key>
-                <string>{{232,208},{992,920}}</string>
-                <key>offset</key>
-                <string>{0,-0.5}</string>
-                <key>rotated</key>
-                <true/>
-                <key>sourceColorRect</key>
-                <string>{{0,0},{992,920}}</string>
-                <key>sourceSize</key>
-                <string>{992,919}</string>
-            </dict>
         </dict>
         <key>metadata</key>
         <dict>
             <key>format</key>
             <integer>2</integer>
             <key>realTextureFileName</key>
-            <string>map1_spritesheet_3.png</string>
+            <string>map1_spritesheet_3.pvr.ccz</string>
             <key>size</key>
-            <string>{2004,1708}</string>
+            <string>{1780,1780}</string>
             <key>smartupdate</key>
-            <string>$TexturePacker:SmartUpdate:28de5229f9de19ab5a6288e1b7261043:44993a29b0689c7a6f2dd7667953bb87:8c36fe64569c8312ddf89e0c9c7af1d6$</string>
+            <string>$TexturePacker:SmartUpdate:73af146d7b4e5aae8e4fe10f7e0358f2:423a3f39a176ad2313bbdb003cc250aa:6010c6105664f2b024adf4774e27e0ee$</string>
             <key>textureFileName</key>
-            <string>map1_spritesheet_3.png</string>
+            <string>map1_spritesheet_3.pvr.ccz</string>
         </dict>
     </dict>
 </plist>

@@ -23,13 +23,13 @@
             <key>format</key>
             <integer>2</integer>
             <key>realTextureFileName</key>
-            <string>map1_background_spritesheet_2.png</string>
+            <string>map1_background_spritesheet_2.pvr.ccz</string>
             <key>size</key>
             <string>{1156,736}</string>
             <key>smartupdate</key>
-            <string>$TexturePacker:SmartUpdate:e35a523df7d0111420490b248a440e2f:0d8d3d7db5775f16fd17477591ade204:2082ab54e76bda960caa5a50f5321935$</string>
+            <string>$TexturePacker:SmartUpdate:8a00213d5f1e2134f49047f45ea65f34:0d8d3d7db5775f16fd17477591ade204:489355af8bbe0503dbbb6d2ab9c536bb$</string>
             <key>textureFileName</key>
-            <string>map1_background_spritesheet_2.png</string>
+            <string>map1_background_spritesheet_2.pvr.ccz</string>
         </dict>
     </dict>
 </plist>

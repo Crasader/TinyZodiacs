@@ -465,13 +465,13 @@
             <key>format</key>
             <integer>2</integer>
             <key>realTextureFileName</key>
-            <string>other_effect_spritesheet.png</string>
+            <string>other_effect_spritesheet.pvr.ccz</string>
             <key>size</key>
             <string>{1510,1022}</string>
             <key>smartupdate</key>
-            <string>$TexturePacker:SmartUpdate:879ded92658ae5094cbeb2a62d3a8ed1:8c07a6150377416902ce7410f026cce1:7d069b177acc189e5eeb954ec49dd6f4$</string>
+            <string>$TexturePacker:SmartUpdate:37dc16b0b448df52e24c82e3753899d8:8c07a6150377416902ce7410f026cce1:cb1a9e4220d4f50ff4611e797ae23e50$</string>
             <key>textureFileName</key>
-            <string>other_effect_spritesheet.png</string>
+            <string>other_effect_spritesheet.pvr.ccz</string>
         </dict>
     </dict>
 </plist>
