@@ -47,7 +47,7 @@ void MapParallaxBackground::addBackground(std::string imageName, std::string spr
     
     if(batchNode->getTexture()->getName() != batchNode1->getTexture()->getName())
     {
-        assert(0);
+        //assert(0);
     }
     
     int max = width/size.width*scaleyyy + 1;

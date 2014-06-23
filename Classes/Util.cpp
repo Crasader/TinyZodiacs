@@ -299,11 +299,11 @@ void Util::setFixtureGroup(b2Fixture* fixture, uint16 group)
                 filter.maskBits = GROUP_TERRAIN;
                 break;
             case GROUP_TOWER_A:
-//                filter.maskBits = GROUP_HERO_B | GROUP_B | GROUP_NEUTRUAL | GROUP_TERRAIN | GROUP_SKILL_DEFAULT| GROUP_MONSTER_SENSOR;
+                //                filter.maskBits = GROUP_HERO_B | GROUP_B | GROUP_NEUTRUAL | GROUP_TERRAIN | GROUP_SKILL_DEFAULT| GROUP_MONSTER_SENSOR;
                 filter.maskBits = GROUP_TERRAIN | GROUP_SKILL_DEFAULT| GROUP_MONSTER_SENSOR;
                 break;
             case GROUP_TOWER_B:
-//                filter.maskBits = GROUP_HERO_A | GROUP_A | GROUP_NEUTRUAL | GROUP_TERRAIN | GROUP_SKILL_DEFAULT| GROUP_MONSTER_SENSOR;
+                //                filter.maskBits = GROUP_HERO_A | GROUP_A | GROUP_NEUTRUAL | GROUP_TERRAIN | GROUP_SKILL_DEFAULT| GROUP_MONSTER_SENSOR;
                 filter.maskBits = GROUP_TERRAIN | GROUP_SKILL_DEFAULT| GROUP_MONSTER_SENSOR;
                 break;
             case GROUP_ITEM:
@@ -571,4 +571,33 @@ b2AABB Util::getGameObjectBoundingBoxDynamic(GameObject* obj)
         return aabb;
     }
     return b2AABB();
+}
+
+CCAnimation* Util::getAnimationFromListFrameName(vector<string> listFrameName, unsigned int loops,float delayPerUnit)
+{
+    CCAnimation* animation = CCAnimation::create();
+    
+    for(int i = 0; i < listFrameName.size(); i++)
+    {
+        animation->addSpriteFrame(CCSpriteFrameCache::sharedSpriteFrameCache()->spriteFrameByName(listFrameName[i].c_str()));
+    }
+    
+    animation->setLoops(loops);
+    animation->setDelayPerUnit(delayPerUnit);
+    return animation;
+}
+
+
+CCAnimation* Util::getAnimationFromAnimationObject(AnimationObject* animationObject)
+{
+    CCAnimation* animation = CCAnimation::create();
+    
+    for(int i = 0; i < animationObject->getListFrameName().size(); i++)
+    {
+        animation->addSpriteFrame(CCSpriteFrameCache::sharedSpriteFrameCache()->spriteFrameByName(animationObject->getListFrameName()[i].c_str()));
+    }
+    
+    animation->setLoops(animationObject->getLoops());
+    animation->setDelayPerUnit(animationObject->getDelayPerUnit());
+    return animation;
 }

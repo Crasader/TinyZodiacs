@@ -30,6 +30,7 @@ ItemDTO* XMLItemParser::getItemDTOFromXMLElement(XMLElement* xmlElement)
     string animation = XMLHelper::readAttributeString(xmlElement, ATTRIBUTE_ITEM_ANIMATION,"");
     float lifeTime = XMLHelper::readAttributeFloat(xmlElement, ATTRIBUTE_ITEM_LIFE_TIME, 0);
     int goldValue = XMLHelper::readInt(xmlElement->FirstChildElement(TAG_ITEM_GOLD_VALUE), 0);
+    string titleNotification = XMLHelper::readString(xmlElement->FirstChildElement(TAG_ITEM_TITLE_NOTIFICATION), "");
     
     item->id = id;
     item->type = type;
@@ -40,6 +41,7 @@ ItemDTO* XMLItemParser::getItemDTOFromXMLElement(XMLElement* xmlElement)
     item->listSubItemStruct = getSubItemStructListFromXMLElement(xmlElement);
     item->listAffectID = getAffectListFromXMLElement(xmlElement);
     item->goldValue = goldValue;
+    item->titleNotification = titleNotification;
     
     return item;
 }

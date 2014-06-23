@@ -63,30 +63,32 @@ void LoadingScene::initScene()
 
 void LoadingScene::loadResource()
 {
-    GameManager::getInstance()->loadSpritesheet("map1_spritesheet_4.png","map1_spritesheet_4.plist");
-    GameManager::getInstance()->loadSpritesheet("map1_spritesheet_3.png","map1_spritesheet_3.plist");
-    GameManager::getInstance()->loadSpritesheet("map1_spritesheet_2.png","map1_spritesheet_2.plist");
-    GameManager::getInstance()->loadSpritesheet("map1_spritesheet_1.png","map1_spritesheet_1.plist");
+    GameManager::getInstance()->loadSpritesheet("map1_spritesheet_4.pvr.ccz","map1_spritesheet_4.plist");
+    GameManager::getInstance()->loadSpritesheet("map1_spritesheet_3.pvr.ccz","map1_spritesheet_3.plist");
+    GameManager::getInstance()->loadSpritesheet("map1_spritesheet_2.pvr.ccz","map1_spritesheet_2.plist");
+    GameManager::getInstance()->loadSpritesheet("map1_spritesheet_1.pvr.ccz","map1_spritesheet_1.plist");
     
-    GameManager::getInstance()->loadSpritesheet("map1_background_spritesheet_3.png","map1_background_spritesheet_3.plist");
-    GameManager::getInstance()->loadSpritesheet("map1_background_spritesheet_2.png","map1_background_spritesheet_2.plist");
-    GameManager::getInstance()->loadSpritesheet("map1_background_spritesheet_1.png","map1_background_spritesheet_1.plist");
+    GameManager::getInstance()->loadSpritesheet("map1_background_spritesheet_3.pvr.ccz","map1_background_spritesheet_3.plist");
+    GameManager::getInstance()->loadSpritesheet("map1_background_spritesheet_2.pvr.ccz","map1_background_spritesheet_2.plist");
+    GameManager::getInstance()->loadSpritesheet("map1_background_spritesheet_1.pvr.ccz","map1_background_spritesheet_1.plist");
     
     
     GameManager::getInstance()->loadSpritesheet("onion_invert_spritesheet.png","onion_invert_spritesheet.plist");
     GameManager::getInstance()->loadSpritesheet("tower_spritesheet.png","tower_spritesheet.plist");
     GameManager::getInstance()->loadSpritesheet("pig_animation.png","pig_animation.plist");
-    GameManager::getInstance()->loadSpritesheet("other_effect_spritesheet.png","other_effect_spritesheet.plist");
+  
+    GameManager::getInstance()->loadSpritesheet("other_effect_spritesheet.pvr.ccz","other_effect_spritesheet.plist");
     GameManager::getInstance()->loadSpritesheet("onion_spritesheet.png","onion_spritesheet.plist");
     GameManager::getInstance()->loadSpritesheet("monkey_spritesheet.png","monkey_spritesheet.plist");
-    GameManager::getInstance()->loadSpritesheet("magic_mass_bomb_spritesheet_2.png","magic_mass_bomb_spritesheet_2.plist");
-    GameManager::getInstance()->loadSpritesheet("magic_mass_bomb_spritesheet_1.png","magic_mass_bomb_spritesheet_1.plist");
-    GameManager::getInstance()->loadSpritesheet("magic_lightning_arrow_spritesheet.png","magic_lightning_arrow_spritesheet.plist");
-    GameManager::getInstance()->loadSpritesheet("magic_fire_pillar_spritesheet_2.png","magic_fire_pillar_spritesheet_2.plist");
-    GameManager::getInstance()->loadSpritesheet("magic_fire_pillar_spritesheet_1.png","magic_fire_pillar_spritesheet_1.plist");
-//     GameManager::getInstance()->loadSpritesheet("magic_fire_ball_spritesheet.png","magic_fire_ball_spritesheet.plist");
-    GameManager::getInstance()-> loadSpritesheet("magic_energy_ball_spritesheet.png","magic_energy_ball_spritesheet.plist");
-//     GameManager::getInstance()->loadSpritesheet("magic_bomb_start_spritesheet.png","magic_bomb_start_spritesheet.plist");
+    
+    GameManager::getInstance()->loadSpritesheet("magic_massbomb_spritesheet.pvr.ccz","magic_massbomb_spritesheet.plist");
+    GameManager::getInstance()->loadSpritesheet("magic_lightningarrow_spritesheet.pvr.ccz","magic_lightningarrow_spritesheet.plist");
+    GameManager::getInstance()->loadSpritesheet("magic_firepillar_spritesheet.pvr.ccz","magic_firepillar_spritesheet.plist");
+    GameManager::getInstance()->loadSpritesheet("magic_fireball_spritesheet.pvr.ccz","magic_fireball_spritesheet.plist");
+    GameManager::getInstance()-> loadSpritesheet("magic_energyball_spritesheet.pvr.ccz","magic_energyball_spritesheet.plist");
+    GameManager::getInstance()-> loadSpritesheet("magic_waterball_spritesheet.pvr.ccz","magic_waterball_spritesheet.plist");
+    GameManager::getInstance()-> loadSpritesheet("magic_iceball_spritesheet.pvr.ccz","magic_iceball_spritesheet.plist");
+     GameManager::getInstance()->loadSpritesheet("magic_bomb_spritesheet.pvr.ccz","magic_bomb_spritesheet.plist");
     GameManager::getInstance()-> loadSpritesheet("item_spritesheet.png","item_spritesheet.plist");
     GameManager::getInstance()->loadSpritesheet("cat_spritesheet.png","cat_spritesheet.plist");
     GameManager::getInstance()-> loadSpritesheet("bull_spritesheet.png","bull_spritesheet.plist");

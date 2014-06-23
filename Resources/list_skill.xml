@@ -108,8 +108,8 @@
     
     <skill id="tower_shooting_1" type="1">
         <delay>0</delay>
-        <life_time>1</life_time>
-		<cool_down>5</cool_down>
+        <life_time>5</life_time>
+		<cool_down>0.5</cool_down>
         <joints>
             <holder x="0" y="0" offsetX="1" offsetY="0.8"></holder>
             <this x="0" y="0" offsetX="0" offsetY="0"></this>
@@ -132,7 +132,7 @@
     <skill id="tower_shooting_2" type="1">
         <delay>0</delay>
         <life_time>1</life_time>
-		<cool_down>5</cool_down>
+		<cool_down>1</cool_down>
         <button_selector>4</button_selector>
         <joints>
             <holder x="0" y="0" offsetX="-1" offsetY="4.8"></holder>
@@ -142,6 +142,7 @@
         <list_effect>
             <enemy>
                 <effect>cat_normal_attack_affect</effect>
+                <effect>lightning</effect>
             </enemy>
         </list_effect>
         <projectile>tower_orb_2</projectile>
@@ -171,7 +172,7 @@
         <quantity>5</quantity>
         <delay_per_shoot>0.5</delay_per_shoot>
         <angle_variability>0</angle_variability>
-        <piercing>10</piercing>
+        <piercing>5</piercing>
         <time_tick>0.1</time_tick>
         <position_plus_per_unit plus_x="5" plus_y="0"></position_plus_per_unit>
 	</skill>
@@ -185,7 +186,7 @@
             <holder x="0" y="0" offsetX="0" offsetY="0"></holder>
             <this x="0" y="0" offsetX="0" offsetY="0"></this>
         </joints>
-        <speed>0</speed>
+        <speed>55</speed>
         <list_effect>
             <enemy>
                 <effect>cat_normal_attack_affect</effect>
@@ -249,28 +250,127 @@
         <position_plus_per_unit plus_x="0" plus_y="0"></position_plus_per_unit>
 	</skill>
     
-    <skill id="arrow" type="1">
+    <skill id="fireball" type="1">
         <delay>0</delay>
-        <life_time>5</life_time>
+        <life_time>2</life_time>
 		<cool_down>0.5</cool_down>
+        <button_selector>normal_attack</button_selector>
         <joints>
             <holder x="0" y="0" offsetX="0" offsetY="0"></holder>
             <this x="0" y="0" offsetX="0" offsetY="0"></this>
         </joints>
-        <speed>0</speed>
+        <speed>20</speed>
         <list_effect>
             <enemy>
                 <effect>cat_normal_attack_affect</effect>
             </enemy>
         </list_effect>
-        <projectile>arrow</projectile>
+        <projectile>fireball</projectile>
         <quantity>1</quantity>
         <delay_per_shoot>0</delay_per_shoot>
         <angle_variability>0</angle_variability>
         <piercing>0</piercing>
-        <time_tick>0.1</time_tick>
+        <time_tick>0</time_tick>
         <position_plus_per_unit plus_x="0" plus_y="0"></position_plus_per_unit>
 	</skill>
+    
+    <skill id="waterball" type="1">
+        <delay>0</delay>
+        <life_time>2</life_time>
+		<cool_down>0.5</cool_down>
+        <button_selector>normal_attack</button_selector>
+        <joints>
+            <holder x="0" y="0" offsetX="0" offsetY="0"></holder>
+            <this x="0" y="0" offsetX="0" offsetY="0"></this>
+        </joints>
+        <speed>20</speed>
+        <list_effect>
+            <enemy>
+                <effect>cat_normal_attack_affect</effect>
+            </enemy>
+        </list_effect>
+        <projectile>waterball</projectile>
+        <quantity>1</quantity>
+        <delay_per_shoot>0</delay_per_shoot>
+        <angle_variability>0</angle_variability>
+        <piercing>0</piercing>
+        <time_tick>0</time_tick>
+        <position_plus_per_unit plus_x="0" plus_y="0"></position_plus_per_unit>
+	</skill>
+    <skill id="bomb" type="1">
+        <delay>0</delay>
+        <life_time>1</life_time>
+		<cool_down>0.5</cool_down>
+        <button_selector>normal_attack</button_selector>
+        <joints>
+            <holder x="0" y="0" offsetX="0" offsetY="0"></holder>
+            <this x="0" y="0" offsetX="0" offsetY="0"></this>
+        </joints>
+        <speed>20</speed>
+        <list_effect>
+            <enemy>
+                <effect>cat_normal_attack_affect</effect>
+            </enemy>
+        </list_effect>
+        <projectile>bomb</projectile>
+        <quantity>1</quantity>
+        <delay_per_shoot>0</delay_per_shoot>
+        <angle_variability>0</angle_variability>
+        <piercing>0</piercing>
+        <time_tick>0</time_tick>
+        <position_plus_per_unit plus_x="0" plus_y="0"></position_plus_per_unit>
+	</skill>
+    
+    <skill id="iceball" type="1">
+        <delay>0</delay>
+        <life_time>1</life_time>
+		<cool_down>0.5</cool_down>
+        <button_selector>normal_attack</button_selector>
+        <joints>
+            <holder x="0" y="0" offsetX="0" offsetY="0"></holder>
+            <this x="0" y="0" offsetX="0" offsetY="0"></this>
+        </joints>
+        <speed>20</speed>
+        <list_effect>
+            <enemy>
+                <effect>cat_normal_attack_affect</effect>
+            </enemy>
+        </list_effect>
+        <projectile>iceball</projectile>
+        <quantity>2</quantity>
+        <delay_per_shoot>0</delay_per_shoot>
+        <angle_variability>45</angle_variability>
+        <piercing>0</piercing>
+        <time_tick>0</time_tick>
+        <position_plus_per_unit plus_x="0" plus_y="0"></position_plus_per_unit>
+	</skill>
+    
+    <skill id="energyball" type="1">
+        <delay>0</delay>
+        <life_time>1</life_time>
+		<cool_down>0.5</cool_down>
+        <button_selector>normal_attack</button_selector>
+        <joints>
+            <holder x="0" y="0" offsetX="0" offsetY="0"></holder>
+            <this x="0" y="0" offsetX="0" offsetY="0"></this>
+        </joints>
+        <speed>20</speed>
+        <list_effect>
+            <enemy>
+                <effect>cat_normal_attack_affect</effect>
+            </enemy>
+        </list_effect>
+        <projectile>energyball</projectile>
+        <quantity>2</quantity>
+        <delay_per_shoot>0</delay_per_shoot>
+        <angle_variability>45</angle_variability>
+        <piercing>0</piercing>
+        <time_tick>0</time_tick>
+        <position_plus_per_unit plus_x="0" plus_y="0"></position_plus_per_unit>
+	</skill>
+
+
+
 
     
 </skill_list>

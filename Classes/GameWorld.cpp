@@ -211,6 +211,7 @@ void GameWorld::setContactListener(b2ContactListener *listener)
 
 void GameWorld::update(float dt)
 {
+    ItemFactory::getInstance()->update(dt);
     GameObjectManager::getInstance()->update(dt);
     this->map->update(dt);
     this->group1->update(dt);

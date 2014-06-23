@@ -65,19 +65,24 @@ AnimationObject* XMLAnimationParser::getAnimationObjectFromXMLNode(XMLElement *a
     
     XMLElement* framelistXMLNode = animationXMLElement->FirstChildElement(TAG_FRAME_LIST);
     
+    vector<string> listFrameName;
     
     for (XMLElement* element = framelistXMLNode->FirstChildElement(TAG_FRAME); element; element = element->NextSiblingElement())
     {
         const char* frameName = element->Attribute(ATTRIBUTE_NAME);
         CCLOG("%s",frameName);
         frames->addObject(CCSpriteFrameCache::sharedSpriteFrameCache()->spriteFrameByName(frameName));
+        listFrameName.push_back(frameName);
     }
     
     CCAnimation* animation = CCAnimation::createWithSpriteFrames(frames, delay);
     animation->setLoops(loop);
     
     animationObject->setAnimation(animation);
+    animationObject->setListFrameName(listFrameName);
     
+    animationObject->setLoops(loop);
+    animationObject->setDelayPerUnit(delay);
     return animationObject;
 }
 

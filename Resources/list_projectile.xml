@@ -27,7 +27,46 @@
         <body>fire_pillar</body>
         <state_animation animation_layer="3" created_state_animation="" shooting_state_animation="skill-fire_pillar_shoot" hit_state_ainmation="" die_state_animation=""></state_animation>
         <piercing>0</piercing>
-        <gravity_scale>1</gravity_scale>
+        <gravity_scale>0</gravity_scale>
         <collide_terrain>1</collide_terrain>
     </projectile>
+    
+    <projectile id="fireball">
+        <body>fireball</body>
+        <state_animation animation_layer="3" created_state_animation="skill-magic_fireball_start" shooting_state_animation="skill-magic_fireball_middle" hit_state_ainmation="skill-magic_fireball_end" die_state_animation="skill-magic_fireball_end"></state_animation>
+        <piercing>0</piercing>
+        <gravity_scale>0</gravity_scale>
+        <collide_terrain>1</collide_terrain>
+    </projectile>
+    <projectile id="waterball">
+        <body>fireball</body>
+        <state_animation animation_layer="3" created_state_animation="" shooting_state_animation="skill-magic_waterball_middle" hit_state_ainmation="skill-magic_waterball_end" die_state_animation="skill-magic_waterball_end"></state_animation>
+        <piercing>0</piercing>
+        <gravity_scale>0</gravity_scale>
+        <collide_terrain>1</collide_terrain>
+    </projectile>
+    <projectile id="bomb">
+        <body>bomb</body>
+        <state_animation animation_layer="3" created_state_animation="" shooting_state_animation="skill-magic_bomb_middle" hit_state_ainmation="skill-magic_bomb_end" die_state_animation="skill-magic_bomb_end"></state_animation>
+        <piercing>0</piercing>
+        <gravity_scale>0</gravity_scale>
+        <collide_terrain>1</collide_terrain>
+    </projectile>
+    <projectile id="iceball">
+        <body>iceball</body>
+        <state_animation animation_layer="3" created_state_animation="" shooting_state_animation="skill-magic_iceball_middle" hit_state_ainmation="skill-magic_iceball_end" die_state_animation="skill-magic_iceball_end"></state_animation>
+        <piercing>0</piercing>
+        <gravity_scale>0.2</gravity_scale>
+        <collide_terrain>1</collide_terrain>
+    </projectile>
+    <projectile id="energyball">
+        <body>iceball</body>
+        <state_animation animation_layer="3" created_state_animation="" shooting_state_animation="skill-magic_energyball_middle" hit_state_ainmation="skill-magic_energyball1_end" die_state_animation="skill-magic_energyball2_end"></state_animation>
+        <piercing>0</piercing>
+        <gravity_scale>0.2</gravity_scale>
+        <collide_terrain>1</collide_terrain>
+    </projectile>
+
+
+    
 </list_projectile>

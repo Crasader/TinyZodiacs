@@ -8,7 +8,7 @@
     <atk_speed>0.1</atk_speed>
     <max_jump>5</max_jump>
     <jump_height>10</jump_height>
-    <skill_0>monkey_shooting</skill_0>
-    <skill_1>monkey_aura</skill_1>
+    <skill_0>energyball</skill_0>
+    <skill_1>iceball</skill_1>
     <skill_2>ultimate_fire_pillars</skill_2>
 </character>

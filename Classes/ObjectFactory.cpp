@@ -439,7 +439,7 @@ Item* ObjectFactory::createGoldItem(ItemDTO* itemDTO, b2World* world)
 Item* ObjectFactory::createBonusItem(ItemDTO* itemDTO, b2World* world)
 {
     BonusItem* item = BonusItem::create();
-    
+    item->setTitleNotification(itemDTO->titleNotification);
     vector<EffectData> listEffectData;
     
     for(int i = 0; i < itemDTO->listAffectID.size(); i++)

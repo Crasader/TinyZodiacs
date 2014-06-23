@@ -80,11 +80,11 @@ void ContainerItem::contact(GameObject* contactGameObject)
 
 void ContainerItem::open(GameObject* openGameObject)
 {
-    if(this->isDestroyed || openGameObject == NULL)
+    if(this->isDestroyed /*|| openGameObject == NULL*/)
     {
         return;
     }
-    if(openGameObject->getGameObjectID() == HERO)
+   // if(openGameObject->getGameObjectID() == HERO)
     {
         Item::open(openGameObject);
         if(this->isOpened == false)

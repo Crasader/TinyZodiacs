@@ -59,6 +59,8 @@ bool AppDelegate::applicationDidFinishLaunching() {
 //    if (frameSize.height >= largeResource.size.height)
 //    {
     searchPath.push_back("fonts/eng");
+     searchPath.push_back("global");
+    
        searchPath.push_back(largeResource.directory);
        pDirector->setContentScaleFactor(1);
 //    }
@@ -73,9 +75,16 @@ bool AppDelegate::applicationDidFinishLaunching() {
 //        pDirector->setContentScaleFactor(0.25f);
 //    }
     
- //   if(frameSize.height <= largeResource.size.height)
+ //r   if(frameSize.height <= largeResource.size.height)
     {
+         searchPath.push_back("32bit");
         CCTexture2D::setDefaultAlphaPixelFormat(kTexture2DPixelFormat_RGBA4444);
+    }
+   // else
+    {
+//        searchPath.push_back("32bit");
+//        CCTexture2D::setDefaultAlphaPixelFormat(kTexture2DPixelFormat_RGBA8888);
+
     }
     
     CCFileUtils::sharedFileUtils()->setSearchPaths(searchPath);

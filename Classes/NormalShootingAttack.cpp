@@ -147,8 +147,8 @@ void NormalShootingAttack::excuteImmediately()
         }
         this->autoShootAction = CCCallFunc::create(this, callfunc_selector(NormalShootingAttack::autoShoot));
         this->autoShootAction->retain();
+        
         ScheduleManager::getInstance()->scheduleFuctionRepeatly(this->autoShootAction, this->data.getDelayPerShoot(), this->data.getQuantity()-1);
-        //add projectile to manager
         
     }
 }
