@@ -24,6 +24,7 @@
 
 NormalProjectile::NormalProjectile()
 {
+    this->gameObjectID = PROJECTILE_OBJECT;
     this->lifeTimeScheduled = NULL;
     this->timeTickAction = NULL;
     this->group = NEUTRAL;
@@ -42,7 +43,6 @@ bool NormalProjectile::init()
     {
         return false;
     }
-    GameObjectManager::getInstance()->addGameObject(this);
     return true;
 }
 
@@ -72,7 +72,7 @@ void NormalProjectile::setData(NormalShootingSkillData data, GameObjectCalculate
     {
         if(holder.getDirection() == LEFT)
         {
-            bodyAngle = CC_DEGREES_TO_RADIANS(180);
+            bodyAngle = 3.14;
         }
         else
         {
@@ -185,11 +185,17 @@ b2Vec2 NormalProjectile::getStartPosition(GameObjectCalculateData holder, b2Body
     {
         if(holder.getDirection() == LEFT)
         {
+//            anchorA.x -= this->data.getJointDefB().offsetX;
+//            anchorA.x -= abs(thisBoudningBox.upperBound.x);
+            
             anchorA.x -= this->data.getPositionPlusPerUnit().x;
             anchorA.y += this->data.getPositionPlusPerUnit().y;
         }
         else if(holder.getDirection() == RIGHT)
         {
+//            anchorA.x += this->data.getJointDefB().offsetX;
+//            anchorA.x += abs(thisBoudningBox.lowerBound.x);
+            
             anchorA.x += this->data.getPositionPlusPerUnit().x;
             anchorA.y += this->data.getPositionPlusPerUnit().y;
         }
@@ -274,7 +280,7 @@ void NormalProjectile::shoot()
         this->timeTickAction->retain();
     }
     //
-//    GameObjectManager::getInstance()->addGameObject(this);
+    GameObjectManager::getInstance()->addGameObject(this);
 }
 
 void NormalProjectile::update(float dt)

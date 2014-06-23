@@ -8,6 +8,8 @@
 
 #include "Item.h"
 #include "ItemFactory.h"
+#include "Util.h"
+#include "NormalProjectile.h"
 
 Item::Item()
 {
@@ -91,6 +93,7 @@ void Item::appear()
 {
     if(this->appearAnimation != NULL)
     {
+//        CCAnimate* animate = CCAnimate::create(Util::getAnimationFromAnimationObject(this->appearAnimation));
         CCAnimate* animate = CCAnimate::create(this->appearAnimation->getAnimation());
         this->sprite->runAction(animate);
     }
@@ -139,6 +142,7 @@ void Item::prepareToDisappearInOpen()
     if(this->prepareToDisappearAnimation != NULL)
     {
         CCAnimate* animate = CCAnimate::create(this->prepareToDisappearAnimation->getAnimation());
+//           CCAnimate* animate = CCAnimate::create(Util::getAnimationFromAnimationObject(this->prepareToDisappearAnimation));
         arrSeq->addObject(animate);
     }
     CCCallFunc* disappearFunction = CCCallFunc::create(this, callfunc_selector(Item::disappear));
@@ -186,7 +190,16 @@ void Item::checkCollisionDataInBeginContact(PhysicData* holderData, PhysicData* 
                         open(skill->getHolder());
                     }
                 }
+                case PROJECTILE_OBJECT:
+                {
+                    NormalProjectile* proj = static_cast<NormalProjectile*>(collisionData->data);
+            
+                    open(NULL);
+                }
+           
+
                     break;
+                 
                     
                     
                 default:

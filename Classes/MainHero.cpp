@@ -104,7 +104,7 @@ void MainHero::revive()
     ControllerManager::getInstance()->sendCommand(HERO_CONTROLLER, VISIBLE_ALL_HERO_CONTROLLER);
     setPositionInPixel(this->revivePosition);
     AnimationEffect* effect = AnimationEffect::create();
-    effect->setAnimation("effect-explosion2");
+    effect->setAnimation("effect-explosion");
     EffectManager::getInstance()->runEffect(effect, getPositionInPixel());
     this->body->SetLinearVelocity(b2Vec2(0,0));
     //    this->release();

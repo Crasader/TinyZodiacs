@@ -20,4 +20,27 @@
             <item id="coin2" chance="100" />
         </item_list>
     </item>
+    <item id="invisible" type="bonus" image_name="invisible.png" body_name="invisible" life_time="10">
+        <affect_list>
+            <affect id=""/>
+        </affect_list>
+    </item>
+    <item id="speedup" type="bonus" image_name="speedup.png" body_name="speedup" life_time="10">
+        <title_notification>Speed Up</title_notification>
+        <affect_list>
+            <affect id="item_speedup"/>
+        </affect_list>
+    </item>
+    <item id="powerup" type="bonus" image_name="powerup.png" body_name="powerup" life_time="10">
+        <title_notification>Power Up</title_notification>
+        <affect_list>
+            <affect id="item_powerup"/>
+        </affect_list>
+    </item>
+    <item id="defense" type="bonus" image_name="defense.png" body_name="defense" life_time="10">
+         <title_notification>Defense</title_notification>
+        <affect_list>
+            <affect id="item_defense"/>
+        </affect_list>
+    </item>
 </item_list>

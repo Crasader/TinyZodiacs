@@ -16,6 +16,8 @@ class BodyItem;
 #include "Item.h"
 #include "Constants.h"
 #include "EffectData.h"
+#include "EffectManager.h"
+#include "TextShowEffect.h"
 
 USING_NS_CC;
 using namespace std;
@@ -23,6 +25,7 @@ class BonusItem: public Item
 {
 private:
     CC_SYNTHESIZE(vector<EffectData>, listEffectData, ListEffectData);
+    CC_SYNTHESIZE(string, titleNotification, TitleNotification);
 protected:
 public:
     BonusItem();

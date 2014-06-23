@@ -10,6 +10,7 @@
 #define __TinyZodiacs__Util__
 
 #include <iostream>
+#include "cocos2d.h"
 #include "Box2D/Box2D.h"
 #include "PhysicConstants.h"
 #include "GameObject.h"
@@ -18,6 +19,8 @@
 #include <vector>
 
 using namespace std;
+USING_NS_CC;
+
 class Util
 {
 private:
@@ -56,6 +59,8 @@ public:
     
     static void loadImage(const char* textureFilename, CCTexture2DPixelFormat texturePixelFormat = kTexture2DPixelFormat_Default);
     static void loadPlist(const char* plistFilename);
+    static CCAnimation* getAnimationFromListFrameName(vector<string> listFrameName, unsigned int loops, float delayPerUnit);
+    static CCAnimation* getAnimationFromAnimationObject(AnimationObject* animationObject);
 };
 
 #endif /* defined(__TinyZodiacs__Util__) */

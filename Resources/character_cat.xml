@@ -10,8 +10,8 @@
     <jump_height>10</jump_height>
 
     <skill_0>lightning_arrow</skill_0>
-    <skill_1>chain_lightning_trap</skill_1>
-    <skill_2>chain_lightning_circle</skill_2>
+    <skill_1>waterball</skill_1>
+    <skill_2>bomb</skill_2>
     
     <sfx>cat_sounds</sfx>
 </character>
