@@ -31,7 +31,6 @@ NormalProjectile::NormalProjectile()
     this->isDisable=false;
 }
 
-
 NormalProjectile::~NormalProjectile()
 {
 }
@@ -68,17 +67,17 @@ void NormalProjectile::setData(NormalShootingSkillData data, GameObjectCalculate
     body->SetGravityScale(this->data.getProjectileData().getGravityScale());
     //set position
     float32 bodyAngle = body->GetAngle();
-    if(this->data.getAngleType() == HOLDER_DIRECTION)
-    {
-        if(holder.getDirection() == LEFT)
-        {
-            bodyAngle = CC_DEGREES_TO_RADIANS(180);
-        }
-        else
-        {
-            bodyAngle = 0;
-        }
-    }
+//    if(this->data.getAngleType() == HOLDER_DIRECTION)
+//    {
+//        if(holder.getDirection() == LEFT)
+//        {
+//            bodyAngle = CC_DEGREES_TO_RADIANS(180);
+//        }
+//        else
+//        {
+//            bodyAngle = 0;
+//        }
+//    }
     
     body->SetTransform(getStartPosition(holder, body), bodyAngle);
     //
@@ -119,7 +118,6 @@ void NormalProjectile::setData(NormalShootingSkillData data, GameObjectCalculate
     GameManager::getInstance()->getGameplayHolder().nodeHolder->addChild(this->sprite, this->data.getProjectileData().getStateAnimation().getAnimationLayerIndex());
     //
 }
-
 
 b2Vec2 NormalProjectile::getStartPosition(GameObjectCalculateData holder, b2Body* me)
 {
@@ -288,13 +286,12 @@ void NormalProjectile::update(float dt)
         break;
         case HOLDER_DIRECTION:
         {
-            
+            flipDirection(RIGHT);
         }
         break;
         default:
             break;
     }
-    //    this->p->setRotation(-1 * CC_RADIANS_TO_DEGREES(this->body->GetAngle()));
     GameObject::update(dt);
 }
 

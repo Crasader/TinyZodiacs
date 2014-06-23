@@ -336,12 +336,14 @@ CCAction* MainMenuLayer::initButtonAnimation(cocos2d::gui::Widget* target, cocos
         moveToAction = CCMoveTo::create(duration-0.15, ccp(target->getPositionX(), parent->getPositionY()));
         rotateAction = CCRotateTo::create(duration, 270);
         scaleAction = CCScaleTo::create(duration, 0);
-        
 //        target->setPosition(ccp(target->getPositionX(), parent->getPositionY()));
         target->setScale(originalScale);
     }
-    CCSpawn* action = CCSpawn::create(moveToAction, rotateAction, scaleAction);
-//    target->runAction(action);
+    CCArray* arr = CCArray::create();
+    arr->addObject(moveToAction);
+    arr->addObject(rotateAction);
+    arr->addObject(scaleAction);
+    CCSpawn* action = CCSpawn::create(arr);
     return action;
 }
 
