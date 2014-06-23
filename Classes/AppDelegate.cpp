@@ -58,6 +58,7 @@ bool AppDelegate::applicationDidFinishLaunching() {
     // if the frame's height is larger than the height of medium resource size, select large resource.
 //    if (frameSize.height >= largeResource.size.height)
 //    {
+    searchPath.push_back("fonts/eng");
        searchPath.push_back(largeResource.directory);
        pDirector->setContentScaleFactor(1);
 //    }
@@ -72,7 +73,7 @@ bool AppDelegate::applicationDidFinishLaunching() {
 //        pDirector->setContentScaleFactor(0.25f);
 //    }
     
-    if(frameSize.height <= largeResource.size.height)
+ //   if(frameSize.height <= largeResource.size.height)
     {
         CCTexture2D::setDefaultAlphaPixelFormat(kTexture2DPixelFormat_RGBA4444);
     }

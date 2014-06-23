@@ -8,10 +8,12 @@
 
 #ifndef __HelloWorld__HoldableUIButton__
 #define __HelloWorld__HoldableUIButton__
+class HoldableUIButton;
 
 #include <iostream>
 #include "cocos2d.h"
-#include "UIButton.h"
+#include "cocos-ext.h"
+
 
 USING_NS_CC;
 

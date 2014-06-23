@@ -7,7 +7,6 @@
 //
 
 #include "GameplayLayer.h"
-#include "UIListView.h"
 #include "PauseLayer.h"
 
 using cocos2d::gui::SEL_TouchEvent;

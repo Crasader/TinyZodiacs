@@ -11,12 +11,12 @@
 
 #include <iostream>
 #include "cocos2d.h"
-#include "CocosGUI.h"
 #include "HeroLoader.h"
 #include "DataCollector.h"
 #include "TestScene.h"
 #include "LoadingScene.h"
 #include "XMLButtonSelectorParser.h"
+#include "cocos-ext.h"
 
 USING_NS_CC;
 using namespace cocos2d::gui;

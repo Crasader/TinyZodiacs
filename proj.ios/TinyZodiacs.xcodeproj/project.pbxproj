@@ -322,6 +322,7 @@
 		51136AD91908E13A00317D3A /* GB2ShapeCache-x.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 51136AD71908E13A00317D3A /* GB2ShapeCache-x.cpp */; };
 		51136ADC1908E62F00317D3A /* NoBodyMapObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 51136ADA1908E62F00317D3A /* NoBodyMapObject.cpp */; };
 		51136AE21908E69F00317D3A /* map1_body.plist in Resources */ = {isa = PBXBuildFile; fileRef = 51136AE11908E69F00317D3A /* map1_body.plist */; };
+		517E84AA1958032E00881FC4 /* LoadingScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 517E84A81958032E00881FC4 /* LoadingScene.cpp */; };
 		7855E0E1153FEF240059DD9A /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 7855E0DF153FEF240059DD9A /* Default.png */; };
 		BF171245129291EC00B8313A /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF170DB012928DE900B8313A /* OpenGLES.framework */; };
 		BF1712461292920000B8313A /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BF170DB212928DE900B8313A /* libxml2.dylib */; };
@@ -340,12 +341,9 @@
 		F50702C018E958220025B666 /* MoveableMapObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F50702BE18E958220025B666 /* MoveableMapObject.cpp */; };
 		F507B41E1921DC5B00D23B99 /* Observer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F507B41C1921DC5B00D23B99 /* Observer.cpp */; };
 		F507B41F1921DC5B00D23B99 /* Observable.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F507B41D1921DC5B00D23B99 /* Observable.cpp */; };
-		F51A28B81949F24E00D204BF /* HD in Resources */ = {isa = PBXBuildFile; fileRef = F51A28B61949F24E00D204BF /* HD */; };
 		F51A28B91949F24E00D204BF /* HDR in Resources */ = {isa = PBXBuildFile; fileRef = F51A28B71949F24E00D204BF /* HDR */; };
-		F51A28BB1949F32C00D204BF /* SD in Resources */ = {isa = PBXBuildFile; fileRef = F51A28BA1949F32C00D204BF /* SD */; };
 		F51A482819454D0300E61987 /* HeroSelectScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F51A482619454D0300E61987 /* HeroSelectScene.cpp */; };
 		F51A482B19454D0B00E61987 /* HeroSelectLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F51A482919454D0B00E61987 /* HeroSelectLayer.cpp */; };
-		F52371721950036E00166B49 /* LoadingScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F52371701950036E00166B49 /* LoadingScene.cpp */; };
 		F52678F318EEAEA500CE1E3B /* arial.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F52678E518EEAEA500CE1E3B /* arial.ttf */; };
 		F52678F418EEAEA500CE1E3B /* Marker Felt.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F52678E618EEAEA500CE1E3B /* Marker Felt.ttf */; };
 		F52BB9B9194E9DB900E101A7 /* skill_body.plist in Resources */ = {isa = PBXBuildFile; fileRef = F52BB9B8194E9DB900E101A7 /* skill_body.plist */; };
@@ -1099,6 +1097,8 @@
 		51136ADA1908E62F00317D3A /* NoBodyMapObject.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = NoBodyMapObject.cpp; path = ../Classes/NoBodyMapObject.cpp; sourceTree = "<group>"; };
 		51136ADB1908E62F00317D3A /* NoBodyMapObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NoBodyMapObject.h; path = ../Classes/NoBodyMapObject.h; sourceTree = "<group>"; };
 		51136AE11908E69F00317D3A /* map1_body.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = map1_body.plist; sourceTree = "<group>"; };
+		517E84A81958032E00881FC4 /* LoadingScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LoadingScene.cpp; sourceTree = "<group>"; };
+		517E84A91958032E00881FC4 /* LoadingScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoadingScene.h; sourceTree = "<group>"; };
 		7855E0DF153FEF240059DD9A /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = SOURCE_ROOT; };
 		BF170DB012928DE900B8313A /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		BF170DB212928DE900B8313A /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
@@ -1122,15 +1122,11 @@
 		F507B41B1921DC5B00D23B99 /* Observable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Observable.h; sourceTree = "<group>"; };
 		F507B41C1921DC5B00D23B99 /* Observer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Observer.cpp; sourceTree = "<group>"; };
 		F507B41D1921DC5B00D23B99 /* Observable.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Observable.cpp; sourceTree = "<group>"; };
-		F51A28B61949F24E00D204BF /* HD */ = {isa = PBXFileReference; lastKnownFileType = folder; path = HD; sourceTree = "<group>"; };
 		F51A28B71949F24E00D204BF /* HDR */ = {isa = PBXFileReference; lastKnownFileType = folder; path = HDR; sourceTree = "<group>"; };
-		F51A28BA1949F32C00D204BF /* SD */ = {isa = PBXFileReference; lastKnownFileType = folder; path = SD; sourceTree = "<group>"; };
 		F51A482619454D0300E61987 /* HeroSelectScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = HeroSelectScene.cpp; sourceTree = "<group>"; };
 		F51A482719454D0300E61987 /* HeroSelectScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HeroSelectScene.h; sourceTree = "<group>"; };
 		F51A482919454D0B00E61987 /* HeroSelectLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = HeroSelectLayer.cpp; sourceTree = "<group>"; };
 		F51A482A19454D0B00E61987 /* HeroSelectLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HeroSelectLayer.h; sourceTree = "<group>"; };
-		F52371701950036E00166B49 /* LoadingScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LoadingScene.cpp; sourceTree = "<group>"; };
-		F52371711950036E00166B49 /* LoadingScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoadingScene.h; sourceTree = "<group>"; };
 		F52678E518EEAEA500CE1E3B /* arial.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = arial.ttf; sourceTree = "<group>"; };
 		F52678E618EEAEA500CE1E3B /* Marker Felt.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Marker Felt.ttf"; sourceTree = "<group>"; };
 		F52BB9B8194E9DB900E101A7 /* skill_body.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = skill_body.plist; sourceTree = "<group>"; };
@@ -2529,13 +2525,20 @@
 			path = CocoStudio;
 			sourceTree = "<group>";
 		};
+		517E84A7195801F500881FC4 /* LoadingScene */ = {
+			isa = PBXGroup;
+			children = (
+				517E84A81958032E00881FC4 /* LoadingScene.cpp */,
+				517E84A91958032E00881FC4 /* LoadingScene.h */,
+			);
+			name = LoadingScene;
+			sourceTree = "<group>";
+		};
 		78C7DDAA14EBA5050085D0C2 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
 				F5FA1C3E194ED445002C73E2 /* Animation */,
 				F5FA1C29194ED1A2002C73E2 /* Character */,
-				F51A28BA1949F32C00D204BF /* SD */,
-				F51A28B61949F24E00D204BF /* HD */,
 				F51A28B71949F24E00D204BF /* HDR */,
 				34B3BDE21942B63700D3E651 /* Particles */,
 				34F69CCC19415A20005DD696 /* Sounds */,
@@ -2583,16 +2586,6 @@
 				F51A482A19454D0B00E61987 /* HeroSelectLayer.h */,
 			);
 			name = HeroSelectScene;
-			sourceTree = "<group>";
-		};
-		F523716F1950034F00166B49 /* GameplayLoadingScene */ = {
-			isa = PBXGroup;
-			children = (
-				F52371701950036E00166B49 /* LoadingScene.cpp */,
-				F52371711950036E00166B49 /* LoadingScene.h */,
-			);
-			name = GameplayLoadingScene;
-			path = ../Resources;
 			sourceTree = "<group>";
 		};
 		F52678E418EEAEA500CE1E3B /* fonts */ = {
@@ -2753,7 +2746,7 @@
 		F54AE97218D2F09800194E66 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
-				F523716F1950034F00166B49 /* GameplayLoadingScene */,
+				517E84A7195801F500881FC4 /* LoadingScene */,
 				F51A481F19454CAC00E61987 /* HeroSelectScene */,
 				34B3BE101942E2B100D3E651 /* MapSelectScene */,
 				34F69CDC19415B65005DD696 /* MainMenuScene */,
@@ -3186,8 +3179,6 @@
 				F5FA1C3A194ED1B8002C73E2 /* monster_onion.xml in Resources */,
 				F5FA1C58194ED799002C73E2 /* onion_invert_animation.xml in Resources */,
 				34CC3F3219513F1400CB46F0 /* ControllerLayer_1.ExportJson in Resources */,
-				F51A28BB1949F32C00D204BF /* SD in Resources */,
-				F51A28B81949F24E00D204BF /* HD in Resources */,
 				7855E0E1153FEF240059DD9A /* Default.png in Resources */,
 				F5FA1C37194ED1B8002C73E2 /* monster_bull.xml in Resources */,
 				D4EF949A15BD2D8B00D803EB /* Icon-57.png in Resources */,
@@ -3541,6 +3532,7 @@
 				1A8F3B7E175E05DA00049216 /* SkeletonJson.cpp in Sources */,
 				34E852CD19372E1B009BA0C0 /* NormalAttack.cpp in Sources */,
 				F5B4287F19174F15002DC13B /* XMLHeroParser.cpp in Sources */,
+				517E84AA1958032E00881FC4 /* LoadingScene.cpp in Sources */,
 				F5E2929818E6779500B9B152 /* Player.cpp in Sources */,
 				343187051936F20E00D0D683 /* HoldableUIButton.cpp in Sources */,
 				1A8F3B7F175E05DA00049216 /* Skin.cpp in Sources */,
@@ -3569,7 +3561,6 @@
 				F54AE9B918D2F1AA00194E66 /* CharacterMoveState.cpp in Sources */,
 				379BB9A317F03F3700829B88 /* CCDisplayManager.cpp in Sources */,
 				379BB9A417F03F3700829B88 /* CCSkin.cpp in Sources */,
-				F52371721950036E00166B49 /* LoadingScene.cpp in Sources */,
 				379BB9A517F03F3700829B88 /* CCColliderDetector.cpp in Sources */,
 				F54AE9FC18D2F4A100194E66 /* TestScene.cpp in Sources */,
 				346701F5193978BF00CC4E2B /* XMLAnimationDataParser.cpp in Sources */,
@@ -3680,7 +3671,6 @@
 					"$(SRCROOT)/../../../CocosDenshion/include",
 					"\"$(SRCROOT)/../../../external/chipmunk/include/constraints\"",
 					"\"$(SRCROOT)/../../../external/chipmunk/include/chipmunk\"",
-					"\"$(SRCROOT)/../../../extensions\"",
 					"\"$(SRCROOT)/../../../cocos2dx/kazmath/include\"",
 					"\"$(SRCROOT)/../../../external\"",
 					"\"$(SRCROOT)/../../../cocos2dx\"",
@@ -3688,6 +3678,7 @@
 					"\"$(SRCROOT)/../../../cocos2dx/platform/third_party/ios\"",
 					"\"$(SRCROOT)/../../../cocos2dx/platform/ios\"",
 					"\"$(SRCROOT)/../../../cocos2dx/platform/ios/Simulation\"",
+					"\"$(SRCROOT)/../../../extensions\"",
 				);
 				INFOPLIST_FILE = Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
@@ -3728,7 +3719,6 @@
 					"$(SRCROOT)/../../../CocosDenshion/include",
 					"\"$(SRCROOT)/../../../external/chipmunk/include/constraints\"",
 					"\"$(SRCROOT)/../../../external/chipmunk/include/chipmunk\"",
-					"\"$(SRCROOT)/../../../extensions\"",
 					"\"$(SRCROOT)/../../../cocos2dx/kazmath/include\"",
 					"\"$(SRCROOT)/../../../external\"",
 					"\"$(SRCROOT)/../../../cocos2dx\"",
@@ -3736,6 +3726,7 @@
 					"\"$(SRCROOT)/../../../cocos2dx/platform/third_party/ios\"",
 					"\"$(SRCROOT)/../../../cocos2dx/platform/ios\"",
 					"\"$(SRCROOT)/../../../cocos2dx/platform/ios/Simulation\"",
+					"\"$(SRCROOT)/../../../extensions\"",
 				);
 				INFOPLIST_FILE = Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;

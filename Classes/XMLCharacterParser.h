@@ -32,7 +32,7 @@
 #define TAG_SFX "sfx"
 
 
-#define TAG_DEFENSE "defense"
+#define TAG_DEFENSE_UNIT "defense"
 #define ATTRIBUTE_DEFENSE_ID "id"
 #define ATTRIBUTE_DEFENSE_BUTTON_ID "button_id"
 #define ATTRIBUTE_DEFENSE_COST "cost"

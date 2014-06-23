@@ -82,7 +82,7 @@ void GameWorld::onCreateWorld()
     //Set contact listener
     this->setContactListener(this);
     
-    createWorldBox();
+    //createWorldBox();
     
     //DEBUG WORLD
     b2Draw* _debugDraw = new GLESDebugDraw(PTM_RATIO);
@@ -231,10 +231,10 @@ void GameWorld::destroy()
 void GameWorld::draw()
 {
 
-        ccGLEnableVertexAttribs( kCCVertexAttribFlag_Position );
-       kmGLPushMatrix();
-        world->DrawDebugData();
-       kmGLPopMatrix();
+//        ccGLEnableVertexAttribs( kCCVertexAttribFlag_Position );
+//       kmGLPushMatrix();
+//        world->DrawDebugData();
+//       kmGLPopMatrix();
 
 }
 

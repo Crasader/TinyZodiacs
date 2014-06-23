@@ -33,8 +33,6 @@ private:
     CC_SYNTHESIZE(GameHolder, gameplayHolder, GameplayHolder);
 protected:
 public:
-    int totalResource = 0;
-    int currentIndexResourceloaded = 0;
     GameManager();
     ~GameManager();
     

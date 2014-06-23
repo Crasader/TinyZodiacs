@@ -11,7 +11,7 @@
 
 #include <iostream>
 #include "cocos2d.h"
-#include "CocosGUI.h"
+#include "cocos-ext.h"
 
 USING_NS_CC;
 class MapSelectLayer: public cocos2d::gui::TouchGroup

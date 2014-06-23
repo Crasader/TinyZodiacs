@@ -27,7 +27,6 @@ protected:
     GameObjectManager();
     ~GameObjectManager();
 public:
-    int monsterCount = 0;
     static GameObjectManager* getInstance();
     
     virtual bool init();

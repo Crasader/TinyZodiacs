@@ -125,7 +125,7 @@ CCArray* XMLCharacterParser::getDefenseDTOListFromXMLElement(XMLElement* defense
 {
     CCArray* arr = CCArray::create();
     
-    for (XMLElement* element = defenseListElement->FirstChildElement(TAG_DEFENSE); element; element = element->NextSiblingElement())
+    for (XMLElement* element = defenseListElement->FirstChildElement(TAG_DEFENSE_UNIT); element; element = element->NextSiblingElement())
     {
         arr->addObject(XMLCharacterParser::getDefenseDTOFromXMLElement(element));
     }
