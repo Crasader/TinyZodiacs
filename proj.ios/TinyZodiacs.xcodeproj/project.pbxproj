@@ -353,7 +353,6 @@
 		F50702C018E958220025B666 /* MoveableMapObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F50702BE18E958220025B666 /* MoveableMapObject.cpp */; };
 		F507B41E1921DC5B00D23B99 /* Observer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F507B41C1921DC5B00D23B99 /* Observer.cpp */; };
 		F507B41F1921DC5B00D23B99 /* Observable.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F507B41D1921DC5B00D23B99 /* Observable.cpp */; };
-		F51A28B91949F24E00D204BF /* HDR in Resources */ = {isa = PBXBuildFile; fileRef = F51A28B71949F24E00D204BF /* HDR */; };
 		F51A482819454D0300E61987 /* HeroSelectScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F51A482619454D0300E61987 /* HeroSelectScene.cpp */; };
 		F51A482B19454D0B00E61987 /* HeroSelectLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F51A482919454D0B00E61987 /* HeroSelectLayer.cpp */; };
 		F52678F318EEAEA500CE1E3B /* arial.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F52678E518EEAEA500CE1E3B /* arial.ttf */; };
@@ -395,6 +394,9 @@
 		F558161319176AD800A1CCB2 /* XMLMonsterParser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F558161119176AD800A1CCB2 /* XMLMonsterParser.cpp */; };
 		F57519C41905016200F6A519 /* MonsterAIActionEngine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F57519C21905016200F6A519 /* MonsterAIActionEngine.cpp */; };
 		F5779C6818E5693C0044D5CD /* HealthBar.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F5779C6618E5693C0044D5CD /* HealthBar.cpp */; };
+		F58095BF195850640011C3D0 /* 16bit in Resources */ = {isa = PBXBuildFile; fileRef = F58095BD195850640011C3D0 /* 16bit */; };
+		F58095C0195850640011C3D0 /* 32bit in Resources */ = {isa = PBXBuildFile; fileRef = F58095BE195850640011C3D0 /* 32bit */; };
+		F58095C2195850C90011C3D0 /* global in Resources */ = {isa = PBXBuildFile; fileRef = F58095C1195850C90011C3D0 /* global */; };
 		F5831B131945A4420055798F /* defense_list.xml in Resources */ = {isa = PBXBuildFile; fileRef = F5831B121945A4420055798F /* defense_list.xml */; };
 		F5831B161945A5440055798F /* DefenseDTO.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F5831B141945A5440055798F /* DefenseDTO.cpp */; };
 		F58E78CE1924770E00091875 /* GameObjectViewContainer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F58E78CC1924770E00091875 /* GameObjectViewContainer.cpp */; };
@@ -1134,7 +1136,6 @@
 		F507B41B1921DC5B00D23B99 /* Observable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Observable.h; sourceTree = "<group>"; };
 		F507B41C1921DC5B00D23B99 /* Observer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Observer.cpp; sourceTree = "<group>"; };
 		F507B41D1921DC5B00D23B99 /* Observable.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Observable.cpp; sourceTree = "<group>"; };
-		F51A28B71949F24E00D204BF /* HDR */ = {isa = PBXFileReference; lastKnownFileType = folder; path = HDR; sourceTree = "<group>"; };
 		F51A482619454D0300E61987 /* HeroSelectScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = HeroSelectScene.cpp; sourceTree = "<group>"; };
 		F51A482719454D0300E61987 /* HeroSelectScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HeroSelectScene.h; sourceTree = "<group>"; };
 		F51A482919454D0B00E61987 /* HeroSelectLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = HeroSelectLayer.cpp; sourceTree = "<group>"; };
@@ -1214,6 +1215,9 @@
 		F57519C31905016200F6A519 /* MonsterAIActionEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MonsterAIActionEngine.h; sourceTree = "<group>"; };
 		F5779C6618E5693C0044D5CD /* HealthBar.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = HealthBar.cpp; sourceTree = "<group>"; };
 		F5779C6718E5693C0044D5CD /* HealthBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HealthBar.h; sourceTree = "<group>"; };
+		F58095BD195850640011C3D0 /* 16bit */ = {isa = PBXFileReference; lastKnownFileType = folder; path = 16bit; sourceTree = "<group>"; };
+		F58095BE195850640011C3D0 /* 32bit */ = {isa = PBXFileReference; lastKnownFileType = folder; path = 32bit; sourceTree = "<group>"; };
+		F58095C1195850C90011C3D0 /* global */ = {isa = PBXFileReference; lastKnownFileType = folder; path = global; sourceTree = "<group>"; };
 		F5831B121945A4420055798F /* defense_list.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = defense_list.xml; sourceTree = "<group>"; };
 		F5831B141945A5440055798F /* DefenseDTO.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DefenseDTO.cpp; sourceTree = "<group>"; };
 		F5831B151945A5440055798F /* DefenseDTO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DefenseDTO.h; sourceTree = "<group>"; };
@@ -2537,9 +2541,11 @@
 		78C7DDAA14EBA5050085D0C2 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				F58095C1195850C90011C3D0 /* global */,
+				F58095BD195850640011C3D0 /* 16bit */,
+				F58095BE195850640011C3D0 /* 32bit */,
 				F5FA1C3E194ED445002C73E2 /* Animation */,
 				F5FA1C29194ED1A2002C73E2 /* Character */,
-				F51A28B71949F24E00D204BF /* HDR */,
 				34B3BDE21942B63700D3E651 /* Particles */,
 				34F69CCC19415A20005DD696 /* Sounds */,
 				343186F21936EE6600D0D683 /* Scenes */,
@@ -3178,12 +3184,12 @@
 				34CC3F3D1951799600CB46F0 /* PauseLayer.ExportJson in Resources */,
 				F5FA1C58194ED799002C73E2 /* onion_invert_animation.xml in Resources */,
 				34CC3F3219513F1400CB46F0 /* ControllerLayer_1.ExportJson in Resources */,
+				F58095BF195850640011C3D0 /* 16bit in Resources */,
 				517E84BC1958477800881FC4 /* effect_animation.xml in Resources */,
 				7855E0E1153FEF240059DD9A /* Default.png in Resources */,
 				517E84AF195846C200881FC4 /* list_effect.xml in Resources */,
 				F5FA1C37194ED1B8002C73E2 /* monster_bull.xml in Resources */,
 				D4EF949A15BD2D8B00D803EB /* Icon-57.png in Resources */,
-				F51A28B91949F24E00D204BF /* HDR in Resources */,
 				343638C71944A7DF00602F87 /* MapSelectScene0.plist in Resources */,
 				34F69CD719415A75005DD696 /* character_sounds.xml in Resources */,
 				517E84C8195847B700881FC4 /* monster_onion.xml in Resources */,
@@ -3228,6 +3234,7 @@
 				342ABFBE194EF61400513B48 /* batchSettings.png in Resources */,
 				343187131936F67200D0D683 /* GUI in Resources */,
 				F5FA1C61194EE752002C73E2 /* sakkal.fnt in Resources */,
+				F58095C2195850C90011C3D0 /* global in Resources */,
 				F5FA1C60194EE752002C73E2 /* sakkal_shadow.png in Resources */,
 				2DC48A84191A356600B34724 /* monster_sensor.plist in Resources */,
 				F5FA1C51194ED741002C73E2 /* tower_1_animation.xml in Resources */,
@@ -3251,6 +3258,7 @@
 				1AFAF8BC16D35E4900DB1158 /* CloseNormal.png in Resources */,
 				2D0DA15D1908F72200881C8D /* tower_2.xml in Resources */,
 				F5FA1C52194ED741002C73E2 /* tower_2_animation.xml in Resources */,
+				F58095C0195850640011C3D0 /* 32bit in Resources */,
 				34F69CD219415A61005DD696 /* cat_jump.wav in Resources */,
 				F5FA1C39194ED1B8002C73E2 /* monster_monkey.xml in Resources */,
 				517E84B81958475F00881FC4 /* item_list.xml in Resources */,
