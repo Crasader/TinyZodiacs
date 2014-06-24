@@ -74,10 +74,10 @@ bool AppDelegate::applicationDidFinishLaunching() {
 //        searchPath.push_back(smallResource.directory);
 //        pDirector->setContentScaleFactor(0.25f);
 //    }
-    
- //r   if(frameSize.height <= largeResource.size.height)
+       searchPath.push_back("16bit");
+    if(frameSize.height <= largeResource.size.height)
     {
-         searchPath.push_back("32bit");
+      
         CCTexture2D::setDefaultAlphaPixelFormat(kTexture2DPixelFormat_RGBA4444);
     }
    // else

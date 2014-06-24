@@ -43,9 +43,9 @@ void MapParallaxBackground::addBackground(std::string imageName, std::string spr
     float scalexxx = scaleDesignX + ratio_x*((width-designSize.width)/size.width);
     
     CCSpriteBatchNode* batchNode = CCSpriteBatchNode::createWithTexture(background->getTexture());
-    CCSpriteBatchNode* batchNode1 = CCSpriteBatchNode::create(spritesheetName.c_str());
+   // CCSpriteBatchNode* batchNode1 = CCSpriteBatchNode::create(spritesheetName.c_str());
     
-    if(batchNode->getTexture()->getName() != batchNode1->getTexture()->getName())
+   // if(batchNode->getTexture()->getName() != batchNode1->getTexture()->getName())
     {
         //assert(0);
     }
