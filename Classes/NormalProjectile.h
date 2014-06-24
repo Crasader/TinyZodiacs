@@ -18,6 +18,7 @@ class NormalProjectile;
 #include "SkillData.h"
 #include "NormalShootingSkillData.h"
 #include "Observer.h"
+#include "Constants.h"
 
 USING_NS_CC;
 
@@ -42,6 +43,8 @@ protected:
     virtual void applyEffectOnTimeTick();
     
     virtual bool shouldDestroy();
+    
+    virtual void playSoundByState(ProjectileSound soundState);
 public:
     NormalProjectile();
     ~NormalProjectile();

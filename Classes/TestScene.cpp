@@ -15,7 +15,7 @@
 #include "LayerIndexConstants.h"
 #include "GameplayLayer.h"
 #include "ControllerManager.h"
-
+#include "SoundManager.h"
 USING_NS_CC;
 
 bool TestScene::init()
@@ -30,9 +30,6 @@ bool TestScene::init()
     {
             this->addChild(GameManager::getInstance());
     }
-
-
-    
     return true;
 }
 
@@ -40,6 +37,8 @@ TestScene::~TestScene()
 {
     ControllerManager::getInstance()->clean();
     RuleManager::getInstance()->clean();
+    
+    SoundManager::playMenuMusic();
 }
 
 CCScene* TestScene::scene()

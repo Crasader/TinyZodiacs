@@ -9,6 +9,7 @@
 #include "XMLProjectileDataParser.h"
 #include "Constants.h"
 #include "LayerIndexConstants.h"
+#include "SoundManager.h"
 
 ProjectileData XMLProjectileDataParser::loadXMLFile(const char *xmlFileName, std::string selectorId)
 {
@@ -49,6 +50,7 @@ ProjectileData XMLProjectileDataParser::loadXMLFile(const char *xmlFileName, std
             data.setGravityScale(readProjectileGravityScale(result->FirstChildElement(TAG_GRAVITY_SCALE)));
             data.setTerrainCollide(readTerrainCollide(result->FirstChildElement(TAG_COLLIDE_TERRAIN)));
             data.setPiercing(readPiercing(result->FirstChildElement(TAG_PIERCING)));
+            data.setSoundData(readSoundData(result->FirstChildElement(TAG_SFX)));
         }
     }
     
@@ -94,6 +96,10 @@ ProjectileStateAnimationData XMLProjectileDataParser::readAnimationData(const XM
     return data;
 }
 
+ProjectileSoundData XMLProjectileDataParser::readSoundData(const XMLElement* root)
+{
+    return SoundManager::loadProjectileSoundData(XMLHelper::readString(root, "").c_str());
+}
 
 
 

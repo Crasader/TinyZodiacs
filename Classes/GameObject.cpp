@@ -484,6 +484,12 @@ void GameObject::playSFX(const char* sfxName)
     SoundManager::playSoundEffect(sfxName, false);
 }
 
+void GameObject::stopSFX(unsigned int sfxid)
+{
+    SoundManager::stopSoundEffect(sfxid);
+}
+
+
 bool GameObject::isBodyFixture(FixtureID fixtureId)
 {
     return true;

@@ -10,7 +10,6 @@
 #include "MapCreator.h"
 #include "SoundManager.h"
 
-
 GameMatch::GameMatch()
 {
     this->gameWorld = NULL;

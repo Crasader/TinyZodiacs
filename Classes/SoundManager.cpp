@@ -9,6 +9,7 @@
 #include "SoundManager.h"
 #include "CharacterSoundFactory.h"
 #include "SimpleAudioEngine.h"
+#include "ProjectileSoundFactory.h"
 
 static std::vector<SoundStruct> listSoundId;
 
@@ -35,6 +36,37 @@ CharacterSoundData SoundManager::loadCharacterSoundData(const char* soundId)
 
     
     return data;
+}
+
+ProjectileSoundData SoundManager::loadProjectileSoundData(const char* soundId)
+{
+    ProjectileSoundData data = ProjectileSoundFactory::loadProjectileSoundData(soundId);
+    string val = soundId;
+    if(val != "")
+    {
+        if(data.getCreateSoundStr() != "")
+        {
+            addSoundId(data.getCreateSoundStr().c_str(), SOUND_EFFECT);
+        }
+        if(data.getShootSoundStr() != "")
+        {
+            addSoundId(data.getShootSoundStr().c_str(), SOUND_EFFECT);
+        }
+        if(data.getDieSoundStr() != "")
+        {
+            addSoundId(data.getDieSoundStr().c_str(), SOUND_EFFECT);
+        }
+        if(data.getHitSoundStr() != "")
+        {
+            addSoundId(data.getHitSoundStr().c_str(), SOUND_EFFECT);
+        }
+    }
+    return data;
+}
+
+std::string SoundManager::loadBackGroundMusic(const char* soundId)
+{
+    return "";
 }
 
 void SoundManager::addSoundId(const char* soundID, SoundType type)
@@ -112,9 +144,9 @@ void SoundManager::unLoadAllAddedSound(bool shouldCleanList)
     SoundManager::removeAllList();
 }
 
-void SoundManager::playSoundEffect(const char* soundId, bool isLoop)
+unsigned int SoundManager::playSoundEffect(const char* soundId, bool isLoop)
 {
-    CocosDenshion::SimpleAudioEngine::sharedEngine()->playEffect(soundId, isLoop);
+    return CocosDenshion::SimpleAudioEngine::sharedEngine()->playEffect(soundId, isLoop);
 }
 
 void SoundManager::playMusic(const char* soundId, bool isLoop)
@@ -122,11 +154,18 @@ void SoundManager::playMusic(const char* soundId, bool isLoop)
     CocosDenshion::SimpleAudioEngine::sharedEngine()->playBackgroundMusic(soundId, isLoop);
 }
 
-void SoundManager::stopSoundEffect(const char* soundId)
+void SoundManager::stopSoundEffect(unsigned int soundId)
 {
+    CocosDenshion::SimpleAudioEngine::sharedEngine()->stopEffect(soundId);
 }
 
 void SoundManager::stopMusic(const char* soundId)
 {
     CocosDenshion::SimpleAudioEngine::sharedEngine()->stopBackgroundMusic(true);
+}
+
+void SoundManager::playMenuMusic()
+{
+    //set background music
+    CocosDenshion::SimpleAudioEngine::sharedEngine()->playBackgroundMusic("AssetMusic_Commons_WitchTheme.mp3", true);
 }

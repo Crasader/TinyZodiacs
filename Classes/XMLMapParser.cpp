@@ -326,6 +326,7 @@ WaveDTO* XMLMapParser::getWaveFromXMLNode(XMLElement* waveXMLElement)
     
     waveDTO->listMonsterFactoryDTO->addObjectsFromArray(XMLMapParser::getMonsterFactoryDTOListFromXMLElement(waveXMLElement));
     waveDTO->listItemCreatorDTO->addObjectsFromArray(XMLMapParser::getItemCreatorDTOListFromXMLElement(waveXMLElement));
+    waveDTO->waveMusicID = XMLHelper::readAttributeString(waveXMLElement, ATTRIBUTE_WAVE_MUSIC, "");
     
     return waveDTO;
 }

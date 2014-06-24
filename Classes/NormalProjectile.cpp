@@ -328,6 +328,8 @@ void NormalProjectile::checkCollisionDataInBeginContact(PhysicData* holderData, 
                         AnimationEffect* hitEffect = AnimationEffect::create();
                         hitEffect->setAnimation(this->data.getProjectileData().getStateAnimation().getHitStateAnimationID().c_str(),shouldFlip);
                         EffectManager::getInstance()->runEffect(hitEffect, this->getPositionInPixel(),this->data.getProjectileData().getStateAnimation().getAnimationLayerIndex());
+                        //
+                        playSoundByState(HIT_SOUND);
                     }
                     
                     if(shouldDestroy())
@@ -441,6 +443,8 @@ void NormalProjectile::destroy()
     this->sprite->stopAllActions();
     //
     GameObjectManager::getInstance()->addObjectRemoved(this);
+    //
+    playSoundByState(DIE_SOUND);
 }
 
 void NormalProjectile::setGroup(uint16 group)
@@ -481,6 +485,8 @@ void NormalProjectile::initDataAndShoot(NormalShootingSkillData data, GameObject
         AnimationObject* animationObj = DataCollector::getInstance()->getAnimationObjectByKey(this->data.getProjectileData().getStateAnimation().getCreatedStateAnimationID().c_str());
         CCAnimate* animation = CCAnimate::create(animationObj->getAnimation());
         array->addObject(animation);
+        //
+        playSoundByState(CREATE_SOUND);
     }
     CCCallFunc* action = CCCallFunc::create(this, callfunc_selector(NormalProjectile::changeCreatAnimationToShootingAnimation));
     array->addObject(action);
@@ -495,6 +501,8 @@ void NormalProjectile::changeCreatAnimationToShootingAnimation()
     AnimationObject* animationObj = DataCollector::getInstance()->getAnimationObjectByKey(this->data.getProjectileData().getStateAnimation().getShootingStateAnimationID().c_str());
     CCAnimate* animation = CCAnimate::create(animationObj->getAnimation());
     this->sprite->runAction(animation);
+    //
+    playSoundByState(SHOOT_SOUND);
 }
 
 void NormalProjectile::applyEffectOnTimeTick()
@@ -556,5 +564,25 @@ bool NormalProjectile::shouldDestroy()
         newData.setPiercing(newData.getPiercing()-1);
         this->data.setProjectileData(newData);
         return false;
+    }
+}
+
+void NormalProjectile::playSoundByState(ProjectileSound soundState)
+{
+    switch (soundState) {
+        case CREATE_SOUND:
+            playSFX(this->data.getProjectileData().getSoundData().getCreateSoundStr().c_str());
+            break;
+        case HIT_SOUND:
+            playSFX(this->data.getProjectileData().getSoundData().getHitSoundStr().c_str());
+            break;
+        case SHOOT_SOUND:
+//            playSFX(this->data.getProjectileData().getSoundData().getShootSoundStr().c_str());
+            break;
+        case DIE_SOUND:
+            playSFX(this->data.getProjectileData().getSoundData().getDieSoundStr().c_str());
+            break;
+        default:
+            break;
     }
 }

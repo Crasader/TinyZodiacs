@@ -343,7 +343,7 @@
         -->
     </item_creator_list>
     <wave_list>
-        <wave id = "1">
+        <wave id = "1" background_music="AssetMusic_Commons_Market.mp3">
             <monster_factory_list>
                 <monster_factory group="B" max="5">
                  
@@ -401,9 +401,8 @@
             </item_creator_list>
 
         </wave>
-     
-        
-        <wave id = "2">
+    
+        <wave id = "2" background_music="AssetMusic_Commons_Market.mp3">
             <monster_factory_list>
 
                 <monster_factory group="B" max = "10" >
@@ -444,7 +443,7 @@
             
         </wave>
         
-        <wave id = "3">
+        <wave id = "3" background_music="AssetMusic_Commons_Market.mp3">
             <monster_factory_list>
                 
                 <monster_factory group="B" max = "20" >
@@ -482,9 +481,7 @@
             
         </wave>
 
-
-
-        <wave id = "4">
+        <wave id = "4" background_music="AssetMusic_Commons_Market.mp3">
             <monster_factory_list>
                 <monster_factory group="B" max="1">
                     
@@ -511,6 +508,5 @@
                            </item_creator_list>
             
         </wave>
-
     </wave_list>
 </map>

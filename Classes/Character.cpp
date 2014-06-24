@@ -43,6 +43,10 @@ Character::Character()
     dieAnimation = NULL;
     skill1Animation = NULL;
     skill2Animation = NULL;
+    
+    playedHurtSoundId =-1;
+    playedDeathSoundId =-1;
+    playedJumpSoundId=-1;
 }
 
 Character::~Character()

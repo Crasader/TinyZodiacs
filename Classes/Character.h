@@ -27,13 +27,16 @@ class Character;
 class Character: public GameObject
 {
 private:
-   
     CharacterState* state;
 
     void setupJointSkillAndBody();
     void createFootSensor();
     bool isCharacterCanPassThoughMapObject(MapObject* mapObject);
 protected:
+    int playedHurtSoundId;
+    int playedJumpSoundId;
+    int playedDeathSoundId;
+    
     int currentJumpCount;
     CC_SYNTHESIZE(bool, isDead, IsDead);
     void checkCollisionDataInBeginContact(PhysicData* holderData, PhysicData* collisionData, b2Contact *contact);

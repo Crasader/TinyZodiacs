@@ -5,6 +5,7 @@
         <piercing>0</piercing>
         <gravity_scale>0</gravity_scale>
         <collide_terrain>1</collide_terrain>
+        <sfx>lightning_arrow_sound</sfx>
     </projectile>
     
     <projectile id="tower_orb_2">
@@ -13,6 +14,7 @@
         <piercing>0</piercing>
         <gravity_scale>0</gravity_scale>
         <collide_terrain>1</collide_terrain>
+        <sfx>lightning_arrow_sound</sfx>
     </projectile>
     
     <projectile id="arrow">
@@ -21,6 +23,7 @@
         <piercing>0</piercing>
         <gravity_scale>0</gravity_scale>
         <collide_terrain>1</collide_terrain>
+        <sfx>lightning_arrow_sound</sfx>
     </projectile>
     
     <projectile id="fire_pillar">
@@ -29,6 +32,7 @@
         <piercing>0</piercing>
         <gravity_scale>0</gravity_scale>
         <collide_terrain>1</collide_terrain>
+        <sfx>fire_ball_sound</sfx>
     </projectile>
     
     <projectile id="fireball">
@@ -37,36 +41,42 @@
         <piercing>0</piercing>
         <gravity_scale>0</gravity_scale>
         <collide_terrain>1</collide_terrain>
+        <sfx>fire_ball_sound</sfx>
     </projectile>
+    
     <projectile id="waterball">
         <body>fireball</body>
         <state_animation animation_layer="3" created_state_animation="" shooting_state_animation="skill-magic_waterball_middle" hit_state_ainmation="skill-magic_waterball_end" die_state_animation="skill-magic_waterball_end"></state_animation>
         <piercing>0</piercing>
         <gravity_scale>0</gravity_scale>
         <collide_terrain>1</collide_terrain>
+        <sfx>fire_ball_sound</sfx>
     </projectile>
+    
     <projectile id="bomb">
         <body>bomb</body>
         <state_animation animation_layer="3" created_state_animation="" shooting_state_animation="skill-magic_bomb_middle" hit_state_ainmation="skill-magic_bomb_end" die_state_animation="skill-magic_bomb_end"></state_animation>
         <piercing>0</piercing>
         <gravity_scale>0</gravity_scale>
         <collide_terrain>1</collide_terrain>
+        <sfx>fire_ball_sound</sfx>
     </projectile>
+    
     <projectile id="iceball">
         <body>iceball</body>
         <state_animation animation_layer="3" created_state_animation="" shooting_state_animation="skill-magic_iceball_middle" hit_state_ainmation="skill-magic_iceball_end" die_state_animation="skill-magic_iceball_end"></state_animation>
         <piercing>0</piercing>
         <gravity_scale>0.2</gravity_scale>
         <collide_terrain>1</collide_terrain>
+        <sfx>fire_ball_sound</sfx>
     </projectile>
+    
     <projectile id="energyball">
         <body>iceball</body>
         <state_animation animation_layer="3" created_state_animation="" shooting_state_animation="skill-magic_energyball_middle" hit_state_ainmation="skill-magic_energyball1_end" die_state_animation="skill-magic_energyball2_end"></state_animation>
         <piercing>0</piercing>
         <gravity_scale>0.2</gravity_scale>
         <collide_terrain>1</collide_terrain>
+        <sfx>fire_ball_sound</sfx>
     </projectile>
-
-
-    
 </list_projectile>

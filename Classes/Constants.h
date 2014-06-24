@@ -122,6 +122,14 @@ enum CharacterSound
     JUMP_SOUND
 };
 
+enum ProjectileSound
+{
+    CREATE_SOUND,
+    SHOOT_SOUND,
+    DIE_SOUND,
+    HIT_SOUND
+};
+
 enum SoundType
 {
     MUSIC,

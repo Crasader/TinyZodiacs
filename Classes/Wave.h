@@ -27,6 +27,7 @@ protected:
   
     CC_SYNTHESIZE(CCArray*, listMonsterFactory, ListMonsterFactory);
     CC_SYNTHESIZE(CCArray*, listItemCreator, ListItemCreator);
+    CC_SYNTHESIZE(std::string, musicID, MusicID);
     int monsterQuantity;
 
 public:

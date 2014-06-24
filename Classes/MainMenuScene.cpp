@@ -7,8 +7,8 @@
 //
 
 #include "MainMenuScene.h"
-
 #include "MainMenuLayer.h"
+#include "SoundManager.h"
 
 bool MainMenuScene::init()
 {
@@ -51,6 +51,7 @@ void MainMenuScene::initScene()
     MainMenuLayer* layer = MainMenuLayer::create();
     this->addChild(layer);
     
+    SoundManager::playMenuMusic();
 //    CCParticleSystemQuad* p = CCParticleSystemQuad::create("starSky.plist");
 //    p->setPosition(0,0);
 //    p->setRotation(0);

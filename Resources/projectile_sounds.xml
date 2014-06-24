@@ -1,0 +1,14 @@
+<projectile_sound_list>
+	<projectile_sound id="fire_ball_sound">
+        <create>magic_fireball_start.wav</create>
+        <shoot>magic_fireball_middle.wav</shoot>
+        <hit>magic_fireball_end.wav</hit>
+        <die>magic_fireball_end.wav</die>
+    </projectile_sound>
+    <projectile_sound id="lightning_arrow_sound">
+        <create>magic_lightningarrow_start.wav</create>
+        <shoot>magic_lightningarrow_middle.wav</shoot>
+        <hit>magic_lightningarrow_end.wav</hit>
+        <die></die>
+    </projectile_sound>
+</projectile_sound_list>

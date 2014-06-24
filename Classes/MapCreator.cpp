@@ -9,6 +9,7 @@
 #include "MapCreator.h"
 #include "MoveableMapObject.h"
 #include "MonsterFactoryDTO.h"
+#include "SoundManager.h"
 
 
 MapCreator::MapCreator()
@@ -170,6 +171,9 @@ Wave* MapCreator::createWave(WaveDTO* waveDTO, GameWorld* gameWorld)
         }
     }
 
+    //add sound to manage list
+    wave->setMusicID(waveDTO->waveMusicID);
+    SoundManager::addSoundId(wave->getMusicID().c_str(), MUSIC);
     
     return wave;
 }

@@ -115,8 +115,6 @@ void MainMenuLayer::loadAllUI(cocos2d::gui::Widget* ul)
         this->btnMusic->loadTextures("music.png", "music_selected.png", "music.png",cocos2d::gui::UI_TEX_TYPE_PLIST);
         CocosDenshion::SimpleAudioEngine::sharedEngine()->setBackgroundMusicVolume(1);
     }
-    //set background music
-    CocosDenshion::SimpleAudioEngine::sharedEngine()->playBackgroundMusic("AssetMusic_Commons_WitchTheme.mp3", true);
     //
     this->isInforShown = this->isOPtionShown = false;
     this->btnFacebook->setPositionY(this->inforPanel->getPositionY());

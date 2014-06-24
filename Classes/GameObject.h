@@ -51,6 +51,7 @@ protected:
     virtual void setPhysicGroup(uint16 group);
     
     virtual void playSFX(const char* sfxName);
+    virtual void stopSFX(unsigned int sfxid);
 public:
     virtual void checkCollisionDataInBeginContact(PhysicData* holderData, PhysicData* collisionData, b2Contact *contact);
     virtual void checkCollisionDataInEndContact(PhysicData* holderData, PhysicData* collisionData, b2Contact *contact);

@@ -24,6 +24,7 @@ public:
 
     CCArray* listMonsterFactoryDTO;
     CCArray* listItemCreatorDTO;
+    std::string waveMusicID;
     
     CREATE_FUNC(WaveDTO);
 };

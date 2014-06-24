@@ -12,6 +12,7 @@
 #include <iostream>
 #include "cocos2d.h"
 #include "ProjectileStateAnimationData.h"
+#include "ProjectileSoundData.h"
 
 USING_NS_CC;
 class ProjectileData
@@ -21,6 +22,7 @@ protected:
 public:
     CC_SYNTHESIZE(std::string, projectileBodyId, ProjectileBodyId);
     CC_SYNTHESIZE(ProjectileStateAnimationData, stateAnimation, StateAnimation);
+    CC_SYNTHESIZE(ProjectileSoundData, soundData, SoundData);
     CC_SYNTHESIZE(bool, terrainCollide, TerrainCollide);
     CC_SYNTHESIZE(int, piercing, Piercing);
     CC_SYNTHESIZE(float, gravityScale, GravityScale);

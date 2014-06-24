@@ -7,6 +7,7 @@
 //
 
 #include "Wave.h"
+#include "SoundManager.h"
 
 Wave::Wave()
 {
@@ -117,6 +118,7 @@ void Wave::start()
 {
     startCreateMonster();
     startCreateItem();
+    SoundManager::playMusic(this->getMusicID().c_str(), true);
 }
 
 void Wave::stop()

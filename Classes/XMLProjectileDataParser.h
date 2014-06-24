@@ -14,6 +14,7 @@
 #include "Constants.h"
 #include "XMLHelper.h"
 #include "ProjectileData.h"
+#include "ProjectileSoundData.h"
 
 using namespace tinyxml2;
 
@@ -23,6 +24,7 @@ using namespace tinyxml2;
 #define TAG_PIERCING "piercing"
 #define TAG_BODY "body"
 #define TAG_STATE_ANIMATION "state_animation"
+#define TAG_SFX "sfx"
 #define ATTRIBUTE_ANIMATION_LAYER "animation_layer"
 #define ATTRIBUTE_CREATE_STATE_ANIMATION "created_state_animation"
 #define ATTRIBUTE_SHOOTING_STATE_ANIMATION "shooting_state_animation"
@@ -41,6 +43,7 @@ protected:
     static bool readTerrainCollide(const XMLElement* root);
     static int readPiercing(const XMLElement* root);
     static ProjectileStateAnimationData readAnimationData(const XMLElement* root);
+    static ProjectileSoundData readSoundData(const XMLElement* root);
     
     static ProjectileData loadXMLFile(const char *xmlFileName, std::string selectorId);
 public:

@@ -233,6 +233,16 @@
 		34CC3F3219513F1400CB46F0 /* ControllerLayer_1.ExportJson in Resources */ = {isa = PBXBuildFile; fileRef = 34CC3F3119513F1400CB46F0 /* ControllerLayer_1.ExportJson */; };
 		34CC3F37195151D900CB46F0 /* PauseLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 34CC3F35195151D900CB46F0 /* PauseLayer.cpp */; };
 		34CC3F3D1951799600CB46F0 /* PauseLayer.ExportJson in Resources */ = {isa = PBXBuildFile; fileRef = 34CC3F3C1951799600CB46F0 /* PauseLayer.ExportJson */; };
+		34D8BC1219596D670082ED4A /* projectile_sounds.xml in Resources */ = {isa = PBXBuildFile; fileRef = 34D8BC1119596D670082ED4A /* projectile_sounds.xml */; };
+		34D8BC16195974A40082ED4A /* magic_fireball_end.wav in Resources */ = {isa = PBXBuildFile; fileRef = 34D8BC13195974A40082ED4A /* magic_fireball_end.wav */; };
+		34D8BC17195974A40082ED4A /* magic_fireball_middle.wav in Resources */ = {isa = PBXBuildFile; fileRef = 34D8BC14195974A40082ED4A /* magic_fireball_middle.wav */; };
+		34D8BC18195974A40082ED4A /* magic_fireball_start.wav in Resources */ = {isa = PBXBuildFile; fileRef = 34D8BC15195974A40082ED4A /* magic_fireball_start.wav */; };
+		34D8BC1C195974CD0082ED4A /* magic_lightningarrow_end.wav in Resources */ = {isa = PBXBuildFile; fileRef = 34D8BC19195974CD0082ED4A /* magic_lightningarrow_end.wav */; };
+		34D8BC1D195974CD0082ED4A /* magic_lightningarrow_middle.wav in Resources */ = {isa = PBXBuildFile; fileRef = 34D8BC1A195974CD0082ED4A /* magic_lightningarrow_middle.wav */; };
+		34D8BC1E195974CD0082ED4A /* magic_lightningarrow_start.wav in Resources */ = {isa = PBXBuildFile; fileRef = 34D8BC1B195974CD0082ED4A /* magic_lightningarrow_start.wav */; };
+		34D8BC21195976490082ED4A /* ProjectileSoundData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 34D8BC1F195976490082ED4A /* ProjectileSoundData.cpp */; };
+		34D8BC24195976FF0082ED4A /* XMLProjectileSoundParser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 34D8BC22195976FF0082ED4A /* XMLProjectileSoundParser.cpp */; };
+		34D8BC2719597A1E0082ED4A /* ProjectileSoundFactory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 34D8BC2519597A1E0082ED4A /* ProjectileSoundFactory.cpp */; };
 		34E614DD191338DC006D933E /* GameGroup.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 34E614DB191338DC006D933E /* GameGroup.cpp */; };
 		34E614E0191339A6006D933E /* MonsterFactory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 34E614DE191339A6006D933E /* MonsterFactory.cpp */; };
 		34E614E319133A2B006D933E /* MonsterCreator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 34E614E119133A2B006D933E /* MonsterCreator.cpp */; };
@@ -915,6 +925,19 @@
 		34CC3F35195151D900CB46F0 /* PauseLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PauseLayer.cpp; sourceTree = "<group>"; };
 		34CC3F36195151D900CB46F0 /* PauseLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PauseLayer.h; sourceTree = "<group>"; };
 		34CC3F3C1951799600CB46F0 /* PauseLayer.ExportJson */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = PauseLayer.ExportJson; sourceTree = "<group>"; };
+		34D8BC1119596D670082ED4A /* projectile_sounds.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = projectile_sounds.xml; sourceTree = "<group>"; };
+		34D8BC13195974A40082ED4A /* magic_fireball_end.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = magic_fireball_end.wav; sourceTree = "<group>"; };
+		34D8BC14195974A40082ED4A /* magic_fireball_middle.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = magic_fireball_middle.wav; sourceTree = "<group>"; };
+		34D8BC15195974A40082ED4A /* magic_fireball_start.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = magic_fireball_start.wav; sourceTree = "<group>"; };
+		34D8BC19195974CD0082ED4A /* magic_lightningarrow_end.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = magic_lightningarrow_end.wav; sourceTree = "<group>"; };
+		34D8BC1A195974CD0082ED4A /* magic_lightningarrow_middle.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = magic_lightningarrow_middle.wav; sourceTree = "<group>"; };
+		34D8BC1B195974CD0082ED4A /* magic_lightningarrow_start.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = magic_lightningarrow_start.wav; sourceTree = "<group>"; };
+		34D8BC1F195976490082ED4A /* ProjectileSoundData.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ProjectileSoundData.cpp; path = ../Classes/ProjectileSoundData.cpp; sourceTree = "<group>"; };
+		34D8BC20195976490082ED4A /* ProjectileSoundData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ProjectileSoundData.h; path = ../Classes/ProjectileSoundData.h; sourceTree = "<group>"; };
+		34D8BC22195976FF0082ED4A /* XMLProjectileSoundParser.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = XMLProjectileSoundParser.cpp; path = ../Classes/XMLProjectileSoundParser.cpp; sourceTree = "<group>"; };
+		34D8BC23195976FF0082ED4A /* XMLProjectileSoundParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XMLProjectileSoundParser.h; path = ../Classes/XMLProjectileSoundParser.h; sourceTree = "<group>"; };
+		34D8BC2519597A1E0082ED4A /* ProjectileSoundFactory.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ProjectileSoundFactory.cpp; path = ../Classes/ProjectileSoundFactory.cpp; sourceTree = "<group>"; };
+		34D8BC2619597A1E0082ED4A /* ProjectileSoundFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ProjectileSoundFactory.h; path = ../Classes/ProjectileSoundFactory.h; sourceTree = "<group>"; };
 		34E614DB191338DC006D933E /* GameGroup.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameGroup.cpp; sourceTree = "<group>"; };
 		34E614DC191338DC006D933E /* GameGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameGroup.h; sourceTree = "<group>"; };
 		34E614DE191339A6006D933E /* MonsterFactory.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MonsterFactory.cpp; sourceTree = "<group>"; };
@@ -2181,6 +2204,12 @@
 		34F69CCE19415A2F005DD696 /* SFXs */ = {
 			isa = PBXGroup;
 			children = (
+				34D8BC19195974CD0082ED4A /* magic_lightningarrow_end.wav */,
+				34D8BC1A195974CD0082ED4A /* magic_lightningarrow_middle.wav */,
+				34D8BC1B195974CD0082ED4A /* magic_lightningarrow_start.wav */,
+				34D8BC13195974A40082ED4A /* magic_fireball_end.wav */,
+				34D8BC14195974A40082ED4A /* magic_fireball_middle.wav */,
+				34D8BC15195974A40082ED4A /* magic_fireball_start.wav */,
 				34F69CCF19415A61005DD696 /* cat_jump.wav */,
 				34F69CD019415A61005DD696 /* cat_death.wav */,
 				34F69CD119415A61005DD696 /* cat_hurt.wav */,
@@ -2191,6 +2220,7 @@
 		34F69CD519415A67005DD696 /* XMLs */ = {
 			isa = PBXGroup;
 			children = (
+				34D8BC1119596D670082ED4A /* projectile_sounds.xml */,
 				34F69CD619415A75005DD696 /* character_sounds.xml */,
 			);
 			name = XMLs;
@@ -2705,6 +2735,8 @@
 				F5E2929418E6768F00B9B152 /* InfoViewCreator.h */,
 				F5EA4323192B438000E63C1A /* ItemCreator.cpp */,
 				F5EA4324192B438000E63C1A /* ItemCreator.h */,
+				34D8BC2519597A1E0082ED4A /* ProjectileSoundFactory.cpp */,
+				34D8BC2619597A1E0082ED4A /* ProjectileSoundFactory.h */,
 			);
 			name = Factories;
 			sourceTree = "<group>";
@@ -2794,6 +2826,8 @@
 				34BFEA1B19483DBF00501A1D /* ProjectileStateAnimationData.h */,
 				34100F13194A202000EB08F3 /* GameObjectCalculateData.cpp */,
 				34100F14194A202000EB08F3 /* GameObjectCalculateData.h */,
+				34D8BC1F195976490082ED4A /* ProjectileSoundData.cpp */,
+				34D8BC20195976490082ED4A /* ProjectileSoundData.h */,
 			);
 			name = Data;
 			sourceTree = "<group>";
@@ -2953,6 +2987,8 @@
 				341AFAC419477E7400693634 /* XMLButtonSelectorParser.h */,
 				34BFEA1D19483ED000501A1D /* XMLProjectileDataParser.cpp */,
 				34BFEA1E19483ED000501A1D /* XMLProjectileDataParser.h */,
+				34D8BC22195976FF0082ED4A /* XMLProjectileSoundParser.cpp */,
+				34D8BC23195976FF0082ED4A /* XMLProjectileSoundParser.h */,
 			);
 			name = "XML Parser";
 			sourceTree = "<group>";
@@ -3186,6 +3222,7 @@
 				34CC3F3219513F1400CB46F0 /* ControllerLayer_1.ExportJson in Resources */,
 				F58095BF195850640011C3D0 /* 16bit in Resources */,
 				517E84BC1958477800881FC4 /* effect_animation.xml in Resources */,
+				34D8BC1E195974CD0082ED4A /* magic_lightningarrow_start.wav in Resources */,
 				7855E0E1153FEF240059DD9A /* Default.png in Resources */,
 				517E84AF195846C200881FC4 /* list_effect.xml in Resources */,
 				F5FA1C37194ED1B8002C73E2 /* monster_bull.xml in Resources */,
@@ -3201,9 +3238,11 @@
 				F5FA1C4E194ED741002C73E2 /* maincrystal_animation.xml in Resources */,
 				F5FA1C56194ED750002C73E2 /* container_animation.xml in Resources */,
 				2D0DA14E1908F6C800881C8D /* test_sheet.png in Resources */,
+				34D8BC1C195974CD0082ED4A /* magic_lightningarrow_end.wav in Resources */,
 				F52678F318EEAEA500CE1E3B /* arial.ttf in Resources */,
 				340423D2193D8F4700223029 /* test_sheet.plist in Resources */,
 				517E84C5195847B700881FC4 /* character_monkey.xml in Resources */,
+				34D8BC1219596D670082ED4A /* projectile_sounds.xml in Resources */,
 				34B249A7194FE8E50072B34B /* AssetMusic_Commons_Market.mp3 in Resources */,
 				34B249A9194FE9CB0072B34B /* AssetMusic_Commons_WitchTheme.mp3 in Resources */,
 				D4EF949E15BD2D9600D803EB /* Icon-72.png in Resources */,
@@ -3215,6 +3254,7 @@
 				517E84B1195846C200881FC4 /* skill_animation.xml in Resources */,
 				F52678F418EEAEA500CE1E3B /* Marker Felt.ttf in Resources */,
 				D4EF94A015BD2D9800D803EB /* Icon-144.png in Resources */,
+				34D8BC17195974A40082ED4A /* magic_fireball_middle.wav in Resources */,
 				F53ACBAF18D831C700F958A8 /* map2.xml in Resources */,
 				342ABFC0194EF61400513B48 /* MainMenuLayer0.plist in Resources */,
 				3446809D1943037D00FECCE8 /* MapListItem0.png in Resources */,
@@ -3223,6 +3263,7 @@
 				34002585192DB46100059016 /* tower_sensor.plist in Resources */,
 				34F69CD319415A61005DD696 /* cat_death.wav in Resources */,
 				344680A11943049D00FECCE8 /* MapListItem_1.ExportJson in Resources */,
+				34D8BC1D195974CD0082ED4A /* magic_lightningarrow_middle.wav in Resources */,
 				2D0DA14D1908F6C800881C8D /* test_sheet.plist in Resources */,
 				D446FD6E16102124000ADA7B /* Default@2x.png in Resources */,
 				340423CE193D8F2800223029 /* ControllerLayer0.plist in Resources */,
@@ -3261,6 +3302,7 @@
 				F58095C0195850640011C3D0 /* 32bit in Resources */,
 				34F69CD219415A61005DD696 /* cat_jump.wav in Resources */,
 				F5FA1C39194ED1B8002C73E2 /* monster_monkey.xml in Resources */,
+				34D8BC16195974A40082ED4A /* magic_fireball_end.wav in Resources */,
 				517E84B81958475F00881FC4 /* item_list.xml in Resources */,
 				34F69CD419415A61005DD696 /* cat_hurt.wav in Resources */,
 				34B3BDE71942BE3300D3E651 /* shoot.plist in Resources */,
@@ -3268,6 +3310,7 @@
 				F5831B131945A4420055798F /* defense_list.xml in Resources */,
 				517E84B41958474100881FC4 /* skill_body.plist in Resources */,
 				F5FA1C62194EE752002C73E2 /* sakkal.png in Resources */,
+				34D8BC18195974A40082ED4A /* magic_fireball_start.wav in Resources */,
 				1AFAF8BE16D35E4900DB1158 /* HelloWorld.png in Resources */,
 				517E84C6195847B700881FC4 /* character_pig.xml in Resources */,
 				2D0DA15A1908F72200881C8D /* tower_1.xml in Resources */,
@@ -3423,6 +3466,7 @@
 				46513EB1187BFBA200B5ABE1 /* UITouchGroup.cpp in Sources */,
 				15A3DA371682F826002FB0C5 /* CCBValue.cpp in Sources */,
 				15A3DA381682F826002FB0C5 /* CCControlButtonLoader.cpp in Sources */,
+				34D8BC21195976490082ED4A /* ProjectileSoundData.cpp in Sources */,
 				15A3DA391682F826002FB0C5 /* CCControlLoader.cpp in Sources */,
 				F5B85FBF1904BABF00CE4604 /* ForegroundDTO.cpp in Sources */,
 				15A3DA3A1682F826002FB0C5 /* CCData.cpp in Sources */,
@@ -3535,6 +3579,7 @@
 				1A8F3B7A175E05DA00049216 /* Json.cpp in Sources */,
 				1A8F3B7B175E05DA00049216 /* RegionAttachment.cpp in Sources */,
 				1A8F3B7C175E05DA00049216 /* Skeleton.cpp in Sources */,
+				34D8BC24195976FF0082ED4A /* XMLProjectileSoundParser.cpp in Sources */,
 				F51A482819454D0300E61987 /* HeroSelectScene.cpp in Sources */,
 				1A8F3B7D175E05DA00049216 /* SkeletonData.cpp in Sources */,
 				1A8F3B7E175E05DA00049216 /* SkeletonJson.cpp in Sources */,
@@ -3615,6 +3660,7 @@
 				34E614F819134009006D933E /* XMLMapParser.cpp in Sources */,
 				379BB9BF17F03F3700829B88 /* UIScrollView.cpp in Sources */,
 				379BB9C017F03F3700829B88 /* UIButton.cpp in Sources */,
+				34D8BC2719597A1E0082ED4A /* ProjectileSoundFactory.cpp in Sources */,
 				34E614E319133A2B006D933E /* MonsterCreator.cpp in Sources */,
 				375BD50E1868454E0024609E /* CCActionEaseEx.cpp in Sources */,
 				F507B41E1921DC5B00D23B99 /* Observer.cpp in Sources */,

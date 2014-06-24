@@ -82,7 +82,7 @@ void GameWorld::onCreateWorld()
     //Set contact listener
     this->setContactListener(this);
     
-    //createWorldBox();
+    createWorldBox();
     
     //DEBUG WORLD
     b2Draw* _debugDraw = new GLESDebugDraw(PTM_RATIO);

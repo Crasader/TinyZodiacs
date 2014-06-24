@@ -101,6 +101,7 @@
 //wave
 #define TAG_WAVE_LIST "wave_list"
 #define TAG_WAVE "wave"
+#define ATTRIBUTE_WAVE_MUSIC "background_music"
 
 //wall
 #define TAG_WALL_LIST "wall_list"
