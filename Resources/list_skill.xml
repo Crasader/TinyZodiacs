@@ -259,7 +259,7 @@
             <holder x="0" y="0" offsetX="0" offsetY="0"></holder>
             <this x="0" y="0" offsetX="0" offsetY="0"></this>
         </joints>
-        <speed>20</speed>
+        <speed>0</speed>
         <list_effect>
             <enemy>
                 <effect>cat_normal_attack_affect</effect>
