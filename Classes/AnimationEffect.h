@@ -36,6 +36,7 @@ public:
     void stop();
     
     void setAnimation(const char* id);
+    void setAnimation(const char* id, bool flipX);
     void setOpacity(GLubyte opacity);
     
     void setStopAction(CCCallFunc* action);

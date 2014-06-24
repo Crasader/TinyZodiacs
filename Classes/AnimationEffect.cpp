@@ -62,6 +62,12 @@ void AnimationEffect::setAnimation(const char *id)
     this->animationObject = DataCollector::getInstance()->getAnimationObjectByKey(id);
 }
 
+void AnimationEffect::setAnimation(const char* id, bool flipX)
+{
+    this->animationObject = DataCollector::getInstance()->getAnimationObjectByKey(id);
+    this->sprite->setFlipX(flipX);
+}
+
 void AnimationEffect::setOpacity(GLubyte opacity)
 {
     if(this->sprite != NULL)

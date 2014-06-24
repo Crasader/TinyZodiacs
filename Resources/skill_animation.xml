@@ -60,7 +60,7 @@
         </framelist>
     </animation>
     
-    <animation name="lightning" delay="0.5" loop="infinity">
+    <animation name="lightning" delay="0.1" loop="infinity">
         <origin x="0.5" y="0.5" />
         <framelist>
             <frame name="magic_lightning_arrow_middle_1.png" />
@@ -70,7 +70,7 @@
             <frame name="magic_lightning_arrow_middle_5.png" />
         </framelist>
     </animation>
-    <animation name="lightning_arrow_end" delay="0.5" loop="1">
+    <animation name="lightning_arrow_end" delay="0.05" loop="1">
         <origin x="0.5" y="0.5" />
         <framelist>
             <framelist>
@@ -87,7 +87,7 @@
         </framelist>
     </animation>
     
-    <animation name="lightning_arrow_create" delay="0.5" loop="1">
+    <animation name="lightning_arrow_create" delay="0.05" loop="1">
         <origin x="0.5" y="0.5" />
         <framelist>
             <frame name="magic_lightning_arrow_start_1.png" />
@@ -102,7 +102,7 @@
         </framelist>
     </animation>
     
-    <animation name="lightning_arrow_shoot" delay="0.1" loop="infinity">
+    <animation name="lightning_arrow_shoot" delay="0.05" loop="infinity">
         <origin x="0.5" y="0.5" />
         <framelist>
             <frame name="magic_lightning_arrow_middle_1.png" />

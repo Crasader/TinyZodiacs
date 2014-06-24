@@ -343,7 +343,6 @@
         -->
     </item_creator_list>
     <wave_list>
-
         <wave id = "1">
             <monster_factory_list>
                 <monster_factory group="B" max="5">

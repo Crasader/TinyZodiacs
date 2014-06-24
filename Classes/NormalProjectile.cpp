@@ -67,17 +67,6 @@ void NormalProjectile::setData(NormalShootingSkillData data, GameObjectCalculate
     body->SetGravityScale(this->data.getProjectileData().getGravityScale());
     //set position
     float32 bodyAngle = body->GetAngle();
-//    if(this->data.getAngleType() == HOLDER_DIRECTION)
-//    {
-//        if(holder.getDirection() == LEFT)
-//        {
-//            bodyAngle = CC_DEGREES_TO_RADIANS(180);
-//        }
-//        else
-//        {
-//            bodyAngle = 0;
-//        }
-//    }
     body->SetTransform(getStartPosition(holder, body), bodyAngle);
     //
     for (b2Fixture* f = this->body->GetFixtureList(); f; f = f->GetNext())
@@ -88,16 +77,6 @@ void NormalProjectile::setData(NormalShootingSkillData data, GameObjectCalculate
         pData->fixtureId = PROJECTILE_FIXTURE;
         pData->data = this;
         f->SetUserData(pData);
-    }
-    
-    // set direction
-    if(holder.getDirection() == LEFT)
-    {
-        this->flipDirection(LEFT);
-    }
-    else if(holder.getDirection() == RIGHT)
-    {
-        this->flipDirection(RIGHT);
     }
     //
     if(data.getLifeTime() > 0 && data.getTimeTick() > 0)
@@ -115,7 +94,15 @@ void NormalProjectile::setData(NormalShootingSkillData data, GameObjectCalculate
     // Sprite
     this->sprite = CCSprite::create();
     GameManager::getInstance()->getGameplayHolder().nodeHolder->addChild(this->sprite, this->data.getProjectileData().getStateAnimation().getAnimationLayerIndex());
-    //
+    // set direction
+    if(holder.getDirection() == LEFT)
+    {
+        this->flipDirection(LEFT);
+    }
+    else if(holder.getDirection() == RIGHT)
+    {
+        this->flipDirection(RIGHT);
+    }
 }
 
 b2Vec2 NormalProjectile::getStartPosition(GameObjectCalculateData holder, b2Body* me)
@@ -148,51 +135,45 @@ b2Vec2 NormalProjectile::getStartPosition(GameObjectCalculateData holder, b2Body
     tempB.x = this_join_type;
     b2AABB thisBoudningBox = Util::getBodyBoundingBox(body);
     //
-        switch (tempB.x) {
-            case JOINT_CENTER:
-                anchorA.x -= 0+tempB.offsetX;
-                break;
-            case JOINT_REAR:
-            case JOINT_BOTTOM_OR_LEFT:
-                anchorA.x -= thisBoudningBox.lowerBound.x - tempB.offsetX;
-                break;
-            case JOINT_TOP_OR_RIGHT:
-                anchorA.x -= thisBoudningBox.upperBound.x + tempB.offsetX;
-                break;
-            default:
-                break;
-        }
-        
-        switch (tempB.y) {
-            case JOINT_CENTER:
-                anchorA.y -= tempB.offsetY;
-                break;
-            case JOINT_REAR:
-            case JOINT_BOTTOM_OR_LEFT:
-                anchorA.y -= thisBoudningBox.lowerBound.y - tempB.offsetY;
-                break;
-            case JOINT_TOP_OR_RIGHT:
-                anchorA.y -= thisBoudningBox.upperBound.y + tempB.offsetY;
-                break;
-            default:
-                break;
-        }
+    switch (tempB.x) {
+        case JOINT_CENTER:
+            anchorA.x -= 0+tempB.offsetX;
+            break;
+        case JOINT_REAR:
+        case JOINT_BOTTOM_OR_LEFT:
+            anchorA.x -= thisBoudningBox.lowerBound.x - tempB.offsetX;
+            break;
+        case JOINT_TOP_OR_RIGHT:
+            anchorA.x -= thisBoudningBox.upperBound.x + tempB.offsetX;
+            break;
+        default:
+            break;
+    }
+    
+    switch (tempB.y) {
+        case JOINT_CENTER:
+            anchorA.y -= tempB.offsetY;
+            break;
+        case JOINT_REAR:
+        case JOINT_BOTTOM_OR_LEFT:
+            anchorA.y -= thisBoudningBox.lowerBound.y - tempB.offsetY;
+            break;
+        case JOINT_TOP_OR_RIGHT:
+            anchorA.y -= thisBoudningBox.upperBound.y + tempB.offsetY;
+            break;
+        default:
+            break;
+    }
     //
     if(this->data.getJointDefA().x == JOINT_REAR /*&& this->data.getJointDefB().x == JOINT_REAR*/)
     {
         if(holder.getDirection() == LEFT)
         {
-//            anchorA.x -= this->data.getJointDefB().offsetX;
-//            anchorA.x -= abs(thisBoudningBox.upperBound.x);
-            
             anchorA.x -= this->data.getPositionPlusPerUnit().x;
             anchorA.y += this->data.getPositionPlusPerUnit().y;
         }
         else if(holder.getDirection() == RIGHT)
         {
-//            anchorA.x += this->data.getJointDefB().offsetX;
-//            anchorA.x += abs(thisBoudningBox.lowerBound.x);
-            
             anchorA.x += this->data.getPositionPlusPerUnit().x;
             anchorA.y += this->data.getPositionPlusPerUnit().y;
         }
@@ -207,7 +188,6 @@ b2Vec2 NormalProjectile::getGlobalBodyStartPosition(GameObjectCalculateData hold
     {
         return b2Vec2(0,0);
     }
-    
     //set joint anchor A
     b2AABB boundingBox = holder.getbodyBoundingBoxDynamic();
     
@@ -251,7 +231,7 @@ void NormalProjectile::shoot()
     float forceY = -sin(this->data.getAngle())*this->data.getSpeed();
     if(this->direction == LEFT)
     {
-
+        
     }
     else if(this->direction == RIGHT)
     {
@@ -259,17 +239,7 @@ void NormalProjectile::shoot()
         forceY = -forceY;
     }
     this->body->SetLinearVelocity(b2Vec2(forceX, forceY));
-    //load shooting animation
-    //    this->sprite->stopAllActions();
-    //    AnimationObject* animationObj = DataCollector::getInstance()->getAnimationObjectByKey(this->data.getProjectileData().getStateAnimation().getShootingStateAnimationID().c_str());
-    //    CCAnimate* action = CCAnimate::create(animationObj->getAnimation());
-    //    this->sprite->runAction(action);
-    //
-//    CCCallFunc* destroyFunction = CCCallFunc::create(this, callfunc_selector(NormalProjectile::destroy));
-//    this->lifeTimeScheduled = ScheduleManager::getInstance()->scheduleFunction(destroyFunction, NULL, this->data.getLifeTime(), 1);
-//    this->lifeTimeScheduled->retain();
-    //
-    //start time tick action
+    
     if(data.getLifeTime() >0 && data.getTimeTick() >0)
     {
         CCCallFunc* timeTick = CCCallFunc::create(this, callfunc_selector(NormalProjectile::applyEffectOnTimeTick));
@@ -288,12 +258,12 @@ void NormalProjectile::update(float dt)
             float rotateAngle = atan2(this->body->GetLinearVelocity().y,this->body->GetLinearVelocity().x);
             this->body->SetTransform(this->body->GetPosition(),rotateAngle-3.14);
         }
-        break;
+            break;
         case HOLDER_DIRECTION:
         {
-            flipDirection(RIGHT);
+//            flipDirection(RIGHT);
         }
-        break;
+            break;
         default:
             break;
     }
@@ -345,8 +315,18 @@ void NormalProjectile::checkCollisionDataInBeginContact(PhysicData* holderData, 
                 {
                     if(this->data.getProjectileData().getStateAnimation().getHitStateAnimationID() != "")
                     {
+                        bool shouldFlip=false;
+                        if(this->getDirection() == LEFT)
+                        {
+                            shouldFlip = false;
+                        }
+                        else
+                        {
+                            shouldFlip = true;
+                        }
+        
                         AnimationEffect* hitEffect = AnimationEffect::create();
-                        hitEffect->setAnimation(this->data.getProjectileData().getStateAnimation().getHitStateAnimationID().c_str());
+                        hitEffect->setAnimation(this->data.getProjectileData().getStateAnimation().getHitStateAnimationID().c_str(),shouldFlip);
                         EffectManager::getInstance()->runEffect(hitEffect, this->getPositionInPixel(),this->data.getProjectileData().getStateAnimation().getAnimationLayerIndex());
                     }
                     
@@ -357,6 +337,15 @@ void NormalProjectile::checkCollisionDataInBeginContact(PhysicData* holderData, 
                 }
             }
         }
+            break;
+        case MAP_BASE:
+        {
+            if(this->data.getProjectileData().getTerrainCollide() == true)
+            {
+                this->destroy();
+            }
+        }
+            break;
         default:
             break;
     }
@@ -386,6 +375,11 @@ void NormalProjectile::checkCollisionDataInEndContact(PhysicData* holderData, Ph
                 }
             }
         }
+            break;
+        case MAP_BASE:
+        {
+        }
+            break;
         default:
             break;
     }
@@ -429,8 +423,18 @@ void NormalProjectile::destroy()
     //
     if(this->data.getProjectileData().getStateAnimation().getHitStateAnimationID() != "")
     {
+        bool shouldFlip=false;
+        if(this->getDirection() == LEFT)
+        {
+            shouldFlip = false;
+        }
+        else
+        {
+            shouldFlip = true;
+        }
+
         AnimationEffect* hitEffect = AnimationEffect::create();
-        hitEffect->setAnimation(this->data.getProjectileData().getStateAnimation().getHitStateAnimationID().c_str());
+        hitEffect->setAnimation(this->data.getProjectileData().getStateAnimation().getHitStateAnimationID().c_str(),shouldFlip);
         EffectManager::getInstance()->runEffect(hitEffect, this->getPositionInPixel(),this->data.getProjectileData().getStateAnimation().getAnimationLayerIndex());
     }
     //
@@ -542,7 +546,7 @@ void NormalProjectile::notifyToDestroy(GameObject* object)
 
 bool NormalProjectile::shouldDestroy()
 {
-    if(this->data.getProjectileData().getPiercing() <0)
+    if(this->data.getProjectileData().getPiercing() <=0)
     {
         return true;
     }

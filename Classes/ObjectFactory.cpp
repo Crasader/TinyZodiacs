@@ -147,6 +147,10 @@ MapObject* ObjectFactory::createMapObject(MapObjectDTO* mapObjectDTO, b2World *w
         bodyDef.type = b2_staticBody;
         bodyDef.angle = ccpToAngle(ccp(0,0));
         //        bodyDef.bullet = true;
+//        PhysicData* data = new PhysicData();
+//        data->bodyId = MAP_BASE;
+//        data->gameObjectID = MAP_OBJECT;
+//        data->fixtureId = MAP_OBJECT_FIXTURE;
         //
         b2Body *body = world->CreateBody(&bodyDef);
         sc->addFixturesToBody(body, mapObjectDTO->bodyName.c_str());
@@ -271,8 +275,6 @@ SensorObject* ObjectFactory::createSensorObject(SensorObjectDTO* sensorObjectDTO
     
     return sensorObject;
 }
-
-
 
 Tower* ObjectFactory::createTower(TowerStructDTO* towerStructDTO, b2World* world)
 {

@@ -259,7 +259,7 @@
             <holder x="0" y="0" offsetX="0" offsetY="0"></holder>
             <this x="0" y="0" offsetX="0" offsetY="0"></this>
         </joints>
-        <speed>0</speed>
+        <speed>10</speed>
         <list_effect>
             <enemy>
                 <effect>cat_normal_attack_affect</effect>
@@ -269,7 +269,7 @@
         <quantity>1</quantity>
         <delay_per_shoot>0</delay_per_shoot>
         <angle_variability>0</angle_variability>
-        <piercing>0</piercing>
+        <piercing>5</piercing>
         <time_tick>0</time_tick>
         <position_plus_per_unit plus_x="0" plus_y="0"></position_plus_per_unit>
 	</skill>

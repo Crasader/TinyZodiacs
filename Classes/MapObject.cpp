@@ -33,6 +33,7 @@ void MapObject::onCreate()
         PhysicData* data = new PhysicData();//= new PhysicData();
         data->bodyId = MAP_BASE;
         data->gameObjectID = MAP_OBJECT;
+        data->fixtureId = MAP_OBJECT_FIXTURE;
         data->data = this;
 //        this->body->SetUserData(data);
         f->SetUserData(data);
