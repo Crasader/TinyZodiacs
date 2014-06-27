@@ -551,6 +551,8 @@ void Character::notifyByAffect(Affect* affect)
                 playSoundByState(HURT_SOUND);
             }
         }
+        //play sound
+        playSFX(affect->getSoundEffect().c_str());
     }
 }
 

@@ -69,9 +69,9 @@ SkillSoundData SoundManager::loadSkillSoundData(const char* soundId)
     string val = soundId;
     if(val != "")
     {
-        if(data.getexcuteSoundStr() != "")
+        if(data.getExcuteSoundStr() != "")
         {
-            addSoundId(data.getexcuteSoundStr().c_str(), SOUND_EFFECT);
+            addSoundId(data.getExcuteSoundStr().c_str(), SOUND_EFFECT);
         }
         if(data.getHitSoundStr() != "")
         {
@@ -80,6 +80,42 @@ SkillSoundData SoundManager::loadSkillSoundData(const char* soundId)
         if(data.getStopSoundStr() != "")
         {
             addSoundId(data.getStopSoundStr().c_str(), SOUND_EFFECT);
+        }
+    }
+    return data;
+}
+
+std::string SoundManager::loadAffectSoundData(const char* soundId)
+{
+    std::string data = SoundFactory::loadAffectSoundData(soundId);
+    if(data != "")
+    {
+        addSoundId(data.c_str(), SOUND_EFFECT);
+    }
+    return data;
+}
+
+ItemSoundData SoundManager::loadItemSoundData(const char* soundId)
+{
+    ItemSoundData data = SoundFactory::loadItemSoundData(soundId);
+    string val = soundId;
+    if(val != "")
+    {
+        if(data.getAppearSoundStr() != "")
+        {
+            addSoundId(data.getAppearSoundStr().c_str(), SOUND_EFFECT);
+        }
+        if(data.getDisappearSoundStr() != "")
+        {
+            addSoundId(data.getDisappearSoundStr().c_str(), SOUND_EFFECT);
+        }
+        if(data.getDestroySoundStr() != "")
+        {
+            addSoundId(data.getDestroySoundStr().c_str(), SOUND_EFFECT);
+        }
+        if(data.getConsumeSoundStr() != "")
+        {
+            addSoundId(data.getConsumeSoundStr().c_str(), SOUND_EFFECT);
         }
     }
     return data;

@@ -10,6 +10,7 @@
 #include "ScheduleManager.h"
 #include "EffectData.h"
 #include "Character.h"
+#include "SoundManager.h"
 
 AbstractSkill::AbstractSkill(GameObject* holder, SkillData data)
 {
@@ -87,4 +88,61 @@ void AbstractSkill::calculateSkillData(SkillData* data, CharacterData characterD
         //        CCLOG("%d",data->getListEnemyEffect()[i].getHealth());
     }
     data->setListEnemyEffect(listEffect);
+}
+
+void AbstractSkill::excute()
+{
+    
+}
+
+void AbstractSkill::stop()
+{
+    
+}
+
+void AbstractSkill::excuteImmediately()
+{
+    
+}
+
+void AbstractSkill::stopImmediately()
+{
+    
+}
+
+void AbstractSkill::playSFX(const char* sfxName)
+{
+    //    CocosDenshion::SimpleAudioEngine::sharedEngine()->playEffect(sfxName);
+    if(this->holder->shouldHaveSound())
+    {
+        SoundManager::playSoundEffect(sfxName, false);
+    }
+}
+
+void AbstractSkill::stopSFX(unsigned int sfxid)
+{
+    SoundManager::stopSoundEffect(sfxid);
+}
+
+void AbstractSkill::playSoundByState(SkillSound soundState, SkillSoundData data)
+{
+    switch (soundState) {
+        case EXCUTE_SOUND:
+        {
+            playSFX(data.getExcuteSoundStr().c_str());
+        }
+            break;
+        case STOP_SOUND:
+        {
+            playSFX(data.getStopSoundStr().c_str());
+        }
+            break;
+        case SKILL_HIT_SOUND:
+        {
+            playSFX(data.getHitSoundStr().c_str());
+        }
+            break;
+        default:
+            break;
+    }
 }

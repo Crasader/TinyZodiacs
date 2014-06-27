@@ -13,6 +13,7 @@ class Item;
 #include "cocos2d.h"
 #include "GameObject.h"
 #include "ScheduleManager.h"
+#include "ItemSoundData.h"
 
 USING_NS_CC;
 class Item: public GameObject {
@@ -25,7 +26,9 @@ protected:
     CC_SYNTHESIZE(AnimationObject*, prepareToDisappearAnimation, prepareToDisappearAnimation);
     CC_SYNTHESIZE(AnimationObject*, prepareToAppearAnimation, PrepareToAppearAnimation);
     CC_SYNTHESIZE(AnimationObject*, appearAnimation, AppearAnimation);
+    CC_SYNTHESIZE(ItemSoundData, soundData, SoundData);
 
+    void playSoundByState(ItemSound soundState);
 public:
     int id;
     Item();
@@ -40,7 +43,7 @@ public:
     virtual void appear();
     virtual void prepareToDisappearInTimeOut();
     virtual void prepareToDisappearInContact(GameObject* contactGameObject);
-      virtual void prepareToDisappearInOpen();
+    virtual void prepareToDisappearInOpen();
     virtual void disappear();
 
     virtual void contact(GameObject* contactGameObject);

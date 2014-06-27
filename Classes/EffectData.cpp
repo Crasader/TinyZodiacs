@@ -70,6 +70,7 @@ EffectData EffectData::clone()
     
     effectData.setLifeTime(this->lifeTime);
     effectData.settimeTick(this->timeTick);
+    effectData.setSoundEffect(this->soundEffect);
     
     return effectData;
 }

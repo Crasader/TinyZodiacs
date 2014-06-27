@@ -1,6 +1,7 @@
 <list_effect>
     <effect id="onion_monster_normal_attack">
         <animation animation_layer="4" minRotateAngle ="-90" maxRotateAngle="90" minScale="0.75" maxScale="1" repeatTimes="1">effect1-slash</animation>
+        <sfx>slash_sound_1</sfx>
         <joints>
             <holder x="0" y="0" offsetX="0" offsetY="0"></holder>
             <this x="0" y="0" offsetX="0" offsetY="0"></this>
@@ -23,6 +24,7 @@
     
     <effect id="bull_monster_normal_attack">
         <animation animation_layer="4" minRotateAngle ="0" maxRotateAngle="0" minScale="1" maxScale="1" repeatTimes="1">effect1-slash</animation>
+        <sfx>slash_sound_1</sfx>
         <joints>
             <holder x="0" y="1" offsetX="0" offsetY="0"></holder>
             <this x="0" y="0" offsetX="0" offsetY="0"></this>
@@ -45,6 +47,7 @@
     
     <effect id="pig_monster_normal_attack">
         <animation animation_layer="4" minRotateAngle ="0" maxRotateAngle="0" minScale="1" maxScale="1" repeatTimes="1">effect1-slash</animation>
+        <sfx>slash_sound_1</sfx>
         <joints>
             <holder x="0" y="1" offsetX="0" offsetY="0"></holder>
             <this x="0" y="0" offsetX="0" offsetY="0"></this>
@@ -68,6 +71,7 @@
 
     <effect id="tower_normal_attack_affect">
         <animation animation_layer="4" minRotateAngle ="0" maxRotateAngle="0" minScale="1" maxScale="1" repeatTimes="1">effect1-slash</animation>
+        <sfx></sfx>
         <joints>
             <holder x="0" y="1" offsetX="0" offsetY="0"></holder>
             <this x="0" y="0" offsetX="0" offsetY="0"></this>
@@ -90,6 +94,7 @@
     
     <effect id="projectile_first_effect">
         <animation animation_layer="4" minRotateAngle ="0" maxRotateAngle="0" minScale="1" maxScale="1" repeatTimes="1">effect1-slash</animation>
+        <sfx></sfx>
         <joints>
             <holder x="0" y="1" offsetX="0" offsetY="0"></holder>
             <this x="0" y="0" offsetX="0" offsetY="0"></this>
@@ -113,6 +118,7 @@
     
     <effect id="lightning_arrow_stun">
         <animation animation_layer="4" minRotateAngle ="0" maxRotateAngle="0" minScale="1" maxScale="1" repeatTimes="1">skill-lightning_arrow_end</animation>
+        <sfx></sfx>
         <joints>
             <holder x="0" y="1" offsetX="0" offsetY="0"></holder>
             <this x="0" y="0" offsetX="0" offsetY="0"></this>
@@ -136,7 +142,8 @@
             
     <effect id="fire_ball_burn">
         <animation animation_layer="4" minRotateAngle ="0" maxRotateAngle="0" minScale="1" maxScale="1" repeatTimes="-1">skill-magic_fireball_end</animation>
-        <joints>
+       <sfx></sfx>
+       <joints>
             <holder x="0" y="0" offsetX="0" offsetY="0"></holder>
             <this x="0" y="0" offsetX="0" offsetY="0"></this>
         </joints>
@@ -159,6 +166,7 @@
     
     <effect id="enegy_drain">
         <animation animation_layer="4" minRotateAngle ="0" maxRotateAngle="360" minScale="0.7" maxScale="1" repeatTimes="0">effect1-lightning</animation>
+        <sfx></sfx>
         <joints>
             <holder x="0" y="0" offsetX="0" offsetY="0"></holder>
             <this x="0" y="0" offsetX="0" offsetY="0"></this>
@@ -183,6 +191,7 @@
 
     <effect id="cat_healing">
         <animation animation_layer="4" minRotateAngle ="0" maxRotateAngle="0" minScale="1" maxScale="1" repeatTimes="1">effect1-slash</animation>
+        <sfx>slash_sound_1</sfx>
         <joints>
             <holder x="1" y="1" offsetX="0" offsetY="0"></holder>
             <this x="0" y="0" offsetX="0" offsetY="0"></this>
@@ -206,6 +215,7 @@
     
     <effect id="item_healing">
         <animation animation_layer="4" minRotateAngle ="0" maxRotateAngle="0" minScale="1" maxScale="1" repeatTimes="1">effect1-slash</animation>
+        <sfx></sfx>
         <joints>
             <holder x="1" y="1" offsetX="0" offsetY="0"></holder>
             <this x="0" y="0" offsetX="0" offsetY="0"></this>
@@ -229,6 +239,7 @@
     
     <effect id="suicide_effect">
         <animation animation_layer="4" minRotateAngle ="-90" maxRotateAngle="90" minScale="0.75" maxScale="1" repeatTimes="1">effect1-slash</animation>
+        <sfx></sfx>
         <joints>
             <holder x="0" y="0" offsetX="0" offsetY="0"></holder>
             <this x="0" y="0" offsetX="0" offsetY="0"></this>
@@ -251,6 +262,7 @@
     
     <effect id="item_powerup">
         <animation animation_layer="4" minRotateAngle ="0" maxRotateAngle="0" minScale="1" maxScale="1" repeatTimes="1">effect1-lightning</animation>
+        <sfx></sfx>
         <joints>
             <holder x="1" y="1" offsetX="0" offsetY="0"></holder>
             <this x="0" y="0" offsetX="0" offsetY="0"></this>
@@ -274,6 +286,7 @@
     
     <effect id="item_speedup">
         <animation animation_layer="4" minRotateAngle ="0" maxRotateAngle="0" minScale="1" maxScale="1" repeatTimes="1">effect1-lightning</animation>
+        <sfx></sfx>
         <joints>
             <holder x="1" y="1" offsetX="0" offsetY="0"></holder>
             <this x="0" y="0" offsetX="0" offsetY="0"></this>
@@ -296,6 +309,7 @@
     
     <effect id="item_defense">
         <animation animation_layer="4" minRotateAngle ="0" maxRotateAngle="0" minScale="1" maxScale="1" repeatTimes="1">effect1-lightning</animation>
+        <sfx></sfx>
         <joints>
             <holder x="1" y="1" offsetX="0" offsetY="0"></holder>
             <this x="0" y="0" offsetX="0" offsetY="0"></this>

@@ -10,6 +10,7 @@
 
 #include "XMLHelper.h"
 #include "LayerIndexConstants.h"
+#include "SoundManager.h"
 
 using namespace tinyxml2;
 
@@ -60,8 +61,6 @@ EffectData* EffectFactory::loadXMLFile(const char* key, const char *xmlFileName)
         data->setMinScale(readMinScale(result->FirstChildElement(TAG_ANIMATION_ID)));
         data->setMaxScale(readMaxScale(result->FirstChildElement(TAG_ANIMATION_ID)));
         data->setRepeatTimes(readRepeatTimes(result->FirstChildElement(TAG_ANIMATION_ID)));
-
-//        CCLOG("%s - %d - %f - %f- %f - %f - %d",data->getAnimationId().c_str(), data->getAnimationLayerIndex(),data->getMinRotateAngle(), data->getMaxRotateAngle(), data->getMinScale(),data->getMaxScale(),data->getRepeatTimes());
         
         if(result->FirstChildElement(TAG_JOINTS) != NULL)
         {
@@ -83,6 +82,8 @@ EffectData* EffectFactory::loadXMLFile(const char* key, const char *xmlFileName)
 
         data->setLifeTime(readLifeTime(result->FirstChildElement(TAG_LIFE_TIME)));
         data->settimeTick(readTimeTick(result->FirstChildElement(TAG_TIME_TICK)));
+        
+        data->setSoundEffect(readSFX(result->FirstChildElement(TAG_SFX)));
     }
     
     delete []pFileData;
@@ -205,4 +206,10 @@ JointDef EffectFactory::readJoinDef(const XMLElement* root)
         def.offsetY=XMLHelper::readAttributeFloat(root, ATTRIBUTE_OFFSET_Y, 0);
     }
     return def;
+}
+
+std::string EffectFactory::readSFX(const XMLElement* root)
+{
+    std::string soundId = XMLHelper::readString(root, "");
+    return SoundManager::loadAffectSoundData(soundId.c_str());
 }

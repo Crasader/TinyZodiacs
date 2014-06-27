@@ -1,7 +1,97 @@
 <skill_sound_list>
-	<skill_sound id="monster_onion_normal_attack">
+	<skill_sound id="monkey_normal_attack">
+		<excute>ZS_Attack01.wav</excute>
+		<stop></stop>
+        <hit></hit>
+	</skill_sound>
+    
+    <skill_sound id="monkey_aura">
+		<excute>FS_Skill01_cast.wav</excute>
+		<stop>FS_Skill01_cast.wav</stop>
+        <hit></hit>
+	</skill_sound>
+    
+    <skill_sound id="monkey_ultimate">
+		<excute>FS_Skill01_cast.wav</excute>
+		<stop>FS_Skill01_cast.wav</stop>
+        <hit>sword_slash1.wav</hit>
+	</skill_sound>
+    
+    <skill_sound id="monster_onion_normal_attack">
 		<excute>sword_slash0.wav</excute>
 		<stop></stop>
-        <hit>sword_slash1.wav</hit>
+        <hit></hit>
+	</skill_sound>
+    
+    <skill_sound id="monster_bull_normal_attack">
+		<excute>sword_slash0.wav</excute>
+		<stop></stop>
+        <hit></hit>
+	</skill_sound>
+    
+    <skill_sound id="monster_pig_shooting">
+		<excute></excute>
+		<stop></stop>
+        <hit></hit>
+	</skill_sound>
+    
+    <skill_sound id="tower_shooting_1">
+		<excute></excute>
+		<stop></stop>
+        <hit></hit>
+	</skill_sound>
+    
+    <skill_sound id="tower_shooting_2">
+		<excute></excute>
+		<stop></stop>
+        <hit></hit>
+	</skill_sound>
+    
+    <skill_sound id="lightning_arrow">
+		<excute></excute>
+		<stop></stop>
+        <hit></hit>
+	</skill_sound>
+    
+    <skill_sound id="chain_lightning_trap">
+		<excute></excute>
+		<stop></stop>
+        <hit></hit>
+	</skill_sound>
+    
+    <skill_sound id="chain_lightning_circle">
+		<excute></excute>
+		<stop></stop>
+        <hit></hit>
+	</skill_sound>
+    
+    <skill_sound id="fireball">
+		<excute></excute>
+		<stop></stop>
+        <hit></hit>
+	</skill_sound>
+    
+    <skill_sound id="waterball">
+		<excute></excute>
+		<stop></stop>
+        <hit></hit>
+	</skill_sound>
+    
+    <skill_sound id="bomb">
+		<excute></excute>
+		<stop></stop>
+        <hit></hit>
+	</skill_sound>
+    
+    <skill_sound id="iceball">
+		<excute></excute>
+		<stop></stop>
+        <hit></hit>
+	</skill_sound>
+    
+    <skill_sound id="energyball">
+		<excute></excute>
+		<stop></stop>
+        <hit></hit>
 	</skill_sound>
 </skill_sound_list>

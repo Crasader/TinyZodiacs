@@ -182,6 +182,15 @@
 		340423CF193D8F2800223029 /* ControllerLayer0.png in Resources */ = {isa = PBXBuildFile; fileRef = 340423CC193D8F2800223029 /* ControllerLayer0.png */; };
 		340423D2193D8F4700223029 /* test_sheet.plist in Resources */ = {isa = PBXBuildFile; fileRef = 340423D0193D8F4700223029 /* test_sheet.plist */; };
 		340423D3193D8F4700223029 /* test_sheet.png in Resources */ = {isa = PBXBuildFile; fileRef = 340423D1193D8F4700223029 /* test_sheet.png */; };
+		340D3374195D1EF200E93CB5 /* FS_Skill01_cast.wav in Resources */ = {isa = PBXBuildFile; fileRef = 340D3372195D1EF200E93CB5 /* FS_Skill01_cast.wav */; };
+		340D3375195D1EF200E93CB5 /* ZS_Attack01.wav in Resources */ = {isa = PBXBuildFile; fileRef = 340D3373195D1EF200E93CB5 /* ZS_Attack01.wav */; };
+		340D3377195D247000E93CB5 /* affect_sounds.xml in Resources */ = {isa = PBXBuildFile; fileRef = 340D3376195D247000E93CB5 /* affect_sounds.xml */; };
+		340D337A195D25E700E93CB5 /* XMLAffectSoundParser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 340D3378195D25E700E93CB5 /* XMLAffectSoundParser.cpp */; };
+		340D337C195D359E00E93CB5 /* item_sounds.xml in Resources */ = {isa = PBXBuildFile; fileRef = 340D337B195D359E00E93CB5 /* item_sounds.xml */; };
+		340D337F195D4DB700E93CB5 /* ItemSoundData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 340D337D195D4DB700E93CB5 /* ItemSoundData.cpp */; };
+		340D3382195D4F7E00E93CB5 /* XMLItemSoundParser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 340D3380195D4F7E00E93CB5 /* XMLItemSoundParser.cpp */; };
+		340D3384195D54DB00E93CB5 /* barrel_break.wav in Resources */ = {isa = PBXBuildFile; fileRef = 340D3383195D54DB00E93CB5 /* barrel_break.wav */; };
+		340D3386195D5A0F00E93CB5 /* crystal01.wav in Resources */ = {isa = PBXBuildFile; fileRef = 340D3385195D5A0F00E93CB5 /* crystal01.wav */; };
 		340DE0AC192C97320056D51E /* EffectData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 340DE0AA192C97320056D51E /* EffectData.cpp */; };
 		340DE0AF192C977B0056D51E /* EffectFactory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 340DE0AD192C977B0056D51E /* EffectFactory.cpp */; };
 		340DE0B2192C9B010056D51E /* SkillAnimationEffect.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 340DE0B1192C9B010056D51E /* SkillAnimationEffect.cpp */; };
@@ -869,6 +878,18 @@
 		340423CC193D8F2800223029 /* ControllerLayer0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ControllerLayer0.png; sourceTree = "<group>"; };
 		340423D0193D8F4700223029 /* test_sheet.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = test_sheet.plist; sourceTree = "<group>"; };
 		340423D1193D8F4700223029 /* test_sheet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = test_sheet.png; sourceTree = "<group>"; };
+		340D3372195D1EF200E93CB5 /* FS_Skill01_cast.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = FS_Skill01_cast.wav; sourceTree = "<group>"; };
+		340D3373195D1EF200E93CB5 /* ZS_Attack01.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = ZS_Attack01.wav; sourceTree = "<group>"; };
+		340D3376195D247000E93CB5 /* affect_sounds.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = affect_sounds.xml; sourceTree = "<group>"; };
+		340D3378195D25E700E93CB5 /* XMLAffectSoundParser.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = XMLAffectSoundParser.cpp; path = ../Classes/XMLAffectSoundParser.cpp; sourceTree = "<group>"; };
+		340D3379195D25E700E93CB5 /* XMLAffectSoundParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XMLAffectSoundParser.h; path = ../Classes/XMLAffectSoundParser.h; sourceTree = "<group>"; };
+		340D337B195D359E00E93CB5 /* item_sounds.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = item_sounds.xml; sourceTree = "<group>"; };
+		340D337D195D4DB700E93CB5 /* ItemSoundData.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ItemSoundData.cpp; path = ../Classes/ItemSoundData.cpp; sourceTree = "<group>"; };
+		340D337E195D4DB700E93CB5 /* ItemSoundData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ItemSoundData.h; path = ../Classes/ItemSoundData.h; sourceTree = "<group>"; };
+		340D3380195D4F7E00E93CB5 /* XMLItemSoundParser.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = XMLItemSoundParser.cpp; path = ../Classes/XMLItemSoundParser.cpp; sourceTree = "<group>"; };
+		340D3381195D4F7E00E93CB5 /* XMLItemSoundParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XMLItemSoundParser.h; path = ../Classes/XMLItemSoundParser.h; sourceTree = "<group>"; };
+		340D3383195D54DB00E93CB5 /* barrel_break.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = barrel_break.wav; sourceTree = "<group>"; };
+		340D3385195D5A0F00E93CB5 /* crystal01.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = crystal01.wav; sourceTree = "<group>"; };
 		340DE0AA192C97320056D51E /* EffectData.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = EffectData.cpp; sourceTree = "<group>"; };
 		340DE0AB192C97320056D51E /* EffectData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EffectData.h; sourceTree = "<group>"; };
 		340DE0AD192C977B0056D51E /* EffectFactory.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = EffectFactory.cpp; sourceTree = "<group>"; };
@@ -2257,39 +2278,43 @@
 		34F69CCE19415A2F005DD696 /* SFXs */ = {
 			isa = PBXGroup;
 			children = (
-				34D24BEB195C8782005B41C8 /* sword_slash0.wav */,
-				34D24BEC195C8782005B41C8 /* sword_slash1.wav */,
-				348342051959EAAE00173C2A /* SS_Vo_Attack01.wav */,
-				348342061959EAAE00173C2A /* SS_Vo_Death01.wav */,
-				348342071959EAAE00173C2A /* SS_Vo_Hurt01.wav */,
-				348342031959EA8100173C2A /* MoneyRun.wav */,
-				348341FD1959E9DC00173C2A /* LR_Vo_Attack02.wav */,
-				348341FE1959E9DC00173C2A /* LR_Vo_Death01.wav */,
-				348341FF1959E9DC00173C2A /* LR_Vo_Hurt01.wav */,
+				340D3385195D5A0F00E93CB5 /* crystal01.wav */,
+				340D3383195D54DB00E93CB5 /* barrel_break.wav */,
+				34F69CD019415A61005DD696 /* cat_death.wav */,
+				34F69CD119415A61005DD696 /* cat_hurt.wav */,
+				34F69CCF19415A61005DD696 /* cat_jump.wav */,
+				340D3372195D1EF200E93CB5 /* FS_Skill01_cast.wav */,
 				348341F71959E98D00173C2A /* GCS_Vo_Attack01.wav */,
 				348341F81959E98D00173C2A /* GCS_Vo_Death01.wav */,
 				348341F91959E98D00173C2A /* GCS_Vo_Hurt01.wav */,
+				348341FD1959E9DC00173C2A /* LR_Vo_Attack02.wav */,
+				348341FE1959E9DC00173C2A /* LR_Vo_Death01.wav */,
+				348341FF1959E9DC00173C2A /* LR_Vo_Hurt01.wav */,
 				348341DF1959E37200173C2A /* magic_bomb_end.wav */,
 				348341E01959E37200173C2A /* magic_bomb_middle.wav */,
 				348341E11959E37200173C2A /* magic_bomb_start.wav */,
 				348341E21959E37200173C2A /* magic_energyball_end.wav */,
 				348341E31959E37200173C2A /* magic_energyball_middle.wav */,
 				348341E41959E37200173C2A /* magic_energyball_start.wav */,
+				34D8BC13195974A40082ED4A /* magic_fireball_end.wav */,
+				34D8BC14195974A40082ED4A /* magic_fireball_middle.wav */,
+				34D8BC15195974A40082ED4A /* magic_fireball_start.wav */,
 				348341E51959E37200173C2A /* magic_firepillar_end.wav */,
 				348341E61959E37200173C2A /* magic_firepillar_start.wav */,
 				348341E71959E37200173C2A /* magic_ice_ball_end.wav */,
 				348341E81959E37200173C2A /* magic_ice_ball_start.wav */,
-				348341E91959E37200173C2A /* magic_water_ball_end.wav */,
-				348341EA1959E37200173C2A /* magic_water_ball_start.wav */,
 				34D8BC19195974CD0082ED4A /* magic_lightningarrow_end.wav */,
 				34D8BC1A195974CD0082ED4A /* magic_lightningarrow_middle.wav */,
 				34D8BC1B195974CD0082ED4A /* magic_lightningarrow_start.wav */,
-				34D8BC13195974A40082ED4A /* magic_fireball_end.wav */,
-				34D8BC14195974A40082ED4A /* magic_fireball_middle.wav */,
-				34D8BC15195974A40082ED4A /* magic_fireball_start.wav */,
-				34F69CCF19415A61005DD696 /* cat_jump.wav */,
-				34F69CD019415A61005DD696 /* cat_death.wav */,
-				34F69CD119415A61005DD696 /* cat_hurt.wav */,
+				348341E91959E37200173C2A /* magic_water_ball_end.wav */,
+				348341EA1959E37200173C2A /* magic_water_ball_start.wav */,
+				348342031959EA8100173C2A /* MoneyRun.wav */,
+				348342051959EAAE00173C2A /* SS_Vo_Attack01.wav */,
+				348342061959EAAE00173C2A /* SS_Vo_Death01.wav */,
+				348342071959EAAE00173C2A /* SS_Vo_Hurt01.wav */,
+				34D24BEB195C8782005B41C8 /* sword_slash0.wav */,
+				34D24BEC195C8782005B41C8 /* sword_slash1.wav */,
+				340D3373195D1EF200E93CB5 /* ZS_Attack01.wav */,
 			);
 			name = SFXs;
 			sourceTree = "<group>";
@@ -2297,6 +2322,8 @@
 		34F69CD519415A67005DD696 /* XMLs */ = {
 			isa = PBXGroup;
 			children = (
+				340D337B195D359E00E93CB5 /* item_sounds.xml */,
+				340D3376195D247000E93CB5 /* affect_sounds.xml */,
 				348341DD1959E1B400173C2A /* skill_sounds.xml */,
 				34D8BC1119596D670082ED4A /* projectile_sounds.xml */,
 				34F69CD619415A75005DD696 /* character_sounds.xml */,
@@ -2906,6 +2933,8 @@
 				34D8BC20195976490082ED4A /* ProjectileSoundData.h */,
 				34D24BEF195C87F7005B41C8 /* SkillSoundData.cpp */,
 				34D24BF0195C87F7005B41C8 /* SkillSoundData.h */,
+				340D337D195D4DB700E93CB5 /* ItemSoundData.cpp */,
+				340D337E195D4DB700E93CB5 /* ItemSoundData.h */,
 			);
 			name = Data;
 			sourceTree = "<group>";
@@ -3069,6 +3098,10 @@
 				F5BA76A1192064670070997B /* XMLTowerParser.h */,
 				34D24BF2195C8DD9005B41C8 /* XMLSkillSoundParser.cpp */,
 				34D24BF3195C8DD9005B41C8 /* XMLSkillSoundParser.h */,
+				340D3378195D25E700E93CB5 /* XMLAffectSoundParser.cpp */,
+				340D3379195D25E700E93CB5 /* XMLAffectSoundParser.h */,
+				340D3380195D4F7E00E93CB5 /* XMLItemSoundParser.cpp */,
+				340D3381195D4F7E00E93CB5 /* XMLItemSoundParser.h */,
 			);
 			name = "XML Parser";
 			sourceTree = "<group>";
@@ -3312,6 +3345,7 @@
 				F5FA1C37194ED1B8002C73E2 /* monster_bull.xml in Resources */,
 				D4EF949A15BD2D8B00D803EB /* Icon-57.png in Resources */,
 				343638C71944A7DF00602F87 /* MapSelectScene0.plist in Resources */,
+				340D3386195D5A0F00E93CB5 /* crystal01.wav in Resources */,
 				34F69CD719415A75005DD696 /* character_sounds.xml in Resources */,
 				517E84C8195847B700881FC4 /* monster_onion.xml in Resources */,
 				343638CA1944A92D00602F87 /* MapSelectScene_1.ExportJson in Resources */,
@@ -3347,6 +3381,7 @@
 				D4EF94A015BD2D9800D803EB /* Icon-144.png in Resources */,
 				34D8BC17195974A40082ED4A /* magic_fireball_middle.wav in Resources */,
 				F53ACBAF18D831C700F958A8 /* map2.xml in Resources */,
+				340D3374195D1EF200E93CB5 /* FS_Skill01_cast.wav in Resources */,
 				342ABFC0194EF61400513B48 /* MainMenuLayer0.plist in Resources */,
 				3446809D1943037D00FECCE8 /* MapListItem0.png in Resources */,
 				D41A0AD1160F154A004552AE /* Default-568h@2x.png in Resources */,
@@ -3371,11 +3406,14 @@
 				348341EB1959E37200173C2A /* magic_bomb_end.wav in Resources */,
 				342ABFBE194EF61400513B48 /* batchSettings.png in Resources */,
 				343187131936F67200D0D683 /* GUI in Resources */,
+				340D3375195D1EF200E93CB5 /* ZS_Attack01.wav in Resources */,
 				F5FA1C61194EE752002C73E2 /* sakkal.fnt in Resources */,
 				F58095C2195850C90011C3D0 /* global in Resources */,
 				F5FA1C60194EE752002C73E2 /* sakkal_shadow.png in Resources */,
+				340D3384195D54DB00E93CB5 /* barrel_break.wav in Resources */,
 				2DC48A84191A356600B34724 /* monster_sensor.plist in Resources */,
 				F5FA1C51194ED741002C73E2 /* tower_1_animation.xml in Resources */,
+				340D337C195D359E00E93CB5 /* item_sounds.xml in Resources */,
 				15A3D9961682F7F9002FB0C5 /* CMakeLists.txt in Resources */,
 				342ABFC1194EF61400513B48 /* MainMenuLayer0.png in Resources */,
 				517E84B61958475200881FC4 /* item_body.plist in Resources */,
@@ -3410,6 +3448,7 @@
 				34F69CD419415A61005DD696 /* cat_hurt.wav in Resources */,
 				34B3BDE71942BE3300D3E651 /* shoot.plist in Resources */,
 				1AFAF8BD16D35E4900DB1158 /* CloseSelected.png in Resources */,
+				340D3377195D247000E93CB5 /* affect_sounds.xml in Resources */,
 				F5831B131945A4420055798F /* defense_list.xml in Resources */,
 				517E84B41958474100881FC4 /* skill_body.plist in Resources */,
 				348342021959E9DC00173C2A /* LR_Vo_Hurt01.wav in Resources */,
@@ -3610,6 +3649,7 @@
 				15A3DA4C1682F826002FB0C5 /* CCControlHuePicker.cpp in Sources */,
 				341AFAC519477E7400693634 /* XMLButtonSelectorParser.cpp in Sources */,
 				34100F15194A202000EB08F3 /* GameObjectCalculateData.cpp in Sources */,
+				340D337A195D25E700E93CB5 /* XMLAffectSoundParser.cpp in Sources */,
 				375BD50F1868454E0024609E /* CCActionFrame.cpp in Sources */,
 				F54AE9BF18D2F1AA00194E66 /* ObjectState.cpp in Sources */,
 				F5CCA78B191B2BDB002A7F2A /* AnimationEffect.cpp in Sources */,
@@ -3662,6 +3702,7 @@
 				F5E2929518E6768F00B9B152 /* InfoViewCreator.cpp in Sources */,
 				1AC3624B16D4A1E8000847F2 /* main.m in Sources */,
 				1AFCDA8216D4A25900906EA6 /* RootViewController.mm in Sources */,
+				340D337F195D4DB700E93CB5 /* ItemSoundData.cpp in Sources */,
 				1A8F3B6E175E05DA00049216 /* Animation.cpp in Sources */,
 				1A8F3B6F175E05DA00049216 /* AnimationState.cpp in Sources */,
 				51136AD61908E0CA00317D3A /* MapParallaxForeground.cpp in Sources */,
@@ -3736,6 +3777,7 @@
 				F5CCA7A2191B3D18002A7F2A /* ItemDTO.cpp in Sources */,
 				F5F5F1061935A285006EAEA6 /* RuleManager.cpp in Sources */,
 				34E614EF19133BFA006D933E /* CharacterDTO.cpp in Sources */,
+				340D3382195D4F7E00E93CB5 /* XMLItemSoundParser.cpp in Sources */,
 				34F69CE219415BC5005DD696 /* MainMenuScene.cpp in Sources */,
 				F54AEA0D18D2F50300194E66 /* PhysicData.cpp in Sources */,
 				379BB9AC17F03F3700829B88 /* CCUtilMath.cpp in Sources */,

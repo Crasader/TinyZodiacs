@@ -7,6 +7,8 @@
 //
 
 #include "XMLItemParser.h"
+#include "ItemSoundData.h"
+#include "SoundManager.h"
 
 #define TAG_ITEM "item"
 #define ATTRIBUTE_ITEM_ID "id"
@@ -22,6 +24,7 @@
 #define ATTRIBUTE_ITEM_AFFECT_ID "id"
 #define TAG_ITEM_GOLD_VALUE "gold_value"
 #define TAG_ITEM_TITLE_NOTIFICATION "title_notification"
+#define TAG_SFX "sfx"
 
 CCArray* XMLItemParser::getItemDTOListFromXMLElement(XMLElement* xmlElement)
 {
@@ -46,6 +49,7 @@ ItemDTO* XMLItemParser::getItemDTOFromXMLElement(XMLElement* xmlElement)
     float lifeTime = XMLHelper::readAttributeFloat(xmlElement, ATTRIBUTE_ITEM_LIFE_TIME, 0);
     int goldValue = XMLHelper::readInt(xmlElement->FirstChildElement(TAG_ITEM_GOLD_VALUE), 0);
     string titleNotification = XMLHelper::readString(xmlElement->FirstChildElement(TAG_ITEM_TITLE_NOTIFICATION), "");
+    ItemSoundData soundData = SoundManager::loadItemSoundData(XMLHelper::readString(xmlElement->FirstChildElement(TAG_SFX),"").c_str());
     
     item->id = id;
     item->type = type;
@@ -57,6 +61,7 @@ ItemDTO* XMLItemParser::getItemDTOFromXMLElement(XMLElement* xmlElement)
     item->listAffectID = getAffectListFromXMLElement(xmlElement);
     item->goldValue = goldValue;
     item->titleNotification = titleNotification;
+    item->soundData = soundData;
     
     return item;
 }

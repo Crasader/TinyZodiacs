@@ -219,6 +219,7 @@ void Affect::setData(EffectData effectData)
     this->lifeTime = effectData.getLifeTime();
     this->timeTick = effectData.gettimeTick();
     this->animationLayerIndex = effectData.getAnimationLayerIndex();
+    this->soundEffect = effectData.getSoundEffect();
     
     if(effectData.getAnimationId() != "")
     {

@@ -130,6 +130,21 @@ enum ProjectileSound
     HIT_SOUND
 };
 
+enum SkillSound
+{
+    EXCUTE_SOUND,
+    STOP_SOUND,
+    SKILL_HIT_SOUND
+};
+
+enum ItemSound
+{
+    APPEAR,
+    DISAPPEAR,
+    DESTROY,
+    CONSUME
+};
+
 enum SoundType
 {
     MUSIC,

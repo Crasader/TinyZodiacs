@@ -205,6 +205,8 @@ void NormalAttack::excuteImmediately()
         this->timeTickAction = ScheduleManager::getInstance()->scheduleFunctionForever(timeTick, NULL, this->data.getTimeTick());
         this->timeTickAction->retain();
     }
+    //play sound
+    playSoundByState(EXCUTE_SOUND, this->data.getSoundData());
 }
 
 void NormalAttack::stopImmediately()
@@ -213,7 +215,8 @@ void NormalAttack::stopImmediately()
     {
         return;
     }
-   
+    //play sound
+    playSoundByState(STOP_SOUND, this->data.getSoundData());
     //deactive sensor
     this->data.getSkillSensor()->SetActive(false);
     if(this->data.getSkillAnimation() != NULL && this->holder != NULL)
@@ -284,7 +287,9 @@ void NormalAttack::checkCollisionDataInBeginContact(PhysicData* holderData, Phys
                                 listTarget->addObject(character);
                                 character->attach(this);
                             }
-                            
+                            //play sound
+                            playSoundByState(SKILL_HIT_SOUND, this->data.getSoundData());
+                            //
                             NormalMeleeSkillData calculatedSkillData = this->data;
                             calculateSkillData(&calculatedSkillData, ((Character*)this->holder)->getcharacterData());
                             

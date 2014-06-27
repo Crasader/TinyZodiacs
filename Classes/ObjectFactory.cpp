@@ -397,6 +397,7 @@ Item* ObjectFactory::createContainerItem(ItemDTO* itemDTO, b2World* world)
     containerItem->setGroup(ITEM_GROUP);
     
     containerItem->setLifeTime(itemDTO->lifeTime);
+    containerItem->setSoundData(itemDTO->soundData);
     containerItem->onCreate();
     
     return containerItem;
@@ -432,6 +433,7 @@ Item* ObjectFactory::createGoldItem(ItemDTO* itemDTO, b2World* world)
     item->setGroup(ITEM_GROUP);
     
     item->setLifeTime(itemDTO->lifeTime);
+    item->setSoundData(itemDTO->soundData);
     item->onCreate();
     
     return item;
@@ -476,6 +478,7 @@ Item* ObjectFactory::createBonusItem(ItemDTO* itemDTO, b2World* world)
     item->setGroup(ITEM_GROUP);
     
     item->setLifeTime(itemDTO->lifeTime);
+    item->setSoundData(itemDTO->soundData);
     item->onCreate();
     
     return item;

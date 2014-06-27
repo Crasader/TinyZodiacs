@@ -132,7 +132,6 @@ void HoldableUIButton::onTouchMoved(CCTouch *touch, CCEvent *unused_event)
         {
             if(hitTest(touch->getPreviousLocation()) == true)
             {
-                //cocos2d::gui::UIButton::onTouchEnded(touch,unused_event);
                 this->onTouchEnded(touch, unused_event);
             }
         }

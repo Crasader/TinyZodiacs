@@ -12,6 +12,7 @@
 #include <iostream>
 #include "cocos2d.h"
 #include "Constants.h"
+#include "ItemSoundData.h"
 
 USING_NS_CC;
 using namespace std;
@@ -40,7 +41,7 @@ public:
     vector<ItemStruct> listSubItemStruct;
     vector<string> listAffectID;
     
-    
+    ItemSoundData soundData;
     CREATE_FUNC(ItemDTO);
 };
 

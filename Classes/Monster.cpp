@@ -408,19 +408,7 @@ void Monster::notifyToDestroy()
     GameObject::notifyToDestroy();
 }
 
-void Monster::playSoundByState(CharacterSound characterSoundState)
+bool Monster::shouldHaveSound()
 {
-//    switch (characterSoundState) {
-//        case DEATH_SOUND:
-//            playSFX(this->getSoundData().getDeathSoundStr().c_str());
-//            break;
-//        case HURT_SOUND:
-//            playSFX(this->getSoundData().getHurtSoundStr().c_str());
-//            break;
-//        case JUMP_SOUND:
-//            playSFX(this->getSoundData().getJumpSoundStr().c_str());
-//            break;
-//        default:
-//            break;
-//    }
+    return false;
 }
