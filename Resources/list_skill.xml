@@ -1,5 +1,9 @@
 <skill_list>
+    <!-- MELEE-->
+    <!-- MONKEY_HERO_SET-->
 	<skill id="monkey_normal_attack" type="0">
+        <apply_type>0</apply_type>
+        <sfx>monster_onion_normal_attack</sfx>
 		<body>monkey_normal_attack</body>
         <delay>0.05</delay>
         <life_time>0</life_time>
@@ -11,12 +15,14 @@
         <button_selector>normal_attack</button_selector>
         <list_effect>
             <enemy>
-                <effect>cat_normal_attack_affect</effect>
+                <effect>cat_healing</effect>
             </enemy>
         </list_effect>
 	</skill>
     
     <skill id="monkey_aura" type="0">
+        <apply_type>1</apply_type>
+        <sfx>monster_onion_normal_attack</sfx>
 		<body>monkey_aura</body>
         <delay>0.1</delay>
         <life_time>3</life_time>
@@ -30,7 +36,7 @@
         <button_selector>6</button_selector>
         <list_effect>
             <enemy>
-                <effect>cat_normal_attack_affect</effect>
+                <effect>cat_healing</effect>
             </enemy>
             <allies>
                 <effect>cat_healing</effect>
@@ -44,6 +50,8 @@
 	</skill>
     
     <skill id="monkey_ultimate" type="0">
+        <apply_type>1</apply_type>
+        <sfx>monster_onion_normal_attack</sfx>
 		<body>monkey_aura</body>
         <delay>0.1</delay>
         <life_time>10</life_time>
@@ -57,7 +65,7 @@
         <button_selector>6</button_selector>
         <list_effect>
             <enemy>
-                <effect>cat_normal_attack_affect</effect>
+                <effect>explosion_effect</effect>
             </enemy>
             <self>
                 <effect>explosion_effect</effect>
@@ -66,7 +74,10 @@
         <time_tick>1</time_tick>
 	</skill>
     
-    <skill id="monster_normal_attack" type="0">
+    <!-- ONION_MONSTER_SET-->
+    <skill id="monster_onion_normal_attack" type="0">
+        <apply_type>0</apply_type>
+        <sfx>monster_onion_normal_attack</sfx>
 		<body>monkey_normal_attack</body>
         <delay>0.05</delay>
         <life_time>0.1</life_time>
@@ -77,15 +88,37 @@
         </joints>
         <list_effect>
             <enemy>
-                <effect>cat_normal_attack_affect</effect>
+                <effect>onion_monster_normal_attack</effect>
             </enemy>
         </list_effect>
 	</skill>
+    <!-- BULL_MONSTER_SET-->
+    <skill id="monster_bull_normal_attack" type="0">
+        <apply_type>0</apply_type>
+        <sfx>monster_onion_normal_attack</sfx>
+		<body>monkey_normal_attack</body>
+        <delay>0.05</delay>
+        <life_time>0.1</life_time>
+		<cool_down>0.5</cool_down>
+        <joints>
+            <holder x="2" y="0" offsetX="0" offsetY="0"></holder>
+            <this x="2" y="0" offsetX="0" offsetY="0"></this>
+        </joints>
+        <list_effect>
+            <enemy>
+                <effect>bull_monster_normal_attack</effect>
+            </enemy>
+        </list_effect>
+	</skill>
+    <!--SHOOTING-->
     
-    <skill id="monkey_shooting" type="1">
+    <!--PIG_MONSTER_ATTACK-->
+    <skill id="monster_pig_shooting" type="1">
+        <apply_type>0</apply_type>
+        <sfx>monster_onion_normal_attack</sfx>
         <delay>0</delay>
         <life_time>1</life_time>
-		<cool_down>0.2</cool_down>
+		<cool_down>1</cool_down>
         <joints>
             <holder x="2" y="0" offsetX="0" offsetY="0"></holder>
             <this x="2" y="0" offsetX="0" offsetY="0"></this>
@@ -94,19 +127,22 @@
         <speed>10</speed>
         <list_effect>
             <enemy>
-                <effect>cat_normal_attack_affect</effect>
+                <effect>pig_monster_normal_attack</effect>
             </enemy>
         </list_effect>
-        <projectile>arrow</projectile>
+        <projectile>fireball</projectile>
         <quantity>1</quantity>
-        <delay_per_shoot>0.1</delay_per_shoot>
+        <delay_per_shoot>0</delay_per_shoot>
         <angle_variability>0</angle_variability>
         <piercing>0</piercing>
         <time_tick>0</time_tick>
         <position_plus_per_unit plus_x="0" plus_y="0"></position_plus_per_unit>
 	</skill>
     
+    <!-- TOWER_SHOOTING-->
     <skill id="tower_shooting_1" type="1">
+        <apply_type>0</apply_type>
+        <sfx>monster_onion_normal_attack</sfx>
         <delay>0</delay>
         <life_time>5</life_time>
 		<cool_down>0.5</cool_down>
@@ -117,7 +153,7 @@
         <speed>55</speed>
         <list_effect>
             <enemy>
-                <effect>cat_normal_attack_affect</effect>
+                <effect>tower_normal_attack_affect</effect>
             </enemy>
         </list_effect>
         <projectile>tower_orb_1</projectile>
@@ -130,6 +166,8 @@
 	</skill>
     
     <skill id="tower_shooting_2" type="1">
+        <apply_type>0</apply_type>
+        <sfx>monster_onion_normal_attack</sfx>
         <delay>0</delay>
         <life_time>1</life_time>
 		<cool_down>1</cool_down>
@@ -141,8 +179,7 @@
         <speed>55</speed>
         <list_effect>
             <enemy>
-                <effect>cat_normal_attack_affect</effect>
-                <effect>lightning</effect>
+                <effect>tower_normal_attack_affect</effect>
             </enemy>
         </list_effect>
         <projectile>tower_orb_2</projectile>
@@ -154,7 +191,10 @@
         <position_plus_per_unit plus_x="0" plus_y="0"></position_plus_per_unit>
 	</skill>
     
+    <!--OTHER-->
     <skill id="ultimate_fire_pillars" type="1">
+        <apply_type>1</apply_type>
+        <sfx>monster_onion_normal_attack</sfx>
         <delay>0</delay>
         <life_time>5.5</life_time>
 		<cool_down>3</cool_down>
@@ -165,7 +205,8 @@
         <speed>0</speed>
         <list_effect>
             <enemy>
-                <effect>cat_normal_attack_affect</effect>
+                <effect>projectile_first_effect</effect>
+                <effect>fire_ball_burn</effect>
             </enemy>
         </list_effect>
         <projectile>fire_pillar</projectile>
@@ -178,6 +219,8 @@
 	</skill>
     
     <skill id="lightning_arrow" type="1">
+        <apply_type>0</apply_type>
+        <sfx>monster_onion_normal_attack</sfx>
         <delay>0</delay>
         <life_time>2</life_time>
 		<cool_down>0.5</cool_down>
@@ -189,7 +232,7 @@
         <speed>55</speed>
         <list_effect>
             <enemy>
-                <effect>cat_normal_attack_affect</effect>
+                <effect>projectile_first_effect</effect>
             </enemy>
         </list_effect>
         <projectile>tower_orb_1</projectile>
@@ -202,6 +245,8 @@
 	</skill>
     
     <skill id="chain_lightning_trap" type="1">
+        <apply_type>0</apply_type>
+        <sfx>monster_onion_normal_attack</sfx>
         <delay>0</delay>
         <life_time>10</life_time>
 		<cool_down>2</cool_down>
@@ -213,8 +258,8 @@
         <speed>0</speed>
         <list_effect>
             <enemy>
-                <effect>cat_normal_attack_affect</effect>
-                <effect>lightning</effect>
+                <effect>projectile_first_effect</effect>
+                <effect>lightning_arrow_stun</effect>
             </enemy>
         </list_effect>
         <projectile>tower_orb_1</projectile>
@@ -227,6 +272,8 @@
 	</skill>
     
     <skill id="chain_lightning_circle" type="1">
+        <apply_type>0</apply_type>
+        <sfx>monster_onion_normal_attack</sfx>
         <delay>0</delay>
         <life_time>5</life_time>
 		<cool_down>2</cool_down>
@@ -238,19 +285,21 @@
         <speed>10</speed>
         <list_effect>
             <enemy>
-                <effect>cat_normal_attack_affect</effect>
+                <effect>projectile_first_effect</effect>
             </enemy>
         </list_effect>
         <projectile>tower_orb_1</projectile>
-        <quantity>300</quantity>
+        <quantity>10</quantity>
         <delay_per_shoot>0.1</delay_per_shoot>
-        <angle_variability>30</angle_variability>
+        <angle_variability>5</angle_variability>
         <piercing>0</piercing>
         <time_tick>1</time_tick>
         <position_plus_per_unit plus_x="0" plus_y="0"></position_plus_per_unit>
 	</skill>
     
     <skill id="fireball" type="1">
+        <apply_type>0</apply_type>
+        <sfx>monster_onion_normal_attack</sfx>
         <delay>0</delay>
         <life_time>2</life_time>
 		<cool_down>0.5</cool_down>
@@ -262,7 +311,7 @@
         <speed>10</speed>
         <list_effect>
             <enemy>
-                <effect>cat_normal_attack_affect</effect>
+                <effect>projectile_first_effect</effect>
             </enemy>
         </list_effect>
         <projectile>fireball</projectile>
@@ -270,11 +319,13 @@
         <delay_per_shoot>0</delay_per_shoot>
         <angle_variability>0</angle_variability>
         <piercing>5</piercing>
-        <time_tick>0</time_tick>
+        <time_tick>0.1</time_tick>
         <position_plus_per_unit plus_x="0" plus_y="0"></position_plus_per_unit>
 	</skill>
     
     <skill id="waterball" type="1">
+        <apply_type>0</apply_type>
+        <sfx>monster_onion_normal_attack</sfx>
         <delay>0</delay>
         <life_time>2</life_time>
 		<cool_down>0.5</cool_down>
@@ -286,7 +337,7 @@
         <speed>20</speed>
         <list_effect>
             <enemy>
-                <effect>cat_normal_attack_affect</effect>
+                <effect>projectile_first_effect</effect>
             </enemy>
         </list_effect>
         <projectile>waterball</projectile>
@@ -297,7 +348,10 @@
         <time_tick>0</time_tick>
         <position_plus_per_unit plus_x="0" plus_y="0"></position_plus_per_unit>
 	</skill>
+    
     <skill id="bomb" type="1">
+        <apply_type>0</apply_type>
+        <sfx>monster_onion_normal_attack</sfx>
         <delay>0</delay>
         <life_time>1</life_time>
 		<cool_down>0.5</cool_down>
@@ -309,7 +363,7 @@
         <speed>20</speed>
         <list_effect>
             <enemy>
-                <effect>cat_normal_attack_affect</effect>
+                <effect>projectile_first_effect</effect>
             </enemy>
         </list_effect>
         <projectile>bomb</projectile>
@@ -322,6 +376,8 @@
 	</skill>
     
     <skill id="iceball" type="1">
+        <apply_type>0</apply_type>
+        <sfx>monster_onion_normal_attack</sfx>
         <delay>0</delay>
         <life_time>1</life_time>
 		<cool_down>0.5</cool_down>
@@ -333,7 +389,7 @@
         <speed>20</speed>
         <list_effect>
             <enemy>
-                <effect>cat_normal_attack_affect</effect>
+                <effect>projectile_first_effect</effect>
             </enemy>
         </list_effect>
         <projectile>iceball</projectile>
@@ -346,6 +402,8 @@
 	</skill>
     
     <skill id="energyball" type="1">
+        <apply_type>0</apply_type>
+        <sfx>monster_onion_normal_attack</sfx>
         <delay>0</delay>
         <life_time>1</life_time>
 		<cool_down>0.5</cool_down>
@@ -357,7 +415,7 @@
         <speed>20</speed>
         <list_effect>
             <enemy>
-                <effect>cat_normal_attack_affect</effect>
+                <effect>projectile_first_effect</effect>
             </enemy>
         </list_effect>
         <projectile>energyball</projectile>
@@ -368,9 +426,4 @@
         <time_tick>0</time_tick>
         <position_plus_per_unit plus_x="0" plus_y="0"></position_plus_per_unit>
 	</skill>
-
-
-
-
-    
 </skill_list>

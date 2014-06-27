@@ -79,7 +79,8 @@ void NormalProjectile::setData(NormalShootingSkillData data, GameObjectCalculate
         f->SetUserData(pData);
     }
     //
-    if(data.getLifeTime() > 0 && data.getTimeTick() > 0)
+    if(data.getApplyType() == APPLY_OVERTIME)
+    //if(data.getLifeTime() > 0 && data.getTimeTick() > 0)
     {
         this->listTarget = CCArray::create();
         this->listTarget->retain();
@@ -240,7 +241,8 @@ void NormalProjectile::shoot()
     }
     this->body->SetLinearVelocity(b2Vec2(forceX, forceY));
     
-    if(data.getLifeTime() >0 && data.getTimeTick() >0)
+    //if(data.getLifeTime() >0 && data.getTimeTick() >0)
+    if(data.getApplyType() == APPLY_OVERTIME)
     {
         CCCallFunc* timeTick = CCCallFunc::create(this, callfunc_selector(NormalProjectile::applyEffectOnTimeTick));
         this->timeTickAction = ScheduleManager::getInstance()->scheduleFunctionForever(timeTick, NULL, this->data.getTimeTick());
@@ -302,7 +304,8 @@ void NormalProjectile::checkCollisionDataInBeginContact(PhysicData* holderData, 
                     }
                 }
                 //
-                if(listTarget != NULL && this->data.getTimeTick() >0)
+                //if(listTarget != NULL && this->data.getTimeTick() >0)
+                if(data.getApplyType() == APPLY_OVERTIME)
                 {
                     if(listTarget->indexOfObject(character) == CC_INVALID_INDEX)
                     {
@@ -485,11 +488,14 @@ void NormalProjectile::initDataAndShoot(NormalShootingSkillData data, GameObject
         AnimationObject* animationObj = DataCollector::getInstance()->getAnimationObjectByKey(this->data.getProjectileData().getStateAnimation().getCreatedStateAnimationID().c_str());
         CCAnimate* animation = CCAnimate::create(animationObj->getAnimation());
         array->addObject(animation);
-        //
-        playSoundByState(CREATE_SOUND);
     }
+    //
+    playSoundByState(CREATE_SOUND);
+    //
     CCCallFunc* action = CCCallFunc::create(this, callfunc_selector(NormalProjectile::changeCreatAnimationToShootingAnimation));
     array->addObject(action);
+//    CCCallFunc* actionShoot = CCCallFunc::create(this, callfunc_selector(NormalProjectile::shoot));
+//    array->addObject(actionShoot);
     CCSequence* sequence = CCSequence::create(array);
     this->sprite->runAction(sequence);
     

@@ -345,7 +345,7 @@
     <wave_list>
         <wave id = "1" background_music="AssetMusic_Commons_Market.mp3">
             <monster_factory_list>
-                <monster_factory group="B" max="5">
+                <monster_factory group="B" max="1">
                  
                     <monster_creator delay_per_unit="1" delay="2" lane = "2">
                         <position x="6827" y="1076"/>
@@ -355,7 +355,7 @@
                     </monster_creator>
                 </monster_factory>
                 
-                <monster_factory group="B" max="5">
+<!--                <monster_factory group="B" max="5">
                     
                     <monster_creator delay_per_unit="1" delay="3 " lane = "1">
                         <position x="7750" y="790"/>
@@ -363,8 +363,8 @@
                             <monster id="monster_pig" quantity="1"/>
                         </monster_list>
                     </monster_creator>
-                </monster_factory>
-    
+                </monster_factory>-->
+
                                        
             </monster_factory_list>
             <item_creator_list>

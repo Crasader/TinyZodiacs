@@ -2,14 +2,14 @@
     <animation>pig</animation>
 	<body>pig2</body>
     <hp>300</hp>
-    <atk>50</atk>
-    <def>20</def>
+    <atk>0</atk>
+    <def>0</def>
     <speed>10</speed>
     <atk_speed>0.1</atk_speed>
-    <max_jump>5</max_jump>
+    <max_jump>2</max_jump>
     <jump_height>10</jump_height>
-    <skill_0>tower_shooting_1</skill_0>
-    <skill_1>monkey_shooting</skill_1>
+    <skill_0>fireball</skill_0>
+    <skill_1>fireball</skill_1>
     <skill_2>ultimate_fire_pillars</skill_2>
-    <sfx>cat_sounds</sfx>
+    <sfx>pig_sounds</sfx>
 </character>

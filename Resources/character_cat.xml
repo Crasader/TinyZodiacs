@@ -2,11 +2,11 @@
     <animation>cat</animation>
 	<body>cat</body>
     <hp>300</hp>
-    <atk>50</atk>
-    <def>20000</def>
+    <atk>0</atk>
+    <def>0</def>
     <speed>10</speed>
     <atk_speed>0.1</atk_speed>
-    <max_jump>5</max_jump>
+    <max_jump>2</max_jump>
     <jump_height>10</jump_height>
 
     <skill_0>fireball</skill_0>

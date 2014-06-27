@@ -14,6 +14,7 @@
 #include "PhysicConstants.h"
 #include "Constants.h"
 #include "Affect.h"
+#include "SkillSoundData.h"
 
 USING_NS_CC;
 
@@ -24,6 +25,7 @@ protected:
 public:
     SkillData();
     ~SkillData();
+    CC_SYNTHESIZE(SkillApllyType, applyType, ApplyType);
     CC_SYNTHESIZE(TextureSelector, skillTextureSelector, skillTextureSelector);
     CC_SYNTHESIZE(float, coolDown, CoolDown);
     CC_SYNTHESIZE(float, delay, Delay);
@@ -35,6 +37,7 @@ public:
     CC_SYNTHESIZE(vector<EffectData>, listAlliesEffect, ListAlliesEffect);
     CC_SYNTHESIZE(vector<EffectData>, listSelfEffect, listSelfEffect);
     CC_SYNTHESIZE(float, timeTick, TimeTick);
+    CC_SYNTHESIZE(SkillSoundData, soundData, SoundData);
     
     void releaseEffectLists();
     virtual void clone();

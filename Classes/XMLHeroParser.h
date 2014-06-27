@@ -17,11 +17,6 @@
 using namespace tinyxml2;
 using namespace std;
 
-#define TAG_HERO "hero"
-#define ATTRIBUTE_HERO_LOCKED "locked"
-#define ATTRIBUTE_HERO_ID "id"
-#define ATTRIBUTE_HERO_BUTTON_ID "button_id"
-
 class XMLHeroParser
 {
 private:

@@ -5,10 +5,46 @@
         <hit>magic_fireball_end.wav</hit>
         <die>magic_fireball_end.wav</die>
     </projectile_sound>
+    
     <projectile_sound id="lightning_arrow_sound">
         <create>magic_lightningarrow_start.wav</create>
         <shoot>magic_lightningarrow_middle.wav</shoot>
         <hit>magic_lightningarrow_end.wav</hit>
-        <die></die>
+        <die>magic_lightningarrow_end.wav</die>
+    </projectile_sound>
+    
+    <projectile_sound id="fire_pillar_sound">
+        <create>magic_firepillar_start.wav</create>
+        <shoot></shoot>
+        <hit>magic_firepillar_end.wav</hit>
+        <die>magic_firepillar_end.wav</die>
+    </projectile_sound>
+    
+    <projectile_sound id="water_ball_sound">
+        <create>magic_water_ball_start.wav</create>
+        <shoot></shoot>
+        <hit>magic_water_ball_end.wav</hit>
+        <die>magic_water_ball_end.wav</die>
+    </projectile_sound>
+    
+    <projectile_sound id="enegy_ball_sound">
+        <create>magic_energyball_start.wav</create>
+        <shoot>magic_energyball_middle.wav</shoot>
+        <hit>magic_energyball_end.wav</hit>
+        <die>magic_energyball_end.wav</die>
+    </projectile_sound>
+    
+    <projectile_sound id="ice_ball_sound">
+        <create>magic_lightningarrow_start.wav</create>
+        <shoot>magic_lightningarrow_middle.wav</shoot>
+        <hit>magic_lightningarrow_end.wav</hit>
+        <die>magic_lightningarrow_end.wav</die>
+    </projectile_sound>
+    
+    <projectile_sound id="bomb_sound">
+        <create>magic_bomb_start.wav</create>
+        <shoot>magic_bomb_middle.wav</shoot>
+        <hit>magic_bomb_end.wav</hit>
+        <die>magic_bomb_end.wav</die>
     </projectile_sound>
 </projectile_sound_list>

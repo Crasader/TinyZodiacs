@@ -3,12 +3,14 @@
 	<body>monkey</body>
     <hp>50</hp>
     <atk>0</atk>
-    <def>2</def>
+    <def>20</def>
     <speed>4</speed>
     <atk_speed>0.1</atk_speed>
-    <max_jump>5</max_jump>
+    <max_jump>2</max_jump>
     <jump_height>10</jump_height>
     <skill_0>energyball</skill_0>
     <skill_1>iceball</skill_1>
     <skill_2>ultimate_fire_pillars</skill_2>
+    <sfx>monkey_sounds</sfx>
+
 </character>

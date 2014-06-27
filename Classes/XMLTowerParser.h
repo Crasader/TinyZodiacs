@@ -16,8 +16,6 @@
 
 using namespace tinyxml2;
 
-#define TAG_TOWER_SENSOR "sensor_body"
-
 class XMLTowerParser
 {
 private:

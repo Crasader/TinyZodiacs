@@ -211,6 +211,29 @@
 		344680A11943049D00FECCE8 /* MapListItem_1.ExportJson in Resources */ = {isa = PBXBuildFile; fileRef = 344680A01943049D00FECCE8 /* MapListItem_1.ExportJson */; };
 		345F6B5318E2C71F00985A7A /* ScheduleManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 345F6B5118E2C71F00985A7A /* ScheduleManager.cpp */; };
 		346701F5193978BF00CC4E2B /* XMLAnimationDataParser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 346701F3193978BF00CC4E2B /* XMLAnimationDataParser.cpp */; };
+		348341DE1959E1B400173C2A /* skill_sounds.xml in Resources */ = {isa = PBXBuildFile; fileRef = 348341DD1959E1B400173C2A /* skill_sounds.xml */; };
+		348341EB1959E37200173C2A /* magic_bomb_end.wav in Resources */ = {isa = PBXBuildFile; fileRef = 348341DF1959E37200173C2A /* magic_bomb_end.wav */; };
+		348341EC1959E37200173C2A /* magic_bomb_middle.wav in Resources */ = {isa = PBXBuildFile; fileRef = 348341E01959E37200173C2A /* magic_bomb_middle.wav */; };
+		348341ED1959E37200173C2A /* magic_bomb_start.wav in Resources */ = {isa = PBXBuildFile; fileRef = 348341E11959E37200173C2A /* magic_bomb_start.wav */; };
+		348341EE1959E37200173C2A /* magic_energyball_end.wav in Resources */ = {isa = PBXBuildFile; fileRef = 348341E21959E37200173C2A /* magic_energyball_end.wav */; };
+		348341EF1959E37200173C2A /* magic_energyball_middle.wav in Resources */ = {isa = PBXBuildFile; fileRef = 348341E31959E37200173C2A /* magic_energyball_middle.wav */; };
+		348341F01959E37200173C2A /* magic_energyball_start.wav in Resources */ = {isa = PBXBuildFile; fileRef = 348341E41959E37200173C2A /* magic_energyball_start.wav */; };
+		348341F11959E37200173C2A /* magic_firepillar_end.wav in Resources */ = {isa = PBXBuildFile; fileRef = 348341E51959E37200173C2A /* magic_firepillar_end.wav */; };
+		348341F21959E37200173C2A /* magic_firepillar_start.wav in Resources */ = {isa = PBXBuildFile; fileRef = 348341E61959E37200173C2A /* magic_firepillar_start.wav */; };
+		348341F31959E37200173C2A /* magic_ice_ball_end.wav in Resources */ = {isa = PBXBuildFile; fileRef = 348341E71959E37200173C2A /* magic_ice_ball_end.wav */; };
+		348341F41959E37200173C2A /* magic_ice_ball_start.wav in Resources */ = {isa = PBXBuildFile; fileRef = 348341E81959E37200173C2A /* magic_ice_ball_start.wav */; };
+		348341F51959E37200173C2A /* magic_water_ball_end.wav in Resources */ = {isa = PBXBuildFile; fileRef = 348341E91959E37200173C2A /* magic_water_ball_end.wav */; };
+		348341F61959E37200173C2A /* magic_water_ball_start.wav in Resources */ = {isa = PBXBuildFile; fileRef = 348341EA1959E37200173C2A /* magic_water_ball_start.wav */; };
+		348341FA1959E98D00173C2A /* GCS_Vo_Attack01.wav in Resources */ = {isa = PBXBuildFile; fileRef = 348341F71959E98D00173C2A /* GCS_Vo_Attack01.wav */; };
+		348341FB1959E98D00173C2A /* GCS_Vo_Death01.wav in Resources */ = {isa = PBXBuildFile; fileRef = 348341F81959E98D00173C2A /* GCS_Vo_Death01.wav */; };
+		348341FC1959E98D00173C2A /* GCS_Vo_Hurt01.wav in Resources */ = {isa = PBXBuildFile; fileRef = 348341F91959E98D00173C2A /* GCS_Vo_Hurt01.wav */; };
+		348342001959E9DC00173C2A /* LR_Vo_Attack02.wav in Resources */ = {isa = PBXBuildFile; fileRef = 348341FD1959E9DC00173C2A /* LR_Vo_Attack02.wav */; };
+		348342011959E9DC00173C2A /* LR_Vo_Death01.wav in Resources */ = {isa = PBXBuildFile; fileRef = 348341FE1959E9DC00173C2A /* LR_Vo_Death01.wav */; };
+		348342021959E9DC00173C2A /* LR_Vo_Hurt01.wav in Resources */ = {isa = PBXBuildFile; fileRef = 348341FF1959E9DC00173C2A /* LR_Vo_Hurt01.wav */; };
+		348342041959EA8100173C2A /* MoneyRun.wav in Resources */ = {isa = PBXBuildFile; fileRef = 348342031959EA8100173C2A /* MoneyRun.wav */; };
+		348342081959EAAE00173C2A /* SS_Vo_Attack01.wav in Resources */ = {isa = PBXBuildFile; fileRef = 348342051959EAAE00173C2A /* SS_Vo_Attack01.wav */; };
+		348342091959EAAE00173C2A /* SS_Vo_Death01.wav in Resources */ = {isa = PBXBuildFile; fileRef = 348342061959EAAE00173C2A /* SS_Vo_Death01.wav */; };
+		3483420A1959EAAE00173C2A /* SS_Vo_Hurt01.wav in Resources */ = {isa = PBXBuildFile; fileRef = 348342071959EAAE00173C2A /* SS_Vo_Hurt01.wav */; };
 		3486802618D93B82001692BB /* AbstractSkill.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3486802418D93B82001692BB /* AbstractSkill.cpp */; };
 		3486802918D95FB2001692BB /* NormalShootingAttack.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3486802718D95FB2001692BB /* NormalShootingAttack.cpp */; };
 		3486802C18D97940001692BB /* SkillData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3486802A18D97940001692BB /* SkillData.cpp */; };
@@ -233,6 +256,11 @@
 		34CC3F3219513F1400CB46F0 /* ControllerLayer_1.ExportJson in Resources */ = {isa = PBXBuildFile; fileRef = 34CC3F3119513F1400CB46F0 /* ControllerLayer_1.ExportJson */; };
 		34CC3F37195151D900CB46F0 /* PauseLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 34CC3F35195151D900CB46F0 /* PauseLayer.cpp */; };
 		34CC3F3D1951799600CB46F0 /* PauseLayer.ExportJson in Resources */ = {isa = PBXBuildFile; fileRef = 34CC3F3C1951799600CB46F0 /* PauseLayer.ExportJson */; };
+		34D24BED195C8782005B41C8 /* sword_slash0.wav in Resources */ = {isa = PBXBuildFile; fileRef = 34D24BEB195C8782005B41C8 /* sword_slash0.wav */; };
+		34D24BEE195C8782005B41C8 /* sword_slash1.wav in Resources */ = {isa = PBXBuildFile; fileRef = 34D24BEC195C8782005B41C8 /* sword_slash1.wav */; };
+		34D24BF1195C87F7005B41C8 /* SkillSoundData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 34D24BEF195C87F7005B41C8 /* SkillSoundData.cpp */; };
+		34D24BF4195C8DD9005B41C8 /* XMLSkillSoundParser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 34D24BF2195C8DD9005B41C8 /* XMLSkillSoundParser.cpp */; };
+		34D24BFA195C94BF005B41C8 /* SoundFactory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 34D24BF8195C94BF005B41C8 /* SoundFactory.cpp */; };
 		34D8BC1219596D670082ED4A /* projectile_sounds.xml in Resources */ = {isa = PBXBuildFile; fileRef = 34D8BC1119596D670082ED4A /* projectile_sounds.xml */; };
 		34D8BC16195974A40082ED4A /* magic_fireball_end.wav in Resources */ = {isa = PBXBuildFile; fileRef = 34D8BC13195974A40082ED4A /* magic_fireball_end.wav */; };
 		34D8BC17195974A40082ED4A /* magic_fireball_middle.wav in Resources */ = {isa = PBXBuildFile; fileRef = 34D8BC14195974A40082ED4A /* magic_fireball_middle.wav */; };
@@ -242,7 +270,6 @@
 		34D8BC1E195974CD0082ED4A /* magic_lightningarrow_start.wav in Resources */ = {isa = PBXBuildFile; fileRef = 34D8BC1B195974CD0082ED4A /* magic_lightningarrow_start.wav */; };
 		34D8BC21195976490082ED4A /* ProjectileSoundData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 34D8BC1F195976490082ED4A /* ProjectileSoundData.cpp */; };
 		34D8BC24195976FF0082ED4A /* XMLProjectileSoundParser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 34D8BC22195976FF0082ED4A /* XMLProjectileSoundParser.cpp */; };
-		34D8BC2719597A1E0082ED4A /* ProjectileSoundFactory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 34D8BC2519597A1E0082ED4A /* ProjectileSoundFactory.cpp */; };
 		34E614DD191338DC006D933E /* GameGroup.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 34E614DB191338DC006D933E /* GameGroup.cpp */; };
 		34E614E0191339A6006D933E /* MonsterFactory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 34E614DE191339A6006D933E /* MonsterFactory.cpp */; };
 		34E614E319133A2B006D933E /* MonsterCreator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 34E614E119133A2B006D933E /* MonsterCreator.cpp */; };
@@ -263,7 +290,6 @@
 		34F69CD319415A61005DD696 /* cat_death.wav in Resources */ = {isa = PBXBuildFile; fileRef = 34F69CD019415A61005DD696 /* cat_death.wav */; };
 		34F69CD419415A61005DD696 /* cat_hurt.wav in Resources */ = {isa = PBXBuildFile; fileRef = 34F69CD119415A61005DD696 /* cat_hurt.wav */; };
 		34F69CD719415A75005DD696 /* character_sounds.xml in Resources */ = {isa = PBXBuildFile; fileRef = 34F69CD619415A75005DD696 /* character_sounds.xml */; };
-		34F69CDA19415B44005DD696 /* CharacterSoundFactory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 34F69CD819415B44005DD696 /* CharacterSoundFactory.cpp */; };
 		34F69CE119415BC5005DD696 /* MainMenuLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 34F69CDD19415BC5005DD696 /* MainMenuLayer.cpp */; };
 		34F69CE219415BC5005DD696 /* MainMenuScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 34F69CDF19415BC5005DD696 /* MainMenuScene.cpp */; };
 		34F69CE519416029005DD696 /* XMLCharacterParser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 34F69CE319416029005DD696 /* XMLCharacterParser.cpp */; };
@@ -889,6 +915,29 @@
 		345F6B5218E2C71F00985A7A /* ScheduleManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScheduleManager.h; sourceTree = "<group>"; };
 		346701F3193978BF00CC4E2B /* XMLAnimationDataParser.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = XMLAnimationDataParser.cpp; path = ../Classes/XMLAnimationDataParser.cpp; sourceTree = "<group>"; };
 		346701F4193978BF00CC4E2B /* XMLAnimationDataParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XMLAnimationDataParser.h; path = ../Classes/XMLAnimationDataParser.h; sourceTree = "<group>"; };
+		348341DD1959E1B400173C2A /* skill_sounds.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = skill_sounds.xml; sourceTree = "<group>"; };
+		348341DF1959E37200173C2A /* magic_bomb_end.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = magic_bomb_end.wav; sourceTree = "<group>"; };
+		348341E01959E37200173C2A /* magic_bomb_middle.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = magic_bomb_middle.wav; sourceTree = "<group>"; };
+		348341E11959E37200173C2A /* magic_bomb_start.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = magic_bomb_start.wav; sourceTree = "<group>"; };
+		348341E21959E37200173C2A /* magic_energyball_end.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = magic_energyball_end.wav; sourceTree = "<group>"; };
+		348341E31959E37200173C2A /* magic_energyball_middle.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = magic_energyball_middle.wav; sourceTree = "<group>"; };
+		348341E41959E37200173C2A /* magic_energyball_start.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = magic_energyball_start.wav; sourceTree = "<group>"; };
+		348341E51959E37200173C2A /* magic_firepillar_end.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = magic_firepillar_end.wav; sourceTree = "<group>"; };
+		348341E61959E37200173C2A /* magic_firepillar_start.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = magic_firepillar_start.wav; sourceTree = "<group>"; };
+		348341E71959E37200173C2A /* magic_ice_ball_end.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = magic_ice_ball_end.wav; sourceTree = "<group>"; };
+		348341E81959E37200173C2A /* magic_ice_ball_start.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = magic_ice_ball_start.wav; sourceTree = "<group>"; };
+		348341E91959E37200173C2A /* magic_water_ball_end.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = magic_water_ball_end.wav; sourceTree = "<group>"; };
+		348341EA1959E37200173C2A /* magic_water_ball_start.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = magic_water_ball_start.wav; sourceTree = "<group>"; };
+		348341F71959E98D00173C2A /* GCS_Vo_Attack01.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = GCS_Vo_Attack01.wav; sourceTree = "<group>"; };
+		348341F81959E98D00173C2A /* GCS_Vo_Death01.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = GCS_Vo_Death01.wav; sourceTree = "<group>"; };
+		348341F91959E98D00173C2A /* GCS_Vo_Hurt01.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = GCS_Vo_Hurt01.wav; sourceTree = "<group>"; };
+		348341FD1959E9DC00173C2A /* LR_Vo_Attack02.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = LR_Vo_Attack02.wav; sourceTree = "<group>"; };
+		348341FE1959E9DC00173C2A /* LR_Vo_Death01.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = LR_Vo_Death01.wav; sourceTree = "<group>"; };
+		348341FF1959E9DC00173C2A /* LR_Vo_Hurt01.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = LR_Vo_Hurt01.wav; sourceTree = "<group>"; };
+		348342031959EA8100173C2A /* MoneyRun.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = MoneyRun.wav; sourceTree = "<group>"; };
+		348342051959EAAE00173C2A /* SS_Vo_Attack01.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = SS_Vo_Attack01.wav; sourceTree = "<group>"; };
+		348342061959EAAE00173C2A /* SS_Vo_Death01.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = SS_Vo_Death01.wav; sourceTree = "<group>"; };
+		348342071959EAAE00173C2A /* SS_Vo_Hurt01.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = SS_Vo_Hurt01.wav; sourceTree = "<group>"; };
 		3486802418D93B82001692BB /* AbstractSkill.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = AbstractSkill.cpp; path = ../Classes/AbstractSkill.cpp; sourceTree = "<group>"; };
 		3486802518D93B82001692BB /* AbstractSkill.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AbstractSkill.h; path = ../Classes/AbstractSkill.h; sourceTree = "<group>"; };
 		3486802718D95FB2001692BB /* NormalShootingAttack.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = NormalShootingAttack.cpp; path = ../Classes/NormalShootingAttack.cpp; sourceTree = "<group>"; };
@@ -925,6 +974,14 @@
 		34CC3F35195151D900CB46F0 /* PauseLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PauseLayer.cpp; sourceTree = "<group>"; };
 		34CC3F36195151D900CB46F0 /* PauseLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PauseLayer.h; sourceTree = "<group>"; };
 		34CC3F3C1951799600CB46F0 /* PauseLayer.ExportJson */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = PauseLayer.ExportJson; sourceTree = "<group>"; };
+		34D24BEB195C8782005B41C8 /* sword_slash0.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = sword_slash0.wav; sourceTree = "<group>"; };
+		34D24BEC195C8782005B41C8 /* sword_slash1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = sword_slash1.wav; sourceTree = "<group>"; };
+		34D24BEF195C87F7005B41C8 /* SkillSoundData.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SkillSoundData.cpp; sourceTree = "<group>"; };
+		34D24BF0195C87F7005B41C8 /* SkillSoundData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SkillSoundData.h; sourceTree = "<group>"; };
+		34D24BF2195C8DD9005B41C8 /* XMLSkillSoundParser.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = XMLSkillSoundParser.cpp; sourceTree = "<group>"; };
+		34D24BF3195C8DD9005B41C8 /* XMLSkillSoundParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMLSkillSoundParser.h; sourceTree = "<group>"; };
+		34D24BF8195C94BF005B41C8 /* SoundFactory.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SoundFactory.cpp; sourceTree = "<group>"; };
+		34D24BF9195C94BF005B41C8 /* SoundFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SoundFactory.h; sourceTree = "<group>"; };
 		34D8BC1119596D670082ED4A /* projectile_sounds.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = projectile_sounds.xml; sourceTree = "<group>"; };
 		34D8BC13195974A40082ED4A /* magic_fireball_end.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = magic_fireball_end.wav; sourceTree = "<group>"; };
 		34D8BC14195974A40082ED4A /* magic_fireball_middle.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = magic_fireball_middle.wav; sourceTree = "<group>"; };
@@ -936,8 +993,6 @@
 		34D8BC20195976490082ED4A /* ProjectileSoundData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ProjectileSoundData.h; path = ../Classes/ProjectileSoundData.h; sourceTree = "<group>"; };
 		34D8BC22195976FF0082ED4A /* XMLProjectileSoundParser.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = XMLProjectileSoundParser.cpp; path = ../Classes/XMLProjectileSoundParser.cpp; sourceTree = "<group>"; };
 		34D8BC23195976FF0082ED4A /* XMLProjectileSoundParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XMLProjectileSoundParser.h; path = ../Classes/XMLProjectileSoundParser.h; sourceTree = "<group>"; };
-		34D8BC2519597A1E0082ED4A /* ProjectileSoundFactory.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ProjectileSoundFactory.cpp; path = ../Classes/ProjectileSoundFactory.cpp; sourceTree = "<group>"; };
-		34D8BC2619597A1E0082ED4A /* ProjectileSoundFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ProjectileSoundFactory.h; path = ../Classes/ProjectileSoundFactory.h; sourceTree = "<group>"; };
 		34E614DB191338DC006D933E /* GameGroup.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameGroup.cpp; sourceTree = "<group>"; };
 		34E614DC191338DC006D933E /* GameGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameGroup.h; sourceTree = "<group>"; };
 		34E614DE191339A6006D933E /* MonsterFactory.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MonsterFactory.cpp; sourceTree = "<group>"; };
@@ -974,8 +1029,6 @@
 		34F69CD019415A61005DD696 /* cat_death.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = cat_death.wav; sourceTree = "<group>"; };
 		34F69CD119415A61005DD696 /* cat_hurt.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = cat_hurt.wav; sourceTree = "<group>"; };
 		34F69CD619415A75005DD696 /* character_sounds.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = character_sounds.xml; sourceTree = "<group>"; };
-		34F69CD819415B44005DD696 /* CharacterSoundFactory.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CharacterSoundFactory.cpp; sourceTree = "<group>"; };
-		34F69CD919415B44005DD696 /* CharacterSoundFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CharacterSoundFactory.h; sourceTree = "<group>"; };
 		34F69CDD19415BC5005DD696 /* MainMenuLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MainMenuLayer.cpp; sourceTree = "<group>"; };
 		34F69CDE19415BC5005DD696 /* MainMenuLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainMenuLayer.h; sourceTree = "<group>"; };
 		34F69CDF19415BC5005DD696 /* MainMenuScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MainMenuScene.cpp; sourceTree = "<group>"; };
@@ -2204,6 +2257,30 @@
 		34F69CCE19415A2F005DD696 /* SFXs */ = {
 			isa = PBXGroup;
 			children = (
+				34D24BEB195C8782005B41C8 /* sword_slash0.wav */,
+				34D24BEC195C8782005B41C8 /* sword_slash1.wav */,
+				348342051959EAAE00173C2A /* SS_Vo_Attack01.wav */,
+				348342061959EAAE00173C2A /* SS_Vo_Death01.wav */,
+				348342071959EAAE00173C2A /* SS_Vo_Hurt01.wav */,
+				348342031959EA8100173C2A /* MoneyRun.wav */,
+				348341FD1959E9DC00173C2A /* LR_Vo_Attack02.wav */,
+				348341FE1959E9DC00173C2A /* LR_Vo_Death01.wav */,
+				348341FF1959E9DC00173C2A /* LR_Vo_Hurt01.wav */,
+				348341F71959E98D00173C2A /* GCS_Vo_Attack01.wav */,
+				348341F81959E98D00173C2A /* GCS_Vo_Death01.wav */,
+				348341F91959E98D00173C2A /* GCS_Vo_Hurt01.wav */,
+				348341DF1959E37200173C2A /* magic_bomb_end.wav */,
+				348341E01959E37200173C2A /* magic_bomb_middle.wav */,
+				348341E11959E37200173C2A /* magic_bomb_start.wav */,
+				348341E21959E37200173C2A /* magic_energyball_end.wav */,
+				348341E31959E37200173C2A /* magic_energyball_middle.wav */,
+				348341E41959E37200173C2A /* magic_energyball_start.wav */,
+				348341E51959E37200173C2A /* magic_firepillar_end.wav */,
+				348341E61959E37200173C2A /* magic_firepillar_start.wav */,
+				348341E71959E37200173C2A /* magic_ice_ball_end.wav */,
+				348341E81959E37200173C2A /* magic_ice_ball_start.wav */,
+				348341E91959E37200173C2A /* magic_water_ball_end.wav */,
+				348341EA1959E37200173C2A /* magic_water_ball_start.wav */,
 				34D8BC19195974CD0082ED4A /* magic_lightningarrow_end.wav */,
 				34D8BC1A195974CD0082ED4A /* magic_lightningarrow_middle.wav */,
 				34D8BC1B195974CD0082ED4A /* magic_lightningarrow_start.wav */,
@@ -2220,6 +2297,7 @@
 		34F69CD519415A67005DD696 /* XMLs */ = {
 			isa = PBXGroup;
 			children = (
+				348341DD1959E1B400173C2A /* skill_sounds.xml */,
 				34D8BC1119596D670082ED4A /* projectile_sounds.xml */,
 				34F69CD619415A75005DD696 /* character_sounds.xml */,
 			);
@@ -2713,8 +2791,6 @@
 		F54AE96F18D2F05200194E66 /* Factories */ = {
 			isa = PBXGroup;
 			children = (
-				34F69CD819415B44005DD696 /* CharacterSoundFactory.cpp */,
-				34F69CD919415B44005DD696 /* CharacterSoundFactory.h */,
 				340DE0AD192C977B0056D51E /* EffectFactory.cpp */,
 				340DE0AE192C977B0056D51E /* EffectFactory.h */,
 				F5BA76AD192079E90070997B /* MapCreator.cpp */,
@@ -2735,8 +2811,8 @@
 				F5E2929418E6768F00B9B152 /* InfoViewCreator.h */,
 				F5EA4323192B438000E63C1A /* ItemCreator.cpp */,
 				F5EA4324192B438000E63C1A /* ItemCreator.h */,
-				34D8BC2519597A1E0082ED4A /* ProjectileSoundFactory.cpp */,
-				34D8BC2619597A1E0082ED4A /* ProjectileSoundFactory.h */,
+				34D24BF8195C94BF005B41C8 /* SoundFactory.cpp */,
+				34D24BF9195C94BF005B41C8 /* SoundFactory.h */,
 			);
 			name = Factories;
 			sourceTree = "<group>";
@@ -2828,6 +2904,8 @@
 				34100F14194A202000EB08F3 /* GameObjectCalculateData.h */,
 				34D8BC1F195976490082ED4A /* ProjectileSoundData.cpp */,
 				34D8BC20195976490082ED4A /* ProjectileSoundData.h */,
+				34D24BEF195C87F7005B41C8 /* SkillSoundData.cpp */,
+				34D24BF0195C87F7005B41C8 /* SkillSoundData.h */,
 			);
 			name = Data;
 			sourceTree = "<group>";
@@ -2959,36 +3037,38 @@
 		F5B4287919174BAC002DC13B /* XML Parser */ = {
 			isa = PBXGroup;
 			children = (
-				F5CCA7A6191B6276002A7F2A /* XMLItemParser.h */,
-				34F69CE319416029005DD696 /* XMLCharacterParser.cpp */,
-				34F69CE419416029005DD696 /* XMLCharacterParser.h */,
-				34F69CC9194159F8005DD696 /* XMLCharacterSoundParser.cpp */,
-				34F69CCA194159F8005DD696 /* XMLCharacterSoundParser.h */,
-				F5BA76A0192064670070997B /* XMLTowerParser.cpp */,
-				F5BA76A1192064670070997B /* XMLTowerParser.h */,
-				34E614F619134009006D933E /* XMLMapParser.h */,
-				34E614F719134009006D933E /* XMLMapParser.cpp */,
 				34EED02318E525DF001AFFC9 /* SkillType0Parser.cpp */,
 				34EED02418E525DF001AFFC9 /* SkillType0Parser.h */,
 				34B1273518EF9619005DAF04 /* SkillType1Parser.cpp */,
 				34B1273618EF9619005DAF04 /* SkillType1Parser.h */,
+				346701F3193978BF00CC4E2B /* XMLAnimationDataParser.cpp */,
+				346701F4193978BF00CC4E2B /* XMLAnimationDataParser.h */,
 				F54AE9CD18D2F2B400194E66 /* XMLAnimationParser.cpp */,
 				F54AE9CA18D2F2B400194E66 /* XMLAnimationParser.h */,
-				F5B4287D19174F15002DC13B /* XMLHeroParser.cpp */,
-				F5B4287E19174F15002DC13B /* XMLHeroParser.h */,
-				F558161119176AD800A1CCB2 /* XMLMonsterParser.cpp */,
-				F558161219176AD800A1CCB2 /* XMLMonsterParser.h */,
-				346701F3193978BF00CC4E2B /* XMLAnimationDataParser.cpp */,
-				F5CCA7A5191B6276002A7F2A /* XMLItemParser.cpp */,
-				346701F4193978BF00CC4E2B /* XMLAnimationDataParser.h */,
-				34B3BE251942F48600D3E651 /* XMLMapListParser.cpp */,
-				34B3BE261942F48600D3E651 /* XMLMapListParser.h */,
 				341AFAC319477E7400693634 /* XMLButtonSelectorParser.cpp */,
 				341AFAC419477E7400693634 /* XMLButtonSelectorParser.h */,
+				34F69CE319416029005DD696 /* XMLCharacterParser.cpp */,
+				34F69CE419416029005DD696 /* XMLCharacterParser.h */,
+				34F69CC9194159F8005DD696 /* XMLCharacterSoundParser.cpp */,
+				34F69CCA194159F8005DD696 /* XMLCharacterSoundParser.h */,
+				F5B4287D19174F15002DC13B /* XMLHeroParser.cpp */,
+				F5B4287E19174F15002DC13B /* XMLHeroParser.h */,
+				F5CCA7A5191B6276002A7F2A /* XMLItemParser.cpp */,
+				F5CCA7A6191B6276002A7F2A /* XMLItemParser.h */,
+				34B3BE251942F48600D3E651 /* XMLMapListParser.cpp */,
+				34B3BE261942F48600D3E651 /* XMLMapListParser.h */,
+				34E614F719134009006D933E /* XMLMapParser.cpp */,
+				34E614F619134009006D933E /* XMLMapParser.h */,
+				F558161119176AD800A1CCB2 /* XMLMonsterParser.cpp */,
+				F558161219176AD800A1CCB2 /* XMLMonsterParser.h */,
 				34BFEA1D19483ED000501A1D /* XMLProjectileDataParser.cpp */,
 				34BFEA1E19483ED000501A1D /* XMLProjectileDataParser.h */,
 				34D8BC22195976FF0082ED4A /* XMLProjectileSoundParser.cpp */,
 				34D8BC23195976FF0082ED4A /* XMLProjectileSoundParser.h */,
+				F5BA76A0192064670070997B /* XMLTowerParser.cpp */,
+				F5BA76A1192064670070997B /* XMLTowerParser.h */,
+				34D24BF2195C8DD9005B41C8 /* XMLSkillSoundParser.cpp */,
+				34D24BF3195C8DD9005B41C8 /* XMLSkillSoundParser.h */,
 			);
 			name = "XML Parser";
 			sourceTree = "<group>";
@@ -3216,11 +3296,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				348342001959E9DC00173C2A /* LR_Vo_Attack02.wav in Resources */,
 				F5FA1C4B194ED741002C73E2 /* creep_1_animation.xml in Resources */,
+				348341F41959E37200173C2A /* magic_ice_ball_start.wav in Resources */,
+				348342011959E9DC00173C2A /* LR_Vo_Death01.wav in Resources */,
 				34CC3F3D1951799600CB46F0 /* PauseLayer.ExportJson in Resources */,
 				F5FA1C58194ED799002C73E2 /* onion_invert_animation.xml in Resources */,
 				34CC3F3219513F1400CB46F0 /* ControllerLayer_1.ExportJson in Resources */,
 				F58095BF195850640011C3D0 /* 16bit in Resources */,
+				348341F01959E37200173C2A /* magic_energyball_start.wav in Resources */,
 				517E84BC1958477800881FC4 /* effect_animation.xml in Resources */,
 				34D8BC1E195974CD0082ED4A /* magic_lightningarrow_start.wav in Resources */,
 				7855E0E1153FEF240059DD9A /* Default.png in Resources */,
@@ -3231,12 +3315,15 @@
 				34F69CD719415A75005DD696 /* character_sounds.xml in Resources */,
 				517E84C8195847B700881FC4 /* monster_onion.xml in Resources */,
 				343638CA1944A92D00602F87 /* MapSelectScene_1.ExportJson in Resources */,
+				348341F11959E37200173C2A /* magic_firepillar_end.wav in Resources */,
 				F544FB9918D93CC100A818DF /* map2_body.plist in Resources */,
 				517E84B0195846C200881FC4 /* list_projectile.xml in Resources */,
 				D4EF949C15BD2D8E00D803EB /* Icon-114.png in Resources */,
 				F5C89E0418D2FD2A006E909D /* map_body.plist in Resources */,
 				F5FA1C4E194ED741002C73E2 /* maincrystal_animation.xml in Resources */,
 				F5FA1C56194ED750002C73E2 /* container_animation.xml in Resources */,
+				348342081959EAAE00173C2A /* SS_Vo_Attack01.wav in Resources */,
+				348341F31959E37200173C2A /* magic_ice_ball_end.wav in Resources */,
 				2D0DA14E1908F6C800881C8D /* test_sheet.png in Resources */,
 				34D8BC1C195974CD0082ED4A /* magic_lightningarrow_end.wav in Resources */,
 				F52678F318EEAEA500CE1E3B /* arial.ttf in Resources */,
@@ -3248,8 +3335,12 @@
 				D4EF949E15BD2D9600D803EB /* Icon-72.png in Resources */,
 				34B3BE201942F26500D3E651 /* list_map.xml in Resources */,
 				F5FA1C3B194ED1B8002C73E2 /* monster_pig.xml in Resources */,
+				348341F21959E37200173C2A /* magic_firepillar_start.wav in Resources */,
 				34B3BDE81942BE3300D3E651 /* starSky.plist in Resources */,
+				34D24BEE195C8782005B41C8 /* sword_slash1.wav in Resources */,
 				F5FA2BB4194054B300583009 /* maincrystal.xml in Resources */,
+				348341F51959E37200173C2A /* magic_water_ball_end.wav in Resources */,
+				348341EF1959E37200173C2A /* magic_energyball_middle.wav in Resources */,
 				3446809F1943044100FECCE8 /* MapListItem0.plist in Resources */,
 				517E84B1195846C200881FC4 /* skill_animation.xml in Resources */,
 				F52678F418EEAEA500CE1E3B /* Marker Felt.ttf in Resources */,
@@ -3260,6 +3351,7 @@
 				3446809D1943037D00FECCE8 /* MapListItem0.png in Resources */,
 				D41A0AD1160F154A004552AE /* Default-568h@2x.png in Resources */,
 				F5FA1C4F194ED741002C73E2 /* monkey_animation.xml in Resources */,
+				348342041959EA8100173C2A /* MoneyRun.wav in Resources */,
 				34002585192DB46100059016 /* tower_sensor.plist in Resources */,
 				34F69CD319415A61005DD696 /* cat_death.wav in Resources */,
 				344680A11943049D00FECCE8 /* MapListItem_1.ExportJson in Resources */,
@@ -3269,9 +3361,14 @@
 				340423CE193D8F2800223029 /* ControllerLayer0.plist in Resources */,
 				F5FA1C38194ED1B8002C73E2 /* monster_cat.xml in Resources */,
 				517E84BB1958477800881FC4 /* effect_animation_1.xml in Resources */,
+				348341ED1959E37200173C2A /* magic_bomb_start.wav in Resources */,
+				348341EE1959E37200173C2A /* magic_energyball_end.wav in Resources */,
+				3483420A1959EAAE00173C2A /* SS_Vo_Hurt01.wav in Resources */,
 				34B249AD194FFF7C0072B34B /* MainMenuLayer_1.ExportJson in Resources */,
 				F5FA1C55194ED750002C73E2 /* coin1_animation.xml in Resources */,
 				2DE1502E191CCDEC001BD65C /* character_body.plist in Resources */,
+				348341FC1959E98D00173C2A /* GCS_Vo_Hurt01.wav in Resources */,
+				348341EB1959E37200173C2A /* magic_bomb_end.wav in Resources */,
 				342ABFBE194EF61400513B48 /* batchSettings.png in Resources */,
 				343187131936F67200D0D683 /* GUI in Resources */,
 				F5FA1C61194EE752002C73E2 /* sakkal.fnt in Resources */,
@@ -3284,15 +3381,19 @@
 				517E84B61958475200881FC4 /* item_body.plist in Resources */,
 				F5FA1C4A194ED741002C73E2 /* cat_animation.xml in Resources */,
 				F5FA1C50194ED741002C73E2 /* pig_animation.xml in Resources */,
+				348341EC1959E37200173C2A /* magic_bomb_middle.wav in Resources */,
 				517E84C4195847B700881FC4 /* character_cat.xml in Resources */,
 				341AFAC219477DC200693634 /* list_button_selector.xml in Resources */,
 				F5FA1C36194ED1B8002C73E2 /* hero_list.xml in Resources */,
 				517E84BE1958478900881FC4 /* map1.xml in Resources */,
+				34D24BED195C8782005B41C8 /* sword_slash0.wav in Resources */,
 				340423CF193D8F2800223029 /* ControllerLayer0.png in Resources */,
 				F5FA1C5F194EE752002C73E2 /* sakkal_shadow.fnt in Resources */,
 				517E84CA1958491F00881FC4 /* list_skill.xml in Resources */,
+				348342091959EAAE00173C2A /* SS_Vo_Death01.wav in Resources */,
 				51136AE21908E69F00317D3A /* map1_body.plist in Resources */,
 				342ABFBD194EF61400513B48 /* batchSettings.plist in Resources */,
+				348341F61959E37200173C2A /* magic_water_ball_start.wav in Resources */,
 				343638C81944A7DF00602F87 /* MapSelectScene0.png in Resources */,
 				517E84C7195847B700881FC4 /* monster_onion_invert.xml in Resources */,
 				1AFAF8BC16D35E4900DB1158 /* CloseNormal.png in Resources */,
@@ -3300,7 +3401,9 @@
 				2D0DA15D1908F72200881C8D /* tower_2.xml in Resources */,
 				F5FA1C52194ED741002C73E2 /* tower_2_animation.xml in Resources */,
 				F58095C0195850640011C3D0 /* 32bit in Resources */,
+				348341DE1959E1B400173C2A /* skill_sounds.xml in Resources */,
 				34F69CD219415A61005DD696 /* cat_jump.wav in Resources */,
+				348341FB1959E98D00173C2A /* GCS_Vo_Death01.wav in Resources */,
 				F5FA1C39194ED1B8002C73E2 /* monster_monkey.xml in Resources */,
 				34D8BC16195974A40082ED4A /* magic_fireball_end.wav in Resources */,
 				517E84B81958475F00881FC4 /* item_list.xml in Resources */,
@@ -3309,12 +3412,14 @@
 				1AFAF8BD16D35E4900DB1158 /* CloseSelected.png in Resources */,
 				F5831B131945A4420055798F /* defense_list.xml in Resources */,
 				517E84B41958474100881FC4 /* skill_body.plist in Resources */,
+				348342021959E9DC00173C2A /* LR_Vo_Hurt01.wav in Resources */,
 				F5FA1C62194EE752002C73E2 /* sakkal.png in Resources */,
 				34D8BC18195974A40082ED4A /* magic_fireball_start.wav in Resources */,
 				1AFAF8BE16D35E4900DB1158 /* HelloWorld.png in Resources */,
 				517E84C6195847B700881FC4 /* character_pig.xml in Resources */,
 				2D0DA15A1908F72200881C8D /* tower_1.xml in Resources */,
 				340423D3193D8F4700223029 /* test_sheet.png in Resources */,
+				348341FA1959E98D00173C2A /* GCS_Vo_Attack01.wav in Resources */,
 				F5FA1C49194ED741002C73E2 /* bull_animation.xml in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -3356,6 +3461,7 @@
 				F5B42875191744CA002DC13B /* HeroLoader.cpp in Sources */,
 				F5EAC341191B652700BE083E /* ItemLoader.cpp in Sources */,
 				375BD4C31868411B0024609E /* ObjectFactory.cpp in Sources */,
+				34D24BFA195C94BF005B41C8 /* SoundFactory.cpp in Sources */,
 				15A3D90D1682F7D5002FB0C5 /* b2Math.cpp in Sources */,
 				15A3D90E1682F7D5002FB0C5 /* b2Settings.cpp in Sources */,
 				15A3D90F1682F7D5002FB0C5 /* b2StackAllocator.cpp in Sources */,
@@ -3363,6 +3469,7 @@
 				15A3D9111682F7D5002FB0C5 /* b2Body.cpp in Sources */,
 				15A3D9121682F7D5002FB0C5 /* b2ContactManager.cpp in Sources */,
 				15A3D9131682F7D5002FB0C5 /* b2Fixture.cpp in Sources */,
+				34D24BF1195C87F7005B41C8 /* SkillSoundData.cpp in Sources */,
 				15A3D9141682F7D5002FB0C5 /* b2Island.cpp in Sources */,
 				15A3D9151682F7D5002FB0C5 /* b2World.cpp in Sources */,
 				15A3D9161682F7D5002FB0C5 /* b2WorldCallbacks.cpp in Sources */,
@@ -3494,6 +3601,7 @@
 				15A3DA471682F826002FB0C5 /* CCScrollViewLoader.cpp in Sources */,
 				15A3DA481682F826002FB0C5 /* CCSpriteLoader.cpp in Sources */,
 				F5B4B79718E671FC00E4C2AA /* CharacterView.cpp in Sources */,
+				34D24BF4195C8DD9005B41C8 /* XMLSkillSoundParser.cpp in Sources */,
 				15A3DA491682F826002FB0C5 /* CCControl.cpp in Sources */,
 				15A3DA4A1682F826002FB0C5 /* CCControlButton.cpp in Sources */,
 				F54AE9BA18D2F1AA00194E66 /* CharacterMidAirAttackState.cpp in Sources */,
@@ -3526,7 +3634,6 @@
 				15A3DA571682F826002FB0C5 /* CCEditBoxImplIOS.mm in Sources */,
 				3431870C1936F23000D0D683 /* GameplayLayer.cpp in Sources */,
 				15A3DA591682F826002FB0C5 /* CCScrollView.cpp in Sources */,
-				34F69CDA19415B44005DD696 /* CharacterSoundFactory.cpp in Sources */,
 				15A3DA5A1682F826002FB0C5 /* CCSorting.cpp in Sources */,
 				15A3DA5B1682F826002FB0C5 /* CCTableView.cpp in Sources */,
 				F5AE36A91906799900FB7519 /* SensorObjectDTO.cpp in Sources */,
@@ -3660,7 +3767,6 @@
 				34E614F819134009006D933E /* XMLMapParser.cpp in Sources */,
 				379BB9BF17F03F3700829B88 /* UIScrollView.cpp in Sources */,
 				379BB9C017F03F3700829B88 /* UIButton.cpp in Sources */,
-				34D8BC2719597A1E0082ED4A /* ProjectileSoundFactory.cpp in Sources */,
 				34E614E319133A2B006D933E /* MonsterCreator.cpp in Sources */,
 				375BD50E1868454E0024609E /* CCActionEaseEx.cpp in Sources */,
 				F507B41E1921DC5B00D23B99 /* Observer.cpp in Sources */,

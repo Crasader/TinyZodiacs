@@ -20,7 +20,7 @@
 #define TAG_DELAY_PER_SHOOT "delay_per_shoot"
 #define TAG_ANGLE_VARIBILITY "angle_variability"
 #define TAG_POSITION_PLUS_PER_UNIT "position_plus_per_unit"
-
+#define TAG_PIERCING "piercing"
 #define ATTRIBUTE_PLUS_X "plus_x"
 #define ATTRIBUTE_PLUS_Y "plus_y"
 

@@ -17,22 +17,13 @@
         <sfx>lightning_arrow_sound</sfx>
     </projectile>
     
-    <projectile id="arrow">
-        <body>lightning_arrow</body>
-        <state_animation animation_layer="3" created_state_animation="skill-lightning_arrow_create" shooting_state_animation="skill-lightning_arrow_shoot" hit_state_ainmation="skill-lightning_arrow_hit" die_state_animation="skill-lightning_arrow_end"></state_animation>
-        <piercing>0</piercing>
-        <gravity_scale>0</gravity_scale>
-        <collide_terrain>1</collide_terrain>
-        <sfx>lightning_arrow_sound</sfx>
-    </projectile>
-    
     <projectile id="fire_pillar">
         <body>fire_pillar</body>
         <state_animation animation_layer="3" created_state_animation="" shooting_state_animation="skill-fire_pillar_shoot" hit_state_ainmation="" die_state_animation=""></state_animation>
         <piercing>0</piercing>
         <gravity_scale>0</gravity_scale>
-        <collide_terrain>1</collide_terrain>
-        <sfx>fire_ball_sound</sfx>
+        <collide_terrain>0</collide_terrain>
+        <sfx>fire_pillar_sound</sfx>
     </projectile>
     
     <projectile id="fireball">
@@ -50,7 +41,7 @@
         <piercing>0</piercing>
         <gravity_scale>0</gravity_scale>
         <collide_terrain>1</collide_terrain>
-        <sfx>fire_ball_sound</sfx>
+        <sfx>water_ball_sound</sfx>
     </projectile>
     
     <projectile id="bomb">
@@ -59,7 +50,7 @@
         <piercing>0</piercing>
         <gravity_scale>0</gravity_scale>
         <collide_terrain>1</collide_terrain>
-        <sfx>fire_ball_sound</sfx>
+        <sfx>bomb_sound</sfx>
     </projectile>
     
     <projectile id="iceball">
@@ -68,7 +59,7 @@
         <piercing>0</piercing>
         <gravity_scale>0.2</gravity_scale>
         <collide_terrain>1</collide_terrain>
-        <sfx>fire_ball_sound</sfx>
+        <sfx>ice_ball_sound</sfx>
     </projectile>
     
     <projectile id="energyball">
@@ -77,6 +68,6 @@
         <piercing>0</piercing>
         <gravity_scale>0.2</gravity_scale>
         <collide_terrain>1</collide_terrain>
-        <sfx>fire_ball_sound</sfx>
+        <sfx>enegy_ball_sound</sfx>
     </projectile>
 </list_projectile>

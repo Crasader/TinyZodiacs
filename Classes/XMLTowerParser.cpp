@@ -8,6 +8,8 @@
 
 #include "XMLTowerParser.h"
 
+#define TAG_TOWER_SENSOR "sensor_body"
+
 std::string XMLTowerParser::readSensorBody(tinyxml2::XMLElement* root)
 {
     return XMLHelper::readString(root, "");

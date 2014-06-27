@@ -1,0 +1,7 @@
+<skill_sound_list>
+	<skill_sound id="monster_onion_normal_attack">
+		<excute>sword_slash0.wav</excute>
+		<stop></stop>
+        <hit>sword_slash1.wav</hit>
+	</skill_sound>
+</skill_sound_list>

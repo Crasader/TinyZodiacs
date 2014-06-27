@@ -7,15 +7,14 @@
 //
 
 #include "SoundManager.h"
-#include "CharacterSoundFactory.h"
+#include "SoundFactory.h"
 #include "SimpleAudioEngine.h"
-#include "ProjectileSoundFactory.h"
 
 static std::vector<SoundStruct> listSoundId;
 
 CharacterSoundData SoundManager::loadCharacterSoundData(const char* soundId)
 {
-    CharacterSoundData data = CharacterSoundFactory::loadCharacterSoundData(soundId);
+    CharacterSoundData data = SoundFactory::loadCharacterSoundData(soundId);
     
     string val = soundId;
     if(val != "")
@@ -40,7 +39,7 @@ CharacterSoundData SoundManager::loadCharacterSoundData(const char* soundId)
 
 ProjectileSoundData SoundManager::loadProjectileSoundData(const char* soundId)
 {
-    ProjectileSoundData data = ProjectileSoundFactory::loadProjectileSoundData(soundId);
+    ProjectileSoundData data = SoundFactory::loadProjectileSoundData(soundId);
     string val = soundId;
     if(val != "")
     {
@@ -59,6 +58,28 @@ ProjectileSoundData SoundManager::loadProjectileSoundData(const char* soundId)
         if(data.getHitSoundStr() != "")
         {
             addSoundId(data.getHitSoundStr().c_str(), SOUND_EFFECT);
+        }
+    }
+    return data;
+}
+
+SkillSoundData SoundManager::loadSkillSoundData(const char* soundId)
+{
+    SkillSoundData data = SoundFactory::loadSkillSoundData(soundId);
+    string val = soundId;
+    if(val != "")
+    {
+        if(data.getexcuteSoundStr() != "")
+        {
+            addSoundId(data.getexcuteSoundStr().c_str(), SOUND_EFFECT);
+        }
+        if(data.getHitSoundStr() != "")
+        {
+            addSoundId(data.getHitSoundStr().c_str(), SOUND_EFFECT);
+        }
+        if(data.getStopSoundStr() != "")
+        {
+            addSoundId(data.getStopSoundStr().c_str(), SOUND_EFFECT);
         }
     }
     return data;
@@ -122,6 +143,7 @@ void SoundManager::preLoadAllAddedSound()
             default:
                 break;
         }
+        CCLOG("preload %s", soundStruct.soundId.c_str());
     }
 }
 
@@ -140,6 +162,7 @@ void SoundManager::unLoadAllAddedSound(bool shouldCleanList)
             default:
                 break;
         }
+        CCLOG("unload %s", soundStruct.soundId.c_str());
     }
     SoundManager::removeAllList();
 }

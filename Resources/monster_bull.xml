@@ -1,15 +1,15 @@
 <character id="monster_bull">
     <animation>bull</animation>
 	<body>bull</body>
-    <hp>100</hp>
+    <hp>1000</hp>
     <atk>400</atk>
     <def>50</def>
     <speed>2</speed>
     <atk_speed>0.5</atk_speed>
-    <max_jump>3</max_jump>
+    <max_jump>10</max_jump>
     <jump_height>10</jump_height>
     <sensor_body>creep_1_sensor</sensor_body>
-    <skill_0>monster_normal_attack</skill_0>
+    <skill_0>monster_bull_normal_attack</skill_0>
     
     <item_list>
         <item id="coin1" chance="50"/>

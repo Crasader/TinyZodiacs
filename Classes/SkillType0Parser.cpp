@@ -12,6 +12,7 @@
 #include "EffectFactory.h"
 #include "DataCollector.h"
 
+
 //int SkillType0Parser::readDamage(const XMLElement* root)
 //{
 //    if(root != NULL)
@@ -193,20 +194,30 @@ float SkillType0Parser::readTimeTick(const XMLElement* root)
     return XMLHelper::readFloat(root, 0);
 }
 
+SkillApllyType SkillType0Parser::readApplyType(const XMLElement* root)
+{
+    SkillApllyType type = (SkillApllyType)XMLHelper::readInt(root, APPLY_ONCE);
+    return type;
+}
+
+SkillSoundData SkillType0Parser::readSkillSoundData(const XMLElement* root)
+{
+    return SoundFactory::loadSkillSoundData(XMLHelper::readString(root, "").c_str());
+}
+
 NormalMeleeSkillData SkillType0Parser::parse(const XMLElement* root, b2World* world)
 {
     NormalMeleeSkillData data;
-//    data.setDamage(readDamage(root->FirstChildElement(TAG_DAMAGE)));
     data.setCoolDown(readCoolDown(root->FirstChildElement(TAG_COOL_DOWN)));
     data.setDelay(readDelay(root->FirstChildElement(TAG_DELAY)));
     data.setLifeTime(readLifeTime(root->FirstChildElement(TAG_LIFE_TIME)));
     data.setSkillSensor(readBody(root->FirstChildElement(TAG_BODY), world));
     data.setJointDefA(readJoinDef(root->FirstChildElement(TAG_JOINTS)->FirstChildElement(TAG_HOLDER)));
     data.setJointDefB(readJoinDef(root->FirstChildElement(TAG_JOINTS)->FirstChildElement(TAG_THIS)));
-//    data.setCritical(readCriticalChance(root->FirstChildElement(TAG_CRITICAL_CHANCE)));
     data.setAnimationLayerIndex(readAnimationLayerIndex(root->FirstChildElement(TAG_ANIMATION_LAYER)));
     data.setTarget(readTarget(root->FirstChildElement(TAG_TARGET)));
     data.setTimeTick(readTimeTick(root->FirstChildElement(TAG_TIME_TICK)));
+    data.setApplyType(readApplyType(root->FirstChildElement(TAG_APPLY_TYPE)));
 
     if(root->FirstChildElement(TAG_ANIMATION) != NULL)
     {
@@ -219,19 +230,11 @@ NormalMeleeSkillData SkillType0Parser::parse(const XMLElement* root, b2World* wo
     
     if(root->FirstChildElement(TAG_LIST_EFFECT) != NULL)
     {
-//        CCLOG("\t %s","AFFECT ENEMY");
         data.setListEnemyEffect(readEffectList(root->FirstChildElement(TAG_LIST_EFFECT)->FirstChildElement(TAG_LIST_EFFECT_ENEMY)));
-//        if(data.getListEnemyEffect() != NULL)
-//        {
-//            CCLOG("%d",data.getListEnemyEffect()->count());
-//        }
-//        CCLOG("\t %s","AFFECT ALLIES");
         data.setListAlliesEffect(readEffectList(root->FirstChildElement(TAG_LIST_EFFECT)->FirstChildElement(TAG_LIST_EFFECT_ALLIES)));
-//        if(data.getListAlliesEffect() != NULL)
-//        {
-//            CCLOG("%d",data.getListAlliesEffect()->count());
-//        }
         data.setlistSelfEffect(readEffectList(root->FirstChildElement(TAG_LIST_EFFECT)->FirstChildElement(TAG_LIST_EFFECT_SELF)));
     }
+    
+    data.setSoundData(readSkillSoundData(root->FirstChildElement(TAG_SFX)));
     return data;
 }

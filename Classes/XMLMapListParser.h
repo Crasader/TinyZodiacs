@@ -17,13 +17,6 @@
 USING_NS_CC;
 using namespace tinyxml2;
 
-#define TAG_MAP "map"
-
-#define ATTRIBUTE_STATE "state"
-#define ATTRIBUTE_NORMAL_ICON "normal_icon"
-#define ATTRIBUTE_SELECTED_ICON "selected_icon"
-#define ATTRIBUTE_ID "id"
-
 class XMLMapListParser
 {
 private:

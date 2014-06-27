@@ -9,6 +9,13 @@
 #include "XMLAnimationDataParser.h"
 #include "LayerIndexConstants.h"
 
+#define ATTRIBUTE_ANIMATION_LAYER "animation_layer"
+#define ATTRIBUTE_MIN_ROTATE_ANGLE "minRotateAngle"
+#define ATTRIBUTE_MAX_ROTATE_ANGLE "maxRotateAngle"
+#define ATTRIBUTE_MIN_SCALE "minScale"
+#define ATTRIBUTE_MAX_SCALE "maxScale"
+#define ATTRIBUTE_REPEAT_TIMES "repeatTimes"
+
 std::string XMLAnimationDataParser::readAnimationId(const XMLElement* root)
 {
     return XMLHelper::readString(root, "");

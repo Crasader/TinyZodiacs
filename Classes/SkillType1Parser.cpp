@@ -56,6 +56,13 @@ NormalShootingSkillData SkillType1Parser::parse(const XMLElement* root, b2World*
     data.setAngleVariability(readAngleVaribility(root->FirstChildElement(TAG_ANGLE_VARIBILITY)));
     data.setTimeTick(readTimeTick(root->FirstChildElement(TAG_TIME_TICK)));
     data.setPositionPlusPerUnit(readPositionPlus(root->FirstChildElement(TAG_POSITION_PLUS_PER_UNIT)));
+    data.setApplyType(readApplyType(root->FirstChildElement(TAG_APPLY_TYPE)));
+    //set apply type to projectile data
+    {
+        ProjectileData newData = data.getProjectileData();
+        newData.setApplyType(data.getApplyType());
+        data.setProjectileData(newData);
+    }
     
     if(root->FirstChildElement(TAG_LIST_EFFECT) != NULL)
     {
@@ -82,5 +89,7 @@ NormalShootingSkillData SkillType1Parser::parse(const XMLElement* root, b2World*
     {
         data.setAngleType(HOLDER_DIRECTION);
     }
+    
+    data.setSoundData(readSkillSoundData(root->FirstChildElement(TAG_SFX)));
     return data;
 }

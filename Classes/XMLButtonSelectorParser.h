@@ -13,13 +13,6 @@
 #include "XMLHelper.h"
 #include "Constants.h"
 
-#define TAG_BUTTON "button"
-#define ATTRIBUTE_ID "id"
-#define ATTRIBUTE_ACTIVE_TEXTURE "active_texture"
-#define ATTRIBUTE_DEACTIVE_TEXTURE "deactive_texture"
-#define ATTRIBUTE_SELECTED_TEXTURE "selected_texture"
-
-
 using namespace tinyxml2;
 class XMLButtonSelectorParser
 {

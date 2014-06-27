@@ -9,8 +9,6 @@
 #include "XMLAnimationParser.h"
 #include "MapObject.h"
 
-
-
 //CCAnimation* XMLAnimationParser::getAnimationFromXMLNode(tinyxml2::XMLElement *animationXMLElement)
 //{
 //    // Get delay param

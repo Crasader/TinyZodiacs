@@ -4,4 +4,22 @@
 		<hurt>cat_hurt.wav</hurt>
 		<death>cat_death.wav</death>
 	</character_sound>
+    
+    <character_sound id="pig_sounds">
+		<jump>cat_jump.wav</jump>
+		<hurt>LR_Vo_Hurt01.wav</hurt>
+		<death>LR_Vo_Death01.wav</death>
+	</character_sound>
+    
+    <character_sound id="bull_sounds">
+		<jump>cat_jump.wav</jump>
+		<hurt>GCS_Vo_Hurt01.wav</hurt>
+		<death>GCS_Vo_Death01.wav</death>
+	</character_sound>
+    
+    <character_sound id="monkey_sounds">
+		<jump>cat_jump.wav</jump>
+		<hurt>SS_Vo_Hurt01.wa.wav</hurt>
+		<death>SS_Vo_Death01.wav</death>
+	</character_sound>
 </character_sound_list>

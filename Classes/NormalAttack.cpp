@@ -68,7 +68,8 @@ void NormalAttack::onCreate()
 //        this->data.getSkillAnimation()->getAnimation()->setLoops(INFINITY);
     }
     
-    if(data.getLifeTime() > 0 && data.getTimeTick() > 0)
+//    if(data.getLifeTime() > 0 && data.getTimeTick() > 0)
+    if(data.getApplyType() == APPLY_OVERTIME)
     {
         this->listTarget = CCArray::create();
         this->listTarget->retain();
@@ -197,7 +198,8 @@ void NormalAttack::excuteImmediately()
     this->stopAction = ScheduleManager::getInstance()->scheduleFunction(stopFunc, NULL, this->data.getLifeTime(), 1);
     this->stopAction->retain();
     //start time tick action
-    if(data.getLifeTime() >0 && data.getTimeTick() >0)
+//    if(data.getLifeTime() >0 && data.getTimeTick() >0)
+    if(data.getApplyType() == APPLY_OVERTIME)
     {
         CCCallFunc* timeTick = CCCallFunc::create(this, callfunc_selector(NormalAttack::applyEffectOnTimeTick));
         this->timeTickAction = ScheduleManager::getInstance()->scheduleFunctionForever(timeTick, NULL, this->data.getTimeTick());

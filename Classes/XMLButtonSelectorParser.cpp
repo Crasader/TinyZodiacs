@@ -8,6 +8,12 @@
 
 #include "XMLButtonSelectorParser.h"
 
+#define TAG_BUTTON "button"
+#define ATTRIBUTE_ID "id"
+#define ATTRIBUTE_ACTIVE_TEXTURE "active_texture"
+#define ATTRIBUTE_DEACTIVE_TEXTURE "deactive_texture"
+#define ATTRIBUTE_SELECTED_TEXTURE "selected_texture"
+
 std::string XMLButtonSelectorParser::readActiveTexture(const XMLElement* root)
 {
     return XMLHelper::readAttributeString(root, ATTRIBUTE_ACTIVE_TEXTURE, "");

@@ -142,6 +142,12 @@ enum ProjectileAngleType
     FREE_STYLE
 };
 
+enum SkillApllyType
+{
+    APPLY_ONCE =0,
+    APPLY_OVERTIME =1
+};
+
 class SoundStruct
 {
 public:

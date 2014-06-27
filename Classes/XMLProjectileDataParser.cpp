@@ -11,6 +11,20 @@
 #include "LayerIndexConstants.h"
 #include "SoundManager.h"
 
+#define TAG_PROJECTILE "projectile"
+#define TAG_GRAVITY_SCALE "gravity_scale"
+#define TAG_COLLIDE_TERRAIN "collide_terrain"
+#define TAG_PIERCING "piercing"
+#define TAG_BODY "body"
+#define TAG_STATE_ANIMATION "state_animation"
+#define TAG_SFX "sfx"
+#define ATTRIBUTE_ANIMATION_LAYER "animation_layer"
+#define ATTRIBUTE_CREATE_STATE_ANIMATION "created_state_animation"
+#define ATTRIBUTE_SHOOTING_STATE_ANIMATION "shooting_state_animation"
+#define ATTRIBUTE_HIT_STATE_ANIMATION "hit_state_ainmation"
+#define ATTRIBUTE_DIE_STATE_ANIMATION "die_state_animation"
+#define ATTRIBUTE_ID "id"
+
 ProjectileData XMLProjectileDataParser::loadXMLFile(const char *xmlFileName, std::string selectorId)
 {
     ProjectileData data ;

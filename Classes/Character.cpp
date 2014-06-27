@@ -199,6 +199,7 @@ void Character::move(Direction direction, float speed)
 }
 void Character::jump(float force)
 {
+    CCLOG("%d - %d",this->currentJumpCount, this->characterData.getMaxJumpTimes());
     if(this->currentJumpCount < this->characterData.getMaxJumpTimes())
     {
         if(this->state->jump())
@@ -541,7 +542,14 @@ void Character::notifyByAffect(Affect* affect)
         
         if(this->characterData.getHealth()-oldHp<0)
         {
-            playSoundByState(HURT_SOUND);
+            if(this->getIsDead() == true)
+            {
+                playSoundByState(DEATH_SOUND);
+            }
+            else
+            {
+                playSoundByState(HURT_SOUND);
+            }
         }
     }
 }
@@ -581,7 +589,7 @@ void Character::destroy()
 void Character::die()
 {
     //
-    playSoundByState(DEATH_SOUND);
+//    playSoundByState(DEATH_SOUND);
     //
     this->isDead = true;
     changeState(new CharacterDieState(this));

@@ -1,5 +1,5 @@
 <list_effect>
-    <effect id="cat_normal_attack_affect">
+    <effect id="onion_monster_normal_attack">
         <animation animation_layer="4" minRotateAngle ="-90" maxRotateAngle="90" minScale="0.75" maxScale="1" repeatTimes="1">effect1-slash</animation>
         <joints>
             <holder x="0" y="0" offsetX="0" offsetY="0"></holder>
@@ -9,7 +9,7 @@
         <crit_chance>1</crit_chance>
         <crit>1.5</crit>
             
-        <hp>-9</hp>
+        <hp>-10</hp>
         <atk>0</atk>
         <def>0</def>
         <speed>0</speed>
@@ -21,7 +21,7 @@
         <time_tick>0</time_tick>
     </effect>
     
-    <effect id="monster_normal_attack_affect">
+    <effect id="bull_monster_normal_attack">
         <animation animation_layer="4" minRotateAngle ="0" maxRotateAngle="0" minScale="1" maxScale="1" repeatTimes="1">effect1-slash</animation>
         <joints>
             <holder x="0" y="1" offsetX="0" offsetY="0"></holder>
@@ -31,7 +31,7 @@
         <crit_chance>1</crit_chance>
         <crit>1.5</crit>
         
-        <hp>-9</hp>
+        <hp>-20</hp>
         <atk>0</atk>
         <def>0</def>
         <speed>0</speed>
@@ -43,6 +43,29 @@
         <time_tick>0</time_tick>
     </effect>
     
+    <effect id="pig_monster_normal_attack">
+        <animation animation_layer="4" minRotateAngle ="0" maxRotateAngle="0" minScale="1" maxScale="1" repeatTimes="1">effect1-slash</animation>
+        <joints>
+            <holder x="0" y="1" offsetX="0" offsetY="0"></holder>
+            <this x="0" y="0" offsetX="0" offsetY="0"></this>
+        </joints>
+		<chance>100</chance>
+        <crit_chance>1</crit_chance>
+        <crit>1.5</crit>
+        
+        <hp>-5</hp>
+        <atk>0</atk>
+        <def>0</def>
+        <speed>0</speed>
+        <atk_speed>0</atk_speed>
+        <max_jump>0</max_jump>
+        <jump_height>0</jump_height>
+        
+        <life_time>0</life_time>
+        <time_tick>0</time_tick>
+    </effect>
+
+
     <effect id="tower_normal_attack_affect">
         <animation animation_layer="4" minRotateAngle ="0" maxRotateAngle="0" minScale="1" maxScale="1" repeatTimes="1">effect1-slash</animation>
         <joints>
@@ -53,7 +76,7 @@
         <crit_chance>1</crit_chance>
         <crit>1.5</crit>
         
-        <hp>-9</hp>
+        <hp>-15</hp>
         <atk>0</atk>
         <def>0</def>
         <speed>0</speed>
@@ -65,8 +88,31 @@
         <time_tick>0</time_tick>
     </effect>
     
-    <effect id="cat_stun">
+    <effect id="projectile_first_effect">
         <animation animation_layer="4" minRotateAngle ="0" maxRotateAngle="0" minScale="1" maxScale="1" repeatTimes="1">effect1-slash</animation>
+        <joints>
+            <holder x="0" y="1" offsetX="0" offsetY="0"></holder>
+            <this x="0" y="0" offsetX="0" offsetY="0"></this>
+        </joints>
+        
+        <chance>1</chance>
+        <crit_chance>1</crit_chance>
+        <crit>1.5</crit>
+        
+        <hp>-7</hp>
+        <atk>0</atk>
+        <def>0</def>
+        <speed>0</speed>
+        <atk_speed>0</atk_speed>
+        <max_jump>0</max_jump>
+        <jump_height>0</jump_height>
+        
+        <life_time>5</life_time>
+        <time_tick>0</time_tick>
+    </effect>
+    
+    <effect id="lightning_arrow_stun">
+        <animation animation_layer="4" minRotateAngle ="0" maxRotateAngle="0" minScale="1" maxScale="1" repeatTimes="1">skill-lightning_arrow_end</animation>
         <joints>
             <holder x="0" y="1" offsetX="0" offsetY="0"></holder>
             <this x="0" y="0" offsetX="0" offsetY="0"></this>
@@ -81,15 +127,15 @@
         <def>0</def>
         <speed>-999</speed>
         <atk_speed>0</atk_speed>
-        <max_jump>0</max_jump>
+        <max_jump>-999</max_jump>
         <jump_height>0</jump_height>
         
         <life_time>5</life_time>
         <time_tick>0</time_tick>
     </effect>
             
-    <effect id="cat_bleeding">
-        <animation animation_layer="4" minRotateAngle ="0" maxRotateAngle="0" minScale="1" maxScale="1" repeatTimes="-1">effect1-lightning</animation>
+    <effect id="fire_ball_burn">
+        <animation animation_layer="4" minRotateAngle ="0" maxRotateAngle="0" minScale="1" maxScale="1" repeatTimes="-1">skill-magic_fireball_end</animation>
         <joints>
             <holder x="0" y="0" offsetX="0" offsetY="0"></holder>
             <this x="0" y="0" offsetX="0" offsetY="0"></this>
@@ -111,7 +157,7 @@
         <time_tick>1</time_tick>
     </effect>
     
-    <effect id="lightning">
+    <effect id="enegy_drain">
         <animation animation_layer="4" minRotateAngle ="0" maxRotateAngle="360" minScale="0.7" maxScale="1" repeatTimes="0">effect1-lightning</animation>
         <joints>
             <holder x="0" y="0" offsetX="0" offsetY="0"></holder>
@@ -123,9 +169,9 @@
         <crit>1.5</crit>
         
         <hp>0</hp>
-        <atk>0</atk>
+        <atk>-999</atk>
         <def>0</def>
-        <speed>-999</speed>
+        <speed>0</speed>
         <atk_speed>0</atk_speed>
         <max_jump>0</max_jump>
         <jump_height>0</jump_height>
@@ -157,6 +203,7 @@
         <life_time>0</life_time>
         <time_tick>0</time_tick>
     </effect>
+    
     <effect id="item_healing">
         <animation animation_layer="4" minRotateAngle ="0" maxRotateAngle="0" minScale="1" maxScale="1" repeatTimes="1">effect1-slash</animation>
         <joints>
@@ -180,7 +227,7 @@
         <time_tick>0</time_tick>
     </effect>
     
-    <effect id="explosion_effect">
+    <effect id="suicide_effect">
         <animation animation_layer="4" minRotateAngle ="-90" maxRotateAngle="90" minScale="0.75" maxScale="1" repeatTimes="1">effect1-slash</animation>
         <joints>
             <holder x="0" y="0" offsetX="0" offsetY="0"></holder>

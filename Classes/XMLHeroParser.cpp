@@ -9,6 +9,11 @@
 #include "XMLHeroParser.h"
 #include "XMLCharacterParser.h"
 
+#define TAG_HERO "hero"
+#define ATTRIBUTE_HERO_LOCKED "locked"
+#define ATTRIBUTE_HERO_ID "id"
+#define ATTRIBUTE_HERO_BUTTON_ID "button_id"
+
 HeroDTO* XMLHeroParser::getHeroDTOFromXMLElement(XMLElement* heroXMLElement)
 {
     HeroDTO* heroDTO = HeroDTO::create();

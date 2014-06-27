@@ -16,12 +16,6 @@
 
 using namespace tinyxml2;
 
-#define TAG_SENSOR_BODY "sensor_body"
-#define TAG_MONSTER_ITEM_LIST "item_list"
-#define TAG_MONSTER_ITEM "item"
-#define ATTRIBUTE_MONSTER_ITEM_ID "id"
-#define ATTRIBUTE_MONSTER_ITEM_CHANCE "chance"
-
 class XMLMonsterParser
 {
 private:

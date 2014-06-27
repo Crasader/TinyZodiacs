@@ -9,6 +9,13 @@
 #include "XMLMapListParser.h"
 #include "XMLHelper.h"
 
+#define TAG_MAP "map"
+
+#define ATTRIBUTE_STATE "state"
+#define ATTRIBUTE_NORMAL_ICON "normal_icon"
+#define ATTRIBUTE_SELECTED_ICON "selected_icon"
+#define ATTRIBUTE_ID "id"
+
 std::vector<MapSelectData> XMLMapListParser::loadXMLFile(const char *xmlFileName)
 {
     

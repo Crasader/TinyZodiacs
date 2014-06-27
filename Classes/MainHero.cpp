@@ -85,6 +85,8 @@ void MainHero::die()
     }
     
     cleanAllAffect();
+    //
+    playSoundByState(DEATH_SOUND);
 }
 
 void MainHero::revive()

@@ -231,7 +231,7 @@
 			<array>
 				<dict>
 					<key>density</key>
-					<real>2</real>
+					<real>1e-12</real>
 					<key>friction</key>
 					<real>0</real>
 					<key>restitution</key>

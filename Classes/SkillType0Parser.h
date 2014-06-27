@@ -18,7 +18,7 @@
 #include "Constants.h"
 #include "XMLHelper.h"
 #include "Affect.h"
-
+#include "SoundManager.h"
 
 
 #define TAG_JOINT "joints"
@@ -47,6 +47,8 @@
 #define TAG_LIST_EFFECT_SELF "self"
 #define TAG_EFFECT "effect"
 #define TAG_TIME_TICK "time_tick"
+#define TAG_APPLY_TYPE "apply_type"
+#define TAG_SFX "sfx"
 
 
 using namespace tinyxml2;
@@ -69,6 +71,8 @@ protected:
     static SkillTarget readTarget(const XMLElement* root);
     static vector<EffectData> readEffectList(const XMLElement* root);
     static float readTimeTick(const XMLElement* root);
+    static SkillApllyType readApplyType(const XMLElement* root);
+    static SkillSoundData readSkillSoundData(const XMLElement* root);
 public:
     static NormalMeleeSkillData parse(const XMLElement* root, b2World* world);
 };

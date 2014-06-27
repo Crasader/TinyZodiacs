@@ -10,8 +10,7 @@
 #define __TinyZodiacs__SoundManager__
 
 #include <iostream>
-#include "CharacterSoundFactory.h"
-#include "ProjectileSoundFactory.h"
+#include "SoundFactory.h"
 #include "Constants.h"
 
 class SoundManager
@@ -23,6 +22,8 @@ protected:
 public:
     static CharacterSoundData loadCharacterSoundData(const char* soundId);
     static ProjectileSoundData loadProjectileSoundData(const char* soundId);
+    static SkillSoundData loadSkillSoundData(const char* soundId);
+
     
     static std::string loadBackGroundMusic(const char* soundId);
     
