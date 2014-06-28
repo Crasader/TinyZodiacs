@@ -231,7 +231,7 @@ void Affect::setData(EffectData effectData)
         {
             int repeatTime = effectData.getRepeatTimes();
             repeatTime = effectData.getLifeTime() / ((SkillAnimationEffect*)this->animation)->getAnimationDuration();
-            this->animation->setRepeatTimes(repeatTime);
+            this->animation->setLifeTimes(repeatTime);
             this->animation->setIsFiniteAction(false);
         }
 

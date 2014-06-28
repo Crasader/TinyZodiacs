@@ -127,6 +127,10 @@ void HoldableUIButton::onTouchMoved(CCTouch *touch, CCEvent *unused_event)
             {
                 this->onTouchBegan(touch, unused_event);
             }
+            else
+            {
+                moveEvent();
+            }
         }
         else
         {

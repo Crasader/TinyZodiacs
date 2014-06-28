@@ -199,7 +199,6 @@ void Character::move(Direction direction, float speed)
 }
 void Character::jump(float force)
 {
-    CCLOG("%d - %d",this->currentJumpCount, this->characterData.getMaxJumpTimes());
     if(this->currentJumpCount < this->characterData.getMaxJumpTimes())
     {
         if(this->state->jump())

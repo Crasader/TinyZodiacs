@@ -175,6 +175,16 @@ bool MultitouchTouchGroup::init()
 bool MultitouchTouchGroup::checkEventWidget(CCTouch* touch, CCEvent *pEvent)
 {
     checkTouchEvent(m_pRootWidget,touch, pEvent);
+    
+    CCObject* hitWidget;
+    CCARRAY_FOREACH(this->listAssignedWidget, hitWidget)
+    {
+        unsigned int index = this->m_pSelectedWidgets->indexOfObject(hitWidget);
+        if(index != CC_INVALID_INDEX)
+        {
+            this->m_pSelectedWidgets->removeObjectAtIndex(index);
+        }
+    }
   
     return (m_pSelectedWidgets->count() > 0);
 }

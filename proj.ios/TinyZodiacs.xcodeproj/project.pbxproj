@@ -246,6 +246,7 @@
 		3486802618D93B82001692BB /* AbstractSkill.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3486802418D93B82001692BB /* AbstractSkill.cpp */; };
 		3486802918D95FB2001692BB /* NormalShootingAttack.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3486802718D95FB2001692BB /* NormalShootingAttack.cpp */; };
 		3486802C18D97940001692BB /* SkillData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3486802A18D97940001692BB /* SkillData.cpp */; };
+		3492395B195E629000B25946 /* list_skill_animation.xml in Resources */ = {isa = PBXBuildFile; fileRef = 3492395A195E629000B25946 /* list_skill_animation.xml */; };
 		34B1273318EF9619005DAF04 /* NormalShootingSkillData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 34B1273118EF9619005DAF04 /* NormalShootingSkillData.cpp */; };
 		34B1273718EF9619005DAF04 /* SkillType1Parser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 34B1273518EF9619005DAF04 /* SkillType1Parser.cpp */; };
 		34B249A7194FE8E50072B34B /* AssetMusic_Commons_Market.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 34B249A6194FE8E50072B34B /* AssetMusic_Commons_Market.mp3 */; };
@@ -965,6 +966,7 @@
 		3486802818D95FB2001692BB /* NormalShootingAttack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NormalShootingAttack.h; path = ../Classes/NormalShootingAttack.h; sourceTree = "<group>"; };
 		3486802A18D97940001692BB /* SkillData.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = SkillData.cpp; path = ../Classes/SkillData.cpp; sourceTree = "<group>"; };
 		3486802B18D97940001692BB /* SkillData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SkillData.h; path = ../Classes/SkillData.h; sourceTree = "<group>"; };
+		3492395A195E629000B25946 /* list_skill_animation.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = list_skill_animation.xml; sourceTree = "<group>"; };
 		34B1273118EF9619005DAF04 /* NormalShootingSkillData.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = NormalShootingSkillData.cpp; sourceTree = "<group>"; };
 		34B1273218EF9619005DAF04 /* NormalShootingSkillData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NormalShootingSkillData.h; sourceTree = "<group>"; };
 		34B1273518EF9619005DAF04 /* SkillType1Parser.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SkillType1Parser.cpp; sourceTree = "<group>"; };
@@ -1959,19 +1961,19 @@
 			isa = PBXGroup;
 			children = (
 				F54161A619494BC300F940EC /* AppDelegate.cpp */,
-				F507B4181921DB6F00D23B99 /* Observer */,
-				F54AE96D18D2F01B00194E66 /* Objects */,
+				1AFAF8B416D35DE700DB1158 /* AppDelegate.h */,
+				F54AE96E18D2F02100194E66 /* Constants */,
+				F54AE97318D2F0A900194E66 /* Data */,
 				F5B4286E19174033002DC13B /* Data loader */,
-				3414165F18DC2286007B8C2B /* Managers */,
 				F561F28818D8029000DD4598 /* DTO */,
 				34ED36BE18D69A3E00FFA55A /* Engines */,
+				F54AE96F18D2F05200194E66 /* Factories */,
 				F54AE9F218D2F3C000194E66 /* Helper */,
-				F54AE97318D2F0A900194E66 /* Data */,
+				3414165F18DC2286007B8C2B /* Managers */,
+				F54AE96D18D2F01B00194E66 /* Objects */,
+				F507B4181921DB6F00D23B99 /* Observer */,
 				F54AE97218D2F09800194E66 /* Scenes */,
 				F54AE97018D2F08800194E66 /* UIs */,
-				F54AE96F18D2F05200194E66 /* Factories */,
-				F54AE96E18D2F02100194E66 /* Constants */,
-				1AFAF8B416D35DE700DB1158 /* AppDelegate.h */,
 			);
 			name = Classes;
 			path = ../classes;
@@ -2345,10 +2347,10 @@
 		34F7F92A18E15AA50084E87C /* Skills */ = {
 			isa = PBXGroup;
 			children = (
+				3492395A195E629000B25946 /* list_skill_animation.xml */,
 				517E84C91958491F00881FC4 /* list_skill.xml */,
 				517E84AB195846C200881FC4 /* list_effect.xml */,
 				517E84AC195846C200881FC4 /* list_projectile.xml */,
-				517E84AD195846C200881FC4 /* skill_animation.xml */,
 				2D0DA1491908F6C800881C8D /* test_sheet.plist */,
 				2D0DA14A1908F6C800881C8D /* test_sheet.png */,
 			);
@@ -2903,38 +2905,38 @@
 		F54AE97318D2F0A900194E66 /* Data */ = {
 			isa = PBXGroup;
 			children = (
-				34F69CC6194159D0005DD696 /* CharacterSoundData.h */,
+				34315E4F193972430058D433 /* AnimationData.cpp */,
+				F54AEA0918D2F50300194E66 /* CharacterData.cpp */,
 				34F69CC7194159D0005DD696 /* CharacterSoundData.cpp */,
 				340DE0AA192C97320056D51E /* EffectData.cpp */,
-				340DE0AB192C97320056D51E /* EffectData.h */,
+				34100F13194A202000EB08F3 /* GameObjectCalculateData.cpp */,
+				340D337D195D4DB700E93CB5 /* ItemSoundData.cpp */,
+				34B3BE211942F2EC00D3E651 /* MapSelectData.cpp */,
+				34EED02018E50E5D001AFFC9 /* NormalMeleeSkillData.cpp */,
+				34B1273118EF9619005DAF04 /* NormalShootingSkillData.cpp */,
+				F54AEA0B18D2F50300194E66 /* ObjectData.cpp */,
+				F54AEA0A18D2F50300194E66 /* PhysicData.cpp */,
+				34BFEA1719483BF700501A1D /* ProjectileData.cpp */,
+				34D8BC1F195976490082ED4A /* ProjectileSoundData.cpp */,
+				34BFEA1A19483DBF00501A1D /* ProjectileStateAnimationData.cpp */,
+				3486802A18D97940001692BB /* SkillData.cpp */,
+				34D24BEF195C87F7005B41C8 /* SkillSoundData.cpp */,
+				34315E50193972430058D433 /* AnimationData.h */,
 				F54AEA0618D2F50300194E66 /* CharacterData.h */,
+				34F69CC6194159D0005DD696 /* CharacterSoundData.h */,
+				340DE0AB192C97320056D51E /* EffectData.h */,
+				34100F14194A202000EB08F3 /* GameObjectCalculateData.h */,
+				340D337E195D4DB700E93CB5 /* ItemSoundData.h */,
+				34B3BE221942F2EC00D3E651 /* MapSelectData.h */,
+				34EED02118E50E5D001AFFC9 /* NormalMeleeSkillData.h */,
+				34B1273218EF9619005DAF04 /* NormalShootingSkillData.h */,
 				F54AEA0718D2F50300194E66 /* ObjectData.h */,
 				F54AEA0818D2F50300194E66 /* PhysicData.h */,
-				F54AEA0918D2F50300194E66 /* CharacterData.cpp */,
-				F54AEA0A18D2F50300194E66 /* PhysicData.cpp */,
-				F54AEA0B18D2F50300194E66 /* ObjectData.cpp */,
-				3486802A18D97940001692BB /* SkillData.cpp */,
-				3486802B18D97940001692BB /* SkillData.h */,
-				34EED02018E50E5D001AFFC9 /* NormalMeleeSkillData.cpp */,
-				34EED02118E50E5D001AFFC9 /* NormalMeleeSkillData.h */,
-				34B1273118EF9619005DAF04 /* NormalShootingSkillData.cpp */,
-				34B1273218EF9619005DAF04 /* NormalShootingSkillData.h */,
-				34315E4F193972430058D433 /* AnimationData.cpp */,
-				34315E50193972430058D433 /* AnimationData.h */,
-				34B3BE211942F2EC00D3E651 /* MapSelectData.cpp */,
-				34B3BE221942F2EC00D3E651 /* MapSelectData.h */,
-				34BFEA1719483BF700501A1D /* ProjectileData.cpp */,
 				34BFEA1819483BF700501A1D /* ProjectileData.h */,
-				34BFEA1A19483DBF00501A1D /* ProjectileStateAnimationData.cpp */,
-				34BFEA1B19483DBF00501A1D /* ProjectileStateAnimationData.h */,
-				34100F13194A202000EB08F3 /* GameObjectCalculateData.cpp */,
-				34100F14194A202000EB08F3 /* GameObjectCalculateData.h */,
-				34D8BC1F195976490082ED4A /* ProjectileSoundData.cpp */,
 				34D8BC20195976490082ED4A /* ProjectileSoundData.h */,
-				34D24BEF195C87F7005B41C8 /* SkillSoundData.cpp */,
+				34BFEA1B19483DBF00501A1D /* ProjectileStateAnimationData.h */,
+				3486802B18D97940001692BB /* SkillData.h */,
 				34D24BF0195C87F7005B41C8 /* SkillSoundData.h */,
-				340D337D195D4DB700E93CB5 /* ItemSoundData.cpp */,
-				340D337E195D4DB700E93CB5 /* ItemSoundData.h */,
 			);
 			name = Data;
 			sourceTree = "<group>";
@@ -3243,6 +3245,7 @@
 		F5FA1C3E194ED445002C73E2 /* Animation */ = {
 			isa = PBXGroup;
 			children = (
+				517E84AD195846C200881FC4 /* skill_animation.xml */,
 				517E84B91958477800881FC4 /* effect_animation_1.xml */,
 				517E84BA1958477800881FC4 /* effect_animation.xml */,
 				F5FA1C57194ED799002C73E2 /* onion_invert_animation.xml */,
@@ -3361,6 +3364,7 @@
 				2D0DA14E1908F6C800881C8D /* test_sheet.png in Resources */,
 				34D8BC1C195974CD0082ED4A /* magic_lightningarrow_end.wav in Resources */,
 				F52678F318EEAEA500CE1E3B /* arial.ttf in Resources */,
+				3492395B195E629000B25946 /* list_skill_animation.xml in Resources */,
 				340423D2193D8F4700223029 /* test_sheet.plist in Resources */,
 				517E84C5195847B700881FC4 /* character_monkey.xml in Resources */,
 				34D8BC1219596D670082ED4A /* projectile_sounds.xml in Resources */,

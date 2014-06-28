@@ -320,6 +320,7 @@ void GameplayLayer::leftButtonTouchEvent(CCObject* sender, cocos2d::gui::TouchEv
             ControllerManager::getInstance()->sendCommand(HERO_CONTROLLER,  HERO_MOVE_LEFT);
             break;
         case cocos2d::gui::TOUCH_EVENT_MOVED:
+            CCLOG("Left_move");
             ControllerManager::getInstance()->sendCommand(HERO_CONTROLLER,  HERO_MOVE_LEFT);
             break;
         case cocos2d::gui::TOUCH_EVENT_HOLD:
@@ -343,6 +344,7 @@ void GameplayLayer::rightButtonTouchEvent(CCObject* sender, cocos2d::gui::TouchE
             ControllerManager::getInstance()->sendCommand(HERO_CONTROLLER,  HERO_MOVE_RIGHT);
             break;
         case cocos2d::gui::TOUCH_EVENT_MOVED:
+            CCLOG("Right_move");
             ControllerManager::getInstance()->sendCommand(HERO_CONTROLLER,  HERO_MOVE_RIGHT);
             break;
         case cocos2d::gui::TOUCH_EVENT_HOLD:

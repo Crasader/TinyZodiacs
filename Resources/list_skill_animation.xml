@@ -1,0 +1,8 @@
+<list_skill_animation>
+	<skill_animation id="skill-aura">
+		<pre_excute></pre_excute>
+		<excute></excute>
+		<pre_stop></pre_stop>
+		<stop></stop>
+	</skill_animation>
+</list_skill_animation>

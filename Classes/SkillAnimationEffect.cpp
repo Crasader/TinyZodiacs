@@ -15,8 +15,7 @@ SkillAnimationEffect::SkillAnimationEffect()
     this->maxRotateAngle = 0;
     this->minScale = 1;
     this->maxScale = 1;
-    this->repeatTimes = 1;
-    
+    this->lifeTimes = 1;
 }
 
 SkillAnimationEffect::~SkillAnimationEffect()
@@ -46,9 +45,9 @@ void SkillAnimationEffect::run()
     
     CCCallFunc* stopFunction = CCCallFunc::create(this, callfunc_selector(SkillAnimationEffect::stop));
     CCAnimate* animateAction = CCAnimate::create(this->animationObject->getAnimation());
-    if(this->repeatTimes > 0)
+    if(this->lifeTimes > 0)
     {
-        CCRepeat* repeatAction = CCRepeat::create(animateAction, this->repeatTimes);
+        CCRepeat* repeatAction = CCRepeat::create(animateAction, this->lifeTimes);
         arrSeq->addObject(repeatAction);
         arrSeq->addObject(stopFunction);
     }
@@ -82,14 +81,14 @@ void SkillAnimationEffect::stop()
 //    AnimationEffect::setAnimation(id);
 //}
 
-void SkillAnimationEffect::setAnimation(const char* id, float minRotate, float maxRotate, float minScale, float maxScale, int repeatTimes, CCPoint position)
+void SkillAnimationEffect::setAnimation(const char* id, float minRotate, float maxRotate, float minScale, float maxScale, float lifeTime, CCPoint position)
 {
     this->AnimationEffect::setAnimation(id);
     this->minRotateAngle = minRotate;
     this->maxRotateAngle = maxRotate;
     this->minScale = minScale;
     this->maxScale = maxScale;
-    this->repeatTimes = repeatTimes;
+    this->lifeTimes = lifeTime;
     setPosition(position);
 }
 

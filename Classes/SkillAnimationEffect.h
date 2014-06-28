@@ -27,7 +27,7 @@ protected:
     CC_SYNTHESIZE(float, maxRotateAngle, MaxRotateAngle);
     CC_SYNTHESIZE(float, minScale, MinScale);
     CC_SYNTHESIZE(float, maxScale, MaxScale);
-    CC_SYNTHESIZE(int, repeatTimes, RepeatTimes);
+    CC_SYNTHESIZE(float, lifeTimes, LifeTimes);
     
     CC_SYNTHESIZE(bool, isFiniteAction, IsFiniteAction);
 public:
@@ -44,7 +44,7 @@ public:
     virtual void stop();
     
 //    void setAnimation(const char* id);
-    void setAnimation(const char* id, float minRotate, float maxRotate, float minScale, float maxScale, int repeatTimes, CCPoint position);
+    void setAnimation(const char* id, float minRotate, float maxRotate, float minScale, float maxScale,  float lifeTime, CCPoint position);
     
     float getAnimationDuration();
     
