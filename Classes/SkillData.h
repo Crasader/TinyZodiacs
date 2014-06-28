@@ -25,6 +25,7 @@ protected:
 public:
     SkillData();
     ~SkillData();
+    CC_SYNTHESIZE(AnimationObject*, skillAnimation, SkillAnimation)
     CC_SYNTHESIZE(SkillApllyType, applyType, ApplyType);
     CC_SYNTHESIZE(TextureSelector, skillTextureSelector, skillTextureSelector);
     CC_SYNTHESIZE(float, coolDown, CoolDown);

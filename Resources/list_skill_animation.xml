@@ -1,6 +1,13 @@
 <list_skill_animation>
-	<skill_animation id="skill-aura">
+	<skill_animation id="aura">
 		<pre_excute></pre_excute>
+		<excute>skill-aura</excute>
+		<pre_stop></pre_stop>
+		<stop></stop>
+	</skill_animation>
+    
+    <skill_animation id="seft_explosion">
+		<pre_excute>skill-aura</pre_excute>
 		<excute></excute>
 		<pre_stop></pre_stop>
 		<stop></stop>

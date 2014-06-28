@@ -247,6 +247,7 @@
 		3486802918D95FB2001692BB /* NormalShootingAttack.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3486802718D95FB2001692BB /* NormalShootingAttack.cpp */; };
 		3486802C18D97940001692BB /* SkillData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3486802A18D97940001692BB /* SkillData.cpp */; };
 		3492395B195E629000B25946 /* list_skill_animation.xml in Resources */ = {isa = PBXBuildFile; fileRef = 3492395A195E629000B25946 /* list_skill_animation.xml */; };
+		3492395E195E654A00B25946 /* SkillAnimationData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3492395C195E654A00B25946 /* SkillAnimationData.cpp */; };
 		34B1273318EF9619005DAF04 /* NormalShootingSkillData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 34B1273118EF9619005DAF04 /* NormalShootingSkillData.cpp */; };
 		34B1273718EF9619005DAF04 /* SkillType1Parser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 34B1273518EF9619005DAF04 /* SkillType1Parser.cpp */; };
 		34B249A7194FE8E50072B34B /* AssetMusic_Commons_Market.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 34B249A6194FE8E50072B34B /* AssetMusic_Commons_Market.mp3 */; };
@@ -968,6 +969,8 @@
 		3486802A18D97940001692BB /* SkillData.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = SkillData.cpp; path = ../Classes/SkillData.cpp; sourceTree = "<group>"; };
 		3486802B18D97940001692BB /* SkillData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SkillData.h; path = ../Classes/SkillData.h; sourceTree = "<group>"; };
 		3492395A195E629000B25946 /* list_skill_animation.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = list_skill_animation.xml; sourceTree = "<group>"; };
+		3492395C195E654A00B25946 /* SkillAnimationData.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SkillAnimationData.cpp; sourceTree = "<group>"; };
+		3492395D195E654A00B25946 /* SkillAnimationData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SkillAnimationData.h; sourceTree = "<group>"; };
 		34B1273118EF9619005DAF04 /* NormalShootingSkillData.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = NormalShootingSkillData.cpp; sourceTree = "<group>"; };
 		34B1273218EF9619005DAF04 /* NormalShootingSkillData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NormalShootingSkillData.h; sourceTree = "<group>"; };
 		34B1273518EF9619005DAF04 /* SkillType1Parser.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SkillType1Parser.cpp; sourceTree = "<group>"; };
@@ -2942,6 +2945,8 @@
 				34BFEA1B19483DBF00501A1D /* ProjectileStateAnimationData.h */,
 				3486802B18D97940001692BB /* SkillData.h */,
 				34D24BF0195C87F7005B41C8 /* SkillSoundData.h */,
+				3492395C195E654A00B25946 /* SkillAnimationData.cpp */,
+				3492395D195E654A00B25946 /* SkillAnimationData.h */,
 			);
 			name = Data;
 			sourceTree = "<group>";
@@ -3635,6 +3640,7 @@
 				34B3BE161942E35800D3E651 /* MapSelectLayer.cpp in Sources */,
 				F5ECC77A192A02CA00328FBE /* BonusItem.cpp in Sources */,
 				15A3DA3F1682F826002FB0C5 /* CCLayerLoader.cpp in Sources */,
+				3492395E195E654A00B25946 /* SkillAnimationData.cpp in Sources */,
 				15A3DA401682F826002FB0C5 /* CCMenuItemImageLoader.cpp in Sources */,
 				375BD5101868454E0024609E /* CCActionFrameEasing.cpp in Sources */,
 				15A3DA411682F826002FB0C5 /* CCMenuItemLoader.cpp in Sources */,
