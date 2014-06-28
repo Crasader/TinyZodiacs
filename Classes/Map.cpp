@@ -111,7 +111,7 @@ void Map::attachAllMapObject()
     CCARRAY_FOREACH(listMapObject,object)
     {
         MapObject* mapObject = (MapObject*)object;
-      //   mapObject->getSprite()->setVisible(false);
+       // mapObject->getSprite()->setVisible(false);
         this->addChild(mapObject->getSprite(),MAPOBJECT_LAYER);
     }
 }

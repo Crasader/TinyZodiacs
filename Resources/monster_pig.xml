@@ -1,6 +1,6 @@
 <character id="monster_pig">
     <animation>pig</animation>
-	<body>pig2</body>
+	<body>pig</body>
     <hp>100</hp>
     <atk>0</atk>
     <def>0</def>

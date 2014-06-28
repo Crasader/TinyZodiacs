@@ -76,13 +76,10 @@ void HoldableButton::onTouchEnded(CCTouch *touch, CCEvent *unused_event)
          Button::onTouchEnded(touch, unused_event);
     }
     this->isHolding = false;
-    CCLOG("touchend");
-    CCLOG("%f - %f / %f - %f ", this->_touchMovePos.x,this->_touchMovePos.y, touch->getLocation().x, touch->getLocation().y);
     Button::onTouchEnded(touch, unused_event);
 }
 
 void HoldableButton::onTouchCancelled(CCTouch *touch, CCEvent *unused_event)
 {
-    CCLOG("touchcancel");
     Button::onTouchCancelled(touch, unused_event);
 }

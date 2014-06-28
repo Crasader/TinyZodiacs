@@ -30,7 +30,7 @@ Monster::~Monster()
 {
     this->listTarget->removeAllObjects();
     this->listTarget->release();
-   }
+}
 
 bool Monster::init()
 {
@@ -90,7 +90,7 @@ void Monster::die()
     EffectManager::getInstance()->runEffect(effect, this->getPositionInPixel(),ABOVE_CHARACTER_LAYER);
     
     dropItem();
-
+    
     Character::die();
 }
 
@@ -98,6 +98,8 @@ void Monster::attachSpriteTo(CCNode* node)
 {
     GameObject::attachSpriteTo(node);
     node->addChild(this->sprite, CHARACTER_LAYER);
+    
+    this->sprite->setVisible(false);
 }
 
 void Monster::dropItem()
@@ -158,14 +160,14 @@ void Monster::checkCollisionDataInBeginContact(PhysicData* holderData, PhysicDat
                     {
                         if(this->body->GetLinearVelocity().y < 0)
                         {
-                              this->isStopMove = false;
+                            this->isStopMove = false;
                             
                         }
-                                               MapObject* mapObject = static_cast<MapObject*>(collisionData->data);
-                                               if(!Util::bodiesArePassingThrough(this->body, mapObject->getBody()))
-                                               {
-                     
-                                                }
+                        MapObject* mapObject = static_cast<MapObject*>(collisionData->data);
+                        if(!Util::bodiesArePassingThrough(this->body, mapObject->getBody()))
+                        {
+                            
+                        }
                     }
                 }
                     break;
@@ -182,16 +184,6 @@ void Monster::checkCollisionDataInEndContact(PhysicData* holderData, PhysicData*
     Character::checkCollisionDataInEndContact(holderData, collisionData, contact);
     if(holderData->data == this)
     {
-        //        PhysicData* physicData = NULL;
-        //        if(isSideA)
-        //        {
-        //            physicData = (PhysicData*)contact->GetFixtureB()->GetBody()->GetUserData();
-        //        }
-        //        else
-        //        {
-        //            physicData = (PhysicData*)contact->GetFixtureA()->GetBody()->GetUserData();
-        //        }
-        
         if(collisionData != NULL)
         {
             //Contact sensor
@@ -237,6 +229,7 @@ void Monster::doAction(SensorObject* sensorObject)
     }
     if(sensorObject->getJumpHeight() > 0)
     {
+        CCLOG("jump");
         this->jump(sensorObject->getJumpHeight());
     }
 }
@@ -360,25 +353,12 @@ void Monster::setGroup(Group group)
 void Monster::onCreate()
 {
     Character::onCreate();
-
-//    if(this->normalAttack != NULL)
-//    {
-//        this->normalAttack->setSkillButtonID(UNKNOWN);
-//    }
-//    if(this->skill1 != NULL)
-//    {
-//        this->skill1->setSkillButtonID(UNKNOWN);
-//    }
-//    if(this->skill2 != NULL)
-//    {
-//        this->skill2->setSkillButtonID(UNKNOWN);
-//    }
-    CCObject* skill;
+       CCObject* skill;
     CCARRAY_FOREACH(this->listSkill, skill)
     {
         ((AbstractSkill*)skill)->setSkillButtonID(UNKNOWN);
     }
-
+    
 }
 
 void Monster::setSensor(const char* bodyId)

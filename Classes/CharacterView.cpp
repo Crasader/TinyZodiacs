@@ -33,7 +33,7 @@ bool CharacterView::init()
 void CharacterView::update(float dt)
 {
 
-    this->healthBar->setPosition(this->gameObject->getPositionInPixel() + ccp(0,holderHeight/2 + 30) );
+    this->healthBar->setPosition(this->gameObject->getPositionInPixel() + ccp(0,holderHeight/1 + 30) );
     if(this->textNameLabel != NULL)
     {
         this->textNameLabel->setPosition(this->gameObject->getPositionInPixel() - ccp(0,100));

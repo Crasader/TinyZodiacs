@@ -250,12 +250,7 @@
          <edge x="0" y="100"/>
          </sensor_object>-->
         
-        <sensor_object is_back = "true" must_stop = "false" direction = "left" move_speed="8" jump_height = "5">
-            <position x="4444" y="1113"/>
-            <edge x="520" y="-180"/>
-        </sensor_object>
-        
-    </sensor_object_list>
+           </sensor_object_list>
     <tower_list>
         
         <tower type="main" id="maincrystal" group="B" >
