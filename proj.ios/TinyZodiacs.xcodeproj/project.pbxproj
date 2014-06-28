@@ -428,6 +428,7 @@
 		F5579EBA191DDAD900F29241 /* Hero.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F5579EB8191DDAD900F29241 /* Hero.cpp */; };
 		F5579EBD191DDCBC00F29241 /* ItemFactory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F5579EBB191DDCBC00F29241 /* ItemFactory.cpp */; };
 		F558161319176AD800A1CCB2 /* XMLMonsterParser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F558161119176AD800A1CCB2 /* XMLMonsterParser.cpp */; };
+		F56D1798195D169E00F3372C /* HoldableButton.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F56D1796195D169E00F3372C /* HoldableButton.cpp */; };
 		F57519C41905016200F6A519 /* MonsterAIActionEngine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F57519C21905016200F6A519 /* MonsterAIActionEngine.cpp */; };
 		F5779C6818E5693C0044D5CD /* HealthBar.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F5779C6618E5693C0044D5CD /* HealthBar.cpp */; };
 		F58095BF195850640011C3D0 /* 16bit in Resources */ = {isa = PBXBuildFile; fileRef = F58095BD195850640011C3D0 /* 16bit */; };
@@ -1287,6 +1288,8 @@
 		F5579EBC191DDCBC00F29241 /* ItemFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemFactory.h; sourceTree = "<group>"; };
 		F558161119176AD800A1CCB2 /* XMLMonsterParser.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = XMLMonsterParser.cpp; sourceTree = "<group>"; };
 		F558161219176AD800A1CCB2 /* XMLMonsterParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMLMonsterParser.h; sourceTree = "<group>"; };
+		F56D1796195D169E00F3372C /* HoldableButton.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = HoldableButton.cpp; path = ../Classes/HoldableButton.cpp; sourceTree = "<group>"; };
+		F56D1797195D169E00F3372C /* HoldableButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HoldableButton.h; path = ../Classes/HoldableButton.h; sourceTree = "<group>"; };
 		F57519C21905016200F6A519 /* MonsterAIActionEngine.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MonsterAIActionEngine.cpp; sourceTree = "<group>"; };
 		F57519C31905016200F6A519 /* MonsterAIActionEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MonsterAIActionEngine.h; sourceTree = "<group>"; };
 		F5779C6618E5693C0044D5CD /* HealthBar.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = HealthBar.cpp; sourceTree = "<group>"; };
@@ -2156,6 +2159,8 @@
 				343187021936F20E00D0D683 /* MultitouchTouchGroup.cpp */,
 				343187031936F20E00D0D683 /* MultitouchTouchGroup.h */,
 				343187041936F20E00D0D683 /* HoldableUIButton.h */,
+				F56D1796195D169E00F3372C /* HoldableButton.cpp */,
+				F56D1797195D169E00F3372C /* HoldableButton.h */,
 			);
 			name = CustomUI;
 			sourceTree = "<group>";
@@ -3758,6 +3763,7 @@
 				34CC3F37195151D900CB46F0 /* PauseLayer.cpp in Sources */,
 				F50426AE190E0A6F001352B0 /* ActionZoomFollow.cpp in Sources */,
 				F54AE9BE18D2F1AA00194E66 /* CharacterState.cpp in Sources */,
+				F56D1798195D169E00F3372C /* HoldableButton.cpp in Sources */,
 				379BB9B817F03F3700829B88 /* CocosGUI.cpp in Sources */,
 				379BB9B917F03F3700829B88 /* UIHelper.cpp in Sources */,
 				F5DF11A8192B0B7E00CA5C2F /* ItemCreatorDTO.cpp in Sources */,

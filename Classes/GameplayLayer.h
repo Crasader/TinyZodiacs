@@ -16,6 +16,7 @@ class GameplayLayer;
 #include "AbstractScene.h"
 #include "cocos2d.h"
 #include "HoldableUIButton.h"
+#include "HoldableButton.h"
 #include "Controller.h"
 #include "EffectManager.h"
 #include "TextShowEffect.h"
@@ -27,7 +28,7 @@ class GameplayLayer: public AbstractScene, public Controller
 {
 private:
     CCArray* defenseList;
-    void cloneAndRemoveButton(cocos2d::gui::Widget* ul, HoldableUIButton* mButton,cocos2d::gui::Button* button);
+    void cloneAndRemoveButton(cocos2d::gui::Widget* ul, HoldableButton* mButton,cocos2d::gui::Button* button);
     
     CCPoint correctPositionDefenseListGroup;
     
@@ -42,7 +43,7 @@ protected:
     void loadAllUI(cocos2d::gui::Widget* ul);
     void initUI();
 public:
-    HoldableUIButton *btnLeft, *btnRight, *btnJump, *btnSkill0, *btnSkill1, *btnSkill2;
+    HoldableButton *btnLeft, *btnRight, *btnJump, *btnSkill0, *btnSkill1, *btnSkill2;
     
     GameplayLayer();
     
@@ -87,6 +88,7 @@ public:
     void setEnableWidgetInDefenseListGroup(bool able);
     void setEnableWidgetInActionControl(bool able);
 
+    void setButtonDisable(cocos2d::gui::Button* button, bool disable);
     
     void loadDefenseList();
     void refeshDefenseListView(int cost);

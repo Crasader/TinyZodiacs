@@ -75,12 +75,12 @@ void GameplayLayer::loadAllUI(cocos2d::gui::Widget* ul)
     BtnSkill1  = (cocos2d::gui::Button*)ul->getChildByName("controller_layer")->getChildByName("action_control_panel")->getChildByName("skill_1_button");
     BtnSkill2  = (cocos2d::gui::Button*)ul->getChildByName("controller_layer")->getChildByName("action_control_panel")->getChildByName("skill_2_button");
     
-    this->btnLeft = HoldableUIButton::create();;
-    this->btnRight = HoldableUIButton::create();;
-    this->btnJump = HoldableUIButton::create();;
-    this->btnSkill0 = HoldableUIButton::create();;
-    this->btnSkill1 = HoldableUIButton::create();;
-    this->btnSkill2 = HoldableUIButton::create();;
+    this->btnLeft = HoldableButton::create();
+    this->btnRight = HoldableButton::create();
+    this->btnJump = HoldableButton::create();
+    this->btnSkill0 = HoldableButton::create();
+    this->btnSkill1 = HoldableButton::create();
+    this->btnSkill2 = HoldableButton::create();
     
     cloneAndRemoveButton(ul->getChildByName("controller_layer")->getChildByName("movement_control_panel"), this->btnLeft, BtnLeft);
     cloneAndRemoveButton(ul->getChildByName("controller_layer")->getChildByName("movement_control_panel"), this->btnRight, BtnRight);
@@ -118,11 +118,12 @@ void GameplayLayer::loadAllUI(cocos2d::gui::Widget* ul)
     this->actionControlPanel->getChildByName("defense_list_open_button")->addTouchEventListener(this, toucheventselector(GameplayLayer::openDefenseListButtonTouchEvent));
     
     this->defenseListGroup->getChildByName("defense_list_toggle")->addTouchEventListener(this, toucheventselector(GameplayLayer::closeDefenseListButtonTouchEvent));
-
+    
     this->lvDefense->setBounceEnabled(true);
     this->lvDefense->setInertiaScrollEnabled(false);
     
     correctPositionDefenseListGroup = this->defenseListGroup->getPosition();
+    
     
 }
 
@@ -133,7 +134,7 @@ void GameplayLayer::initUI()
     this->actionControlPanel->setEnabled(true);
 }
 
-void GameplayLayer::cloneAndRemoveButton(cocos2d::gui::Widget* ul, HoldableUIButton* mButton,cocos2d::gui::Button* button)
+void GameplayLayer::cloneAndRemoveButton(cocos2d::gui::Widget* ul, HoldableButton* mButton,cocos2d::gui::Button* button)
 {
     mButton->copy(button);
     
@@ -201,7 +202,7 @@ bool GameplayLayer::receiveCommand(CommandID commandID, void* data)
             else
             {
                 resultImage->loadTexture("victory_title.png",UI_TEX_TYPE_PLIST);
-
+                
             }
             setWaveValue(*waveNumber);
             delete waveNumber;
@@ -249,13 +250,15 @@ bool GameplayLayer::receiveCommand(CommandID commandID, void* data)
             {
                 switch (mData->controllerId) {
                     case SKILL_0_BTN:
-                        this->btnSkill0->setActive(mData->isActive);
+                        setButtonDisable(this->btnSkill0, !mData->isActive);
+                        
                         break;
                     case SKILL_1_BTN:
-                        this->btnSkill1->setActive(mData->isActive);
+                        setButtonDisable(this->btnSkill1, !mData->isActive);
                         break;
                     case SKILL_2_BTN:
-                        this->btnSkill2->setActive(mData->isActive);
+                        setButtonDisable(this->btnSkill2, !mData->isActive);
+                        
                         break;
                     default:
                         break;
@@ -266,27 +269,27 @@ bool GameplayLayer::receiveCommand(CommandID commandID, void* data)
             break;
         case INVISIBLE_ALL_HERO_CONTROLLER:
         {
-//            this->btnLeft->setVisible(false);
-//            this->btnRight->setVisible(false);
-//            this->btnJump->setVisible(false);
-//            this->btnSkill0->setVisible(false);
-//            this->btnSkill1->setVisible(false);
-//            this->btnSkill2->setVisible(false);
-//            
-//            this->actionControlPanel->setVisible(false);
+            //            this->btnLeft->setVisible(false);
+            //            this->btnRight->setVisible(false);
+            //            this->btnJump->setVisible(false);
+            //            this->btnSkill0->setVisible(false);
+            //            this->btnSkill1->setVisible(false);
+            //            this->btnSkill2->setVisible(false);
+            //
+            //            this->actionControlPanel->setVisible(false);
             
         }
             break;
         case VISIBLE_ALL_HERO_CONTROLLER:
         {
-//            this->btnLeft->setVisible(true);
-//            this->btnRight->setVisible(true);
-//            this->btnJump->setVisible(true);
-//            this->btnSkill0->setVisible(true);
-//            this->btnSkill1->setVisible(true);
-//            this->btnSkill2->setVisible(true);
-//            
-//            this->actionControlPanel->setVisible(true);
+            //            this->btnLeft->setVisible(true);
+            //            this->btnRight->setVisible(true);
+            //            this->btnJump->setVisible(true);
+            //            this->btnSkill0->setVisible(true);
+            //            this->btnSkill1->setVisible(true);
+            //            this->btnSkill2->setVisible(true);
+            //
+            //            this->actionControlPanel->setVisible(true);
         }
             break;
             
@@ -320,15 +323,18 @@ void GameplayLayer::leftButtonTouchEvent(CCObject* sender, cocos2d::gui::TouchEv
             ControllerManager::getInstance()->sendCommand(HERO_CONTROLLER,  HERO_MOVE_LEFT);
             break;
         case cocos2d::gui::TOUCH_EVENT_MOVED:
+            
             ControllerManager::getInstance()->sendCommand(HERO_CONTROLLER,  HERO_MOVE_LEFT);
             break;
         case cocos2d::gui::TOUCH_EVENT_HOLD:
             ControllerManager::getInstance()->sendCommand(HERO_CONTROLLER,  HERO_MOVE_LEFT);
             break;
         case cocos2d::gui::TOUCH_EVENT_CANCELED:
+            
             ControllerManager::getInstance()->sendCommand(HERO_CONTROLLER,  HERO_MOVE_STOP);
             break;
         case cocos2d::gui::TOUCH_EVENT_ENDED:
+            
             ControllerManager::getInstance()->sendCommand(HERO_CONTROLLER,  HERO_MOVE_STOP);
             break;
         default:
@@ -444,7 +450,7 @@ void GameplayLayer::closeDefenseListButtonTouchEvent(CCObject* sender, cocos2d::
             
             break;
         case cocos2d::gui::TOUCH_EVENT_ENDED:
-          
+            
             break;
         default:
             break;
@@ -525,7 +531,7 @@ void GameplayLayer::openDefenseListGroup()
     CCMoveTo* moveToOver = CCMoveTo::create(0.25f, correctPositionDefenseListGroup + ccp(-20,0));
     CCMoveTo* moveToBackOver = CCMoveTo::create(0.2f, correctPositionDefenseListGroup + ccp(5,0));
     CCMoveTo* moveToBack = CCMoveTo::create(0.1f, correctPositionDefenseListGroup);
-
+    
     
     CCFadeIn* fadeIn = CCFadeIn::create(0.3f);
     CCCallFunc* finishAnimationCallfunc = CCCallFunc::create(this, callfunc_selector(GameplayLayer::finishAnimationOfDefenseListGroup));
@@ -535,14 +541,14 @@ void GameplayLayer::openDefenseListGroup()
 
 void GameplayLayer::closeDefenseListGroup()
 {
-     this->defenseListGroup->stopAllActions();
+    this->defenseListGroup->stopAllActions();
     setEnableWidgetInDefenseListGroup(false);
     CCFadeOut* fadeOut = CCFadeOut::create(0.3f);
     CCCallFunc* deactiveDefenseList = CCCallFunc::create(this, callfunc_selector(GameplayLayer::deactiveDefenseList));
     
     CCMoveTo* moveToOver = CCMoveTo::create(0.1f, correctPositionDefenseListGroup + ccp(-20,0));
     CCMoveTo* moveToGone = CCMoveTo::create(0.25f, correctPositionDefenseListGroup + ccp(600,0));
-
+    
     CCCallFunc* finishAnimationCallfunc = CCCallFunc::create(this, callfunc_selector(GameplayLayer::finishAnimationOfDefenseListGroup));
     
     this->defenseListGroup->runAction(CCSequence::create(CCSpawn::create(CCSequence::create(moveToOver,moveToGone, NULL),fadeOut,NULL), deactiveDefenseList,finishAnimationCallfunc, NULL));
@@ -578,7 +584,7 @@ void GameplayLayer::setEnableWidgetInActionControl(bool able)
 {
     if(able)
     {
-      
+        
         this->btnJump->setTouchEnabled(true);
         this->btnSkill0->setTouchEnabled(true);
         this->btnSkill1->setTouchEnabled(true);
@@ -587,11 +593,25 @@ void GameplayLayer::setEnableWidgetInActionControl(bool able)
     }
     else
     {
-     
+        
         this->btnJump->setTouchEnabled(false);
         this->btnSkill0->setTouchEnabled(false);
         this->btnSkill1->setTouchEnabled(false);
         this->btnSkill2->setTouchEnabled(false);
+    }
+}
+
+void GameplayLayer::setButtonDisable(cocos2d::gui::Button* button, bool disable)
+{
+    if(disable)
+    {
+        button->setBright(false);
+        button->setTouchEnabled(false);
+    }
+    else
+    {
+        button->setBright(true);
+        button->setTouchEnabled(true);
     }
 }
 
@@ -605,9 +625,9 @@ void GameplayLayer::loadDefenseList()
         
         Layout* layout = Layout::create();
         layout->setSize(CCSize(150,150));
-//        
-//        layout->setBackGroundColorType(LAYOUT_COLOR_SOLID);
-//        layout->setBackGroundColor(ccc3(255,0,0));
+        //
+        //        layout->setBackGroundColorType(LAYOUT_COLOR_SOLID);
+        //        layout->setBackGroundColor(ccc3(255,0,0));
         
         Button* button = Button::create();
         
@@ -642,6 +662,7 @@ void GameplayLayer::listItemTouchEvent(CCObject* sender, cocos2d::gui::TouchEven
         case cocos2d::gui::TOUCH_EVENT_HOLD:
             break;
         case cocos2d::gui::TOUCH_EVENT_CANCELED:
+            CCLOG("fuck");
             break;
         case cocos2d::gui::TOUCH_EVENT_ENDED:
         {

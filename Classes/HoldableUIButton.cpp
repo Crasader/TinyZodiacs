@@ -77,6 +77,7 @@ void HoldableUIButton::update(float dt)
 
 bool HoldableUIButton::onTouchBegan(CCTouch *touch, CCEvent *unused_event)
 {
+    CCLOG("began");
     if(isActive)
     {
         return cocos2d::gui::Button::onTouchBegan(touch,unused_event);
@@ -110,6 +111,7 @@ bool HoldableUIButton::onTouchBegan(CCTouch *touch, CCEvent *unused_event)
 
 void HoldableUIButton::onTouchMoved(CCTouch *touch, CCEvent *unused_event)
 {
+      CCLOG("move");
     if(isActive)
     {
         _touchMovePos = touch->getLocation();

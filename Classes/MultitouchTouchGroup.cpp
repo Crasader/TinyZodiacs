@@ -12,7 +12,8 @@
 
 MultitouchTouchGroup::MultitouchTouchGroup()
 {
-
+    this->listAssignedWidget = CCArray::create();
+    this->listAssignedWidget->retain();
 }
 
 MultitouchTouchGroup::~MultitouchTouchGroup()
@@ -31,8 +32,8 @@ void MultitouchTouchGroup::ccTouchesBegan(CCSet *pTouches, CCEvent *pEvent)
         mTouch = (CCTouch*) (*i);
         ccTouchBegan(mTouch, pEvent);
     }
-//    CCTouch *mTouch = (CCTouch *)pTouches->anyObject();
-//    CCLOG("ccTouchesBegan %d",pTouches->count());
+    //    CCTouch *mTouch = (CCTouch *)pTouches->anyObject();
+    //    CCLOG("ccTouchesBegan %d",pTouches->count());
 }
 
 void MultitouchTouchGroup::ccTouchesMoved(CCSet *pTouches, CCEvent *pEvent)
@@ -43,9 +44,7 @@ void MultitouchTouchGroup::ccTouchesMoved(CCSet *pTouches, CCEvent *pEvent)
         mTouch = (CCTouch*) (*i);
         ccTouchMoved(mTouch, pEvent);
     }
-//    CCTouch *mTouch = (CCTouch *)pTouches->anyObject();
-//    ccTouchMoved(mTouch, pEvent);
-//    CCLOG("ccTouchesMoved %d",pTouches->count());
+    
 }
 
 void MultitouchTouchGroup::ccTouchesEnded(CCSet *pTouches, CCEvent *pEvent)
@@ -56,24 +55,18 @@ void MultitouchTouchGroup::ccTouchesEnded(CCSet *pTouches, CCEvent *pEvent)
         mTouch = (CCTouch*) (*i);
         ccTouchEnded(mTouch, pEvent);
     }
-
-//    CCTouch *mTouch = (CCTouch *)pTouches->anyObject();
-//    ccTouchEnded(mTouch, pEvent);
-//    CCLOG("ccTouchesEnded %d",pTouches->count());
+    
 }
 
 void MultitouchTouchGroup::ccTouchesCancelled(CCSet *pTouches, CCEvent *pEvent)
 {
-       CCLOG("touch cancel");
     CCSetIterator i;
     CCTouch* mTouch;
     for( i = pTouches->begin(); i != pTouches->end(); i++) {
         mTouch = (CCTouch*) (*i);
         ccTouchCancelled(mTouch, pEvent);
     }
-//    CCTouch *mTouch = (CCTouch *)pTouches->anyObject();
-//    ccTouchCancelled(mTouch, pEvent);
-//    CCLOG("ccTouchesCancelled %d",pTouches->count());
+
 }
 
 void MultitouchTouchGroup::onEnter()
@@ -85,61 +78,98 @@ void MultitouchTouchGroup::onEnter()
 
 bool MultitouchTouchGroup::ccTouchBegan(CCTouch *pTouch, CCEvent *pEvent)
 {
-//    CCLOG("ccTouchBegan");
     return checkEventWidget(pTouch, pEvent);
 }
 
 void MultitouchTouchGroup::ccTouchMoved(CCTouch *pTouch, CCEvent *pEvent)
 {
-//    CCLOG("ccTouchMoved");
+    CCArray* removeArr = CCArray::create();
     ccArray* selectedWidgetArray = m_pSelectedWidgets->data;
     int length = selectedWidgetArray->num;
     for (int i=0; i<length; ++i)
     {
         cocos2d::gui::Widget* hitWidget = (cocos2d::gui::Widget*)(selectedWidgetArray->arr[i]);
-        if(this->listAssignedWidget->indexOfObject(hitWidget) == CC_INVALID_INDEX)
+        hitWidget->onTouchMoved(pTouch, pEvent);
+    }
+    
+    CCObject* object = NULL;
+    cocos2d::gui::Widget* swidget = NULL;
+    CCARRAY_FOREACH(this->listAssignedWidget, object)
+    {
+        cocos2d::gui::Widget* widget = static_cast<cocos2d::gui::Widget*>(object);
+        if(widget->hitTest(pTouch->getLocation()) == true)
         {
-            hitWidget->onTouchMoved(pTouch, pEvent);
+            if(widget->hitTest(pTouch->getPreviousLocation()) == false)
+            {
+                ccTouchBegan(pTouch, pEvent);
+                swidget = widget;
+                break;
+            }
         }
     }
-    //
-    CCObject* widget;
-    CCARRAY_FOREACH(this->listAssignedWidget, widget)
+    if(swidget)
     {
-        ((cocos2d::gui::Widget*)widget)->onTouchMoved(pTouch, pEvent);
+        CCObject* object1 = NULL;
+        CCARRAY_FOREACH(this->listAssignedWidget, object1)
+        {
+            cocos2d::gui::Widget* widget2 = static_cast<cocos2d::gui::Widget*>(object1);
+            if(widget2 != swidget)
+            {
+                removeArr->addObject(widget2);
+            }
+        }
+    }
+    
+    CCARRAY_FOREACH(removeArr, object)
+    {
+        cocos2d::gui::Widget* widget2 = static_cast<cocos2d::gui::Widget*>(object);
+        m_pSelectedWidgets->removeObject(object);
+        widget2->onTouchEnded(pTouch, pEvent);
     }
 }
 
 void MultitouchTouchGroup::ccTouchEnded(CCTouch *pTouch, CCEvent *pEvent)
 {
-//    CCLOG("ccTouchEnded");
+    CCArray* removeArr = CCArray::create();
     ccArray* selectedWidgetArray = m_pSelectedWidgets->data;
     int length = selectedWidgetArray->num;
     for (int i=0; i<length; ++i)
     {
+        
+        bool aaa = false;
         cocos2d::gui::Widget* hitWidget = (cocos2d::gui::Widget*)(selectedWidgetArray->arr[i]);
-//        if(hitWidget->hitTest(pTouch->getLocation()))
-        if(this->listAssignedWidget->indexOfObject(hitWidget) == CC_INVALID_INDEX)
+        if(hitWidget->hitTest(pTouch->getLocation()) || hitWidget->hitTest(pTouch->getStartLocation()))
         {
-            m_pSelectedWidgets->removeObject(hitWidget);
-            hitWidget->onTouchEnded(pTouch, pEvent);
+            removeArr->addObject(hitWidget);
+            aaa = true;
+        }
+        if(aaa == false)
+        {
+            HoldableButton* holdableButton = dynamic_cast<HoldableButton*>(hitWidget);
+            if(holdableButton)
+            {
+                if(holdableButton->idTouch == pTouch->getID())
+                {
+                    removeArr->addObject(hitWidget);
+                }
+            }
         }
     }
-    //
-    CCObject* hitWidget;
-    CCARRAY_FOREACH(this->listAssignedWidget, hitWidget)
+    
+    CCObject* object = NULL;
+    CCARRAY_FOREACH(removeArr, object)
     {
-        if(((cocos2d::gui::Widget*)hitWidget)->hitTest(pTouch->getLocation()) && ((cocos2d::gui::Widget*)hitWidget)->isFocused())
-        {
-            ((cocos2d::gui::Widget*)hitWidget)->onTouchEnded(pTouch, pEvent);
-        }
+        cocos2d::gui::Widget* hitWidget = (cocos2d::gui::Widget*)(object);
+        this->m_pSelectedWidgets->removeObject(hitWidget);
+        hitWidget->onTouchEnded(pTouch, pEvent);
     }
+    
     
 }
 
 void MultitouchTouchGroup::ccTouchCancelled(CCTouch *pTouch, CCEvent *pEvent)
 {
-    CCLOG("touch cancel");
+    
     ccArray* selectedWidgetArray = m_pSelectedWidgets->data;
     int length = selectedWidgetArray->num;
     for (int i=0; i<length; ++i)
@@ -166,38 +196,18 @@ bool MultitouchTouchGroup::init()
         return false;
     }
     this->setTouchEnabled(true);
-    
-    this->listAssignedWidget = CCArray::create();
-    this->listAssignedWidget->retain();
+ 
     return true;
 }
 
 bool MultitouchTouchGroup::checkEventWidget(CCTouch* touch, CCEvent *pEvent)
 {
     checkTouchEvent(m_pRootWidget,touch, pEvent);
-  
+    
     return (m_pSelectedWidgets->count() > 0);
 }
 
 bool MultitouchTouchGroup::checkTouchEvent(cocos2d::gui::Widget *root, CCTouch* touch, CCEvent* pEvent)
 {
-//    ccArray* arrayRootChildren = root->getChildren()->data;
-//    int length = arrayRootChildren->num;
-//    for (int i=length-1; i >= 0; i--)
-//    {
-//        cocos2d::gui::Widget* widget = (cocos2d::gui::Widget*)(arrayRootChildren->arr[i]);
-//        if (checkTouchEvent(widget, touch, pEvent))
-//        {
-//            return true;
-//        }
-//    }
-//    bool pass = root->onTouchBegan(touch, pEvent);
-//    if (root->_hitted)
-//    {
-//        m_pSelectedWidgets->addObject(root);
-//        return true;
-//    }
-//    return pass;
-  
     return TouchGroup::checkTouchEvent(root, touch, pEvent);
 }

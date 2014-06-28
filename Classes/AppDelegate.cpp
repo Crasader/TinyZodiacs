@@ -74,7 +74,7 @@ bool AppDelegate::applicationDidFinishLaunching() {
 //        searchPath.push_back(smallResource.directory);
 //        pDirector->setContentScaleFactor(0.25f);
 //    }
-       searchPath.push_back("16bit");
+    searchPath.push_back("16bit");
     if(frameSize.height <= largeResource.size.height)
     {
       

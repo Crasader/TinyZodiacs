@@ -12,8 +12,10 @@
 #include <iostream>
 #include "cocos2d.h"
 #include "cocos-ext.h"
+#include "HoldableButton.h"
 
 USING_NS_CC;
+
 
 class MultitouchTouchGroup: public cocos2d::gui::TouchGroup
 {
