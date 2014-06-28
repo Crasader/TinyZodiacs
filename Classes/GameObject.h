@@ -116,6 +116,8 @@ public:
     virtual GameObjectCalculateData getCalculatedData();
     
     CC_SYNTHESIZE(bool, isControlled, IsControlled);
+    
+    virtual bool shouldHaveSound();
 };
 
 #endif /* defined(__SampleCocosProject__GameObject__) */

@@ -23,6 +23,8 @@ public:
     static CharacterSoundData loadCharacterSoundData(const char* soundId);
     static ProjectileSoundData loadProjectileSoundData(const char* soundId);
     static SkillSoundData loadSkillSoundData(const char* soundId);
+    static std::string loadAffectSoundData(const char* soundId);
+    static ItemSoundData loadItemSoundData(const char* soundId);
 
     
     static std::string loadBackGroundMusic(const char* soundId);

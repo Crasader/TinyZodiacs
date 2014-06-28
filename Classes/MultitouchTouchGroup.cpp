@@ -203,7 +203,7 @@ bool MultitouchTouchGroup::init()
 bool MultitouchTouchGroup::checkEventWidget(CCTouch* touch, CCEvent *pEvent)
 {
     checkTouchEvent(m_pRootWidget,touch, pEvent);
-    
+
     return (m_pSelectedWidgets->count() > 0);
 }
 

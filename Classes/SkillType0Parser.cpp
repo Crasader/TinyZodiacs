@@ -202,7 +202,7 @@ SkillApllyType SkillType0Parser::readApplyType(const XMLElement* root)
 
 SkillSoundData SkillType0Parser::readSkillSoundData(const XMLElement* root)
 {
-    return SoundFactory::loadSkillSoundData(XMLHelper::readString(root, "").c_str());
+    return SoundManager::loadSkillSoundData(XMLHelper::readString(root, "").c_str());
 }
 
 NormalMeleeSkillData SkillType0Parser::parse(const XMLElement* root, b2World* world)

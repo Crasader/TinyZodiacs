@@ -1,0 +1,29 @@
+<item_sound_list>
+	<item_sound id="coin">
+		<appear></appear>
+		<destroy></destroy>
+		<consume>crystal01.wav</consume>
+		<disappear></disappear>
+	</item_sound>
+    
+    <item_sound id="bag">
+		<appear></appear>
+		<destroy></destroy>
+		<consume>crystal01.wav</consume>
+		<disappear></disappear>
+	</item_sound>
+    
+    <item_sound id="barrel">
+		<appear></appear>
+		<destroy>barrel_break.wav</destroy>
+		<consume></consume>
+		<disappear></disappear>
+	</item_sound>
+    
+    <item_sound id="buff_item">
+		<appear></appear>
+		<destroy></destroy>
+		<consume>crystal01.wav</consume>
+		<disappear></disappear>
+	</item_sound>
+</item_sound_list>

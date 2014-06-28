@@ -125,6 +125,8 @@ void NormalShootingAttack::excuteImmediately()
 {
     if(this->isDisable == false && holder != NULL)
     {
+        //play sound
+        playSoundByState(EXCUTE_SOUND, this->data.getSoundData());
         //
         Util::applyEffectFromList(data.getlistSelfEffect(), this->holder);
         //shoot first projectile
@@ -155,7 +157,8 @@ void NormalShootingAttack::excuteImmediately()
 
 void NormalShootingAttack::stopImmediately()
 {
-    
+    //play sound
+    playSoundByState(STOP_SOUND, this->data.getSoundData());
 }
 
 void NormalShootingAttack::setExcuteAble()

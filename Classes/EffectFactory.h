@@ -44,6 +44,8 @@ using namespace tinyxml2;
 #define TAG_LIFE_TIME "life_time"
 #define TAG_TIME_TICK "time_tick"
 
+#define TAG_SFX "sfx"
+
 #define ATTRIBUTE_ID "id"
 #define ATTRIBUTE_X "x"
 #define ATTRIBUTE_Y "y"
@@ -86,6 +88,8 @@ protected:
 
     static float readLifeTime(const XMLElement* root);
     static float readTimeTick(const XMLElement* root);
+    
+    static std::string readSFX(const XMLElement* root);
 public:
     static EffectData* loadXMLFile(const char* key, const char* xmlFileName);
     static EffectData* createEffectData(const char* key);

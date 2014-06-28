@@ -30,6 +30,7 @@ public:
     CC_SYNTHESIZE(float, minScale, MinScale);
     CC_SYNTHESIZE(float, maxScale, MaxScale);
     CC_SYNTHESIZE(int, repeatTimes, RepeatTimes);
+    CC_SYNTHESIZE(std::string, soundEffect, SoundEffect);
     
     CC_SYNTHESIZE(JointDef, jointDefA, JointDefA);
     CC_SYNTHESIZE(JointDef, jointDefB, JointDefB);

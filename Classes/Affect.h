@@ -60,6 +60,7 @@ public:
     
     CC_SYNTHESIZE_READONLY(float, lifeTime, LifeTime);
     CC_SYNTHESIZE_READONLY(float, timeTick, timeTick);
+    CC_SYNTHESIZE_READONLY(std::string, soundEffect, SoundEffect);
     
     Affect();
     ~Affect();

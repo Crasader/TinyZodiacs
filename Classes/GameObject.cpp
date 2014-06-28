@@ -481,7 +481,10 @@ void GameObject::cleanAllAffect()
 void GameObject::playSFX(const char* sfxName)
 {
 //    CocosDenshion::SimpleAudioEngine::sharedEngine()->playEffect(sfxName);
-    SoundManager::playSoundEffect(sfxName, false);
+    if(shouldHaveSound())
+    {
+        SoundManager::playSoundEffect(sfxName, false);
+    }
 }
 
 void GameObject::stopSFX(unsigned int sfxid)
@@ -505,4 +508,9 @@ GameObjectCalculateData GameObject::getCalculatedData()
     data.setGroup(this->getGroup());
     
     return data;
+}
+
+bool GameObject::shouldHaveSound()
+{
+    return true;
 }

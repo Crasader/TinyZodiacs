@@ -40,7 +40,7 @@ std::string XMLSkillSoundParser::readStopSoundString(const XMLElement* root)
 SkillSoundData XMLSkillSoundParser::loadData(const XMLElement* root)
 {
     SkillSoundData data;
-    data.setexcuteSoundStr(readExcuteSoundString(root->FirstChildElement(TAG_EXCUTE_SOUND)));
+    data.setExcuteSoundStr(readExcuteSoundString(root->FirstChildElement(TAG_EXCUTE_SOUND)));
     data.setHitSoundStr(readHitSoundString(root->FirstChildElement(TAG_HIT_SOUND)));
     data.setStopSoundStr(readStopSoundString(root->FirstChildElement(TAG_STOP_SOUND)));
     

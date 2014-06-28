@@ -42,16 +42,19 @@ protected:
     
     virtual void calculateSkillData(SkillData* data, CharacterData characterData);
     
+    virtual void playSFX(const char* sfxName);
+    virtual void stopSFX(unsigned int sfxid);
+    virtual void playSoundByState(SkillSound soundState, SkillSoundData data);
 public:
     AbstractSkill(GameObject* holder, SkillData data);
 
     ~AbstractSkill();
     
-    virtual void excute() = 0;
-    virtual void stop() = 0;
+    virtual void excute();
+    virtual void stop();
     virtual void update(float dt) = 0;
-    virtual void excuteImmediately() = 0;
-    virtual void stopImmediately() = 0;
+    virtual void excuteImmediately();
+    virtual void stopImmediately();
     virtual void onCreate() = 0;
     virtual void destroy() = 0;
     
@@ -59,7 +62,6 @@ public:
     virtual void stopAllAction();
     
     CC_SYNTHESIZE(GameObject* , holder, Holder);
-//    CC_SYNTHESIZE(HoldableUIButton*, holderButton, holderButton);
     CC_SYNTHESIZE(ButtonID, skillButtonID, SkillButtonID);
     CC_SYNTHESIZE(TextureSelector, skillTextureSelector, SkillTextureSelector);
 };

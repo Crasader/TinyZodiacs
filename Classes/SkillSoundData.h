@@ -18,7 +18,7 @@ class SkillSoundData
 private:
 protected:
 public:
-    CC_SYNTHESIZE(std::string, excuteSoundStr, excuteSoundStr);
+    CC_SYNTHESIZE(std::string, excuteSoundStr, ExcuteSoundStr);
     CC_SYNTHESIZE(std::string, hitSoundStr, HitSoundStr);
     CC_SYNTHESIZE(std::string, stopSoundStr, StopSoundStr);
 };

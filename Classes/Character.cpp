@@ -199,7 +199,6 @@ void Character::move(Direction direction, float speed)
 }
 void Character::jump(float force)
 {
-    CCLOG("%d - %d",this->currentJumpCount, this->characterData.getMaxJumpTimes());
     if(this->currentJumpCount < this->characterData.getMaxJumpTimes())
     {
         if(this->state->jump())
@@ -551,6 +550,8 @@ void Character::notifyByAffect(Affect* affect)
                 playSoundByState(HURT_SOUND);
             }
         }
+        //play sound
+        playSFX(affect->getSoundEffect().c_str());
     }
 }
 

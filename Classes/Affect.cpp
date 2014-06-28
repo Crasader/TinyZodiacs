@@ -219,6 +219,7 @@ void Affect::setData(EffectData effectData)
     this->lifeTime = effectData.getLifeTime();
     this->timeTick = effectData.gettimeTick();
     this->animationLayerIndex = effectData.getAnimationLayerIndex();
+    this->soundEffect = effectData.getSoundEffect();
     
     if(effectData.getAnimationId() != "")
     {
@@ -230,7 +231,7 @@ void Affect::setData(EffectData effectData)
         {
             int repeatTime = effectData.getRepeatTimes();
             repeatTime = effectData.getLifeTime() / ((SkillAnimationEffect*)this->animation)->getAnimationDuration();
-            this->animation->setRepeatTimes(repeatTime);
+            this->animation->setLifeTimes(repeatTime);
             this->animation->setIsFiniteAction(false);
         }
 

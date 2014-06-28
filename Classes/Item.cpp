@@ -72,6 +72,7 @@ void Item::destroy()
         }
     }
     GameObject::destroy();
+    //
 }
 
 void Item::startSchedule()
@@ -106,6 +107,8 @@ void Item::appear()
     startSchedule();
     
     this->isActive = true;
+    //
+    playSoundByState(APPEAR);
 }
 
 void Item::prepareToDisappearInTimeOut()
@@ -117,6 +120,8 @@ void Item::prepareToDisappearInTimeOut()
     CCCallFunc* destroyFunction = CCCallFunc::create(this, callfunc_selector(Item::disappear));
     
     this->sprite->runAction(CCSequence::create(repeat,destroyFunction,NULL));
+    //
+    playSoundByState(DISAPPEAR);
 }
 
 void Item::prepareToDisappearInContact(GameObject* contactGameObject)
@@ -134,6 +139,8 @@ void Item::prepareToDisappearInContact(GameObject* contactGameObject)
     CCCallFunc* destroyFunction = CCCallFunc::create(this, callfunc_selector(Item::disappear));
     
     this->sprite->runAction(CCSequence::create(CCSpawn::create(scaleToPickedUp,fadeOut,NULL),destroyFunction,NULL));
+    //
+    playSoundByState(CONSUME);
 }
 
 void Item::prepareToDisappearInOpen()
@@ -150,6 +157,8 @@ void Item::prepareToDisappearInOpen()
     arrSeq->addObject(fadeOut);
     arrSeq->addObject(disappearFunction);
     this->sprite->runAction(CCSequence::create(arrSeq));
+    //
+    playSoundByState(DESTROY);
 }
 
 void Item::disappear()
@@ -235,4 +244,23 @@ void Item::notifyToDestroy()
     GameObject::notifyToDestroy();
 }
 
+void Item::playSoundByState(ItemSound soundState)
+{
+    switch (soundState) {
+        case APPEAR:
+            playSFX(this->soundData.getAppearSoundStr().c_str());
+            break;
+        case DISAPPEAR:
+            playSFX(this->soundData.getDisappearSoundStr().c_str());
+            break;
+        case DESTROY:
+            playSFX(this->soundData.getDestroySoundStr().c_str());
+            break;
+        case CONSUME:
+            playSFX(this->soundData.getConsumeSoundStr().c_str());
+            break;
+        default:
+            break;
+    }
+}
 
