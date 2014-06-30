@@ -47,18 +47,18 @@ void LoadingScene::initScene()
 {
     CCSize winSize = CCDirector::sharedDirector()->getWinSize();
     
-        CCSprite* background = CCSprite::createWithSpriteFrameName("LOADING.jpg");
-        background->setAnchorPoint(ccp(0.5,0.5));
-        background->setPosition(ccp(winSize.width/2,winSize.height/2));
-        this->addChild(background);
+    CCSprite* background = CCSprite::createWithSpriteFrameName("LOADING.jpg");
+    background->setAnchorPoint(ccp(0.5,0.5));
+    background->setPosition(ccp(winSize.width/2,winSize.height/2));
+    this->addChild(background);
     //    HeroSelectLayer* layer = HeroSelectLayer::create();
     //    this->addChild(layer);
     
-   
+    
     
     this->runAction(CCSequence::create(CCDelayTime::create(1), CCCallFunc::create(this, callfunc_selector(LoadingScene::loadResource)), NULL));
-   
-
+    
+    
 }
 
 void LoadingScene::loadResource()
@@ -76,7 +76,7 @@ void LoadingScene::loadResource()
     GameManager::getInstance()->loadSpritesheet("onion_invert_spritesheet.png","onion_invert_spritesheet.plist");
     GameManager::getInstance()->loadSpritesheet("tower_spritesheet.png","tower_spritesheet.plist");
     GameManager::getInstance()->loadSpritesheet("pig_animation.png","pig_animation.plist");
-  
+    
     GameManager::getInstance()->loadSpritesheet("other_effect_spritesheet.pvr.ccz","other_effect_spritesheet.plist");
     GameManager::getInstance()->loadSpritesheet("onion_spritesheet.png","onion_spritesheet.plist");
     GameManager::getInstance()->loadSpritesheet("monkey_spritesheet.png","monkey_spritesheet.plist");
@@ -88,12 +88,13 @@ void LoadingScene::loadResource()
     GameManager::getInstance()-> loadSpritesheet("magic_energyball_spritesheet.pvr.ccz","magic_energyball_spritesheet.plist");
     GameManager::getInstance()-> loadSpritesheet("magic_waterball_spritesheet.pvr.ccz","magic_waterball_spritesheet.plist");
     GameManager::getInstance()-> loadSpritesheet("magic_iceball_spritesheet.pvr.ccz","magic_iceball_spritesheet.plist");
-     GameManager::getInstance()->loadSpritesheet("magic_bomb_spritesheet.pvr.ccz","magic_bomb_spritesheet.plist");
+    GameManager::getInstance()->loadSpritesheet("magic_bomb_spritesheet.pvr.ccz","magic_bomb_spritesheet.plist");
     GameManager::getInstance()-> loadSpritesheet("item_spritesheet.png","item_spritesheet.plist");
     GameManager::getInstance()->loadSpritesheet("cat_spritesheet.png","cat_spritesheet.plist");
     GameManager::getInstance()-> loadSpritesheet("bull_spritesheet.png","bull_spritesheet.plist");
+    GameManager::getInstance()-> loadSpritesheet("skeleton_spritesheet.png","skeleton_spritesheet.plist");
     GameManager::getInstance()-> loadSpritesheet("test_sheet.png","test_sheet.plist");
-
+    
     
     AnimationLoader::loadData();
     

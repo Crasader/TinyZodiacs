@@ -37,7 +37,7 @@ bool Monster::init()
     if (!Character::init()) {
         return false;
     }
-    this->sprite = CCSprite::createWithSpriteFrameName("cat_idle_1.png");
+    this->sprite = CCSprite::create();
     return true;
 }
 
@@ -98,8 +98,6 @@ void Monster::attachSpriteTo(CCNode* node)
 {
     GameObject::attachSpriteTo(node);
     node->addChild(this->sprite, CHARACTER_LAYER);
-    
-    this->sprite->setVisible(false);
 }
 
 void Monster::dropItem()

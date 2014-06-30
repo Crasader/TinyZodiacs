@@ -17,6 +17,8 @@ bool MonsterLoader::loadData()
     loadDataByFileName("monster_bull.xml");
 
     loadDataByFileName("monster_onion_invert.xml");
+    
+    loadDataByFileName("monster_skeleton.xml");
 
     return true;
 }

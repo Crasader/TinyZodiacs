@@ -1,0 +1,63 @@
+<object_animation name="skeleton" plist_name="skeleten_spritesheet.plist" image_name="skeleten_spritesheet.png">
+    <animation name="run" delay="0.06" loop="infinity">
+        <origin x="0.55" y="0.5" />
+        <framelist>
+            <frame name="skeleton_move_1.png"/>
+            <frame name="skeleton_move_2.png"/>
+            <frame name="skeleton_move_3.png"/>
+            <frame name="skeleton_move_4.png"/>
+        </framelist>
+    </animation>
+    <animation name="jump" delay="0.05" loop="1">
+      <origin x="0.65" y="0.4" />
+        <framelist>
+            <frame name="skeleton_idle_1.png"/>
+        </framelist>
+    </animation>
+    
+    <animation name="attack" delay="0.1" loop="1">
+        <origin x="0.55" y="0.5" />
+        <framelist>
+            <frame name="skeleton_attack_1.png"/>
+            <frame name="skeleton_attack_2.png"/>
+            <frame name="skeleton_attack_3.png"/>
+            <frame name="skeleton_attack_4.png"/>
+        </framelist>
+    </animation>
+    
+    
+    <animation name="fall" delay="0.1" loop="infinity">
+        <origin x="0.6" y="0.4" />
+        <framelist>
+            <frame name="skeleton_idle_1.png"/>
+        </framelist>
+    </animation>
+
+    <animation name="fly" delay="0.1" loop="infinity">
+        <origin x="0.65" y="0.4" />
+        <framelist>
+            <frame name="skeleton_idle_1.png"/>
+        </framelist>
+    </animation>
+
+    <animation name="skill" delay="0.1" loop="1">
+        <origin x="0.3" y="0.22" />
+        <framelist>
+            <frame name="skeleton_attack_1.png"/>
+            <frame name="skeleton_attack_2.png"/>
+            <frame name="skeleton_attack_3.png"/>
+            <frame name="skeleton_attack_4.png"/>
+         </framelist>
+
+    </animation>
+
+    <animation name="idle" delay="0.1" loop="infinity">
+        <origin x="0.54" y="0.5" />
+        <framelist>
+            <frame name="skeleton_idle_1.png"/>
+            <frame name="skeleton_idle_2.png"/>
+            <frame name="skeleton_idle_3.png"/>
+            <frame name="skeleton_idle_4.png"/>
+        </framelist>
+    </animation>
+</object_animation>

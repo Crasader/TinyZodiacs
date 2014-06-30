@@ -28,6 +28,8 @@ bool AnimationLoader::loadData()
     AnimationLoader::loadDataByFileName("maincrystal_animation.xml");
      AnimationLoader::loadDataByFileName("onion_invert_animation.xml");
     
+    AnimationLoader::loadDataByFileName("skeleton_animation.xml");
+    
     return true;
 }
 

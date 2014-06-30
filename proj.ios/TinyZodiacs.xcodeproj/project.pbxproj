@@ -402,6 +402,8 @@
 		F507B41F1921DC5B00D23B99 /* Observable.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F507B41D1921DC5B00D23B99 /* Observable.cpp */; };
 		F51A482819454D0300E61987 /* HeroSelectScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F51A482619454D0300E61987 /* HeroSelectScene.cpp */; };
 		F51A482B19454D0B00E61987 /* HeroSelectLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F51A482919454D0B00E61987 /* HeroSelectLayer.cpp */; };
+		F51AC64C1960FDA400040CC2 /* skeleton_animation.xml in Resources */ = {isa = PBXBuildFile; fileRef = F51AC64B1960FDA400040CC2 /* skeleton_animation.xml */; };
+		F51AC64E1960FE1500040CC2 /* monster_skeleton.xml in Resources */ = {isa = PBXBuildFile; fileRef = F51AC64D1960FE1500040CC2 /* monster_skeleton.xml */; };
 		F52678F318EEAEA500CE1E3B /* arial.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F52678E518EEAEA500CE1E3B /* arial.ttf */; };
 		F52678F418EEAEA500CE1E3B /* Marker Felt.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F52678E618EEAEA500CE1E3B /* Marker Felt.ttf */; };
 		F53ACBAF18D831C700F958A8 /* map2.xml in Resources */ = {isa = PBXBuildFile; fileRef = F53ACBAE18D831C700F958A8 /* map2.xml */; };
@@ -1243,6 +1245,8 @@
 		F51A482719454D0300E61987 /* HeroSelectScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HeroSelectScene.h; sourceTree = "<group>"; };
 		F51A482919454D0B00E61987 /* HeroSelectLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = HeroSelectLayer.cpp; sourceTree = "<group>"; };
 		F51A482A19454D0B00E61987 /* HeroSelectLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HeroSelectLayer.h; sourceTree = "<group>"; };
+		F51AC64B1960FDA400040CC2 /* skeleton_animation.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = skeleton_animation.xml; sourceTree = "<group>"; };
+		F51AC64D1960FE1500040CC2 /* monster_skeleton.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = monster_skeleton.xml; sourceTree = "<group>"; };
 		F52678E518EEAEA500CE1E3B /* arial.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = arial.ttf; sourceTree = "<group>"; };
 		F52678E618EEAEA500CE1E3B /* Marker Felt.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Marker Felt.ttf"; sourceTree = "<group>"; };
 		F53ACBAE18D831C700F958A8 /* map2.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = map2.xml; sourceTree = "<group>"; };
@@ -3238,6 +3242,7 @@
 		F5FA1C29194ED1A2002C73E2 /* Character */ = {
 			isa = PBXGroup;
 			children = (
+				F51AC64D1960FE1500040CC2 /* monster_skeleton.xml */,
 				517E84BF195847B700881FC4 /* character_cat.xml */,
 				517E84C0195847B700881FC4 /* character_monkey.xml */,
 				517E84C1195847B700881FC4 /* character_pig.xml */,
@@ -3255,6 +3260,7 @@
 		F5FA1C3E194ED445002C73E2 /* Animation */ = {
 			isa = PBXGroup;
 			children = (
+				F51AC64B1960FDA400040CC2 /* skeleton_animation.xml */,
 				517E84AD195846C200881FC4 /* skill_animation.xml */,
 				517E84B91958477800881FC4 /* effect_animation_1.xml */,
 				517E84BA1958477800881FC4 /* effect_animation.xml */,
@@ -3415,6 +3421,7 @@
 				3483420A1959EAAE00173C2A /* SS_Vo_Hurt01.wav in Resources */,
 				34B249AD194FFF7C0072B34B /* MainMenuLayer_1.ExportJson in Resources */,
 				F5FA1C55194ED750002C73E2 /* coin1_animation.xml in Resources */,
+				F51AC64E1960FE1500040CC2 /* monster_skeleton.xml in Resources */,
 				2DE1502E191CCDEC001BD65C /* character_body.plist in Resources */,
 				348341FC1959E98D00173C2A /* GCS_Vo_Hurt01.wav in Resources */,
 				348341EB1959E37200173C2A /* magic_bomb_end.wav in Resources */,
@@ -3429,6 +3436,7 @@
 				F5FA1C51194ED741002C73E2 /* tower_1_animation.xml in Resources */,
 				340D337C195D359E00E93CB5 /* item_sounds.xml in Resources */,
 				15A3D9961682F7F9002FB0C5 /* CMakeLists.txt in Resources */,
+				F51AC64C1960FDA400040CC2 /* skeleton_animation.xml in Resources */,
 				342ABFC1194EF61400513B48 /* MainMenuLayer0.png in Resources */,
 				517E84B61958475200881FC4 /* item_body.plist in Resources */,
 				F5FA1C4A194ED741002C73E2 /* cat_animation.xml in Resources */,

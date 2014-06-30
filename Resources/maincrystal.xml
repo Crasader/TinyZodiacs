@@ -1,8 +1,8 @@
 <character id="maincrystal">
     <animation>maincrystal</animation>
 	<body>maincrystal</body>
-    <hp>500</hp>
-    <atk>20</atk>
+    <hp>2000</hp>
+    <atk>0</atk>
     <def>0</def>
     <speed>10</speed>
     <atk_speed>0.1</atk_speed>
