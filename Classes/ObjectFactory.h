@@ -35,6 +35,8 @@ class ObjectManager;
 #include "ItemCreatorDTO.h"
 #include "MainCrystal.h"
 #include "MainHero.h"
+#include "Wall.h"
+#include "WallDTO.h"
 
 #define TAG_BODY "body"
 #define TAG_ANIMATION "animation"
@@ -76,6 +78,7 @@ public:
     static MapObject* createMapObject(MapObjectDTO* mapObjectDTO, b2World *world);
     static SensorObject* createSensorObject(b2Vec2 dumb, b2World *world, CCPoint position);
     static SensorObject* createSensorObject(SensorObjectDTO* sensorObjectDTO, b2World* world);
+     static Wall* createWall(WallDTO* wallDTO, b2World* world);
     static Tower* createTower(TowerStructDTO* towerStructDTO, b2World* world);
     
     static Item* createItem(ItemDTO* itemDTO, b2World* world);

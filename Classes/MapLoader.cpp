@@ -16,6 +16,8 @@ bool MapLoader::loadData()
 {
     MapLoader::loadDataByFileName("map1.xml");
     
+    MapLoader::loadDataByFileName("map2.xml");
+    
     return true;
 }
 

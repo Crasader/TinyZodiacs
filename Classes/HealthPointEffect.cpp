@@ -12,11 +12,10 @@
 HealthPointEffect::HealthPointEffect()
 {
     healthPoint = 0;
-    label = CCLabelTTF::create("", "Arial",55);
+    label = CCLabelTTF::create("", "Marker Felt",70);
     label->setColor(ccc3(255,0,0));
+    label->setOpacity(200);
     this->addChild(label);
-    
-    //  this->addChild(this->sprite);
 }
 
 HealthPointEffect::~HealthPointEffect()

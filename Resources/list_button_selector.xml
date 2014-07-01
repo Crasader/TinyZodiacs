@@ -1,5 +1,5 @@
 <button_selector_list>
-	<button id="normal_attack" active_texture="A0.png" deactive_texture="A0.png" selected_texture="A1.png"></button>
+	<button id="normal_attack" active_texture="A0.png" deactive_texture="A2.png" selected_texture="A1.png"></button>
     <button id="0" active_texture="00.png" selected_texture="01.png" deactive_texture="02.png"></button>
     <button id="1" active_texture="10.png" selected_texture="11.png" deactive_texture="12.png"></button>
     <button id="2" active_texture="20.png" selected_texture="21.png" deactive_texture="22.png"></button>

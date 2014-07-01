@@ -3,8 +3,8 @@
 	<body>bull</body>
     <hp>1000</hp>
     <atk>400</atk>
-    <def>50</def>
-    <speed>2</speed>
+    <def>10</def>
+    <speed>10</speed>
     <atk_speed>0.5</atk_speed>
     <max_jump>10</max_jump>
     <jump_height>10</jump_height>
@@ -16,5 +16,5 @@
         <item id="coin2" chance="20"/>
     </item_list>
     
-        <sfx>cat_sounds</sfx>
+        <sfx>bull_sounds</sfx>
 </character>

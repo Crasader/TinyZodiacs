@@ -9,10 +9,15 @@
 #ifndef __TinyZodiacs__Tower__
 #define __TinyZodiacs__Tower__
 
+class Tower;
+
 #include <iostream>
 #include "Character.h"
 #include "Box2D/Box2D.h"
 #include "PhysicConstants.h"
+#include "EffectManager.h"
+#include "AnimationEffect.h"
+
 
 class Tower: public Character
 {
@@ -46,6 +51,7 @@ public:
     virtual void onCreate();
     virtual void destroy();
     virtual void attachSpriteTo(CCNode* node);
+       virtual void die();
     
     virtual void attach(Observer* observer);
     virtual void detach(Observer* observer);

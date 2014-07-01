@@ -23,6 +23,7 @@
 #include "ItemCreator.h"
 #include "Wave.h"
 #include "GameManager.h"
+#include "Wall.h"
 
 USING_NS_CC;
 
@@ -32,6 +33,7 @@ private:
     CCArray* listMapObject;
     CCArray* listSensorObject;
     CCArray* listItemCreator;
+    CCArray* listWall;
     
     CC_SYNTHESIZE(CCArray*, listWave, ListWave);
     CC_SYNTHESIZE(float, width, Width);
@@ -50,6 +52,7 @@ public:
     void addSensorObject(SensorObject* sensorObject);
     void addItemCreator(ItemCreator* itemCreator);
     void addWave(Wave* wave);
+    void addWall(Wall* wall);
     
     void attachAllMapObject();
     void addParallaxBackground(CCParallaxNode* parallaxBackground);

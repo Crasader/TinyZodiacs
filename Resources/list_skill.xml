@@ -211,11 +211,11 @@
             </enemy>
         </list_effect>
         <projectile>fire_pillar</projectile>
-        <quantity>1</quantity>
+        <quantity>7</quantity>
         <delay_per_shoot>0.5</delay_per_shoot>
         <angle_variability>0</angle_variability>
         <piercing>5</piercing>
-        <time_tick>0.1</time_tick>
+        <time_tick>1</time_tick>
         <position_plus_per_unit plus_x="5" plus_y="0"></position_plus_per_unit>
 	</skill>
     
@@ -293,7 +293,7 @@
         <quantity>10</quantity>
         <delay_per_shoot>0.1</delay_per_shoot>
         <angle_variability>5</angle_variability>
-        <piercing>5</piercing>
+        <piercing>7</piercing>
         <time_tick>1</time_tick>
         <position_plus_per_unit plus_x="0" plus_y="0"></position_plus_per_unit>
 	</skill>
@@ -306,8 +306,8 @@
 		<cool_down>0.5</cool_down>
         <button_selector>normal_attack</button_selector>
         <joints>
-            <holder x="0" y="0" offsetX="0" offsetY="0"></holder>
-            <this x="0" y="0" offsetX="0" offsetY="0"></this>
+            <holder x="2" y="0" offsetX="0" offsetY="0"></holder>
+            <this x="2" y="0" offsetX="0" offsetY="0"></this>
         </joints>
         <speed>10</speed>
         <list_effect>

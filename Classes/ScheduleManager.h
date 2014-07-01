@@ -26,7 +26,6 @@ protected:
     ~ScheduleManager();
 public:
 
-    void scheduleForSkill(AbstractSkill* object, float duration, int fuctionCall);
     void stopScheduledObjectAction(CCAction* target);
     
     CCAction* scheduleFunction(CCCallFunc* callFunction, CCCallFunc* endFunction, float duration, int repeatTime);

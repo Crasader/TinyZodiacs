@@ -14,6 +14,7 @@ WallDTO::WallDTO()
     y = 0;
     edge_x = 0;
     edge_y = 0;
+    deadWall = false;
 }
 
 WallDTO::~WallDTO()

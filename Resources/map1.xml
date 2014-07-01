@@ -338,14 +338,14 @@
         -->
     </item_creator_list>
     <wave_list>
-        <wave id = "1" background_music="AssetMusic_Commons_Market.mp3">
+        <wave id = "1" name="Wave 1" background_music="AssetMusic_Commons_Market.mp3">
             <monster_factory_list>
-                <monster_factory group="B" max="20">
+                <monster_factory group="B" max="40">
                  
-                    <monster_creator delay_per_unit="1" delay="2" lane = "2">
+                    <monster_creator delay_per_unit="0.1" delay="2" lane = "2">
                         <position x="6827" y="1076"/>
                         <monster_list>
-                            <monster id="monster_skeleton" quantity="1"/>
+                            <monster id="monster_skeleton" quantity="50"/>
                         </monster_list>
                     </monster_creator>
                 </monster_factory>
@@ -397,7 +397,7 @@
 
         </wave>
     
-        <wave id = "2" background_music="AssetMusic_Commons_Market.mp3">
+        <wave id = "2" name="Wave 2" background_music="AssetMusic_Commons_Market.mp3">
             <monster_factory_list>
 
                 <monster_factory group="B" max = "10" >
@@ -438,7 +438,7 @@
             
         </wave>
         
-        <wave id = "3" background_music="AssetMusic_Commons_Market.mp3">
+        <wave id = "3" name="Wave 3" background_music="AssetMusic_Commons_Market.mp3">
             <monster_factory_list>
                 
                 <monster_factory group="B" max = "20" >
@@ -476,11 +476,11 @@
             
         </wave>
 
-        <wave id = "4" background_music="AssetMusic_Commons_Market.mp3">
+        <wave id = "4" name="Final Wave" background_music="AssetMusic_Commons_Market.mp3">
             <monster_factory_list>
                 <monster_factory group="B" max="1">
                     
-                    <monster_creator delay_per_unit="1" delay="2" lane = "2">
+                    <monster_creator delay_per_unit="1" delay="2" lane = "1">
                         <position x="7666" y="805"/>
                         <monster_list>
                             <monster id="monster_bull" quantity="1"/>

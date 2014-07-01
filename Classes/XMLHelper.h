@@ -31,6 +31,7 @@ public:
     static int readAttributeInt(const XMLElement* root, const char* attributeName, int defaultValue);
     static float readAttributeFloat(const XMLElement* root, const char* attributeName, float defaultValue);
     static bool readAttributeBool(const XMLElement* root, const char* attributeName, bool defaultValue);
+    static bool readAttributeBoolString(const XMLElement* root, const char* attributeName, bool defaultValue);
     static const XMLElement* loadElementById(const char* tagName,const char* key, const char* attributeName, const XMLElement* root);
 };
 #endif /* defined(__TinyZodiacs__XMLHelper__) */

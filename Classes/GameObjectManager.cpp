@@ -32,7 +32,7 @@ bool GameObjectManager::init()
     {
         return false;
     }
- 
+    
     return true;
 }
 
@@ -100,11 +100,50 @@ void GameObjectManager::removeAllGameObject()
     }
     instance->listObjectRemoved->removeAllObjects();
 }
+void GameObjectManager::PreSolve(b2Contact* contact, const b2Manifold* oldManifold)
+{
+    if(contact->GetFixtureA()->GetUserData() != NULL)
+    {
+        CCLOG("presolve");
+        PhysicData* holderData = (PhysicData*)contact->GetFixtureA()/*->GetBody()*/->GetUserData();
+        PhysicData* collisionData = (PhysicData*)contact->GetFixtureB()/*->GetBody()*/->GetUserData();
+        
+        checkCollisionDataInPreSolve(holderData, collisionData,contact,oldManifold);
+    }
+    
+    if(contact->GetFixtureB()->GetUserData() != NULL)
+    {
+        PhysicData* holderData = (PhysicData*)contact->GetFixtureB()/*->GetBody()*/->GetUserData();
+        PhysicData* collisionData = (PhysicData*)contact->GetFixtureA()/*->GetBody()*/->GetUserData();
+        
+        checkCollisionDataInPreSolve(holderData, collisionData,contact,oldManifold);
+    }
 
+}
+
+void GameObjectManager::PostSolve(b2Contact* contact, const b2ContactImpulse* impulse)
+{
+    if(contact->GetFixtureA()->GetUserData() != NULL)
+    {
+        PhysicData* holderData = (PhysicData*)contact->GetFixtureA()/*->GetBody()*/->GetUserData();
+        PhysicData* collisionData = (PhysicData*)contact->GetFixtureB()/*->GetBody()*/->GetUserData();
+        
+        checkCollisionDataInPostSolve(holderData, collisionData,contact,impulse);
+    }
+    
+    if(contact->GetFixtureB()->GetUserData() != NULL)
+    {
+        PhysicData* holderData = (PhysicData*)contact->GetFixtureB()/*->GetBody()*/->GetUserData();
+        PhysicData* collisionData = (PhysicData*)contact->GetFixtureA()/*->GetBody()*/->GetUserData();
+        
+        checkCollisionDataInPostSolve(holderData, collisionData,contact,impulse);
+    }
+
+}
 void GameObjectManager::BeginContact(b2Contact *contact)
 {
     
-    if(contact->GetFixtureA()/*->GetBody()*/->GetUserData() != NULL)
+    if(contact->GetFixtureA()->GetUserData() != NULL)
     {
         PhysicData* holderData = (PhysicData*)contact->GetFixtureA()/*->GetBody()*/->GetUserData();
         PhysicData* collisionData = (PhysicData*)contact->GetFixtureB()/*->GetBody()*/->GetUserData();
@@ -112,7 +151,7 @@ void GameObjectManager::BeginContact(b2Contact *contact)
         checkCollisionDataInBeginContact(holderData, collisionData,contact);
     }
     
-    if(contact->GetFixtureB()/*->GetBody()*/->GetUserData() != NULL)
+    if(contact->GetFixtureB()->GetUserData() != NULL)
     {
         PhysicData* holderData = (PhysicData*)contact->GetFixtureB()/*->GetBody()*/->GetUserData();
         PhysicData* collisionData = (PhysicData*)contact->GetFixtureA()/*->GetBody()*/->GetUserData();
@@ -123,7 +162,7 @@ void GameObjectManager::BeginContact(b2Contact *contact)
 
 void GameObjectManager::EndContact(b2Contact *contact)
 {
-    if(contact->GetFixtureA()/*->GetBody()*/->GetUserData() != NULL)
+    if(contact->GetFixtureA()->GetUserData() != NULL)
     {
         PhysicData* holderData = (PhysicData*)contact->GetFixtureA()/*->GetBody()*/->GetUserData();
         PhysicData* collisionData = (PhysicData*)contact->GetFixtureB()/*->GetBody()*/->GetUserData();
@@ -131,7 +170,7 @@ void GameObjectManager::EndContact(b2Contact *contact)
         checkCollisionDataInEndContact(holderData, collisionData,contact);
     }
     
-    if(contact->GetFixtureB()/*->GetBody()*/->GetUserData() != NULL)
+    if(contact->GetFixtureB()->GetUserData() != NULL)
     {
         PhysicData* holderData = (PhysicData*)contact->GetFixtureB()/*->GetBody()*/->GetUserData();
         PhysicData* collisionData = (PhysicData*)contact->GetFixtureA()/*->GetBody()*/->GetUserData();
@@ -166,6 +205,10 @@ void GameObjectManager::checkCollisionDataInBeginContact(PhysicData* holderData 
         case ITEM:
             ((Item*)holderData->data)->checkCollisionDataInBeginContact(holderData, collisionData, contact);
             break;
+        case GOLD_ITEM:
+            ((Item*)holderData->data)->checkCollisionDataInBeginContact(holderData, collisionData, contact);
+            break;
+
         case PROJECTILE_OBJECT:
             ((NormalProjectile*)holderData->data)->checkCollisionDataInBeginContact(holderData, collisionData, contact);
         default:
@@ -217,9 +260,77 @@ void GameObjectManager::checkCollisionDataInEndContact(PhysicData* holderData , 
         case ITEM:
             ((Item*)holderData->data)->checkCollisionDataInEndContact(holderData, collisionData, contact);
             break;
+
+        case GOLD_ITEM:
+            ((Item*)holderData->data)->checkCollisionDataInEndContact(holderData, collisionData, contact);
+            break;
+
+        default:
+            break;
+    }
+    
+}
+
+void GameObjectManager::checkCollisionDataInPreSolve(PhysicData* holderData , PhysicData* collisionData, b2Contact *contact, const b2Manifold* oldManifold)
+{
+    if(holderData == NULL || holderData->data == NULL)
+    {
+        return;
+    }
+    
+    switch (holderData->gameObjectID) {
+        case HERO:
+            ((Hero*)holderData->data)->checkCollisionDataInPreSolve(holderData, collisionData, contact, oldManifold);
+            break;
+        case MONSTER:
+            ((Monster*)holderData->data)->checkCollisionDataInPreSolve(holderData, collisionData, contact, oldManifold);
+            break;
+        case MAP_OBJECT:
+            ((MapObject*)holderData->data)->checkCollisionDataInPreSolve(holderData, collisionData, contact, oldManifold);
+            break;
+        case SKILL_OBJECT:
+            ((AbstractSkill*)holderData->data)->checkCollisionDataInPreSolve(holderData, collisionData, contact, oldManifold);
+            break;
+        case TOWER:
+            ((Tower*)holderData->data)->checkCollisionDataInPreSolve(holderData, collisionData, contact, oldManifold);
+            break;
+        case ITEM:
+            ((Item*)holderData->data)->checkCollisionDataInPreSolve(holderData, collisionData, contact, oldManifold);
+            break;
             
         default:
             break;
     }
     
+}
+void GameObjectManager::checkCollisionDataInPostSolve(PhysicData* holderData , PhysicData* collisionData, b2Contact *contact, const b2ContactImpulse* impulse)
+{
+    if(holderData == NULL || holderData->data == NULL)
+    {
+        return;
+    }
+    
+    switch (holderData->gameObjectID) {
+        case HERO:
+            ((Hero*)holderData->data)->checkCollisionDataInPostSolve(holderData, collisionData, contact, impulse);
+            break;
+        case MONSTER:
+            ((Monster*)holderData->data)->checkCollisionDataInPostSolve(holderData, collisionData, contact, impulse);
+            break;
+        case MAP_OBJECT:
+            ((MapObject*)holderData->data)->checkCollisionDataInPostSolve(holderData, collisionData, contact, impulse);
+            break;
+        case SKILL_OBJECT:
+            ((AbstractSkill*)holderData->data)->checkCollisionDataInPostSolve(holderData, collisionData, contact, impulse);
+            break;
+        case TOWER:
+            ((Tower*)holderData->data)->checkCollisionDataInPostSolve(holderData, collisionData, contact, impulse);
+            break;
+        case ITEM:
+            ((Item*)holderData->data)->checkCollisionDataInPostSolve(holderData, collisionData, contact, impulse);
+            break;
+        default:
+            break;
+    }
+
 }

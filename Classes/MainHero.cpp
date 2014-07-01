@@ -31,6 +31,7 @@ bool MainHero::init()
 }
 
 
+bool s = false;
 void MainHero::update(float dt)
 {
     if(isDead == false)
@@ -38,6 +39,11 @@ void MainHero::update(float dt)
         Hero::update(dt);
     }
     
+    if(s == true)
+    {
+        this->body->SetActive(false);
+        s = false;
+    }
 }
 
 void MainHero::destroy()
@@ -55,13 +61,14 @@ void MainHero::destroy()
     }
     
 }
-
 void MainHero::die()
 {
     isDead = true;
+    s = true;
     ControllerManager::getInstance()->unregisterController(HERO_CONTROLLER, this);
     this->sprite->setVisible(false);
-    this->body->SetActive(false);
+   // this->body->SetActive(false);
+    
     if(this->gameObjectView != NULL)
     {
         this->gameObjectView->setVisible(false);
@@ -70,9 +77,9 @@ void MainHero::die()
     this->reviveAction->retain();
     
     AnimationEffect* effect = AnimationEffect::create();
-
-    effect->setAnimation("effect-explosion3");
-
+    
+    effect->setAnimation("effect-explosion");
+    
     EffectManager::getInstance()->runEffect(effect, getPositionInPixel(),ABOVE_CHARACTER_LAYER);
     
     ControllerManager::getInstance()->sendCommand(HERO_CONTROLLER, INVISIBLE_ALL_HERO_CONTROLLER);
@@ -106,13 +113,13 @@ void MainHero::revive()
     ControllerManager::getInstance()->sendCommand(HERO_CONTROLLER, VISIBLE_ALL_HERO_CONTROLLER);
     setPositionInPixel(this->revivePosition);
     AnimationEffect* effect = AnimationEffect::create();
-    effect->setAnimation("effect-explosion");
-    EffectManager::getInstance()->runEffect(effect, getPositionInPixel());
+    effect->setAnimation("effect-smoke");
+    EffectManager::getInstance()->runEffect(effect, getPositionInPixel(),ABOVE_CHARACTER_LAYER);
     this->body->SetLinearVelocity(b2Vec2(0,0));
     //    this->release();
     ////    destroy();
     //      ControllerManager::getInstance()->unregisterController(HERO_CONTROLLER, this);
-    //       ControllerManager::getInstance()->sendCommand(HERO_CONTROLLER, INVISIBLE_ALL_HERO_CONTROLLER);
+    ControllerManager::getInstance()->sendCommand(HERO_CONTROLLER, VISIBLE_ALL_HERO_CONTROLLER);
     
     this->reviveAction->release();
     this->reviveAction = NULL;

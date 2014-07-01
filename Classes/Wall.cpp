@@ -7,3 +7,27 @@
 //
 
 #include "Wall.h"
+
+Wall::Wall()
+{
+    this->deadWall = false;
+}
+
+Wall::~Wall()
+{
+    
+}
+
+void Wall::update(float dt)
+{
+    
+}
+
+bool Wall::init()
+{
+    if(!GameObject::init())
+    {
+        return false;
+    }
+    return true;
+}
