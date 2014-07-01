@@ -27,7 +27,7 @@
     </projectile>
     
     <projectile id="fireball">
-        <body>fireball</body>
+        <body>magic_fireball</body>
         <state_animation animation_layer="3" created_state_animation="skill-magic_fireball_start" shooting_state_animation="skill-magic_fireball_middle" hit_state_ainmation="skill-magic_fireball_end" die_state_animation="skill-magic_fireball_end"></state_animation>
         <piercing>0</piercing>
         <gravity_scale>0</gravity_scale>
@@ -36,7 +36,7 @@
     </projectile>
     
     <projectile id="waterball">
-        <body>fireball</body>
+        <body>magic_fireball</body>
         <state_animation animation_layer="3" created_state_animation="" shooting_state_animation="skill-magic_waterball_middle" hit_state_ainmation="skill-magic_waterball_end" die_state_animation="skill-magic_waterball_end"></state_animation>
         <piercing>0</piercing>
         <gravity_scale>0</gravity_scale>
@@ -45,7 +45,7 @@
     </projectile>
     
     <projectile id="bomb">
-        <body>bomb</body>
+        <body>magic_bomb</body>
         <state_animation animation_layer="3" created_state_animation="" shooting_state_animation="skill-magic_bomb_middle" hit_state_ainmation="skill-magic_bomb_end" die_state_animation="skill-magic_bomb_end"></state_animation>
         <piercing>0</piercing>
         <gravity_scale>0</gravity_scale>
@@ -54,7 +54,7 @@
     </projectile>
     
     <projectile id="iceball">
-        <body>iceball</body>
+        <body>magic_iceball</body>
         <state_animation animation_layer="3" created_state_animation="" shooting_state_animation="skill-magic_iceball_middle" hit_state_ainmation="skill-magic_iceball_end" die_state_animation="skill-magic_iceball_end"></state_animation>
         <piercing>0</piercing>
         <gravity_scale>0.2</gravity_scale>
@@ -62,11 +62,20 @@
         <sfx>ice_ball_sound</sfx>
     </projectile>
     
-    <projectile id="energyball">
-        <body>iceball</body>
-        <state_animation animation_layer="3" created_state_animation="" shooting_state_animation="skill-magic_energyball_middle" hit_state_ainmation="skill-magic_energyball1_end" die_state_animation="skill-magic_energyball2_end"></state_animation>
+    <projectile id="charms">
+        <body>charms_projectile</body>
+        <state_animation animation_layer="3" created_state_animation="" shooting_state_animation="skill-charms_middle" hit_state_ainmation="skill-charms_end" die_state_animation="skill-charms_end"></state_animation>
         <piercing>0</piercing>
-        <gravity_scale>0.2</gravity_scale>
+        <gravity_scale>0</gravity_scale>
+        <collide_terrain>1</collide_terrain>
+        <sfx>enegy_ball_sound</sfx>
+    </projectile>
+    
+    <projectile id="gold_spell">
+        <body>gold_projectile</body>
+        <state_animation animation_layer="3" created_state_animation="" shooting_state_animation="skill-gold_spell_middle" hit_state_ainmation="skill-gold_spell_end" die_state_animation="skill-gold_spell_end"></state_animation>
+        <piercing>0</piercing>
+        <gravity_scale>0</gravity_scale>
         <collide_terrain>1</collide_terrain>
         <sfx>enegy_ball_sound</sfx>
     </projectile>

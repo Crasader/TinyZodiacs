@@ -1,0 +1,24 @@
+<character id="monster_ghost_2">
+    <animation>ghost_2</animation>
+	<body>ghost_2</body>
+    <hp>150</hp>
+    <atk>21</atk>
+    <def>0</def>
+    <speed>5</speed>
+    <atk_speed>0.1</atk_speed>
+    <max_jump>3</max_jump>
+    <jump_height>10</jump_height>
+    <sensor_body>ghost_2_sensor</sensor_body>
+    
+    <skill_0>charms</skill_0>
+    
+    
+    <item_list>
+        <item id="coin1" chance="50"/>
+        <item id="coin2" chance="20"/>
+        
+        
+    </item_list>
+    
+    <sfx>cat_sounds</sfx>
+</character>

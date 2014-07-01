@@ -93,7 +93,11 @@ void LoadingScene::loadResource()
     GameManager::getInstance()->loadSpritesheet("cat_spritesheet.png","cat_spritesheet.plist");
     GameManager::getInstance()-> loadSpritesheet("bull_spritesheet.png","bull_spritesheet.plist");
     GameManager::getInstance()-> loadSpritesheet("skeleton_spritesheet.png","skeleton_spritesheet.plist");
+    GameManager::getInstance()-> loadSpritesheet("dark_cornian_spritesheet.png","dark_cornian_spritesheet.plist");
+    GameManager::getInstance()-> loadSpritesheet("ghost_1_spritesheet.png","ghost_1_spritesheet.plist");
+    GameManager::getInstance()-> loadSpritesheet("ghost_2_spritesheet.png","ghost_2_spritesheet.plist");
     GameManager::getInstance()-> loadSpritesheet("test_sheet.png","test_sheet.plist");
+    GameManager::getInstance()-> loadSpritesheet("other_effect_2_spritesheet.png","other_effect_2_spritesheet.plist");
     
     
     AnimationLoader::loadData();

@@ -9,7 +9,7 @@
     <max_jump>10</max_jump>
     <jump_height>10</jump_height>
     <sensor_body>creep_1_sensor</sensor_body>
-    <skill_0>monster_bull_normal_attack</skill_0>
+    <skill_0>bull_sensor</skill_0>
     
     <item_list>
         <item id="coin1" chance="50"/>

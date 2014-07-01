@@ -175,8 +175,6 @@
 		2D0DA15D1908F72200881C8D /* tower_2.xml in Resources */ = {isa = PBXBuildFile; fileRef = 2D0DA1551908F72200881C8D /* tower_2.xml */; };
 		2D0DA1621908F7DE00881C8D /* XMLHelper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2D0DA1601908F7DE00881C8D /* XMLHelper.cpp */; };
 		2D0DA1741908F86300881C8D /* Tower.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2D0DA1711908F86300881C8D /* Tower.cpp */; };
-		2DC48A84191A356600B34724 /* monster_sensor.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2DC48A83191A356600B34724 /* monster_sensor.plist */; };
-		2DE1502E191CCDEC001BD65C /* character_body.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2DE1502D191CCDEC001BD65C /* character_body.plist */; };
 		34002585192DB46100059016 /* tower_sensor.plist in Resources */ = {isa = PBXBuildFile; fileRef = 34002584192DB46100059016 /* tower_sensor.plist */; };
 		340423CE193D8F2800223029 /* ControllerLayer0.plist in Resources */ = {isa = PBXBuildFile; fileRef = 340423CB193D8F2800223029 /* ControllerLayer0.plist */; };
 		340423CF193D8F2800223029 /* ControllerLayer0.png in Resources */ = {isa = PBXBuildFile; fileRef = 340423CC193D8F2800223029 /* ControllerLayer0.png */; };
@@ -261,6 +259,16 @@
 		34B3BE201942F26500D3E651 /* list_map.xml in Resources */ = {isa = PBXBuildFile; fileRef = 34B3BE1F1942F26500D3E651 /* list_map.xml */; };
 		34B3BE231942F2EC00D3E651 /* MapSelectData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 34B3BE211942F2EC00D3E651 /* MapSelectData.cpp */; };
 		34B3BE271942F48600D3E651 /* XMLMapListParser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 34B3BE251942F48600D3E651 /* XMLMapListParser.cpp */; };
+		34BCBEBE1962AD0B000BA5C5 /* character_body.plist in Resources */ = {isa = PBXBuildFile; fileRef = 34BCBEBB1962AD0B000BA5C5 /* character_body.plist */; };
+		34BCBEC61962B3A1000BA5C5 /* skill_body.plist in Resources */ = {isa = PBXBuildFile; fileRef = 34BCBEC41962B3A1000BA5C5 /* skill_body.plist */; };
+		34BCBEC81962B4BF000BA5C5 /* monster_sensor.plist in Resources */ = {isa = PBXBuildFile; fileRef = 34BCBEC71962B4BF000BA5C5 /* monster_sensor.plist */; };
+		34BCBECA1962BA41000BA5C5 /* tower_body.plist in Resources */ = {isa = PBXBuildFile; fileRef = 34BCBEC91962BA41000BA5C5 /* tower_body.plist */; };
+		34BCBECC1962BC69000BA5C5 /* dark_cornian_animation.xml in Resources */ = {isa = PBXBuildFile; fileRef = 34BCBECB1962BC69000BA5C5 /* dark_cornian_animation.xml */; };
+		34BCBECE1962BD67000BA5C5 /* monster_dark_cornian.xml in Resources */ = {isa = PBXBuildFile; fileRef = 34BCBECD1962BD67000BA5C5 /* monster_dark_cornian.xml */; };
+		34BCBED21962C5C9000BA5C5 /* ghost_1_animation.xml in Resources */ = {isa = PBXBuildFile; fileRef = 34BCBED11962C5C9000BA5C5 /* ghost_1_animation.xml */; };
+		34BCBED41962C7AB000BA5C5 /* monster_ghost_1.xml in Resources */ = {isa = PBXBuildFile; fileRef = 34BCBED31962C7AB000BA5C5 /* monster_ghost_1.xml */; };
+		34BCBED61962C7BE000BA5C5 /* monster_ghost_2.xml in Resources */ = {isa = PBXBuildFile; fileRef = 34BCBED51962C7BE000BA5C5 /* monster_ghost_2.xml */; };
+		34BCBED81962C7CC000BA5C5 /* ghost_2_animation.xml in Resources */ = {isa = PBXBuildFile; fileRef = 34BCBED71962C7CC000BA5C5 /* ghost_2_animation.xml */; };
 		34BFEA1919483BF700501A1D /* ProjectileData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 34BFEA1719483BF700501A1D /* ProjectileData.cpp */; };
 		34BFEA1C19483DBF00501A1D /* ProjectileStateAnimationData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 34BFEA1A19483DBF00501A1D /* ProjectileStateAnimationData.cpp */; };
 		34BFEA1F19483ED000501A1D /* XMLProjectileDataParser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 34BFEA1D19483ED000501A1D /* XMLProjectileDataParser.cpp */; };
@@ -370,7 +378,6 @@
 		517E84AF195846C200881FC4 /* list_effect.xml in Resources */ = {isa = PBXBuildFile; fileRef = 517E84AB195846C200881FC4 /* list_effect.xml */; };
 		517E84B0195846C200881FC4 /* list_projectile.xml in Resources */ = {isa = PBXBuildFile; fileRef = 517E84AC195846C200881FC4 /* list_projectile.xml */; };
 		517E84B1195846C200881FC4 /* skill_animation.xml in Resources */ = {isa = PBXBuildFile; fileRef = 517E84AD195846C200881FC4 /* skill_animation.xml */; };
-		517E84B41958474100881FC4 /* skill_body.plist in Resources */ = {isa = PBXBuildFile; fileRef = 517E84B31958474100881FC4 /* skill_body.plist */; };
 		517E84B61958475200881FC4 /* item_body.plist in Resources */ = {isa = PBXBuildFile; fileRef = 517E84B51958475200881FC4 /* item_body.plist */; };
 		517E84B81958475F00881FC4 /* item_list.xml in Resources */ = {isa = PBXBuildFile; fileRef = 517E84B71958475F00881FC4 /* item_list.xml */; };
 		517E84BB1958477800881FC4 /* effect_animation_1.xml in Resources */ = {isa = PBXBuildFile; fileRef = 517E84B91958477800881FC4 /* effect_animation_1.xml */; };
@@ -876,8 +883,6 @@
 		2D0DA1611908F7DE00881C8D /* XMLHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMLHelper.h; sourceTree = "<group>"; };
 		2D0DA1711908F86300881C8D /* Tower.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Tower.cpp; sourceTree = "<group>"; };
 		2D0DA1721908F86300881C8D /* Tower.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tower.h; sourceTree = "<group>"; };
-		2DC48A83191A356600B34724 /* monster_sensor.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = monster_sensor.plist; sourceTree = "<group>"; };
-		2DE1502D191CCDEC001BD65C /* character_body.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = character_body.plist; sourceTree = "<group>"; };
 		34002584192DB46100059016 /* tower_sensor.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = tower_sensor.plist; sourceTree = "<group>"; };
 		340423CB193D8F2800223029 /* ControllerLayer0.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ControllerLayer0.plist; sourceTree = "<group>"; };
 		340423CC193D8F2800223029 /* ControllerLayer0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ControllerLayer0.png; sourceTree = "<group>"; };
@@ -993,6 +998,16 @@
 		34B3BE221942F2EC00D3E651 /* MapSelectData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapSelectData.h; sourceTree = "<group>"; };
 		34B3BE251942F48600D3E651 /* XMLMapListParser.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = XMLMapListParser.cpp; sourceTree = "<group>"; };
 		34B3BE261942F48600D3E651 /* XMLMapListParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMLMapListParser.h; sourceTree = "<group>"; };
+		34BCBEBB1962AD0B000BA5C5 /* character_body.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = character_body.plist; sourceTree = "<group>"; };
+		34BCBEC41962B3A1000BA5C5 /* skill_body.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = skill_body.plist; sourceTree = "<group>"; };
+		34BCBEC71962B4BF000BA5C5 /* monster_sensor.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = monster_sensor.plist; sourceTree = "<group>"; };
+		34BCBEC91962BA41000BA5C5 /* tower_body.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = tower_body.plist; sourceTree = "<group>"; };
+		34BCBECB1962BC69000BA5C5 /* dark_cornian_animation.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = dark_cornian_animation.xml; sourceTree = "<group>"; };
+		34BCBECD1962BD67000BA5C5 /* monster_dark_cornian.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = monster_dark_cornian.xml; sourceTree = "<group>"; };
+		34BCBED11962C5C9000BA5C5 /* ghost_1_animation.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = ghost_1_animation.xml; sourceTree = "<group>"; };
+		34BCBED31962C7AB000BA5C5 /* monster_ghost_1.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = monster_ghost_1.xml; sourceTree = "<group>"; };
+		34BCBED51962C7BE000BA5C5 /* monster_ghost_2.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = monster_ghost_2.xml; sourceTree = "<group>"; };
+		34BCBED71962C7CC000BA5C5 /* ghost_2_animation.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = ghost_2_animation.xml; sourceTree = "<group>"; };
 		34BFEA1719483BF700501A1D /* ProjectileData.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ProjectileData.cpp; sourceTree = "<group>"; };
 		34BFEA1819483BF700501A1D /* ProjectileData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProjectileData.h; sourceTree = "<group>"; };
 		34BFEA1A19483DBF00501A1D /* ProjectileStateAnimationData.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ProjectileStateAnimationData.cpp; sourceTree = "<group>"; };
@@ -1206,7 +1221,6 @@
 		517E84AB195846C200881FC4 /* list_effect.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = list_effect.xml; sourceTree = "<group>"; };
 		517E84AC195846C200881FC4 /* list_projectile.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = list_projectile.xml; sourceTree = "<group>"; };
 		517E84AD195846C200881FC4 /* skill_animation.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = skill_animation.xml; sourceTree = "<group>"; };
-		517E84B31958474100881FC4 /* skill_body.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = skill_body.plist; sourceTree = "<group>"; };
 		517E84B51958475200881FC4 /* item_body.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = item_body.plist; sourceTree = "<group>"; };
 		517E84B71958475F00881FC4 /* item_list.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = item_list.xml; sourceTree = "<group>"; };
 		517E84B91958477800881FC4 /* effect_animation_1.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = effect_animation_1.xml; sourceTree = "<group>"; };
@@ -3178,11 +3192,12 @@
 		F5C89E0018D2FCF2006E909D /* Body */ = {
 			isa = PBXGroup;
 			children = (
+				34BCBEC91962BA41000BA5C5 /* tower_body.plist */,
+				34BCBEC71962B4BF000BA5C5 /* monster_sensor.plist */,
+				34BCBEC41962B3A1000BA5C5 /* skill_body.plist */,
+				34BCBEBB1962AD0B000BA5C5 /* character_body.plist */,
 				517E84B51958475200881FC4 /* item_body.plist */,
-				517E84B31958474100881FC4 /* skill_body.plist */,
 				34002584192DB46100059016 /* tower_sensor.plist */,
-				2DE1502D191CCDEC001BD65C /* character_body.plist */,
-				2DC48A83191A356600B34724 /* monster_sensor.plist */,
 				51136AE11908E69F00317D3A /* map1_body.plist */,
 				F544FB9818D93CC100A818DF /* map2_body.plist */,
 				F5C89E0218D2FD2A006E909D /* map_body.plist */,
@@ -3242,6 +3257,9 @@
 		F5FA1C29194ED1A2002C73E2 /* Character */ = {
 			isa = PBXGroup;
 			children = (
+				34BCBED51962C7BE000BA5C5 /* monster_ghost_2.xml */,
+				34BCBED31962C7AB000BA5C5 /* monster_ghost_1.xml */,
+				34BCBECD1962BD67000BA5C5 /* monster_dark_cornian.xml */,
 				F51AC64D1960FE1500040CC2 /* monster_skeleton.xml */,
 				517E84BF195847B700881FC4 /* character_cat.xml */,
 				517E84C0195847B700881FC4 /* character_monkey.xml */,
@@ -3260,9 +3278,11 @@
 		F5FA1C3E194ED445002C73E2 /* Animation */ = {
 			isa = PBXGroup;
 			children = (
+				34BCBED11962C5C9000BA5C5 /* ghost_1_animation.xml */,
 				F51AC64B1960FDA400040CC2 /* skeleton_animation.xml */,
 				517E84AD195846C200881FC4 /* skill_animation.xml */,
 				517E84B91958477800881FC4 /* effect_animation_1.xml */,
+				34BCBECB1962BC69000BA5C5 /* dark_cornian_animation.xml */,
 				517E84BA1958477800881FC4 /* effect_animation.xml */,
 				F5FA1C57194ED799002C73E2 /* onion_invert_animation.xml */,
 				F5FA1C53194ED750002C73E2 /* coin1_animation.xml */,
@@ -3271,6 +3291,7 @@
 				F5FA1C40194ED741002C73E2 /* cat_animation.xml */,
 				F5FA1C41194ED741002C73E2 /* creep_1_animation.xml */,
 				F5FA1C44194ED741002C73E2 /* maincrystal_animation.xml */,
+				34BCBED71962C7CC000BA5C5 /* ghost_2_animation.xml */,
 				F5FA1C45194ED741002C73E2 /* monkey_animation.xml */,
 				F5FA1C46194ED741002C73E2 /* pig_animation.xml */,
 				F5FA1C47194ED741002C73E2 /* tower_1_animation.xml */,
@@ -3354,10 +3375,12 @@
 				348342011959E9DC00173C2A /* LR_Vo_Death01.wav in Resources */,
 				34CC3F3D1951799600CB46F0 /* PauseLayer.ExportJson in Resources */,
 				F5FA1C58194ED799002C73E2 /* onion_invert_animation.xml in Resources */,
+				34BCBED21962C5C9000BA5C5 /* ghost_1_animation.xml in Resources */,
 				34CC3F3219513F1400CB46F0 /* ControllerLayer_1.ExportJson in Resources */,
 				F58095BF195850640011C3D0 /* 16bit in Resources */,
 				348341F01959E37200173C2A /* magic_energyball_start.wav in Resources */,
 				517E84BC1958477800881FC4 /* effect_animation.xml in Resources */,
+				34BCBED61962C7BE000BA5C5 /* monster_ghost_2.xml in Resources */,
 				34D8BC1E195974CD0082ED4A /* magic_lightningarrow_start.wav in Resources */,
 				7855E0E1153FEF240059DD9A /* Default.png in Resources */,
 				517E84AF195846C200881FC4 /* list_effect.xml in Resources */,
@@ -3368,6 +3391,7 @@
 				34F69CD719415A75005DD696 /* character_sounds.xml in Resources */,
 				517E84C8195847B700881FC4 /* monster_onion.xml in Resources */,
 				343638CA1944A92D00602F87 /* MapSelectScene_1.ExportJson in Resources */,
+				34BCBEC61962B3A1000BA5C5 /* skill_body.plist in Resources */,
 				348341F11959E37200173C2A /* magic_firepillar_end.wav in Resources */,
 				F544FB9918D93CC100A818DF /* map2_body.plist in Resources */,
 				517E84B0195846C200881FC4 /* list_projectile.xml in Resources */,
@@ -3389,8 +3413,10 @@
 				D4EF949E15BD2D9600D803EB /* Icon-72.png in Resources */,
 				34B3BE201942F26500D3E651 /* list_map.xml in Resources */,
 				F5FA1C3B194ED1B8002C73E2 /* monster_pig.xml in Resources */,
+				34BCBECA1962BA41000BA5C5 /* tower_body.plist in Resources */,
 				348341F21959E37200173C2A /* magic_firepillar_start.wav in Resources */,
 				34B3BDE81942BE3300D3E651 /* starSky.plist in Resources */,
+				34BCBECE1962BD67000BA5C5 /* monster_dark_cornian.xml in Resources */,
 				34D24BEE195C8782005B41C8 /* sword_slash1.wav in Resources */,
 				F5FA2BB4194054B300583009 /* maincrystal.xml in Resources */,
 				348341F51959E37200173C2A /* magic_water_ball_end.wav in Resources */,
@@ -3422,7 +3448,6 @@
 				34B249AD194FFF7C0072B34B /* MainMenuLayer_1.ExportJson in Resources */,
 				F5FA1C55194ED750002C73E2 /* coin1_animation.xml in Resources */,
 				F51AC64E1960FE1500040CC2 /* monster_skeleton.xml in Resources */,
-				2DE1502E191CCDEC001BD65C /* character_body.plist in Resources */,
 				348341FC1959E98D00173C2A /* GCS_Vo_Hurt01.wav in Resources */,
 				348341EB1959E37200173C2A /* magic_bomb_end.wav in Resources */,
 				342ABFBE194EF61400513B48 /* batchSettings.png in Resources */,
@@ -3432,7 +3457,6 @@
 				F58095C2195850C90011C3D0 /* global in Resources */,
 				F5FA1C60194EE752002C73E2 /* sakkal_shadow.png in Resources */,
 				340D3384195D54DB00E93CB5 /* barrel_break.wav in Resources */,
-				2DC48A84191A356600B34724 /* monster_sensor.plist in Resources */,
 				F5FA1C51194ED741002C73E2 /* tower_1_animation.xml in Resources */,
 				340D337C195D359E00E93CB5 /* item_sounds.xml in Resources */,
 				15A3D9961682F7F9002FB0C5 /* CMakeLists.txt in Resources */,
@@ -3444,6 +3468,7 @@
 				348341EC1959E37200173C2A /* magic_bomb_middle.wav in Resources */,
 				517E84C4195847B700881FC4 /* character_cat.xml in Resources */,
 				341AFAC219477DC200693634 /* list_button_selector.xml in Resources */,
+				34BCBEC81962B4BF000BA5C5 /* monster_sensor.plist in Resources */,
 				F5FA1C36194ED1B8002C73E2 /* hero_list.xml in Resources */,
 				517E84BE1958478900881FC4 /* map1.xml in Resources */,
 				34D24BED195C8782005B41C8 /* sword_slash0.wav in Resources */,
@@ -3461,24 +3486,27 @@
 				2D0DA15D1908F72200881C8D /* tower_2.xml in Resources */,
 				F5FA1C52194ED741002C73E2 /* tower_2_animation.xml in Resources */,
 				F58095C0195850640011C3D0 /* 32bit in Resources */,
+				34BCBECC1962BC69000BA5C5 /* dark_cornian_animation.xml in Resources */,
 				348341DE1959E1B400173C2A /* skill_sounds.xml in Resources */,
 				34F69CD219415A61005DD696 /* cat_jump.wav in Resources */,
 				348341FB1959E98D00173C2A /* GCS_Vo_Death01.wav in Resources */,
 				F5FA1C39194ED1B8002C73E2 /* monster_monkey.xml in Resources */,
+				34BCBED81962C7CC000BA5C5 /* ghost_2_animation.xml in Resources */,
 				34D8BC16195974A40082ED4A /* magic_fireball_end.wav in Resources */,
 				517E84B81958475F00881FC4 /* item_list.xml in Resources */,
 				34F69CD419415A61005DD696 /* cat_hurt.wav in Resources */,
 				34B3BDE71942BE3300D3E651 /* shoot.plist in Resources */,
 				1AFAF8BD16D35E4900DB1158 /* CloseSelected.png in Resources */,
+				34BCBEBE1962AD0B000BA5C5 /* character_body.plist in Resources */,
 				340D3377195D247000E93CB5 /* affect_sounds.xml in Resources */,
 				F5831B131945A4420055798F /* defense_list.xml in Resources */,
-				517E84B41958474100881FC4 /* skill_body.plist in Resources */,
 				348342021959E9DC00173C2A /* LR_Vo_Hurt01.wav in Resources */,
 				F5FA1C62194EE752002C73E2 /* sakkal.png in Resources */,
 				34D8BC18195974A40082ED4A /* magic_fireball_start.wav in Resources */,
 				1AFAF8BE16D35E4900DB1158 /* HelloWorld.png in Resources */,
 				517E84C6195847B700881FC4 /* character_pig.xml in Resources */,
 				2D0DA15A1908F72200881C8D /* tower_1.xml in Resources */,
+				34BCBED41962C7AB000BA5C5 /* monster_ghost_1.xml in Resources */,
 				340423D3193D8F4700223029 /* test_sheet.png in Resources */,
 				348341FA1959E98D00173C2A /* GCS_Vo_Attack01.wav in Resources */,
 				F5FA1C49194ED741002C73E2 /* bull_animation.xml in Resources */,

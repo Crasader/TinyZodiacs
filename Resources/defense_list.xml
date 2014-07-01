@@ -1,14 +1,4 @@
 <defense_list>
 	<defense id="tower1" button_id="defense_tower1_selector" cost="5"/>
     <defense id="tower2" button_id="defense_tower2_selector" cost="10"/>
-    <defense id="tower1" button_id="1" cost="15"/>
-    <defense id="tower2" button_id="1" cost="20"/>
-    <defense id="tower1" button_id="1" cost="5"/>
-    <defense id="tower2" button_id="1" cost="5"/>
-    <defense id="tower1" button_id="1" cost="5"/>
-    <defense id="tower2" button_id="1" cost="5"/>
-    <defense id="tower1" button_id="1" cost="5"/>
-    <defense id="tower2" button_id="1" cost="5"/>
-    <defense id="tower1" button_id="1" cost="5"/>
-    
 </defense_list>

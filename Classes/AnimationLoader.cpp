@@ -29,6 +29,10 @@ bool AnimationLoader::loadData()
      AnimationLoader::loadDataByFileName("onion_invert_animation.xml");
     
     AnimationLoader::loadDataByFileName("skeleton_animation.xml");
+    AnimationLoader::loadDataByFileName("dark_cornian_animation.xml");
+    AnimationLoader::loadDataByFileName("ghost_1_animation.xml");
+    AnimationLoader::loadDataByFileName("ghost_2_animation.xml");
+
     
     return true;
 }
@@ -50,6 +54,7 @@ bool AnimationLoader::loadDataByFileName(const char *xmlFileName)
             AnimationObject* animationObject = XMLAnimationParser::getAnimationObjectFromXMLNode(element);
             std::string key = std::string(characterName) + std::string("-") + std::string(animationName->getCString());
             DataCollector::getInstance()->setAnimationObject(key.c_str(), animationObject);
+            CCLOG("%s",xmlFileName);
         }
     }
     delete document;

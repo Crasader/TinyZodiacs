@@ -1,6 +1,6 @@
 <character id="monster_skeleton">
     <animation>skeleton</animation>
-	<body>onion</body>
+	<body>skeleton</body>
     <hp>300</hp>
     <atk>20</atk>
     <def>0</def>
@@ -8,7 +8,7 @@
     <atk_speed>0.1</atk_speed>
     <max_jump>3</max_jump>
     <jump_height>10</jump_height>
-    <sensor_body>creep_1_sensor</sensor_body>
+    <sensor_body>seleton_sensor</sensor_body>
 
     <skill_0>monster_onion_normal_attack</skill_0>
 

@@ -1,0 +1,80 @@
+<object_animation name="dark_cornian" plist_name="dark_cornian_spritessheet.plist" image_name="dark_cornian_spritessheet.png">
+    <animation name="run" delay="0.1" loop="infinity">
+        <origin x="0.55" y="0.5" />
+        <framelist>
+            <frame name="dark_cornian_run_1.png"/>
+            <frame name="dark_cornian_run_2.png"/>
+            <frame name="dark_cornian_run_3.png"/>
+            <frame name="dark_cornian_run_4.png"/>
+        </framelist>
+    </animation>
+    <animation name="jump" delay="0.05" loop="1">
+      <origin x="0.65" y="0.4" />
+        <framelist>
+            <frame name="dark_cornian_run_1.png"/>
+            <frame name="dark_cornian_run_2.png"/>
+            <frame name="dark_cornian_run_3.png"/>
+            <frame name="dark_cornian_run_4.png"/>
+        </framelist>
+    </animation>
+    
+    <animation name="attack" delay="0.1" loop="1">
+        <origin x="0.55" y="0.5" />
+        <framelist>
+            <frame name="dark_cornian_attack_1.png"/>
+            <frame name="dark_cornian_attack_2.png"/>
+            <frame name="dark_cornian_attack_3.png"/>
+            <frame name="dark_cornian_attack_4.png"/>
+            <frame name="dark_cornian_attack_5.png"/>
+            <frame name="dark_cornian_attack_6.png"/>
+            <frame name="dark_cornian_attack_7.png"/>
+        </framelist>
+    </animation>
+    
+    
+    <animation name="fall" delay="0.1" loop="infinity">
+        <origin x="0.6" y="0.4" />
+        <framelist>
+            <frame name="dark_cornian_run_1.png"/>
+            <frame name="dark_cornian_run_2.png"/>
+            <frame name="dark_cornian_run_3.png"/>
+            <frame name="dark_cornian_run_4.png"/>
+        </framelist>
+    </animation>
+
+    <animation name="fly" delay="0.1" loop="infinity">
+        <origin x="0.65" y="0.4" />
+        <framelist>
+            <frame name="dark_cornian_run_1.png"/>
+            <frame name="dark_cornian_run_2.png"/>
+            <frame name="dark_cornian_run_3.png"/>
+            <frame name="dark_cornian_run_4.png"/>
+        </framelist>
+    </animation>
+
+    <animation name="skill" delay="0.1" loop="1">
+        <origin x="0.3" y="0.22" />
+        <framelist>
+            <frame name="dark_cornian_attack_1.png"/>
+            <frame name="dark_cornian_attack_2.png"/>
+            <frame name="dark_cornian_attack_3.png"/>
+            <frame name="dark_cornian_attack_4.png"/>
+            <frame name="dark_cornian_attack_5.png"/>
+            <frame name="dark_cornian_attack_6.png"/>
+            <frame name="dark_cornian_attack_7.png"/>
+         </framelist>
+
+    </animation>
+
+    <animation name="idle" delay="0.1" loop="infinity">
+        <origin x="0.54" y="0.5" />
+        <framelist>
+            <frame name="dark_cornian_idle_1.png"/>
+            <frame name="dark_cornian_idle_2.png"/>
+            <frame name="dark_cornian_idle_3.png"/>
+            <frame name="dark_cornian_idle_4.png"/>
+            <frame name="dark_cornian_idle_5.png"/>
+            <frame name="dark_cornian_idle_6.png"/>
+        </framelist>
+    </animation>
+</object_animation>

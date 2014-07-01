@@ -374,4 +374,49 @@
         </framelist>
     </animation>
 
+<animation name="gold_spell_start" delay="0.03" loop="infinity">
+    <origin x="0.5" y="0.5" />
+    <framelist>
+        <frame name="gold_projectile_middle_1.png" />
+        <frame name="gold_projectile_middle_2.png" />
+    </framelist>
+</animation>
+
+<animation name="gold_spell_middle" delay="0.05" loop="infinity">
+    <origin x="0.5" y="0.5" />
+    <framelist>
+        <frame name="gold_projectile_middle_1.png" />
+        <frame name="gold_projectile_middle_2.png" />
+    </framelist>
+</animation>
+
+<animation name="gold_spell_end" delay="0.05" loop="1">
+    <origin x="0.5" y="0.5" />
+    <framelist>
+        <frame name="gold_projectile_end_1.png" />
+    </framelist>
+</animation>
+
+<animation name="charms_start" delay="0.03" loop="infinity">
+    <origin x="0.5" y="0.5" />
+    <framelist>
+        <frame name="charms_projectile_middle_1.png" />
+        <frame name="charms_projectile_middle_2.png" />
+    </framelist>
+</animation>
+
+<animation name="charms_middle" delay="0.05" loop="infinity">
+    <origin x="0.5" y="0.5" />
+    <framelist>
+        <frame name="charms_projectile_middle_1.png" />
+        <frame name="charms_projectile_middle_2.png" />
+    </framelist>
+</animation>
+
+<animation name="charms_end" delay="0.05" loop="1">
+    <origin x="0.5" y="0.5" />
+    <framelist>
+        <frame name="charms_projectile_end_1.png" />
+    </framelist>
+</animation>
 </character_animation>

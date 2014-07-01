@@ -58,11 +58,11 @@ void GameWorld::onCreate()
     gameplayholder.nodeHolder = this->map;
     gameplayholder.worldHolder = this->world;
     GameManager::getInstance()->setGameplayHolder(gameplayholder);
-
+    
     onCreateUnits();
-
+    
     addManager();
-   createWorldBox();
+    createWorldBox();
 }
 
 void GameWorld::onCreateMap()
@@ -82,7 +82,7 @@ void GameWorld::onCreateWorld()
     //Set contact listener
     this->setContactListener(this);
     
-//    createWorldBox();
+    //    createWorldBox();
     
     //DEBUG WORLD
     b2Draw* _debugDraw = new GLESDebugDraw(PTM_RATIO);
@@ -221,7 +221,7 @@ void GameWorld::update(float dt)
     {
         world->Step(1/40.000f,8, 3);
     }
-
+    
 }
 
 void GameWorld::destroy()
@@ -231,12 +231,12 @@ void GameWorld::destroy()
 
 void GameWorld::draw()
 {
-
-//        ccGLEnableVertexAttribs( kCCVertexAttribFlag_Position );
-//       kmGLPushMatrix();
-//        world->DrawDebugData();
-//       kmGLPopMatrix();
-
+    
+//    ccGLEnableVertexAttribs( kCCVertexAttribFlag_Position );
+//    kmGLPushMatrix();
+//    world->DrawDebugData();
+//    kmGLPopMatrix();
+    
 }
 
 void GameWorld::setCameraFollowGroup(GameGroup* group)

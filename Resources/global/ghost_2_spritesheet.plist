@@ -4,161 +4,187 @@
     <dict>
         <key>frames</key>
         <dict>
-            <key>skeleton_attack_1.png</key>
+            <key>ghost_2_attack_1.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{2,2},{99,100}}</string>
+                <string>{{2,2},{152,163}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
                 <false/>
                 <key>sourceColorRect</key>
-                <string>{{0,0},{99,100}}</string>
+                <string>{{0,0},{152,163}}</string>
                 <key>sourceSize</key>
-                <string>{99,100}</string>
+                <string>{152,163}</string>
             </dict>
-            <key>skeleton_attack_2.png</key>
+            <key>ghost_2_attack_2.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{103,2},{99,100}}</string>
+                <string>{{156,2},{152,163}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
                 <false/>
                 <key>sourceColorRect</key>
-                <string>{{0,0},{99,100}}</string>
+                <string>{{0,0},{152,163}}</string>
                 <key>sourceSize</key>
-                <string>{99,100}</string>
+                <string>{152,163}</string>
             </dict>
-            <key>skeleton_attack_3.png</key>
+            <key>ghost_2_attack_3.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{204,2},{99,100}}</string>
+                <string>{{310,2},{152,163}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
                 <false/>
                 <key>sourceColorRect</key>
-                <string>{{0,0},{99,100}}</string>
+                <string>{{0,0},{152,163}}</string>
                 <key>sourceSize</key>
-                <string>{99,100}</string>
+                <string>{152,163}</string>
             </dict>
-            <key>skeleton_attack_4.png</key>
+            <key>ghost_2_attack_4.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{305,2},{99,100}}</string>
+                <string>{{2,167},{152,163}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
                 <false/>
                 <key>sourceColorRect</key>
-                <string>{{0,0},{99,100}}</string>
+                <string>{{0,0},{152,163}}</string>
                 <key>sourceSize</key>
-                <string>{99,100}</string>
+                <string>{152,163}</string>
             </dict>
-            <key>skeleton_idle_1.png</key>
+            <key>ghost_2_attack_5.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{406,2},{83,93}}</string>
+                <string>{{156,167},{152,163}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
                 <false/>
                 <key>sourceColorRect</key>
-                <string>{{0,0},{83,93}}</string>
+                <string>{{0,0},{152,163}}</string>
                 <key>sourceSize</key>
-                <string>{83,93}</string>
+                <string>{152,163}</string>
             </dict>
-            <key>skeleton_idle_2.png</key>
+            <key>ghost_2_attack_6.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{491,2},{83,93}}</string>
+                <string>{{310,167},{152,163}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
                 <false/>
                 <key>sourceColorRect</key>
-                <string>{{0,0},{83,93}}</string>
+                <string>{{0,0},{152,163}}</string>
                 <key>sourceSize</key>
-                <string>{83,93}</string>
+                <string>{152,163}</string>
             </dict>
-            <key>skeleton_idle_3.png</key>
+            <key>ghost_2_idle_1.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{576,2},{83,93}}</string>
+                <string>{{2,332},{146,152}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
                 <false/>
                 <key>sourceColorRect</key>
-                <string>{{0,0},{83,93}}</string>
+                <string>{{0,0},{146,152}}</string>
                 <key>sourceSize</key>
-                <string>{83,93}</string>
+                <string>{146,152}</string>
             </dict>
-            <key>skeleton_idle_4.png</key>
+            <key>ghost_2_idle_2.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{661,2},{83,93}}</string>
+                <string>{{150,332},{146,152}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
                 <false/>
                 <key>sourceColorRect</key>
-                <string>{{0,0},{83,93}}</string>
+                <string>{{0,0},{146,152}}</string>
                 <key>sourceSize</key>
-                <string>{83,93}</string>
+                <string>{146,152}</string>
             </dict>
-            <key>skeleton_move_1.png</key>
+            <key>ghost_2_idle_3.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{746,2},{84,95}}</string>
+                <string>{{298,332},{146,152}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
                 <false/>
                 <key>sourceColorRect</key>
-                <string>{{0,0},{84,95}}</string>
+                <string>{{0,0},{146,152}}</string>
                 <key>sourceSize</key>
-                <string>{84,95}</string>
+                <string>{146,152}</string>
             </dict>
-            <key>skeleton_move_2.png</key>
+            <key>ghost_2_idle_4.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{832,2},{84,95}}</string>
+                <string>{{2,486},{146,152}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
                 <false/>
                 <key>sourceColorRect</key>
-                <string>{{0,0},{84,95}}</string>
+                <string>{{0,0},{146,152}}</string>
                 <key>sourceSize</key>
-                <string>{84,95}</string>
+                <string>{146,152}</string>
             </dict>
-            <key>skeleton_move_3.png</key>
+            <key>ghost_2_idle_5.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{918,2},{84,95}}</string>
+                <string>{{150,486},{146,152}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
                 <false/>
                 <key>sourceColorRect</key>
-                <string>{{0,0},{84,95}}</string>
+                <string>{{0,0},{146,152}}</string>
                 <key>sourceSize</key>
-                <string>{84,95}</string>
+                <string>{146,152}</string>
             </dict>
-            <key>skeleton_move_4.png</key>
+            <key>ghost_2_idle_6.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{1004,2},{84,95}}</string>
+                <string>{{298,486},{146,152}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
                 <false/>
                 <key>sourceColorRect</key>
-                <string>{{0,0},{84,95}}</string>
+                <string>{{0,0},{146,152}}</string>
                 <key>sourceSize</key>
-                <string>{84,95}</string>
+                <string>{146,152}</string>
+            </dict>
+            <key>ghost_2_idle_7.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{2,640},{146,152}}</string>
+                <key>offset</key>
+                <string>{0,0}</string>
+                <key>rotated</key>
+                <false/>
+                <key>sourceColorRect</key>
+                <string>{{0,0},{146,152}}</string>
+                <key>sourceSize</key>
+                <string>{146,152}</string>
+            </dict>
+            <key>ghost_2_idle_8.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{150,640},{146,152}}</string>
+                <key>offset</key>
+                <string>{0,0}</string>
+                <key>rotated</key>
+                <false/>
+                <key>sourceColorRect</key>
+                <string>{{0,0},{146,152}}</string>
+                <key>sourceSize</key>
+                <string>{146,152}</string>
             </dict>
         </dict>
         <key>metadata</key>
@@ -166,13 +192,13 @@
             <key>format</key>
             <integer>2</integer>
             <key>realTextureFileName</key>
-            <string>skeleton_spritesheet.png</string>
+            <string>ghost_2_spritessheet.png</string>
             <key>size</key>
-            <string>{1090,104}</string>
+            <string>{512,1024}</string>
             <key>smartupdate</key>
-            <string>$TexturePacker:SmartUpdate:95b40fd21289089aa320d3e0ecb1b9c1:d5bfeee259e8dd75025c5a6ad0d6405a:0806f19fb7326857898fe9b0b2a054b0$</string>
+            <string>$TexturePacker:SmartUpdate:5cbaedb95faeeb64d7b49601d73cb818:aae9765ccbbd3e386dbcbb5fe2d92b26:04de20cf7a8b8028e0c02d72e11f7bca$</string>
             <key>textureFileName</key>
-            <string>skeleton_spritesheet.png</string>
+            <string>ghost_2_spritessheet.png</string>
         </dict>
     </dict>
 </plist>

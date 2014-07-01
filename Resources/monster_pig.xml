@@ -1,6 +1,6 @@
 <character id="monster_pig">
     <animation>pig</animation>
-	<body>pig2</body>
+	<body>pig</body>
     <hp>100</hp>
     <atk>0</atk>
     <def>0</def>
@@ -8,7 +8,7 @@
     <atk_speed>5</atk_speed>
     <max_jump>10</max_jump>
     <jump_height>10</jump_height>
-    <sensor_body>creep_2_sensor</sensor_body>
+    <sensor_body>pig_sensor</sensor_body>
     <skill_0>monster_pig_shooting</skill_0>
     
     <item_list>

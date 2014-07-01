@@ -227,7 +227,6 @@ void Monster::doAction(SensorObject* sensorObject)
     }
     if(sensorObject->getJumpHeight() > 0)
     {
-        CCLOG("jump");
         this->jump(sensorObject->getJumpHeight());
     }
 }

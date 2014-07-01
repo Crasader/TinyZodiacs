@@ -246,11 +246,11 @@
 	</skill>
     
     <skill id="chain_lightning_trap" type="1">
-        <apply_type>0</apply_type>
+        <apply_type>1</apply_type>
         <sfx>chain_lightning_trap</sfx>
         <delay>0</delay>
         <life_time>10</life_time>
-		<cool_down>2</cool_down>
+		<cool_down>5</cool_down>
         <button_selector>3</button_selector>
         <joints>
             <holder x="2" y="0" offsetX="0" offsetY="0"></holder>
@@ -277,7 +277,7 @@
         <sfx>chain_lightning_circle</sfx>
         <delay>0</delay>
         <life_time>5</life_time>
-		<cool_down>2</cool_down>
+		<cool_down>7</cool_down>
         <button_selector>3</button_selector>
         <joints>
             <holder x="2" y="0" offsetX="0" offsetY="0"></holder>
@@ -293,7 +293,7 @@
         <quantity>10</quantity>
         <delay_per_shoot>0.1</delay_per_shoot>
         <angle_variability>5</angle_variability>
-        <piercing>5</piercing>
+        <piercing>30</piercing>
         <time_tick>1</time_tick>
         <position_plus_per_unit plus_x="0" plus_y="0"></position_plus_per_unit>
 	</skill>
@@ -306,8 +306,8 @@
 		<cool_down>0.5</cool_down>
         <button_selector>normal_attack</button_selector>
         <joints>
-            <holder x="0" y="0" offsetX="0" offsetY="0"></holder>
-            <this x="0" y="0" offsetX="0" offsetY="0"></this>
+            <holder x="2" y="0" offsetX="0" offsetY="0"></holder>
+            <this x="2" y="0" offsetX="0" offsetY="0"></this>
         </joints>
         <speed>10</speed>
         <list_effect>
@@ -332,8 +332,8 @@
 		<cool_down>0.5</cool_down>
         <button_selector>normal_attack</button_selector>
         <joints>
-            <holder x="0" y="0" offsetX="0" offsetY="0"></holder>
-            <this x="0" y="0" offsetX="0" offsetY="0"></this>
+            <holder x="2" y="0" offsetX="0" offsetY="0"></holder>
+            <this x="2" y="0" offsetX="0" offsetY="0"></this>
         </joints>
         <speed>20</speed>
         <list_effect>
@@ -421,6 +421,58 @@
         </list_effect>
         <projectile>energyball</projectile>
         <quantity>2</quantity>
+        <delay_per_shoot>0</delay_per_shoot>
+        <angle_variability>45</angle_variability>
+        <piercing>0</piercing>
+        <time_tick>0</time_tick>
+        <position_plus_per_unit plus_x="0" plus_y="0"></position_plus_per_unit>
+	</skill>
+    
+    <skill id="gold_spell" type="1">
+        <apply_type>0</apply_type>
+        <sfx>energyball</sfx>
+        <delay>0</delay>
+        <life_time>1</life_time>
+		<cool_down>0.5</cool_down>
+        <button_selector>normal_attack</button_selector>
+        <joints>
+            <holder x="2" y="0" offsetX="0" offsetY="0"></holder>
+            <this x="2" y="0" offsetX="0" offsetY="0"></this>
+        </joints>
+        <speed>20</speed>
+        <list_effect>
+            <enemy>
+                <effect>projectile_first_effect</effect>
+            </enemy>
+        </list_effect>
+        <projectile>gold_spell</projectile>
+        <quantity>1</quantity>
+        <delay_per_shoot>0</delay_per_shoot>
+        <angle_variability>45</angle_variability>
+        <piercing>0</piercing>
+        <time_tick>0</time_tick>
+        <position_plus_per_unit plus_x="0" plus_y="0"></position_plus_per_unit>
+	</skill>
+    
+    <skill id="charms" type="1">
+        <apply_type>0</apply_type>
+        <sfx>energyball</sfx>
+        <delay>0</delay>
+        <life_time>1</life_time>
+		<cool_down>0.5</cool_down>
+        <button_selector>normal_attack</button_selector>
+        <joints>
+            <holder x="2" y="0" offsetX="0" offsetY="0"></holder>
+            <this x="2" y="0" offsetX="0" offsetY="0"></this>
+        </joints>
+        <speed>20</speed>
+        <list_effect>
+            <enemy>
+                <effect>projectile_first_effect</effect>
+            </enemy>
+        </list_effect>
+        <projectile>charms</projectile>
+        <quantity>1</quantity>
         <delay_per_shoot>0</delay_per_shoot>
         <angle_variability>45</angle_variability>
         <piercing>0</piercing>

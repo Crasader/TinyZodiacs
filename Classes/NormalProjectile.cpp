@@ -396,7 +396,6 @@ void NormalProjectile::destroy()
     //stop time tick
     if(this->timeTickAction != NULL)
     {
-        //            this->timeTickAction->stop();
         if(this->timeTickAction->isDone() == false)
         {
             ScheduleManager::getInstance()->stopAction(this->timeTickAction);
@@ -494,8 +493,6 @@ void NormalProjectile::initDataAndShoot(NormalShootingSkillData data, GameObject
     //
     CCCallFunc* action = CCCallFunc::create(this, callfunc_selector(NormalProjectile::changeCreatAnimationToShootingAnimation));
     array->addObject(action);
-//    CCCallFunc* actionShoot = CCCallFunc::create(this, callfunc_selector(NormalProjectile::shoot));
-//    array->addObject(actionShoot);
     CCSequence* sequence = CCSequence::create(array);
     this->sprite->runAction(sequence);
     
@@ -509,6 +506,7 @@ void NormalProjectile::changeCreatAnimationToShootingAnimation()
     this->sprite->runAction(animation);
     //
     playSoundByState(SHOOT_SOUND);
+//    shoot();
 }
 
 void NormalProjectile::applyEffectOnTimeTick()

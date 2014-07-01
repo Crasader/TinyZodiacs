@@ -114,6 +114,10 @@ void GameObject::onCreate()
 
 void GameObject::update(float dt)
 {
+    if(this->sprite)
+    {
+        
+    }
     if(this->isDestroyed == false)
     {
         updateSpritePositionWithBodyPosition();
