@@ -29,6 +29,7 @@ USING_NS_CC;
 class GameMatch: public CCNode, public Controller
 {
 private:
+    bool isWaveEntered;
     bool isStopped;
     int currentWave;
     int oldWave;

@@ -94,6 +94,7 @@ void GameWorld::onCreateWorld()
     flags += b2Draw::e_centerOfMassBit;
     _debugDraw->SetFlags(flags);
     this->world->SetDebugDraw(_debugDraw);
+
 }
 
 void GameWorld::onCreateUnits()
@@ -132,22 +133,25 @@ void GameWorld::addManager()
 
 void GameWorld::createWorldBox()
 {
+    left = 0;
+    bottom = 0;
+    
     //set ground bot
-    b2BodyDef bottomGroundBodyDef;
-    bottomGroundBodyDef.type = b2_staticBody;
-    bottomGroundBodyDef.position.Set((left+0)/PTM_RATIO, (bottom+0)/PTM_RATIO);
-    
-    
-    this->bottomLine = this->world->CreateBody(&bottomGroundBodyDef);
-    b2EdgeShape bottomEdgeShape;
-    b2FixtureDef bottomFixtureDef;
-    bottomFixtureDef.shape = &bottomEdgeShape;
-    bottomFixtureDef.friction=0.5;
-    bottomFixtureDef.filter.maskBits = 0xFFFFFF;
-    bottomFixtureDef.filter.categoryBits = GROUP_TERRAIN;
-    
-    bottomEdgeShape.Set(b2Vec2(0, 0), b2Vec2(this->width/PTM_RATIO,0));
-    this->bottomLine->CreateFixture(&bottomFixtureDef);
+//    b2BodyDef bottomGroundBodyDef;
+//    bottomGroundBodyDef.type = b2_staticBody;
+//    bottomGroundBodyDef.position.Set((left+0)/PTM_RATIO, (bottom+0)/PTM_RATIO);
+//    
+//    
+//    this->bottomLine = this->world->CreateBody(&bottomGroundBodyDef);
+//    b2EdgeShape bottomEdgeShape;
+//    b2FixtureDef bottomFixtureDef;
+//    bottomFixtureDef.shape = &bottomEdgeShape;
+//    bottomFixtureDef.friction=0.5;
+//    bottomFixtureDef.filter.maskBits = 0xFFFFFF;
+//    bottomFixtureDef.filter.categoryBits = GROUP_TERRAIN;
+//    
+//    bottomEdgeShape.Set(b2Vec2(0, 0), b2Vec2(this->width/PTM_RATIO,0));
+//    this->bottomLine->CreateFixture(&bottomFixtureDef);
     
     //set ground top
     b2BodyDef topGroundBodyDef;
@@ -159,7 +163,7 @@ void GameWorld::createWorldBox()
     b2EdgeShape topEdgeShape;
     b2FixtureDef topFixtureDef;
     topFixtureDef.shape = &topEdgeShape;
-    topFixtureDef.friction=0.5;
+    topFixtureDef.friction=0;
     topFixtureDef.filter.maskBits = 0xFFFFFF;
     topFixtureDef.filter.categoryBits = GROUP_TERRAIN;
     
@@ -176,7 +180,7 @@ void GameWorld::createWorldBox()
     b2EdgeShape leftEdgeShape;
     b2FixtureDef leftFixtureDef;
     leftFixtureDef.shape = &leftEdgeShape;
-    leftFixtureDef.friction=0.5;
+    leftFixtureDef.friction=0;
     leftFixtureDef.filter.maskBits = 0xFFFFFF;
     leftFixtureDef.filter.categoryBits = GROUP_TERRAIN;
     
@@ -192,7 +196,7 @@ void GameWorld::createWorldBox()
     b2EdgeShape rightEdgeShape;
     b2FixtureDef rightFixtureDef;
     rightFixtureDef.shape = &rightEdgeShape;
-    rightFixtureDef.friction=0.5;
+    rightFixtureDef.friction=0;
     rightFixtureDef.filter.maskBits = 0xFFFFFF;
     rightFixtureDef.filter.categoryBits = GROUP_TERRAIN;
     
@@ -230,13 +234,12 @@ void GameWorld::destroy()
 }
 
 void GameWorld::draw()
-{
-    
+{    
 //    ccGLEnableVertexAttribs( kCCVertexAttribFlag_Position );
 //    kmGLPushMatrix();
 //    world->DrawDebugData();
 //    kmGLPopMatrix();
-    
+
 }
 
 void GameWorld::setCameraFollowGroup(GameGroup* group)
@@ -279,6 +282,15 @@ void GameWorld::BeginContact(b2Contact *contact)
 void GameWorld::EndContact(b2Contact *contact)
 {
     GameObjectManager::getInstance()->EndContact(contact);
+}
+
+void GameWorld::PreSolve(b2Contact* contact, const b2Manifold* oldManifold)
+{
+ //   GameObjectManager::getInstance()->PreSolve(contact, oldManifold);
+}
+void GameWorld::PostSolve(b2Contact* contact, const b2ContactImpulse* impulse)
+{
+ //   GameObjectManager::getInstance()->PostSolve(contact, impulse);
 }
 
 void GameWorld::foo()

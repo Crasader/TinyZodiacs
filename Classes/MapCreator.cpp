@@ -79,7 +79,9 @@ Map* MapCreator::createMap(MapDTO* mapDTO, GameWorld* gameWorld)
     {
         WallDTO* wallDTO = static_cast<WallDTO*>(object);
         
-        createWall(wallDTO, gameWorld);
+        Wall* wall = ObjectFactory::createWall(wallDTO, gameWorld->getWorld());
+        
+        map->addWall(wall);
     }
 
         //    //create background
@@ -170,6 +172,7 @@ Wave* MapCreator::createWave(WaveDTO* waveDTO, GameWorld* gameWorld)
 
     //add sound to manage list
     wave->setMusicID(waveDTO->waveMusicID);
+    wave->setName(waveDTO->name);
     SoundManager::addSoundId(wave->getMusicID().c_str(), MUSIC);
     
     return wave;

@@ -16,6 +16,7 @@ GameMatch::GameMatch()
     this->currentWave = -1;
     this->oldWave = -1;
     this->isStopped = false;
+    this->isWaveEntered = false;
 }
 
 GameMatch::~GameMatch()
@@ -30,7 +31,7 @@ bool GameMatch::init()
     this->gameWorld->setMapID(DataCollector::getInstance()->getMatchData()->mapIDSelected.c_str());
     this->gameWorld->onCreate();
     this->addChild(this->gameWorld);
-   
+    
     this->player = Player::create();
     this->player->attachWithHero(DataCollector::getInstance()->getMatchData()->heroIDSelected.c_str() );
     this->addChild(this->player);
@@ -169,8 +170,14 @@ void GameMatch::enterWave()
 {
     if( this->currentWave < this->gameWorld->getMap()->getListWave()->count())
     {
-        ControllerManager::getInstance()->sendCommand(HERO_CONTROLLER, DISPLAY_NEW_WAVE, new int(this->currentWave+1));
-        ((Wave*)this->gameWorld->getMap()->getListWave()->objectAtIndex(this->currentWave))->start();
+        Wave* wave = static_cast<Wave*>(this->gameWorld->getMap()->getListWave()->objectAtIndex(this->currentWave));
+        //        ControllerManager::getInstance()->sendCommand(HERO_CONTROLLER, DISPLAY_NEW_WAVE, new int(this->currentWave+1));
+        CCString* waveName = CCString::createWithFormat("%s",wave->getName().c_str());
+        waveName->retain();
+        ControllerManager::getInstance()->sendCommand(HERO_CONTROLLER, DISPLAY_NEW_WAVE,waveName);
+        
+        wave->start();
+        this->isWaveEntered = true;
     }
 }
 
@@ -179,12 +186,13 @@ void GameMatch::exitWave()
     if(this->oldWave >= 0 && this->oldWave < this->gameWorld->getMap()->getListWave()->count())
     {
         ((Wave*)this->gameWorld->getMap()->getListWave()->objectAtIndex(this->oldWave))->stop();
+        this->isWaveEntered = false;
     }
 }
 
 void GameMatch::displayMonsterCount()
 {
-    if(currentWave < this->gameWorld->getMap()->getListWave()->count())
+    if(currentWave < this->gameWorld->getMap()->getListWave()->count() && this->isWaveEntered == true)
     {
         int a = ((Wave*)this->gameWorld->getMap()->getListWave()->objectAtIndex(this->currentWave))->getMonsterCountKilled();
         int b = ((Wave*)this->gameWorld->getMap()->getListWave()->objectAtIndex(this->currentWave))->getMonsterCountMax();

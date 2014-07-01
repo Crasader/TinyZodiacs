@@ -55,7 +55,7 @@ void Monster::update(float dt)
             this->move(this->direction);
         }
     }
-    //
+    
     //remove target
     CCArray* listTargetRemoved = CCArray::create();
     CCObject* object;
@@ -106,7 +106,11 @@ void Monster::dropItem()
     
     for (int i = 0; i < listItem.size(); i++)
     {
-        ItemFactory::getInstance()->createItem(listItem[i].itemID.c_str(), this->getPositionInPixel());
+        ItemStruct item = listItem[i];
+        item.positionX = this->getPositionInPixel().x;
+        item.positionY = this->getPositionInPixel().y;
+        
+        ItemFactory::getInstance()->addItemPrepareToCreate(item);
     }
 }
 
@@ -118,6 +122,7 @@ void Monster::checkCollisionDataInBeginContact(PhysicData* holderData, PhysicDat
     {
         if(collisionData != NULL)
         {
+                       
             //Contact sensor
             if(holderData->fixtureId == MONSTER_SENSOR_FIXTURE && collisionData->fixtureId == BODY_MAIN_FIXTURE && collisionData->data != this)
             {
@@ -350,7 +355,7 @@ void Monster::setGroup(Group group)
 void Monster::onCreate()
 {
     Character::onCreate();
-       CCObject* skill;
+    CCObject* skill;
     CCARRAY_FOREACH(this->listSkill, skill)
     {
         ((AbstractSkill*)skill)->setSkillButtonID(UNKNOWN);

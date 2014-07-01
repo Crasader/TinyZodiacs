@@ -306,12 +306,34 @@ void GameObject::PostSolve(b2Contact* contact, const b2ContactImpulse* impulse)
 
 void GameObject::checkCollisionDataInBeginContact(PhysicData* holderData, PhysicData* collisionData, b2Contact *contact)
 {
-    
+    if(holderData->data == this)
+    {
+        if(collisionData != NULL)
+        {
+            switch (collisionData->gameObjectID) {
+                                    
+                default:
+                    break;
+            }
+
+        }
+  }
 }
 void GameObject::checkCollisionDataInEndContact(PhysicData* holderData, PhysicData* collisionData, b2Contact *contact)
 {
     
 }
+
+void GameObject::checkCollisionDataInPreSolve(PhysicData* holderData , PhysicData* collisionData, b2Contact *contact, const b2Manifold* oldManifold)
+{
+    
+}
+
+void GameObject::checkCollisionDataInPostSolve(PhysicData* holderData , PhysicData* collisionData, b2Contact *contact, const b2ContactImpulse* impulse)
+{
+    
+}
+
 Direction GameObject::getDirection()
 {
     return this->direction;

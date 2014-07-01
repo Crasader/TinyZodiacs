@@ -146,3 +146,14 @@ void AbstractSkill::playSoundByState(SkillSound soundState, SkillSoundData data)
             break;
     }
 }
+
+
+void AbstractSkill::checkCollisionDataInPreSolve(PhysicData* holderData , PhysicData* collisionData, b2Contact *contact, const b2Manifold* oldManifold)
+{
+    
+}
+
+void AbstractSkill::checkCollisionDataInPostSolve(PhysicData* holderData , PhysicData* collisionData, b2Contact *contact, const b2ContactImpulse* impulse)
+{
+    
+}

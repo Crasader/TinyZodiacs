@@ -26,9 +26,9 @@ Character::Character()
     this->state = NULL;
     this->landing = 0;
     this->currentJumpCount = 0;
-//    this->normalAttack = NULL;
-//    this->skill1 = NULL;
-//    this->skill2 = NULL;
+    //    this->normalAttack = NULL;
+    //    this->skill1 = NULL;
+    //    this->skill2 = NULL;
     this->isDead = false;
     
     this->listSkill = CCArray::create();
@@ -51,27 +51,27 @@ Character::Character()
 
 Character::~Character()
 {
-//    this->footSensor->GetWorld()->DestroyBody(this->footSensor);
+    //    this->footSensor->GetWorld()->DestroyBody(this->footSensor);
     this->listSkill->removeAllObjects();
     this->listSkill->release();
     
-//    if(normalAttack)
-//    {
-//        normalAttack->release();
-//        normalAttack = NULL;
-//    }
-//    
-//    if(skill1)
-//    {
-//        skill1->release();
-//        skill1 = NULL;
-//    }
-//    
-//    if(skill2)
-//    {
-//        skill2->release();
-//        skill2 = NULL;
-//    }
+    //    if(normalAttack)
+    //    {
+    //        normalAttack->release();
+    //        normalAttack = NULL;
+    //    }
+    //
+    //    if(skill1)
+    //    {
+    //        skill1->release();
+    //        skill1 = NULL;
+    //    }
+    //
+    //    if(skill2)
+    //    {
+    //        skill2->release();
+    //        skill2 = NULL;
+    //    }
 }
 
 void Character::changeState(CharacterState *states)
@@ -113,11 +113,13 @@ void Character::setSkin(b2Body *body, CCSprite *sprite)
     }
     //create foot sensor
     createFootSensor();
+    
+//    this->body->SetType(b2_kinematicBody);
 }
 
 void Character::onCreate()
 {
-
+    
     this->changeState(new CharacterIdleState(this));
 }
 
@@ -134,19 +136,19 @@ void Character::update(float dt)
     {
         GameObject::update(dt);
         this->state->update(dt);
-//        if(this->normalAttack != NULL)
-//        {
-//            this->normalAttack->update(dt);
-//        }
-//        if(this->skill1 != NULL)
-//        {
-//            this->skill1->update(dt);
-//        }
-//        if(this->skill2 != NULL)
-//        {
-//            this->skill2->update(dt);
-//        }
-
+        //        if(this->normalAttack != NULL)
+        //        {
+        //            this->normalAttack->update(dt);
+        //        }
+        //        if(this->skill1 != NULL)
+        //        {
+        //            this->skill1->update(dt);
+        //        }
+        //        if(this->skill2 != NULL)
+        //        {
+        //            this->skill2->update(dt);
+        //        }
+        
         CCObject* skill;
         CCARRAY_FOREACH(this->listSkill, skill)
         {
@@ -166,9 +168,9 @@ void Character::update(float dt)
         {
             die();
         }
-
+        
     }
-   }
+}
 
 void Character::move(Direction direction)
 {
@@ -263,48 +265,48 @@ void Character::createFootSensor()
     sensorData->gameObjectID = this->gameObjectID;
     sensorData->fixtureId = FOOT_SENSOR_FIXTURE;
     fixDef.userData = sensorData;
-
-    this->footSensor = this->body->CreateFixture(&fixDef);
-//    b2BodyDef bodyDef;
-//    bodyDef.type=b2_dynamicBody;
-//    bodyDef.bullet=true;
-//    bodyDef.position.Set(0/PTM_RATIO, 0/PTM_RATIO);
-//    footSensor = this->body->GetWorld()->CreateBody(&bodyDef);
-//    footSensor->CreateFixture(&fixDef);
     
-//    //create joint
-//    b2RevoluteJointDef footBodyJoint;
-//    footBodyJoint.bodyA = this->body;
-//    footBodyJoint.bodyB = this->footSensor;
-//    footBodyJoint.collideConnected =false;
-//    footBodyJoint.localAnchorA.Set((aabb.lowerBound.x+aabb.upperBound.x)/2, aabb.lowerBound.y);
-//    
-//    //Set foot sensor bullet
-//    this->footSensor->SetBullet(true);
-//    
-//    //
-//    PhysicData* sensorData = new PhysicData();
-//    sensorData->BodyId = CHARACTER_FOOT_SENSOR;
-//    sensorData->Data = this;
-//    sensorData->GameObjectID = this->gameObjectID;
-//
-//    footSensor->SetUserData(sensorData);
-//    
-//    this->body->GetWorld()->CreateJoint(&footBodyJoint);
+    this->footSensor = this->body->CreateFixture(&fixDef);
+    //    b2BodyDef bodyDef;
+    //    bodyDef.type=b2_dynamicBody;
+    //    bodyDef.bullet=true;
+    //    bodyDef.position.Set(0/PTM_RATIO, 0/PTM_RATIO);
+    //    footSensor = this->body->GetWorld()->CreateBody(&bodyDef);
+    //    footSensor->CreateFixture(&fixDef);
+    
+    //    //create joint
+    //    b2RevoluteJointDef footBodyJoint;
+    //    footBodyJoint.bodyA = this->body;
+    //    footBodyJoint.bodyB = this->footSensor;
+    //    footBodyJoint.collideConnected =false;
+    //    footBodyJoint.localAnchorA.Set((aabb.lowerBound.x+aabb.upperBound.x)/2, aabb.lowerBound.y);
+    //
+    //    //Set foot sensor bullet
+    //    this->footSensor->SetBullet(true);
+    //
+    //    //
+    //    PhysicData* sensorData = new PhysicData();
+    //    sensorData->BodyId = CHARACTER_FOOT_SENSOR;
+    //    sensorData->Data = this;
+    //    sensorData->GameObjectID = this->gameObjectID;
+    //
+    //    footSensor->SetUserData(sensorData);
+    //
+    //    this->body->GetWorld()->CreateJoint(&footBodyJoint);
 }
 
 bool Character::isCharacterCanPassThoughMapObject(MapObject* mapObject)
 {
-//    b2AABB footSensorAABB = Util::getBodyBoundingBoxDynamic(this->footSensor);
-//    b2AABB mapObjectAABB = Util::getBodyBoundingBoxDynamic(mapObject->getBody());
-//    
-//    if( this->body->GetLinearVelocity().y > 3 || Util::bodiesArePassingThrough(mapObject->getBody(), this->body) || (!Util::bodiesAreTouching(this->footSensor, mapObject->getBody()) &&!(mapObjectAABB.lowerBound.x < footSensorAABB.lowerBound.x && footSensorAABB.upperBound.x < mapObjectAABB.upperBound.x) && mapObjectAABB.upperBound.y - footSensorAABB.upperBound.y > ((20*1.0f)/32)))
-//    {
-//        return true;
-//        
-//    }
-//    
-//    return false;
+    //    b2AABB footSensorAABB = Util::getBodyBoundingBoxDynamic(this->footSensor);
+    //    b2AABB mapObjectAABB = Util::getBodyBoundingBoxDynamic(mapObject->getBody());
+    //
+    //    if( this->body->GetLinearVelocity().y > 3 || Util::bodiesArePassingThrough(mapObject->getBody(), this->body) || (!Util::bodiesAreTouching(this->footSensor, mapObject->getBody()) &&!(mapObjectAABB.lowerBound.x < footSensorAABB.lowerBound.x && footSensorAABB.upperBound.x < mapObjectAABB.upperBound.x) && mapObjectAABB.upperBound.y - footSensorAABB.upperBound.y > ((20*1.0f)/32)))
+    //    {
+    //        return true;
+    //
+    //    }
+    //
+    //    return false;
     
     b2AABB footSensorAABB = Util::getFixtureBoundingBoxDynamic(this->footSensor);
     b2AABB mapObjectAABB = Util::getBodyBoundingBoxDynamic(mapObject->getBody());
@@ -316,7 +318,7 @@ bool Character::isCharacterCanPassThoughMapObject(MapObject* mapObject)
     }
     
     return false;
-
+    
 }
 
 void Character::stopMove()
@@ -326,7 +328,7 @@ void Character::stopMove()
 
 void Character::checkCollisionDataInBeginContact(PhysicData* holderData, PhysicData* collisionData, b2Contact *contact)
 {
-    
+    GameObject::checkCollisionDataInBeginContact(holderData, collisionData, contact);
     if(holderData->data == this)
     {
         switch (holderData->fixtureId)
@@ -335,6 +337,16 @@ void Character::checkCollisionDataInBeginContact(PhysicData* holderData, PhysicD
             {
                 if(collisionData!=NULL)
                 {
+                    switch (collisionData->gameObjectID) {
+                        case WALL:
+                            die();
+                            break;
+                            
+                        default:
+                            break;
+                    }
+                    
+
                     switch (collisionData->bodyId) {
                         case MAP_BASE:
                         {
@@ -444,6 +456,7 @@ void Character::checkCollisionDataInEndContact(PhysicData* holderData, PhysicDat
                             
                         case MAP_BASE:
                         {
+                          //  this->body->GetWorld()->ClearForces();
                             //                            if (!Util::bodiesArePassingThrough(this->body, mapObject->getBody())) {
                             //                                this->isLanding = true;
                             //                            }
@@ -452,8 +465,9 @@ void Character::checkCollisionDataInEndContact(PhysicData* holderData, PhysicDat
                         case WALL_BODY:
                             if(this->body->GetLinearVelocity().y > 2)
                             {
-                            this->body->SetLinearVelocity(b2Vec2(0,5));
+                                this->body->SetLinearVelocity(b2Vec2(0,5));
                             }
+                            //
                             
                             
                             break;
@@ -475,29 +489,29 @@ void Character::checkCollisionDataInEndContact(PhysicData* holderData, PhysicDat
 
 void Character::setPhysicGroup(uint16 group)
 {
-//    for (b2Fixture* f = this->footSensor->GetFixtureList(); f; f = f->GetNext())
-//    {
-//        if(f != NULL)
-//        {
-            Util::setFixtureGroup(this->footSensor, GROUP_SENSOR);
-//        }
-//    }
-
+    //    for (b2Fixture* f = this->footSensor->GetFixtureList(); f; f = f->GetNext())
+    //    {
+    //        if(f != NULL)
+    //        {
+    Util::setFixtureGroup(this->footSensor, GROUP_SENSOR);
+    //        }
+    //    }
     
-//    if(this->normalAttack != NULL)
-//    {
-//        this->normalAttack->setPhysicGroup(GROUP_SKILL_DEFAULT);
-//    }
-//    
-//    if(this->skill1 != NULL)
-//    {
-//        this->skill1->setPhysicGroup(GROUP_SKILL_DEFAULT);
-//    }
-//    
-//    if(this->skill2 != NULL)
-//    {
-//        this->skill2->setPhysicGroup(GROUP_SKILL_DEFAULT);
-//    }
+    
+    //    if(this->normalAttack != NULL)
+    //    {
+    //        this->normalAttack->setPhysicGroup(GROUP_SKILL_DEFAULT);
+    //    }
+    //
+    //    if(this->skill1 != NULL)
+    //    {
+    //        this->skill1->setPhysicGroup(GROUP_SKILL_DEFAULT);
+    //    }
+    //
+    //    if(this->skill2 != NULL)
+    //    {
+    //        this->skill2->setPhysicGroup(GROUP_SKILL_DEFAULT);
+    //    }
     CCObject* skill;
     CCARRAY_FOREACH(this->listSkill, skill)
     {
@@ -535,10 +549,21 @@ void Character::notifyByAffect(Affect* affect)
             this->gameObjectView->notifyChange();
         }
         
-        HealthPointEffect* effect = HealthPointEffect::create();
-        effect->setHealthPoint(this->characterData.getHealth()-oldHp);
-        EffectManager::getInstance()->runEffect(effect, this->getPositionInPixel(),ABOVE_CHARACTER_LAYER);
         
+        if(this->characterData.getHealth()-oldHp >= 0)
+        {
+//            HealthPointEffect* effect = HealthPointEffect::create();
+//            effect->setHealthPoint(this->characterData.getHealth()-oldHp);
+//            EffectManager::getInstance()->runEffect(effect, this->getPositionInPixel(),ABOVE_CHARACTER_LAYER);
+
+        }
+        else
+        {
+            HealthPointEffect* effect = HealthPointEffect::create();
+            effect->setHealthPoint(this->characterData.getHealth()-oldHp);
+            EffectManager::getInstance()->runEffect(effect, this->getPositionInPixel(),ABOVE_CHARACTER_LAYER);
+
+        }
         if(this->characterData.getHealth()-oldHp<0)
         {
             if(this->getIsDead() == true)
@@ -576,27 +601,25 @@ bool Character::checkDead()
 void Character::destroy()
 {
     this->state->onExitState();
-
+    
     CCObject* skill;
     CCARRAY_FOREACH(this->listSkill, skill)
     {
         ((AbstractSkill*)skill)->destroy();
     }
-
-    
     GameObject::destroy();
 }
 
 void Character::die()
 {
     //
-//    playSoundByState(DEATH_SOUND);
+    //    playSoundByState(DEATH_SOUND);
     //
     this->isDead = true;
     changeState(new CharacterDieState(this));
     
     cleanAllAffect();
-
+    
 }
 
 void Character::attach(Observer* observer)
@@ -635,12 +658,12 @@ void Character::setSkill(CharacterSkill skillIndex, AbstractSkill* skill)
     if(skill == NULL)
     {
         CCLOG("skill null");
-    //    assert(0);
+        //    assert(0);
         return;
     }
     if(skillIndex >= this->listSkill->count())
     {
-         this->listSkill->addObject(skill);
+        this->listSkill->addObject(skill);
     }
     else
     {
@@ -657,7 +680,7 @@ void Character::playSkill(CharacterSkill skillIndex, AnimationObject* characterA
     }
     if(skill != NULL && skill->getIsExcutable() && this->state->attack() && isDead == false)
     {
-     
+        
         changeState(new CharacterAttackState(this,skill,characterAnimation));
     }
 }
@@ -666,11 +689,11 @@ AbstractSkill* Character::getSkill(CharacterSkill skillIndex)
 {
     if(skillIndex >= this->listSkill->count())
     {
-    
+        
         return NULL;
     }
     AbstractSkill* skill = (AbstractSkill*)this->listSkill->objectAtIndex(skillIndex);
-
+    
     return skill;
 }
 
@@ -701,4 +724,48 @@ bool Character::isBodyFixture(FixtureID fixtureId)
         return true;
     }
     return false;
+}
+
+void Character::checkCollisionDataInPreSolve(PhysicData* holderData , PhysicData* collisionData, b2Contact *contact, const b2Manifold* oldManifold)
+{
+    
+}
+
+void Character::checkCollisionDataInPostSolve(PhysicData* holderData , PhysicData* collisionData, b2Contact *contact, const b2ContactImpulse* impulse)
+{
+    if(holderData->data == this)
+    {
+        switch (holderData->fixtureId)
+        {
+            case BODY_MAIN_FIXTURE:
+            {
+                
+                if(collisionData!=NULL)
+                {
+                    
+                    switch (collisionData->bodyId) {
+                        case MAP_BASE:
+                        {
+                          
+                                                    }
+                            break;
+                            
+                        default:
+                            
+                            break;
+                    }
+                    
+                }
+                
+            }
+                break;
+                
+                
+            default:
+                break;
+        }
+        ///
+        
+    }
+    
 }

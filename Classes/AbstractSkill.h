@@ -36,6 +36,9 @@ protected:
     virtual void checkCollisionDataInBeginContact(PhysicData* holderData, PhysicData* collisionData, b2Contact *contact) = 0;
     virtual void checkCollisionDataInEndContact(PhysicData* holderData, PhysicData* collisionData, b2Contact *contact) = 0;
     
+    virtual void checkCollisionDataInPreSolve(PhysicData* holderData , PhysicData* collisionData, b2Contact *contact, const b2Manifold* oldManifold);
+    virtual void checkCollisionDataInPostSolve(PhysicData* holderData , PhysicData* collisionData, b2Contact *contact, const b2ContactImpulse* impulse);
+    
     virtual void setExcuteAble() = 0;
     
     CCAction *excuteAction, *stopAction, *coolDownAction;

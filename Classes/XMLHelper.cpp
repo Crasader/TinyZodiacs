@@ -152,6 +152,31 @@ bool  XMLHelper::readAttributeBool(const XMLElement* root, const char* attribute
     }
     return defaultValue;
 }
+bool  XMLHelper::readAttributeBoolString(const XMLElement* root, const char* attributeName, bool defaultValue)
+{
+    if(root != NULL)
+    {
+        if(root->Attribute(attributeName) == NULL)
+        {
+            return defaultValue;
+        }
+        std::string textValue = root->Attribute(attributeName);
+        
+        if(strcasecmp(textValue.c_str(), "true") == 0)
+        {
+            return true;
+        }
+        else if(strcasecmp(textValue.c_str(), "false") == 0)
+        {
+            return false;
+        }
+        else
+        {
+            return defaultValue;
+        }
+    }
+    return defaultValue;
+}
 
 const XMLElement* XMLHelper::loadElementById(const char* tagName, const char* key, const char* attributeName, const XMLElement* root)
 {

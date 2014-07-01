@@ -276,6 +276,46 @@ SensorObject* ObjectFactory::createSensorObject(SensorObjectDTO* sensorObjectDTO
     return sensorObject;
 }
 
+Wall* ObjectFactory::createWall(WallDTO* wallDTO, b2World* world)
+{
+    Wall* wall = Wall::create();
+    wall->setDeadWall(wallDTO->deadWall);
+    
+    b2EdgeShape edge;
+    edge.Set(b2Vec2(0,0),b2Vec2(wallDTO->edge_x/PTM_RATIO,wallDTO->edge_y/PTM_RATIO));
+    
+    // edge.SetAsBox(1/PTM_RATIO, 4);
+    
+    b2FixtureDef fixDef;
+    fixDef.shape = &edge;
+    fixDef.friction = 0;
+    
+    
+    PhysicData* data = new PhysicData();
+    data->gameObjectID = WALL;
+    data->bodyId = WALL_BODY;
+    
+    fixDef.userData = data;
+    
+    b2BodyDef bodyDef;
+    bodyDef.type = b2_staticBody;
+    bodyDef.angle = ccpToAngle(ccp(0,0));
+    
+    b2Body *body = world->CreateBody(&bodyDef);
+    body->CreateFixture(&fixDef);
+    
+    for (b2Fixture* f = body->GetFixtureList(); f; f = f->GetNext())
+    {
+        Util::setFixtureGroup(f, GROUP_WALL);
+    }
+    
+    wall->setSkin(body, NULL);
+    wall->setPositionInPixel(ccp(wallDTO->x, wallDTO->y));
+    wall->setGroup(TERRAIN);
+
+    return wall;
+}
+
 Tower* ObjectFactory::createTower(TowerStructDTO* towerStructDTO, b2World* world)
 {
     TowerDTO* towerDTO = DataCollector::getInstance()->getTowerDTOByKey(towerStructDTO->id.c_str());

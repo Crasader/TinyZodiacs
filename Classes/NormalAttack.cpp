@@ -31,6 +31,7 @@ NormalAttack::NormalAttack(GameObject* holder, NormalMeleeSkillData data): Abstr
 
 NormalAttack::~NormalAttack()
 {
+    stopImmediately();
     if(GameManager::getInstance()->getGameplayHolder().worldHolder != NULL)
     {
         data.getSkillSensor()->SetActive(false);
@@ -83,7 +84,7 @@ void NormalAttack::onCreate()
 
 void NormalAttack::destroy()
 {
-    stopImmediately();
+   //
     AbstractSkill::destroy();
 }
 
@@ -227,7 +228,7 @@ void NormalAttack::stopImmediately()
     //stop time tick
     if(this->timeTickAction != NULL)
     {
-        //            this->timeTickAction->stop();
+      
         if(this->timeTickAction->isDone() == false)
         {
             ScheduleManager::getInstance()->stopAction(this->timeTickAction);

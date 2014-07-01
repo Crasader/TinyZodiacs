@@ -42,7 +42,7 @@ bool Item::init()
 void Item::onCreate()
 {
     GameObject::onCreate();
-
+    
     for (b2Fixture* f = this->body->GetFixtureList(); f; f = f->GetNext())
     {
         PhysicData* physicData = new PhysicData();
@@ -94,7 +94,7 @@ void Item::appear()
 {
     if(this->appearAnimation != NULL)
     {
-//        CCAnimate* animate = CCAnimate::create(Util::getAnimationFromAnimationObject(this->appearAnimation));
+        //        CCAnimate* animate = CCAnimate::create(Util::getAnimationFromAnimationObject(this->appearAnimation));
         CCAnimate* animate = CCAnimate::create(this->appearAnimation->getAnimation());
         this->sprite->runAction(animate);
     }
@@ -149,7 +149,7 @@ void Item::prepareToDisappearInOpen()
     if(this->prepareToDisappearAnimation != NULL)
     {
         CCAnimate* animate = CCAnimate::create(this->prepareToDisappearAnimation->getAnimation());
-//           CCAnimate* animate = CCAnimate::create(Util::getAnimationFromAnimationObject(this->prepareToDisappearAnimation));
+        //           CCAnimate* animate = CCAnimate::create(Util::getAnimationFromAnimationObject(this->prepareToDisappearAnimation));
         arrSeq->addObject(animate);
     }
     CCCallFunc* disappearFunction = CCCallFunc::create(this, callfunc_selector(Item::disappear));
@@ -181,15 +181,17 @@ void Item::open(GameObject* openGameObject)
 
 void Item::checkCollisionDataInBeginContact(PhysicData* holderData, PhysicData* collisionData, b2Contact *contact)
 {
- 
+    
     if(!this->isActive)
     {
         return;
     }
+    GameObject::checkCollisionDataInBeginContact(holderData, collisionData, contact);
     if(holderData->data == this)
     {
         if(collisionData != NULL)
         {
+            
             switch (collisionData->gameObjectID) {
                 case SKILL_OBJECT:
                 {
@@ -202,13 +204,19 @@ void Item::checkCollisionDataInBeginContact(PhysicData* holderData, PhysicData* 
                 case PROJECTILE_OBJECT:
                 {
                     NormalProjectile* proj = static_cast<NormalProjectile*>(collisionData->data);
-            
+                    
                     open(NULL);
                 }
-           
-
+                    
+                case WALL:
+                    destroy();
                     break;
-                 
+                    
+                    
+                    
+                    
+                    break;
+                    
                     
                     
                 default:

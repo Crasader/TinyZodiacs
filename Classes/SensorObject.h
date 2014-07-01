@@ -20,9 +20,6 @@ class SensorObject: public GameObject
 private:
     
 protected:
-    void checkCollisionDataInBeginContact(PhysicData* data, b2Contact *contact, bool isSideA);
-    void checkCollisionDataInEndContact(PhysicData* data, b2Contact *contact, bool isSideA);
-
 public:
     CC_SYNTHESIZE(float, jumpHeight, JumpHeight);
     CC_SYNTHESIZE(float, moveSpeed, MoveSpeed);

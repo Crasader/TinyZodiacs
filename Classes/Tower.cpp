@@ -116,7 +116,7 @@ void Tower::setSensorGroup(uint16 group)
 
 void Tower::checkCollisionDataInBeginContact(PhysicData* holderData, PhysicData* collisionData, b2Contact *contact)
 {
-    
+    Character::checkCollisionDataInBeginContact(holderData, collisionData, contact);
     if(holderData->data == this)
     {
         if(collisionData != NULL)
@@ -160,12 +160,12 @@ void Tower::aimTarget()
             b2Vec2 towerPoint = getStartPoint(this->body, attack->getData().getJointDefA());
             
             b2Vec2 sp = targetPoint -  towerPoint;
-//            sp*=TOWER_VELOCITY;
+            //            sp*=TOWER_VELOCITY;
             NormalShootingSkillData data = attack->getData();
-//            data.setSpeedX(-sp.x);
-//            data.setSpeedY(sp.y);
-//            data.setSpeedX(-(cos(atan2(sp.y, sp.x))*data.getSpeedX()));
-//            data.setSpeedY((sin(atan2(sp.y, sp.x))*data.getSpeedX()));
+            //            data.setSpeedX(-sp.x);
+            //            data.setSpeedY(sp.y);
+            //            data.setSpeedX(-(cos(atan2(sp.y, sp.x))*data.getSpeedX()));
+            //            data.setSpeedY((sin(atan2(sp.y, sp.x))*data.getSpeedX()));
             float calculatedAngle = atan2(sp.y, sp.x);
             if(targetPoint.x > towerPoint.x)
             {
@@ -274,10 +274,10 @@ uint16  Tower::getCorrectGroup(Group group)
     {
         case A:
             return GROUP_TOWER_A;
-//            return GROUP_A;
+            //            return GROUP_A;
         case B:
             return GROUP_TOWER_B;
-//            return GROUP_B;
+            //            return GROUP_B;
         default:
             return GROUP_NEUTRUAL;
     }
@@ -342,4 +342,14 @@ void Tower::setSensor(const char* bodyId)
     sc->addFixturesToBody(this->body, bodyId, data);
     
     this->sensor = Util::getFixtureById(this->body, TOWER_SENSOR_FIXTURE);
+}
+
+void Tower::die()
+{
+    Character::die();
+    
+    AnimationEffect* effect = AnimationEffect::create();
+    effect->setAnimation("effect-explosion3");
+    
+    EffectManager::getInstance()->runEffect(effect, this->getPositionInPixel(), ABOVE_CHARACTER_LAYER);
 }

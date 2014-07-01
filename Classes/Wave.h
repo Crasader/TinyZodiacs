@@ -19,6 +19,7 @@ class Wave;
 #include "ItemCreator.h"
 
 USING_NS_CC;
+using namespace std;
 
 class Wave: public CCObject
 {
@@ -27,7 +28,8 @@ protected:
   
     CC_SYNTHESIZE(CCArray*, listMonsterFactory, ListMonsterFactory);
     CC_SYNTHESIZE(CCArray*, listItemCreator, ListItemCreator);
-    CC_SYNTHESIZE(std::string, musicID, MusicID);
+    CC_SYNTHESIZE(string, musicID, MusicID);
+    CC_SYNTHESIZE(string , name, Name);
     int monsterQuantity;
 
 public:

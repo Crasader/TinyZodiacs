@@ -55,6 +55,8 @@ protected:
 public:
     virtual void checkCollisionDataInBeginContact(PhysicData* holderData, PhysicData* collisionData, b2Contact *contact);
     virtual void checkCollisionDataInEndContact(PhysicData* holderData, PhysicData* collisionData, b2Contact *contact);
+    virtual void checkCollisionDataInPreSolve(PhysicData* holderData , PhysicData* collisionData, b2Contact *contact, const b2Manifold* oldManifold);
+    virtual void checkCollisionDataInPostSolve(PhysicData* holderData , PhysicData* collisionData, b2Contact *contact, const b2ContactImpulse* impulse);
     GameObject();
     ~GameObject();
     float32 isPassingThroughBody;
@@ -86,6 +88,8 @@ public:
     virtual void PreSolve(b2Contact* contact, const b2Manifold* oldManifold);
     virtual void PostSolve(b2Contact* contact, const b2ContactImpulse* impulse);
 
+    
+    
     virtual void setGroup(Group group);
     virtual uint16 getPhysicGroup();
     

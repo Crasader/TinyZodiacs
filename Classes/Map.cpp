@@ -27,6 +27,10 @@ Map::Map()
     this->listItemCreator->retain();
     this->listWave = CCArray::create();
     this->listWave->retain();
+    this->listWall = CCArray::create();
+    this->listWall->retain();
+    
+    
 }
 
 Map::~Map()
@@ -35,6 +39,7 @@ Map::~Map()
     CC_SAFE_RELEASE_NULL(listSensorObject);
     CC_SAFE_RELEASE_NULL(listItemCreator);
     CC_SAFE_RELEASE_NULL(listWave);
+    CC_SAFE_RELEASE_NULL(listWall);
 }
 
 bool Map::init()
@@ -84,6 +89,14 @@ void Map::addSensorObject(SensorObject* sensorObject)
     if(sensorObject != NULL)
     {
         this->listSensorObject->addObject(sensorObject);
+    }
+}
+
+void Map::addWall(Wall* wall)
+{
+    if(wall != NULL)
+    {
+        this->listWall->addObject(wall);
     }
 }
 

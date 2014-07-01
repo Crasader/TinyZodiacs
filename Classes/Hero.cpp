@@ -19,7 +19,7 @@ bool Hero::init()
     {
         return false;
     }
-    this->sprite = CCSprite::createWithSpriteFrameName("cat_idle_1.png");
+    this->sprite = CCSprite::create();
     
     return true;
 }
@@ -149,56 +149,7 @@ bool Hero::receiveCommand(CommandID commandID, void* data)
 
 void Hero::update(float dt)
 {
-    
     Character::update(dt);
-    
-    //
-    //    if(this->normalAttack->getSkillButtonID()!= UNKNOWN && ControllerManager::getInstance()->isRegisteredWith(HERO_CONTROLLER, this));
-    //    {
-    //        StateCommandData *data = new StateCommandData();
-    //        data->controllerId = this->normalAttack->getSkillButtonID();
-    //        if(this->normalAttack->getIsExcutable())
-    //        {
-    //            data->isActive = true;
-    //        }
-    //        else
-    //        {
-    //            data->isActive = false;
-    //        }
-    //        ControllerManager::getInstance()->sendCommand(HERO_CONTROLLER, CHANGE_STATE, data);
-    //    }
-    //
-    //    if(this->skill1->getSkillButtonID()!= UNKNOWN && ControllerManager::getInstance()->isRegisteredWith(HERO_CONTROLLER, this));
-    //    {
-    //        StateCommandData *data = new StateCommandData();
-    //        data->controllerId = this->skill1->getSkillButtonID();
-    //        if(this->skill1->getIsExcutable())
-    //        {
-    //            CCLOG("a");
-    //            data->isActive = true;
-    //        }
-    //        else
-    //        {
-    //            data->isActive = false;
-    //        }
-    //        ControllerManager::getInstance()->sendCommand(HERO_CONTROLLER, CHANGE_STATE, data);
-    //    }
-    //
-    //    if(this->skill2->getSkillButtonID()!= UNKNOWN && ControllerManager::getInstance()->isRegisteredWith(HERO_CONTROLLER, this));
-    //    {
-    //        StateCommandData *data = new StateCommandData();
-    //        data->controllerId = this->skill2->getSkillButtonID();
-    //        if(this->skill2->getIsExcutable())
-    //        {
-    //            data->isActive = true;
-    //        }
-    //        else
-    //        {
-    //            data->isActive = false;
-    //        }
-    //        ControllerManager::getInstance()->sendCommand(HERO_CONTROLLER, CHANGE_STATE, data);
-    //    }
-    
 }
 
 void Hero::notifyUIChange(void* data)

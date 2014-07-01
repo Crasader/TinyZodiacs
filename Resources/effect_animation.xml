@@ -31,7 +31,7 @@
         </framelist>
     </animation>
     
-    <animation name="explosion3" delay="0.025">
+    <animation name="explosion3" delay="0.05">
         <origin x="0.5" y="0.5" />
         <framelist>
             <frame name="magic_mass_bomb_end_1.png" />
@@ -48,7 +48,7 @@
     </animation>
     
 
-    <animation name="explosion" delay="0.025">
+    <animation name="explosion" delay="0.05">
         <origin x="0.5" y="0.5" />
         <framelist>
             <frame name="magic_mass_bomb_start_1.png" />

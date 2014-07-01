@@ -28,6 +28,7 @@ public:
     float y;
     float edge_x;
     float edge_y;
+    bool deadWall;
     
     CREATE_FUNC(WallDTO);
 };

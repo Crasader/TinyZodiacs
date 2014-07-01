@@ -23,7 +23,7 @@ GameplayLayer::GameplayLayer()
     
     this->defenseList = CCArray::create();
     this->defenseList->retain();
-    
+    this->mainLayout = NULL;
 }
 
 GameplayLayer::~GameplayLayer()
@@ -48,7 +48,7 @@ bool GameplayLayer::init()
     
     ul->setScale(CCDirector::sharedDirector()->getWinSize().width/ul->getSize().width, CCDirector::sharedDirector()->getWinSize().height/ul->getSize().height);
     
-    
+    this->mainLayout = ul;
     this->addWidget(ul);
     
     
@@ -65,15 +65,17 @@ void GameplayLayer::loadAllUI(cocos2d::gui::Widget* ul)
     
     this->defenseListGroup = (Layout*)ul->getChildByName("defense_list_group");
     this->actionControlPanel = (Layout*)ul->getChildByName("controller_layer")->getChildByName("action_control_panel");
+    this->movingControlPanel = (Layout*)ul->getChildByName("controller_layer")->getChildByName("movement_control_panel");
+    
     //Getbutton
     cocos2d::gui::Button *BtnLeft,*BtnRight,*BtnJump,*BtnSkill0,*BtnSkill1,*BtnSkill2;
     
-    BtnLeft  = (cocos2d::gui::Button*)ul->getChildByName("controller_layer")->getChildByName("movement_control_panel")->getChildByName("left_button");
-    BtnRight  = (cocos2d::gui::Button*)ul->getChildByName("controller_layer")->getChildByName("movement_control_panel")->getChildByName("right_button");
-    BtnJump  = (cocos2d::gui::Button*)ul->getChildByName("controller_layer")->getChildByName("action_control_panel")->getChildByName("jump_button");
-    BtnSkill0  = (cocos2d::gui::Button*)ul->getChildByName("controller_layer")->getChildByName("action_control_panel")->getChildByName("skill_0_button");
-    BtnSkill1  = (cocos2d::gui::Button*)ul->getChildByName("controller_layer")->getChildByName("action_control_panel")->getChildByName("skill_1_button");
-    BtnSkill2  = (cocos2d::gui::Button*)ul->getChildByName("controller_layer")->getChildByName("action_control_panel")->getChildByName("skill_2_button");
+    BtnLeft  = (cocos2d::gui::Button*)this->movingControlPanel->getChildByName("left_button");
+    BtnRight  = (cocos2d::gui::Button*)this->movingControlPanel->getChildByName("right_button");
+    BtnJump  = (cocos2d::gui::Button*)this->actionControlPanel->getChildByName("jump_button");
+    BtnSkill0  = (cocos2d::gui::Button*)this->actionControlPanel->getChildByName("skill_0_button");
+    BtnSkill1  = (cocos2d::gui::Button*)this->actionControlPanel->getChildByName("skill_1_button");
+    BtnSkill2  = (cocos2d::gui::Button*)this->actionControlPanel->getChildByName("skill_2_button");
     
     this->btnLeft = HoldableButton::create();
     this->btnRight = HoldableButton::create();
@@ -94,9 +96,11 @@ void GameplayLayer::loadAllUI(cocos2d::gui::Widget* ul)
     
     //Get label and process
     lblWave  = (cocos2d::gui::LabelBMFont*)ul->getChildByName("information_layer")->getChildByName("wave_information_panel")->getChildByName("wave_text");
+    lblWave->setText("");
     lblTimeLeft  = (cocos2d::gui::LabelBMFont*)ul->getChildByName("information_layer")->getChildByName("time_panel")->getChildByName("time_left_text");
     lblMoney  = (cocos2d::gui::LabelBMFont*)ul->getChildByName("information_layer")->getChildByName("money_panel")->getChildByName("money_text");
     lblMonsterLeft  = (cocos2d::gui::LabelBMFont*)ul->getChildByName("information_layer")->getChildByName("wave_information_panel")->getChildByName("monster_left_text");
+    lblMonsterLeft->setText("");
     
     btnPause = (cocos2d::gui::UIButton*)ul->getChildByName("information_layer")->getChildByName("time_panel")->getChildByName("pause_button");
     //
@@ -112,12 +116,17 @@ void GameplayLayer::loadAllUI(cocos2d::gui::Widget* ul)
     this->btnPause->addTouchEventListener(this, toucheventselector(GameplayLayer::pauseButtonTouchEvent));
     
     this->lvDefense = (ListView*)this->defenseListGroup->getChildByName("defense_list_panel")->getChildByName("defense_list");
+    this->lvDefense->setItemsMargin(10);
     this->lvDefense->setGravity(LISTVIEW_GRAVITY_CENTER_VERTICAL);
     this->lvDefense->setTouchEnabled(false);
     
-    this->actionControlPanel->getChildByName("defense_list_open_button")->addTouchEventListener(this, toucheventselector(GameplayLayer::openDefenseListButtonTouchEvent));
+    this->btnOpenDefenseList =  (Button*)this->actionControlPanel->getChildByName("defense_list_open_button");
     
-    this->defenseListGroup->getChildByName("defense_list_toggle")->addTouchEventListener(this, toucheventselector(GameplayLayer::closeDefenseListButtonTouchEvent));
+    this->btnOpenDefenseList->addTouchEventListener(this, toucheventselector(GameplayLayer::openDefenseListButtonTouchEvent));
+    
+    this->btnCloseDefenseList = (Button*)this->defenseListGroup->getChildByName("defense_list_toggle");
+    
+    this->btnCloseDefenseList->addTouchEventListener(this, toucheventselector(GameplayLayer::closeDefenseListButtonTouchEvent));
     
     this->lvDefense->setBounceEnabled(true);
     this->lvDefense->setInertiaScrollEnabled(false);
@@ -157,9 +166,9 @@ void GameplayLayer::setTimeValue(int number)
     this->lblTimeLeft->setText(CCString::createWithFormat("%d",number)->getCString());
 }
 
-void GameplayLayer::setWaveValue(int number)
+void GameplayLayer::setWaveValue(const char* waveName)
 {
-    this->lblWave->setText(CCString::createWithFormat("Wave %d",number)->getCString());
+    this->lblWave->setText(CCString::createWithFormat("%s",waveName)->getCString());
 }
 
 void GameplayLayer::setMonsterProcessValue(int maxMonsterQuantity, int currentMonsterQuantity)
@@ -174,7 +183,8 @@ bool GameplayLayer::receiveCommand(CommandID commandID, void* data)
     {
         case DISPLAY_NEW_WAVE:
         {
-            int* waveNumber = static_cast<int*>(data);
+            CCString* waveName = static_cast<CCString*>(data);
+            //            static_cast<char*>(data);
             
             CCSize size = CCDirector::sharedDirector()->getWinSize();
             
@@ -182,20 +192,34 @@ bool GameplayLayer::receiveCommand(CommandID commandID, void* data)
             labelStyle->setOpacity(100);
             
             TextShowEffect* effect = TextShowEffect::create();
-            effect->setContent(CCString::createWithFormat("Wave %d", *waveNumber)->getCString());
+            effect->setContent(waveName->getCString());
             effect->setLabelStyle(labelStyle);
             
             EffectManager::getInstance()->runEffect(effect, ccp(size.width/2, size.height/2),this);
-            
-            setWaveValue(*waveNumber);
-            delete waveNumber;
+            setWaveValue(waveName->getCString());
+            waveName->release();
+            //            int* waveNumber = static_cast<int*>(data);
+            //
+            //            CCSize size = CCDirector::sharedDirector()->getWinSize();
+            //
+            //            CCLabelTTF* labelStyle = CCLabelTTF::create("", "Marker Felt", 150);
+            //            labelStyle->setOpacity(100);
+            //
+            //            TextShowEffect* effect = TextShowEffect::create();
+            //            effect->setContent(CCString::createWithFormat("Wave %d", *waveNumber)->getCString());
+            //            effect->setLabelStyle(labelStyle);
+            //
+            //            EffectManager::getInstance()->runEffect(effect, ccp(size.width/2, size.height/2),this);
+            //
+            //            setWaveValue(*waveNumber);
+            //            delete waveNumber;
         }
             break;
         case DISPLAY_RESULT:
         {
-            int* waveNumber = static_cast<int*>(data);
+            int* result = static_cast<int*>(data);
             resultImage->setVisible(true);
-            if(*waveNumber == 0)
+            if(*result == 0)
             {
                 resultImage->loadTexture("defeat_title.png",UI_TEX_TYPE_PLIST);
             }
@@ -204,8 +228,7 @@ bool GameplayLayer::receiveCommand(CommandID commandID, void* data)
                 resultImage->loadTexture("victory_title.png",UI_TEX_TYPE_PLIST);
                 
             }
-            setWaveValue(*waveNumber);
-            delete waveNumber;
+            delete result;
         }
             break;
             
@@ -251,7 +274,6 @@ bool GameplayLayer::receiveCommand(CommandID commandID, void* data)
                 switch (mData->controllerId) {
                     case SKILL_0_BTN:
                         setButtonDisable(this->btnSkill0, !mData->isActive);
-                        
                         break;
                     case SKILL_1_BTN:
                         setButtonDisable(this->btnSkill1, !mData->isActive);
@@ -278,6 +300,7 @@ bool GameplayLayer::receiveCommand(CommandID commandID, void* data)
             //
             //            this->actionControlPanel->setVisible(false);
             
+            setDisableUI(true);
         }
             break;
         case VISIBLE_ALL_HERO_CONTROLLER:
@@ -290,6 +313,7 @@ bool GameplayLayer::receiveCommand(CommandID commandID, void* data)
             //            this->btnSkill2->setVisible(true);
             //
             //            this->actionControlPanel->setVisible(true);
+            setDisableUI(false);
         }
             break;
             
@@ -333,7 +357,6 @@ void GameplayLayer::leftButtonTouchEvent(CCObject* sender, cocos2d::gui::TouchEv
             ControllerManager::getInstance()->sendCommand(HERO_CONTROLLER,  HERO_MOVE_STOP);
             break;
         case cocos2d::gui::TOUCH_EVENT_ENDED:
-            
             ControllerManager::getInstance()->sendCommand(HERO_CONTROLLER,  HERO_MOVE_STOP);
             break;
         default:
@@ -500,6 +523,16 @@ void GameplayLayer::deactiveActionControl()
     this->actionControlPanel->setEnabled(false);
 }
 
+void GameplayLayer::activeMovingControl()
+{
+    this->movingControlPanel->setEnabled(true);
+}
+
+void GameplayLayer::deactiveMovingControl()
+{
+    this->movingControlPanel->setEnabled(false);
+}
+
 void GameplayLayer::openActionControlPanel()
 {
     this->actionControlPanel->stopAllActions();
@@ -519,6 +552,27 @@ void GameplayLayer::closeActionControlPanel()
     CCCallFunc* deactiveActionControl = CCCallFunc::create(this, callfunc_selector(GameplayLayer::deactiveActionControl));
     this->actionControlPanel->runAction(CCSequence::create(fadeOut, deactiveActionControl,NULL));
 }
+
+void GameplayLayer::openMovingControlPanel()
+{
+    this->movingControlPanel->stopAllActions();
+    setEnableWidgetInMovingControl(true);
+    activeMovingControl();
+    CCFadeIn* fadeIn = CCFadeIn::create(0.2f);
+    //
+    //    CCCallFunc* finishAnimationCallfunc = CCCallFunc::create(this, callfunc_selector(GameplayLayer::finishAnimationOfActionControl));
+    this->movingControlPanel->runAction(CCSequence::create(fadeIn, NULL ));
+}
+
+void GameplayLayer::closeMovingControlPanel()
+{
+    this->movingControlPanel->stopAllActions();
+    setEnableWidgetInMovingControl(false);
+    CCFadeOut* fadeOut = CCFadeOut::create(0.2f);
+    CCCallFunc* deactiveActionControl = CCCallFunc::create(this, callfunc_selector(GameplayLayer::deactiveMovingControl));
+    this->actionControlPanel->runAction(CCSequence::create(fadeOut, deactiveActionControl,NULL));
+}
+
 
 void GameplayLayer::openDefenseListGroup()
 {
@@ -600,6 +654,22 @@ void GameplayLayer::setEnableWidgetInActionControl(bool able)
     }
 }
 
+void GameplayLayer::setEnableWidgetInMovingControl(bool able)
+{
+    if(able)
+    {
+        
+        this->btnLeft->setTouchEnabled(true);
+        this->btnRight->setTouchEnabled(true);
+        
+    }
+    else
+    {
+        this->btnLeft->setTouchEnabled(false);
+        this->btnRight->setTouchEnabled(false);
+    }
+}
+
 void GameplayLayer::setButtonDisable(cocos2d::gui::Button* button, bool disable)
 {
     if(disable)
@@ -623,11 +693,17 @@ void GameplayLayer::loadDefenseList()
         DefenseDTO* defenseDTO = static_cast<DefenseDTO*>(object);
         
         Layout* layout = Layout::create();
-        layout->setSize(CCSize(150,150));
+        layout->setSize(CCSize(100,100));
+        
         //
         //        layout->setBackGroundColorType(LAYOUT_COLOR_SOLID);
         //        layout->setBackGroundColor(ccc3(255,0,0));
-        
+        Label* lbCost = Label::create();
+        lbCost->setColor(ccc3(100,100,100));
+        lbCost->setFontName("Marker Felt");
+        lbCost->setFontSize(20);
+        lbCost->setText(CCString::createWithFormat("%d G",defenseDTO->cost)->getCString());
+        lbCost->setPosition(ccp(layout->getSize().width,0));
         Button* button = Button::create();
         
         button->ignoreContentAdaptWithSize(false);
@@ -643,6 +719,7 @@ void GameplayLayer::loadDefenseList()
         button->addTouchEventListener(this, toucheventselector(GameplayLayer::listItemTouchEvent));
         
         layout->addChild(button, 0, 1);
+        layout->addChild(lbCost);
         layout->setUserData(defenseDTO);
         
         this->lvDefense->pushBackCustomItem(layout);
@@ -661,7 +738,6 @@ void GameplayLayer::listItemTouchEvent(CCObject* sender, cocos2d::gui::TouchEven
         case cocos2d::gui::TOUCH_EVENT_HOLD:
             break;
         case cocos2d::gui::TOUCH_EVENT_CANCELED:
-            CCLOG("fuck");
             break;
         case cocos2d::gui::TOUCH_EVENT_ENDED:
         {
@@ -690,12 +766,29 @@ void GameplayLayer::refeshDefenseListView(int cost)
             Button* button = static_cast<Button*>(layout->getChildByTag(1));
             button->setBright(false);
             button->setTouchEnabled(false);
+            layout->setColor(ccc3(170,170,170));
         }
         else
         {
             Button* button = static_cast<Button*>(layout->getChildByTag(1));
             button->setBright(true);
             button->setTouchEnabled(true);
+            layout->setColor(ccc3(255,255,255));
         }
+    }
+}
+
+void GameplayLayer::setDisableUI(bool disable)
+{
+    if(disable)
+    {
+        closeActionControlPanel();
+        closeDefenseListGroup();
+        closeMovingControlPanel();
+    }
+    else
+    {
+        openActionControlPanel();
+        openMovingControlPanel();
     }
 }
