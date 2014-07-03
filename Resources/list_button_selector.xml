@@ -7,9 +7,15 @@
     <button id="4" active_texture="40.png" selected_texture="41.png" deactive_texture="42.png"></button>
     <button id="5" active_texture="50.png" selected_texture="51.png" deactive_texture="52.png"></button>
     <button id="6" active_texture="60.png" selected_texture="61.png" deactive_texture="62.png"></button>
+    <button id="map1_selector" active_texture="map1_thumbnail_active.png" selected_texture="map1_thumbnail_selected.png" deactive_texture="62.png"></button>
+    <button id="map2_selector" active_texture="map2_thumbnail_active.png" selected_texture="map2_thumbnail_selected.png" deactive_texture="62.png"></button>
     <button id="hero_cat_selector" active_texture="cat_thumbnail_active.png" selected_texture="cat_thumbnail_selected.png" deactive_texture="cat_thumbnail_deactive.png"></button>
     <button id="hero_monkey_selector" active_texture="monkey_thumbnail_active.png" selected_texture="monkey_thumbnail_selected.png" deactive_texture="monkey_thumbnail_deactive.png"></button>
     <button id="hero_pig_selector" active_texture="pig_thumbnail_active.png" selected_texture="pig_thumbnail_selected.png" deactive_texture="pig_thumbnail_deactive.png"></button>
     <button id="defense_tower1_selector" active_texture="tower1_thumbnail_active.png" selected_texture="tower1_thumbnail_selected.png" deactive_texture="tower1_thumbnail_deactive.png"></button>
     <button id="defense_tower2_selector" active_texture="tower2_thumbnail_active.png" selected_texture="tower2_thumbnail_selected.png" deactive_texture="tower2_thumbnail_deactive.png"></button>
+    <button id="defense_tower3_selector" active_texture="thunder_god_thumbnail.png" selected_texture="thunder_god_thumbnail_selected.png" deactive_texture="thunder_god_thumbnail_deactive.png"></button>
+    <button id="defense_tower4_selector" active_texture="water_god_thumbnail.png" selected_texture="water_god_thumbnail_selected.png" deactive_texture="water_god_thumbnail_deactive.png"></button>
+    <button id="defense_tower5_selector" active_texture="fire_bird_thumnail.png" selected_texture="fire_bird_thumnail_selected.png" deactive_texture="fire_bird_thumnail_deactive.png"></button>
+    <button id="defense_tower6_selector" active_texture="ice_bird_thumbnail.png" selected_texture="ice_bird_thumbnail_selected.png" deactive_texture="ice_bird_thumbnail_deactive.png"></button>
 </button_selector_list>

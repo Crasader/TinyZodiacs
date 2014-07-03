@@ -411,6 +411,14 @@
 		F51A482B19454D0B00E61987 /* HeroSelectLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F51A482919454D0B00E61987 /* HeroSelectLayer.cpp */; };
 		F51AC64C1960FDA400040CC2 /* skeleton_animation.xml in Resources */ = {isa = PBXBuildFile; fileRef = F51AC64B1960FDA400040CC2 /* skeleton_animation.xml */; };
 		F51AC64E1960FE1500040CC2 /* monster_skeleton.xml in Resources */ = {isa = PBXBuildFile; fileRef = F51AC64D1960FE1500040CC2 /* monster_skeleton.xml */; };
+		F51FF7581964FAA500C1D627 /* tower_3_animation.xml in Resources */ = {isa = PBXBuildFile; fileRef = F51FF7501964FAA500C1D627 /* tower_3_animation.xml */; };
+		F51FF7591964FAA500C1D627 /* tower_3.xml in Resources */ = {isa = PBXBuildFile; fileRef = F51FF7511964FAA500C1D627 /* tower_3.xml */; };
+		F51FF75A1964FAA500C1D627 /* tower_4_animation.xml in Resources */ = {isa = PBXBuildFile; fileRef = F51FF7521964FAA500C1D627 /* tower_4_animation.xml */; };
+		F51FF75B1964FAA500C1D627 /* tower_4.xml in Resources */ = {isa = PBXBuildFile; fileRef = F51FF7531964FAA500C1D627 /* tower_4.xml */; };
+		F51FF75C1964FAA500C1D627 /* tower_5_animation.xml in Resources */ = {isa = PBXBuildFile; fileRef = F51FF7541964FAA500C1D627 /* tower_5_animation.xml */; };
+		F51FF75D1964FAA500C1D627 /* tower_5.xml in Resources */ = {isa = PBXBuildFile; fileRef = F51FF7551964FAA500C1D627 /* tower_5.xml */; };
+		F51FF75E1964FAA500C1D627 /* tower_6_animation.xml in Resources */ = {isa = PBXBuildFile; fileRef = F51FF7561964FAA500C1D627 /* tower_6_animation.xml */; };
+		F51FF75F1964FAA500C1D627 /* tower_6.xml in Resources */ = {isa = PBXBuildFile; fileRef = F51FF7571964FAA500C1D627 /* tower_6.xml */; };
 		F52678F318EEAEA500CE1E3B /* arial.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F52678E518EEAEA500CE1E3B /* arial.ttf */; };
 		F52678F418EEAEA500CE1E3B /* Marker Felt.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F52678E618EEAEA500CE1E3B /* Marker Felt.ttf */; };
 		F53ACBAF18D831C700F958A8 /* map2.xml in Resources */ = {isa = PBXBuildFile; fileRef = F53ACBAE18D831C700F958A8 /* map2.xml */; };
@@ -1261,6 +1269,14 @@
 		F51A482A19454D0B00E61987 /* HeroSelectLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HeroSelectLayer.h; sourceTree = "<group>"; };
 		F51AC64B1960FDA400040CC2 /* skeleton_animation.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = skeleton_animation.xml; sourceTree = "<group>"; };
 		F51AC64D1960FE1500040CC2 /* monster_skeleton.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = monster_skeleton.xml; sourceTree = "<group>"; };
+		F51FF7501964FAA500C1D627 /* tower_3_animation.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = tower_3_animation.xml; sourceTree = "<group>"; };
+		F51FF7511964FAA500C1D627 /* tower_3.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = tower_3.xml; sourceTree = "<group>"; };
+		F51FF7521964FAA500C1D627 /* tower_4_animation.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = tower_4_animation.xml; sourceTree = "<group>"; };
+		F51FF7531964FAA500C1D627 /* tower_4.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = tower_4.xml; sourceTree = "<group>"; };
+		F51FF7541964FAA500C1D627 /* tower_5_animation.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = tower_5_animation.xml; sourceTree = "<group>"; };
+		F51FF7551964FAA500C1D627 /* tower_5.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = tower_5.xml; sourceTree = "<group>"; };
+		F51FF7561964FAA500C1D627 /* tower_6_animation.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = tower_6_animation.xml; sourceTree = "<group>"; };
+		F51FF7571964FAA500C1D627 /* tower_6.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = tower_6.xml; sourceTree = "<group>"; };
 		F52678E518EEAEA500CE1E3B /* arial.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = arial.ttf; sourceTree = "<group>"; };
 		F52678E618EEAEA500CE1E3B /* Marker Felt.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Marker Felt.ttf"; sourceTree = "<group>"; };
 		F53ACBAE18D831C700F958A8 /* map2.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = map2.xml; sourceTree = "<group>"; };
@@ -2143,6 +2159,10 @@
 		2D0DA14F1908F6D000881C8D /* Towers */ = {
 			isa = PBXGroup;
 			children = (
+				F51FF7511964FAA500C1D627 /* tower_3.xml */,
+				F51FF7531964FAA500C1D627 /* tower_4.xml */,
+				F51FF7551964FAA500C1D627 /* tower_5.xml */,
+				F51FF7571964FAA500C1D627 /* tower_6.xml */,
 				F5831B121945A4420055798F /* defense_list.xml */,
 				F5FA2BB3194054B300583009 /* maincrystal.xml */,
 				2D0DA1521908F72200881C8D /* tower_1.xml */,
@@ -3278,6 +3298,10 @@
 		F5FA1C3E194ED445002C73E2 /* Animation */ = {
 			isa = PBXGroup;
 			children = (
+				F51FF7501964FAA500C1D627 /* tower_3_animation.xml */,
+				F51FF7521964FAA500C1D627 /* tower_4_animation.xml */,
+				F51FF7541964FAA500C1D627 /* tower_5_animation.xml */,
+				F51FF7561964FAA500C1D627 /* tower_6_animation.xml */,
 				34BCBED11962C5C9000BA5C5 /* ghost_1_animation.xml */,
 				F51AC64B1960FDA400040CC2 /* skeleton_animation.xml */,
 				517E84AD195846C200881FC4 /* skill_animation.xml */,
@@ -3374,6 +3398,7 @@
 				348341F41959E37200173C2A /* magic_ice_ball_start.wav in Resources */,
 				348342011959E9DC00173C2A /* LR_Vo_Death01.wav in Resources */,
 				34CC3F3D1951799600CB46F0 /* PauseLayer.ExportJson in Resources */,
+				F51FF75B1964FAA500C1D627 /* tower_4.xml in Resources */,
 				F5FA1C58194ED799002C73E2 /* onion_invert_animation.xml in Resources */,
 				34BCBED21962C5C9000BA5C5 /* ghost_1_animation.xml in Resources */,
 				34CC3F3219513F1400CB46F0 /* ControllerLayer_1.ExportJson in Resources */,
@@ -3392,7 +3417,9 @@
 				517E84C8195847B700881FC4 /* monster_onion.xml in Resources */,
 				343638CA1944A92D00602F87 /* MapSelectScene_1.ExportJson in Resources */,
 				34BCBEC61962B3A1000BA5C5 /* skill_body.plist in Resources */,
+				F51FF75A1964FAA500C1D627 /* tower_4_animation.xml in Resources */,
 				348341F11959E37200173C2A /* magic_firepillar_end.wav in Resources */,
+				F51FF75C1964FAA500C1D627 /* tower_5_animation.xml in Resources */,
 				F544FB9918D93CC100A818DF /* map2_body.plist in Resources */,
 				517E84B0195846C200881FC4 /* list_projectile.xml in Resources */,
 				D4EF949C15BD2D8E00D803EB /* Icon-114.png in Resources */,
@@ -3421,6 +3448,7 @@
 				F5FA2BB4194054B300583009 /* maincrystal.xml in Resources */,
 				348341F51959E37200173C2A /* magic_water_ball_end.wav in Resources */,
 				348341EF1959E37200173C2A /* magic_energyball_middle.wav in Resources */,
+				F51FF75D1964FAA500C1D627 /* tower_5.xml in Resources */,
 				3446809F1943044100FECCE8 /* MapListItem0.plist in Resources */,
 				517E84B1195846C200881FC4 /* skill_animation.xml in Resources */,
 				F52678F418EEAEA500CE1E3B /* Marker Felt.ttf in Resources */,
@@ -3447,6 +3475,7 @@
 				3483420A1959EAAE00173C2A /* SS_Vo_Hurt01.wav in Resources */,
 				34B249AD194FFF7C0072B34B /* MainMenuLayer_1.ExportJson in Resources */,
 				F5FA1C55194ED750002C73E2 /* coin1_animation.xml in Resources */,
+				F51FF7581964FAA500C1D627 /* tower_3_animation.xml in Resources */,
 				F51AC64E1960FE1500040CC2 /* monster_skeleton.xml in Resources */,
 				348341FC1959E98D00173C2A /* GCS_Vo_Hurt01.wav in Resources */,
 				348341EB1959E37200173C2A /* magic_bomb_end.wav in Resources */,
@@ -3464,6 +3493,7 @@
 				342ABFC1194EF61400513B48 /* MainMenuLayer0.png in Resources */,
 				517E84B61958475200881FC4 /* item_body.plist in Resources */,
 				F5FA1C4A194ED741002C73E2 /* cat_animation.xml in Resources */,
+				F51FF7591964FAA500C1D627 /* tower_3.xml in Resources */,
 				F5FA1C50194ED741002C73E2 /* pig_animation.xml in Resources */,
 				348341EC1959E37200173C2A /* magic_bomb_middle.wav in Resources */,
 				517E84C4195847B700881FC4 /* character_cat.xml in Resources */,
@@ -3488,6 +3518,7 @@
 				F58095C0195850640011C3D0 /* 32bit in Resources */,
 				34BCBECC1962BC69000BA5C5 /* dark_cornian_animation.xml in Resources */,
 				348341DE1959E1B400173C2A /* skill_sounds.xml in Resources */,
+				F51FF75E1964FAA500C1D627 /* tower_6_animation.xml in Resources */,
 				34F69CD219415A61005DD696 /* cat_jump.wav in Resources */,
 				348341FB1959E98D00173C2A /* GCS_Vo_Death01.wav in Resources */,
 				F5FA1C39194ED1B8002C73E2 /* monster_monkey.xml in Resources */,
@@ -3509,6 +3540,7 @@
 				34BCBED41962C7AB000BA5C5 /* monster_ghost_1.xml in Resources */,
 				340423D3193D8F4700223029 /* test_sheet.png in Resources */,
 				348341FA1959E98D00173C2A /* GCS_Vo_Attack01.wav in Resources */,
+				F51FF75F1964FAA500C1D627 /* tower_6.xml in Resources */,
 				F5FA1C49194ED741002C73E2 /* bull_animation.xml in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

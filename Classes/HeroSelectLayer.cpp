@@ -38,6 +38,7 @@ bool HeroSelectLayer::init()
     
     lvHeroPreview->setGravity(cocos2d::gui::LISTVIEW_GRAVITY_CENTER_VERTICAL);
     lvHeroPreview->setItemsMargin(50);
+    lvHeroPreview->setBounceEnabled(true);
     loadHeroPreviewList();
     return true;
 }

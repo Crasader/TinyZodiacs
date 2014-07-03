@@ -19,6 +19,10 @@ bool AnimationLoader::loadData()
     AnimationLoader::loadDataByFileName("effect_animation.xml");
     AnimationLoader::loadDataByFileName("tower_1_animation.xml");
     AnimationLoader::loadDataByFileName("tower_2_animation.xml");
+    AnimationLoader::loadDataByFileName("tower_3_animation.xml");
+    AnimationLoader::loadDataByFileName("tower_4_animation.xml");
+    AnimationLoader::loadDataByFileName("tower_5_animation.xml");
+    AnimationLoader::loadDataByFileName("tower_6_animation.xml");
     AnimationLoader::loadDataByFileName("creep_1_animation.xml");
     AnimationLoader::loadDataByFileName("pig_animation.xml");
     AnimationLoader::loadDataByFileName("bull_animation.xml");

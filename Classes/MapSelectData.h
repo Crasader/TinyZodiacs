@@ -14,6 +14,7 @@
 #include "Constants.h"
 
 USING_NS_CC;
+using namespace std;
 class MapSelectData
 {
 private:
@@ -22,5 +23,7 @@ public:
     CC_SYNTHESIZE(TextureSelector, selector, Selector);
     CC_SYNTHESIZE(bool, state, state);
     CC_SYNTHESIZE(std::string, id, ID);
+    string buttonID;
+    
 };
 #endif /* defined(__TinyZodiacs__MapSelectData__) */

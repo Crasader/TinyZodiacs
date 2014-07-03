@@ -33,8 +33,10 @@ bool GameManager::loadResource()
 {
     
     
+    loadSpritesheet("map_thumbnail_spritesheet.png","map_thumbnail_spritesheet.plist", kCCTexture2DPixelFormat_RGBA8888);
     //
-    loadSpritesheet("thumbnail_spritesheet.png","thumbnail_spritesheet.plist", kCCTexture2DPixelFormat_RGBA8888);
+    //    loadSpritesheet("thumbnail_spritesheet.png","thumbnail_spritesheet.plist", kCCTexture2DPixelFormat_RGBA8888);
+    loadSpritesheet("hero_thumbnail_spritesheet.png","hero_thumbnail_spritesheet.plist", kCCTexture2DPixelFormat_RGBA8888);
     loadSpritesheet("ui_spritesheet_3.png","ui_spritesheet_3.plist", kCCTexture2DPixelFormat_RGBA8888);
     loadSpritesheet("ui_spritesheet_2.png","ui_spritesheet_2.plist", kCCTexture2DPixelFormat_RGBA8888);
     loadSpritesheet("ui_spritesheet_1.png","ui_spritesheet_1.plist", kCCTexture2DPixelFormat_RGBA8888);

@@ -59,7 +59,6 @@ void MainHero::destroy()
         this->reviveAction->release();
         this->reviveAction = NULL;
     }
-    
 }
 void MainHero::die()
 {

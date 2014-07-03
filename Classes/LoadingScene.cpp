@@ -98,7 +98,8 @@ void LoadingScene::loadResource()
     GameManager::getInstance()-> loadSpritesheet("ghost_2_spritesheet.png","ghost_2_spritesheet.plist");
     GameManager::getInstance()-> loadSpritesheet("test_sheet.png","test_sheet.plist");
     GameManager::getInstance()-> loadSpritesheet("other_effect_2_spritesheet.png","other_effect_2_spritesheet.plist");
-    
+    GameManager::getInstance()-> loadSpritesheet("tower_thumbnail_spritesheet.png","tower_thumbnail_spritesheet.plist");
+    GameManager::getInstance()-> loadSpritesheet("tower_spritesheet_2.png","tower_spritesheet_2.plist");
     
     AnimationLoader::loadData();
     

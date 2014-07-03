@@ -1,0 +1,51 @@
+<object_animation name="tower4" plist_name="tower_1_default.plist" image_name="tower_1_default.png">
+    <animation name="run" delay="0.06" loop="infinity">
+        <origin x="0.55" y="0.5" />
+        <framelist>
+            <frame name="tower4_idle_1.png" />
+        </framelist>
+    </animation>
+    <animation name="jump" delay="0.05" loop="1">
+        <origin x="0.65" y="0.4" />
+        <framelist>
+            <frame name="tower4_idle_1.png" />
+        </framelist>
+    </animation>
+    
+    <animation name="attack" delay="0.1" loop="1">
+        <origin x="0.55" y="0.5" />
+        <framelist>
+            <frame name="tower4_attack_1.png" />
+        </framelist>
+    </animation>
+    
+    
+    <animation name="fall" delay="0.1" loop="infinity">
+        <origin x="0.6" y="0.4" />
+        <framelist>
+            <frame name="tower4_idle_1.png" />
+        </framelist>
+    </animation>
+    
+    <animation name="fly" delay="0.1" loop="infinity">
+        <origin x="0.65" y="0.4" />
+        <framelist>
+            <frame name="tower4_idle_1.png" />
+        </framelist>
+    </animation>
+    
+    <animation name="skill" delay="0.1" loop="1">
+        <origin x="0.3" y="0.22" />
+        <framelist>
+            <frame name="tower4_attack_1.png" />
+        </framelist>
+        
+    </animation>
+    
+    <animation name="idle" delay="0.1" loop="infinity">
+        <origin x="0.54" y="0.5" />
+        <framelist>
+            <frame name="tower4_idle_1.png"/>
+        </framelist>
+    </animation>
+</object_animation>

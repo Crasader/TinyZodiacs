@@ -52,6 +52,7 @@ void MapSelectLayer::loadAllUI(cocos2d::gui::Widget* ul)
     this->btnBack->addTouchEventListener(this, toucheventselector(MapSelectLayer::backButtonTouchEvent));
     
     this->listMap->setGravity(cocos2d::gui::LISTVIEW_GRAVITY_CENTER_VERTICAL);
+    this->listMap->setBounceEnabled(true);
     this->listMap->addEventListenerListView(this, listvieweventselector(MapSelectLayer::onSelectedListMap));
     //
     loadMapList();
@@ -119,9 +120,11 @@ void MapSelectLayer::loadMapList()
         
         if(listMap[i].getstate() == true)
         {
-            CCLOG("aa %s",listMap[i].getSelector().selectedTexture.c_str());
-
-            button->loadTextures(listMap[i].getSelector().activeTexture.c_str(), listMap[i].getSelector().selectedTexture.c_str(), listMap[i].getSelector().activeTexture.c_str(),cocos2d::gui::UI_TEX_TYPE_PLIST);
+            TextureSelector textureSelector = XMLButtonSelectorParser::parseData(listMap[i].buttonID);
+    
+            
+            button->loadTextures(textureSelector.activeTexture.c_str(), textureSelector.selectedTexture.c_str(), textureSelector.deactiveTexture.c_str(), cocos2d::gui::UI_TEX_TYPE_PLIST);
+            
             
             CCString* mapID = CCString::create(listMap[i].getID().data());
             button->setUserObject(mapID);

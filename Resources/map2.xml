@@ -13,9 +13,13 @@
         </background>
     </background_list>
     <foreground_list>
-          </foreground_list>
+        <foreground image_name="map1_22.png" layer_index="0">
+            <position x="4260" y="978"/>
+            <ratio x="1" y="1"/>
+        </foreground>
+    </foreground_list>
     <map_object_list>
-     
+        
         <map_object id="23" image_name="map1_15.png" body_name="map1_15" layer_index="1">
             <position x="2" y="2086"/>
             <!-- <can_pass>false</can_pass>-->
@@ -90,9 +94,7 @@
         <map_object id="23" image_name="map1_21.png" body_name="map1_21" layer_index="19">
             <position x="4302" y="950"/>
         </map_object>
-        <map_object id="23" image_name="map1_22.png" body_name="map1_22" layer_index="20">
-            <position x="4260" y="978"/>
-        </map_object>
+        
         <map_object id="23" image_name="map1_4.png" body_name="map1_4" layer_index="17">
             <position x="3839" y="480"/>
         </map_object>
@@ -112,7 +114,7 @@
             <edge x="100" y="0"/>
             <lane>1,2</lane>
         </sensor_object>
-
+        
         <sensor_object is_back = "true" must_stop = "false" direction = "left" move_speed="1.5" jump_height = "11">
             <position x="1662" y="1821"/>
             <edge x="0" y="100"/>
@@ -158,7 +160,7 @@
             <position x="1500" y="588"/>
             <edge x="0" y="100"/>
             <lane>1</lane>
-
+            
         </sensor_object>
         
         <sensor_object is_back = "true" must_stop = "false" direction = "left" move_speed="2" jump_height = "12">
@@ -178,7 +180,7 @@
             <edge x="0" y="50"/>
             <lane>2</lane>
         </sensor_object>
-    
+        
         
         <sensor_object is_back = "true" must_stop = "true" direction = "left" move_speed="3" jump_height = "12.5">
             <position x="3799" y="1220"/>
@@ -203,8 +205,8 @@
             <edge x="0" y="100"/>
             <lane>2</lane>
         </sensor_object>
-
-        </sensor_object_list>
+        
+    </sensor_object_list>
     <tower_list>
         
         <tower type="main" id="maincrystal" group="A" >
@@ -314,7 +316,7 @@
                         </monster_list>
                     </monster_creator>
                 </monster_factory>
-
+                
                 
                 <!--                <monster_factory group="B" max="5">
                  
