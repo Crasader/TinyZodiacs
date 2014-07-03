@@ -27,6 +27,7 @@ NormalAttack::NormalAttack(GameObject* holder, NormalMeleeSkillData data): Abstr
     {
         this->data = data;
     }
+    shouldDeactiveSensor = false;
 }
 
 NormalAttack::~NormalAttack()
@@ -37,7 +38,13 @@ NormalAttack::~NormalAttack()
         data.getSkillSensor()->SetActive(false);
         data.getSkillSensor()->GetWorld()->DestroyBody(data.getSkillSensor());
     }
-    CC_SAFE_RELEASE(this->skillSprite);
+    
+    if(this->skillSprite != NULL)
+    {
+        this->skillSprite->removeFromParent();
+        this->skillSprite->stopAllActions();
+        this->skillSprite->release();
+    }
     
     this->data.releaseEffectLists();
 }
@@ -45,11 +52,10 @@ NormalAttack::~NormalAttack()
 void NormalAttack::onCreate()
 {
     this->initJointType();
-    
     this->createJoint();
     this->data.getSkillSensor()->SetActive(false);
-    this->data.getSkillSensor()->SetBullet(true);
-    
+    this->data.getSkillSensor()->SetBullet(false);
+    this->data.getSkillSensor()->SetGravityScale(0);
     for (b2Fixture* f = this->data.getSkillSensor()->GetFixtureList(); f; f = f->GetNext())
     {
         PhysicData* sensorData = new PhysicData();
@@ -62,14 +68,12 @@ void NormalAttack::onCreate()
     }
     //this->data.getSkillSensor()->SetUserData(sensorData);
     
-    if(this->data.getSkillAnimation() != NULL && this->data.getSkillAnimation()->getAnimation() != NULL)
+    if(this->data.getSkillAnimationData().haveAnyData() == true)
     {
         this->skillSprite = CCSprite::create();
         this->skillSprite->retain();
-//        this->data.getSkillAnimation()->getAnimation()->setLoops(INFINITY);
     }
     
-//    if(data.getLifeTime() > 0 && data.getTimeTick() > 0)
     if(data.getApplyType() == APPLY_OVERTIME)
     {
         this->listTarget = CCArray::create();
@@ -84,7 +88,18 @@ void NormalAttack::onCreate()
 
 void NormalAttack::destroy()
 {
-   //
+    //remove target
+    if(this->listTarget != NULL)
+    {
+        CCObject* object = NULL;
+        CCARRAY_FOREACH(this->listTarget, object)
+        {
+            Character* gameObject = static_cast<Character*>(object);
+            gameObject->detach(this);
+        }
+        this->listTarget->removeAllObjects();
+    }
+
     AbstractSkill::destroy();
 }
 
@@ -101,7 +116,6 @@ void NormalAttack::update(float dt)
     {
         if(this->isExcutable)
         {
-            //            data->isActive = true;
         }
         else
         {
@@ -119,7 +133,8 @@ void NormalAttack::excute()
     {
         destroyJoint();
         createJoint();
-        
+        this->data.getSkillSensor()->SetActive(true);
+        //
         if(this->excuteAction != NULL)
         {
             this->excuteAction->stop();
@@ -129,6 +144,7 @@ void NormalAttack::excute()
         this->excuteAction =  ScheduleManager::getInstance()->scheduleFuction(excuteFunc, this->data.getDelay());
         this->excuteAction->retain();
         
+        //
         if(this->data.getCoolDown() > 0)
         {
             if(this->coolDownAction != NULL)
@@ -150,21 +166,14 @@ void NormalAttack::excute()
                 this->holder->notifyUIChange(data);
             }
         }
+        //
+        changeState(PRE_EXCUTE);
     }
 }
 
 void NormalAttack::stop()
 {
-//    if(this->stopAction != NULL && this->stopAction->isDone() == false)
-//    {
-//        
-//        ScheduleManager::getInstance()->stopAction(stopAction);
-//        this->stopAction->release();
-//    }
-//    CCCallFunc* stopFunc = CCCallFunc::create(this, callfunc_selector(NormalAttack::stopImmediately));
-//    
-//    this->stopAction = ScheduleManager::getInstance()->scheduleFunction(stopFunc, NULL, this->data.getLifeTime(), 1);
-//    this->stopAction->retain();
+    changeState(PRE_STOP);
 }
 
 void NormalAttack::excuteImmediately()
@@ -173,18 +182,10 @@ void NormalAttack::excuteImmediately()
     {
         return;
     }
-    //
-    Util::applyEffectFromList(data.getlistSelfEffect(), this->holder);
-    //
+    //small trick to recall begin contact
+    this->data.getSkillSensor()->SetActive(false);
     this->data.getSkillSensor()->SetActive(true);
-    if(this->data.getSkillAnimation() != NULL && this->holder != NULL && this->holder->getSprite() != NULL)
-    {
-        this->skillSprite->removeFromParent();
-        this->holder->getSprite()->getParent()->addChild(this->skillSprite, this->data.getAnimationLayerIndex());
-        CCAnimate* action = CCAnimate::create(this->data.getSkillAnimation()->getAnimation());
-        this->skillSprite->runAction(action);
-        this->skillSprite->setPosition(ccp(0,0));
-    }
+    
     //start life time
     if(this->stopAction != NULL)
     {
@@ -199,7 +200,6 @@ void NormalAttack::excuteImmediately()
     this->stopAction = ScheduleManager::getInstance()->scheduleFunction(stopFunc, NULL, this->data.getLifeTime(), 1);
     this->stopAction->retain();
     //start time tick action
-//    if(data.getLifeTime() >0 && data.getTimeTick() >0)
     if(data.getApplyType() == APPLY_OVERTIME)
     {
         CCCallFunc* timeTick = CCCallFunc::create(this, callfunc_selector(NormalAttack::applyEffectOnTimeTick));
@@ -207,7 +207,7 @@ void NormalAttack::excuteImmediately()
         this->timeTickAction->retain();
     }
     //play sound
-    playSoundByState(EXCUTE_SOUND, this->data.getSoundData());
+    changeState(EXCUTE);
 }
 
 void NormalAttack::stopImmediately()
@@ -216,11 +216,11 @@ void NormalAttack::stopImmediately()
     {
         return;
     }
-    //play sound
-    playSoundByState(STOP_SOUND, this->data.getSoundData());
+    changeState(STOP);
+
     //deactive sensor
     this->data.getSkillSensor()->SetActive(false);
-    if(this->data.getSkillAnimation() != NULL && this->holder != NULL)
+    if(this->skillSprite !=NULL)
     {
         this->skillSprite->stopAllActions();
         this->skillSprite->removeFromParent();
@@ -228,7 +228,6 @@ void NormalAttack::stopImmediately()
     //stop time tick
     if(this->timeTickAction != NULL)
     {
-      
         if(this->timeTickAction->isDone() == false)
         {
             ScheduleManager::getInstance()->stopAction(this->timeTickAction);
@@ -246,19 +245,28 @@ void NormalAttack::stopImmediately()
         this->stopAction->release();
         this->stopAction = NULL;
     }
+    //stop excuteaction - happen when stop skill before excuteimidietly
+    if(this->excuteAction != NULL)
+    {
+        if(this->excuteAction->isDone() == false)
+        {
+            ScheduleManager::getInstance()->stopAction(excuteAction);
+        }
+        this->excuteAction->release();
+        this->excuteAction = NULL;
+    }
     //remove target
     if(this->listTarget != NULL)
     {
         CCObject* object = NULL;
         CCARRAY_FOREACH(this->listTarget, object)
         {
-            
             Character* gameObject = static_cast<Character*>(object);
             gameObject->detach(this);
-            
         }
         this->listTarget->removeAllObjects();
     }
+    //
 }
 
 void NormalAttack::checkCollisionDataInBeginContact(PhysicData* holderData, PhysicData* collisionData, b2Contact *contact)
@@ -278,10 +286,10 @@ void NormalAttack::checkCollisionDataInBeginContact(PhysicData* holderData, Phys
             switch (collisionData->bodyId) {
                 case CHARACTER_BODY:
                 {
-                    //   if(otherData->GameObjectID == HERO)
+                    if(this->currentState == EXCUTE)
                     {
                         Character* character = (Character*)collisionData->data;
-                        if(character != holder)
+                        //                        if(character != holder)
                         {
                             if(listTarget != NULL)
                             {
@@ -289,18 +297,25 @@ void NormalAttack::checkCollisionDataInBeginContact(PhysicData* holderData, Phys
                                 character->attach(this);
                             }
                             //play sound
-                            playSoundByState(SKILL_HIT_SOUND, this->data.getSoundData());
+                            playSoundByState(HIT, this->data.getSoundData());
                             //
                             NormalMeleeSkillData calculatedSkillData = this->data;
                             calculateSkillData(&calculatedSkillData, ((Character*)this->holder)->getcharacterData());
                             
-                            if(character->getGroup() == this->holder->getGroup())
+                            if(character != holder)
                             {
-                                Util::applyEffectFromList(calculatedSkillData.getListAlliesEffect(), character);
+                                if(character->getGroup() == this->holder->getGroup())
+                                {
+                                    Util::applyEffectFromList(calculatedSkillData.getListAlliesEffect(), character);
+                                }
+                                else
+                                {
+                                    Util::applyEffectFromList(calculatedSkillData.getListEnemyEffect(), character);
+                                }
                             }
                             else
                             {
-                                Util::applyEffectFromList(calculatedSkillData.getListEnemyEffect(), character);
+                                Util::applyEffectFromList(calculatedSkillData.getlistSelfEffect(), character);
                             }
                         }
                         
@@ -318,7 +333,6 @@ void NormalAttack::checkCollisionDataInBeginContact(PhysicData* holderData, Phys
 
 void NormalAttack::checkCollisionDataInEndContact(PhysicData* holderData, PhysicData* collisionData, b2Contact *contact)
 {
-    
     if(this->isDisable)
     {
         return;
@@ -386,9 +400,6 @@ void NormalAttack::createJoint()
         
         JointDef tempA = data.getJointDefA();
         tempA.x = holder_join_type;
-//        b2Vec2 anchorA = Util::getb2VecAnchor(this->holder->getBody(), tempA);
-//        b2Fixture* mainFix = Util::getFixtureById(this->holder->getBody(), BODY_MAIN_FIXTURE);
-//        b2Vec2 anchorA = Util::getb2VecAnchor(mainFix, tempA);
         b2AABB aabb = Util::getGameObjectBoundingBox(this->holder);
         b2Vec2 anchorA = Util::getb2VecAnchor(aabb, tempA);
         
@@ -398,6 +409,8 @@ void NormalAttack::createJoint()
         tempB.x = this_join_type;
         b2Vec2 anchorB = Util::getb2VecAnchor(this->data.getSkillSensor(), tempB);
         skillJointDef.localAnchorB.Set(anchorB.x, anchorB.y);
+        
+        skillJointDef.collideConnected =true;
         
         this->skillJoint=this->holder->getBody()->GetWorld()->CreateJoint(&skillJointDef);
     }
@@ -435,7 +448,6 @@ void NormalAttack::setPhysicGroup(uint16 group)
         }
     }
 }
-
 
 void NormalAttack::setExcuteAble()
 {
@@ -483,13 +495,20 @@ void NormalAttack::applyEffectOnTimeTick()
         NormalMeleeSkillData calculatedSkillData = this->data;
         calculateSkillData(&calculatedSkillData, ((Character*)this->holder)->getcharacterData());
         
-        if(character->getGroup() == this->holder->getGroup())
+        if(this->holder != character)
         {
-            Util::applyEffectFromList(calculatedSkillData.getListAlliesEffect(), character);
+            if(character->getGroup() == this->holder->getGroup())
+            {
+                Util::applyEffectFromList(calculatedSkillData.getListAlliesEffect(), character);
+            }
+            else
+            {
+                Util::applyEffectFromList(calculatedSkillData.getListEnemyEffect(), character);
+            }
         }
         else
         {
-            Util::applyEffectFromList(calculatedSkillData.getListEnemyEffect(), character);
+            Util::applyEffectFromList(calculatedSkillData.getlistSelfEffect(), character);
         }
     }
 }
@@ -503,4 +522,98 @@ void NormalAttack::notifyToDestroy(GameObject* object)
             this->listTarget->removeObject(object);
         }
     }
+}
+
+void NormalAttack::playAnimationByState(SkillState state)
+{
+    switch (state) {
+        case PRE_EXCUTE:
+        {
+            AnimationObject* animationObj = this->data.getSkillAnimationData().getPreExcuteAnimation();
+            if(animationObj != NULL && this->holder != NULL && this->holder->getSprite() != NULL)
+            {
+                this->skillSprite->removeFromParent();
+                this->holder->getSprite()->getParent()->addChild(this->skillSprite, this->data.getAnimationLayerIndex());
+                CCAnimate* action = CCAnimate::create(animationObj->getAnimation());
+                this->skillSprite->runAction(action);
+                this->skillSprite->setPosition(ccp(0,0));
+            }
+        }
+            break;
+        case EXCUTE:
+        {
+            AnimationObject* animationObj = this->data.getSkillAnimationData().getExcuteAnimation();
+            if(animationObj != NULL && this->holder != NULL && this->holder->getSprite() != NULL)
+            {
+                this->skillSprite->removeFromParent();
+                this->holder->getSprite()->getParent()->addChild(this->skillSprite, this->data.getAnimationLayerIndex());
+                CCAnimate* action = CCAnimate::create(animationObj->getAnimation());
+                this->skillSprite->runAction(action);
+                this->skillSprite->setPosition(ccp(0,0));
+            }
+        }
+            break;
+        case PRE_STOP:
+        {
+            AnimationObject* animationObj = this->data.getSkillAnimationData().getPreStopAnimation();
+            if(animationObj != NULL && this->holder != NULL && this->holder->getSprite() != NULL)
+            {
+                this->skillSprite->removeFromParent();
+                this->holder->getSprite()->getParent()->addChild(this->skillSprite, this->data.getAnimationLayerIndex());
+                CCAnimate* action = CCAnimate::create(animationObj->getAnimation());
+                this->skillSprite->runAction(action);
+                this->skillSprite->setPosition(ccp(0,0));
+            }
+        }
+            break;
+        case STOP:
+        {
+            AnimationObject* animationObj = this->data.getSkillAnimationData().getStopAnimation();
+            if(animationObj != NULL && this->holder != NULL && this->holder->getSprite() != NULL)
+            {
+                this->skillSprite->removeFromParent();
+                this->holder->getSprite()->getParent()->addChild(this->skillSprite, this->data.getAnimationLayerIndex());
+                CCAnimate* action = CCAnimate::create(animationObj->getAnimation());
+                this->skillSprite->runAction(action);
+                this->skillSprite->setPosition(ccp(0,0));
+            }
+        }
+            break;
+        default:
+            break;
+    }
+}
+
+void NormalAttack::changeState(SkillState state)
+{
+    this->currentState = state;
+    switch (state) {
+        case PRE_EXCUTE:
+        {
+            playSoundByState(PRE_EXCUTE, this->getData().getSoundData());
+            playAnimationByState(PRE_EXCUTE);
+        }
+            break;
+        case EXCUTE:
+        {
+            playSoundByState(EXCUTE, this->getData().getSoundData());
+            playAnimationByState(EXCUTE);
+        }
+            break;
+        case PRE_STOP:
+        {
+            playSoundByState(PRE_STOP, this->getData().getSoundData());
+            playAnimationByState(PRE_STOP);
+        }
+            break;
+        case STOP:
+        {
+            playSoundByState(STOP, this->getData().getSoundData());
+            playAnimationByState(STOP);
+        }
+            break;
+        default:
+            break;
+    }
+    
 }

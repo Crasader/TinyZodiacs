@@ -104,7 +104,6 @@ void GameObjectManager::PreSolve(b2Contact* contact, const b2Manifold* oldManifo
 {
     if(contact->GetFixtureA()->GetUserData() != NULL)
     {
-        CCLOG("presolve");
         PhysicData* holderData = (PhysicData*)contact->GetFixtureA()/*->GetBody()*/->GetUserData();
         PhysicData* collisionData = (PhysicData*)contact->GetFixtureB()/*->GetBody()*/->GetUserData();
         

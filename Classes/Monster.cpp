@@ -283,19 +283,7 @@ void Monster::setSensorGroup(uint16 group)
 
 void Monster::setSensor(b2Body* sensor)
 {
-    //    this->sensor=sensor;
-    //
-    //    PhysicData* data =  new PhysicData();
-    //    data->BodyId = MONSTER_SENSOR;
-    //    data->Data = this;
-    //    data->GameObjectID = MONSTER;
-    //    this->sensor->SetUserData(data);
-    //
-    //    b2RevoluteJointDef revoluteJointDef;
-    //    revoluteJointDef.bodyA = this->getBody();
-    //    revoluteJointDef.bodyB = this->sensor;
-    //
-    //    this->getBody()->GetWorld()->CreateJoint(&revoluteJointDef);
+
 }
 
 uint16  Monster::getCorrectGroup(Group group)

@@ -23,6 +23,8 @@ private:
     int holder_join_type;
     int this_join_type;
     
+    bool shouldDeactiveSensor;
+    
     b2Joint* skillJoint;
     CCAction* timeTickAction;
     CCArray* listTarget;
@@ -40,6 +42,10 @@ protected:
     virtual void setExcuteAble();
     
     virtual void applyEffectOnTimeTick();
+    
+    virtual void playAnimationByState(SkillState state);
+    
+    virtual void changeState(SkillState state);
 public:
     NormalAttack(GameObject* holder, NormalMeleeSkillData data);
     ~NormalAttack();
@@ -57,7 +63,6 @@ public:
 
     virtual void setPhysicGroup(uint16 group);
     virtual void stopAllAction();
-    
     
     virtual void notifyToDestroy(GameObject* object);
 };

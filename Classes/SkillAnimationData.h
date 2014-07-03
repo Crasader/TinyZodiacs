@@ -19,9 +19,11 @@ class SkillAnimationData
 private:
 protected:
 public:
-    CC_SYNTHESIZE(AnimationObject*, preExcuteAnimation, ExcuteSoundStr);
-    CC_SYNTHESIZE(AnimationObject*, hitSoundStr, HitSoundStr);
-    CC_SYNTHESIZE(AnimationObject*, preStopSoundStr, PreStopSoundStr);
-    CC_SYNTHESIZE(AnimationObject*, stopSoundStr, StopSoundStr);
+    CC_SYNTHESIZE(AnimationObject*, preExcuteAnimation, PreExcuteAnimation);
+    CC_SYNTHESIZE(AnimationObject*, excuteAnimation, ExcuteAnimation);
+    CC_SYNTHESIZE(AnimationObject*, preStopAnimation, PreStopAnimation);
+    CC_SYNTHESIZE(AnimationObject*, stopAnimation, StopAnimation);
+    
+    bool haveAnyData();
 };
 #endif /* defined(__TinyZodiacs__SkillAnimationData__) */

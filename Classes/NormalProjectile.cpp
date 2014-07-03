@@ -80,7 +80,6 @@ void NormalProjectile::setData(NormalShootingSkillData data, GameObjectCalculate
     }
     //
     if(data.getApplyType() == APPLY_OVERTIME)
-    //if(data.getLifeTime() > 0 && data.getTimeTick() > 0)
     {
         this->listTarget = CCArray::create();
         this->listTarget->retain();
@@ -99,10 +98,12 @@ void NormalProjectile::setData(NormalShootingSkillData data, GameObjectCalculate
     if(holder.getDirection() == LEFT)
     {
         this->flipDirection(LEFT);
+        this->sprite->setFlipX(true);
     }
     else if(holder.getDirection() == RIGHT)
     {
         this->flipDirection(RIGHT);
+        this->sprite->setFlipX(false);
     }
 }
 
@@ -304,10 +305,9 @@ void NormalProjectile::checkCollisionDataInBeginContact(PhysicData* holderData, 
                     }
                 }
                 //
-                //if(listTarget != NULL && this->data.getTimeTick() >0)
                 if(data.getApplyType() == APPLY_OVERTIME)
                 {
-                    if(listTarget->indexOfObject(character) == CC_INVALID_INDEX)
+                    if(listTarget!= NULL && listTarget->indexOfObject(character) == CC_INVALID_INDEX)
                     {
                         listTarget->addObject(character);
                         character->attach(this);
@@ -393,6 +393,8 @@ void NormalProjectile::checkCollisionDataInEndContact(PhysicData* holderData, Ph
 void NormalProjectile::destroy()
 {
     this->isDisable = true;
+    //
+//    this->body->SetActive(false);
     //stop time tick
     if(this->timeTickAction != NULL)
     {
@@ -423,6 +425,7 @@ void NormalProjectile::destroy()
             gameObject->detach(this);
         }
         this->listTarget->removeAllObjects();
+        this->listTarget = NULL;
     }
     //
     if(this->data.getProjectileData().getStateAnimation().getHitStateAnimationID() != "")

@@ -19,6 +19,7 @@
 #include "Util.h"
 #include "MonsterFactory.h"
 #include "ActionZoomFollow.h"
+#include "SkillManager.h"
 
 GameWorld::GameWorld()
 {
@@ -215,6 +216,7 @@ void GameWorld::setContactListener(b2ContactListener *listener)
 
 void GameWorld::update(float dt)
 {
+    SkillManager::getInstance()->update(dt);
     ItemFactory::getInstance()->update(dt);
     GameObjectManager::getInstance()->update(dt);
     this->map->update(dt);
@@ -225,11 +227,11 @@ void GameWorld::update(float dt)
     {
         world->Step(1/40.000f,8, 3);
     }
-    
 }
 
 void GameWorld::destroy()
 {
+    SkillManager::release();
     GameObjectManager::getInstance()->removeAllGameObject();
 }
 
@@ -239,7 +241,6 @@ void GameWorld::draw()
 //    kmGLPushMatrix();
 //    world->DrawDebugData();
 //    kmGLPopMatrix();
-
 }
 
 void GameWorld::setCameraFollowGroup(GameGroup* group)
@@ -286,11 +287,11 @@ void GameWorld::EndContact(b2Contact *contact)
 
 void GameWorld::PreSolve(b2Contact* contact, const b2Manifold* oldManifold)
 {
- //   GameObjectManager::getInstance()->PreSolve(contact, oldManifold);
+    GameObjectManager::getInstance()->PreSolve(contact, oldManifold);
 }
 void GameWorld::PostSolve(b2Contact* contact, const b2ContactImpulse* impulse)
 {
- //   GameObjectManager::getInstance()->PostSolve(contact, impulse);
+    GameObjectManager::getInstance()->PostSolve(contact, impulse);
 }
 
 void GameWorld::foo()

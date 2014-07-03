@@ -87,7 +87,8 @@ void MainHero::die()
     CCObject* skill;
     CCARRAY_FOREACH(this->listSkill, skill)
     {
-        ((AbstractSkill*)skill)->stopImmediately();
+//        ((AbstractSkill*)skill)->stopImmediately();
+        ((AbstractSkill*)skill)->stopSkillSafely();
     }
     
     cleanAllAffect();

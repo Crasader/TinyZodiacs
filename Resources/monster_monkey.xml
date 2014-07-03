@@ -9,7 +9,7 @@
     <max_jump>10</max_jump>
     <jump_height>10</jump_height>
     <sensor_body>monkey_sensor</sensor_body>
-    <skill_0>monkey_aura</skill_0>
+    <skill_0>monkey_ultimate</skill_0>
     
     <item_list>
         <item id="coin1" chance="50"/>

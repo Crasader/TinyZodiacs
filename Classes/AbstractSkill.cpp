@@ -11,6 +11,7 @@
 #include "EffectData.h"
 #include "Character.h"
 #include "SoundManager.h"
+#include "SkillManager.h"
 
 AbstractSkill::AbstractSkill(GameObject* holder, SkillData data)
 {
@@ -26,6 +27,8 @@ AbstractSkill::AbstractSkill(GameObject* holder, SkillData data)
         this->holder = holder;
     }
     this->autorelease();
+    
+    this->currentState = CREATED;
 }
 
 AbstractSkill::~AbstractSkill()
@@ -124,20 +127,20 @@ void AbstractSkill::stopSFX(unsigned int sfxid)
     SoundManager::stopSoundEffect(sfxid);
 }
 
-void AbstractSkill::playSoundByState(SkillSound soundState, SkillSoundData data)
+void AbstractSkill::playSoundByState(SkillState soundState, SkillSoundData data)
 {
     switch (soundState) {
-        case EXCUTE_SOUND:
+        case EXCUTE:
         {
             playSFX(data.getExcuteSoundStr().c_str());
         }
             break;
-        case STOP_SOUND:
+        case STOP:
         {
             playSFX(data.getStopSoundStr().c_str());
         }
             break;
-        case SKILL_HIT_SOUND:
+        case HIT:
         {
             playSFX(data.getHitSoundStr().c_str());
         }
@@ -156,4 +159,19 @@ void AbstractSkill::checkCollisionDataInPreSolve(PhysicData* holderData , Physic
 void AbstractSkill::checkCollisionDataInPostSolve(PhysicData* holderData , PhysicData* collisionData, b2Contact *contact, const b2ContactImpulse* impulse)
 {
     
+}
+
+void AbstractSkill::playAnimationByState(SkillState state)
+{
+    
+}
+
+void AbstractSkill::changeState(SkillState state)
+{
+    
+}
+
+void AbstractSkill::stopSkillSafely()
+{
+    SkillManager::getInstance()->addSkillToBeStop(this);
 }

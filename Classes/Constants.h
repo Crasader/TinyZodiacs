@@ -130,11 +130,21 @@ enum ProjectileSound
     HIT_SOUND
 };
 
-enum SkillSound
+//enum SkillSound
+//{
+//    EXCUTE_SOUND,
+//    STOP_SOUND,
+//    SKILL_HIT_SOUND
+//};
+
+enum SkillState
 {
-    EXCUTE_SOUND,
-    STOP_SOUND,
-    SKILL_HIT_SOUND
+    CREATED,
+    PRE_EXCUTE,
+    EXCUTE,
+    PRE_STOP,
+    STOP,
+    HIT
 };
 
 enum ItemSound

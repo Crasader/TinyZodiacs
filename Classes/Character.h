@@ -58,9 +58,6 @@ public:
     CC_SYNTHESIZE_READONLY(CharacterData, originCharacterData, OriginCharacterData);
     CC_SYNTHESIZE(CharacterData, characterData, characterData);
     CC_SYNTHESIZE(b2Fixture*, footSensor, FootSensor);
-//    CC_SYNTHESIZE(AbstractSkill*, normalAttack, NormalAttack);
-//    CC_SYNTHESIZE(AbstractSkill*, skill1, Skill1);
-//    CC_SYNTHESIZE(AbstractSkill*, skill2, Skill2);
     CC_SYNTHESIZE(CCArray*, listSkill, ListSkill);
     
     CC_SYNTHESIZE(CharacterSoundData, soundData, SoundData);
@@ -78,10 +75,6 @@ public:
     void setSkill(CharacterSkill skillIndex, AbstractSkill* skill);
     AbstractSkill* getSkill(CharacterSkill skillIndex);
     void playSkill(CharacterSkill skillIndex);
-//    void setNormalAttack(AbstractSkill* skill);
-//    void setSkill1(AbstractSkill* skill);
-//    void setSkill2(AbstractSkill* skill);
-
     
     void setOriginCharacterData(CharacterData data);
     void update(float dt);
@@ -90,9 +83,6 @@ public:
     
     void move(Direction direction);
     void jump();
-//    void attack();
-//    void useSkill1();
-//    void useSkill2();
     void stopMove();
     
     void move(Direction direction, float speed);

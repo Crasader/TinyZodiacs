@@ -74,11 +74,13 @@ void NormalShootingAttack::excute()
         //        {
         //            this->AbstractSkill::excuteImmediately();
         //        }
+        changeState(PRE_EXCUTE);
     }
 }
 
 void NormalShootingAttack::stop()
 {
+    changeState(PRE_STOP);
 }
 
 void NormalShootingAttack::update(float dt)
@@ -126,7 +128,7 @@ void NormalShootingAttack::excuteImmediately()
     if(this->isDisable == false && holder != NULL)
     {
         //play sound
-        playSoundByState(EXCUTE_SOUND, this->data.getSoundData());
+        changeState(STOP);
         //
         Util::applyEffectFromList(data.getlistSelfEffect(), this->holder);
         //shoot first projectile
@@ -158,7 +160,7 @@ void NormalShootingAttack::excuteImmediately()
 void NormalShootingAttack::stopImmediately()
 {
     //play sound
-    playSoundByState(STOP_SOUND, this->data.getSoundData());
+    playSoundByState(STOP, this->data.getSoundData());
 }
 
 void NormalShootingAttack::setExcuteAble()

@@ -20,10 +20,6 @@ class AbstractSkill;
 #include "ControllerManager.h"
 #include "CharacterData.h"
 
-#define FUCTION_EXCUTE 0
-#define FUCTION_STOP 1
-#define FUCTION_SET_EXCUTABLE 2
-
 USING_NS_CC;
 
 class AbstractSkill: public CCObject
@@ -47,7 +43,10 @@ protected:
     
     virtual void playSFX(const char* sfxName);
     virtual void stopSFX(unsigned int sfxid);
-    virtual void playSoundByState(SkillSound soundState, SkillSoundData data);
+    virtual void playSoundByState(SkillState soundState, SkillSoundData data);
+    virtual void changeState(SkillState state);
+    
+    SkillState currentState;
 public:
     AbstractSkill(GameObject* holder, SkillData data);
 
@@ -63,6 +62,10 @@ public:
     
     virtual void setPhysicGroup(uint16 group) = 0;
     virtual void stopAllAction();
+    
+    virtual void playAnimationByState(SkillState state);
+    
+    virtual void stopSkillSafely();
     
     CC_SYNTHESIZE(GameObject* , holder, Holder);
     CC_SYNTHESIZE(ButtonID, skillButtonID, SkillButtonID);

@@ -345,10 +345,8 @@
                     <monster_creator delay_per_unit="0.1" delay="2" lane = "2">
                         <position x="6827" y="1076"/>
                         <monster_list>
-                            <monster id="monster_dark_cornian" quantity="1"/>
-                            <monster id="monster_ghost_1" quantity="1"/>
-                            <monster id="monster_ghost_2" quantity="1"/>
-                            <monster id="monster_skeleton" quantity="50"/>
+                            <monster id="monster_ghost_1" quantity="10"/>
+                            <monster id="monster_ghost_2" quantity="10"/>
                         </monster_list>
                     </monster_creator>
                 </monster_factory>
@@ -406,6 +404,7 @@
                     <monster_creator delay_per_unit="1" delay="2" lane = "2">
                         <position x="6827" y="1076"/>
                         <monster_list>
+                            <monster id="monster_dark_cornian" quantity="10"/>
                             <monster id="monster_pig" quantity="10"/>
                         </monster_list>
                     </monster_creator>
@@ -485,6 +484,7 @@
                     <monster_creator delay_per_unit="1" delay="2" lane = "1">
                         <position x="7666" y="805"/>
                         <monster_list>
+                            <monster id="monster_skeleton" quantity="50"/>
                             <monster id="monster_bull" quantity="1"/>
                         </monster_list>
                     </monster_creator>

@@ -67,6 +67,7 @@ protected:
     static float readLifeTime(const XMLElement* root);
 //    static float readCriticalChance(const XMLElement* root);
     static AnimationObject* readAnimation(const XMLElement* root);
+    static SkillAnimationData readAnimationData(const XMLElement* root);
     static int readAnimationLayerIndex(const XMLElement* root);
     static SkillTarget readTarget(const XMLElement* root);
     static vector<EffectData> readEffectList(const XMLElement* root);

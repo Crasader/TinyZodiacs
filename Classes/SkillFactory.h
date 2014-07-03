@@ -37,6 +37,9 @@ class SkillFactory
 {
 private:
 protected:
+    //
+    
+    //
     static AbstractSkill* loadXMLFile(const char* id,const char* xmlFileName, b2World* world, GameObject* holder, bool isLocal, ButtonID buttonIndex);
     static const XMLElement* loadElementById(const char* id, const XMLElement* root);
     

@@ -10,7 +10,7 @@
 		<cool_down>0</cool_down>
         <joints>
             <holder x="2" y="0" offsetX="0" offsetY="0"></holder>
-            <this x="2" y="0" offsetX="0" offsetY="0"></this>
+            <this x="0" y="0" offsetX="0" offsetY="0"></this>
         </joints>
         <button_selector>normal_attack</button_selector>
         <list_effect>
@@ -35,12 +35,6 @@
         <animation_layer>2</animation_layer>
         <button_selector>6</button_selector>
         <list_effect>
-            <enemy>
-                <effect>cat_healing</effect>
-            </enemy>
-            <allies>
-                <effect>cat_healing</effect>
-            </allies>
             <self>
                 <effect>cat_healing</effect>
             </self>
@@ -53,9 +47,9 @@
         <apply_type>1</apply_type>
         <sfx>monkey_ultimate</sfx>
 		<body>monkey_aura</body>
-        <delay>0.1</delay>
-        <life_time>10</life_time>
-		<cool_down>11</cool_down>
+        <delay>0</delay>
+        <life_time>0.1</life_time>
+		<cool_down>3</cool_down>
         <joints>
             <holder x="0" y="0" offsetX="0" offsetY="0"></holder>
             <this x="0" y="0" offsetX="0" offsetY="0"></this>

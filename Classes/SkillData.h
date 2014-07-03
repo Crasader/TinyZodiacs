@@ -15,6 +15,7 @@
 #include "Constants.h"
 #include "Affect.h"
 #include "SkillSoundData.h"
+#include "SkillAnimationData.h"
 
 USING_NS_CC;
 
@@ -25,7 +26,8 @@ protected:
 public:
     SkillData();
     ~SkillData();
-    CC_SYNTHESIZE(AnimationObject*, skillAnimation, SkillAnimation)
+//    CC_SYNTHESIZE(AnimationObject*, skillAnimation, SkillAnimation);
+    CC_SYNTHESIZE(SkillAnimationData, skillAnimationData, SkillAnimationData);
     CC_SYNTHESIZE(SkillApllyType, applyType, ApplyType);
     CC_SYNTHESIZE(TextureSelector, skillTextureSelector, skillTextureSelector);
     CC_SYNTHESIZE(float, coolDown, CoolDown);
