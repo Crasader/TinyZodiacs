@@ -46,6 +46,7 @@ EffectData::~EffectData()
 EffectData EffectData::clone()
 {
     EffectData effectData;
+    effectData.setApplyType(this->applyType);
     effectData.setAnimationId(this->animationId);
     effectData.setAnimationLayerIndex(this->animationLayerIndex);
     effectData.setMinRotateAngle(this->minRotateAngle);

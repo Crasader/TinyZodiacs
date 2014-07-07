@@ -218,6 +218,8 @@
 		3446809D1943037D00FECCE8 /* MapListItem0.png in Resources */ = {isa = PBXBuildFile; fileRef = 3446809B1943037D00FECCE8 /* MapListItem0.png */; };
 		3446809F1943044100FECCE8 /* MapListItem0.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3446809E1943044100FECCE8 /* MapListItem0.plist */; };
 		344680A11943049D00FECCE8 /* MapListItem_1.ExportJson in Resources */ = {isa = PBXBuildFile; fileRef = 344680A01943049D00FECCE8 /* MapListItem_1.ExportJson */; };
+		344B7AB1196699DD001375D5 /* NotificationLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 344B7AAF196699DD001375D5 /* NotificationLayer.cpp */; };
+		344B7AB419669E0E001375D5 /* NotificationManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 344B7AB219669E0E001375D5 /* NotificationManager.cpp */; };
 		345F6B5318E2C71F00985A7A /* ScheduleManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 345F6B5118E2C71F00985A7A /* ScheduleManager.cpp */; };
 		346701F5193978BF00CC4E2B /* XMLAnimationDataParser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 346701F3193978BF00CC4E2B /* XMLAnimationDataParser.cpp */; };
 		348341DE1959E1B400173C2A /* skill_sounds.xml in Resources */ = {isa = PBXBuildFile; fileRef = 348341DD1959E1B400173C2A /* skill_sounds.xml */; };
@@ -272,7 +274,6 @@
 		34BCBED61962C7BE000BA5C5 /* monster_ghost_2.xml in Resources */ = {isa = PBXBuildFile; fileRef = 34BCBED51962C7BE000BA5C5 /* monster_ghost_2.xml */; };
 		34BCBED81962C7CC000BA5C5 /* ghost_2_animation.xml in Resources */ = {isa = PBXBuildFile; fileRef = 34BCBED71962C7CC000BA5C5 /* ghost_2_animation.xml */; };
 		34BD42901965102D006F0624 /* SkillManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 34BD428E1965102D006F0624 /* SkillManager.cpp */; };
-		34BD429319656660006F0624 /* NotificationManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 34BD429119656660006F0624 /* NotificationManager.cpp */; };
 		34BFEA1919483BF700501A1D /* ProjectileData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 34BFEA1719483BF700501A1D /* ProjectileData.cpp */; };
 		34BFEA1C19483DBF00501A1D /* ProjectileStateAnimationData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 34BFEA1A19483DBF00501A1D /* ProjectileStateAnimationData.cpp */; };
 		34BFEA1F19483ED000501A1D /* XMLProjectileDataParser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 34BFEA1D19483ED000501A1D /* XMLProjectileDataParser.cpp */; };
@@ -958,6 +959,10 @@
 		3446809B1943037D00FECCE8 /* MapListItem0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MapListItem0.png; sourceTree = "<group>"; };
 		3446809E1943044100FECCE8 /* MapListItem0.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = MapListItem0.plist; sourceTree = "<group>"; };
 		344680A01943049D00FECCE8 /* MapListItem_1.ExportJson */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = MapListItem_1.ExportJson; sourceTree = "<group>"; };
+		344B7AAF196699DD001375D5 /* NotificationLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = NotificationLayer.cpp; sourceTree = "<group>"; };
+		344B7AB0196699DD001375D5 /* NotificationLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotificationLayer.h; sourceTree = "<group>"; };
+		344B7AB219669E0E001375D5 /* NotificationManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = NotificationManager.cpp; sourceTree = "<group>"; };
+		344B7AB319669E0E001375D5 /* NotificationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotificationManager.h; sourceTree = "<group>"; };
 		345F6B5118E2C71F00985A7A /* ScheduleManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ScheduleManager.cpp; sourceTree = "<group>"; };
 		345F6B5218E2C71F00985A7A /* ScheduleManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScheduleManager.h; sourceTree = "<group>"; };
 		346701F3193978BF00CC4E2B /* XMLAnimationDataParser.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = XMLAnimationDataParser.cpp; path = ../Classes/XMLAnimationDataParser.cpp; sourceTree = "<group>"; };
@@ -1026,8 +1031,6 @@
 		34BCBED71962C7CC000BA5C5 /* ghost_2_animation.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = ghost_2_animation.xml; sourceTree = "<group>"; };
 		34BD428E1965102D006F0624 /* SkillManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SkillManager.cpp; sourceTree = "<group>"; };
 		34BD428F1965102D006F0624 /* SkillManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SkillManager.h; sourceTree = "<group>"; };
-		34BD429119656660006F0624 /* NotificationManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = NotificationManager.cpp; sourceTree = "<group>"; };
-		34BD429219656660006F0624 /* NotificationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotificationManager.h; sourceTree = "<group>"; };
 		34BFEA1719483BF700501A1D /* ProjectileData.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ProjectileData.cpp; sourceTree = "<group>"; };
 		34BFEA1819483BF700501A1D /* ProjectileData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProjectileData.h; sourceTree = "<group>"; };
 		34BFEA1A19483DBF00501A1D /* ProjectileStateAnimationData.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ProjectileStateAnimationData.cpp; sourceTree = "<group>"; };
@@ -2202,8 +2205,8 @@
 				34B3BDE01942B2BA00D3E651 /* SoundManager.h */,
 				34BD428E1965102D006F0624 /* SkillManager.cpp */,
 				34BD428F1965102D006F0624 /* SkillManager.h */,
-				34BD429119656660006F0624 /* NotificationManager.cpp */,
-				34BD429219656660006F0624 /* NotificationManager.h */,
+				344B7AB219669E0E001375D5 /* NotificationManager.cpp */,
+				344B7AB319669E0E001375D5 /* NotificationManager.h */,
 			);
 			name = Managers;
 			sourceTree = "<group>";
@@ -3040,6 +3043,8 @@
 				F54AE9FB18D2F4A100194E66 /* TestScene.h */,
 				34CC3F35195151D900CB46F0 /* PauseLayer.cpp */,
 				34CC3F36195151D900CB46F0 /* PauseLayer.h */,
+				344B7AAF196699DD001375D5 /* NotificationLayer.cpp */,
+				344B7AB0196699DD001375D5 /* NotificationLayer.h */,
 			);
 			name = GamePlayScene;
 			sourceTree = "<group>";
@@ -3718,6 +3723,7 @@
 				15A3DA391682F826002FB0C5 /* CCControlLoader.cpp in Sources */,
 				F5B85FBF1904BABF00CE4604 /* ForegroundDTO.cpp in Sources */,
 				15A3DA3A1682F826002FB0C5 /* CCData.cpp in Sources */,
+				344B7AB419669E0E001375D5 /* NotificationManager.cpp in Sources */,
 				15A3DA3B1682F826002FB0C5 /* CCLabelBMFontLoader.cpp in Sources */,
 				15A3DA3C1682F826002FB0C5 /* CCLabelTTFLoader.cpp in Sources */,
 				F5FB8E6E19333E3A0074598C /* GameRule.cpp in Sources */,
@@ -3859,12 +3865,12 @@
 				379BB99D17F03F3700829B88 /* CCArmature.cpp in Sources */,
 				379BB99E17F03F3700829B88 /* CCBone.cpp in Sources */,
 				379BB99F17F03F3700829B88 /* CCDatas.cpp in Sources */,
+				344B7AB1196699DD001375D5 /* NotificationLayer.cpp in Sources */,
 				379BB9A017F03F3700829B88 /* CCBatchNode.cpp in Sources */,
 				34F7F92D18E16BB70084E87C /* SkillFactory.cpp in Sources */,
 				379BB9A117F03F3700829B88 /* CCDecorativeDisplay.cpp in Sources */,
 				F5FA5B5E1900E78300B80EF0 /* ParameterObject.cpp in Sources */,
 				379BB9A217F03F3700829B88 /* CCDisplayFactory.cpp in Sources */,
-				34BD429319656660006F0624 /* NotificationManager.cpp in Sources */,
 				34B3BE271942F48600D3E651 /* XMLMapListParser.cpp in Sources */,
 				F54AE9B918D2F1AA00194E66 /* CharacterMoveState.cpp in Sources */,
 				379BB9A317F03F3700829B88 /* CCDisplayManager.cpp in Sources */,

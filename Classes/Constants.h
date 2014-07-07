@@ -167,8 +167,9 @@ enum ProjectileAngleType
     FREE_STYLE
 };
 
-enum SkillApllyType
+enum ApplyType
 {
+    DO_NOT_APPLY=-1,
     APPLY_ONCE =0,
     APPLY_OVERTIME =1
 };

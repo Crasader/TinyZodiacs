@@ -1,5 +1,6 @@
 <list_effect>
     <effect id="onion_monster_normal_attack">
+        <apply_type>0</apply_type>
         <animation animation_layer="4" minRotateAngle ="-90" maxRotateAngle="90" minScale="0.75" maxScale="1" repeatTimes="1">effect1-slash</animation>
         <sfx>slash_sound_1</sfx>
         <joints>
@@ -7,7 +8,7 @@
             <this x="0" y="0" offsetX="0" offsetY="0"></this>
         </joints>
 		<chance>100</chance>
-        <crit_chance>1</crit_chance>
+        <crit_chance>20</crit_chance>
         <crit>1.5</crit>
             
         <hp>-10</hp>
@@ -23,6 +24,7 @@
     </effect>
     
     <effect id="bull_monster_normal_attack">
+        <apply_type>0</apply_type>
         <animation animation_layer="4" minRotateAngle ="0" maxRotateAngle="0" minScale="1" maxScale="1" repeatTimes="1" >effect1-slash</animation>
         <sfx>slash_sound_1</sfx>
         <joints>
@@ -30,7 +32,7 @@
             <this x="0" y="0" offsetX="0" offsetY="0"></this>
         </joints>
 		<chance>100</chance>
-        <crit_chance>1</crit_chance>
+        <crit_chance>20</crit_chance>
         <crit>1.5</crit>
         
         <hp>-20</hp>
@@ -46,6 +48,7 @@
     </effect>
     
     <effect id="pig_monster_normal_attack">
+        <apply_type>0</apply_type>
         <animation animation_layer="4" minRotateAngle ="0" maxRotateAngle="0" minScale="1" maxScale="1" repeatTimes="1">effect1-slash</animation>
         <sfx></sfx>
         <joints>
@@ -53,7 +56,7 @@
             <this x="0" y="0" offsetX="0" offsetY="0"></this>
         </joints>
 		<chance>100</chance>
-        <crit_chance>1</crit_chance>
+        <crit_chance>20</crit_chance>
         <crit>1.5</crit>
         
         <hp>-5</hp>
@@ -70,6 +73,7 @@
 
 
     <effect id="tower_normal_attack_affect">
+        <apply_type>0</apply_type>
         <animation animation_layer="4" minRotateAngle ="0" maxRotateAngle="0" minScale="1" maxScale="1" repeatTimes="1">effect1-slash</animation>
         <sfx></sfx>
         <joints>
@@ -77,7 +81,7 @@
             <this x="0" y="0" offsetX="0" offsetY="0"></this>
         </joints>
 		<chance>100</chance>
-        <crit_chance>1</crit_chance>
+        <crit_chance>20</crit_chance>
         <crit>1.5</crit>
         
         <hp>-15</hp>
@@ -93,6 +97,7 @@
     </effect>
     
     <effect id="projectile_first_effect">
+        <apply_type>0</apply_type>
         <animation animation_layer="4" minRotateAngle ="0" maxRotateAngle="0" minScale="1" maxScale="1" repeatTimes="1">effect1-slash</animation>
         <sfx></sfx>
         <joints>
@@ -100,11 +105,11 @@
             <this x="0" y="0" offsetX="0" offsetY="0"></this>
         </joints>
         
-        <chance>1</chance>
-        <crit_chance>1</crit_chance>
+        <chance>100</chance>
+        <crit_chance>20</crit_chance>
         <crit>1.5</crit>
         
-        <hp>-7</hp>
+        <hp>-5</hp>
         <atk>0</atk>
         <def>0</def>
         <speed>0</speed>
@@ -117,6 +122,7 @@
     </effect>
     
     <effect id="lightning_arrow_stun">
+        <apply_type>1</apply_type>
         <animation animation_layer="4" minRotateAngle ="0" maxRotateAngle="0" minScale="1" maxScale="1" repeatTimes="1">skill-lightning_arrow_end</animation>
         <sfx></sfx>
         <joints>
@@ -124,8 +130,8 @@
             <this x="0" y="0" offsetX="0" offsetY="0"></this>
         </joints>
         
-        <chance>1</chance>
-        <crit_chance>1</crit_chance>
+        <chance>100</chance>
+        <crit_chance>20</crit_chance>
         <crit>1.5</crit>
         
         <hp>0</hp>
@@ -141,6 +147,7 @@
     </effect>
             
     <effect id="fire_ball_burn">
+        <apply_type>1</apply_type>
         <animation animation_layer="4" minRotateAngle ="0" maxRotateAngle="0" minScale="1" maxScale="1" repeatTimes="-1">skill-magic_fireball_end</animation>
        <sfx></sfx>
        <joints>
@@ -148,8 +155,8 @@
             <this x="0" y="0" offsetX="0" offsetY="0"></this>
         </joints>
         
-        <chance>1</chance>
-        <crit_chance>1</crit_chance>
+        <chance>100</chance>
+        <crit_chance>20</crit_chance>
         <crit>1.5</crit>
                     
         <hp>-5</hp>
@@ -165,6 +172,7 @@
     </effect>
     
     <effect id="enegy_drain">
+        <apply_type>1</apply_type>
         <animation animation_layer="4" minRotateAngle ="0" maxRotateAngle="360" minScale="0.7" maxScale="1" repeatTimes="0">effect1-lightning</animation>
         <sfx></sfx>
         <joints>
@@ -172,8 +180,8 @@
             <this x="0" y="0" offsetX="0" offsetY="0"></this>
         </joints>
         
-        <chance>1</chance>
-        <crit_chance>1</crit_chance>
+        <chance>100</chance>
+        <crit_chance>20</crit_chance>
         <crit>1.5</crit>
         
         <hp>0</hp>
@@ -190,6 +198,7 @@
 
 
     <effect id="cat_healing">
+        <apply_type>0</apply_type>
         <animation animation_layer="4" minRotateAngle ="0" maxRotateAngle="0" minScale="1" maxScale="1" repeatTimes="1">effect1-slash</animation>
         <sfx></sfx>
         <joints>
@@ -198,7 +207,7 @@
         </joints>
         
         <chance>100</chance>
-        <crit_chance>1</crit_chance>
+        <crit_chance>20</crit_chance>
         <crit>1.5</crit>
             
         <hp>5</hp>
@@ -214,6 +223,7 @@
     </effect>
     
     <effect id="item_healing">
+        <apply_type>0</apply_type>
         <animation animation_layer="4" minRotateAngle ="0" maxRotateAngle="0" minScale="1" maxScale="1" repeatTimes="1">effect1-slash</animation>
         <sfx></sfx>
         <joints>
@@ -238,6 +248,7 @@
     </effect>
     
     <effect id="suicide_effect">
+        <apply_type>0</apply_type>
         <animation animation_layer="4" minRotateAngle ="-90" maxRotateAngle="90" minScale="0.75" maxScale="1" repeatTimes="1">effect1-slash</animation>
         <sfx></sfx>
         <joints>
@@ -245,7 +256,7 @@
             <this x="0" y="0" offsetX="0" offsetY="0"></this>
         </joints>
 		<chance>100</chance>
-        <crit_chance>1</crit_chance>
+        <crit_chance>20</crit_chance>
         <crit>1.5</crit>
         
         <hp>-500</hp>
@@ -260,7 +271,32 @@
         <time_tick>0</time_tick>
     </effect>
     
+    <effect id="invincible_effect">
+        <apply_type>1</apply_type>
+        <animation animation_layer="4" minRotateAngle ="0" maxRotateAngle="0" minScale="0" maxScale="1" repeatTimes="1">effect1-slash</animation>
+        <sfx></sfx>
+        <joints>
+            <holder x="0" y="0" offsetX="0" offsetY="0"></holder>
+            <this x="0" y="0" offsetX="0" offsetY="0"></this>
+        </joints>
+		<chance>100</chance>
+        <crit_chance>20</crit_chance>
+        <crit>1.5</crit>
+        
+        <hp>-50</hp>
+        <atk>0</atk>
+        <def>999</def>
+        <speed>0</speed>
+        <atk_speed>0</atk_speed>
+        <max_jump>0</max_jump>
+        <jump_height>0</jump_height>
+        
+        <life_time>5</life_time>
+        <time_tick>0</time_tick>
+    </effect>
+    
     <effect id="item_powerup">
+        <apply_type>1</apply_type>
         <animation animation_layer="4" minRotateAngle ="0" maxRotateAngle="0" minScale="1" maxScale="1" repeatTimes="1">effect1-lightning</animation>
         <sfx></sfx>
         <joints>
@@ -269,7 +305,7 @@
         </joints>
         
         <chance>100</chance>
-        <crit_chance>1</crit_chance>
+        <crit_chance>20</crit_chance>
         <crit>1.5</crit>
         
         <hp>0</hp>
@@ -285,6 +321,7 @@
     </effect>
     
     <effect id="item_speedup">
+        <apply_type>1</apply_type>
         <animation animation_layer="4" minRotateAngle ="0" maxRotateAngle="0" minScale="1" maxScale="1" repeatTimes="1">effect1-lightning</animation>
         <sfx></sfx>
         <joints>
@@ -293,7 +330,7 @@
         </joints>
         
         <chance>100</chance>
-        <crit_chance>1</crit_chance>
+        <crit_chance>20</crit_chance>
         <crit>1.5</crit>
         
         <hp>0</hp>
@@ -308,6 +345,7 @@
     </effect>
     
     <effect id="item_defense">
+        <apply_type>1</apply_type>
         <animation animation_layer="4" minRotateAngle ="0" maxRotateAngle="0" minScale="1" maxScale="1" repeatTimes="1">effect1-lightning</animation>
         <sfx></sfx>
         <joints>
@@ -316,17 +354,18 @@
         </joints>
         
         <chance>100</chance>
-        <crit_chance>1</crit_chance>
+        <crit_chance>20</crit_chance>
         <crit>1.5</crit>
         
         <hp>0</hp>
         <atk>0</atk>
-        <def>100</def>
-        <speed>3</speed>
+        <def>0</def>
+        <speed>0
+        </speed>
         <atk_speed>0</atk_speed>
         <max_jump>0</max_jump>
         <jump_height>0</jump_height>
-        <life_time>5</life_time>
+        <life_time>0</life_time>
         <time_tick>0</time_tick>
     </effect>
 

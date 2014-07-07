@@ -21,7 +21,7 @@ class ProjectileData
 private:
 protected:
 public:
-    CC_SYNTHESIZE(SkillApllyType, applyType, ApplyType);
+    CC_SYNTHESIZE(ApplyType, applyType, ApplyType);
     CC_SYNTHESIZE(std::string, projectileBodyId, ProjectileBodyId);
     CC_SYNTHESIZE(ProjectileStateAnimationData, stateAnimation, StateAnimation);
     CC_SYNTHESIZE(ProjectileSoundData, soundData, SoundData);

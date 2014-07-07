@@ -340,13 +340,12 @@
     <wave_list>
         <wave id = "1" name="Wave 1" background_music="AssetMusic_Commons_Market.mp3">
             <monster_factory_list>
-                <monster_factory group="B" max="40">
+                <monster_factory group="B" max="1">
                  
                     <monster_creator delay_per_unit="0.1" delay="2" lane = "2">
                         <position x="6827" y="1076"/>
                         <monster_list>
-                            <monster id="monster_ghost_1" quantity="10"/>
-                            <monster id="monster_ghost_2" quantity="10"/>
+                            <monster id="monster_ghost_1" quantity="1"/>
                         </monster_list>
                     </monster_creator>
                 </monster_factory>

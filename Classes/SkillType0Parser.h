@@ -72,7 +72,7 @@ protected:
     static SkillTarget readTarget(const XMLElement* root);
     static vector<EffectData> readEffectList(const XMLElement* root);
     static float readTimeTick(const XMLElement* root);
-    static SkillApllyType readApplyType(const XMLElement* root);
+    static ApplyType readApplyType(const XMLElement* root);
     static SkillSoundData readSkillSoundData(const XMLElement* root);
 public:
     static NormalMeleeSkillData parse(const XMLElement* root, b2World* world);

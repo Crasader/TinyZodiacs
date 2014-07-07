@@ -84,6 +84,7 @@ EffectData* EffectFactory::loadXMLFile(const char* key, const char *xmlFileName)
         data->settimeTick(readTimeTick(result->FirstChildElement(TAG_TIME_TICK)));
         
         data->setSoundEffect(readSFX(result->FirstChildElement(TAG_SFX)));
+        data->setApplyType(readApplyType(result->FirstChildElement(TAG_APPLY_TYPE)));
     }
     
     delete []pFileData;
@@ -137,7 +138,7 @@ float EffectFactory::readCritChance(const XMLElement* root)
 
 float EffectFactory::readCritRatio(const XMLElement* root)
 {
-    return XMLHelper::readFloat(root, 0);
+    return XMLHelper::readFloat(root, 1);
 }
 
 int EffectFactory::readHealth(const XMLElement* root)
@@ -212,4 +213,10 @@ std::string EffectFactory::readSFX(const XMLElement* root)
 {
     std::string soundId = XMLHelper::readString(root, "");
     return SoundManager::loadAffectSoundData(soundId.c_str());
+}
+
+ApplyType EffectFactory::readApplyType(const XMLElement* root)
+{
+    ApplyType type = (ApplyType)XMLHelper::readInt(root, APPLY_ONCE);
+    return type;
 }

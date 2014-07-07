@@ -13,6 +13,7 @@
 #include "cocos2d.h"
 #include "AnimationObject.h"
 #include "PhysicConstants.h"
+#include "Constants.h"
 
 USING_NS_CC;
 class EffectData: public CCObject
@@ -22,6 +23,8 @@ protected:
 public:
     EffectData();
     ~EffectData();
+    
+    CC_SYNTHESIZE(ApplyType, applyType, ApplyType);
     
     CC_SYNTHESIZE(std::string, animationId, AnimationId);
     CC_SYNTHESIZE(int, animationLayerIndex, AnimationLayerIndex);

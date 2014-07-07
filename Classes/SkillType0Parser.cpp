@@ -145,9 +145,9 @@ float SkillType0Parser::readTimeTick(const XMLElement* root)
     return XMLHelper::readFloat(root, 0);
 }
 
-SkillApllyType SkillType0Parser::readApplyType(const XMLElement* root)
+ApplyType SkillType0Parser::readApplyType(const XMLElement* root)
 {
-    SkillApllyType type = (SkillApllyType)XMLHelper::readInt(root, APPLY_ONCE);
+    ApplyType type = (ApplyType)XMLHelper::readInt(root, APPLY_ONCE);
     return type;
 }
 

@@ -159,9 +159,14 @@ void Affect::onTimeTick()
             Character* character =static_cast<Character*>(this->holder) ;
             
             if(character!=NULL)
+            {
                 character->notifyByAffect(this);
-            
-            setDataAfterFirstTick();
+            }
+//            setDataAfterFirstTick();
+            if(this->getApplyType() == APPLY_ONCE)
+            {
+                this->destroyOnTimeOut();
+            }
         }
     }
 }
@@ -205,12 +210,13 @@ bool Affect::init()
 
 void Affect::setData(EffectData effectData)
 {
+    this->applyType = effectData.getApplyType();
     this->chance = effectData.getChance();
     this->critChance = effectData.getCritChance();
     this->critRatio = effectData.getCritRatio();
     this->health = effectData.getHealth();
     this->attack = effectData.getAttack();
-    this->attackSpeed = effectData.getAttack();
+    this->attackSpeed = effectData.getAttackSpeed();
     this->speed = effectData.getSpeed();
     this->defense = effectData.getDefense();
     this->maxJump = effectData.getMaxJump();

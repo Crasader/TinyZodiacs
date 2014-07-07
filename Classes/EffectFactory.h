@@ -23,6 +23,7 @@ using namespace tinyxml2;
 #define EFFECT_XML_FILE "list_effect.xml"
 #define TAG_EFFECT "effect"
 
+#define TAG_APPLY_TYPE "apply_type"
 #define TAG_ANIMATION_ID "animation"
 //#define TAG_ANIMATION_LAYER "animation_layer"
 #define TAG_JOINTS "joints"
@@ -90,6 +91,7 @@ protected:
     static float readTimeTick(const XMLElement* root);
     
     static std::string readSFX(const XMLElement* root);
+    static ApplyType readApplyType(const XMLElement* root);
 public:
     static EffectData* loadXMLFile(const char* key, const char* xmlFileName);
     static EffectData* createEffectData(const char* key);

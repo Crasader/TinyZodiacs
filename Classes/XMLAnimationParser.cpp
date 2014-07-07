@@ -68,7 +68,6 @@ AnimationObject* XMLAnimationParser::getAnimationObjectFromXMLNode(XMLElement *a
     for (XMLElement* element = framelistXMLNode->FirstChildElement(TAG_FRAME); element; element = element->NextSiblingElement())
     {
         const char* frameName = element->Attribute(ATTRIBUTE_NAME);
-        CCLOG("%s",frameName);
         frames->addObject(CCSpriteFrameCache::sharedSpriteFrameCache()->spriteFrameByName(frameName));
         listFrameName.push_back(frameName);
     }

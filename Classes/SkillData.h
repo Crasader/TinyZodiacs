@@ -28,7 +28,7 @@ public:
     ~SkillData();
 //    CC_SYNTHESIZE(AnimationObject*, skillAnimation, SkillAnimation);
     CC_SYNTHESIZE(SkillAnimationData, skillAnimationData, SkillAnimationData);
-    CC_SYNTHESIZE(SkillApllyType, applyType, ApplyType);
+    CC_SYNTHESIZE(ApplyType, applyType, ApplyType);
     CC_SYNTHESIZE(TextureSelector, skillTextureSelector, skillTextureSelector);
     CC_SYNTHESIZE(float, coolDown, CoolDown);
     CC_SYNTHESIZE(float, delay, Delay);

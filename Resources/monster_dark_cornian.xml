@@ -1,7 +1,7 @@
 <character id="monster_dark_cornian">
     <animation>dark_cornian</animation>
 	<body>dark_cornian</body>
-    <hp>500</hp>
+    <hp>50</hp>
     <atk>30</atk>
     <def>0</def>
     <speed>7</speed>

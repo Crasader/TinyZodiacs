@@ -31,28 +31,36 @@ void CharacterData::setData(CharacterData data)
     this->maxJumpTimes=data.maxJumpTimes;
 }
 
-void CharacterData::applyData(CharacterData data)
+void CharacterData::applyData(CharacterData data, CharacterData originalData)
 {
-    this->health+=data.health;
-    this->health = MAX(this->health,0);
-    
-    this->attack+=data.attack;
+    this->attack=data.attack;
     this->attack = MAX(this->attack,0);
     
-    this->defense+=data.defense;
+    this->defense=data.defense;
     this->defense = MAX(this->defense,0);
     
-    this->speed+=data.speed;
+    this->speed=data.speed;
     this->speed = MAX(this->speed,0);
     
-    this->jumpHeight+=data.jumpHeight;
+    this->jumpHeight=data.jumpHeight;
     this->jumpHeight = MAX(this->jumpHeight,0);
     
-    this->attackSpeed+=data.attackSpeed;
+    this->attackSpeed=data.attackSpeed;
     this->attackSpeed = MAX(this->attackSpeed,0);
     
-    this->maxJumpTimes+=data.maxJumpTimes;
+    this->maxJumpTimes=data.maxJumpTimes;
     this->maxJumpTimes = MAX(this->maxJumpTimes,0);
+    
+    if(data.getHealth()>0)
+    {
+        this->health+= data.health;
+        this->health = MIN(this->health,originalData.getHealth());
+    }
+    else
+    {
+        this->health+= MIN((data.getHealth()+this->getDefense()),0);
+    }
+        //    this->health = MAX(this->health,0);
 }
 
 void CharacterData::applyAffect(Affect* affect, GameObject* holder)
@@ -84,4 +92,31 @@ void CharacterData::applyAffect(Affect* affect, GameObject* holder)
     
     this->maxJumpTimes+=affect->getMaxJump();
     this->maxJumpTimes = MAX(this->maxJumpTimes,0);
+}
+
+CharacterData CharacterData::getRawData()
+{
+    CharacterData data;
+    data.health=0;
+    data.attack=0;
+    data.defense=0;
+    data.speed=0;
+    data.jumpHeight=0;
+    data.attackSpeed=0;
+    data.maxJumpTimes=0;
+    return data;
+}
+
+CharacterData CharacterData::operator+(const CharacterData& other)
+{
+    CharacterData data;
+    data.health=this->health + other.health;
+    data.attack=this->attack + other.attack;
+    data.defense=this->defense + other.defense;
+    data.speed=this->speed + other.speed;
+    data.jumpHeight=this->jumpHeight + other.jumpHeight;
+    data.attackSpeed=this->attackSpeed + other.attackSpeed;
+    data.maxJumpTimes=this->maxJumpTimes + other.maxJumpTimes;
+    
+    return data;
 }

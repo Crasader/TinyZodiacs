@@ -242,7 +242,13 @@ void Character::checkCollisionDataInBeginContact(PhysicData* holderData, PhysicD
                 {
                     switch (collisionData->gameObjectID) {
                         case WALL:
-                            die();
+                        {
+                            Wall* deathWall= static_cast<Wall*>(collisionData->data);
+                            if(deathWall != NULL && deathWall->getDeadWall() == true)
+                            {
+                                die();
+                            }
+                        }
                             break;
                             
                         default:
@@ -414,7 +420,8 @@ void Character::notifyByAffect(Affect* affect)
     if(this->isDestroyed == false)
     {
         float oldHp = this->characterData.getHealth();
-        this->characterData.applyAffect((Affect*)affect, this);
+//        this->characterData.applyAffect((Affect*)affect, this);
+        calculateCharacterDataOnNotify((Affect*)affect);
         
         if(this->gameObjectView != NULL)
         {
@@ -422,19 +429,14 @@ void Character::notifyByAffect(Affect* affect)
         }
         
         
-        if(this->characterData.getHealth()-oldHp >= 0)
+        if(this->characterData.getHealth()-oldHp == 0)
         {
-            //            HealthPointEffect* effect = HealthPointEffect::create();
-            //            effect->setHealthPoint(this->characterData.getHealth()-oldHp);
-            //            EffectManager::getInstance()->runEffect(effect, this->getPositionInPixel(),ABOVE_CHARACTER_LAYER);
-            
         }
         else
         {
             HealthPointEffect* effect = HealthPointEffect::create();
             effect->setHealthPoint(this->characterData.getHealth()-oldHp);
             EffectManager::getInstance()->runEffect(effect, this->getPositionInPixel(),ABOVE_CHARACTER_LAYER);
-            
         }
         if(this->characterData.getHealth()-oldHp<0)
         {
@@ -455,9 +457,81 @@ void Character::notifyByAffect(Affect* affect)
 void Character::removeAffect(Affect* affect)
 {
     GameObject::removeAffect(affect);
-    if(this->listAffect->count() ==0)
+//    if(this->listAffect->count() ==0)
+//    {
+//        this->characterData.setData(this->originCharacterData);
+//    }
+    calculateCharacterDataOnDetach();
+}
+void Character::calculateCharacterDataOnDetach()
+{
+    if(this->listAffect != NULL)
     {
-        this->characterData.setData(this->originCharacterData);
+        CCObject* affectObj;
+        
+        CharacterData tempData = CharacterData::getRawData();
+        CCARRAY_FOREACH(this->listAffect, affectObj)
+        {
+            Affect* affect = (Affect*)affectObj;
+            tempData.setAttack(tempData.getAttack() + affect->getAttack());
+            tempData.setAttackSpeed(tempData.getAttackSpeed() + affect->getAttackSpeed());
+            tempData.setDefense(tempData.getDefense() + affect->getDefense());
+//            tempData.setHealth(tempData.getHealth() + affect->getHealth());
+            tempData.setJumpHeight(tempData.getJumpHeight() + affect->getJumpHeight());
+            tempData.setMaxJumpTimes(tempData.getMaxJumpTimes() + affect->getMaxJump());
+            tempData.setSpeed(tempData.getSpeed() + affect->getSpeed());
+        }
+        //caculate with original
+        tempData.setAttack(tempData.getAttack() + this->originCharacterData.getAttack());
+        tempData.setAttackSpeed(tempData.getAttackSpeed() + this->originCharacterData.getAttackSpeed());
+        tempData.setDefense(tempData.getDefense() + this->originCharacterData.getDefense());
+        tempData.setJumpHeight(tempData.getJumpHeight() + this->originCharacterData.getJumpHeight());
+        tempData.setMaxJumpTimes(tempData.getMaxJumpTimes() + this->originCharacterData.getMaxJumpTimes());
+        tempData.setSpeed(tempData.getSpeed() + this->originCharacterData.getSpeed());
+        //
+        this->characterData.applyData(tempData,this->originCharacterData);
+//        CCLOG("Detach Affect count %d", this->listAffect->count());
+    }
+}
+
+void Character::calculateCharacterDataOnNotify(Affect* mAffect)
+{
+    if(this->listAffect != NULL)
+    {
+        CCObject* affectObj;
+        
+        CharacterData tempData = CharacterData::getRawData();
+        CCARRAY_FOREACH(this->listAffect, affectObj)
+        {
+            Affect* affect = (Affect*)affectObj;
+            tempData.setAttack(tempData.getAttack() + affect->getAttack());
+            tempData.setAttackSpeed(tempData.getAttackSpeed() + affect->getAttackSpeed());
+            tempData.setDefense(tempData.getDefense() + affect->getDefense());
+            tempData.setJumpHeight(tempData.getJumpHeight() + affect->getJumpHeight());
+            tempData.setMaxJumpTimes(tempData.getMaxJumpTimes() + affect->getMaxJump());
+            tempData.setSpeed(tempData.getSpeed() + affect->getSpeed());
+            
+            if(mAffect != NULL && affect == mAffect)
+            {
+                float critRatio=1;
+                if(Util::randomIntInRange(0, 100)<= affect->getCritChance())
+                {
+                    critRatio = affect->getCritRatio();
+                }
+                
+                tempData.setHealth(tempData.getHealth() + affect->getHealth()*critRatio);
+            }
+        }
+        //caculate with original
+        tempData.setAttack(tempData.getAttack() + this->originCharacterData.getAttack());
+        tempData.setAttackSpeed(tempData.getAttackSpeed() + this->originCharacterData.getAttackSpeed());
+        tempData.setDefense(tempData.getDefense() + this->originCharacterData.getDefense());
+        tempData.setJumpHeight(tempData.getJumpHeight() + this->originCharacterData.getJumpHeight());
+        tempData.setMaxJumpTimes(tempData.getMaxJumpTimes() + this->originCharacterData.getMaxJumpTimes());
+        tempData.setSpeed(tempData.getSpeed() + this->originCharacterData.getSpeed());
+        //
+        this->characterData.applyData(tempData,this->originCharacterData);
+//        CCLOG("Notifi Affect count %d", this->listAffect->count());
     }
 }
 
@@ -509,6 +583,7 @@ void Character::detach(Observer* observer)
 {
     GameObject::detach(observer);
 }
+
 void Character::notifyToDestroy()
 {
     GameObject::notifyToDestroy();

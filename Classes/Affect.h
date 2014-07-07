@@ -41,6 +41,7 @@ protected:
     
     void setDataAfterFirstTick();
 public:
+    CC_SYNTHESIZE(ApplyType, applyType, ApplyType);
     CC_SYNTHESIZE_READONLY(SkillAnimationEffect*, animation, Animation);
     CC_SYNTHESIZE_READONLY(int, animationLayerIndex, AnimationLayerIndex);
     CC_SYNTHESIZE_READONLY(JointDef, jointDefA, JointDefA);

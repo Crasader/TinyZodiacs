@@ -49,6 +49,10 @@ protected:
     virtual void playSoundByState(CharacterSound characterSoundState);
     
     void playSkill(CharacterSkill skillIndex, AnimationObject* characterAnimation);
+    
+    void calculateCharacterDataOnDetach();
+    void calculateCharacterDataOnNotify(Affect* affect);
+
 public:
     Character();
     ~Character();

@@ -38,8 +38,12 @@ public:
     CC_SYNTHESIZE(std::string, skill2, Skill2);
 
     void setData(CharacterData data);
-    void applyData(CharacterData data);
+    void applyData(CharacterData data, CharacterData originalData);
     void applyAffect(Affect* affect, GameObject* holder);
+    
+    CharacterData operator+(const CharacterData& other);
+    
+    static  CharacterData getRawData();
 };
 
 #endif /* defined(__Headball__CharacterData__) */

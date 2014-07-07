@@ -350,6 +350,7 @@ Tower* ObjectFactory::createTower(TowerStructDTO* towerStructDTO, b2World* world
     tower->fallAnimation = DataCollector::getInstance()->getAnimationObjectByKey(fall.append(FALL).c_str());
     tower->flyAnimation = DataCollector::getInstance()->getAnimationObjectByKey(fly.append(FLY).c_str());
     tower->dieAnimation = DataCollector::getInstance()->getAnimationObjectByKey(die.append(DIE).c_str());
+    tower->setSoundData(SoundManager::loadCharacterSoundData(towerDTO->soundId.c_str()));
 //    if( tower->attackAnimation != NULL)
 //    {
 //        tower->attackAnimation->getAnimation()->setDelayPerUnit(tower->getOriginCharacterData().getAttackSpeed());

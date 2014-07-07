@@ -198,21 +198,6 @@ bool GameplayLayer::receiveCommand(CommandID commandID, void* data)
             EffectManager::getInstance()->runEffect(effect, ccp(size.width/2, size.height/2),this);
             setWaveValue(waveName->getCString());
             waveName->release();
-            //            int* waveNumber = static_cast<int*>(data);
-            //
-            //            CCSize size = CCDirector::sharedDirector()->getWinSize();
-            //
-            //            CCLabelTTF* labelStyle = CCLabelTTF::create("", "Marker Felt", 150);
-            //            labelStyle->setOpacity(100);
-            //
-            //            TextShowEffect* effect = TextShowEffect::create();
-            //            effect->setContent(CCString::createWithFormat("Wave %d", *waveNumber)->getCString());
-            //            effect->setLabelStyle(labelStyle);
-            //
-            //            EffectManager::getInstance()->runEffect(effect, ccp(size.width/2, size.height/2),this);
-            //
-            //            setWaveValue(*waveNumber);
-            //            delete waveNumber;
         }
             break;
         case DISPLAY_RESULT:
@@ -291,32 +276,14 @@ bool GameplayLayer::receiveCommand(CommandID commandID, void* data)
             break;
         case INVISIBLE_ALL_HERO_CONTROLLER:
         {
-            //            this->btnLeft->setVisible(false);
-            //            this->btnRight->setVisible(false);
-            //            this->btnJump->setVisible(false);
-            //            this->btnSkill0->setVisible(false);
-            //            this->btnSkill1->setVisible(false);
-            //            this->btnSkill2->setVisible(false);
-            //
-            //            this->actionControlPanel->setVisible(false);
-            
             setDisableUI(true);
         }
             break;
         case VISIBLE_ALL_HERO_CONTROLLER:
         {
-            //            this->btnLeft->setVisible(true);
-            //            this->btnRight->setVisible(true);
-            //            this->btnJump->setVisible(true);
-            //            this->btnSkill0->setVisible(true);
-            //            this->btnSkill1->setVisible(true);
-            //            this->btnSkill2->setVisible(true);
-            //
-            //            this->actionControlPanel->setVisible(true);
             setDisableUI(false);
         }
             break;
-            
         case DISPLAY_GOLD_VALUE:
         {
             int* goldValue = static_cast<int*>(data);

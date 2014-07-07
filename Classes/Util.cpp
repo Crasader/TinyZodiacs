@@ -435,12 +435,16 @@ void Util::applyEffectFromList(vector<EffectData> listEffect, GameObject* object
 {
     for(int i=0 ; i<listEffect.size() ; i++)
     {
-        Affect* affect = Affect::create();
-        affect->setHolder(object);
-        affect->setData(listEffect[i]);
+        int randomNum = Util::randomIntInRange(0, 100);
+        if(randomNum <= listEffect[i].getChance())
+        {
+            Affect* affect = Affect::create();
+            affect->setHolder(object);
+            affect->setData(listEffect[i]);
         
-        ((Character*)object)->applyAffect(affect);
-        // effect->isapplyed = true;
+            ((Character*)object)->applyAffect(affect);
+        }
+            // effect->isapplyed = true;
     }
 }
 
@@ -495,6 +499,11 @@ vector<ItemStruct> Util::randomItemInList(vector<ItemStruct> listItemStruct, int
 }
 
 float Util::randomFloatInRange(float lowerBound, float upperBound)
+{
+    return (lowerBound + (upperBound-lowerBound)*CCRANDOM_0_1());
+}
+
+float Util::randomIntInRange(int lowerBound, int upperBound)
 {
     return (lowerBound + (upperBound-lowerBound)*CCRANDOM_0_1());
 }

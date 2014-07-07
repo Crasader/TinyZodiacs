@@ -1,7 +1,14 @@
 <list_skill_animation>
 	<skill_animation id="skill-aura">
-		<pre_excute>skill-aura</pre_excute>
-		<excute>effect1-lightning</excute>
+		<pre_excute>effect1-lightning</pre_excute>
+		<excute>skill-aura</excute>
+		<pre_stop></pre_stop>
+		<stop></stop>
+	</skill_animation>
+    
+    <skill_animation id="skill-protect">
+		<pre_excute>effect1-lightning</pre_excute>
+		<excute>skill-aura</excute>
 		<pre_stop></pre_stop>
 		<stop></stop>
 	</skill_animation>
