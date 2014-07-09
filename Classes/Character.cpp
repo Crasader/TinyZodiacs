@@ -377,7 +377,6 @@ void Character::checkCollisionDataInEndContact(PhysicData* holderData, PhysicDat
                 }
             }
                 break;
-                
             default:
                 break;
         }

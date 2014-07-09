@@ -131,7 +131,6 @@ void SoundManager::addSoundId(const char* soundID, SoundType type)
     SoundStruct soundStruct;
     soundStruct.soundId = soundID;
     soundStruct.type = type;
-    
     if(isAdded(soundStruct))
     {
         listSoundId.push_back(soundStruct);
@@ -169,6 +168,8 @@ void SoundManager::preLoadAllAddedSound()
     for(int i=0 ; i<listSoundId.size() ; i++)
     {
         SoundStruct soundStruct = listSoundId[i];
+        if(soundStruct.soundId != "")
+        {
         switch (soundStruct.type) {
             case MUSIC:
                 CocosDenshion::SimpleAudioEngine::sharedEngine()->preloadBackgroundMusic(soundStruct.soundId.c_str());
@@ -180,6 +181,7 @@ void SoundManager::preLoadAllAddedSound()
                 break;
         }
         CCLOG("preload %s", soundStruct.soundId.c_str());
+        }
     }
 }
 

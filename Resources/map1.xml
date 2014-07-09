@@ -140,77 +140,77 @@
         <sensor_object is_back = "true" must_stop = "false" direction = "right" move_speed="8" jump_height = "0">
             <position x="150" y="645"/>
             <edge x="0" y="100"/>
-            <lane>1</lane>
+            <lane>1,2</lane>
         </sensor_object>
         <sensor_object is_back = "false" must_stop = "true" direction = "right" move_speed="5" jump_height = "11">
             <position x="820" y="650"/>
             <edge x="200" y="150"/>
-            <lane>1</lane>
+            <lane>1,2</lane>
         </sensor_object>
         <sensor_object is_back = "false" must_stop = "true" direction = "right" move_speed="3" jump_height = "10.5">
             <position x="1150" y="810"/>
             <edge x="0" y="50"/>
-            <lane>1</lane>
+            <lane>1,2</lane>
             
         </sensor_object>
         <sensor_object is_back = "false" must_stop = "true" direction = "left" move_speed="0" jump_height = "10.5">
             <position x="758" y="490"/>
             <edge x="0" y="50"/>
-            <lane>1</lane>
+            <lane>1,2</lane>
             
         </sensor_object>
         <sensor_object is_back = "false" must_stop = "true" direction = "left" move_speed="4" jump_height = "8">
             <position x="1555" y="255"/>
             <edge x="0" y="50"/>
-            <lane>1</lane>
+            <lane>1,2</lane>
             
         </sensor_object>
         <sensor_object is_back = "false" must_stop = "true" direction = "left" move_speed="0" jump_height = "11">
             <position x="1010" y="313"/>
             <edge x="0" y="50"/>
-            <lane>1</lane>
+            <lane>1,2</lane>
             
         </sensor_object>
         <sensor_object is_back = "true" must_stop = "true" direction = "left" move_speed="0" jump_height = "10.5">
             <position x="3980" y="1145"/>
             <edge x="0" y="50"/>
-            <lane>1</lane>
+            <lane>1,2</lane>
             
         </sensor_object>
         <sensor_object is_back = "true" must_stop = "false" direction = "left" move_speed="5" jump_height = "10">
             <position x="3975" y="1320"/>
             <edge x="50" y="0"/>
-            <lane>1</lane>
+            <lane>1,2</lane>
             
         </sensor_object>
         <sensor_object is_back = "true" must_stop = "true" direction = "right" move_speed="5" jump_height = "10">
             <position x="3600" y="1437"/>
             <edge x="0" y="50"/>
-            <lane>1</lane>
+            <lane>1,2</lane>
             
         </sensor_object>
         <sensor_object is_back = "false" must_stop = "false" direction = "right" move_speed="5" jump_height = "10">
             <position x="3824" y="1562"/>
             <edge x="0" y="50"/>
-            <lane>1</lane>
+            <lane>1,2</lane>
         </sensor_object>
         
         <sensor_object is_back = "true" must_stop = "false" direction = "left" move_speed="8" jump_height = "8">
             <position x="4444" y="1113"/>
             <edge x="520" y="-180"/>
-            <lane>2</lane>
+            <lane>1,2</lane>
         </sensor_object>
         
         <sensor_object is_back = "true" must_stop = "false" direction = "left" move_speed="5" jump_height = "12">
             <position x="4080" y="1152"/>
             <edge x="0" y="50"/>
-            <lane>2</lane>
+            <lane>1,2</lane>
         </sensor_object>
         
         <sensor_object is_back = "true" must_stop = "false" direction = "left" move_speed="5" jump_height = "6">
             <position x="3910" y="1340"/>
             <edge x="0" y="50"/>
-            <lane>2</lane>
+            <lane>1,2</lane>
         </sensor_object>
         
         <sensor_object is_back = "false" must_stop = "true" direction = "right" move_speed="5" jump_height = "10">
