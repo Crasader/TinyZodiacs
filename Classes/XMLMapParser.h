@@ -112,7 +112,6 @@ using namespace tinyxml2;
 #define TAG_WALL_LIST "wall_list"
 #define TAG_WALL "wall"
 #define ATTRIBUTE_WALL_DEADWALL "dead_wall"
-
 #define TAG_REVIVE_POSITION "revive_position"
 
 

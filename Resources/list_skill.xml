@@ -250,7 +250,6 @@
         <speed>0</speed>
         <list_effect>
             <enemy>
-                <effect>projectile_first_effect</effect>
                 <effect>lightning_arrow_stun</effect>
             </enemy>
         </list_effect>

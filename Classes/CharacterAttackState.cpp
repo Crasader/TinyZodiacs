@@ -57,7 +57,7 @@ void CharacterAttackState::update(float dt)
 
 bool CharacterAttackState::attack()
 {
-    return true;
+    return false;
 }
 
 bool CharacterAttackState::move()

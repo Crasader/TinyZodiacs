@@ -3,7 +3,7 @@
 	<body>cat</body>
     <hp>200</hp>
     <atk>20</atk>
-    <def>200</def>
+    <def>0</def>
     <speed>10</speed>
     <atk_speed>0.1</atk_speed>
     <max_jump>10</max_jump>
