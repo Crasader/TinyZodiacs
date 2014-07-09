@@ -219,8 +219,9 @@ void GameMatch::destroy()
     ItemFactory::getInstance()->setIsActive(false);
     this->gameWorld->destroy();
     this->removeFromParent();
-    
-    CCDirector::sharedDirector()->popScene();
+//    
+//    CCScene *pScene = MainMenuScene::scene();
+    CCDirector::sharedDirector()->popToSceneStackLevel(1);
 }
 
 bool GameMatch::receiveCommand(CommandID commandID, void* data)

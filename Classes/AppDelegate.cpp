@@ -13,7 +13,7 @@ typedef struct tagResource
 
 static Resource smallResource  =  { cocos2d::CCSizeMake(320, 240),  "SD" };
 static Resource mediumResource =  { cocos2d::CCSizeMake(800, 480),  "HD"   };
-static Resource largeResource  =  { cocos2d::CCSizeMake(1280, 800), "HDR" };
+static Resource largeResource  =  { cocos2d::CCSizeMake(1280, 700), "HDR" };
 static cocos2d::CCSize designResolutionSize = cocos2d::CCSizeMake(1280, 720);
 
 AppDelegate::AppDelegate() {
@@ -58,9 +58,14 @@ bool AppDelegate::applicationDidFinishLaunching() {
     // if the frame's height is larger than the height of medium resource size, select large resource.
 //    if (frameSize.height >= largeResource.size.height)
 //    {
+      searchPath.push_back("fonts");
     searchPath.push_back("fonts/eng");
      searchPath.push_back("global");
      searchPath.push_back("GUI");
+    searchPath.push_back("animation");
+    searchPath.push_back("sound");
+    searchPath.push_back("data");
+    searchPath.push_back("body");
     
        searchPath.push_back(largeResource.directory);
        pDirector->setContentScaleFactor(1);

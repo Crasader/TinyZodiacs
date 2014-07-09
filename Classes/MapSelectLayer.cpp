@@ -100,7 +100,7 @@ void MapSelectLayer::listItemTouchEvent(CCObject* sender, cocos2d::gui::TouchEve
                 DataCollector::getInstance()->getMatchData()->mapIDSelected = mapId->getCString();
                 
                 CCScene* heroSelectScene = HeroSelectScene::scene();
-                CCDirector::sharedDirector()->replaceScene(heroSelectScene);
+                CCDirector::sharedDirector()->pushScene(heroSelectScene);
             }
             break;
         }
@@ -122,7 +122,6 @@ void MapSelectLayer::loadMapList()
         {
             TextureSelector textureSelector = XMLButtonSelectorParser::parseData(listMap[i].buttonID);
     
-            
             button->loadTextures(textureSelector.activeTexture.c_str(), textureSelector.selectedTexture.c_str(), textureSelector.deactiveTexture.c_str(), cocos2d::gui::UI_TEX_TYPE_PLIST);
             
             

@@ -699,6 +699,11 @@ void GameplayLayer::listItemTouchEvent(CCObject* sender, cocos2d::gui::TouchEven
 {
     switch (type) {
         case cocos2d::gui::TOUCH_EVENT_BEGAN:
+        {
+            DefenseDTO* defenseDTO = static_cast<DefenseDTO*>(this->lvDefense->getItem(this->lvDefense->getCurSelectedIndex())->getUserData());
+            
+            ControllerManager::getInstance()->sendCommand(HERO_CONTROLLER,  HERO_CREATE_DEFENSE,defenseDTO);
+        }
             break;
         case cocos2d::gui::TOUCH_EVENT_MOVED:
             break;
@@ -708,11 +713,10 @@ void GameplayLayer::listItemTouchEvent(CCObject* sender, cocos2d::gui::TouchEven
             break;
         case cocos2d::gui::TOUCH_EVENT_ENDED:
         {
-            DefenseDTO* defenseDTO = static_cast<DefenseDTO*>(this->lvDefense->getItem(this->lvDefense->getCurSelectedIndex())->getUserData());
-            
-            ControllerManager::getInstance()->sendCommand(HERO_CONTROLLER,  HERO_CREATE_DEFENSE,defenseDTO);
-            break;
+  
+           
         }
+            break;
         default:
             break;
     }

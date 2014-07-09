@@ -1,0 +1,22 @@
+<character id="monster_bull">
+    <animation>bull</animation>
+	<body>bull</body>
+    <hp>2000</hp>
+    <atk>70</atk>
+    <def>30</def>
+    <speed>1</speed>
+    <atk_speed>2</atk_speed>
+    <max_jump>10</max_jump>
+    <jump_height>10</jump_height>
+    <sensor_body>bull_sensor</sensor_body>
+    <skill_0>monster_bull_normal_attack</skill_0>
+    
+    <item_list>
+        <item id="coin2" chance="20"/>
+        <item id="speedup" chance="20"/>
+        <item id="powerup" chance="5"/>
+        <item id="defense" chance="10"/>
+    </item_list>
+    
+        <sfx>bull_sounds</sfx>
+</character>

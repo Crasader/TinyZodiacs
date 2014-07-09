@@ -1,0 +1,16 @@
+<character id="monkey">
+    <animation>monkey</animation>
+	<body>monkey</body>
+    <hp>450</hp>
+    <atk>50</atk>
+    <def>15</def>
+    <speed>12</speed>
+    <atk_speed>0.1</atk_speed>
+    <max_jump>3</max_jump>
+    <jump_height>10</jump_height>
+    <skill_0>monkey_normal_attack</skill_0>
+    <skill_1>monkey_aura</skill_1>
+    <skill_2>monkey_ultimate</skill_2>
+    <sfx>monkey_sounds</sfx>
+
+</character>

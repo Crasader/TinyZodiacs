@@ -1,0 +1,24 @@
+<character id="monster_onion_invert">
+    <animation>onion_invert</animation>
+	<body>onion</body>
+    <hp>300</hp>
+    <atk>20</atk>
+    <def>0</def>
+    <speed>5</speed>
+    <atk_speed>0.1</atk_speed>
+    <max_jump>10</max_jump>
+    <jump_height>10</jump_height>
+    <sensor_body>oninon_sensor</sensor_body>
+
+    <skill_0>monster_onion_normal_attack</skill_0>
+
+    
+    <item_list>
+        <item id="coin2" chance="20"/>
+        <item id="speedup" chance="20"/>
+        <item id="powerup" chance="5"/>
+        <item id="defense" chance="10"/>
+           </item_list>
+    
+        <sfx>cat_sounds</sfx>
+</character>

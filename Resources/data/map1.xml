@@ -1,0 +1,611 @@
+<map id="map1" width="8000" height="2000">
+    <background_list>
+        
+        <background image_name="map1_background_1_4.jpg" spritesheet_name="map1_background_spritesheet_1.png" layer_index="0">
+            <ratio x="0.05" y="0"/>
+        </background>
+        <background image_name="map1_background_2.png" spritesheet_name="map1_background_spritesheet_2.png" layer_index="0">
+            <ratio x="0.4" y="0.3"/>
+        </background>
+        
+        <background image_name="map1_background_3.png" spritesheet_name="map1_background_spritesheet_3.png" layer_index="0">
+            <ratio x="0.6" y="0.4"/>
+        </background>
+    </background_list>
+    <foreground_list>
+        <foreground image_name="map1_3.png" layer_index="0">
+            <position x="100" y="0"/>
+            <ratio x="1.1f" y="1.0f"/>
+        </foreground>
+        <foreground image_name="map1_22.png" layer_index="0">
+            <position x="3273" y="201"/>
+            <ratio x="1.0f" y="1.0f"/>
+        </foreground>
+        <foreground image_name="map1_23.png" layer_index="0">
+            <position x="6354" y="155"/>
+            <ratio x="1.0f" y="1.0f"/>
+        </foreground>
+        <foreground image_name="map1_24.png" layer_index="0">
+            <position x="7437" y="26"/>
+            <ratio x="1.05f" y="1.0f"/>
+        </foreground>
+        <foreground image_name="map1_29.png" layer_index="0">
+            <position x="1340" y="921"/>
+            <ratio x="1.0f" y="1.0f"/>
+        </foreground>
+    </foreground_list>
+    <map_object_list>
+        <map_object id="23" image_name="map1_2.png" body_name="map1_2" layer_index="1">
+            <position x="979" y="276"/>
+           <!-- <can_pass>false</can_pass>-->
+        </map_object>
+        <map_object id="23" image_name="map1_1.png" body_name="map1_1" layer_index="2">
+            <position x="0" y="380"/>
+        </map_object>
+        <map_object id="23" image_name="map1_28.png" body_name="map1_28" layer_index="3">
+            <position x="1124" y="244"/>
+        </map_object>
+        <map_object id="23" image_name="map1_4.png" body_name="map1_4" layer_index="4">
+            <position x="719" y="180"/>
+        </map_object>
+        <map_object id="23" image_name="map1_5.png" body_name="map1_5" layer_index="5">
+            <position x="1463" y="0"/>
+        </map_object>
+        <map_object id="23" image_name="map1_6.png" body_name="map1_6" layer_index="6">
+            <position x="718" y="0"/>
+        </map_object>
+        <map_object id="23" image_name="map1_7.png" body_name="map1_7" layer_index="7">
+            <position x="2399" y="0"/>
+        </map_object>
+        <map_object id="23" image_name="map1_9.png" body_name="map1_9" layer_index="8">
+            <position x="5526" y="0"/>
+        </map_object>
+        <map_object id="23" image_name="map1_10.png" body_name="map1_10" layer_index="9">
+            <position x="4701" y="0"/>
+        </map_object>
+        <map_object id="23" image_name="map1_21.png" body_name="map1_21" layer_index="10">
+            <position x="3307" y="198"/>
+        </map_object>
+        <map_object id="23" image_name="map1_12.png" body_name="map1_12" layer_index="11">
+            <position x="6726" y="328"/>
+        </map_object>
+        <map_object id="23" image_name="map1_11.png" body_name="map1_11" layer_index="12">
+            <position x="7269" y="0"/>
+        </map_object>
+        <map_object id="23" image_name="map1_13.png" body_name="map1_13" layer_index="13">
+            <position x="7048" y="0"/>
+        </map_object>
+        <map_object id="23" image_name="map1_15.png" body_name="map1_15" layer_index="14">
+            <position x="4964" y="852"/>
+        </map_object>
+        <map_object id="23" image_name="map1_14.png" body_name="map1_14" layer_index="15">
+            <position x="5914" y="309"/>
+        </map_object>
+        <map_object id="23" image_name="map1_16.png" body_name="map1_16" layer_index="16">
+            <position x="6544" y="0"/>
+        </map_object>
+        <map_object id="23" image_name="map1_17.png" body_name="map1_17" layer_index="17">
+            <position x="3672" y="1144"/>
+        </map_object>
+        <map_object id="23" image_name="map1_19.png" body_name="map1_19" layer_index="18">
+            <position x="4205" y="668"/>
+        </map_object>
+        <map_object id="23" image_name="map1_18.png" body_name="map1_18" layer_index="19">
+            <position x="3310" y="832"/>
+        </map_object>
+        <map_object id="23" image_name="map1_20.png" body_name="map1_20" layer_index="20">
+            <position x="3546" y="431"/>
+        </map_object>
+        <map_object id="23" image_name="map1_27.png" body_name="map1_27" layer_index="21">
+            <position x="2232" y="804"/>
+        </map_object>
+        <map_object id="23" image_name="map1_25.png" body_name="map1_25" layer_index="22">
+            <position x="600" y="1272"/>
+        </map_object>
+        <map_object id="23" image_name="map1_26.png" body_name="map1_26" layer_index="23">
+            <position x="1240" y="687"/>
+        </map_object>
+        
+    </map_object_list>
+    <revive_position>
+        <position x="460" y="778"/>
+    </revive_position>
+    <wall_list>
+        <wall>
+            <position x="729" y="513"/>
+            <edge x="0" y="140"/>
+        </wall>
+        <wall>
+            <position x="990 " y="329"/>
+            <edge x="0" y="163"/>
+        </wall>
+        <wall>
+            <position x="1465 " y="241"/>
+            <edge x="0" y="80"/>
+        </wall>
+        <wall>
+            <position x="6611 " y="257"/>
+            <edge x="0" y="70"/>
+        </wall>
+        <wall>
+            <position x="7200 " y="340"/>
+            <edge x="0" y="170"/>
+        </wall>
+        <wall>
+            <position x="7397" y="507"/>
+            <edge x="0" y="155"/>
+        </wall>
+        <wall dead_wall = "true">
+            <position x="0" y="-200"/>
+            <edge x="8000" y="0"/>
+        </wall>
+    </wall_list>
+    <sensor_object_list>
+        <sensor_object is_back = "true" must_stop = "false" direction = "right" move_speed="8" jump_height = "0">
+            <position x="150" y="645"/>
+            <edge x="0" y="100"/>
+        </sensor_object>
+        <sensor_object is_back = "false" must_stop = "true" direction = "right" move_speed="5" jump_height = "11">
+            <position x="820" y="650"/>
+            <edge x="200" y="150"/>
+            <lane>1,2</lane>
+        </sensor_object>
+        <sensor_object is_back = "false" must_stop = "true" direction = "right" move_speed="3" jump_height = "10.5">
+            <position x="1150" y="810"/>
+            <edge x="0" y="50"/>
+            <lane>1,2</lane>
+            
+        </sensor_object>
+        <sensor_object is_back = "false" must_stop = "true" direction = "left" move_speed="2" jump_height = "10.5">
+            <position x="790" y="490"/>
+            <edge x="0" y="50"/>
+            
+        </sensor_object>
+        <sensor_object is_back = "false" must_stop = "true" direction = "left" move_speed="4" jump_height = "8">
+            <position x="1555" y="255"/>
+            <edge x="0" y="50"/>
+            
+        </sensor_object>
+        <sensor_object is_back = "false" must_stop = "true" direction = "left" move_speed="3" jump_height = "12">
+            <position x="1060" y="313"/>
+            <edge x="0" y="50"/>
+            
+        </sensor_object>
+        <sensor_object is_back = "true" must_stop = "true" direction = "left" move_speed="0" jump_height = "10.5">
+            <position x="3980" y="1145"/>
+            <edge x="0" y="50"/>
+            <lane>1,2</lane>
+            
+        </sensor_object>
+        <sensor_object is_back = "true" must_stop = "false" direction = "left" move_speed="5" jump_height = "10">
+            <position x="3975" y="1320"/>
+            <edge x="50" y="0"/>
+            <lane>1,2</lane>
+            
+        </sensor_object>
+        <!--
+        <sensor_object is_back = "true" must_stop = "true" direction = "left" move_speed="5" jump_height = "10">
+            <position x="3600" y="1437"/>
+            <edge x="0" y="50"/>
+            <lane>1,2</lane>
+            
+        </sensor_object>
+         -->
+        <sensor_object is_back = "false" must_stop = "false" direction = "right" move_speed="5" jump_height = "10">
+            <position x="3824" y="1562"/>
+            <edge x="0" y="50"/>
+            <lane>1,2</lane>
+        </sensor_object>
+        
+        <sensor_object is_back = "true" must_stop = "false" direction = "left" move_speed="8" jump_height = "8">
+            <position x="4444" y="1113"/>
+            <edge x="520" y="-180"/>
+            <lane>1,2</lane>
+        </sensor_object>
+        
+        <sensor_object is_back = "true" must_stop = "false" direction = "left" move_speed="5" jump_height = "12">
+            <position x="4080" y="1152"/>
+            <edge x="0" y="50"/>
+            <lane>1,2</lane>
+        </sensor_object>
+        
+        <sensor_object is_back = "true" must_stop = "false" direction = "left" move_speed="5" jump_height = "6">
+            <position x="3910" y="1340"/>
+            <edge x="0" y="50"/>
+            <lane>1,2</lane>
+        </sensor_object>
+        
+        <sensor_object is_back = "false" must_stop = "true" direction = "right" move_speed="5" jump_height = "10">
+            <position x="3200" y="950"/>
+            <edge x="350" y="220"/>
+        </sensor_object>
+        <sensor_object is_back = "false" must_stop = "true" direction = "right" move_speed="0" jump_height = "10">
+            <position x="6520" y="260"/>
+            <edge x="0" y="50"/>
+        </sensor_object>
+        <sensor_object is_back = "false" must_stop = "true" direction = "right" move_speed="5" jump_height = "0">
+            <position x="6500" y="350"/>
+            <edge x="50" y="0"/>
+        </sensor_object>
+        <sensor_object is_back = "false" must_stop = "true" direction = "right" move_speed="0" jump_height = "13">
+            <position x="7000" y="330"/>
+            <edge x="350" y="220"/>
+        </sensor_object>
+        <sensor_object is_back = "false" must_stop = "true" direction = "right" move_speed="5" jump_height = "0">
+            <position x="7000" y="540"/>
+            <edge x="50" y="0"/>
+        </sensor_object>
+        <sensor_object is_back = "false" must_stop = "true" direction = "right" move_speed="0" jump_height = "11">
+            <position x="7250" y="510"/>
+            <edge x="0" y="50"/>
+        </sensor_object>
+        <sensor_object is_back = "false" must_stop = "true" direction = "right" move_speed="5" jump_height = "0">
+            <position x="7250" y="680"/>
+            <edge x="50" y="0"/>
+        </sensor_object>
+        <sensor_object is_back = "true" must_stop = "false" direction = "left" move_speed="8" jump_height = "0">
+            <position x="7890" y="652"/>
+            <edge x="0" y="100"/>
+        </sensor_object>
+        
+        
+        <sensor_object is_back = "true" must_stop = "true" direction = "left" move_speed="5" jump_height = "11">
+            <position x="7317" y="648"/>
+            <edge x="0" y="100"/>
+            <lane>1</lane>
+        </sensor_object>
+        
+        <sensor_object is_back = "true" must_stop = "true" direction = "left" move_speed="2" jump_height = "9">
+            <position x="6875" y="811"/>
+            <edge x="0" y="100"/>
+        </sensor_object>
+
+        <!-- <sensor_object is_back = "true" must_stop = "false" direction = "right" move_speed="8" jump_height = "0">
+         <position x="5678" y="251"/>
+         <edge x="0" y="100"/>
+         </sensor_object>-->
+        
+           </sensor_object_list>
+    <tower_list>
+        
+        <tower type="main" id="maincrystal" group="A" >
+            <position x="294" y="920"/>
+         </tower>
+        <!--
+         <tower id="tower1" group="A" >
+            <position x="2780" y="500"/>
+        </tower>
+               <tower id="tower2" group="B" >
+            <position x="5623" y="1180"/>
+        </tower>
+        <tower id="tower2" group="B" >
+            <position x="5623" y="503"/>
+        </tower>
+
+        <tower id="tower2" group="B" >
+            <position x="7402" y="903"/>
+        </tower>
+       
+        <tower id="tower2" group="B" >
+            <position x="4228" y="1378"/>
+        </tower>
+    -->
+    </tower_list>
+    <monster_factory_list>
+
+
+         <monster_factory group="A">
+
+            <monster_creator delay_per_unit="2" delay="10" lane = "2">
+                <position x="1290" y="540"/>
+                <monster_list>
+                    <monster id="monster_onion" quantity="2"/>
+                    <monster id="monster_pig" quantity="1"/>
+                    <monster id="monster_monkey" quantity="1"/>
+                    <monster id="monster_onion" quantity="1"/>
+                </monster_list>
+            </monster_creator>
+        </monster_factory>
+            <monster_factory group="B">
+                <monster_creator delay_per_unit="2" delay="10" lane = "2" max="200">
+                    <position x="4000" y="500"/>
+                    <monster_list>
+                        <monster id="monster_onion" quantity="3"/>
+                          <monster id="monster_pig" quantity="1"/>
+                          
+                    </monster_list>
+                </monster_creator>
+                <monster_creator delay_per_unit="2" delay="20" lane = "2" max="200">
+                    <position x="5000" y="500"/>
+                    <monster_list>
+               
+                        <monster id="monster_bull" quantity="1"/>
+                        
+                    </monster_list>
+                </monster_creator>
+
+            </monster_factory>
+        
+    </monster_factory_list>
+    <item_creator_list>
+  
+        <item_creator max="100" delay_min="2" delay_max="10">
+            <begin_position x="0" y="0"/>
+            <end_position x="8000" y="2000"/>
+            <item_list>
+                <item id="coin2" chance="100"/>
+                <item id="coin1" chance="100"/>
+                <item id="bag1" chance="100"/>
+                <item id="bag2" chance="100"/>
+                <item id="container1" chance="100"/>
+           
+            </item_list>
+        </item_creator>
+       <!-- <item_creator max="50" delay_min="0.01" delay_max="0.02">
+            <begin_position x="3200" y="600"/>
+            <end_position x="3400" y="600"/>
+            <item_list>
+                <item id="coin2" chance="100"/>
+                <item id="coin1" chance="100"/>
+                
+            </item_list>
+        </item_creator>
+        -->
+    </item_creator_list>
+    <wave_list>
+      
+        <wave id = "1" name="Wave 1" background_music="AssetMusic_Commons_Market.mp3">
+            <monster_factory_list>
+                <monster_factory group="B" max="5">
+                 
+                    <monster_creator delay_per_unit="2" delay="3" lane = "1">
+                        <position x="7881" y="871"/>
+                        <monster_list>
+                            <monster id="monster_onion" quantity="1"/>
+                            <monster id="monster_onion_invert" quantity="1"/>
+                        </monster_list>
+                    </monster_creator>
+                </monster_factory>
+                <monster_factory group="B" max="5">
+                    
+                    <monster_creator delay_per_unit="3" delay="4" lane = "2">
+                        <position x="7881" y="871"/>
+                        <monster_list>
+                            <monster id="monster_onion" quantity="1"/>
+                            <monster id="monster_skeleton" quantity="1"/>
+                        </monster_list>
+                    </monster_creator>
+                    
+                </monster_factory>
+
+            </monster_factory_list>
+            <item_creator_list>
+                <item_creator max="10" delay_min="5" delay_max="10">
+                    <begin_position x="3363" y="1203"/>
+                    <end_position x="4802" y="1970"/>
+                    <item_list>
+                        <item id="coin2" chance="20"/>
+                        <item id="coin1" chance="20"/>
+                        <item id="powerup" chance="10"/>
+                        <item id="defense" chance="10"/>
+                        <item id="speedup" chance="10"/>
+                        <item id="container1" chance="5"/>
+                    </item_list>
+                </item_creator>
+                <item_creator max="20" delay_min="4" delay_max="20">
+                    <begin_position x="1282" y="939"/>
+                    <end_position x="3196" y="1851"/>
+                    <item_list>
+                        <item id="coin2" chance="10"/>
+                        <item id="coin1" chance="5"/>
+                        <item id="powerup" chance="2"/>
+                        <item id="defense" chance="2"/>
+                        <item id="speedup" chance="2"/>
+                        <item id="container1" chance="2"/>
+                    </item_list>
+                </item_creator>
+                <item_creator max="100" delay_min="3" delay_max="10">
+                    <begin_position x="1543" y="292"/>
+                    <end_position x="6562" y="854"/>
+                    <item_list>
+                        <item id="coin2" chance="20"/>
+                        <item id="coin1" chance="5"/>
+                        <item id="powerup" chance="5"/>
+                        <item id="defense" chance="5"/>
+                        <item id="speedup" chance="5"/>
+                        <item id="container1" chance="5"/>
+                    </item_list>
+                </item_creator>
+            </item_creator_list>
+        </wave>
+    
+    <wave id = "2" name="Wave 2" background_music="AssetMusic_Commons_Market.mp3">
+        <monster_factory_list>
+            <monster_factory group="B" max="10">
+                
+                <monster_creator delay_per_unit="2" delay="3" lane = "1">
+                    <position x="7881" y="871"/>
+                    <monster_list>
+                        <monster id="monster_onion" quantity="2"/>
+                        <monster id="monster_skeleton" quantity="1"/>
+                    </monster_list>
+                </monster_creator>
+            </monster_factory>
+            <monster_factory group="B" max="10">
+                
+                <monster_creator delay_per_unit="3" delay="2" lane = "2">
+                    <position x="7881" y="871"/>
+                    <monster_list>
+                        <monster id="monster_onion" quantity="2"/>
+                        <monster id="monster_ghost_1" quantity="1"/>
+                        <monster id="monster_ghost_2" quantity="1"/>
+                    </monster_list>
+                </monster_creator>
+                
+            </monster_factory>
+            
+        </monster_factory_list>
+        <item_creator_list>
+            <item_creator max="10" delay_min="1" delay_max="3">
+                <begin_position x="3363" y="1203"/>
+                <end_position x="4802" y="1970"/>
+                <item_list>
+                    <item id="coin2" chance="50"/>
+                    <item id="coin1" chance="10"/>
+                    <item id="powerup" chance="15"/>
+                    <item id="defense" chance="15"/>
+                    <item id="speedup" chance="30"/>
+                    <item id="container1" chance="10"/>
+                </item_list>
+            </item_creator>
+            <item_creator max="20" delay_min="1" delay_max="2">
+                <begin_position x="1282" y="939"/>
+                <end_position x="3196" y="1851"/>
+                <item_list>
+                    <item id="coin2" chance="30"/>
+                    <item id="coin1" chance="5"/>
+                    <item id="powerup" chance="10"/>
+                    <item id="defense" chance="2"/>
+                    <item id="speedup" chance="20"/>
+                    <item id="container1" chance="5"/>
+                </item_list>
+            </item_creator>
+            <item_creator max="100" delay_min="1" delay_max="2">
+                <begin_position x="1543" y="292"/>
+                <end_position x="6562" y="854"/>
+                <item_list>
+                    <item id="coin2" chance="40"/>
+                    <item id="coin1" chance="5"/>
+                    <item id="powerup" chance="5"/>
+                    <item id="defense" chance="10"/>
+                    <item id="speedup" chance="20"/>
+                    <item id="container1" chance="10"/>
+                </item_list>
+            </item_creator>
+        </item_creator_list>
+    </wave>
+         
+    
+    <wave id = "3" name="Wave 3" background_music="AssetMusic_Commons_Market.mp3">
+        <monster_factory_list>
+            <monster_factory group="B" max="20">
+                
+                <monster_creator delay_per_unit="2" delay="4" lane = "1">
+                    <position x="7881" y="871"/>
+                    <monster_list>
+                        <monster id="monster_skeleton" quantity="3"/>
+                        <monster id="monster_dark_cornian" quantity="2"/>
+                        <monster id="monster_ghost_1" quantity="2"/>
+                    </monster_list>
+                </monster_creator>
+            </monster_factory>
+            <monster_factory group="B" max="30">
+                
+                <monster_creator delay_per_unit="3" delay="2" lane = "2">
+                    <position x="7881" y="871"/>
+                    <monster_list>
+                        <monster id="monster_onion_invert" quantity="2"/>
+                        <monster id="monster_ghost_2" quantity="4"/>
+                        <monster id="monster_onion" quantity="4"/>
+                    </monster_list>
+                </monster_creator>
+                
+            </monster_factory>
+            
+        </monster_factory_list>
+        <item_creator_list>
+            <item_creator max="10" delay_min="1" delay_max="2">
+                <begin_position x="3363" y="1203"/>
+                <end_position x="4802" y="1970"/>
+                <item_list>
+                    <item id="coin2" chance="50"/>
+                    <item id="coin1" chance="10"/>
+                    <item id="powerup" chance="30"/>
+                    <item id="defense" chance="30"/>
+                    <item id="speedup" chance="40"/>
+                    <item id="container1" chance="20"/>
+                </item_list>
+            </item_creator>
+            <item_creator max="20" delay_min="0.5" delay_max="2">
+                <begin_position x="1282" y="939"/>
+                <end_position x="3196" y="1851"/>
+                <item_list>
+                    <item id="coin2" chance="40"/>
+                    <item id="coin1" chance="10"/>
+                    <item id="powerup" chance="30"/>
+                    <item id="defense" chance="20"/>
+                    <item id="speedup" chance="50"/>
+                    <item id="container1" chance="15"/>
+                </item_list>
+            </item_creator>
+            <item_creator max="100" delay_min="0.5" delay_max="2">
+                <begin_position x="1543" y="292"/>
+                <end_position x="6562" y="854"/>
+                <item_list>
+                    <item id="coin2" chance="50"/>
+                    <item id="coin1" chance="10"/>
+                    <item id="powerup" chance="30"/>
+                    <item id="defense" chance="10"/>
+                    <item id="speedup" chance="60"/>
+                    <item id="container1" chance="20"/>
+                </item_list>
+            </item_creator>
+        </item_creator_list>
+    </wave>
+ 
+
+<wave id = "4" name="Final Wave" background_music="AssetMusic_Commons_Market.mp3">
+    <monster_factory_list>
+               <monster_factory group="B" max="1">
+            
+            <monster_creator delay_per_unit="3" delay="2" lane = "2">
+                <position x="7881" y="871"/>
+                <monster_list>
+                    <monster id="monster_bull" quantity="1"/>
+                </monster_list>
+            </monster_creator>
+            
+        </monster_factory>
+        
+    </monster_factory_list>
+    <item_creator_list>
+        <item_creator max="10" delay_min="1" delay_max="2">
+            <begin_position x="3363" y="1203"/>
+            <end_position x="4802" y="1970"/>
+            <item_list>
+                <item id="coin2" chance="50"/>
+                <item id="coin1" chance="20"/>
+                <item id="powerup" chance="10"/>
+                <item id="defense" chance="50"/>
+                <item id="speedup" chance="50"/>
+                <item id="container1" chance="50"/>
+            </item_list>
+        </item_creator>
+        <item_creator max="20" delay_min="0.5" delay_max="2">
+            <begin_position x="1282" y="939"/>
+            <end_position x="3196" y="1851"/>
+            <item_list>
+                <item id="coin2" chance="60"/>
+                <item id="coin1" chance="20"/>
+                <item id="powerup" chance="10"/>
+                <item id="defense" chance="50"/>
+                <item id="speedup" chance="50"/>
+                <item id="container1" chance="50"/>
+            </item_list>
+        </item_creator>
+        <item_creator max="100" delay_min="0.5" delay_max="2">
+            <begin_position x="1543" y="292"/>
+            <end_position x="6562" y="854"/>
+            <item_list>
+                <item id="coin2" chance="50"/>
+                <item id="coin1" chance="20"/>
+                <item id="powerup" chance="10"/>
+                <item id="defense" chance="50"/>
+                <item id="speedup" chance="50"/>
+                <item id="container1" chance="50"/>
+            </item_list>
+        </item_creator>
+    </item_creator_list>
+</wave>
+    </wave_list>
+</map>

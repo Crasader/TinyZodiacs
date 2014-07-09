@@ -43,8 +43,6 @@ bool MonsterFactory::init()
 Monster* MonsterFactory::createMonster(MonsterDTO* monsterDTO, CCPoint position, int laneID, b2World* world)
 {
     Monster* monster = Monster::create();
-    
-    
     monster->setOriginCharacterData(monsterDTO->data);
     
     //Create Animation

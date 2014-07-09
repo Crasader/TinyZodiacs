@@ -288,6 +288,8 @@ void NormalAttack::checkCollisionDataInBeginContact(PhysicData* holderData, Phys
                 {
                     if(this->currentState == EXCUTE)
                     {
+                        if(collisionData->fixtureId == BODY_MAIN_FIXTURE)
+                        {
                         Character* character = (Character*)collisionData->data;
                         //                        if(character != holder)
                         {
@@ -317,6 +319,7 @@ void NormalAttack::checkCollisionDataInBeginContact(PhysicData* holderData, Phys
                             {
                                 Util::applyEffectFromList(calculatedSkillData.getlistSelfEffect(), character);
                             }
+                        }
                         }
                         
                     }

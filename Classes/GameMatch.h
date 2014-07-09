@@ -23,6 +23,7 @@ class GameMatch;
 #include "ScheduleManager.h"
 #include "ControllerManager.h"
 #include "Player.h"
+#include "MainMenuScene.h"
 
 USING_NS_CC;
 
