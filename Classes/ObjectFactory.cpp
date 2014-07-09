@@ -294,6 +294,7 @@ Wall* ObjectFactory::createWall(WallDTO* wallDTO, b2World* world)
     PhysicData* data = new PhysicData();
     data->gameObjectID = WALL;
     data->bodyId = WALL_BODY;
+    data->data = wall;
     
     fixDef.userData = data;
     

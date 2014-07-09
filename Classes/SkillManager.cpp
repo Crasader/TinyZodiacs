@@ -52,7 +52,8 @@ void SkillManager::update(float dt)
     this->listStopSkill->removeAllObjects();
 }
 
-void SkillManager::release()
+void SkillManager::destroy()
 {
     mInstance->release();
+    mInstance = NULL;
 }

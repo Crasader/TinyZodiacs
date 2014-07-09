@@ -24,8 +24,8 @@ GameGroup::GameGroup()
 
 GameGroup::~GameGroup()
 {
-    CC_SAFE_RELEASE_NULL(this->monsterFactory);
-    CC_SAFE_RELEASE_NULL(this->listTower);
+    this->monsterFactory->release();
+    this->listTower->release();
 }
 
 bool GameGroup::init()

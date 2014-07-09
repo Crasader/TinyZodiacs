@@ -10,6 +10,7 @@
 
 Wall::Wall()
 {
+    this->gameObjectID = WALL;
     this->deadWall = false;
 }
 

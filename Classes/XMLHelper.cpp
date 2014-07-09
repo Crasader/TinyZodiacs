@@ -41,6 +41,10 @@ std::string XMLHelper::readString(const XMLElement* root, std::string defaultVal
 {
     if(root != NULL)
     {
+        if(root->GetText() == NULL)
+        {
+            return defaultValue;
+        }
         std::string value =CCString::createWithFormat("%s",root->GetText())->getCString() ;
         return value;
     }

@@ -60,6 +60,7 @@ bool AppDelegate::applicationDidFinishLaunching() {
 //    {
     searchPath.push_back("fonts/eng");
      searchPath.push_back("global");
+     searchPath.push_back("GUI");
     
        searchPath.push_back(largeResource.directory);
        pDirector->setContentScaleFactor(1);

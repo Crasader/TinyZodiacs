@@ -336,7 +336,7 @@ WallDTO* XMLMapParser::getWallDTOFromXMLNode(XMLElement* wallXMLElement)
 {
     WallDTO *wallDTO = WallDTO::create();
     
-    bool deadWall = XMLHelper::readAttributeBool(wallXMLElement, ATTRIBUTE_WALL_DEADWALL, false);
+    bool deadWall = XMLHelper::readAttributeBoolString(wallXMLElement, ATTRIBUTE_WALL_DEADWALL, false);
     //position
     if(wallXMLElement->FirstChildElement(TAG_POSITION) != NULL)
     {

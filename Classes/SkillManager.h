@@ -28,7 +28,7 @@ public:
     static SkillManager* getInstance();
     void addSkillToBeStop(AbstractSkill* skill);
     void update(float dt);
-    static void release();
+    static void destroy();
     CREATE_FUNC(SkillManager);
 };
 #endif /* defined(__TinyZodiacs__SkillManager__) */

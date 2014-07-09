@@ -22,7 +22,7 @@ GameMatch::GameMatch()
 GameMatch::~GameMatch()
 {
     ControllerManager::getInstance()->unregisterController(GAME_MATCH_CONTROLLER, this);
-    SoundManager::unLoadAllAddedSound(true);
+  //  SoundManager::unLoadAllAddedSound(true);
 }
 
 bool GameMatch::init()

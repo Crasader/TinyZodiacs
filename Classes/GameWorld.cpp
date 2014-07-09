@@ -231,7 +231,7 @@ void GameWorld::update(float dt)
 
 void GameWorld::destroy()
 {
-    SkillManager::release();
+    SkillManager::destroy();
     GameObjectManager::getInstance()->removeAllGameObject();
 }
 

@@ -73,7 +73,7 @@ Map* MapCreator::createMap(MapDTO* mapDTO, GameWorld* gameWorld)
         
         map->addWave(wave);
     }
-
+    
     object = NULL;
     CCARRAY_FOREACH(mapDTO->listWallDTO, object)
     {
@@ -83,12 +83,12 @@ Map* MapCreator::createMap(MapDTO* mapDTO, GameWorld* gameWorld)
         
         map->addWall(wall);
     }
-
-        //    //create background
-
-       map->addParallaxBackground(createParallaxBackground(mapDTO->listBackgroundDTO,mapDTO->width,mapDTO->height));
-//        //    //create foreground
-      map->addParallaxForeground(createParallaxForeground(mapDTO->listForegroundDTO,mapDTO->width,mapDTO->height));
+    
+    //    //create background
+    
+    map->addParallaxBackground(createParallaxBackground(mapDTO->listBackgroundDTO,mapDTO->width,mapDTO->height));
+    //        //    //create foreground
+    map->addParallaxForeground(createParallaxForeground(mapDTO->listForegroundDTO,mapDTO->width,mapDTO->height));
     return map;
     
 }
@@ -169,17 +169,24 @@ Wave* MapCreator::createWave(WaveDTO* waveDTO, GameWorld* gameWorld)
             wave->addItemCreator(ObjectFactory::createItemCreator(itemCreatorDTO));
         }
     }
-
+    
     //add sound to manage list
     wave->setMusicID(waveDTO->waveMusicID);
     wave->setName(waveDTO->name);
+    
+    
     SoundManager::addSoundId(wave->getMusicID().c_str(), MUSIC);
+    
+    
+    
     
     return wave;
 }
 
 void MapCreator::createWall(WallDTO* wallDTO, GameWorld* gameWorld)
 {
+    Wall* wall = Wall::create();
+    
     b2EdgeShape edge;
     
     edge.Set(b2Vec2(0,0),b2Vec2(wallDTO->edge_x/PTM_RATIO,wallDTO->edge_y/PTM_RATIO));
@@ -192,7 +199,7 @@ void MapCreator::createWall(WallDTO* wallDTO, GameWorld* gameWorld)
     
     
     PhysicData* data = new PhysicData();
-    data->gameObjectID = NONE;
+    data->gameObjectID = WALL;
     data->bodyId = WALL_BODY;
     
     fixDef.userData = data;

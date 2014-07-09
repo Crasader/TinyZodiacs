@@ -22,8 +22,8 @@ GameObjectManager::GameObjectManager()
 
 GameObjectManager::~GameObjectManager()
 {
-    CC_SAFE_RELEASE(this->listObjectRemoved);
-    CC_SAFE_RELEASE(this->listGameObject);
+    this->listObjectRemoved->release();
+   this->listGameObject->release();
 }
 
 bool GameObjectManager::init()

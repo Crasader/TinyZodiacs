@@ -20,7 +20,7 @@ ForegroundDTO::ForegroundDTO()
 
 ForegroundDTO::~ForegroundDTO()
 {
-    CCLOG("foregrounddto");
+
 }
 
 bool ForegroundDTO::init()

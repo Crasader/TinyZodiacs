@@ -58,7 +58,7 @@ bool AnimationLoader::loadDataByFileName(const char *xmlFileName)
             AnimationObject* animationObject = XMLAnimationParser::getAnimationObjectFromXMLNode(element);
             std::string key = std::string(characterName) + std::string("-") + std::string(animationName->getCString());
             DataCollector::getInstance()->setAnimationObject(key.c_str(), animationObject);
-            CCLOG("%s",xmlFileName);
+//            CCLOG("%s",xmlFileName);
         }
     }
     delete document;

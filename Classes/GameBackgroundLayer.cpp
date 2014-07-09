@@ -38,6 +38,6 @@ void GameBackgroundLayer::scrollBackground(cocos2d::CCObject *pSender)
     CCPoint currentPos = parallaxBackgroundNode->getPosition();
     
     parallaxBackgroundNode->setPosition(currentPos.x+15   , currentPos.y+5);
-    CCLOG("%f",parallaxBackgroundNode->getPositionX());
+//    CCLOG("%f",parallaxBackgroundNode->getPositionX());
     
 }

@@ -45,18 +45,22 @@ ProjectileSoundData SoundManager::loadProjectileSoundData(const char* soundId)
     {
         if(data.getCreateSoundStr() != "")
         {
+         
             addSoundId(data.getCreateSoundStr().c_str(), SOUND_EFFECT);
         }
         if(data.getShootSoundStr() != "")
         {
+         
             addSoundId(data.getShootSoundStr().c_str(), SOUND_EFFECT);
         }
         if(data.getDieSoundStr() != "")
         {
+         
             addSoundId(data.getDieSoundStr().c_str(), SOUND_EFFECT);
         }
         if(data.getHitSoundStr() != "")
         {
+           
             addSoundId(data.getHitSoundStr().c_str(), SOUND_EFFECT);
         }
     }
@@ -113,7 +117,7 @@ ItemSoundData SoundManager::loadItemSoundData(const char* soundId)
         {
             addSoundId(data.getDestroySoundStr().c_str(), SOUND_EFFECT);
         }
-        if(data.getConsumeSoundStr() != "")
+        if(data.getAppearSoundStr() != "")
         {
             addSoundId(data.getConsumeSoundStr().c_str(), SOUND_EFFECT);
         }
@@ -128,6 +132,10 @@ std::string SoundManager::loadBackGroundMusic(const char* soundId)
 
 void SoundManager::addSoundId(const char* soundID, SoundType type)
 {
+    if(soundID == NULL)
+    {
+        return;
+    }
     SoundStruct soundStruct;
     soundStruct.soundId = soundID;
     soundStruct.type = type;
@@ -169,6 +177,10 @@ void SoundManager::preLoadAllAddedSound()
     for(int i=0 ; i<listSoundId.size() ; i++)
     {
         SoundStruct soundStruct = listSoundId[i];
+        if(soundStruct.soundId.c_str() == NULL)
+        {
+            continue;
+        }
         switch (soundStruct.type) {
             case MUSIC:
                 CocosDenshion::SimpleAudioEngine::sharedEngine()->preloadBackgroundMusic(soundStruct.soundId.c_str());
@@ -179,7 +191,8 @@ void SoundManager::preLoadAllAddedSound()
             default:
                 break;
         }
-        CCLOG("preload %s", soundStruct.soundId.c_str());
+     
+       // CCLOG("preload %s", soundStruct.soundId.c_str());
     }
 }
 

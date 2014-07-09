@@ -153,6 +153,7 @@ SkillSoundData SoundFactory::loadSkillSoundDataFromXMLFile(const char* soundId, 
     {
         data = XMLSkillSoundParser::loadData(result);
     }
+
     
     delete []pFileData;
     return data;

@@ -97,7 +97,6 @@ HeroDTO* DataCollector::getHeroDTOByKey(const char* key)
 
 MonsterDTO* DataCollector::getMonsterDTOByKey(const char* key)
 {
-    CCLOG("%s",key);
      return (MonsterDTO*)this->dictMonsterDTO->objectForKey(key);
 }
 

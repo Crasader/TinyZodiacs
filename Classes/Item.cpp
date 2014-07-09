@@ -153,7 +153,7 @@ void Item::prepareToDisappearInOpen()
         arrSeq->addObject(animate);
     }
     CCCallFunc* disappearFunction = CCCallFunc::create(this, callfunc_selector(Item::disappear));
-    CCFadeOut* fadeOut = CCFadeOut::create(0.2f);
+    CCFadeOut* fadeOut = CCFadeOut::create(0.5f);
     arrSeq->addObject(fadeOut);
     arrSeq->addObject(disappearFunction);
     this->sprite->runAction(CCSequence::create(arrSeq));
@@ -201,22 +201,27 @@ void Item::checkCollisionDataInBeginContact(PhysicData* holderData, PhysicData* 
                         open(skill->getHolder());
                     }
                 }
+                       break;
                 case PROJECTILE_OBJECT:
                 {
                     NormalProjectile* proj = static_cast<NormalProjectile*>(collisionData->data);
                     
                     open(NULL);
                 }
-                    
+                    break;
                 case WALL:
-                    destroy();
+             
+                {
+                    Wall* deathWall= static_cast<Wall*>(collisionData->data);
+                    
+                    
+                    if(deathWall != NULL && deathWall->getDeadWall() == true)
+                    {
+                        destroy();
+                    }
+                }
                     break;
-                    
-                    
-                    
-                    
                     break;
-                    
                     
                     
                 default:

@@ -18,7 +18,7 @@ MonsterFactoryDTO::MonsterFactoryDTO()
 
 MonsterFactoryDTO::~MonsterFactoryDTO()
 {
-    CC_SAFE_RELEASE(this->listMonsterCreatorDTO);
+    this->listMonsterCreatorDTO->release();
 }
 
 bool MonsterFactoryDTO::init()

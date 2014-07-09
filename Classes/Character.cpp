@@ -244,6 +244,8 @@ void Character::checkCollisionDataInBeginContact(PhysicData* holderData, PhysicD
                         case WALL:
                         {
                             Wall* deathWall= static_cast<Wall*>(collisionData->data);
+                    
+                            
                             if(deathWall != NULL && deathWall->getDeadWall() == true)
                             {
                                 die();

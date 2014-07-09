@@ -17,7 +17,8 @@ std::string XMLSkillSoundParser::readExcuteSoundString(const XMLElement* root)
     {
         return XMLHelper::readString(root, "");
     }
-    return "";}
+    return "";
+}
 
 std::string XMLSkillSoundParser::readHitSoundString(const XMLElement* root)
 {
@@ -43,6 +44,7 @@ SkillSoundData XMLSkillSoundParser::loadData(const XMLElement* root)
     data.setExcuteSoundStr(readExcuteSoundString(root->FirstChildElement(TAG_EXCUTE_SOUND)));
     data.setHitSoundStr(readHitSoundString(root->FirstChildElement(TAG_HIT_SOUND)));
     data.setStopSoundStr(readStopSoundString(root->FirstChildElement(TAG_STOP_SOUND)));
+
     
     return data;
 }

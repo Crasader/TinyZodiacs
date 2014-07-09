@@ -39,14 +39,14 @@ MapDTO::MapDTO()
 
 MapDTO::~MapDTO()
 {
-    CC_SAFE_RELEASE(this->listMapObjectDTO);
-    CC_SAFE_RELEASE(this->listBackgroundDTO);
-    CC_SAFE_RELEASE(this->listForegroundDTO);
-    CC_SAFE_RELEASE(this->listSensorObjectDTO);
-    CC_SAFE_RELEASE(this->listTowerStructDTO);
-    CC_SAFE_RELEASE(this->listMonsterFactoryDTO);
-    CC_SAFE_RELEASE(this->listItemCreatorDTO);
-    CC_SAFE_RELEASE(this->listWallDTO);
+    this->listMapObjectDTO->release();
+    this->listBackgroundDTO->release();
+    this->listForegroundDTO->release();
+    this->listSensorObjectDTO->release();
+    this->listTowerStructDTO->release();
+    this->listMonsterFactoryDTO->release();
+    this->listItemCreatorDTO->release();
+    this->listWallDTO->release();
 }
 
 bool MapDTO::init()
