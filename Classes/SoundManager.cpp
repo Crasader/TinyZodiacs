@@ -212,7 +212,6 @@ void SoundManager::unLoadAllAddedSound(bool shouldCleanList)
             default:
                 break;
         }
-        CCLOG("unload %s", soundStruct.soundId.c_str());
     }
     SoundManager::removeAllList();
 }
