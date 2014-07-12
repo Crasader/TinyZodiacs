@@ -66,8 +66,6 @@ CCScene* TestScene::scene()
 
 void TestScene::menuBackCallBack(cocos2d::CCObject *pSender)
 {
-    
-    
     //    CCSprite* testSprite = CCSprite::createWithSpriteFrameName("Walk_LB_1.png");
     //    testSprite->setPosition(ccp(200,200));
     //

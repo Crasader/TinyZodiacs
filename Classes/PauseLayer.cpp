@@ -68,8 +68,8 @@ void PauseLayer::resumeButtonTouchEvent(CCObject* sender, cocos2d::gui::TouchEve
         case cocos2d::gui::TOUCH_EVENT_ENDED:
         {
             this->playOutAnimation(false);
-            break;
         }
+            break;
         default:
             break;
     }
@@ -138,6 +138,8 @@ void PauseLayer::playOutAnimation(bool shouldQuit)
 void PauseLayer::detachFromParent()
 {
     this->removeFromParent();
+    
+    ControllerManager::getInstance()->sendCommand(HERO_CONTROLLER, RESUME_GAME);
 }
 
 void PauseLayer::detachFromParentAndQuit()

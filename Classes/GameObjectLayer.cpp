@@ -16,6 +16,7 @@
 #include "MonsterFactory.h"
 #include "EffectManager.h"
 #include "HealthPointEffect.h"
+#include "SoundManager.h"
 
 USING_NS_CC;
 
@@ -48,6 +49,8 @@ bool GameObjectLayer::init()
     this->setTouchEnabled(true);
     this->scheduleUpdate();
     
+    ControllerManager::getInstance()->registerController(HERO_CONTROLLER, this);
+    
     return true;
 }
 
@@ -67,15 +70,15 @@ Character* GameObjectLayer::getCharacter()
 
 void GameObjectLayer::ccTouchesBegan(cocos2d::CCSet *pTouches, cocos2d::CCEvent *event)
 {
-    CCTouch* touch = (CCTouch*)pTouches->anyObject();
-    CCPoint touchPoint = CCDirector::sharedDirector()->convertToGL(touch->getLocationInView()) ;
+//    CCTouch* touch = (CCTouch*)pTouches->anyObject();
+//    CCPoint touchPoint = CCDirector::sharedDirector()->convertToGL(touch->getLocationInView()) ;
     
-    CCPoint temp =   this->gameMatch->getGameWorld()->convertToNodeSpace(touchPoint);
+//    CCPoint temp =   this->gameMatch->getGameWorld()->convertToNodeSpace(touchPoint);
     
-    CCLOG("coord: %0.1f - %0.1f",temp.x,temp.y);
+//    CCLOG("coord: %0.1f - %0.1f",temp.x,temp.y);
 //    node->setPosition(temp);
 //    ControllerManager::getInstance()->sendCommand(HERO_CONTROLLER, DISPLAY_WORLD_COORDINATE, new CCPoint(temp));
-    //    ControllerManager::getInstance()->sendCommand(HERO_CONTROLLER,CAMERA_FOLLOW_POINTER,node);
+//    ControllerManager::getInstance()->sendCommand(HERO_CONTROLLER,CAMERA_FOLLOW_POINTER,node);
 }
 
 void GameObjectLayer::ccTouchesMoved(cocos2d::CCSet *pTouches, cocos2d::CCEvent *event)
@@ -105,6 +108,22 @@ bool GameObjectLayer::receiveCommand(CommandID commandID, void* data)
             
         }
             break;
+            case PAUSE_GAME:
+        {
+            SoundManager::pauseSoundEffects();
+            Util::pauseNodeAndItsChild(this);
+            Util::pauseNodeAndItsChild(GameManager::getInstance());
+        
+        }
+            break;
+        case RESUME_GAME:
+        {
+            SoundManager::resumeSoundEffects();
+            Util::resumeNodeAndItsChild(this);
+            Util::resumeNodeAndItsChild(GameManager::getInstance());
+        }
+            break;
+
         default:
             break;
     }

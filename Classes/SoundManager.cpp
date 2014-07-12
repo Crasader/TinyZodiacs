@@ -241,3 +241,13 @@ void SoundManager::playMenuMusic()
     //set background music
     CocosDenshion::SimpleAudioEngine::sharedEngine()->playBackgroundMusic("AssetMusic_Commons_WitchTheme.mp3", true);
 }
+
+void SoundManager::pauseSoundEffects()
+{
+    CocosDenshion::SimpleAudioEngine::sharedEngine()->pauseAllEffects();
+}
+
+void SoundManager::resumeSoundEffects()
+{
+    CocosDenshion::SimpleAudioEngine::sharedEngine()->resumeAllEffects();
+}

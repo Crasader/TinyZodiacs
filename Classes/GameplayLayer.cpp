@@ -458,7 +458,10 @@ void GameplayLayer::pauseButtonTouchEvent(CCObject* sender, cocos2d::gui::TouchE
         case cocos2d::gui::TOUCH_EVENT_CANCELED:
             break;
         case cocos2d::gui::TOUCH_EVENT_ENDED:
+        {
             this->getParent()->addChild(PauseLayer::create(),5);
+            ControllerManager::getInstance()->sendCommand(HERO_CONTROLLER, PAUSE_GAME);
+        }
             break;
         default:
             break;

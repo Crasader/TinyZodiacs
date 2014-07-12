@@ -12,6 +12,7 @@
 #include "Character.h"
 #include "SoundManager.h"
 #include "SkillManager.h"
+#include "Util.h"
 
 AbstractSkill::AbstractSkill(GameObject* holder, SkillData data)
 {
@@ -116,7 +117,7 @@ void AbstractSkill::stopImmediately()
 void AbstractSkill::playSFX(const char* sfxName)
 {
     //    CocosDenshion::SimpleAudioEngine::sharedEngine()->playEffect(sfxName);
-    if(this->holder->shouldHaveSound())
+    if(this->holder->shouldHaveSound() && Util::checkPointIsInViewPort(this->holder->getPositionInPixel(), this->holder->getSprite()->getParent()) == true)
     {
         SoundManager::playSoundEffect(sfxName, false);
     }

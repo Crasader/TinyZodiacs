@@ -62,6 +62,11 @@ public:
     static void loadPlist(const char* plistFilename);
     static CCAnimation* getAnimationFromListFrameName(vector<string> listFrameName, unsigned int loops, float delayPerUnit);
     static CCAnimation* getAnimationFromAnimationObject(AnimationObject* animationObject);
+    
+    static void pauseNodeAndItsChild(CCNode* node);
+    static void resumeNodeAndItsChild(CCNode* node);
+    
+    static bool checkPointIsInViewPort(CCPoint point, CCNode* node);
 };
 
 #endif /* defined(__TinyZodiacs__Util__) */

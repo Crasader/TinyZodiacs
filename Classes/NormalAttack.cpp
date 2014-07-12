@@ -26,6 +26,7 @@ NormalAttack::NormalAttack(GameObject* holder, NormalMeleeSkillData data): Abstr
     if(holder != NULL)
     {
         this->data = data;
+        this->data.getSkillSensor()->SetGravityScale(0);
     }
     shouldDeactiveSensor = false;
 }

@@ -506,8 +506,7 @@ void GameObject::cleanAllAffect()
 
 void GameObject::playSFX(const char* sfxName)
 {
-//    CocosDenshion::SimpleAudioEngine::sharedEngine()->playEffect(sfxName);
-    if(shouldHaveSound())
+    if(shouldHaveSound() && Util::checkPointIsInViewPort(this->getPositionInPixel(), this->sprite->getParent()) == true)
     {
         SoundManager::playSoundEffect(sfxName, false);
     }

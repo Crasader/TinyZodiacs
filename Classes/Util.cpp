@@ -610,3 +610,46 @@ CCAnimation* Util::getAnimationFromAnimationObject(AnimationObject* animationObj
     animation->setDelayPerUnit(animationObject->getDelayPerUnit());
     return animation;
 }
+
+void Util::pauseNodeAndItsChild(CCNode* node)
+{
+    if(node != NULL)
+    {
+        CCArray* listChild = node->getChildren();
+        CCObject* child;
+        CCARRAY_FOREACH(listChild, child)
+        {
+            Util::pauseNodeAndItsChild((CCNode*)child);
+        }
+        node->pauseSchedulerAndActions();
+    }
+}
+
+void Util::resumeNodeAndItsChild(CCNode* node)
+{
+    if(node != NULL)
+    {
+        CCArray* listChild = node->getChildren();
+        CCObject* child;
+        CCARRAY_FOREACH(listChild, child)
+        {
+            Util::resumeNodeAndItsChild((CCNode*)child);
+        }
+        node->resumeSchedulerAndActions();
+    }
+}
+
+bool Util::checkPointIsInViewPort(CCPoint point, CCNode* node)
+{
+    CCPoint zero = node->convertToNodeSpace(ccp(0,0));
+//    CCSize size = CCEGLView::sharedOpenGLView()->getFrameSize();
+    CCSize size = CCDirector::sharedDirector()->getWinSize();
+    
+    CCLOG("zero(%f,%f)",zero.x,zero.y);
+    CCLOG("max(%f,%f)",size.width,size.height);
+    CCLOG("point(%f,%f)",point.x,point.y);
+    
+    CCRect rect = CCRect(zero.x, zero.y, size.width, size.height);
+    CCLOG("%d",rect.containsPoint(point));
+    return rect.containsPoint(point);
+}

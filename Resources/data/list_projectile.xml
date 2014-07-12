@@ -4,7 +4,7 @@
         <state_animation animation_layer="3" created_state_animation="skill-lightning_arrow_create" shooting_state_animation="skill-lightning_arrow_shoot" hit_state_ainmation="skill-lightning_arrow_hit" die_state_animation="skill-lightning_arrow_end"></state_animation>
         <piercing>0</piercing>
         <gravity_scale>0</gravity_scale>
-        <collide_terrain>1</collide_terrain>
+        <collide_terrain>0</collide_terrain>
         <sfx>lightning_arrow_sound</sfx>
     </projectile>
     
@@ -13,7 +13,7 @@
         <state_animation animation_layer="3" created_state_animation="skill-lightning_arrow_create" shooting_state_animation="skill-lightning_arrow_shoot" hit_state_ainmation="skill-lightning_arrow_hit" die_state_animation="skill-lightning_arrow_end"></state_animation>
         <piercing>0</piercing>
         <gravity_scale>0</gravity_scale>
-        <collide_terrain>1</collide_terrain>
+        <collide_terrain>0</collide_terrain>
         <sfx>lightning_arrow_sound</sfx>
     </projectile>
     
@@ -40,7 +40,7 @@
         <state_animation animation_layer="3" created_state_animation="" shooting_state_animation="skill-magic_waterball_middle" hit_state_ainmation="skill-magic_waterball_end" die_state_animation="skill-magic_waterball_end"></state_animation>
         <piercing>0</piercing>
         <gravity_scale>0</gravity_scale>
-        <collide_terrain>1</collide_terrain>
+        <collide_terrain>0</collide_terrain>
         <sfx>water_ball_sound</sfx>
     </projectile>
     
@@ -49,7 +49,7 @@
         <state_animation animation_layer="3" created_state_animation="" shooting_state_animation="skill-magic_bomb_middle" hit_state_ainmation="skill-magic_bomb_end" die_state_animation="skill-magic_bomb_end"></state_animation>
         <piercing>0</piercing>
         <gravity_scale>0</gravity_scale>
-        <collide_terrain>1</collide_terrain>
+        <collide_terrain>0</collide_terrain>
         <sfx>bomb_sound</sfx>
     </projectile>
     
@@ -58,7 +58,7 @@
         <state_animation animation_layer="3" created_state_animation="" shooting_state_animation="skill-magic_iceball_middle" hit_state_ainmation="skill-magic_iceball_end" die_state_animation="skill-magic_iceball_end"></state_animation>
         <piercing>0</piercing>
         <gravity_scale>0.2</gravity_scale>
-        <collide_terrain>1</collide_terrain>
+        <collide_terrain>0</collide_terrain>
         <sfx>ice_ball_sound</sfx>
     </projectile>
     
@@ -67,7 +67,7 @@
         <state_animation animation_layer="3" created_state_animation="" shooting_state_animation="skill-magic_energyball_middle" hit_state_ainmation="skill-magic_energyball1_end" die_state_animation="skill-magic_energyball2_end"></state_animation>
         <piercing>0</piercing>
         <gravity_scale>0.2</gravity_scale>
-        <collide_terrain>1</collide_terrain>
+        <collide_terrain>0</collide_terrain>
         <sfx>lightning_arrow_sound</sfx>
     </projectile>
     
@@ -77,7 +77,7 @@
         <state_animation animation_layer="3" created_state_animation="" shooting_state_animation="skill-charms_middle" hit_state_ainmation="skill-charms_end" die_state_animation="skill-charms_end"></state_animation>
         <piercing>0</piercing>
         <gravity_scale>0</gravity_scale>
-        <collide_terrain>1</collide_terrain>
+        <collide_terrain>0</collide_terrain>
         <sfx>enegy_ball_sound</sfx>
     </projectile>
     
@@ -86,7 +86,7 @@
         <state_animation animation_layer="3" created_state_animation="" shooting_state_animation="skill-gold_spell_middle" hit_state_ainmation="skill-gold_spell_end" die_state_animation="skill-gold_spell_end"></state_animation>
         <piercing>0</piercing>
         <gravity_scale>0</gravity_scale>
-        <collide_terrain>1</collide_terrain>
+        <collide_terrain>0</collide_terrain>
         <sfx>enegy_ball_sound</sfx>
     </projectile>
 </list_projectile>

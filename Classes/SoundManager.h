@@ -38,5 +38,8 @@ public:
     static void stopSoundEffect(unsigned int soundId);
     static void stopMusic(const char* soundId);
     static void playMenuMusic();
+    
+    static void pauseSoundEffects();
+    static void resumeSoundEffects();
 };
 #endif /* defined(__TinyZodiacs__SoundManager__) */

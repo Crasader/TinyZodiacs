@@ -215,6 +215,8 @@ void NormalShootingAttack::autoShoot()
     NormalShootingSkillData calculatedSkillData = this->data;
     calculateSkillData(&calculatedSkillData, ((Character*)this->holder)->getcharacterData());
     
+//    this->calculatedGameObjectData = this->holder->getCalculatedData();
+    
     this->shootedTime++;
     calculatedSkillData.setPositionPlusPerUnit(ccp((this->shootedTime-1)*calculatedSkillData.getPositionPlusPerUnit().x,(this->shootedTime-1)*calculatedSkillData.getPositionPlusPerUnit().y));
     //

@@ -80,7 +80,9 @@ enum CommandID
     CAMERA_FOLLOW_POINTER,
     DISPLAY_RESULT,
     DISPLAY_GOLD_VALUE,
-    QUIT_GAME
+    QUIT_GAME,
+    PAUSE_GAME,
+    RESUME_GAME
 };
 
 
@@ -163,8 +165,8 @@ enum SoundType
 
 enum ProjectileAngleType
 {
-    HOLDER_DIRECTION,
-    FREE_STYLE
+    HOLDER_DIRECTION=0,
+    FREE_STYLE=1
 };
 
 enum ApplyType

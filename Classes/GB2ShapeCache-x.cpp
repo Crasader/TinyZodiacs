@@ -142,7 +142,7 @@ bool GB2ShapeCache::addFixturesToBody(b2Body *body, const std::string &shape, vo
         body->CreateFixture(&fix->fixture);
         fix = fix->next;
     }
-
+    return false;
 }
 
 bool GB2ShapeCache::addFixturesToBody(b2Body *body, const std::string &shape, void* userData, float x, float y)

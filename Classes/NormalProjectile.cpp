@@ -95,15 +95,31 @@ void NormalProjectile::setData(NormalShootingSkillData data, GameObjectCalculate
     this->sprite = CCSprite::create();
     GameManager::getInstance()->getGameplayHolder().nodeHolder->addChild(this->sprite, this->data.getProjectileData().getStateAnimation().getAnimationLayerIndex());
     // set direction
-    if(holder.getDirection() == LEFT)
+    
+    if(this->getData().getAngleType() == HOLDER_DIRECTION)
     {
-        this->flipDirection(LEFT);
-        this->sprite->setFlipX(true);
+        if(holder.getDirection() == LEFT)
+        {
+            this->flipDirection(LEFT);
+            this->sprite->setFlipX(true);
+        }
+        else if(holder.getDirection() == RIGHT)
+        {
+            this->flipDirection(RIGHT);
+            this->sprite->setFlipX(false);
+        }
     }
-    else if(holder.getDirection() == RIGHT)
+    else
     {
-        this->flipDirection(RIGHT);
-        this->sprite->setFlipX(false);
+        this->direction = holder.getDirection();
+        if(holder.getDirection() == LEFT)
+        {
+            this->sprite->setFlipX(true);
+        }
+        else if(holder.getDirection() == RIGHT)
+        {
+            this->sprite->setFlipX(true);
+        }
     }
 }
 
@@ -264,7 +280,7 @@ void NormalProjectile::update(float dt)
             break;
         case HOLDER_DIRECTION:
         {
-//            flipDirection(RIGHT);
+            //            flipDirection(RIGHT);
         }
             break;
         default:
@@ -327,7 +343,7 @@ void NormalProjectile::checkCollisionDataInBeginContact(PhysicData* holderData, 
                         {
                             shouldFlip = true;
                         }
-        
+                        
                         AnimationEffect* hitEffect = AnimationEffect::create();
                         hitEffect->setAnimation(this->data.getProjectileData().getStateAnimation().getHitStateAnimationID().c_str(),shouldFlip);
                         EffectManager::getInstance()->runEffect(hitEffect, this->getPositionInPixel(),this->data.getProjectileData().getStateAnimation().getAnimationLayerIndex());
@@ -394,7 +410,7 @@ void NormalProjectile::destroy()
 {
     this->isDisable = true;
     //
-//    this->body->SetActive(false);
+    //    this->body->SetActive(false);
     //stop time tick
     if(this->timeTickAction != NULL)
     {
@@ -439,7 +455,7 @@ void NormalProjectile::destroy()
         {
             shouldFlip = true;
         }
-
+        
         AnimationEffect* hitEffect = AnimationEffect::create();
         hitEffect->setAnimation(this->data.getProjectileData().getStateAnimation().getHitStateAnimationID().c_str(),shouldFlip);
         EffectManager::getInstance()->runEffect(hitEffect, this->getPositionInPixel(),this->data.getProjectileData().getStateAnimation().getAnimationLayerIndex());
@@ -509,7 +525,7 @@ void NormalProjectile::changeCreatAnimationToShootingAnimation()
     this->sprite->runAction(animation);
     //
     playSoundByState(SHOOT_SOUND);
-//    shoot();
+    //    shoot();
 }
 
 void NormalProjectile::applyEffectOnTimeTick()
@@ -584,7 +600,7 @@ void NormalProjectile::playSoundByState(ProjectileSound soundState)
             playSFX(this->data.getProjectileData().getSoundData().getHitSoundStr().c_str());
             break;
         case SHOOT_SOUND:
-//            playSFX(this->data.getProjectileData().getSoundData().getShootSoundStr().c_str());
+            //            playSFX(this->data.getProjectileData().getSoundData().getShootSoundStr().c_str());
             break;
         case DIE_SOUND:
             playSFX(this->data.getProjectileData().getSoundData().getDieSoundStr().c_str());
