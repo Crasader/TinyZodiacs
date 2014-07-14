@@ -23,10 +23,10 @@ bool MapSelectScene::init()
 
 MapSelectScene::~MapSelectScene()
 {
-    CCTextureCache::sharedTextureCache()->removeTextureForKey("MapListItem0.png");
-    CCTextureCache::sharedTextureCache()->removeTextureForKey("MapSelectScene0.png");
-    CCTextureCache::sharedTextureCache()->removeUnusedTextures();
-    CCTextureCache::sharedTextureCache()->dumpCachedTextureInfo();
+//    CCTextureCache::sharedTextureCache()->removeTextureForKey("MapListItem0.png");
+//    CCTextureCache::sharedTextureCache()->removeTextureForKey("MapSelectScene0.png");
+//    CCTextureCache::sharedTextureCache()->removeUnusedTextures();
+//    CCTextureCache::sharedTextureCache()->dumpCachedTextureInfo();
 }
 
 CCScene* MapSelectScene::scene()

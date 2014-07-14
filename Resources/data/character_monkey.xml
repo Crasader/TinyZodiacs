@@ -1,4 +1,5 @@
 <character id="monkey">
+    <resource_pack id="hero_monkey" file_name="resource_list.xml"/>
     <animation>monkey</animation>
 	<body>monkey</body>
     <hp>450</hp>

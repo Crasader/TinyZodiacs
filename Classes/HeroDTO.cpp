@@ -10,11 +10,14 @@
 
 HeroDTO::HeroDTO()
 {
-    
+    this->resourcePack = NULL;
 }
 HeroDTO::~HeroDTO()
 {
-    
+    if(this->resourcePack != NULL)
+    {
+        this->resourcePack->release();
+    }
 }
 
 //////////////// HeroPreviewDTO ////////////////

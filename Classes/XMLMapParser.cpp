@@ -85,6 +85,9 @@ MapDTO* XMLMapParser::getMapDTOFromXMLNode(XMLElement *mapXMLElement)
     mapDTO->revivePositionX = revivePosition.x;
     mapDTO->revivePositionY = revivePosition.y;
     
+    mapDTO->resourcePack = getResourcePack(mapXMLElement);
+    mapDTO->resourcePack->retain();
+    
     return mapDTO;
 }
 
@@ -468,4 +471,17 @@ CCPoint XMLMapParser::getHeroRevivePositionFromXMLElement(XMLElement* root)
     }
     
     return position;
+}
+
+ResourcePack* XMLMapParser::getResourcePack(XMLElement* root)
+{
+    XMLElement* resourcePackXMLElement  = root->FirstChildElement(TAG_RESOURCE_PACK);
+    if(resourcePackXMLElement != NULL)
+    {
+        string resourceId = XMLHelper::readAttributeString(resourcePackXMLElement, ATTRIBUTE_RESOURCE_ID, "");
+        string fileName = XMLHelper::readAttributeString(resourcePackXMLElement, ATTRIBUTE_RESOURCE_FILE_NAME, "");
+        
+        return XMLResourcePackParser::getResourcePackInFile(resourceId.c_str(), fileName.c_str());
+    }
+    return NULL;
 }

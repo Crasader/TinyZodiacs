@@ -45,7 +45,7 @@ bool GameManager::loadResource()
     
     loadSpritesheet("test_sheet.png","test_sheet.plist", kCCTexture2DPixelFormat_RGBA8888);
     
-    CCTextureCache::sharedTextureCache()->dumpCachedTextureInfo();
+//    CCTextureCache::sharedTextureCache()->dumpCachedTextureInfo();
     
     
     gbox2d::GB2ShapeCache *sc = gbox2d::GB2ShapeCache::sharedGB2ShapeCache();
@@ -63,6 +63,8 @@ bool GameManager::loadResource()
 
 bool GameManager::loadSpritesheet(const char* imageFileName, const char* plistFilename, CCTexture2DPixelFormat texturePixelFormat)
 {
+    CCLOG("load spritesheet: %s", imageFileName);
+    
     CCTexture2DPixelFormat old = CCTexture2D::defaultAlphaPixelFormat();
     CCTexture2D::setDefaultAlphaPixelFormat(texturePixelFormat);
     
@@ -82,11 +84,14 @@ bool GameManager::loadSpritesheet(const char* imageFileName, const char* plistFi
 bool GameManager::loadData()
 {
     //AnimationLoader::loadData();
+    ResourceLoader::loadData();
     TowerLoader::loadData();
     MapLoader::loadData();
     HeroLoader::loadData();
-    MonsterLoader::loadData();
+   // MonsterLoader::loadData();
     ItemLoader::loadData();
+    
+  
     
     return true;
 }

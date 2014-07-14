@@ -12,6 +12,7 @@
 #include <iostream>
 #include "cocos2d.h"
 #include "CharacterDTO.h"
+#include "ResourcePack.h"
 
 USING_NS_CC;
 using namespace std;
@@ -40,6 +41,8 @@ protected:
 public:
     HeroDTO();
     ~HeroDTO();
+    
+    ResourcePack* resourcePack;
 
     CREATE_FUNC(HeroDTO);
 };

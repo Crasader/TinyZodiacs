@@ -1,0 +1,214 @@
+<resource_list>
+    <resource_pack id="map1_resource">
+        <sub_resource_pack_list>
+            <sub_resource_pack id="hero_cat" file_name="resource_list.xml"/>
+            <sub_resource_pack id="monster_onion" file_name="resource_list.xml"/>
+            <sub_resource_pack id="monster_onion_invert" file_name="resource_list.xml"/>
+            <sub_resource_pack id="monster_skeleton" file_name="resource_list.xml"/>
+            <sub_resource_pack id="monster_ghost_1" file_name="resource_list.xml"/>
+            <sub_resource_pack id="monster_ghost_2" file_name="resource_list.xml"/>
+            <sub_resource_pack id="monster_dark_cornian" file_name="resource_list.xml"/>
+            <sub_resource_pack id="monster_bull" file_name="resource_list.xml"/>
+            <sub_resource_pack id="defense_list" file_name="resource_list.xml"/>
+        </sub_resource_pack_list>
+        <texture_resource_pack_list>
+            <texture_resource_pack texture_name="map1_spritesheet_4.pvr.ccz" plist_name="map1_spritesheet_4.plist"/>
+            <texture_resource_pack texture_name="map1_spritesheet_3.pvr.ccz" plist_name="map1_spritesheet_3.plist"/>
+            <texture_resource_pack texture_name="map1_spritesheet_2.pvr.ccz" plist_name="map1_spritesheet_2.plist"/>
+            <texture_resource_pack texture_name="map1_spritesheet_1.pvr.ccz" plist_name="map1_spritesheet_1.plist"/>
+            <texture_resource_pack texture_name="map1_background_spritesheet_3.pvr.ccz" plist_name="map1_background_spritesheet_3.plist"/>
+            <texture_resource_pack texture_name="map1_background_spritesheet_2.pvr.ccz" plist_name="map1_background_spritesheet_2.plist"/>
+            <texture_resource_pack texture_name="map1_background_spritesheet_1.pvr.ccz" plist_name="map1_background_spritesheet_1.plist"/>
+            <texture_resource_pack texture_name="tower_spritesheet.png" plist_name="tower_spritesheet.plist"/>
+            <texture_resource_pack texture_name="other_effect_spritesheet.pvr.ccz" plist_name="other_effect_spritesheet.plist"/>
+            <texture_resource_pack texture_name="item_spritesheet.png" plist_name="item_spritesheet.plist"/>
+            <texture_resource_pack texture_name="other_effect_2_spritesheet.png" plist_name="other_effect_2_spritesheet.plist"/>
+            <texture_resource_pack texture_name="magic_massbomb_spritesheet.pvr.ccz" plist_name="magic_massbomb_spritesheet.plist"/>
+            <texture_resource_pack texture_name="test_sheet.png" plist_name="test_sheet.plist"/>
+           <texture_resource_pack texture_name="magic_firepillar_spritesheet.pvr.ccz" plist_name="magic_firepillar_spritesheet.plist"/>
+        </texture_resource_pack_list>
+    
+        <xml_data_pack_list>
+        </xml_data_pack_list>
+
+    </resource_pack>
+    <resource_pack id="map2_resource">
+        <sub_resource_pack_list>
+        </sub_resource_pack_list>
+
+        <texture_resource_pack_list>
+            <texture_resource_pack texture_name="map1_background_spritesheet_3.pvr.ccz" plist_name="map1_background_spritesheet_3.plist"/>
+            <texture_resource_pack texture_name="map1_background_spritesheet_2.pvr.ccz" plist_name="map1_background_spritesheet_2.plist"/>
+            <texture_resource_pack texture_name="map1_background_spritesheet_1.pvr.ccz" plist_name="map1_background_spritesheet_1.plist"/>
+        </texture_resource_pack_list>
+    </resource_pack>
+    
+    <!-- HERO -->
+    <resource_pack id="hero_cat">
+        <texture_resource_pack_list>
+            <texture_resource_pack texture_name="cat_spritesheet.png" plist_name="cat_spritesheet.plist"/>
+        </texture_resource_pack_list>
+        <xml_data_pack_list>
+            <xml_data_pack type="hero" file_name="character_cat.xml"/>
+            <xml_data_pack type="animation" file_name="cat_animation.xml"/>
+        </xml_data_pack_list>
+    </resource_pack>
+    <resource_pack id="hero_pig">
+        <texture_resource_pack_list>
+            <texture_resource_pack texture_name="pig_animation.png" plist_name="pig_animation.plist"/>
+            <texture_resource_pack texture_name="magic_firepillar_spritesheet.pvr.ccz" plist_name="magic_firepillar_spritesheet.plist"/>
+        </texture_resource_pack_list>
+        <xml_data_pack_list>
+            <xml_data_pack type="hero" file_name="character_pig.xml"/>
+            <xml_data_pack type="animation" file_name="pig_animation.xml"/>
+        </xml_data_pack_list>
+    </resource_pack>
+    <resource_pack id="hero_monkey">
+        <texture_resource_pack_list>
+            <texture_resource_pack texture_name="monkey_spritesheet.png" plist_name="monkey_spritesheet.plist"/>
+        </texture_resource_pack_list>
+        <xml_data_pack_list>
+            <xml_data_pack type="hero" file_name="character_monkey.xml"/>
+            <xml_data_pack type="animation" file_name="monkey_animation.xml"/>
+        </xml_data_pack_list>
+    </resource_pack>
+    
+    
+      <!-- MONSTER -->
+      <resource_pack id="monster_onion">
+          <texture_resource_pack_list>
+              <texture_resource_pack texture_name="onion_spritesheet.png" plist_name="onion_spritesheet.plist"/>
+          </texture_resource_pack_list>
+          <xml_data_pack_list>
+              <xml_data_pack type="monster" file_name="monster_onion.xml"/>
+          </xml_data_pack_list>
+      </resource_pack>
+      <resource_pack id="monster_onion_invert">
+          <texture_resource_pack_list>
+              <texture_resource_pack texture_name="onion_invert_spritesheet.png" plist_name="onion_invert_spritesheet.plist"/>
+          </texture_resource_pack_list>
+          <xml_data_pack_list>
+              <xml_data_pack type="monster" file_name="monster_onion_invert.xml"/>
+          </xml_data_pack_list>
+      </resource_pack>
+      <resource_pack id="monster_skeleton">
+          <texture_resource_pack_list>
+              <texture_resource_pack texture_name="skeleton_spritesheet.png" plist_name="skeleton_spritesheet.plist"/>
+          </texture_resource_pack_list>
+          <xml_data_pack_list>
+              <xml_data_pack type="monster" file_name="monster_skeleton.xml"/>
+          </xml_data_pack_list>
+      </resource_pack>
+      <resource_pack id="monster_dark_cornian">
+          <texture_resource_pack_list>
+              <texture_resource_pack texture_name="dark_cornian_spritesheet.png" plist_name="dark_cornian_spritesheet.plist"/>
+          </texture_resource_pack_list>
+          <xml_data_pack_list>
+              <xml_data_pack type="monster" file_name="monster_dark_cornian.xml"/>
+          </xml_data_pack_list>
+      </resource_pack>
+      <resource_pack id="monster_bull">
+          <texture_resource_pack_list>
+              <texture_resource_pack texture_name="bull_spritesheet.png" plist_name="bull_spritesheet.plist"/>
+          </texture_resource_pack_list>
+          <xml_data_pack_list>
+              <xml_data_pack type="monster" file_name="monster_bull.xml"/>
+          </xml_data_pack_list>
+      </resource_pack>
+      <resource_pack id="monster_ghost_1">
+          <texture_resource_pack_list>
+              <texture_resource_pack texture_name="ghost_1_spritesheet.png" plist_name="ghost_1_spritesheet.plist"/>
+          </texture_resource_pack_list>
+          <xml_data_pack_list>
+              <xml_data_pack type="monster" file_name="monster_ghost_1.xml"/>
+          </xml_data_pack_list>
+      </resource_pack>
+      <resource_pack id="monster_ghost_2">
+          <texture_resource_pack_list>
+              <texture_resource_pack texture_name="ghost_2_spritesheet.png" plist_name="ghost_2_spritesheet.plist"/>
+          </texture_resource_pack_list>
+          <xml_data_pack_list>
+              <xml_data_pack type="monster" file_name="monster_ghost_2.xml"/>
+          </xml_data_pack_list>
+      </resource_pack>
+      
+      <!-- TOWER -->
+      <resource_pack id="defense_list">
+          <sub_resource_pack_list>
+              <sub_resource_pack id="tower1" file_name="resource_list.xml"/>
+              <sub_resource_pack id="tower2" file_name="resource_list.xml"/>
+              <sub_resource_pack id="tower3" file_name="resource_list.xml"/>
+              <sub_resource_pack id="tower4" file_name="resource_list.xml"/>
+              <sub_resource_pack id="tower5" file_name="resource_list.xml"/>
+              <sub_resource_pack id="tower6" file_name="resource_list.xml"/>
+          </sub_resource_pack_list>
+
+          <texture_resource_pack_list>
+               <texture_resource_pack texture_name="tower_thumbnail_spritesheet.png" plist_name="tower_thumbnail_spritesheet.plist"/>
+          </texture_resource_pack_list>
+          <xml_data_pack_list>
+              <xml_data_pack type="tower" file_name="tower_1.xml"/>
+          </xml_data_pack_list>
+      </resource_pack>
+
+      
+      <resource_pack id="tower1">
+          <texture_resource_pack_list>
+              <texture_resource_pack texture_name="tower_spritesheet.png" plist_name="tower_spritesheet.plist"/>
+              <texture_resource_pack texture_name="magic_fireball_spritesheet.pvr.ccz" plist_name="magic_fireball_spritesheet.plist"/>
+          </texture_resource_pack_list>
+          <xml_data_pack_list>
+              <xml_data_pack type="tower" file_name="tower_1.xml"/>
+          </xml_data_pack_list>
+      </resource_pack>
+      <resource_pack id="tower2">
+          <texture_resource_pack_list>
+              <texture_resource_pack texture_name="tower_spritesheet.png" plist_name="tower_spritesheet.plist"/>
+               <texture_resource_pack texture_name="magic_energyball_spritesheet.pvr.ccz" plist_name="magic_energyball_spritesheet.plist"/>
+          </texture_resource_pack_list>
+          <xml_data_pack_list>
+              <xml_data_pack type="tower" file_name="tower_2.xml"/>
+          </xml_data_pack_list>
+      </resource_pack>
+      <resource_pack id="tower3">
+          <texture_resource_pack_list>
+              <texture_resource_pack texture_name="tower_spritesheet_2.png" plist_name="tower_spritesheet_2.plist"/>
+              <texture_resource_pack texture_name="magic_lightningarrow_spritesheet.pvr.ccz" plist_name="magic_lightningarrow_spritesheet.plist"/>
+          </texture_resource_pack_list>
+          <xml_data_pack_list>
+              <xml_data_pack type="tower" file_name="tower_3.xml"/>
+          </xml_data_pack_list>
+      </resource_pack>
+      <resource_pack id="tower4">
+          <texture_resource_pack_list>
+              <texture_resource_pack texture_name="tower_spritesheet_2.png" plist_name="tower_spritesheet_2.plist"/>
+              <texture_resource_pack texture_name="magic_waterball_spritesheet.pvr.ccz" plist_name="magic_waterball_spritesheet.plist"/>
+          </texture_resource_pack_list>
+          <xml_data_pack_list>
+              <xml_data_pack type="tower" file_name="tower_4.xml"/>
+          </xml_data_pack_list>
+      </resource_pack>
+      <resource_pack id="tower5">
+          <texture_resource_pack_list>
+              <texture_resource_pack texture_name="tower_spritesheet_2.png" plist_name="tower_spritesheet_2.plist"/>
+              <texture_resource_pack texture_name="magic_bomb_spritesheet.pvr.ccz" plist_name="magic_bomb_spritesheet.plist"/>
+          </texture_resource_pack_list>
+          <xml_data_pack_list>
+              <xml_data_pack type="tower" file_name="tower_5.xml"/>
+          </xml_data_pack_list>
+      </resource_pack>
+      <resource_pack id="tower6">
+          <texture_resource_pack_list>
+              <texture_resource_pack texture_name="tower_spritesheet_2.png" plist_name="tower_spritesheet_2.plist"/>
+              <texture_resource_pack texture_name="magic_iceball_spritesheet.pvr.ccz" plist_name="magic_iceball_spritesheet.plist"/>
+          </texture_resource_pack_list>
+          <xml_data_pack_list>
+              <xml_data_pack type="tower" file_name="tower_6.xml"/>
+          </xml_data_pack_list>
+      </resource_pack>
+      
+
+
+
+
+</resource_list>

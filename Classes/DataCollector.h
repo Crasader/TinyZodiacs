@@ -20,6 +20,8 @@ class DataCollector;
 #include "MonsterDTO.h"
 #include "ItemDTO.h"
 #include "TowerDTO.h"
+#include "ResourcePack.h"
+#include <vector>
 
 USING_NS_CC;
 
@@ -27,6 +29,7 @@ struct MatchData
 {
     string heroIDSelected;
     string mapIDSelected;
+    vector<ResourcePack*> resourcePackList;
 };
 
 class DataCollector
@@ -47,6 +50,8 @@ private:
     CCDictionary* dictItemDTO;
     //Tower Dictionary
     CCDictionary* dictTowerDTO;
+    //ResourcePack Dictionary
+    CCDictionary* dictResourcePack;
     
     MatchData matchData;
     
@@ -61,6 +66,7 @@ public:
     void setMonsterDTO(const char* key, MonsterDTO* object);
     void setItemDTO(const char* key, ItemDTO* object);
     void setTowerDTO(const char* key, TowerDTO* object);
+    void setResourcePack(const char* key, ResourcePack* object);
     
     //get
     AnimationObject* getAnimationObjectByKey(const char* key);
@@ -69,6 +75,7 @@ public:
     MonsterDTO* getMonsterDTOByKey(const char* key);
     ItemDTO* getItemDTOByKey(const char* key);
     TowerDTO* getTowerDTOByKey(const char* key);
+    ResourcePack* getResourcePackByKey(const char* key);
     
     MatchData* getMatchData();
 };

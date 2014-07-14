@@ -13,8 +13,7 @@
 
 bool AnimationLoader::loadData()
 {
-    AnimationLoader::loadDataByFileName("monkey_animation.xml");
-    AnimationLoader::loadDataByFileName("cat_animation.xml");
+  
     AnimationLoader::loadDataByFileName("skill_animation.xml");
     AnimationLoader::loadDataByFileName("effect_animation.xml");
     AnimationLoader::loadDataByFileName("tower_1_animation.xml");
@@ -24,7 +23,6 @@ bool AnimationLoader::loadData()
     AnimationLoader::loadDataByFileName("tower_5_animation.xml");
     AnimationLoader::loadDataByFileName("tower_6_animation.xml");
     AnimationLoader::loadDataByFileName("creep_1_animation.xml");
-    AnimationLoader::loadDataByFileName("pig_animation.xml");
     AnimationLoader::loadDataByFileName("bull_animation.xml");
     AnimationLoader::loadDataByFileName("coin1_animation.xml");
     AnimationLoader::loadDataByFileName("container_animation.xml");

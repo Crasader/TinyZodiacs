@@ -21,10 +21,12 @@ bool HeroSelectScene::init()
 
 HeroSelectScene::~HeroSelectScene()
 {
-    CCTextureCache::sharedTextureCache()->removeTextureForKey("MapListItem0.png");
-    CCTextureCache::sharedTextureCache()->removeTextureForKey("MapSelectScene0.png");
-    CCTextureCache::sharedTextureCache()->removeUnusedTextures();
-    CCTextureCache::sharedTextureCache()->dumpCachedTextureInfo();
+//    CCTextureCache::sharedTextureCache()->removeTextureForKey("MapListItem0.png");
+//    CCTextureCache::sharedTextureCache()->removeTextureForKey("MapSelectScene0.png");
+//
+//    
+//    CCTextureCache::sharedTextureCache()->removeUnusedTextures();
+//    CCTextureCache:: sharedTextureCache()->dumpCachedTextureInfo();
 }
 
 CCScene* HeroSelectScene::scene()

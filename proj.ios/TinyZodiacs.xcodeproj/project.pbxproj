@@ -382,6 +382,8 @@
 		F5579EBD191DDCBC00F29241 /* ItemFactory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F5579EBB191DDCBC00F29241 /* ItemFactory.cpp */; };
 		F558161319176AD800A1CCB2 /* XMLMonsterParser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F558161119176AD800A1CCB2 /* XMLMonsterParser.cpp */; };
 		F56D1798195D169E00F3372C /* HoldableButton.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F56D1796195D169E00F3372C /* HoldableButton.cpp */; };
+		F5709F06196FE25C00D0AB3C /* ResourceLoader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F5709F04196FE25C00D0AB3C /* ResourceLoader.cpp */; };
+		F5709F09196FE2DF00D0AB3C /* XMLResourcePackParser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F5709F07196FE2DF00D0AB3C /* XMLResourcePackParser.cpp */; };
 		F57519C41905016200F6A519 /* MonsterAIActionEngine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F57519C21905016200F6A519 /* MonsterAIActionEngine.cpp */; };
 		F5779C6818E5693C0044D5CD /* HealthBar.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F5779C6618E5693C0044D5CD /* HealthBar.cpp */; };
 		F58095BF195850640011C3D0 /* 16bit in Resources */ = {isa = PBXBuildFile; fileRef = F58095BD195850640011C3D0 /* 16bit */; };
@@ -443,6 +445,7 @@
 		F5FB8E6A19333E100074598C /* ControllerManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F5FB8E6619333E0F0074598C /* ControllerManager.cpp */; };
 		F5FB8E6B19333E100074598C /* Controller.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F5FB8E6819333E100074598C /* Controller.cpp */; };
 		F5FB8E6E19333E3A0074598C /* GameRule.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F5FB8E6D19333E3A0074598C /* GameRule.cpp */; };
+		F5FD95B2196FE0460030C0B6 /* ResourcePack.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F5FD95B0196FE0460030C0B6 /* ResourcePack.cpp */; };
 		F5FF3FEB190A01490027506A /* CharacterDieState.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F5FF3FE9190A01490027506A /* CharacterDieState.cpp */; };
 /* End PBXBuildFile section */
 
@@ -1189,6 +1192,10 @@
 		F558161219176AD800A1CCB2 /* XMLMonsterParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMLMonsterParser.h; sourceTree = "<group>"; };
 		F56D1796195D169E00F3372C /* HoldableButton.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = HoldableButton.cpp; path = ../Classes/HoldableButton.cpp; sourceTree = "<group>"; };
 		F56D1797195D169E00F3372C /* HoldableButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HoldableButton.h; path = ../Classes/HoldableButton.h; sourceTree = "<group>"; };
+		F5709F04196FE25C00D0AB3C /* ResourceLoader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ResourceLoader.cpp; path = ../Classes/ResourceLoader.cpp; sourceTree = "<group>"; };
+		F5709F05196FE25C00D0AB3C /* ResourceLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ResourceLoader.h; path = ../Classes/ResourceLoader.h; sourceTree = "<group>"; };
+		F5709F07196FE2DF00D0AB3C /* XMLResourcePackParser.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = XMLResourcePackParser.cpp; path = ../Classes/XMLResourcePackParser.cpp; sourceTree = "<group>"; };
+		F5709F08196FE2DF00D0AB3C /* XMLResourcePackParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XMLResourcePackParser.h; path = ../Classes/XMLResourcePackParser.h; sourceTree = "<group>"; };
 		F57519C21905016200F6A519 /* MonsterAIActionEngine.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MonsterAIActionEngine.cpp; sourceTree = "<group>"; };
 		F57519C31905016200F6A519 /* MonsterAIActionEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MonsterAIActionEngine.h; sourceTree = "<group>"; };
 		F5779C6618E5693C0044D5CD /* HealthBar.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = HealthBar.cpp; sourceTree = "<group>"; };
@@ -1303,6 +1310,8 @@
 		F5FB8E6919333E100074598C /* ControllerManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ControllerManager.h; path = ../Classes/ControllerManager.h; sourceTree = "<group>"; };
 		F5FB8E6C19333E3A0074598C /* GameRule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GameRule.h; path = ../Classes/GameRule.h; sourceTree = "<group>"; };
 		F5FB8E6D19333E3A0074598C /* GameRule.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GameRule.cpp; path = ../Classes/GameRule.cpp; sourceTree = "<group>"; };
+		F5FD95B0196FE0460030C0B6 /* ResourcePack.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ResourcePack.cpp; path = ../Classes/ResourcePack.cpp; sourceTree = "<group>"; };
+		F5FD95B1196FE0460030C0B6 /* ResourcePack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ResourcePack.h; path = ../Classes/ResourcePack.h; sourceTree = "<group>"; };
 		F5FF3FE9190A01490027506A /* CharacterDieState.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CharacterDieState.cpp; sourceTree = "<group>"; };
 		F5FF3FEA190A01490027506A /* CharacterDieState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CharacterDieState.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -2798,6 +2807,8 @@
 				F5CCA7A1191B3D18002A7F2A /* ItemDTO.h */,
 				F5831B141945A5440055798F /* DefenseDTO.cpp */,
 				F5831B151945A5440055798F /* DefenseDTO.h */,
+				F5FD95B0196FE0460030C0B6 /* ResourcePack.cpp */,
+				F5FD95B1196FE0460030C0B6 /* ResourcePack.h */,
 			);
 			name = DTO;
 			sourceTree = "<group>";
@@ -2854,6 +2865,8 @@
 				F5E3B9B71917728E00E8FD95 /* MonsterLoader.h */,
 				F5EAC33F191B652700BE083E /* ItemLoader.cpp */,
 				F5EAC340191B652700BE083E /* ItemLoader.h */,
+				F5709F04196FE25C00D0AB3C /* ResourceLoader.cpp */,
+				F5709F05196FE25C00D0AB3C /* ResourceLoader.h */,
 			);
 			name = "Data loader";
 			sourceTree = "<group>";
@@ -2899,6 +2912,8 @@
 				340D3381195D4F7E00E93CB5 /* XMLItemSoundParser.h */,
 				340D85801963144400C52A93 /* XMLSkillAnimationParser.cpp */,
 				340D85811963144400C52A93 /* XMLSkillAnimationParser.h */,
+				F5709F07196FE2DF00D0AB3C /* XMLResourcePackParser.cpp */,
+				F5709F08196FE2DF00D0AB3C /* XMLResourcePackParser.h */,
 			);
 			name = "XML Parser";
 			sourceTree = "<group>";
@@ -3152,6 +3167,7 @@
 				34EED02918E5611F001AFFC9 /* Util.cpp in Sources */,
 				F5B4287119174057002DC13B /* MapLoader.cpp in Sources */,
 				15A3D9181682F7D5002FB0C5 /* b2ChainAndPolygonContact.cpp in Sources */,
+				F5FD95B2196FE0460030C0B6 /* ResourcePack.cpp in Sources */,
 				F54AE9B618D2F1AA00194E66 /* CharacterMidAirState.cpp in Sources */,
 				F5CCF21A192C8EBE00E56EE2 /* WaveDTO.cpp in Sources */,
 				375BD5111868454E0024609E /* CCActionManager.cpp in Sources */,
@@ -3178,6 +3194,7 @@
 				F51A482B19454D0B00E61987 /* HeroSelectLayer.cpp in Sources */,
 				15A3D9231682F7D5002FB0C5 /* b2Joint.cpp in Sources */,
 				F50702C018E958220025B666 /* MoveableMapObject.cpp in Sources */,
+				F5709F06196FE25C00D0AB3C /* ResourceLoader.cpp in Sources */,
 				F54AE9DB18D2F30D00194E66 /* MapObject.cpp in Sources */,
 				15A3D9241682F7D5002FB0C5 /* b2MouseJoint.cpp in Sources */,
 				15A3D9251682F7D5002FB0C5 /* b2PrismaticJoint.cpp in Sources */,
@@ -3350,6 +3367,7 @@
 				F5B4286D191735AC002DC13B /* MonsterDTO.cpp in Sources */,
 				1A8F3B71175E05DA00049216 /* Atlas.cpp in Sources */,
 				1A8F3B72175E05DA00049216 /* AtlasAttachmentLoader.cpp in Sources */,
+				F5709F09196FE2DF00D0AB3C /* XMLResourcePackParser.cpp in Sources */,
 				34315E51193972430058D433 /* AnimationData.cpp in Sources */,
 				F5DB688E193EC3E400FFF5A1 /* WallDTO.cpp in Sources */,
 				1A8F3B73175E05DA00049216 /* Attachment.cpp in Sources */,

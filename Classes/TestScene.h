@@ -11,6 +11,7 @@
 
 #include <iostream>
 #include <cocos2d.h>
+#include "ResourceLoader.h"
 
 class TestScene: public cocos2d::CCLayer
 {

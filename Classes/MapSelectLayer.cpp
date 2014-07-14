@@ -99,6 +99,9 @@ void MapSelectLayer::listItemTouchEvent(CCObject* sender, cocos2d::gui::TouchEve
          
                 DataCollector::getInstance()->getMatchData()->mapIDSelected = mapId->getCString();
                 
+                MapDTO* mapDTO = DataCollector::getInstance()->getMapDTOByKey(mapId->getCString());
+                DataCollector::getInstance()->getMatchData()->resourcePackList.push_back(mapDTO->resourcePack);
+                
                 CCScene* heroSelectScene = HeroSelectScene::scene();
                 CCDirector::sharedDirector()->pushScene(heroSelectScene);
             }

@@ -11,6 +11,7 @@
 
 #include <iostream>
 #include "cocos2d.h"
+#include "ResourcePack.h"
 
 USING_NS_CC;
 using namespace std;
@@ -28,6 +29,8 @@ public:
     
     float revivePositionX;
     float revivePositionY;
+    
+    ResourcePack* resourcePack;
     
     CCArray* listMapObjectDTO;
     CCArray* listBackgroundDTO;

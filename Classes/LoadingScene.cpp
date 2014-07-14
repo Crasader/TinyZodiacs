@@ -17,7 +17,7 @@ bool LoadingScene::init()
     resourceCount = 0;
     currResourceCount = 0;
     initScene();
-    CCTextureCache::sharedTextureCache()->dumpCachedTextureInfo();
+//    CCTextureCache::sharedTextureCache()->dumpCachedTextureInfo();
     return true;
 }
 
@@ -63,43 +63,16 @@ void LoadingScene::initScene()
 
 void LoadingScene::loadResource()
 {
-    GameManager::getInstance()->loadSpritesheet("map1_spritesheet_4.pvr.ccz","map1_spritesheet_4.plist");
-    GameManager::getInstance()->loadSpritesheet("map1_spritesheet_3.pvr.ccz","map1_spritesheet_3.plist");
-    GameManager::getInstance()->loadSpritesheet("map1_spritesheet_2.pvr.ccz","map1_spritesheet_2.plist");
-    GameManager::getInstance()->loadSpritesheet("map1_spritesheet_1.pvr.ccz","map1_spritesheet_1.plist");
-    
-    GameManager::getInstance()->loadSpritesheet("map1_background_spritesheet_3.pvr.ccz","map1_background_spritesheet_3.plist");
-    GameManager::getInstance()->loadSpritesheet("map1_background_spritesheet_2.pvr.ccz","map1_background_spritesheet_2.plist");
-    GameManager::getInstance()->loadSpritesheet("map1_background_spritesheet_1.pvr.ccz","map1_background_spritesheet_1.plist");
-    
-    
-    GameManager::getInstance()->loadSpritesheet("onion_invert_spritesheet.png","onion_invert_spritesheet.plist");
-    GameManager::getInstance()->loadSpritesheet("tower_spritesheet.png","tower_spritesheet.plist");
-    GameManager::getInstance()->loadSpritesheet("pig_animation.png","pig_animation.plist");
-    
-    GameManager::getInstance()->loadSpritesheet("other_effect_spritesheet.pvr.ccz","other_effect_spritesheet.plist");
-    GameManager::getInstance()->loadSpritesheet("onion_spritesheet.png","onion_spritesheet.plist");
-    GameManager::getInstance()->loadSpritesheet("monkey_spritesheet.png","monkey_spritesheet.plist");
-    
-    GameManager::getInstance()->loadSpritesheet("magic_massbomb_spritesheet.pvr.ccz","magic_massbomb_spritesheet.plist");
-    GameManager::getInstance()->loadSpritesheet("magic_lightningarrow_spritesheet.pvr.ccz","magic_lightningarrow_spritesheet.plist");
-    GameManager::getInstance()->loadSpritesheet("magic_firepillar_spritesheet.pvr.ccz","magic_firepillar_spritesheet.plist");
-    GameManager::getInstance()->loadSpritesheet("magic_fireball_spritesheet.pvr.ccz","magic_fireball_spritesheet.plist");
-    GameManager::getInstance()-> loadSpritesheet("magic_energyball_spritesheet.pvr.ccz","magic_energyball_spritesheet.plist");
-    GameManager::getInstance()-> loadSpritesheet("magic_waterball_spritesheet.pvr.ccz","magic_waterball_spritesheet.plist");
-    GameManager::getInstance()-> loadSpritesheet("magic_iceball_spritesheet.pvr.ccz","magic_iceball_spritesheet.plist");
-    GameManager::getInstance()->loadSpritesheet("magic_bomb_spritesheet.pvr.ccz","magic_bomb_spritesheet.plist");
-    GameManager::getInstance()-> loadSpritesheet("item_spritesheet.png","item_spritesheet.plist");
-    GameManager::getInstance()->loadSpritesheet("cat_spritesheet.png","cat_spritesheet.plist");
-    GameManager::getInstance()-> loadSpritesheet("bull_spritesheet.png","bull_spritesheet.plist");
-    GameManager::getInstance()-> loadSpritesheet("skeleton_spritesheet.png","skeleton_spritesheet.plist");
-    GameManager::getInstance()-> loadSpritesheet("dark_cornian_spritesheet.png","dark_cornian_spritesheet.plist");
-    GameManager::getInstance()-> loadSpritesheet("ghost_1_spritesheet.png","ghost_1_spritesheet.plist");
-    GameManager::getInstance()-> loadSpritesheet("ghost_2_spritesheet.png","ghost_2_spritesheet.plist");
-    GameManager::getInstance()-> loadSpritesheet("test_sheet.png","test_sheet.plist");
-    GameManager::getInstance()-> loadSpritesheet("other_effect_2_spritesheet.png","other_effect_2_spritesheet.plist");
-    GameManager::getInstance()-> loadSpritesheet("tower_thumbnail_spritesheet.png","tower_thumbnail_spritesheet.plist");
-    GameManager::getInstance()-> loadSpritesheet("tower_spritesheet_2.png","tower_spritesheet_2.plist");
+    for(int i=0; i<DataCollector::getInstance()->getMatchData()->resourcePackList.size(); i++)
+    {
+        ResourceLoader::loadResourcePack(DataCollector::getInstance()->getMatchData()->resourcePackList[i]);
+    }
+//    
+//    if(DataCollector::getInstance()->getMatchData()->resourcePack == NULL)
+//    {
+//        CCAssert(0, "Not found resource");
+//    }
+//
     
     AnimationLoader::loadData();
     

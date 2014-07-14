@@ -112,4 +112,15 @@ enum ProjectileAngle
     ABSOLUTE_LEFT =0,
     ABSOLUTE_RIGHT=180
 };
+
+enum XMLDataType
+{
+    XML_UNKNOWN,
+    XML_ANIMATION,
+    XML_TOWER,
+    XML_MAP,
+    XML_HERO,
+    XML_MONSTER,
+    XML_ITEM
+};
 #endif

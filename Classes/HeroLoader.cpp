@@ -10,7 +10,7 @@
 
 bool HeroLoader::loadData()
 {
-    HeroLoader::loadDataByFileName("character_cat.xml");
+  HeroLoader::loadDataByFileName("character_cat.xml");
     HeroLoader::loadDataByFileName("character_monkey.xml");
     HeroLoader::loadDataByFileName("character_pig.xml");
     

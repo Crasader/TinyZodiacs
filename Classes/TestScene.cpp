@@ -28,17 +28,32 @@ bool TestScene::init()
     initScene();
     if(GameManager::getInstance()->getParent() == NULL)
     {
-            this->addChild(GameManager::getInstance());
+        this->addChild(GameManager::getInstance());
+        GameManager::getInstance()->pauseSchedulerAndActions();
     }
     return true;
 }
 
 TestScene::~TestScene()
 {
+    CCTextureCache::sharedTextureCache()->dumpCachedTextureInfo();
+    for(int i=0; i<DataCollector::getInstance()->getMatchData()->resourcePackList.size(); i++)
+    {
+        ResourceLoader::unloadResourcePack(DataCollector::getInstance()->getMatchData()->resourcePackList[i]);
+    }
+    
     ControllerManager::getInstance()->clean();
     RuleManager::getInstance()->clean();
     
+    
     SoundManager::playMenuMusic();
+    
+    
+    CCTextureCache::sharedTextureCache()->removeUnusedTextures();
+    CCTextureCache::sharedTextureCache()->purgeSharedTextureCache();
+    
+    CCTextureCache::sharedTextureCache()->dumpCachedTextureInfo();
+    
 }
 
 CCScene* TestScene::scene()
@@ -53,7 +68,7 @@ CCScene* TestScene::scene()
     
     // add layer as a child to scene
     scene->addChild(layer);
-  
+    
     GameplayLayer* menuLayer = GameplayLayer::create();
     scene->addChild(menuLayer, GAME_MENU_LAYER, 4);
     
@@ -77,14 +92,14 @@ void TestScene::menuBackCallBack(cocos2d::CCObject *pSender)
     //
     //    testSprite->runAction(walkiAnimate);
     
-   // if(this->getChildByTag(2)!=NULL)
-        //((GameBackgroundLayer*)this->getChildByTag(2))->scrollBackground();
+    // if(this->getChildByTag(2)!=NULL)
+    //((GameBackgroundLayer*)this->getChildByTag(2))->scrollBackground();
     
     
 }
 
 void TestScene::initScene()
 {
-  
+    
     
 }

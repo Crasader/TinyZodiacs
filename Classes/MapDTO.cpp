@@ -10,6 +10,7 @@
 
 MapDTO::MapDTO()
 {
+    this->resourcePack = NULL;
     this->listMapObjectDTO = CCArray::create();
     this->listMapObjectDTO->retain();
     this->listBackgroundDTO = CCArray::create();
@@ -47,6 +48,11 @@ MapDTO::~MapDTO()
     this->listMonsterFactoryDTO->release();
     this->listItemCreatorDTO->release();
     this->listWallDTO->release();
+    
+    if(this->resourcePack != NULL)
+    {
+        this->resourcePack->release();
+    }
 }
 
 bool MapDTO::init()

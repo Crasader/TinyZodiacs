@@ -125,7 +125,10 @@ void HeroSelectLayer::listItemTouchEvent(CCObject* sender, cocos2d::gui::TouchEv
         {
             HeroPreviewDTO* heroPreviewDTO = static_cast<HeroPreviewDTO*>(this->lvHeroPreview->getItem(this->lvHeroPreview->getCurSelectedIndex())->getUserData());
             
+            HeroDTO* heroDTO = static_cast<HeroDTO*>(DataCollector::getInstance()->getHeroDTOByKey(heroPreviewDTO->id.c_str()));
+            
             DataCollector::getInstance()->getMatchData()->heroIDSelected = heroPreviewDTO->id;
+            DataCollector::getInstance()->getMatchData()->resourcePackList.push_back(heroDTO->resourcePack);
             
             CCScene* scene = LoadingScene::scene();
             CCDirector::sharedDirector()->pushScene(scene);

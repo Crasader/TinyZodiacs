@@ -28,7 +28,8 @@ GameWorld::GameWorld()
     this->world = NULL;
     this->map = NULL;
     this->group1 = NULL;
-    this->group2 = NULL;    this->cameraFollowAction = NULL;
+    this->group2 = NULL;
+    this->cameraFollowAction = NULL;
     
 }
 

@@ -20,6 +20,7 @@ MainCrystal::~MainCrystal()
 
 void MainCrystal::destroy()
 {
+    
     Tower::destroy();
     
     RuleManager::getInstance()->addRuleEvent(RULE_EVENT_MAIN_CRYSTAL_DESTROYED, true);

@@ -24,6 +24,8 @@ class GameManager;
 #include "EffectManager.h"
 #include "GameObjectManager.h"
 #include "ScheduleManager.h"
+#include "ResourceLoader.h"
+
 
 USING_NS_CC;
 

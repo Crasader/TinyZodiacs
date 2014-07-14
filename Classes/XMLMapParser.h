@@ -25,6 +25,8 @@
 #include "XMLItemParser.h"
 #include "WaveDTO.h"
 #include "WallDTO.h"
+#include "ResourcePack.h"
+#include "ResourceLoader.h"
 
 USING_NS_CC;
 using namespace tinyxml2;
@@ -114,6 +116,11 @@ using namespace tinyxml2;
 #define ATTRIBUTE_WALL_DEADWALL "dead_wall"
 #define TAG_REVIVE_POSITION "revive_position"
 
+//resource
+#define TAG_RESOURCE_PACK "resource_pack"
+#define ATTRIBUTE_RESOURCE_ID "id"
+#define ATTRIBUTE_RESOURCE_FILE_NAME "file_name"
+
 
 class XMLMapParser
 {
@@ -138,6 +145,7 @@ public:
     static CCArray* getSensorObjectDTOListFromXMLElement(XMLElement* root);
     static CCArray* getWallDTOListFromXMLElement(XMLElement* root);
     static CCPoint getHeroRevivePositionFromXMLElement(XMLElement* root);
+    static ResourcePack* getResourcePack(XMLElement* root);
     
 };
 

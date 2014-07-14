@@ -11,7 +11,8 @@
 MainHero::MainHero()
 {
     this->reviveAction = NULL;
-    this->goldValue = 0;
+    this->goldValue = 50;
+         ControllerManager::getInstance()->sendCommand(HERO_CONTROLLER, DISPLAY_GOLD_VALUE,new int(this->goldValue));
 }
 
 MainHero::~MainHero()

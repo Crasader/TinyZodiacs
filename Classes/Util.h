@@ -17,6 +17,7 @@
 #include "EffectData.h"
 #include "Constants.h"
 #include <vector>
+#include "XMLResourcePackParser.h"
 
 using namespace std;
 USING_NS_CC;
@@ -52,6 +53,8 @@ public:
     static void applyEffectFromList(vector<EffectData> listEffect, GameObject* object);
     
     static ItemType convertStringToItemType(const char* itemType);
+    static XMLDataType convertStringToXMLDataType(const char* xMLDataType);
+
 
     static vector<ItemStruct> randomItemInList(vector<ItemStruct> listItemStruct, int count);
 

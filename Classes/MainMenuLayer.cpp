@@ -26,7 +26,7 @@ MainMenuLayer::~MainMenuLayer()
     
     CCTextureCache::sharedTextureCache()->removeTextureForKey("MainMenuLayer0.png");
     CCTextureCache::sharedTextureCache()->removeUnusedTextures();
-    CCTextureCache::sharedTextureCache()->dumpCachedTextureInfo();
+//    CCTextureCache::sharedTextureCache()->dumpCachedTextureInfo();
 }
 
 bool MainMenuLayer::init()
@@ -50,7 +50,7 @@ bool MainMenuLayer::init()
     loadAllUI(ul);
     this->addWidget(ul);
     
-      CCTextureCache::sharedTextureCache()->dumpCachedTextureInfo();
+//      CCTextureCache::sharedTextureCache()->dumpCachedTextureInfo();
     return true;
 }
 

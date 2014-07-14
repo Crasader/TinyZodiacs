@@ -240,7 +240,6 @@ bool GameMatch::receiveCommand(CommandID commandID, void* data)
             listAction->addObject(delayTime);
             listAction->addObject(mfunction);
             CCSequence* seq = CCSequence::create(listAction);
-            
             this->runAction(seq);
         }
             break;

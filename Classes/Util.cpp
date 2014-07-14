@@ -471,6 +471,41 @@ ItemType Util::convertStringToItemType(const char* itemType)
     return type;
 }
 
+XMLDataType Util::convertStringToXMLDataType(const char* xMLDataType)
+{
+    XMLDataType type = XML_UNKNOWN;
+    
+    if(strcasecmp(xMLDataType, "animation") == 0)
+    {
+        type = XML_ANIMATION;
+    }
+    else if (strcasecmp(xMLDataType, "tower") == 0)
+    {
+        type = XML_TOWER;
+    }
+    else if (strcasecmp(xMLDataType, "map") == 0)
+    {
+        type = XML_MAP;
+    }
+    else if (strcasecmp(xMLDataType, "hero") == 0)
+    {
+        type = XML_HERO;
+    }
+    else if (strcasecmp(xMLDataType, "item") == 0)
+    {
+        type = XML_ITEM;
+    }
+    else if (strcasecmp(xMLDataType, "monster") == 0)
+    {
+        type = XML_MONSTER;
+    }
+    else  {
+        //nothing
+    }
+    
+    return type;
+}
+
 vector<ItemStruct> Util::randomItemInList(vector<ItemStruct> listItemStruct, int count)
 {
     vector<ItemStruct> listItemRandom;

@@ -1,4 +1,5 @@
 <map id="map2" width="7000" height="4000">
+    <resource_pack id="map2_resource" file_name="resource_list.xml"/>
     <background_list>
         
         <background image_name="map1_background_1_4.jpg" spritesheet_name="map1_background_spritesheet_1.png" layer_index="0">

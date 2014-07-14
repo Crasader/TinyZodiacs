@@ -8,6 +8,7 @@
 
 #include "XMLHeroParser.h"
 #include "XMLCharacterParser.h"
+#include "XMLMapParser.h"
 
 #define TAG_HERO "hero"
 #define ATTRIBUTE_HERO_LOCKED "locked"
@@ -18,6 +19,10 @@ HeroDTO* XMLHeroParser::getHeroDTOFromXMLElement(XMLElement* heroXMLElement)
 {
     HeroDTO* heroDTO = HeroDTO::create();
     XMLCharacterParser::getCharacterDTOFromXMLElement(heroDTO, heroXMLElement);
+    
+    heroDTO->resourcePack = XMLMapParser::getResourcePack(heroXMLElement);
+    heroDTO->resourcePack->retain();
+    
     return heroDTO;
 }
 

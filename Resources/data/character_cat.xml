@@ -1,4 +1,5 @@
 <character id="cat">
+    <resource_pack id="hero_cat" file_name="resource_list.xml"/>
     <animation>cat</animation>
 	<body>cat</body>
     <hp>200</hp>
@@ -13,6 +14,5 @@
     <skill_1>chain_lightning_trap</skill_1>
     <skill_2>chain_lightning_circle</skill_2>
 
-    
     <sfx>cat_sounds</sfx>
 </character>
