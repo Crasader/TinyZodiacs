@@ -68,14 +68,14 @@ AnimationObject* XMLAnimationParser::getAnimationObjectFromXMLNode(XMLElement *a
     for (XMLElement* element = framelistXMLNode->FirstChildElement(TAG_FRAME); element; element = element->NextSiblingElement())
     {
         const char* frameName = element->Attribute(ATTRIBUTE_NAME);
-        frames->addObject(CCSpriteFrameCache::sharedSpriteFrameCache()->spriteFrameByName(frameName));
+        //frames->addObject(CCSpriteFrameCache::sharedSpriteFrameCache()->spriteFrameByName(frameName));
         listFrameName.push_back(frameName);
     }
     
-    CCAnimation* animation = CCAnimation::createWithSpriteFrames(frames, delay);
-    animation->setLoops(loop);
+   // CCAnimation* animation = CCAnimation::createWithSpriteFrames(frames, delay);
+  //  animation->setLoops(loop);
     
-    animationObject->setAnimation(animation);
+ //   animationObject->setAnimation(animation);
     animationObject->setListFrameName(listFrameName);
     
     animationObject->setLoops(loop);

@@ -9,6 +9,7 @@
 #include "CharacterAttackState.h"
 #include "CharacterIdleState.h"
 #include "CharacterJumpState.h"
+#include "Util.h"
 
 
 CharacterAttackState::CharacterAttackState(Character* character, AbstractSkill* skill, AnimationObject* skillAnimation): CharacterState(character)
@@ -28,8 +29,11 @@ bool CharacterAttackState::onEnterState()
     
     if(this->skillAnimation != NULL)
     {
-        CCAnimate* animation = CCAnimate::create(this->skillAnimation->getAnimation());
-        arr->addObject(animation);
+        CCAnimation* animation = Util::getAnimationFromAnimationObject(this->skillAnimation);
+        if(animation != NULL)
+        {
+            arr->addObject(CCAnimate::create(animation));
+        }
     }
     
     arr->addObject(callBack);

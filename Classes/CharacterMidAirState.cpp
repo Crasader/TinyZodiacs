@@ -10,6 +10,7 @@
 #include "CharacterIdleState.h"
 #include "CharacterJumpState.h"
 #include "CharacterAttackState.h"
+#include "Util.h"
 
 CharacterMidAirState::CharacterMidAirState(Character* character): CharacterState(character)
 {
@@ -48,9 +49,13 @@ void CharacterMidAirState::update(float dt)
         
         if(this->character->fallAnimation != NULL)
         {
-            this->action = CCAnimate::create(this->character->fallAnimation->getAnimation());
-            this->action->retain();
-            this->character->getSprite()->runAction(this->action);
+            CCAnimation* animation = Util::getAnimationFromAnimationObject(this->character->fallAnimation);
+            if(animation != NULL)
+            {
+                this->action = CCAnimate::create(animation);
+                this->action->retain();
+                this->character->getSprite()->runAction(this->action);
+            }
         }
            
         return;
@@ -63,9 +68,13 @@ void CharacterMidAirState::update(float dt)
         //fly action
         if(this->character->flyAnimation != NULL)
         {
-        this->action = CCAnimate::create(this->character->flyAnimation->getAnimation());
-           this->action->retain();
-        this->character->getSprite()->runAction(this->action);
+            CCAnimation* animation = Util::getAnimationFromAnimationObject(this->character->flyAnimation);
+            if(animation != NULL)
+            {
+                this->action = CCAnimate::create(animation);
+                this->action->retain();
+                this->character->getSprite()->runAction(this->action);
+            }
         }
        
         return;

@@ -44,11 +44,16 @@ void SkillAnimationEffect::run()
     CCArray* arrSeq = CCArray::create();
     
     CCCallFunc* stopFunction = CCCallFunc::create(this, callfunc_selector(SkillAnimationEffect::stop));
-    CCAnimate* animateAction = CCAnimate::create(this->animationObject->getAnimation());
+    CCAnimation* animation = Util::getAnimationFromAnimationObject(this->animationObject);
+   
     if(this->lifeTimes > 0)
     {
-        CCRepeat* repeatAction = CCRepeat::create(animateAction, this->lifeTimes);
-        arrSeq->addObject(repeatAction);
+        if(animation != NULL)
+        {
+            CCRepeat* repeatAction = CCRepeat::create(CCAnimate::create(animation), this->lifeTimes);
+            arrSeq->addObject(repeatAction);
+        }
+     
         arrSeq->addObject(stopFunction);
     }
 //    else
@@ -94,5 +99,6 @@ void SkillAnimationEffect::setAnimation(const char* id, float minRotate, float m
 
 float SkillAnimationEffect::getAnimationDuration()
 {
-    return this->animationObject->getAnimation()->getDuration();
+    CCAnimation* animation = Util::getAnimationFromAnimationObject(this->animationObject);
+    return animation->getDuration();
 }

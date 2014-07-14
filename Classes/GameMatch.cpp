@@ -243,6 +243,21 @@ bool GameMatch::receiveCommand(CommandID commandID, void* data)
             this->runAction(seq);
         }
             break;
+        case FOCUS_MAINCRYSTAL:
+        {
+            CCNode* runningNode = CCNode::create();
+            CCNode* mainCrystal = static_cast<CCNode*>(data);
+            CCNode* currentFollowedNode = this->gameWorld->getFollowedNodeByCamera();
+            
+            runningNode->setPosition(currentFollowedNode->getPosition());
+            
+            CCMoveTo* moveTo = CCMoveTo::create(0.4f, mainCrystal->getPosition());
+            runningNode->runAction(moveTo);
+            
+            this->gameWorld->setCameraFollowNode(runningNode);
+        }
+            break;
+
         default:
             break;
     }

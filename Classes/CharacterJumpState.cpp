@@ -8,6 +8,7 @@
 
 #include "CharacterJumpState.h"
 #include "CharacterMidAirState.h"
+#include "Util.h"
 
 USING_NS_CC;
 
@@ -27,8 +28,11 @@ bool CharacterJumpState::onEnterState()
     
     if(this->character->jumpAnimation != NULL)
     {
-        CCAnimate* jumpAction = CCAnimate::create(this->character->jumpAnimation->getAnimation());
-        arr->addObject(jumpAction);
+        CCAnimation* animation = Util::getAnimationFromAnimationObject(this->character->jumpAnimation);
+        if(animation != NULL)
+        {
+            arr->addObject(CCAnimate::create(animation));
+        }
     }
     arr->addObject(callBack);
     

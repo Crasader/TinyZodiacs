@@ -30,6 +30,7 @@ GameWorld::GameWorld()
     this->group1 = NULL;
     this->group2 = NULL;
     this->cameraFollowAction = NULL;
+    this->followedNode = NULL;
     
 }
 
@@ -96,7 +97,7 @@ void GameWorld::onCreateWorld()
     flags += b2Draw::e_centerOfMassBit;
     _debugDraw->SetFlags(flags);
     this->world->SetDebugDraw(_debugDraw);
-
+    
 }
 
 void GameWorld::onCreateUnits()
@@ -139,21 +140,21 @@ void GameWorld::createWorldBox()
     bottom = 0;
     
     //set ground bot
-//    b2BodyDef bottomGroundBodyDef;
-//    bottomGroundBodyDef.type = b2_staticBody;
-//    bottomGroundBodyDef.position.Set((left+0)/PTM_RATIO, (bottom+0)/PTM_RATIO);
-//    
-//    
-//    this->bottomLine = this->world->CreateBody(&bottomGroundBodyDef);
-//    b2EdgeShape bottomEdgeShape;
-//    b2FixtureDef bottomFixtureDef;
-//    bottomFixtureDef.shape = &bottomEdgeShape;
-//    bottomFixtureDef.friction=0.5;
-//    bottomFixtureDef.filter.maskBits = 0xFFFFFF;
-//    bottomFixtureDef.filter.categoryBits = GROUP_TERRAIN;
-//    
-//    bottomEdgeShape.Set(b2Vec2(0, 0), b2Vec2(this->width/PTM_RATIO,0));
-//    this->bottomLine->CreateFixture(&bottomFixtureDef);
+    //    b2BodyDef bottomGroundBodyDef;
+    //    bottomGroundBodyDef.type = b2_staticBody;
+    //    bottomGroundBodyDef.position.Set((left+0)/PTM_RATIO, (bottom+0)/PTM_RATIO);
+    //
+    //
+    //    this->bottomLine = this->world->CreateBody(&bottomGroundBodyDef);
+    //    b2EdgeShape bottomEdgeShape;
+    //    b2FixtureDef bottomFixtureDef;
+    //    bottomFixtureDef.shape = &bottomEdgeShape;
+    //    bottomFixtureDef.friction=0.5;
+    //    bottomFixtureDef.filter.maskBits = 0xFFFFFF;
+    //    bottomFixtureDef.filter.categoryBits = GROUP_TERRAIN;
+    //
+    //    bottomEdgeShape.Set(b2Vec2(0, 0), b2Vec2(this->width/PTM_RATIO,0));
+    //    this->bottomLine->CreateFixture(&bottomFixtureDef);
     
     //set ground top
     b2BodyDef topGroundBodyDef;
@@ -237,11 +238,11 @@ void GameWorld::destroy()
 }
 
 void GameWorld::draw()
-{    
-//    ccGLEnableVertexAttribs( kCCVertexAttribFlag_Position );
-//    kmGLPushMatrix();
-//    world->DrawDebugData();
-//    kmGLPopMatrix();
+{
+    //    ccGLEnableVertexAttribs( kCCVertexAttribFlag_Position );
+    //    kmGLPushMatrix();
+    //    world->DrawDebugData();
+    //    kmGLPopMatrix();
 }
 
 void GameWorld::setCameraFollowGroup(GameGroup* group)
@@ -271,10 +272,23 @@ void GameWorld::setCameraFollowNode(CCNode* nodeFollowed)
     {
         this->stopAction(this->cameraFollowAction);
     }
+    this->followedNode = nodeFollowed;
+    
+    if(this->followedNode->getParent() == NULL)
+    {
+        this->addChild(this->followedNode);
+    }
+    
     this->cameraFollowAction = CCFollow::create(nodeFollowed,CCRect(0, 0, this->width, this->height));
     
     this->runAction(this->cameraFollowAction);
 }
+
+CCNode* GameWorld::getFollowedNodeByCamera()
+{
+    return this->followedNode;
+}
+
 //PHYSICS CONTACT
 void GameWorld::BeginContact(b2Contact *contact)
 {

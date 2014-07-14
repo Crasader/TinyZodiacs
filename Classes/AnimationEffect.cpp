@@ -31,10 +31,17 @@ bool AnimationEffect::init()
 void AnimationEffect::run()
 {
     CCCallFunc* stopFunction = CCCallFunc::create(this, callfunc_selector(AnimationEffect::stop));
-    CCAnimate* animateAction = CCAnimate::create(this->animationObject->getAnimation());
+    
     
     CCArray* arrSeq = CCArray::create();
-    arrSeq->addObject(animateAction);
+    
+    CCAnimation* animation = Util::getAnimationFromAnimationObject(this->animationObject);
+    
+    if(animation != NULL)
+    {
+        arrSeq->addObject(CCAnimate::create(animation));
+    }
+   
     arrSeq->addObject(stopFunction);
     
     this->sprite->runAction(CCSequence::create(arrSeq));

@@ -504,8 +504,12 @@ void NormalProjectile::initDataAndShoot(NormalShootingSkillData data, GameObject
     if(this->data.getProjectileData().getStateAnimation().getCreatedStateAnimationID() != "")
     {
         AnimationObject* animationObj = DataCollector::getInstance()->getAnimationObjectByKey(this->data.getProjectileData().getStateAnimation().getCreatedStateAnimationID().c_str());
-        CCAnimate* animation = CCAnimate::create(animationObj->getAnimation());
-        array->addObject(animation);
+        
+        CCAnimation* animation = Util::getAnimationFromAnimationObject(animationObj);
+        if(animation != NULL)
+        {
+            array->addObject(CCAnimate::create(animation));
+        }
     }
     //
     playSoundByState(CREATE_SOUND);
@@ -521,8 +525,15 @@ void NormalProjectile::initDataAndShoot(NormalShootingSkillData data, GameObject
 void NormalProjectile::changeCreatAnimationToShootingAnimation()
 {
     AnimationObject* animationObj = DataCollector::getInstance()->getAnimationObjectByKey(this->data.getProjectileData().getStateAnimation().getShootingStateAnimationID().c_str());
-    CCAnimate* animation = CCAnimate::create(animationObj->getAnimation());
-    this->sprite->runAction(animation);
+    if(animationObj == NULL)
+    {
+        assert(0);
+    }
+    CCAnimation* animation = Util::getAnimationFromAnimationObject(animationObj);
+    if(animation != NULL)
+    {
+        this->sprite->runAction(CCAnimate::create(animation));
+    }
     //
     playSoundByState(SHOOT_SOUND);
     //    shoot();

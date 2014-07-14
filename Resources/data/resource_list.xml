@@ -25,7 +25,7 @@
             <texture_resource_pack texture_name="other_effect_2_spritesheet.png" plist_name="other_effect_2_spritesheet.plist"/>
             <texture_resource_pack texture_name="magic_massbomb_spritesheet.pvr.ccz" plist_name="magic_massbomb_spritesheet.plist"/>
             <texture_resource_pack texture_name="test_sheet.png" plist_name="test_sheet.plist"/>
-           <texture_resource_pack texture_name="magic_firepillar_spritesheet.pvr.ccz" plist_name="magic_firepillar_spritesheet.plist"/>
+   
         </texture_resource_pack_list>
     
         <xml_data_pack_list>
@@ -34,6 +34,8 @@
     </resource_pack>
     <resource_pack id="map2_resource">
         <sub_resource_pack_list>
+            <sub_resource_pack id="map1_resource" file_name="resource_list.xml"/>
+
         </sub_resource_pack_list>
 
         <texture_resource_pack_list>

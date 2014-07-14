@@ -11,6 +11,7 @@
 #include "CharacterMidAirState.h"
 #include "CharacterIdleState.h"
 #include "CharacterAttackState.h"
+#include "Util.h"
 
 USING_NS_CC;
 
@@ -23,9 +24,13 @@ bool CharacterMoveState::onEnterState()
 {
     if(this->character->runAnimation != NULL)
     {
-        this->action = CCAnimate::create(this->character->runAnimation->getAnimation());
-        this->action->retain();
-        this->character->getSprite()->runAction(this->action);
+        CCAnimation* animation = Util::getAnimationFromAnimationObject(this->character->runAnimation);
+        if(animation != NULL)
+        {
+            this->action = CCAnimate::create(animation);
+            this->action->retain();
+            this->character->getSprite()->runAction(this->action);
+        }
     }
     return true;
 }

@@ -12,6 +12,7 @@
 #include "CharacterAttackState.h"
 #include "CharacterJumpState.h"
 #include "CharacterDieState.h"
+#include "Util.h"
 
 CharacterDieState::CharacterDieState(Character* character): CharacterState(character)
 {
@@ -24,8 +25,11 @@ bool CharacterDieState::onEnterState()
     
     if(this->character->dieAnimation != NULL)
     {
-        CCAnimate* dieAnimate = CCAnimate::create(this->character->dieAnimation->getAnimation());
-        arr->addObject(dieAnimate);
+        CCAnimation* animation = Util::getAnimationFromAnimationObject(this->character->dieAnimation);
+        if(animation != NULL)
+        {
+            arr->addObject(CCAnimate::create(animation));
+        }
     }
     
     CCCallFunc* dieFunction = CCCallFunc::create(this, callfunc_selector(CharacterDieState::die));

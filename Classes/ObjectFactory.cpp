@@ -53,7 +53,7 @@ void ObjectFactory::createHero(Hero* hero, HeroDTO* heroDTO)
         hero->flyAnimation = DataCollector::getInstance()->getAnimationObjectByKey(fly.append(FLY).c_str());
         hero->skill1Animation = DataCollector::getInstance()->getAnimationObjectByKey(skill.append(SKILL).c_str());
         hero->dieAnimation = DataCollector::getInstance()->getAnimationObjectByKey(die.append(DIE).c_str());
-        hero->attackAnimation->getAnimation()->setDelayPerUnit(hero->getOriginCharacterData().getAttackSpeed());
+        hero->attackAnimation->setDelayPerUnit(hero->getOriginCharacterData().getAttackSpeed());
         
         
         //Create body

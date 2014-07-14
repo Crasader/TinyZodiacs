@@ -538,8 +538,13 @@ void NormalAttack::playAnimationByState(SkillState state)
             {
                 this->skillSprite->removeFromParent();
                 this->holder->getSprite()->getParent()->addChild(this->skillSprite, this->data.getAnimationLayerIndex());
-                CCAnimate* action = CCAnimate::create(animationObj->getAnimation());
-                this->skillSprite->runAction(action);
+               
+                CCAnimation* animation = Util::getAnimationFromAnimationObject(animationObj);
+                if(animation != NULL)
+                {
+                    this->skillSprite->runAction(CCAnimate::create(animation));
+                }
+
                 this->skillSprite->setPosition(ccp(0,0));
             }
         }
@@ -551,8 +556,12 @@ void NormalAttack::playAnimationByState(SkillState state)
             {
                 this->skillSprite->removeFromParent();
                 this->holder->getSprite()->getParent()->addChild(this->skillSprite, this->data.getAnimationLayerIndex());
-                CCAnimate* action = CCAnimate::create(animationObj->getAnimation());
-                this->skillSprite->runAction(action);
+                
+                CCAnimation* animation = Util::getAnimationFromAnimationObject(animationObj);
+                if(animation != NULL)
+                {
+                    this->skillSprite->runAction(CCAnimate::create(animation));
+                }
                 this->skillSprite->setPosition(ccp(0,0));
             }
         }
@@ -564,8 +573,12 @@ void NormalAttack::playAnimationByState(SkillState state)
             {
                 this->skillSprite->removeFromParent();
                 this->holder->getSprite()->getParent()->addChild(this->skillSprite, this->data.getAnimationLayerIndex());
-                CCAnimate* action = CCAnimate::create(animationObj->getAnimation());
-                this->skillSprite->runAction(action);
+               
+                CCAnimation* animation = Util::getAnimationFromAnimationObject(animationObj);
+                if(animation != NULL)
+                {
+                    this->skillSprite->runAction(CCAnimate::create(animation));
+                }
                 this->skillSprite->setPosition(ccp(0,0));
             }
         }
@@ -577,8 +590,12 @@ void NormalAttack::playAnimationByState(SkillState state)
             {
                 this->skillSprite->removeFromParent();
                 this->holder->getSprite()->getParent()->addChild(this->skillSprite, this->data.getAnimationLayerIndex());
-                CCAnimate* action = CCAnimate::create(animationObj->getAnimation());
-                this->skillSprite->runAction(action);
+                
+                CCAnimation* animation = Util::getAnimationFromAnimationObject(animationObj);
+                if(animation != NULL)
+                {
+                    this->skillSprite->runAction(CCAnimate::create(animation));
+                }
                 this->skillSprite->setPosition(ccp(0,0));
             }
         }

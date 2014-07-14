@@ -29,4 +29,7 @@ void MainCrystal::destroy()
 void MainCrystal::die()
 {
     Tower::die();
+//    CCNode* node = CCNode::create();
+//    node->setPosition(this->sprite->getPositionX(), this->sprite->getPositionY());
+    ControllerManager::getInstance()->sendCommand(GAME_MATCH_CONTROLLER, FOCUS_MAINCRYSTAL, this->sprite);
 }

@@ -94,9 +94,13 @@ void Item::appear()
 {
     if(this->appearAnimation != NULL)
     {
+        CCAnimation* animation = Util::getAnimationFromAnimationObject(this->appearAnimation);
+        if(animation != NULL)
+        {
+            this->sprite->runAction(CCAnimate::create(animation));
+        }
         //        CCAnimate* animate = CCAnimate::create(Util::getAnimationFromAnimationObject(this->appearAnimation));
-        CCAnimate* animate = CCAnimate::create(this->appearAnimation->getAnimation());
-        this->sprite->runAction(animate);
+        
     }
     
     CCScaleTo* scaleToBig = CCScaleTo::create(0.4f, 1.05f);
@@ -148,9 +152,11 @@ void Item::prepareToDisappearInOpen()
     CCArray* arrSeq = CCArray::create();
     if(this->prepareToDisappearAnimation != NULL)
     {
-        CCAnimate* animate = CCAnimate::create(this->prepareToDisappearAnimation->getAnimation());
-        //           CCAnimate* animate = CCAnimate::create(Util::getAnimationFromAnimationObject(this->prepareToDisappearAnimation));
-        arrSeq->addObject(animate);
+        CCAnimation* animation = Util::getAnimationFromAnimationObject(this->prepareToDisappearAnimation);
+        if(animation != NULL)
+        {
+            arrSeq->addObject(CCAnimate::create(animation));
+        }
     }
     CCCallFunc* disappearFunction = CCCallFunc::create(this, callfunc_selector(Item::disappear));
     CCFadeOut* fadeOut = CCFadeOut::create(0.5f);
@@ -201,7 +207,7 @@ void Item::checkCollisionDataInBeginContact(PhysicData* holderData, PhysicData* 
                         open(skill->getHolder());
                     }
                 }
-                       break;
+                    break;
                 case PROJECTILE_OBJECT:
                 {
                     NormalProjectile* proj = static_cast<NormalProjectile*>(collisionData->data);
@@ -210,7 +216,7 @@ void Item::checkCollisionDataInBeginContact(PhysicData* holderData, PhysicData* 
                 }
                     break;
                 case WALL:
-             
+                    
                 {
                     Wall* deathWall= static_cast<Wall*>(collisionData->data);
                     

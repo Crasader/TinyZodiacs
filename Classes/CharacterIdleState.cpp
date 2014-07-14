@@ -11,6 +11,7 @@
 #include "CharacterMidAirState.h"
 #include "CharacterAttackState.h"
 #include "CharacterJumpState.h"
+#include "Util.h"
 
 CharacterIdleState::CharacterIdleState(Character* character): CharacterState(character)
 {
@@ -22,9 +23,13 @@ bool CharacterIdleState::onEnterState()
    // CCLOG("enter idle state");
     if(this->character->idleAnimation != NULL)
     {
-        this->action = CCAnimate::create(this->character->idleAnimation->getAnimation());
-        this->action->retain();
-        this->character->getSprite()->runAction(action);
+        CCAnimation* animation = Util::getAnimationFromAnimationObject(this->character->idleAnimation);
+        if(animation != NULL)
+        {
+            this->action = CCAnimate::create(animation);
+            this->action->retain();
+            this->character->getSprite()->runAction(action);
+        }
     }
     return true;
 }

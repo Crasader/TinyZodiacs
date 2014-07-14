@@ -638,7 +638,12 @@ CCAnimation* Util::getAnimationFromAnimationObject(AnimationObject* animationObj
     
     for(int i = 0; i < animationObject->getListFrameName().size(); i++)
     {
-        animation->addSpriteFrame(CCSpriteFrameCache::sharedSpriteFrameCache()->spriteFrameByName(animationObject->getListFrameName()[i].c_str()));
+        CCSpriteFrame* spriteFrame = CCSpriteFrameCache::sharedSpriteFrameCache()->spriteFrameByName(animationObject->getListFrameName()[i].c_str());
+        if(spriteFrame)
+        {
+            animation->addSpriteFrame(spriteFrame);
+        }
+        
     }
     
     animation->setLoops(animationObject->getLoops());

@@ -52,6 +52,7 @@ private:
     CC_SYNTHESIZE(GameGroup*, group1, Group1);
     CC_SYNTHESIZE(GameGroup*, group2, Group2);
     CCAction* cameraFollowAction;
+    CCNode* followedNode;
 protected:
  
 public:
@@ -75,6 +76,7 @@ public:
     void addHero(MainHero* hero);
       void setCameraFollowGroup(GameGroup* group);
     void setCameraFollowNode(CCNode* nodeFollowed);
+    CCNode* getFollowedNodeByCamera();
     
     virtual void BeginContact(b2Contact *contact);
     virtual void EndContact(b2Contact *contact);
