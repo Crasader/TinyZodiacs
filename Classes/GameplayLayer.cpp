@@ -293,7 +293,25 @@ bool GameplayLayer::receiveCommand(CommandID commandID, void* data)
             delete goldValue;
         }
             break;
+        case DISPLAY_DANGER_MESSAGE:
+        {
+            CCString* message = static_cast<CCString*>(data);
+            //            static_cast<char*>(data);
             
+            CCSize size = CCDirector::sharedDirector()->getWinSize();
+            
+            CCLabelTTF* labelStyle = CCLabelTTF::create("", "Marker Felt", 50);
+            labelStyle->setOpacity(100);
+            
+            TextShowEffect* effect = TextShowEffect::create();
+            effect->setContent(message->getCString());
+            effect->setLabelStyle(labelStyle);
+            
+            EffectManager::getInstance()->runEffect(effect, ccp(size.width/2, size.height/4*3),this);
+            setWaveValue(message->getCString());
+            message->release();
+        }
+            break;
             
         default:
             break;

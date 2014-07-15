@@ -7,3 +7,9 @@
 //
 
 #include "NotificationManager.h"
+#include "ControllerManager.h"
+
+void NotificationManager::notifyCrystalInDanger()
+{
+    
+}

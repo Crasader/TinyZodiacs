@@ -15,5 +15,6 @@ class NotificationManager
 private:
 protected:
 public:
+    static void notifyCrystalInDanger();
 };
 #endif /* defined(__TinyZodiacs__NotificationManager__) */
