@@ -212,5 +212,53 @@
 
 
 
+    <!-- SCENE -->
+    <resource_pack id="mainmenu_resource">
+        <texture_resource_pack_list>
+            <texture_resource_pack texture_name="mainmenu_spritesheet.png" plist_name="mainmenu_spritesheet.plist"/>
+            <texture_resource_pack texture_name="magic_iceball_spritesheet.pvr.ccz" plist_name="magic_iceball_spritesheet.plist"/>
+        </texture_resource_pack_list>
+        <xml_data_pack_list>
+        </xml_data_pack_list>
+    </resource_pack>
+    <resource_pack id="mapselection_resource">
+        <texture_resource_pack_list>
+           <texture_resource_pack texture_name="ui_spritesheet_2.png" plist_name="ui_spritesheet_2.plist"/>
+           <texture_resource_pack texture_name="map_thumbnail_spritesheet.png" plist_name="map_thumbnail_spritesheet.plist"/>
+        </texture_resource_pack_list>
+        <xml_data_pack_list>
+        
+        </xml_data_pack_list>
+    </resource_pack>
+    <resource_pack id="heroselection_resource">
+        <texture_resource_pack_list>
+            <texture_resource_pack texture_name="ui_spritesheet_2.png" plist_name="ui_spritesheet_2.plist"/>
+            <texture_resource_pack texture_name="hero_thumbnail_spritesheet.png" plist_name="hero_thumbnail_spritesheet.plist"/>
+        </texture_resource_pack_list>
+        <xml_data_pack_list>
+            
+        </xml_data_pack_list>
+    </resource_pack>
+    <resource_pack id="loading_resource">
+        <texture_resource_pack_list>
+            <texture_resource_pack texture_name="ui_spritesheet_3.png" plist_name="ui_spritesheet_3.plist"/>
+        </texture_resource_pack_list>
+        <xml_data_pack_list>
+            
+        </xml_data_pack_list>
+    </resource_pack>
+    <resource_pack id="gameplay_resource">
+        <texture_resource_pack_list>
+            <texture_resource_pack texture_name="ui_spritesheet_2.png" plist_name="ui_spritesheet_2.plist"/>
+            <texture_resource_pack texture_name="ui_spritesheet_1.png" plist_name="ui_spritesheet_1.plist"/>
+            <texture_resource_pack texture_name="ui_spritesheet_3.png" plist_name="ui_spritesheet_3.plist"/>
+            <texture_resource_pack texture_name="item_spritesheet.png" plist_name="item_spritesheet.plist"/>
+             <texture_resource_pack texture_name="tower_thumbnail_spritesheet.png" plist_name="tower_thumbnail_spritesheet.plist"/>
+        </texture_resource_pack_list>
+        <xml_data_pack_list>
+            
+        </xml_data_pack_list>
+    </resource_pack>
+
 
 </resource_list>

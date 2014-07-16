@@ -72,7 +72,8 @@ void MapSelectLayer::backButtonTouchEvent(CCObject* sender, cocos2d::gui::TouchE
             break;
         case cocos2d::gui::TOUCH_EVENT_ENDED:
             
-            CCDirector::sharedDirector()->popScene();
+            CCLOG("sadasd %d", this->getParent()->retainCount());
+            CCDirector::sharedDirector()->popToSceneStackLevel(1);
             break;
         default:
             break;
@@ -115,6 +116,7 @@ void MapSelectLayer::listItemTouchEvent(CCObject* sender, cocos2d::gui::TouchEve
 
 void MapSelectLayer::loadMapList()
 {
+    CCTextureCache::sharedTextureCache()->dumpCachedTextureInfo();
     std::vector<MapSelectData> listMap = XMLMapListParser::getMapList();
     for(int i=0 ; i<listMap.size() ; i++)
     {
@@ -134,7 +136,7 @@ void MapSelectLayer::loadMapList()
         }
         else
         {
-            button->loadTextures("map_lock_1.png","map_lock_1.png","map_lock_1.png",cocos2d::gui::UI_TEX_TYPE_PLIST);
+            button->loadTextures("map_lock.png","map_lock.png","map_lock.png",cocos2d::gui::UI_TEX_TYPE_PLIST);
         }
         this->listMap->pushBackCustomItem(button);
     }

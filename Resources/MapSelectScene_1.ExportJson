@@ -10,10 +10,8 @@
   "designHeight": 720,
   "designWidth": 1280,
   "textures": [
-    "MapSelectScene0.plist"
   ],
   "texturesPng": [
-    "MapSelectScene0.png"
   ],
   "version": "1.4.0.1",
   "widgetTree": {
@@ -134,7 +132,7 @@
           "capInsetsY": 0,
           "fileName": null,
           "fileNameData": {
-            "path": "select map 3.png",
+            "path": "panel_3.png",
             "plistFile": "",
             "resourceType": 1
           },
@@ -197,13 +195,13 @@
           "fontType": 0,
           "normal": null,
           "normalData": {
-            "path": "back 1.png",
+            "path": "button_back_active.png",
             "plistFile": "",
             "resourceType": 1
           },
           "pressed": null,
           "pressedData": {
-            "path": "back 2.png",
+            "path": "button_back_pressed.png",
             "plistFile": "",
             "resourceType": 1
           },
@@ -261,7 +259,7 @@
           "capInsetsY": 0,
           "fileName": null,
           "fileNameData": {
-            "path": "background.jpg",
+            "path": "panel_1.jpg",
             "plistFile": "",
             "resourceType": 1
           },

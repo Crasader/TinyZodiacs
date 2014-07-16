@@ -10,10 +10,8 @@
   "designHeight": 309,
   "designWidth": 267,
   "textures": [
-    "MapListItem0.plist"
   ],
   "texturesPng": [
-    "MapListItem0.png"
   ],
   "version": "1.4.0.1",
   "widgetTree": {
@@ -82,7 +80,7 @@
           "capInsetsY": 0,
           "disabled": null,
           "disabledData": {
-            "path": "map_lock_1.png",
+            "path": "map_lock.png",
             "plistFile": "",
             "resourceType": 1
           },
@@ -91,13 +89,13 @@
           "fontType": 0,
           "normal": null,
           "normalData": {
-            "path": "map_lock_1.png",
+            "path": "map_lock.png",
             "plistFile": "",
             "resourceType": 1
           },
           "pressed": null,
           "pressedData": {
-            "path": "map_lock_2.png",
+            "path": "map_lock_pressed.png",
             "plistFile": "",
             "resourceType": 1
           },

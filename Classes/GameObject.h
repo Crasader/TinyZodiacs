@@ -35,10 +35,10 @@ protected:
     Direction direction;
     
     vector<GameObjectID> listGameObjectIDInherited;
-    
+    CCSprite* sprite;
 
     CC_SYNTHESIZE(GameObjectID, gameObjectID, GameObjectID);
-    CC_SYNTHESIZE(CCSprite*, sprite, Sprite);
+//    CC_SYNTHESIZE(CCSprite*, sprite, Sprite);
     CC_SYNTHESIZE(b2Body*, body, Body);
     CC_SYNTHESIZE(CCPoint, spriteAnchorPoint, SpriteAnchorPoint);
     CC_SYNTHESIZE_READONLY(Group, group, Group);
@@ -121,6 +121,8 @@ public:
     
     CC_SYNTHESIZE(bool, isControlled, IsControlled);
     
+    CCSprite* getSprite();
+    void setSprite(CCSprite* sprite);
     virtual bool shouldHaveSound();
 };
 

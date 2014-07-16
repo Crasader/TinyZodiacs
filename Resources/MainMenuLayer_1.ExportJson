@@ -10,12 +10,10 @@
   "designHeight": 720,
   "designWidth": 1280,
   "textures": [
-    "batchSettings.plist",
-    "MainMenuLayer0.plist"
+    "batchSettings.plist"
   ],
   "texturesPng": [
-    "batchSettings.png",
-    "MainMenuLayer0.png"
+    "batchSettings.png"
   ],
   "version": "1.4.0.1",
   "widgetTree": {
@@ -71,7 +69,7 @@
               "capInsetsY": 0,
               "fileName": null,
               "fileNameData": {
-                "path": "title.png",
+                "path": "game_title.png",
                 "plistFile": "",
                 "resourceType": 1
               },
@@ -188,13 +186,13 @@
               "fontType": 0,
               "normal": null,
               "normalData": {
-                "path": "i 1.png",
+                "path": "button_about_active.png",
                 "plistFile": "",
                 "resourceType": 1
               },
               "pressed": null,
               "pressedData": {
-                "path": "i 2.png",
+                "path": "button_about_pressed.png",
                 "plistFile": "",
                 "resourceType": 1
               },
@@ -261,13 +259,13 @@
               "fontType": 0,
               "normal": null,
               "normalData": {
-                "path": "p 1.png",
+                "path": "button_play_active.png",
                 "plistFile": "",
                 "resourceType": 1
               },
               "pressed": null,
               "pressedData": {
-                "path": "p 2.png",
+                "path": "button_play_pressed.png",
                 "plistFile": "",
                 "resourceType": 1
               },
@@ -334,13 +332,13 @@
               "fontType": 0,
               "normal": null,
               "normalData": {
-                "path": "o 1.png",
+                "path": "button_option_active.png",
                 "plistFile": "",
                 "resourceType": 1
               },
               "pressed": null,
               "pressedData": {
-                "path": "o 2.png",
+                "path": "button_option_pressed.png",
                 "plistFile": "",
                 "resourceType": 1
               },
@@ -817,7 +815,7 @@
           "capInsetsY": 0,
           "fileName": null,
           "fileNameData": {
-            "path": "back_ground.jpg",
+            "path": "mainmenu_background.jpg",
             "plistFile": "",
             "resourceType": 1
           },

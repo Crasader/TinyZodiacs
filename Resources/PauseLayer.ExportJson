@@ -10,10 +10,8 @@
   "designHeight": 720,
   "designWidth": 1280,
   "textures": [
-    "MainMenuLayer0.plist"
   ],
   "texturesPng": [
-    "MainMenuLayer0.png"
   ],
   "version": "1.4.0.1",
   "widgetTree": {

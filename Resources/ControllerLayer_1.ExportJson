@@ -10,10 +10,8 @@
   "designHeight": 720,
   "designWidth": 1280,
   "textures": [
-    "ControllerLayer0.plist"
   ],
   "texturesPng": [
-    "ControllerLayer0.png"
   ],
   "version": "1.4.0.1",
   "widgetTree": {

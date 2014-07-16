@@ -68,7 +68,7 @@ void GameMatch::updateToCheckMatch()
 
 void GameMatch::start()
 {
-    nextWave();
+nextWave();
 }
 
 void GameMatch::stop()

@@ -35,13 +35,17 @@ GameObject::GameObject()
 
 GameObject::~GameObject()
 {
-    
     if(this->sprite != NULL)
     {
-        if(this->sprite->getParent() != NULL)
+    CCLOG("re: %d", this->sprite->getContentSize().height);
+    }
+    if(this->sprite != NULL)
+    {
+      //  if(this->sprite->getParent() != NULL)
         {
             this->sprite->removeFromParent();
         }
+        this->sprite->release();
         this->sprite = NULL;
     }
     if(GameManager::getInstance()->getGameplayHolder().worldHolder != NULL)
@@ -77,6 +81,20 @@ GameObject::~GameObject()
         this->gameObjectView->release();
     }
     
+}
+
+CCSprite* GameObject::getSprite()
+{
+    return this->sprite;
+}
+void GameObject::setSprite(CCSprite* sprite)
+{
+    
+    this->sprite = sprite;
+    if(this->sprite != NULL)
+    {
+        this->sprite->retain();
+    }
 }
 
 bool GameObject::init()

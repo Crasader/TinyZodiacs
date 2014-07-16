@@ -31,21 +31,7 @@ GameManager* GameManager::getInstance()
 
 bool GameManager::loadResource()
 {
-    
-    
-    loadSpritesheet("map_thumbnail_spritesheet.png","map_thumbnail_spritesheet.plist", kCCTexture2DPixelFormat_RGBA8888);
-    //
-    //    loadSpritesheet("thumbnail_spritesheet.png","thumbnail_spritesheet.plist", kCCTexture2DPixelFormat_RGBA8888);
-    loadSpritesheet("hero_thumbnail_spritesheet.png","hero_thumbnail_spritesheet.plist", kCCTexture2DPixelFormat_RGBA8888);
-    loadSpritesheet("ui_spritesheet_3.png","ui_spritesheet_3.plist", kCCTexture2DPixelFormat_RGBA8888);
-    loadSpritesheet("ui_spritesheet_2.png","ui_spritesheet_2.plist", kCCTexture2DPixelFormat_RGBA8888);
-    loadSpritesheet("ui_spritesheet_1.png","ui_spritesheet_1.plist", kCCTexture2DPixelFormat_RGBA8888);
-    loadSpritesheet("mainmenu_spritesheet.png","mainmenu_spritesheet.plist", kCCTexture2DPixelFormat_RGBA8888);
-    
-    
-    loadSpritesheet("test_sheet.png","test_sheet.plist", kCCTexture2DPixelFormat_RGBA8888);
-    
-//    CCTextureCache::sharedTextureCache()->dumpCachedTextureInfo();
+
     
     
     gbox2d::GB2ShapeCache *sc = gbox2d::GB2ShapeCache::sharedGB2ShapeCache();

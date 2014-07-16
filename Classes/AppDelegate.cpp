@@ -83,14 +83,12 @@ bool AppDelegate::applicationDidFinishLaunching() {
     searchPath.push_back("16bit");
     if(frameSize.height <= largeResource.size.height)
     {
-      
         CCTexture2D::setDefaultAlphaPixelFormat(kTexture2DPixelFormat_RGBA4444);
     }
    // else
     {
 //        searchPath.push_back("32bit");
 //        CCTexture2D::setDefaultAlphaPixelFormat(kTexture2DPixelFormat_RGBA8888);
-
     }
     
     CCFileUtils::sharedFileUtils()->setSearchPaths(searchPath);

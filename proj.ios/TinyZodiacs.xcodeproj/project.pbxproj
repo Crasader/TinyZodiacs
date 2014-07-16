@@ -428,6 +428,7 @@
 		F5E2929518E6768F00B9B152 /* InfoViewCreator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F5E2929318E6768F00B9B152 /* InfoViewCreator.cpp */; };
 		F5E2929818E6779500B9B152 /* Player.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F5E2929618E6779500B9B152 /* Player.cpp */; };
 		F5E3B9B81917728E00E8FD95 /* MonsterLoader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F5E3B9B61917728E00E8FD95 /* MonsterLoader.cpp */; };
+		F5E3E8E51975116F00B18434 /* ResourceManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F5E3E8E31975116F00B18434 /* ResourceManager.cpp */; };
 		F5EA4325192B438000E63C1A /* ItemCreator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F5EA4323192B438000E63C1A /* ItemCreator.cpp */; };
 		F5EAC341191B652700BE083E /* ItemLoader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F5EAC33F191B652700BE083E /* ItemLoader.cpp */; };
 		F5ECC77A192A02CA00328FBE /* BonusItem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F5ECC778192A02CA00328FBE /* BonusItem.cpp */; };
@@ -1283,6 +1284,8 @@
 		F5E2929718E6779500B9B152 /* Player.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Player.h; sourceTree = "<group>"; };
 		F5E3B9B61917728E00E8FD95 /* MonsterLoader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MonsterLoader.cpp; sourceTree = "<group>"; };
 		F5E3B9B71917728E00E8FD95 /* MonsterLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MonsterLoader.h; sourceTree = "<group>"; };
+		F5E3E8E31975116F00B18434 /* ResourceManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ResourceManager.cpp; sourceTree = "<group>"; };
+		F5E3E8E41975116F00B18434 /* ResourceManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResourceManager.h; sourceTree = "<group>"; };
 		F5EA4323192B438000E63C1A /* ItemCreator.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ItemCreator.cpp; sourceTree = "<group>"; };
 		F5EA4324192B438000E63C1A /* ItemCreator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemCreator.h; sourceTree = "<group>"; };
 		F5EAC33F191B652700BE083E /* ItemLoader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ItemLoader.cpp; path = ../Classes/ItemLoader.cpp; sourceTree = "<group>"; };
@@ -2009,6 +2012,8 @@
 				34BD428F1965102D006F0624 /* SkillManager.h */,
 				344B7AB219669E0E001375D5 /* NotificationManager.cpp */,
 				344B7AB319669E0E001375D5 /* NotificationManager.h */,
+				F5E3E8E31975116F00B18434 /* ResourceManager.cpp */,
+				F5E3E8E41975116F00B18434 /* ResourceManager.h */,
 			);
 			name = Managers;
 			sourceTree = "<group>";
@@ -3383,6 +3388,7 @@
 				1A8F3B79175E05DA00049216 /* extension.cpp in Sources */,
 				F54AE9BD18D2F1AA00194E66 /* CharacterGhostState.cpp in Sources */,
 				1A8F3B7A175E05DA00049216 /* Json.cpp in Sources */,
+				F5E3E8E51975116F00B18434 /* ResourceManager.cpp in Sources */,
 				1A8F3B7B175E05DA00049216 /* RegionAttachment.cpp in Sources */,
 				1A8F3B7C175E05DA00049216 /* Skeleton.cpp in Sources */,
 				34D8BC24195976FF0082ED4A /* XMLProjectileSoundParser.cpp in Sources */,

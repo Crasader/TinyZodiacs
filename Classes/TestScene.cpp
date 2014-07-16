@@ -24,8 +24,6 @@ bool TestScene::init()
     {
         return false;
     }
-    
-    initScene();
     if(GameManager::getInstance()->getParent() == NULL)
     {
         this->addChild(GameManager::getInstance());
@@ -42,18 +40,20 @@ TestScene::~TestScene()
         ResourceLoader::unloadResourcePack(DataCollector::getInstance()->getMatchData()->resourcePackList[i]);
     }
     
+    ResourceLoader::unloadResourcePack(this->resourcePack);
+    CCTextureCache::sharedTextureCache()->removeUnusedTextures();
+    CCSpriteFrameCache::sharedSpriteFrameCache()->removeUnusedSpriteFrames();
+    this->resourcePack->release();
+    
+    CCSpriteFrameCache::sharedSpriteFrameCache()->removeUnusedSpriteFrames();
+    CCTextureCache::sharedTextureCache()->removeUnusedTextures();
+    CCDirector::sharedDirector()->purgeCachedData();
+    
     ControllerManager::getInstance()->clean();
     RuleManager::getInstance()->clean();
-    
-    
     SoundManager::playMenuMusic();
     
-    
-    CCTextureCache::sharedTextureCache()->removeUnusedTextures();
-    CCTextureCache::sharedTextureCache()->purgeSharedTextureCache();
-    
     CCTextureCache::sharedTextureCache()->dumpCachedTextureInfo();
-    
 }
 
 CCScene* TestScene::scene()
@@ -63,43 +63,25 @@ CCScene* TestScene::scene()
     
     // 'layer' is an autorelease object
     TestScene *layer = TestScene::create();
-    
-    
-    
     // add layer as a child to scene
-    scene->addChild(layer);
-    
-    GameplayLayer* menuLayer = GameplayLayer::create();
-    scene->addChild(menuLayer, GAME_MENU_LAYER, 4);
-    
-    GameObjectLayer* objectLayer = GameObjectLayer::create();
-    scene->addChild(objectLayer, GAME_OBJECT_LAYER, 3);
+    scene->addChild(layer, 0, 1);
     
     // return the scene
     return scene;
 }
 
-void TestScene::menuBackCallBack(cocos2d::CCObject *pSender)
-{
-    //    CCSprite* testSprite = CCSprite::createWithSpriteFrameName("Walk_LB_1.png");
-    //    testSprite->setPosition(ccp(200,200));
-    //
-    //    this->addChild(testSprite);
-    //
-    //    CCAnimation* walkAnimation = AnimationFactory::getSharedFactory()->getAnimationByName("etna-Walk_LB");
-    //    walkAnimation->setLoops(-1);
-    //    CCAnimate* walkiAnimate= CCAnimate::create(walkAnimation);
-    //
-    //    testSprite->runAction(walkiAnimate);
-    
-    // if(this->getChildByTag(2)!=NULL)
-    //((GameBackgroundLayer*)this->getChildByTag(2))->scrollBackground();
-    
-    
-}
-
 void TestScene::initScene()
 {
-    
-    
+    GameplayLayer* menuLayer = GameplayLayer::create();
+    this->addChild(menuLayer, GAME_MENU_LAYER, 4);
+    //
+    GameObjectLayer* objectLayer = GameObjectLayer::create();
+    this->addChild(objectLayer, GAME_OBJECT_LAYER, 3);
+}
+
+void TestScene::loadResource()
+{
+    this->resourcePack = XMLResourcePackParser::getResourcePackInFile("gameplay_resource", "resource_list.xml");
+    this->resourcePack->retain();
+    ResourceLoader::loadResourcePack(resourcePack);
 }

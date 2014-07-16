@@ -26,8 +26,6 @@ Map* MapCreator::createMap(MapDTO* mapDTO, GameWorld* gameWorld)
 {
     Map* map =  Map::create();
     map->setMapDTO(mapDTO);
-    map->retain();
-    
     map->setWidth(mapDTO->width);
     map->setHeight(mapDTO->height);
     gameWorld->setWidth(mapDTO->width);
@@ -84,10 +82,10 @@ Map* MapCreator::createMap(MapDTO* mapDTO, GameWorld* gameWorld)
         map->addWall(wall);
     }
     
-    //    //create background
+    //create background
     
     map->addParallaxBackground(createParallaxBackground(mapDTO->listBackgroundDTO,mapDTO->width,mapDTO->height));
-    //        //    //create foreground
+    //create foreground
     map->addParallaxForeground(createParallaxForeground(mapDTO->listForegroundDTO,mapDTO->width,mapDTO->height));
     return map;
     

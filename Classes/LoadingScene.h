@@ -12,12 +12,14 @@
 #include <iostream>
 #include "cocos2d.h"
 #include "HeroSelectLayer.h"
+#include "ResourcePack.h"
 
 USING_NS_CC;
 
 class LoadingScene: public CCLayer
 {
 private:
+    ResourcePack* resourcePack;
 public:
     int currResourceCount;
     int resourceCount;
@@ -30,6 +32,7 @@ public:
     void loadResource();
     void loadImage(const char* imageFilename, const char* plistFilename, CCTexture2DPixelFormat texturePixelFormat = kTexture2DPixelFormat_Default);
     void finishLoadingResource(CCObject* object);
+    void unloadResource();
     
     CREATE_FUNC(LoadingScene);
 };

@@ -7,6 +7,7 @@
 //
 
 #include "HeroSelectScene.h"
+#include "ResourceLoader.h"
 
 bool HeroSelectScene::init()
 {
@@ -15,18 +16,19 @@ bool HeroSelectScene::init()
         return false;
     }
     initScene();
+    this->resourcePack = XMLResourcePackParser::getResourcePackInFile("heroselection_resource", "resource_list.xml");
+    this->resourcePack->retain();
+    ResourceLoader::loadResourcePack(this->resourcePack);
     return true;
 }
 
 
 HeroSelectScene::~HeroSelectScene()
 {
-//    CCTextureCache::sharedTextureCache()->removeTextureForKey("MapListItem0.png");
-//    CCTextureCache::sharedTextureCache()->removeTextureForKey("MapSelectScene0.png");
-//
-//    
-//    CCTextureCache::sharedTextureCache()->removeUnusedTextures();
-//    CCTextureCache:: sharedTextureCache()->dumpCachedTextureInfo();
+    ResourceLoader::unloadResourcePack(this->resourcePack);
+    CCTextureCache::sharedTextureCache()->removeUnusedTextures();
+    CCSpriteFrameCache::sharedSpriteFrameCache()->removeUnusedSpriteFrames();
+    this->resourcePack->release();
 }
 
 CCScene* HeroSelectScene::scene()
@@ -37,7 +39,7 @@ CCScene* HeroSelectScene::scene()
     // 'layer' is an autorelease object
     HeroSelectScene *layer = HeroSelectScene::create();
     // add layer as a child to scene
-    scene->addChild(layer);
+    scene->addChild(layer,0,1);
     //    CocosDenshion::SimpleAudioEngine::sharedEngine()->playBackgroundMusic("test.mp3", true);
 
     // return the scene
@@ -47,6 +49,16 @@ CCScene* HeroSelectScene::scene()
 
 void HeroSelectScene::initScene()
 {
+    loadResource();
     HeroSelectLayer* layer = HeroSelectLayer::create();
     this->addChild(layer);
+    
+    
+}
+
+void HeroSelectScene::loadResource()
+{
+    this->resourcePack = XMLResourcePackParser::getResourcePackInFile("heroselection_resource", "resource_list.xml");
+    this->resourcePack->retain();
+    ResourceLoader::loadResourcePack(this->resourcePack);
 }

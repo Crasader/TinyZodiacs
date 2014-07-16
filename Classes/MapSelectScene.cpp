@@ -8,6 +8,8 @@
 
 #include "MapSelectScene.h"
 #include "MapSelectLayer.h"
+#include "ResourceLoader.h"
+#include "XMLResourcePackParser.h"
 
 bool MapSelectScene::init()
 {
@@ -15,18 +17,24 @@ bool MapSelectScene::init()
     {
         return false;
     }
-    //CCTextureCache::sharedTextureCache()->removeUnusedTextures();
+    this->resourcePack = XMLResourcePackParser::getResourcePackInFile("mapselection_resource", "resource_list.xml");
+    this->resourcePack->retain();
+    ResourceLoader::loadResourcePack(resourcePack);
     initScene();
     return true;
 }
 
+MapSelectScene::MapSelectScene()
+{
+    
+}
 
 MapSelectScene::~MapSelectScene()
 {
-//    CCTextureCache::sharedTextureCache()->removeTextureForKey("MapListItem0.png");
-//    CCTextureCache::sharedTextureCache()->removeTextureForKey("MapSelectScene0.png");
-//    CCTextureCache::sharedTextureCache()->removeUnusedTextures();
-//    CCTextureCache::sharedTextureCache()->dumpCachedTextureInfo();
+    ResourceLoader::unloadResourcePack(this->resourcePack);
+    CCTextureCache::sharedTextureCache()->removeUnusedTextures();
+    CCSpriteFrameCache::sharedSpriteFrameCache()->removeUnusedSpriteFrames();
+    this->resourcePack->release();
 }
 
 CCScene* MapSelectScene::scene()
@@ -36,8 +44,12 @@ CCScene* MapSelectScene::scene()
     
     // 'layer' is an autorelease object
     MapSelectScene *layer = MapSelectScene::create();
+    
     // add layer as a child to scene
     scene->addChild(layer);
+    
+    MapSelectLayer* maplayer = MapSelectLayer::create();
+    scene->addChild(maplayer);
     //    CocosDenshion::SimpleAudioEngine::sharedEngine()->playBackgroundMusic("test.mp3", true);
     
     // return the scene
@@ -47,6 +59,12 @@ CCScene* MapSelectScene::scene()
 
 void MapSelectScene::initScene()
 {
-    MapSelectLayer* layer = MapSelectLayer::create();
-    this->addChild(layer);
+    
+}
+
+void MapSelectScene::unloadResource()
+{
+    ResourceLoader::unloadResourcePack(this->resourcePack);
+    CCTextureCache::sharedTextureCache()->removeUnusedTextures();
+    CCSpriteFrameCache::sharedSpriteFrameCache()->removeUnusedSpriteFrames();
 }

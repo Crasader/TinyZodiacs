@@ -92,7 +92,8 @@ void NormalProjectile::setData(NormalShootingSkillData data, GameObjectCalculate
     this->lifeTimeScheduled = ScheduleManager::getInstance()->scheduleFunction(destroyFunction, NULL, this->data.getLifeTime(), 1);
     this->lifeTimeScheduled->retain();
     // Sprite
-    this->sprite = CCSprite::create();
+    setSprite(CCSprite::create());
+    
     GameManager::getInstance()->getGameplayHolder().nodeHolder->addChild(this->sprite, this->data.getProjectileData().getStateAnimation().getAnimationLayerIndex());
     // set direction
     

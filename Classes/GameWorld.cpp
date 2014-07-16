@@ -73,7 +73,6 @@ void GameWorld::onCreateMap()
     MapCreator* mapCreator = new MapCreator();
     map = mapCreator->createMap(this->mapID.c_str(),this);
     delete mapCreator;
-    
     this->map->attachAllMapObject();
     this->addChild(map, MAP_LAYER);
 }

@@ -12,16 +12,20 @@
 #include <iostream>
 #include "cocos2d.h"
 #include "HeroSelectLayer.h"
+#include "ResourcePack.h"
 
 USING_NS_CC;
 
 class HeroSelectScene: public CCLayer
 {
 private:
+    ResourcePack* resourcePack;
 public:
     ~HeroSelectScene();
     virtual bool init();
+    
     void initScene();
+    void loadResource();
     
     static cocos2d::CCScene* scene();
     

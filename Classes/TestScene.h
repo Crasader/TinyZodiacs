@@ -12,17 +12,21 @@
 #include <iostream>
 #include <cocos2d.h>
 #include "ResourceLoader.h"
+#include "ResourcePack.h"
 
 class TestScene: public cocos2d::CCLayer
 {
 private:
-    void menuBackCallBack(CCObject* pSender);
+    ResourcePack* resourcePack;
 public:
     ~TestScene();
     virtual bool init();
+    
     void initScene();
     
     static cocos2d::CCScene* scene();
+    
+    void loadResource();
     
     CREATE_FUNC(TestScene);
     

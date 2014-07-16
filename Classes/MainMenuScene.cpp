@@ -9,6 +9,8 @@
 #include "MainMenuScene.h"
 #include "MainMenuLayer.h"
 #include "SoundManager.h"
+#include "ResourcePack.h"
+#include "ResourceLoader.h"
 
 bool MainMenuScene::init()
 {
@@ -16,7 +18,12 @@ bool MainMenuScene::init()
     {
         return false;
     }
+    
+    ResourcePack* resourcePack = XMLResourcePackParser::getResourcePackInFile("mainmenu_resource", "resource_list.xml");
+    ResourceLoader::loadResourcePack(resourcePack);
     initScene();
+   
+    
     return true;
 }
 

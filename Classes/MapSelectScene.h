@@ -11,17 +11,20 @@
 
 #include <iostream>
 #include "cocos2d.h"
+#include "ResourcePack.h"
 
 USING_NS_CC;
 
 class MapSelectScene: public cocos2d::CCLayer
 {
 private:
+    ResourcePack* resourcePack;
 public:
+    MapSelectScene();
     ~MapSelectScene();
     virtual bool init();
     void initScene();
-    
+    void unloadResource();
     
     static cocos2d::CCScene* scene();
     
