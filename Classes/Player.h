@@ -15,12 +15,15 @@ class Player;
 #include "cocos2d.h"
 #include "MainHero.h"
 #include "ObjectFactory.h"
+#include "Controller.h"
+#include "Achievement.h"
 
 USING_NS_CC;
 
-class Player: public CCNode
+class Player: public CCNode, public Controller
 {
 private:
+    CC_SYNTHESIZE(Achievement*, achievement, Achievement);
     CC_SYNTHESIZE(MainHero*, hero, Hero);
 protected:
 public:
@@ -32,7 +35,7 @@ public:
     void attachWithHero(const char* heroID);
     void attachWithHero(Hero* hero);
     void reviveHero();
-    
+    virtual bool receiveCommand(CommandID commandID, void* data);
     
     CREATE_FUNC(Player);
 };

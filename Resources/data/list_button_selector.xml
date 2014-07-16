@@ -7,6 +7,8 @@
     <button id="4" active_texture="40.png" selected_texture="41.png" deactive_texture="42.png"></button>
     <button id="5" active_texture="50.png" selected_texture="51.png" deactive_texture="52.png"></button>
     <button id="6" active_texture="60.png" selected_texture="61.png" deactive_texture="62.png"></button>
+    <button id="quit_button" active_texture="quit_button.png" selected_texture="quit_button_selected.png" deactive_texture="quit_button.png"></button>
+
     <button id="map1_selector" active_texture="map1_thumbnail_active.png" selected_texture="map1_thumbnail_selected.png" deactive_texture="map_lock.png"></button>
     <button id="map2_selector" active_texture="map2_thumbnail_active.png" selected_texture="map2_thumbnail_selected.png" deactive_texture="map_lock.png"></button>
     <button id="hero_cat_selector" active_texture="cat_thumbnail_active.png" selected_texture="cat_thumbnail_selected.png" deactive_texture="cat_thumbnail_deactive.png"></button>

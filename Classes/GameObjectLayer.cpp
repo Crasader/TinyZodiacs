@@ -49,7 +49,7 @@ bool GameObjectLayer::init()
     this->setTouchEnabled(true);
     this->scheduleUpdate();
     
-    ControllerManager::getInstance()->registerController(HERO_CONTROLLER, this);
+    ControllerManager::getInstance()->registerController(OBJECT_CONTROLLER, this);
     
     return true;
 }
@@ -70,15 +70,15 @@ Character* GameObjectLayer::getCharacter()
 
 void GameObjectLayer::ccTouchesBegan(cocos2d::CCSet *pTouches, cocos2d::CCEvent *event)
 {
-//    CCTouch* touch = (CCTouch*)pTouches->anyObject();
-//    CCPoint touchPoint = CCDirector::sharedDirector()->convertToGL(touch->getLocationInView()) ;
+    //    CCTouch* touch = (CCTouch*)pTouches->anyObject();
+    //    CCPoint touchPoint = CCDirector::sharedDirector()->convertToGL(touch->getLocationInView()) ;
     
-//    CCPoint temp =   this->gameMatch->getGameWorld()->convertToNodeSpace(touchPoint);
+    //    CCPoint temp =   this->gameMatch->getGameWorld()->convertToNodeSpace(touchPoint);
     
-//    CCLOG("coord: %0.1f - %0.1f",temp.x,temp.y);
-//    node->setPosition(temp);
-//    ControllerManager::getInstance()->sendCommand(HERO_CONTROLLER, DISPLAY_WORLD_COORDINATE, new CCPoint(temp));
-//    ControllerManager::getInstance()->sendCommand(HERO_CONTROLLER,CAMERA_FOLLOW_POINTER,node);
+    //    CCLOG("coord: %0.1f - %0.1f",temp.x,temp.y);
+    //    node->setPosition(temp);
+    //    ControllerManager::getInstance()->sendCommand(HERO_CONTROLLER, DISPLAY_WORLD_COORDINATE, new CCPoint(temp));
+    //    ControllerManager::getInstance()->sendCommand(HERO_CONTROLLER,CAMERA_FOLLOW_POINTER,node);
 }
 
 void GameObjectLayer::ccTouchesMoved(cocos2d::CCSet *pTouches, cocos2d::CCEvent *event)
@@ -89,7 +89,7 @@ void GameObjectLayer::ccTouchesMoved(cocos2d::CCSet *pTouches, cocos2d::CCEvent 
     
     CCPoint temp =   this->gameMatch->getGameWorld()->convertToNodeSpace(touchPoint);
     node->setPosition(temp);
-
+    
 }
 
 bool GameObjectLayer::receiveCommand(CommandID commandID, void* data)
@@ -108,12 +108,11 @@ bool GameObjectLayer::receiveCommand(CommandID commandID, void* data)
             
         }
             break;
-            case PAUSE_GAME:
+        case PAUSE_GAME:
         {
             SoundManager::pauseSoundEffects();
             Util::pauseNodeAndItsChild(this);
             Util::pauseNodeAndItsChild(GameManager::getInstance());
-        
         }
             break;
         case RESUME_GAME:
@@ -123,7 +122,7 @@ bool GameObjectLayer::receiveCommand(CommandID commandID, void* data)
             Util::resumeNodeAndItsChild(GameManager::getInstance());
         }
             break;
-
+            
         default:
             break;
     }

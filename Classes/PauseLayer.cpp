@@ -139,7 +139,7 @@ void PauseLayer::detachFromParent()
 {
     this->removeFromParent();
     
-    ControllerManager::getInstance()->sendCommand(HERO_CONTROLLER, RESUME_GAME);
+    ControllerManager::getInstance()->sendCommand(OBJECT_CONTROLLER, RESUME_GAME);
 }
 
 void PauseLayer::detachFromParentAndQuit()

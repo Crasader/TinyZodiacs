@@ -392,8 +392,10 @@
 		F5831B161945A5440055798F /* DefenseDTO.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F5831B141945A5440055798F /* DefenseDTO.cpp */; };
 		F58E78CE1924770E00091875 /* GameObjectViewContainer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F58E78CC1924770E00091875 /* GameObjectViewContainer.cpp */; };
 		F58ED4CB19383DA200488E69 /* MonsterBoss.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F58ED4C919383DA200488E69 /* MonsterBoss.cpp */; };
+		F5986416197675540089E4D6 /* Achievement.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F5986414197675540089E4D6 /* Achievement.cpp */; };
 		F5A46B26190508A900A8FF55 /* SensorObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F5A46B24190508A900A8FF55 /* SensorObject.cpp */; };
 		F5AE36A91906799900FB7519 /* SensorObjectDTO.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F5AE36A71906799900FB7519 /* SensorObjectDTO.cpp */; };
+		F5B2156F1976333400C16CC7 /* GameResultLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F5B2156D1976333400C16CC7 /* GameResultLayer.cpp */; };
 		F5B4286A19173597002DC13B /* HeroDTO.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F5B4286819173597002DC13B /* HeroDTO.cpp */; };
 		F5B4286D191735AC002DC13B /* MonsterDTO.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F5B4286B191735AC002DC13B /* MonsterDTO.cpp */; };
 		F5B4287119174057002DC13B /* MapLoader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F5B4286F19174057002DC13B /* MapLoader.cpp */; };
@@ -1210,11 +1212,15 @@
 		F58E78CD1924770E00091875 /* GameObjectViewContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameObjectViewContainer.h; sourceTree = "<group>"; };
 		F58ED4C919383DA200488E69 /* MonsterBoss.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MonsterBoss.cpp; sourceTree = "<group>"; };
 		F58ED4CA19383DA200488E69 /* MonsterBoss.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MonsterBoss.h; sourceTree = "<group>"; };
+		F5986414197675540089E4D6 /* Achievement.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Achievement.cpp; sourceTree = "<group>"; };
+		F5986415197675540089E4D6 /* Achievement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Achievement.h; sourceTree = "<group>"; };
 		F59E0BDB18D85E90001048BD /* NormalAttack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NormalAttack.h; sourceTree = "<group>"; };
 		F5A46B24190508A900A8FF55 /* SensorObject.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SensorObject.cpp; sourceTree = "<group>"; };
 		F5A46B25190508A900A8FF55 /* SensorObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SensorObject.h; sourceTree = "<group>"; };
 		F5AE36A71906799900FB7519 /* SensorObjectDTO.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SensorObjectDTO.cpp; sourceTree = "<group>"; };
 		F5AE36A81906799900FB7519 /* SensorObjectDTO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SensorObjectDTO.h; sourceTree = "<group>"; };
+		F5B2156D1976333400C16CC7 /* GameResultLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameResultLayer.cpp; sourceTree = "<group>"; };
+		F5B2156E1976333400C16CC7 /* GameResultLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameResultLayer.h; sourceTree = "<group>"; };
 		F5B4286819173597002DC13B /* HeroDTO.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = HeroDTO.cpp; sourceTree = "<group>"; };
 		F5B4286919173597002DC13B /* HeroDTO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HeroDTO.h; sourceTree = "<group>"; };
 		F5B4286B191735AC002DC13B /* MonsterDTO.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MonsterDTO.cpp; sourceTree = "<group>"; };
@@ -2557,6 +2563,8 @@
 		F54AE96D18D2F01B00194E66 /* Objects */ = {
 			isa = PBXGroup;
 			children = (
+				F5986414197675540089E4D6 /* Achievement.cpp */,
+				F5986415197675540089E4D6 /* Achievement.h */,
 				F5FB8E6319333D060074598C /* Affect.cpp */,
 				F5FB8E6419333D060074598C /* Affect.h */,
 				F54AE9C218D2F1FC00194E66 /* AnimationObject.cpp */,
@@ -2790,6 +2798,8 @@
 				34CC3F36195151D900CB46F0 /* PauseLayer.h */,
 				344B7AAF196699DD001375D5 /* NotificationLayer.cpp */,
 				344B7AB0196699DD001375D5 /* NotificationLayer.h */,
+				F5B2156D1976333400C16CC7 /* GameResultLayer.cpp */,
+				F5B2156E1976333400C16CC7 /* GameResultLayer.h */,
 			);
 			name = GamePlayScene;
 			sourceTree = "<group>";
@@ -3238,6 +3248,7 @@
 				15A3D9A21682F7F9002FB0C5 /* cpArbiter.c in Sources */,
 				F5CCF217192C8E9200E56EE2 /* Wave.cpp in Sources */,
 				15A3D9A31682F7F9002FB0C5 /* cpArray.c in Sources */,
+				F5986416197675540089E4D6 /* Achievement.cpp in Sources */,
 				15A3D9A41682F7F9002FB0C5 /* cpBB.c in Sources */,
 				15A3D9A51682F7F9002FB0C5 /* cpBBTree.c in Sources */,
 				34F69CE519416029005DD696 /* XMLCharacterParser.cpp in Sources */,
@@ -3341,6 +3352,7 @@
 				15A3DA5C1682F826002FB0C5 /* CCTableViewCell.cpp in Sources */,
 				15A3DA5D1682F826002FB0C5 /* HttpClient.cpp in Sources */,
 				F5FB8E6B19333E100074598C /* Controller.cpp in Sources */,
+				F5B2156F1976333400C16CC7 /* GameResultLayer.cpp in Sources */,
 				F5779C6818E5693C0044D5CD /* HealthBar.cpp in Sources */,
 				15A3DA5E1682F826002FB0C5 /* CCPhysicsDebugNode.cpp in Sources */,
 				375BD5131868454E0024609E /* CCActionObject.cpp in Sources */,

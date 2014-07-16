@@ -250,9 +250,7 @@ void GameWorld::setCameraFollowGroup(GameGroup* group)
     {
         if(this->cameraFollowAction != NULL)
         {
-            
             this->stopAction(this->cameraFollowAction);
-            
         }
         return;
     }

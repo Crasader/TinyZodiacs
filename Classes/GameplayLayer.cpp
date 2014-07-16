@@ -8,6 +8,7 @@
 
 #include "GameplayLayer.h"
 #include "PauseLayer.h"
+#include "GameResultLayer.h"
 
 using cocos2d::gui::SEL_TouchEvent;
 using namespace cocos2d::gui;
@@ -202,18 +203,30 @@ bool GameplayLayer::receiveCommand(CommandID commandID, void* data)
             break;
         case DISPLAY_RESULT:
         {
-            int* result = static_cast<int*>(data);
-            resultImage->setVisible(true);
+            vector<void*>* listResult = static_cast<vector<void*>*>(data);
+            int* result = static_cast<int*>(listResult->at(0));
+           // resultImage->setVisible(true);
             if(*result == 0)
             {
-                resultImage->loadTexture("defeat_title.png",UI_TEX_TYPE_PLIST);
+                GameResultLayer* gameResultLayer = GameResultLayer::create();
+                gameResultLayer->setResult(false, NULL);
+                this->getParent()->addChild(gameResultLayer,6);
+                ControllerManager::getInstance()->sendCommand(OBJECT_CONTROLLER, PAUSE_GAME);
+                // resultImage->loadTexture("defeat_title.png",UI_TEX_TYPE_PLIST);
             }
             else
             {
-                resultImage->loadTexture("victory_title.png",UI_TEX_TYPE_PLIST);
-                
+                Achievement* achievement = static_cast<Achievement*>(listResult->at(1));
+                GameResultLayer* gameResultLayer = GameResultLayer::create();
+                gameResultLayer->setResult(true, achievement);
+                this->getParent()->addChild(gameResultLayer,6);
+                ControllerManager::getInstance()->sendCommand(OBJECT_CONTROLLER, PAUSE_GAME);
+                // resultImage->loadTexture("victory_title.png",UI_TEX_TYPE_PLIST);
+              
             }
             delete result;
+            listResult->clear();
+            delete listResult;
         }
             break;
             
@@ -478,7 +491,7 @@ void GameplayLayer::pauseButtonTouchEvent(CCObject* sender, cocos2d::gui::TouchE
         case cocos2d::gui::TOUCH_EVENT_ENDED:
         {
             this->getParent()->addChild(PauseLayer::create(),5);
-            ControllerManager::getInstance()->sendCommand(HERO_CONTROLLER, PAUSE_GAME);
+            ControllerManager::getInstance()->sendCommand(OBJECT_CONTROLLER, PAUSE_GAME);
         }
             break;
         default:
@@ -723,7 +736,7 @@ void GameplayLayer::listItemTouchEvent(CCObject* sender, cocos2d::gui::TouchEven
         {
             DefenseDTO* defenseDTO = static_cast<DefenseDTO*>(this->lvDefense->getItem(this->lvDefense->getCurSelectedIndex())->getUserData());
             
-            ControllerManager::getInstance()->sendCommand(HERO_CONTROLLER,  HERO_CREATE_DEFENSE,defenseDTO);
+            ControllerManager::getInstance()->sendCommand(PLAYER_CONTROLLER, PLAYER_CREATE_DEFENSE,defenseDTO);
         }
             break;
         case cocos2d::gui::TOUCH_EVENT_MOVED:
@@ -734,8 +747,8 @@ void GameplayLayer::listItemTouchEvent(CCObject* sender, cocos2d::gui::TouchEven
             break;
         case cocos2d::gui::TOUCH_EVENT_ENDED:
         {
-  
-           
+            
+            
         }
             break;
         default:

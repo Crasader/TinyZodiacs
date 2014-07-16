@@ -11,8 +11,8 @@
 MainHero::MainHero()
 {
     this->reviveAction = NULL;
-    this->goldValue = 50;
-         ControllerManager::getInstance()->sendCommand(HERO_CONTROLLER, DISPLAY_GOLD_VALUE,new int(this->goldValue));
+   // this->goldValue = 50;
+    //    ControllerManager::getInstance()->sendCommand(HERO_CONTROLLER, DISPLAY_GOLD_VALUE,new int(this->goldValue));
 }
 
 MainHero::~MainHero()
@@ -67,7 +67,7 @@ void MainHero::die()
     s = true;
     ControllerManager::getInstance()->unregisterController(HERO_CONTROLLER, this);
     this->sprite->setVisible(false);
-   // this->body->SetActive(false);
+    // this->body->SetActive(false);
     
     if(this->gameObjectView != NULL)
     {
@@ -88,7 +88,7 @@ void MainHero::die()
     CCObject* skill;
     CCARRAY_FOREACH(this->listSkill, skill)
     {
-//        ((AbstractSkill*)skill)->stopImmediately();
+        //        ((AbstractSkill*)skill)->stopImmediately();
         ((AbstractSkill*)skill)->stopSkillSafely();
     }
     
@@ -133,9 +133,10 @@ void MainHero::pickUp(Item* item)
     if(item->getGameObjectID() == GOLD_ITEM)
     {
         GoldItem* goldItem = static_cast<GoldItem*>(item);
-        this->goldValue += goldItem->getGoldValue();
-        
-        ControllerManager::getInstance()->sendCommand(HERO_CONTROLLER, DISPLAY_GOLD_VALUE,new int(this->goldValue));
+        //        this->goldValue += goldItem->getGoldValue();
+        //
+        //        ControllerManager::getInstance()->sendCommand(HERO_CONTROLLER, DISPLAY_GOLD_VALUE,new int(this->goldValue));
+        ControllerManager::getInstance()->sendCommand(PLAYER_CONTROLLER, RECIEVE_GOLD,new int(goldItem->getGoldValue()));
     }
 }
 
@@ -147,29 +148,7 @@ bool MainHero::receiveCommand(CommandID commandID, void* data)
     {
         case HERO_CREATE_DEFENSE:
         {
-            DefenseDTO* defenseDTO = static_cast<DefenseDTO*>(data);
-            
-            TowerStructDTO* towerStructDTO = new TowerStructDTO();
-            towerStructDTO->group = this->group;
-            towerStructDTO->id = defenseDTO->id;
-            towerStructDTO->positionX = this->getPositionInPixel().x;
-            towerStructDTO->positionY = this->getPositionInPixel().y;
-            
-            
-            
-            Tower* tower = ObjectFactory::createTower(towerStructDTO, GameManager::getInstance()->getGameplayHolder().worldHolder);
-            tower->setGameObjectView(InfoViewCreator::createTowerView(tower, NULL));
-            
-            tower->attachSpriteTo(GameManager::getInstance()->getGameplayHolder().nodeHolder);
-            GameObjectManager::getInstance()->addGameObject(tower);
-            
-            this->goldValue -= defenseDTO->cost;
-            if(this->goldValue <= 0)
-            {
-                this->goldValue = 0;
-            }
-            ControllerManager::getInstance()->sendCommand(HERO_CONTROLLER, DISPLAY_GOLD_VALUE,new int(this->goldValue));
-        }
+                    }
             break;
             
         default:

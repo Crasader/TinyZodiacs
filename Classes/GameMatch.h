@@ -59,8 +59,12 @@ public:
     void displayMonsterCount();
     void initHeroPosition();
     void destroy();
+    void calculateAchievement(Achievement* achievement);
+    void displayResultLayer(bool win);
     
     virtual bool receiveCommand(CommandID commandID, void* data);
+    
+    
     
     CREATE_FUNC(GameMatch);
 };

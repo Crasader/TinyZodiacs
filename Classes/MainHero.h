@@ -25,7 +25,6 @@ USING_NS_CC;
 class MainHero: public Hero
 {
 private:
-    CC_SYNTHESIZE(int, goldValue, GoldValue);
     CC_SYNTHESIZE(CCPoint, revivePosition, RevivePosition);
     CCAction* reviveAction;
 protected:
