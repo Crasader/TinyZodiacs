@@ -48,6 +48,7 @@ MapDTO* XMLMapParser::getMapDTOFromXMLNode(XMLElement *mapXMLElement)
     mapDTO->id = mapXMLElement->Attribute(ATTRIBUTE_MAP_ID);
     mapDTO->width = atof(mapXMLElement->Attribute(ATTRIBUTE_MAP_WIDTH));
     mapDTO->height = atof(mapXMLElement->Attribute(ATTRIBUTE_MAP_HEIGHT));
+    mapDTO->time = atof(mapXMLElement->Attribute(ATTRIBUTE_MAP_TIME));
     
     //list map object
     XMLElement* mapObjectListXMLNode = mapXMLElement->FirstChildElement(TAG_MAP_OBJECT_LIST);

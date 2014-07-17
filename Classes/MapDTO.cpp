@@ -33,6 +33,7 @@ MapDTO::MapDTO()
     this->height = 0;
     this->width = 0;
     this->id = "";
+    this->time = 0;
     
     this->revivePositionX = 0;
     this->revivePositionY = 0;

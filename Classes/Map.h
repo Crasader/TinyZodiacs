@@ -39,7 +39,7 @@ private:
     CC_SYNTHESIZE(float, width, Width);
     CC_SYNTHESIZE(float, height, Height);
     CC_SYNTHESIZE(MapDTO*, mapDTO, MapDTO);
-    
+    CC_SYNTHESIZE(int, time, Time);
     CC_SYNTHESIZE(CCParallaxNode*, parallaxBackground, ParallaxBackground);
 protected:
 public:

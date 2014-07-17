@@ -53,6 +53,7 @@ using namespace tinyxml2;
 #define ATTRIBUTE_MAP_ID "id"
 #define ATTRIBUTE_MAP_WIDTH "width"
 #define ATTRIBUTE_MAP_HEIGHT "height"
+#define ATTRIBUTE_MAP_TIME "time"
 
 #define TAG_MAP_OBJECT_LIST "map_object_list"
 #define TAG_MAP_OBJECT "map_object"

@@ -38,6 +38,9 @@
             <self>
                 <effect>cat_healing</effect>
             </self>
+            <enemy>
+                <effect>onion_monster_normal_attack</effect>
+            </enemy>
         </list_effect>
         
         <time_tick>0.5</time_tick>
@@ -293,22 +296,22 @@
         <sfx>fireball</sfx>
         <delay>0</delay>
         <life_time>5</life_time>
-		<cool_down>10</cool_down>
-        <button_selector>3</button_selector>
+		<cool_down>7</cool_down>
+        <button_selector>fire_ball_button</button_selector>
         <joints>
             <holder x="2" y="0" offsetX="0" offsetY="0"></holder>
             <this x="2" y="0" offsetX="0" offsetY="0"></this>
         </joints>
-        <speed>10</speed>
+        <speed>15</speed>
         <list_effect>
             <enemy>
                 <effect>projectile_first_effect</effect>
             </enemy>
         </list_effect>
         <projectile>fireball</projectile>
-        <quantity>100</quantity>
-        <delay_per_shoot>0.1</delay_per_shoot>
-        <angle_variability>15</angle_variability>
+        <quantity>1000</quantity>
+        <delay_per_shoot>0.01</delay_per_shoot>
+        <angle_variability>360</angle_variability>
         <piercing>5</piercing>
         <time_tick>1</time_tick>
         <position_plus_per_unit plus_x="0" plus_y="0"></position_plus_per_unit>

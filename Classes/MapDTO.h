@@ -26,6 +26,7 @@ public:
     string id;
     float width;
     float height;
+    int time;
     
     float revivePositionX;
     float revivePositionY;

@@ -1,4 +1,4 @@
-<map id="map1" width="8000" height="2000">
+<map id="map1" width="8000" height="2000" time="300">
     <resource_pack id="map1_resource" file_name="resource_list.xml"/>
     <background_list>
         
@@ -419,7 +419,7 @@
                 </item_creator>
             </item_creator_list>
         </wave>
-    <!--
+
     <wave id = "2" name="Wave 2" background_music="AssetMusic_Commons_Market.mp3">
         <monster_factory_list>
             <monster_factory group="B" max="10">
@@ -608,6 +608,6 @@
         </item_creator>
     </item_creator_list>
 </wave>
-     -->
+
     </wave_list>
 </map>

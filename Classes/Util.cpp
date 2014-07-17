@@ -685,11 +685,19 @@ bool Util::checkPointIsInViewPort(CCPoint point, CCNode* node)
 //    CCSize size = CCEGLView::sharedOpenGLView()->getFrameSize();
     CCSize size = CCDirector::sharedDirector()->getWinSize();
     
-    CCLOG("zero(%f,%f)",zero.x,zero.y);
-    CCLOG("max(%f,%f)",size.width,size.height);
-    CCLOG("point(%f,%f)",point.x,point.y);
+//    CCLOG("zero(%f,%f)",zero.x,zero.y);
+//    CCLOG("max(%f,%f)",size.width,size.height);
+//    CCLOG("point(%f,%f)",point.x,point.y);
     
     CCRect rect = CCRect(zero.x, zero.y, size.width, size.height);
-    CCLOG("%d",rect.containsPoint(point));
+//    CCLOG("%d",rect.containsPoint(point));
     return rect.containsPoint(point);
+}
+
+string Util::convertTime(int s)
+{
+    int minute = s / 60;
+    int second = s - minute*60;
+    
+    return CCString::createWithFormat("%02d:%02d", minute, second)->getCString();
 }

@@ -91,6 +91,7 @@ enum CommandID
     RECIEVE_GOLD,
     RECIEVE_TIME,
     PLAYER_CREATE_DEFENSE,
+    DISPLAY_TIME
 };
 
 

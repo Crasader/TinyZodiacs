@@ -28,6 +28,7 @@ Map* MapCreator::createMap(MapDTO* mapDTO, GameWorld* gameWorld)
     map->setMapDTO(mapDTO);
     map->setWidth(mapDTO->width);
     map->setHeight(mapDTO->height);
+    map->setTime(mapDTO->time);
     gameWorld->setWidth(mapDTO->width);
     gameWorld->setHeight(mapDTO->height);
     

@@ -17,12 +17,13 @@ GameMatch::GameMatch()
     this->oldWave = -1;
     this->isStopped = false;
     this->isWaveEntered = false;
+    this->time = 0;
 }
 
 GameMatch::~GameMatch()
 {
     ControllerManager::getInstance()->unregisterController(GAME_MATCH_CONTROLLER, this);
-  //  SoundManager::unLoadAllAddedSound(true);
+    //  SoundManager::unLoadAllAddedSound(true);
 }
 
 bool GameMatch::init()
@@ -39,6 +40,7 @@ bool GameMatch::init()
     this->gameWorld->addHero(this->player->getHero());
     this->rule = new Rule1();
     this->schedule(schedule_selector(GameMatch::updateToCheckMatch),1);
+    this->schedule(schedule_selector(GameMatch::onTimeTick),1);
     
     ControllerManager::getInstance()->registerController(GAME_MATCH_CONTROLLER, this);
     SoundManager::preLoadAllAddedSound();
@@ -68,7 +70,7 @@ void GameMatch::updateToCheckMatch()
 
 void GameMatch::start()
 {
-nextWave();
+    nextWave();
 }
 
 void GameMatch::stop()
@@ -103,24 +105,12 @@ bool GameMatch::checkWin()
 {
     if(this->rule->checkWin())
     {
+       
+        stop();
         
-        Achievement* achievement = this->player->getAchievement();
-        calculateAchievement(achievement);
-        vector<void*>* listResult = new vector<void*>();
-        listResult->push_back(new int(1));
-        listResult->push_back(achievement);
-        //do something;
-        ControllerManager::getInstance()->sendCommand(HERO_CONTROLLER, DISPLAY_RESULT ,listResult);
-        //
-        CCDelayTime *delayTime = CCDelayTime::create(2);
-        CCCallFunc *mfunction = CCCallFunc::create(this, callfunc_selector(GameMatch::destroy));
-        
-        CCArray* listAction = CCArray::create();
-        listAction->addObject(delayTime);
-        listAction->addObject(mfunction);
-        CCSequence* seq = CCSequence::create(listAction);
-        
-       // this->runAction(seq);
+        CCCallFuncND* displayResultFunction = CCCallFuncND::create(this,callfuncND_selector(GameMatch::displayResultLayer), new bool(true));
+        this->runAction(CCSequence::create(CCDelayTime::create(2), displayResultFunction, NULL));
+        //  displayResultLayer(true);
     }
     return false;
 }
@@ -131,23 +121,11 @@ bool GameMatch::checkLose()
     if(this->rule->checkLose())
     {
         //do something;
-        calculateAchievement(this->player->getAchievement());
-        vector<void*>* listResult = new vector<void*>();
-        listResult->push_back(new int(0));
-        listResult->push_back(this->player->getAchievement());
-        //do something;
-        ControllerManager::getInstance()->sendCommand(HERO_CONTROLLER, DISPLAY_RESULT ,listResult);
+        
         stop();
-        //
-        CCDelayTime *delayTime = CCDelayTime::create(2);
-        CCCallFunc *mfunction = CCCallFunc::create(this, callfunc_selector(GameMatch::destroy));
-        
-        CCArray* listAction = CCArray::create();
-        listAction->addObject(delayTime);
-        listAction->addObject(mfunction);
-        CCSequence* seq = CCSequence::create(listAction);
-        
-        //this->runAction(seq);
+        CCCallFuncND* displayResultFunction = CCCallFuncND::create(this,callfuncND_selector(GameMatch::displayResultLayer), new bool(false));
+        this->runAction(CCSequence::create(CCDelayTime::create(2), displayResultFunction, NULL));
+       // displayResultLayer(false);
     }
     
     return false;
@@ -266,28 +244,53 @@ bool GameMatch::receiveCommand(CommandID commandID, void* data)
             this->gameWorld->setCameraFollowNode(runningNode);
         }
             break;
-
+            
         default:
             break;
     }
     return true;
 }
 
-void GameMatch::displayResultLayer(bool win)
+void GameMatch::displayResultLayer(CCNode* node, void* w)
 {
-    if(win)
+    bool* win = static_cast<bool*>(w);
+    if(*win)
     {
-        ControllerManager::getInstance()->sendCommand(HERO_CONTROLLER, DISPLAY_RESULT ,new int(1));
+        Achievement* achievement = this->player->getAchievement();
+        calculateAchievement(achievement);
+        vector<void*>* listResult = new vector<void*>();
+        listResult->push_back(new int(1));
+        listResult->push_back(achievement);
+        //do something;
+        ControllerManager::getInstance()->sendCommand(HERO_CONTROLLER, DISPLAY_RESULT ,listResult);
     }
     else
     {
-       ControllerManager::getInstance()->sendCommand(HERO_CONTROLLER, DISPLAY_RESULT ,new int(0));
+        calculateAchievement(this->player->getAchievement());
+        vector<void*>* listResult = new vector<void*>();
+        listResult->push_back(new int(0));
+        listResult->push_back(this->player->getAchievement());
+        //do something;
+        ControllerManager::getInstance()->sendCommand(HERO_CONTROLLER, DISPLAY_RESULT ,listResult);
     }
- 
+    delete win;
 }
 
 void GameMatch::calculateAchievement(Achievement* achievement)
 {
-    int score = achievement->getGold()*7;
-    achievement->addScore(score);
+    int scoreFromGold = achievement->getGold()*7;
+    int scoreFromTime =  0;
+    if(this->gameWorld->getMap()->getTime() - time >= 0)
+    {
+        scoreFromTime = (this->gameWorld->getMap()->getTime() - time)*20;
+    }
+    achievement->addScore(scoreFromGold);
+    achievement->addScore(scoreFromTime);
+    achievement->setTime(this->time);
+}
+
+void GameMatch::onTimeTick()
+{
+    this->time += 1;
+    ControllerManager::getInstance()->sendCommand(HERO_CONTROLLER, DISPLAY_TIME,new int(this->time));
 }

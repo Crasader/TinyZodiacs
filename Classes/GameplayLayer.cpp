@@ -98,12 +98,13 @@ void GameplayLayer::loadAllUI(cocos2d::gui::Widget* ul)
     //Get label and process
     lblWave  = (cocos2d::gui::LabelBMFont*)ul->getChildByName("information_layer")->getChildByName("wave_information_panel")->getChildByName("wave_text");
     lblWave->setText("");
-    lblTimeLeft  = (cocos2d::gui::LabelBMFont*)ul->getChildByName("information_layer")->getChildByName("time_panel")->getChildByName("time_left_text");
-    lblMoney  = (cocos2d::gui::LabelBMFont*)ul->getChildByName("information_layer")->getChildByName("money_panel")->getChildByName("money_text");
+      lblMoney  = (cocos2d::gui::LabelBMFont*)ul->getChildByName("information_layer")->getChildByName("money_panel")->getChildByName("money_text");
     lblMonsterLeft  = (cocos2d::gui::LabelBMFont*)ul->getChildByName("information_layer")->getChildByName("wave_information_panel")->getChildByName("monster_left_text");
     lblMonsterLeft->setText("");
     
     btnPause = (cocos2d::gui::UIButton*)ul->getChildByName("information_layer")->getChildByName("time_panel")->getChildByName("pause_button");
+    lblTimeLeft =  (cocos2d::gui::LabelBMFont*)ul->getChildByName("information_layer")->getChildByName("time_panel")->getChildByName("time_display")->getChildByName("time_left_text");
+
     //
     resultImage = (cocos2d::gui::ImageView*)ul->getChildByName("result_title");
     
@@ -164,7 +165,7 @@ void GameplayLayer::setGoldValue(int number)
 
 void GameplayLayer::setTimeValue(int number)
 {
-    this->lblTimeLeft->setText(CCString::createWithFormat("%d",number)->getCString());
+    this->lblTimeLeft->setText(CCString::createWithFormat("%s",Util::convertTime(number).c_str())->getCString());
 }
 
 void GameplayLayer::setWaveValue(const char* waveName)
@@ -323,6 +324,13 @@ bool GameplayLayer::receiveCommand(CommandID commandID, void* data)
             EffectManager::getInstance()->runEffect(effect, ccp(size.width/2, size.height/4*3),this);
             setWaveValue(message->getCString());
             message->release();
+        }
+            break;
+        case DISPLAY_TIME:
+        {
+            int* time = static_cast<int*>(data);
+            setTimeValue(*time);
+            delete time;
         }
             break;
             

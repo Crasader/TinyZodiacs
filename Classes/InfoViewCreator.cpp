@@ -61,6 +61,8 @@ GameObjectView* InfoViewCreator::createMonsterView(Monster* monster, Player* pla
         
     }
     
+    healthBar->setScaleX(0.75f);
+    
     CCLabelTTF* label = CCLabelTTF::create("monster", "Marker Felt", 25);
     
     heroView->setHealthBar(healthBar);

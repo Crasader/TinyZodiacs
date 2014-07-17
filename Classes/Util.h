@@ -70,6 +70,7 @@ public:
     static void resumeNodeAndItsChild(CCNode* node);
     
     static bool checkPointIsInViewPort(CCPoint point, CCNode* node);
+    static string convertTime(int second);
 };
 
 #endif /* defined(__TinyZodiacs__Util__) */

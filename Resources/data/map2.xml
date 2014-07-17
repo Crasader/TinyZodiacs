@@ -1,4 +1,4 @@
-<map id="map2" width="7000" height="4000">
+<map id="map2" width="7000" height="4000" time="300">
     <resource_pack id="map2_resource" file_name="resource_list.xml"/>
     <background_list>
         

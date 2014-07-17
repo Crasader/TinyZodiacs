@@ -315,7 +315,7 @@ void MainMenuLayer::googleplusButtonTouchEvent(CCObject* sender, cocos2d::gui::T
 
 CCAction* MainMenuLayer::initButtonAnimation(cocos2d::gui::Widget* target, cocos2d::gui::Widget* parent, CCPoint originalPosition, float originalScale, bool isIn)
 {
-    float duration = 1.15f;
+    float duration =0.5f;
     
     CCMoveTo* moveToAction;
     CCRotateTo* rotateAction;

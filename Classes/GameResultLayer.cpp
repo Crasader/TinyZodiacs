@@ -9,6 +9,7 @@
 #include "GameResultLayer.h"
 #include "ControllerManager.h"
 #include "XMLButtonSelectorParser.h"
+#include "DataCollector.h"
 
 using cocos2d::gui::SEL_TouchEvent;
 
@@ -180,8 +181,8 @@ void GameResultLayer::detachFromParentAndQuit()
 
 void GameResultLayer::setTime(int time)
 {
-    CCString* timeText = CCString::createWithFormat("Time: %d", time);
-    this->lblTime->setText(timeText->getCString());
+
+    this->lblTime->setText(CCString::createWithFormat("Time: %s", Util::convertTime(time).c_str())->getCString());
 }
 
 void GameResultLayer::setHightScore(int score)
@@ -195,12 +196,12 @@ void GameResultLayer::setScore(int score)
     CCString* scoreText = CCString::createWithFormat("Score: %d", score);
     this->lblScore->setText(scoreText->getCString());
     
-    int highscore = CCUserDefault::sharedUserDefault()->getIntegerForKey("map1-highscore", 0);
+    int highscore = CCUserDefault::sharedUserDefault()->getIntegerForKey(CCString::createWithFormat("%s-highscore", DataCollector::getInstance()->getMatchData()->mapIDSelected.c_str())->getCString(), 0);
     
     if(score > highscore)
     {
         setHightScore(score);
-        CCUserDefault::sharedUserDefault()->setIntegerForKey("map1-highscore", score);
+        CCUserDefault::sharedUserDefault()->setIntegerForKey(CCString::createWithFormat("%s-highscore",DataCollector::getInstance()->getMatchData()->mapIDSelected.c_str())->getCString(), score);
     }
     
 }
@@ -214,7 +215,7 @@ void GameResultLayer::setResult(bool win, Achievement* achievement)
         {
             setScore(achievement->getScore());
             setTime(achievement->getTime());
-            int highscore = CCUserDefault::sharedUserDefault()->getIntegerForKey("map1-highscore", 0);
+            int highscore = CCUserDefault::sharedUserDefault()->getIntegerForKey(CCString::createWithFormat("%s-highscore",DataCollector::getInstance()->getMatchData()->mapIDSelected.c_str())->getCString(), 0);
             setHightScore(highscore);
         }
     }

@@ -29,6 +29,7 @@ Map::Map()
     this->listWave->retain();
     this->listWall = CCArray::create();
     this->listWall->retain();
+    this->time = 0;
 }
 
 Map::~Map()

@@ -78,7 +78,7 @@ void MainHero::die()
     
     AnimationEffect* effect = AnimationEffect::create();
     
-    effect->setAnimation("effect-explosion");
+    effect->setAnimation("effect-smoke");
     
     EffectManager::getInstance()->runEffect(effect, getPositionInPixel(),ABOVE_CHARACTER_LAYER);
     

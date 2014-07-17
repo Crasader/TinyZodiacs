@@ -34,6 +34,7 @@ private:
     bool isStopped;
     int currentWave;
     int oldWave;
+    int time;
 protected:
     CC_SYNTHESIZE(Player*, player, Player);
     CC_SYNTHESIZE(GameRule*, rule, Rule);
@@ -60,7 +61,8 @@ public:
     void initHeroPosition();
     void destroy();
     void calculateAchievement(Achievement* achievement);
-    void displayResultLayer(bool win);
+    void displayResultLayer(CCNode* node, void* win);
+    void onTimeTick();
     
     virtual bool receiveCommand(CommandID commandID, void* data);
     

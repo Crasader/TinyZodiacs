@@ -37,10 +37,6 @@ GameObject::~GameObject()
 {
     if(this->sprite != NULL)
     {
-    CCLOG("re: %d", this->sprite->getContentSize().height);
-    }
-    if(this->sprite != NULL)
-    {
       //  if(this->sprite->getParent() != NULL)
         {
             this->sprite->removeFromParent();
